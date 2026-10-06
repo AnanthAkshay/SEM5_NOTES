@@ -81,6 +81,12 @@
     setupRouting();
     renderSubjectsGrid();
     
+    // Platform-specific keyboard shortcut hint (Cmd K on Apple, Ctrl K elsewhere)
+    const isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent || navigator.platform || '');
+    document.querySelectorAll('.search-keycap-hint').forEach(el => {
+      el.textContent = isMac ? 'Cmd K' : 'Ctrl K';
+    });
+
     if (elements.currentYearSpan) {
       elements.currentYearSpan.textContent = new Date().getFullYear();
     }
@@ -1258,7 +1264,7 @@
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         openSearch();
-      } else if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+      } else if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
         e.preventDefault();
         openSearch();
       } else if (e.key === 'Escape') {

@@ -59,9 +59,10 @@
         </nav>
 
         <div class="nav-actions">
-          <button class="circle-btn search-trigger-btn" aria-label="Search notes, subjects and topics" title="Search (Press Ctrl+K or /)">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <span class="kbd-shortcut desktop-only">Ctrl+K</span>
+          <button id="nav-search-btn" class="nav-search-btn search-trigger-btn" aria-label="Search notes" aria-keyshortcuts="Control+K Meta+K /" title="Search notes">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span class="search-btn-label">SEARCH</span>
+            <span class="search-keycap-hint kbd-shortcut" aria-hidden="true">Ctrl K</span>
           </button>
 
           <button id="theme-toggle-btn" class="pill-theme-btn desktop-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">

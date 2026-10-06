@@ -447,10 +447,57 @@ a {
   gap: 0.65rem;
 }
 
-.search-trigger-btn {
+/* Nav Search Button (Circular on mobile, Pill on desktop >= 1024px) */
+.nav-search-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--ink);
+  transition: border-color var(--transition);
+}
+
+.nav-search-btn:hover {
+  border-color: var(--ink);
+}
+
+.search-btn-label,
+.search-keycap-hint {
+  display: none;
+}
+
+@media (min-width: 1024px) and (pointer: fine) {
+  .nav-search-btn {
+    width: auto;
+    padding: 0 1.15rem;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .search-btn-label {
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .search-keycap-hint {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 6px;
+    font-size: 10px;
+    line-height: 1;
+    margin-left: 0.15rem;
+  }
 }
 
 /* Theme Pill Button on Desktop */
