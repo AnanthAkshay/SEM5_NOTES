@@ -23,7 +23,6 @@
 - [How to Add or Edit Content](#-how-to-add-or-edit-content)
   - [1. Adding a New Unit Note](#1-adding-a-new-unit-note)
   - [2. Adding Practice Papers or Question Banks](#2-adding-practice-papers-or-question-banks)
-  - [3. Adding Exam Timetable PDFs](#3-adding-exam-timetable-pdfs)
 - [Local Development](#-local-development)
 - [GitHub Pages Deployment](#-github-pages-deployment)
 - [Browser Compatibility & Accessibility](#-browser-compatibility--accessibility)
@@ -38,7 +37,7 @@ Preparing for Semester V requires rapid access to clean unit notes, lecture pres
 This study website consolidates materials into an intuitive web interface with:
 - **Zero Build Toolchain**: No Node build steps or bulky dependencies. Fast load times and high Lighthouse performance.
 - **In-Browser Document Reader**: PPTX and DOCX notes converted to high-fidelity PDFs for instant in-browser previewing, while preserving original file downloads.
-- **Data-Driven Decoupling**: All subjects, units, notes, links, and timetables reside in [`data/subjects.js`](./data/subjects.js). Modify content without touching any HTML.
+- **Data-Driven Decoupling**: All subjects, units, notes, labs, and syllabus schemes reside in [`data/subjects.js`](./data/subjects.js). Modify content without touching any HTML.
 
 ---
 
@@ -61,17 +60,40 @@ This study website consolidates materials into an intuitive web interface with:
 ### ⏱️ Study Progress Tracking
 - Checkbox on every file and unit to mark as completed.
 - Progress persists in `localStorage` across sessions.
-- Dynamic visual completion percentages per subject and across the entire semester dashboard.
+- Dynamic visual completion percentages per subject.
 - Includes a one-click progress reset modal for fresh exam prep cycles.
 
-### 📌 Pinned Subjects & Recently Opened
-- Pin high-priority subjects to the top of your dashboard.
-- Recently opened document row displays the last 4 accessed notes for quick resumption.
+### 📌 Pinned Subjects
+- Pin high-priority subjects to the top of your dashboard for quick resumption.
 
-### 🌓 Dark & Light Modes
-- Bespoke obsidian theme (`#0a0d14`) with glassmorphism and subtle accent glows.
-- Clean high-contrast paper light mode for daylight reading.
-- Synchronizes with system preference and saves custom user selection in `localStorage`.
+### 🌓 Modern "Hope Rise" Warm Editorial Design System
+- **Curated Warm Palette**:
+  - Light (Primary):
+    - `--bg`: `#F6E9CF` warm cream fading softly into `--bg-soft`: `#FBF8F1` near-white down the hero.
+    - `--surface`: `#FFFFFF` pure white rounded cards and sheets.
+    - `--border`: `#E7DEC9` thin crisp warm-gray divider.
+    - `--ink`: `#1A1A17` near-black headlines and body (14.2:1 AAA).
+    - `--ink-muted`: `#6B665A` warm muted descriptions (5.3:1 AA).
+    - `--label`: `#3A372F` tiny uppercase navigation labels (8.5:1 AAA).
+  - Single Action Color:
+    - `--green`: `#2EC36B` vivid green for primary actions, toggles, checkmarks, and progress fill.
+    - `--green-ink`: `#0F2A18` high-contrast ink text on green fills (7.8:1 AAA).
+    - `--green-tint`: `#DDF3E5` / `--green-tint-ink`: `#17673A` for pill tags.
+  - Dark Mode:
+    - `--bg`: `#16140F` warm near-black background (flat, no gradient).
+    - `--surface`: `#1F1C15`, `--border`: `#343025`, `--ink`: `#F6E9CF` (14.2:1 AAA).
+- **Typography**:
+  - Display: **Bricolage Grotesque** (Weight 800, tight tracking `-0.03em`, line-height `0.95`) for hero headline and section titles.
+  - Body & UI: **Inter** (400, 500, 600, 700) for editorial readability.
+  - Code & Units: **JetBrains Mono** for course codes and metadata.
+- **Consistent Shape Language**:
+  - **Pills (`999px`)**: Buttons, tags, chips, search bar, and segmented tab tracks.
+  - **Circles (`44px` / `36px`)**: Outlined icon buttons with diagonal arrows (`↗`).
+  - **Cards & Sheets**: `28px` radius on desktop, `24px` on mobile, white surface, thin border, no heavy elevation.
+- **Mobile-First Experience**:
+  - Full-screen cream navigation drawer sheet with Esc key dismissal and body lock.
+  - PWA manifest (`manifest.webmanifest`) and iOS/Android app icons.
+  - 100% WCAG AA compliant across all text and UI elements.
 
 ### 🖨️ Printable Syllabus View
 - Dedicated print stylesheet (`@media print`) that renders clean black-and-white syllabus sheets without navigation clutter, sidebars, or dark backgrounds.
@@ -85,7 +107,7 @@ This study website consolidates materials into an intuitive web interface with:
 - **Computer Networks Laboratory (`ISL57`)**: Charunayana V. Part A socket programming & routing algorithms in C/Java and Part B NS-2 simulations.
 - **Software Engineering Integrated Lab (`IS52`)**: Mushtaq Ahmed D M. Practical exercises covering Agile Kanban, SRS specification, UML modeling, and test-driven development.
 
-### 📅 Exam Timetable & Practice Hub
+### 📝 Practice Exam Papers & Question Banks
 - Direct access to verified **CIE-1, CIE-2, SEE, and Make-Up examination papers** across all courses with quick-view document integration.
 
 ---
@@ -96,7 +118,7 @@ This study website consolidates materials into an intuitive web interface with:
 |---|---|---|---|---|---|---|
 | **Machine Learning** | `IS51` | `3:0:0` | PCC | Dr. Sumana M | **Full Notes + Lab + Practice** | Units 1–3 notes, Unit 1 QB, ISL56 Lab Programs (Tableau + Python), and CIE-1, CIE-2 & SEE 2026 combined paper. |
 | **Software Engineering** | `IS52` | `2:0:1` | IPCC | Mushtaq Ahmed D M | **Full Notes + Lab + Practice** | Units 1.1–1.3 & Unit 2 PPTs/PDFs, Unit-wise practical exercises, and CIE-1 & CIE-2 combined paper. |
-| **Computer Networks** | `IS53` | `4:0:0` | PCC | Suresh Kumar K R | **Full Notes + Lab + Practice** | Comprehensive Unit 1 (15.7 MB) & Unit 2 (13.1 MB) lecture notes, ISL57 Lab Part A & B programs, and CIE-1 & CIE-2 combined paper. |
+| **Computer Networks** | `IS53` | `4:0:0` | PCC | Suresh Kumar K R | **Full Notes + Lab + Practice** | Re-synced Unit 1 (11.7 MB PDF / 16.7 MB PPTX) & Unit 2 (9.8 MB PDF / 13.9 MB PPTX) lecture presentations, ISL57 Lab Part A & B programs, and CIE-1 & CIE-2 combined paper. |
 | **Theory of Computation** | `IS54` | `2:1:0` | PCC | Dr. Rajeshwari S B | **Full Notes + Practice** | Units 1–5 comprehensive notes + alternate condensed notes, and CIE-1, CIE-2 & SEE 2025 combined paper. |
 | **Artificial Intelligence** | `ISE552` | `3:0:0` | PEC | Dr. Jagadeesh Sai D | **Syllabus + Practice** | Complete 5 units transcribed from syllabus, verified NPTEL links, textbook & references, and CIE-1 & CIE-2 combined paper. |
 | **Research Methodology & IPR** | `AL58` | `3:0:0` | HSMC | Dr. Anitha P | **Full Notes + Practice** | Unit 1 & Unit 2 PPTs/PDFs, CIE-1 & CIE-2 paper, Make-Up Exam (Apr 2025), and SEE Backlog Exam (Feb/Mar 2025). |
@@ -158,9 +180,10 @@ window.SEM5_DATA = {
     siteTitle: "SEM 5 · ISE Notes",
     tagline: "Department of Information Science & Engineering",
     semester: "Semester V",
+    totalCredits: 22,
     lastUpdated: "October 2026"
   },
-  timetable: { ... },
+  scheme: { ... },
   subjects: [
     {
       id: "ai",
@@ -169,7 +192,7 @@ window.SEM5_DATA = {
       shortName: "AI",
       credits: "3:0:0",
       contactHours: "42 Hours",
-      coordinator: "Dr Jagadeesh Sai D",
+      coordinator: "Dr. Jagadeesh Sai D",
       status: "syllabus_only", // "full_notes" | "syllabus_only"
       accent: { primary: "#8B5CF6", secondary: "#A78BFA", glow: "rgba(139, 92, 246, 0.28)" },
       units: [ ... ],
@@ -224,23 +247,6 @@ Add a unit with `isPractice: true`:
       isConverted: false
     }
   ]
-}
-```
-
-### 3. Adding Exam Timetable PDFs
-
-In [`data/subjects.js`](./data/subjects.js), locate the `timetable.items` array. Place your timetable PDF in `notes/timetables/` and update `pdfUrl`:
-
-```javascript
-{
-  id: "theory-see",
-  title: "Semester-End Theory Examination (SEE)",
-  category: "Theory",
-  status: "Schedule Published",
-  statusBadge: "Completed",
-  pdfUrl: "notes/timetables/see_theory_dec2026.pdf",
-  dateRange: "Dec 15, 2026 – Jan 05, 2027",
-  description: "Official SEE schedule published by the Controller of Examinations."
 }
 ```
 
