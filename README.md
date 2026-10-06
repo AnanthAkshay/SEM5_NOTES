@@ -76,23 +76,32 @@ This study website consolidates materials into an intuitive web interface with:
 ### 🖨️ Printable Syllabus View
 - Dedicated print stylesheet (`@media print`) that renders clean black-and-white syllabus sheets without navigation clutter, sidebars, or dark backgrounds.
 
-### 📅 Exam Timetable Hub
-- Config-driven schedule cards for Semester-End Theory Examinations (SEE), Practical Lab exams, and Continuous Internal Evaluations (CIE).
+### 📑 Scheme & Evaluation Guide (`#scheme`)
+- Dedicated view with the complete V Semester Teaching Scheme (Sl 1–10, 22 credits total) and credit breakdown (L: 18, T: 1, P: 3, S: 18).
+- Comprehensive evaluation breakdown: Continuous Internal Evaluation (CIE) and Semester-End Examination (SEE) rules for IPCC (Integrated), PCC/PEC/HSMC, AEC, PCC Lab, and NCMC courses.
+
+### 🧪 Integrated & Autonomous Laboratories
+- **Machine Learning Lab -1 (`ISL56`)**: Dr. Shruti G (Prereq: Python). Part A Tableau dashboards and Part B Python ML algorithms on benchmark UCI datasets.
+- **Computer Networks Laboratory (`ISL57`)**: Charunayana V. Part A socket programming & routing algorithms in C/Java and Part B NS-2 simulations.
+- **Software Engineering Integrated Lab (`IS52`)**: Mushtaq Ahmed D M. Practical exercises covering Agile Kanban, SRS specification, UML modeling, and test-driven development.
+
+### 📅 Exam Timetable & Practice Hub
+- Direct access to verified **CIE-1, CIE-2, SEE, and Make-Up examination papers** across all courses with quick-view document integration.
 
 ---
 
-## 📊 Subject Coverage & Inventory
+## 📊 Subject Coverage & Inventory (Official V Semester Scheme: 22 Credits)
 
-| Subject Name | Code | Credits | Type | Coverage Status | Materials Included |
-|---|---|---|---|---|---|
-| **Artificial Intelligence** | `ISE552` | `3:0:0` | Core Elective | **Syllabus & Info** | 5 Units transcribed with topics, NPTEL video links, Russell & Norvig 4th ed textbook, reference books, CO1–CO5 mapping, and CIE/SEE marking scheme. *(Notes coming soon)* |
-| **Computer Networks** | `IS53` | *Pending* | Core ISE | **Full Notes** | Unit 1 (15.7 MB) and Unit 2 (13.1 MB) comprehensive lecture notes. |
-| **Environmental Studies** | `HS 510` | *Pending* | Mandatory | **Full Notes + Practice** | Units 1–5 PPT presentations (+ PDFs), Unit 2 topic resource PDFs (Forest, Water, Mineral, Food, Land), plus 2024–2025 CIE-1 Question Paper. |
-| **Machine Learning** | `ISE554` | *Pending* | Core ISE | **Full Notes + Practice** | Unit 1 notes, Unit 2 notes, Unit 3 (Polynomial Regression & Steps for ML Algorithms), and Unit 1 Question Bank (QB). |
-| **Front end Dev using ReactJS** | `ISAEC594` | `1:0:0:1` | AEC Elective | **Syllabus & Info** | Units I–III transcribed syllabus, pedagogy delivery tools, and official React documentation links. *(Notes coming soon)* |
-| **Research Methodology & IPR** | `ISE555` | *Pending* | Core ISE | **Full Notes** | Unit 1 PPT (+ PDF) and Unit 2 PPT (+ PDF) complete presentations. |
-| **Software Engineering** | `IS52` | *Pending* | Core ISE | **Full Notes** | Unit 1.1, Unit 1.2, Unit 1.3, and Unit 2 presentations (+ PDFs). |
-| **Theory of Computation** | `IS51` | *Pending* | Core ISE | **Full Notes** | Units 1–5 comprehensive notes + Alternate/condensed versions for Units 1 & 3. |
+| Subject Name | Code | Credits (L:T:P) | Type | Coordinator | Coverage Status | Materials Included |
+|---|---|---|---|---|---|---|
+| **Machine Learning** | `IS51` | `3:0:0` | PCC | Dr. Sumana M | **Full Notes + Lab + Practice** | Units 1–3 notes, Unit 1 QB, ISL56 Lab Programs (Tableau + Python), and CIE-1, CIE-2 & SEE 2026 combined paper. |
+| **Software Engineering** | `IS52` | `2:0:1` | IPCC | Mushtaq Ahmed D M | **Full Notes + Lab + Practice** | Units 1.1–1.3 & Unit 2 PPTs/PDFs, Unit-wise practical exercises, and CIE-1 & CIE-2 combined paper. |
+| **Computer Networks** | `IS53` | `4:0:0` | PCC | Suresh Kumar K R | **Full Notes + Lab + Practice** | Comprehensive Unit 1 (15.7 MB) & Unit 2 (13.1 MB) lecture notes, ISL57 Lab Part A & B programs, and CIE-1 & CIE-2 combined paper. |
+| **Theory of Computation** | `IS54` | `2:1:0` | PCC | Dr. Rajeshwari S B | **Full Notes + Practice** | Units 1–5 comprehensive notes + alternate condensed notes, and CIE-1, CIE-2 & SEE 2025 combined paper. |
+| **Artificial Intelligence** | `ISE552` | `3:0:0` | PEC | Dr. Jagadeesh Sai D | **Syllabus + Practice** | Complete 5 units transcribed from syllabus, verified NPTEL links, textbook & references, and CIE-1 & CIE-2 combined paper. |
+| **Research Methodology & IPR** | `AL58` | `3:0:0` | HSMC | Dr. Anitha P | **Full Notes + Practice** | Unit 1 & Unit 2 PPTs/PDFs, CIE-1 & CIE-2 paper, Make-Up Exam (Apr 2025), and SEE Backlog Exam (Feb/Mar 2025). |
+| **Front end Dev using ReactJS** | `ISAEC594` | `1:0:0` | AEC | J R Shruti | **Syllabus & Info** | Complete Units I–V transcribed syllabus, pedagogy tools, textbooks, and official React documentation links. |
+| **Environmental Studies** | `HS510` | `0:0:0` (NCMC) | NCMC | Civil / H&S Faculty | **Full Notes + Practice** | Units 1–5 PPTs/PDFs, Unit 2 natural resource references, 2024 CIE-1 QP, and CIE-1 50-mark paper. |
 
 ---
 
@@ -101,38 +110,38 @@ This study website consolidates materials into an intuitive web interface with:
 ```text
 SEM5_NOTES/
 ├── index.html              # Main application shell (SPA architecture)
-├── README.md               # Comprehensive documentation & setup guide
-├── .gitignore              # Ignores OS, IDE, and raw root duplicates
+├── README.md               # Comprehensive documentation & verified syllabus matrix
+├── .gitignore              # Ignores OS, IDE, and raw root duplicates (AI/, CN/, etc.)
 ├── css/
-│   └── style.css           # Design system tokens, dark/light themes, animations & print styles
+│   └── style.css           # Design tokens, themes, scheme view, lab programs & print styles
 ├── js/
-│   └── app.js              # Application controller, router, search, and storage
+│   └── app.js              # Application controller, hash router, search index, and storage
 ├── data/
-│   └── subjects.js         # Single source of truth for all content & timetables
+│   └── subjects.js         # Single source of truth (V Sem Scheme, subjects, labs, timetables)
 └── notes/                  # Organized, URL-safe document repository
     ├── ai/
-    │   └── syllabus/       # Converted PDF, original DOCX, syllabus screenshots
+    │   ├── syllabus/       # Converted PDF, original DOCX, syllabus screenshots
+    │   └── practice/       # AI CIE-1 & CIE-2 Question Papers
     ├── cn/
-    │   ├── unit1/          # IS53 CN Unit 1 notes
-    │   └── unit2/          # IS53 CN Unit 2 notes
+    │   ├── unit1/ to unit2/# IS53 Computer Networks lecture notes
+    │   └── practice/       # CN CIE-1 & CIE-2 Question Papers
     ├── evs/
     │   ├── unit1/ to unit5/# Converted PDFs and original PPTX files
-    │   └── practice/       # Converted CIE-1 Question Paper
+    │   └── practice/       # EVS CIE-1 (2024) QP & CIE-1 (50 Marks) Paper
     ├── ml/
-    │   ├── unit1/ to unit3/# Machine Learning units 1-3
-    │   └── practice/       # Machine Learning Question Bank (QB)
+    │   ├── unit1/ to unit3/# Machine Learning units 1-3 lecture notes
+    │   └── practice/       # Unit 1 QB & ML CIE-1, CIE-2 and SEE Combined Paper
     ├── reactjs/
     │   └── syllabus/       # Syllabus screenshot & transcribed content
     ├── rmipr/
-    │   ├── unit1/          # RM & IPR Unit 1 PPT & PDF
-    │   └── unit2/          # RM & IPR Unit 2 PPT & PDF
+    │   ├── unit1/ to unit2/# RM & IPR Unit 1 & 2 presentations
+    │   └── practice/       # CIE-1 & CIE-2, Make-Up Exam (2025), SEE Exam (2025)
     ├── se/
-    │   ├── unit1/          # SE Units 1.1, 1.2, 1.3 PPTs & PDFs
-    │   └── unit2/          # SE Unit 2 Architectural Design PPT & PDF
+    │   ├── unit1/ to unit2/# SE Units 1.1-1.3 & Unit 2 presentations
+    │   └── practice/       # SE CIE-1 & CIE-2 Question Papers
     └── toc/
         ├── unit1/ to unit5/# Theory of Computation comprehensive units 1-5
-        ├── unit1/          # TOC Unit 1 & 2 Alternate / Condensed notes
-        └── unit3/          # TOC Unit 3 Alternate / Condensed notes
+        └── practice/       # TOC CIE-1, CIE-2 and SEE Combined Paper
 ```
 
 ---
