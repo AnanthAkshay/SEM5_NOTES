@@ -2,15 +2,20 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   
   <!-- Primary Meta Tags -->
   <title>SEM 5 · ISE Notes | Department of Information Science & Engineering</title>
   <meta name="title" content="SEM 5 · ISE Notes | Department of Information Science & Engineering" />
   <meta name="description" content="Centralized study portal for 5th Semester ISE students: Artificial Intelligence, Computer Networks, Environmental Studies, Machine Learning, ReactJS, Research Methodology & IPR, Software Engineering, and Theory of Computation." />
   <meta name="keywords" content="ISE Semester 5 notes, ISE552 Artificial Intelligence, IS53 Computer Networks, HS510 EVS, IS51 Machine Learning, ISAEC594 ReactJS, AL58 RM & IPR, IS52 Software Engineering, IS54 Theory of Computation" />
-  <meta name="theme-color" content="#0a0d14" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6E9CF" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16140F" />
   <meta name="robots" content="index, follow" />
+
+  <!-- Web App Manifest & Mobile App Capabilities -->
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website" />
@@ -20,170 +25,178 @@
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./css/style.css" />
 
   <!-- Favicon SVG (Inline encoded) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%236366f1'/><text x='50%' y='64%' font-size='50' font-weight='800' font-family='sans-serif' fill='white' text-anchor='middle'>5</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23F6E9CF'/><circle cx='50' cy='50' r='32' fill='%232EC36B'/><text x='50%' y='63%' font-size='36' font-weight='800' font-family='sans-serif' fill='%230F2A18' text-anchor='middle'>V</text></svg>" />
 </head>
 <body>
-  <!-- Ambient background glow -->
-  <div class="bg-ambient" aria-hidden="true"></div>
 
   <!-- Navigation Bar -->
-  <header class="site-nav">
+  <header id="site-nav" class="site-nav">
     <div class="container">
       <div class="nav-inner">
         <a href="#home" class="nav-brand" aria-label="SEM 5 ISE Notes Homepage" onclick="window.SEM5_APP && window.SEM5_APP.closeSubjectView()">
-          <div class="brand-icon-box" aria-hidden="true">V</div>
-          <div class="brand-text-col">
-            <span class="brand-title">SEM 5 <span style="font-weight:400;color:var(--text-muted);">·</span> ISE Notes</span>
-            <span class="brand-subtitle">Information Science &amp; Engineering</span>
-          </div>
+          <span class="brand-logo-emblem" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+              <circle cx="12" cy="4" r="2.5"></circle>
+              <circle cx="12" cy="20" r="2.5"></circle>
+              <circle cx="4" cy="12" r="2.5"></circle>
+              <circle cx="20" cy="12" r="2.5"></circle>
+            </svg>
+          </span>
+          <span class="brand-label">SEM 5 · ISE NOTES</span>
         </a>
 
-        <div class="nav-actions">
-          <a href="#scheme" class="nav-scheme-btn" title="View official V Semester Scheme & CIE/SEE Evaluation Rules">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-            <span>Scheme &amp; Evaluation</span>
-          </a>
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-desktop-links desktop-only" aria-label="Primary Navigation">
+          <a href="#subjects-section" class="nav-text-link" onclick="window.SEM5_APP && window.SEM5_APP.closeSubjectView(); document.getElementById('subjects-section').scrollIntoView({behavior:'smooth'}); return false;">SUBJECTS</a>
+          <a href="#scheme" class="nav-text-link" onclick="window.SEM5_APP && window.SEM5_APP.openSchemeView(); return false;">SCHEME &amp; EVALUATION</a>
+        </nav>
 
-          <button class="search-trigger-btn" aria-label="Search notes, subjects and topics" title="Search (Press Ctrl+K or /)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <span class="label-text">Search notes...</span>
-            <span class="kbd-shortcut">Ctrl+K</span>
+        <div class="nav-actions">
+          <button class="circle-btn search-trigger-btn" aria-label="Search notes, subjects and topics" title="Search (Press Ctrl+K or /)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span class="kbd-shortcut desktop-only">Ctrl+K</span>
           </button>
 
-          <button id="theme-toggle-btn" class="icon-btn" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
-            <span id="theme-icon">
-              <!-- Rendered via JS -->
-            </span>
+          <button id="theme-toggle-btn" class="pill-theme-btn desktop-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+            <span id="theme-icon"></span>
+            <span class="theme-text">THEME</span>
+          </button>
+
+          <button id="mobile-menu-btn" class="circle-btn mobile-only" aria-label="Open menu" title="Open navigation menu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
           </button>
         </div>
       </div>
     </div>
   </header>
 
+  <!-- Mobile Navigation Sheet (Full Screen) -->
+  <div id="mobile-menu-drawer" class="mobile-menu-sheet" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="mobile-sheet-inner">
+      <div class="mobile-sheet-header">
+        <div class="nav-brand">
+          <span class="brand-logo-emblem" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+              <circle cx="12" cy="4" r="2.5"></circle>
+              <circle cx="12" cy="20" r="2.5"></circle>
+              <circle cx="4" cy="12" r="2.5"></circle>
+              <circle cx="20" cy="12" r="2.5"></circle>
+            </svg>
+          </span>
+          <span class="brand-label">SEM 5 · ISE NOTES</span>
+        </div>
+        <button id="close-mobile-menu-btn" class="circle-btn" aria-label="Close menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <nav class="mobile-sheet-links">
+        <a href="#subjects-section" class="mobile-sheet-link" onclick="window.SEM5_APP.closeMobileMenu(); window.SEM5_APP.closeSubjectView(); document.getElementById('subjects-section').scrollIntoView({behavior:'smooth'}); return false;">
+          <span>SUBJECTS</span>
+          <span class="circle-arrow-mini">↗</span>
+        </a>
+        <a href="#scheme" class="mobile-sheet-link" onclick="window.SEM5_APP.closeMobileMenu(); window.SEM5_APP.openSchemeView(); return false;">
+          <span>SCHEME &amp; EVALUATION</span>
+          <span class="circle-arrow-mini">↗</span>
+        </a>
+      </nav>
+
+      <div class="mobile-sheet-footer">
+        <button class="pill-btn-green search-trigger-btn" onclick="window.SEM5_APP.closeMobileMenu();" style="width:100%; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>QUICK SEARCH</span>
+        </button>
+
+        <button id="drawer-theme-toggle-btn" class="pill-btn-outline" style="width:100%; justify-content:center;" onclick="window.SEM5_APP.toggleTheme()">
+          <span>SWITCH THEME</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Application Body -->
   <main>
     <!-- View 1: Home / Landing View -->
     <div id="home-view" class="view-container active">
-      <!-- Hero Section -->
+      <!-- Reference-Style Hero Section -->
       <section class="hero-section">
-        <div class="container">
-          <div class="hero-pill-badge">
-            <span class="dot" aria-hidden="true"></span>
-            <span>B.E. Information Science &amp; Engineering · Semester V</span>
-          </div>
-
-          <h1 class="hero-title">
-            Master Semester V with <span class="hero-gradient-text">Precision Notes</span>.
+        <div class="container hero-container">
+          <h1 class="hero-headline">
+            <span class="hero-row">
+              Semester <span class="hero-inline-pill" aria-label="8 courses"><span class="pill-dot"></span> 8 COURSES</span> V
+            </span>
+            <span class="hero-row">Notes</span>
           </h1>
 
-          <p class="hero-description">
-            Clean, verified course materials, lecture presentations, practice question banks, and complete syllabus breakdowns for all 8 subjects in Semester V.
-          </p>
+          <div class="hero-actions">
+            <a href="#subjects-section" class="pill-btn-green hero-primary-btn" onclick="document.getElementById('subjects-section').scrollIntoView({behavior:'smooth'}); return false;">
+              <span>BROWSE SUBJECTS</span>
+            </a>
 
-          <!-- Quick Stats Bar -->
-          <div class="hero-stats-grid">
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-val">22 Credits</span>
-                <span class="stat-label">Official Scheme Total</span>
-              </div>
+            <a href="#scheme" class="hero-scheme-link" onclick="window.SEM5_APP.openSchemeView(); return false;">
+              <span>SCHEME &amp; EVALUATION</span>
+              <span class="circle-arrow-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-bottom-strip">
+          <div class="container strip-inner">
+            <button class="strip-item strip-search search-trigger-btn">
+              <span class="circle-mini-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span>QUICK SEARCH</span>
+            </button>
+
+            <div class="strip-subjects-row desktop-only">
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('ai')">AI</button> ·
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('cn')">CN</button> ·
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('evs')">EVS</button> ·
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('ml')">ML</button> ·
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('reactjs')">REACT</button> ·
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('rmipr')">RMIPR</button> ·
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('se')">SE</button> ·
+              <button class="strip-code-btn" onclick="window.SEM5_APP.openSubject('toc')">TOC</button>
             </div>
 
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-val" id="total-files-count">34</span>
-                <span class="stat-label">Files &amp; Notes</span>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-val" id="last-updated-span">October 2026</span>
-                <span class="stat-label">Latest Semester Sync</span>
-              </div>
-            </div>
-
-            <div class="overall-progress-box">
-              <div class="progress-header">
-                <span style="color:var(--text-muted);">Overall Syllabus Studied</span>
-                <span id="overall-progress-pct" style="font-weight:700;color:var(--text-primary);">0%</span>
-              </div>
-              <div class="progress-track">
-                <div id="overall-progress-bar" class="progress-fill" style="width: 0%;"></div>
-              </div>
-              <div style="font-size:0.75rem;color:var(--text-muted);font-family:var(--font-mono);">
-                <span id="completed-files-count">0</span> items completed
-              </div>
-            </div>
+            <button class="strip-item strip-scroll" onclick="document.getElementById('subjects-section').scrollIntoView({behavior:'smooth'})">
+              <span>SCROLL DOWN</span>
+              <span class="circle-mini-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+              </span>
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- Recently Opened Section -->
-      <section id="recent-section" class="recently-opened-section" style="display: none;">
+      <!-- Subjects Grid Section with "What We Do" Style -->
+      <section id="subjects-section" class="subjects-section">
         <div class="container">
-          <div class="recent-bar-card">
-            <div class="recent-label">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-              <span>Recent:</span>
-            </div>
-            <div id="recent-list" class="recent-pills-list">
-              <!-- Rendered via JS -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Subjects Grid Section -->
-      <section class="subjects-section">
-        <div class="container">
-          <div class="section-header">
-            <div class="section-title-wrap">
-              <h2 class="section-title">Semester V Courses</h2>
-              <p class="section-subtitle">Select any subject to explore unit-wise PDFs, PPT presentations, and official syllabi.</p>
-            </div>
+          <div class="section-heading-wrap">
+            <span class="pill-tag-green">SEMESTER V</span>
+            <h2 class="section-title">Your Courses, Organised</h2>
 
             <div class="filter-pills-wrap">
-              <button class="filter-btn active" data-filter="all">All Subjects (8)</button>
-              <button class="filter-btn" data-filter="core">Core ISE</button>
-              <button class="filter-btn" data-filter="elective">Electives &amp; AEC</button>
-              <button class="filter-btn" data-filter="practice">Has Practice Papers</button>
+              <button class="filter-pill active" data-filter="all">All (8)</button>
+              <button class="filter-pill" data-filter="core">Core ISE</button>
+              <button class="filter-pill" data-filter="elective">Electives &amp; AEC</button>
+              <button class="filter-pill" data-filter="practice">Practice Ready</button>
             </div>
           </div>
 
           <div id="subjects-grid" class="subjects-grid">
             <!-- Dynamically populated from data/subjects.js -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Exam Timetable Section -->
-      <section id="timetable-section" class="timetable-section">
-        <div class="container">
-          <div class="section-header">
-            <div class="section-title-wrap">
-              <h2 class="section-title">Examination &amp; CIE Schedules</h2>
-              <p class="section-subtitle">Track dates for continuous internal evaluations and semester-end examinations.</p>
-            </div>
-          </div>
-
-          <div id="timetable-grid" class="timetable-grid">
-            <!-- Dynamically populated from timetable config in subjects.js -->
           </div>
         </div>
       </section>
