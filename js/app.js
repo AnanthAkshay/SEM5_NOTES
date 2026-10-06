@@ -41,6 +41,8 @@
     homeView: document.getElementById('home-view'),
     subjectView: document.getElementById('subject-view'),
     subjectContainer: document.getElementById('subject-container'),
+    schemeView: document.getElementById('scheme-view'),
+    schemeContainer: document.getElementById('scheme-container'),
     totalFilesCount: document.getElementById('total-files-count'),
     completedFilesCount: document.getElementById('completed-files-count'),
     overallProgressBar: document.getElementById('overall-progress-bar'),
@@ -120,11 +122,14 @@
 
   function handleHashChange() {
     const hash = window.location.hash.slice(1);
-    if (hash.startsWith('subject-')) {
+    if (hash === 'scheme') {
+      openSchemeView(false);
+    } else if (hash.startsWith('subject-')) {
       const subjectId = hash.replace('subject-', '');
       openSubject(subjectId, false);
     } else {
       closeSubjectView(false);
+      closeSchemeView(false);
     }
   }
 
@@ -142,6 +147,7 @@
 
     renderSubjectDetail(subject);
     elements.homeView.classList.remove('active');
+    if (elements.schemeView) elements.schemeView.classList.remove('active');
     elements.subjectView.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -152,6 +158,29 @@
       window.location.hash = '';
     }
     elements.subjectView.classList.remove('active');
+    if (elements.schemeView) elements.schemeView.classList.remove('active');
+    elements.homeView.classList.add('active');
+    renderSubjectsGrid();
+    renderHeroStats();
+  }
+
+  function openSchemeView(pushHistory = true) {
+    state.currentSubjectId = null;
+    if (pushHistory) {
+      window.location.hash = 'scheme';
+    }
+    renderSchemeView();
+    elements.homeView.classList.remove('active');
+    elements.subjectView.classList.remove('active');
+    if (elements.schemeView) elements.schemeView.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function closeSchemeView(pushHistory = true) {
+    if (pushHistory) {
+      window.location.hash = '';
+    }
+    if (elements.schemeView) elements.schemeView.classList.remove('active');
     elements.homeView.classList.add('active');
     renderSubjectsGrid();
     renderHeroStats();
@@ -386,11 +415,14 @@
     const progress = getSubjectProgress(subject);
     const hasRichSyllabus = !!subject.syllabus;
     const hasPractice = subject.units.some(u => u.isPractice);
+    const hasLab = !!subject.lab;
 
     // Default tab logic
     if (state.currentTab === 'syllabus' && !hasRichSyllabus) {
       state.currentTab = 'notes';
     } else if (state.currentTab === 'practice' && !hasPractice) {
+      state.currentTab = 'notes';
+    } else if (state.currentTab === 'lab' && !hasLab) {
       state.currentTab = 'notes';
     }
 
@@ -461,6 +493,11 @@
             Practice & Question Banks (${subject.units.filter(u => u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
           </button>
         ` : ''}
+        ${hasLab ? `
+          <button class="subject-tab-btn ${state.currentTab === 'lab' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('lab')">
+            Laboratory (${escapeHtml(subject.lab.code || 'Lab')})
+          </button>
+        ` : ''}
         ${hasRichSyllabus ? `
           <button class="subject-tab-btn ${state.currentTab === 'syllabus' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('syllabus')">
             Official Syllabus & Pedagogy
@@ -477,6 +514,9 @@
 
       <!-- Tab Content: Rich Syllabus View -->
       ${state.currentTab === 'syllabus' && hasRichSyllabus ? renderSyllabusView(subject) : ''}
+
+      <!-- Tab Content: Laboratory Programs View -->
+      ${state.currentTab === 'lab' && hasLab ? renderLabView(subject) : ''}
     `;
   }
 
@@ -690,6 +730,242 @@
     `;
   }
 
+  // --- Render Laboratory Programs View ---
+  function renderLabView(subject) {
+    const lab = subject.lab;
+    if (!lab) return '';
+
+    return `
+      <div class="lab-container">
+        <div class="lab-info-banner">
+          <div class="subject-view-meta-bar" style="margin-bottom: 0;">
+            <span class="meta-pill-tag" style="color:var(--brand-primary);border-color:var(--brand-primary);font-weight:700;">
+              ${escapeHtml(lab.code)}
+            </span>
+            <span class="meta-pill-tag">Credits: ${escapeHtml(lab.credits)}</span>
+            ${lab.contactHours ? `<span class="meta-pill-tag">${escapeHtml(lab.contactHours)}</span>` : ''}
+            ${lab.coordinator ? `<span class="meta-pill-tag">Coord: ${escapeHtml(lab.coordinator)}</span>` : ''}
+            ${lab.prerequisites ? `<span class="meta-pill-tag">Prereq: ${escapeHtml(lab.prerequisites)}</span>` : ''}
+          </div>
+          <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-primary);">${escapeHtml(lab.title)}</h2>
+          <p style="font-size:0.92rem;color:var(--text-secondary);">${escapeHtml(lab.description)}</p>
+        </div>
+
+        ${lab.partA && lab.partA.length > 0 ? `
+          <div class="lab-part-section">
+            <div class="lab-part-header">
+              <h3 class="lab-part-title">
+                <span class="rule-type-badge">PART A</span>
+                <span>${subject.id === 'ml' ? 'Tableau Data Visualization Dashboards' : (subject.id === 'cn' ? 'Network Protocol Implementation Programs' : 'Part A Experiments')}</span>
+              </h3>
+            </div>
+            <div class="lab-programs-grid">
+              ${lab.partA.map(prog => `
+                <div class="lab-program-card">
+                  <div class="lab-program-head">
+                    <span class="lab-prog-num">#${prog.slNo}</span>
+                    <h4 class="lab-prog-title">${escapeHtml(prog.title)}</h4>
+                  </div>
+                  ${prog.description ? `<p class="lab-prog-desc">${escapeHtml(prog.description)}</p>` : ''}
+                  ${prog.tasks && prog.tasks.length > 0 ? `
+                    <ul class="rule-bullet-list" style="margin-top:0.5rem;">
+                      ${prog.tasks.map(t => `<li>${escapeHtml(t)}</li>`).join('')}
+                    </ul>
+                  ` : ''}
+                  ${prog.dataset ? `
+                    <div style="margin-top:0.75rem;">
+                      <a href="${prog.dataset}" target="_blank" rel="noopener noreferrer" class="lab-prog-dataset">
+                        ${ICONS.externalLink} <span>Dataset: ${escapeHtml(prog.dataset)}</span>
+                      </a>
+                    </div>
+                  ` : ''}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        ${lab.partB && lab.partB.length > 0 ? `
+          <div class="lab-part-section">
+            <div class="lab-part-header">
+              <h3 class="lab-part-title">
+                <span class="rule-type-badge">PART B</span>
+                <span>${subject.id === 'ml' ? 'Machine Learning Python Implementations' : (subject.id === 'cn' ? 'NS-2 Network Topology Simulations' : 'Part B Experiments')}</span>
+              </h3>
+            </div>
+            <div class="lab-programs-grid">
+              ${lab.partB.map(prog => `
+                <div class="lab-program-card">
+                  <div class="lab-program-head">
+                    <span class="lab-prog-num">#${prog.slNo}</span>
+                    <h4 class="lab-prog-title">${escapeHtml(prog.title)}</h4>
+                  </div>
+                  ${prog.description ? `<p class="lab-prog-desc">${escapeHtml(prog.description)}</p>` : ''}
+                  ${prog.tasks && prog.tasks.length > 0 ? `
+                    <ul class="rule-bullet-list" style="margin-top:0.5rem;">
+                      ${prog.tasks.map(t => `<li>${escapeHtml(t)}</li>`).join('')}
+                    </ul>
+                  ` : ''}
+                  ${prog.dataset ? `
+                    <div style="margin-top:0.75rem;">
+                      <a href="${prog.dataset}" target="_blank" rel="noopener noreferrer" class="lab-prog-dataset">
+                        ${ICONS.externalLink} <span>Dataset: ${escapeHtml(prog.dataset)}</span>
+                      </a>
+                    </div>
+                  ` : ''}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        ${lab.exercises && lab.exercises.length > 0 ? `
+          <div class="lab-part-section">
+            <div class="lab-part-header">
+              <h3 class="lab-part-title">
+                <span class="rule-type-badge">UNIT-WISE EXERCISES</span>
+                <span>Integrated IPCC Laboratory Practicals</span>
+              </h3>
+            </div>
+            <div class="lab-programs-grid">
+              ${lab.exercises.map(ex => `
+                <div class="lab-program-card">
+                  <div class="lab-program-head">
+                    <span class="lab-prog-num">${escapeHtml(ex.unit)}</span>
+                    <h4 class="lab-prog-title">${escapeHtml(ex.title)}</h4>
+                  </div>
+                  ${ex.tasks && ex.tasks.length > 0 ? `
+                    <ul class="rule-bullet-list" style="margin-top:0.5rem;">
+                      ${ex.tasks.map(t => `<li>${escapeHtml(t)}</li>`).join('')}
+                    </ul>
+                  ` : ''}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
+  // --- Render V Semester Scheme & Evaluation View ---
+  function renderSchemeView() {
+    if (!elements.schemeContainer) return;
+    const scheme = state.data.scheme;
+    if (!scheme) return;
+
+    elements.schemeContainer.innerHTML = `
+      <div class="scheme-hero-header">
+        <div class="back-btn-row">
+          <button class="back-btn" onclick="window.SEM5_APP.closeSchemeView()">
+            ${ICONS.arrowLeft} <span>Back to Home</span>
+          </button>
+          <button class="btn-secondary" onclick="window.print()" title="Print Scheme & Guidelines">
+            ${ICONS.printer} <span>Print Scheme</span>
+          </button>
+        </div>
+
+        <div class="hero-pill-badge" style="margin-top: 1rem;">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Official Autonomous Syllabus Scheme · ${escapeHtml(scheme.degree)}</span>
+        </div>
+
+        <h1 class="subject-view-title" style="margin-top: 0.5rem;">${escapeHtml(scheme.title)}</h1>
+        <p class="subject-view-desc">
+          Complete structure of 5th semester courses, teaching department allocations, lecture-tutorial-practical-self study (L:T:P:S) credit breakdown, and examination evaluation regulations.
+        </p>
+
+        <div class="scheme-meta-summary">
+          <div class="scheme-summary-pill">
+            <span>Total Scheme Credits:</span>
+            <strong>${scheme.totalCredits} Credits</strong>
+          </div>
+          <div class="scheme-summary-pill">
+            <span>Total Contact Hours/Week:</span>
+            <strong>${scheme.totalContactHoursPerWeek} Hours</strong>
+          </div>
+          <div class="scheme-summary-pill">
+            <span>Credit Split (L:T:P):</span>
+            <strong>${scheme.creditBreakdown.L} : ${scheme.creditBreakdown.T} : ${scheme.creditBreakdown.P}</strong>
+          </div>
+          <div class="scheme-summary-pill">
+            <span>Self-Study Hours:</span>
+            <strong>${scheme.creditBreakdown.S} Hours</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semester V Scheme Table -->
+      <div class="scheme-section-card">
+        <h2 class="scheme-section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>V Semester Teaching Scheme &amp; Course Matrix</span>
+        </h2>
+        <p class="scheme-section-subtitle">
+          Prescribed autonomous credit scheme for Information Science &amp; Engineering 2024 Batch.
+        </p>
+
+        <div class="table-responsive">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">Sl</th>
+                <th style="width: 90px;">Course Code</th>
+                <th>Course Title</th>
+                <th style="width: 70px;">Dept</th>
+                <th style="width: 80px;">Category</th>
+                <th style="width: 70px;">L:T:P</th>
+                <th style="width: 80px;">Credits</th>
+                <th style="width: 110px;">Contact Hrs</th>
+                <th>Course Coordinator</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${scheme.courses.map(c => `
+                <tr>
+                  <td><span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-muted);">${c.slNo}</span></td>
+                  <td><strong style="color:var(--brand-primary);font-family:var(--font-mono);">${escapeHtml(c.code)}</strong></td>
+                  <td><strong>${escapeHtml(c.name)}</strong></td>
+                  <td><span style="font-size:0.8rem;">${escapeHtml(c.dept)}</span></td>
+                  <td><span class="rule-type-badge">${escapeHtml(c.category)}</span></td>
+                  <td><span style="font-family:var(--font-mono);font-size:0.8rem;">${escapeHtml(c.credits)}</span></td>
+                  <td><strong style="color:var(--text-primary);font-family:var(--font-mono);">${c.totalCredits}</strong></td>
+                  <td><span style="font-size:0.8rem;color:var(--text-muted);">${escapeHtml(c.contactHours)}</span></td>
+                  <td><span style="font-size:0.82rem;">${escapeHtml(c.coordinator)}</span></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CIE & SEE Evaluation Regulations -->
+      <div class="scheme-section-card">
+        <h2 class="scheme-section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Continuous Internal Evaluation (CIE) &amp; SEE Guidelines</span>
+        </h2>
+        <p class="scheme-section-subtitle">
+          Official evaluation schemes for Integrated Courses (IPCC), Professional Core &amp; Electives (PCC/PEC/HSMC), Ability Enhancement Courses (AEC), Laboratory Courses, and NCMC courses.
+        </p>
+
+        <div class="rules-grid">
+          ${scheme.evaluationRules.map(rule => `
+            <div class="rule-card">
+              <div class="rule-card-header">
+                <span class="rule-type-badge">${escapeHtml(rule.category)}</span>
+              </div>
+              <h3 class="rule-card-title">${escapeHtml(rule.title)}</h3>
+              <ul class="rule-bullet-list" style="margin-top:0.85rem;">
+                ${rule.points.map(pt => `<li>${escapeHtml(pt)}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
   // --- PDF Viewer Modal Controller ---
   function openViewer(fileId) {
     let targetFile = null;
@@ -812,6 +1088,28 @@
 
     const results = [];
 
+    // Match Scheme & Evaluation Guidelines
+    if (state.data.scheme) {
+      const schemeMatch = 'scheme'.includes(state.searchQuery) ||
+                          'evaluation'.includes(state.searchQuery) ||
+                          'cie'.includes(state.searchQuery) ||
+                          'see'.includes(state.searchQuery) ||
+                          'credit'.includes(state.searchQuery) ||
+                          'credits'.includes(state.searchQuery) ||
+                          state.data.scheme.title.toLowerCase().includes(state.searchQuery);
+      if (schemeMatch) {
+        results.push({
+          type: 'scheme',
+          title: 'V Semester Scheme of Teaching & Evaluation',
+          subtitle: 'Official Autonomous Curriculum · 22 Credits · CIE/SEE Schemes',
+          action: () => {
+            closeSearch();
+            openSchemeView();
+          }
+        });
+      }
+    }
+
     state.data.subjects.forEach(subject => {
       // Match Subject Level
       const subMatch = subject.name.toLowerCase().includes(state.searchQuery) ||
@@ -828,6 +1126,65 @@
             openSubject(subject.id);
           }
         });
+      }
+
+      // Match Laboratory and Lab Programs
+      if (subject.lab) {
+        const labCodeMatch = subject.lab.code && subject.lab.code.toLowerCase().includes(state.searchQuery);
+        const labTitleMatch = subject.lab.title && subject.lab.title.toLowerCase().includes(state.searchQuery);
+        if (labCodeMatch || labTitleMatch) {
+          results.push({
+            type: 'lab',
+            subjectId: subject.id,
+            title: subject.lab.title,
+            subtitle: `${subject.shortName} · Laboratory (${subject.lab.code})`,
+            action: () => {
+              closeSearch();
+              openSubject(subject.id);
+              switchTab('lab');
+            }
+          });
+        }
+
+        const labParts = [...(subject.lab.partA || []), ...(subject.lab.partB || [])];
+        labParts.forEach(p => {
+          const pMatch = p.title.toLowerCase().includes(state.searchQuery) ||
+                         (p.description && p.description.toLowerCase().includes(state.searchQuery)) ||
+                         (p.tasks && p.tasks.some(t => t.toLowerCase().includes(state.searchQuery)));
+          if (pMatch) {
+            results.push({
+              type: 'lab-prog',
+              subjectId: subject.id,
+              title: p.title,
+              subtitle: `${subject.shortName} Lab Program #${p.slNo}`,
+              action: () => {
+                closeSearch();
+                openSubject(subject.id);
+                switchTab('lab');
+              }
+            });
+          }
+        });
+
+        if (subject.lab.exercises) {
+          subject.lab.exercises.forEach(ex => {
+            const exMatch = ex.title.toLowerCase().includes(state.searchQuery) ||
+                            (ex.tasks && ex.tasks.some(t => t.toLowerCase().includes(state.searchQuery)));
+            if (exMatch) {
+              results.push({
+                type: 'lab-prog',
+                subjectId: subject.id,
+                title: ex.title,
+                subtitle: `${subject.shortName} Integrated Lab · ${ex.unit}`,
+                action: () => {
+                  closeSearch();
+                  openSubject(subject.id);
+                  switchTab('lab');
+                }
+              });
+            }
+          });
+        }
       }
 
       // Match Unit Level & Files Level
@@ -1045,6 +1402,8 @@
     init,
     openSubject,
     closeSubjectView,
+    openSchemeView,
+    closeSchemeView,
     switchTab,
     openViewer,
     closeViewer,
