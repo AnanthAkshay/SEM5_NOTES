@@ -578,7 +578,7 @@ a {
 .hero-headline {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3.25rem, 11vw, 8.5rem);
+  font-size: clamp(3rem, 11vw, 8rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -586,42 +586,18 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
-.hero-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.15em 0.3em;
+.hero-line {
+  display: block;
+  white-space: nowrap;
 }
 
-/* Inline Pill sitting between words in headline */
-.hero-inline-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4em;
-  vertical-align: middle;
-  padding: 0.14em 0.55em;
-  border-radius: var(--radius-pill);
-  background-color: var(--green-tint);
-  color: var(--green-tint-ink);
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 0.32em;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--border);
-  box-shadow: var(--shadow-faint);
-}
-
-.hero-inline-pill .pill-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: var(--radius-pill);
-  background-color: var(--green);
+@media (max-width: 480px) {
+  .hero-line {
+    white-space: normal;
+  }
 }
 
 /* Hero Action Buttons */
