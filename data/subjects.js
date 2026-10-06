@@ -972,13 +972,13 @@ window.SEM5_DATA = {
             {
               id: "cn-u1-pdf",
               title: "IS53 CN Unit 1 Complete Notes",
-              originalName: "IS53-CN-Unit1.pdf",
+              originalName: "IS53-CN-Unit1.pptx",
               path: "notes/cn/unit1/is53-cn-unit1.pdf",
-              originalPath: null,
-              type: "pdf",
-              size: "15.72 MB",
-              sizeBytes: 16486434,
-              isConverted: false
+              originalPath: "notes/cn/unit1/is53-cn-unit1.pptx",
+              type: "pptx",
+              size: "11.70 MB (PPTX: 16.68 MB)",
+              sizeBytes: 12266281,
+              isConverted: true
             }
           ]
         },
@@ -992,13 +992,13 @@ window.SEM5_DATA = {
             {
               id: "cn-u2-pdf",
               title: "IS53 CN Unit 2 Complete Notes",
-              originalName: "IS53-CN-Unit2.pdf",
+              originalName: "IS53-CN-Unit2.pptx",
               path: "notes/cn/unit2/is53-cn-unit2.pdf",
-              originalPath: null,
-              type: "pdf",
-              size: "13.07 MB",
-              sizeBytes: 13706981,
-              isConverted: false
+              originalPath: "notes/cn/unit2/is53-cn-unit2.pptx",
+              type: "pptx",
+              size: "9.79 MB (PPTX: 13.89 MB)",
+              sizeBytes: 10268479,
+              isConverted: true
             }
           ]
         },
