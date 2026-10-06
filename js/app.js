@@ -10,16 +10,14 @@
   const STORAGE_KEYS = {
     THEME: 'sem5_theme_v1',
     PROGRESS: 'sem5_progress_v1',
-    PINNED: 'sem5_pinned_v1',
-    RECENT: 'sem5_recent_v1'
+    PINNED: 'sem5_pinned_v1'
   };
 
   const state = {
-    data: window.SEM5_DATA || { subjects: [], timetable: {}, meta: {} },
+    data: window.SEM5_DATA || { subjects: [], meta: {} },
     theme: localStorage.getItem(STORAGE_KEYS.THEME) || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'),
     progress: JSON.parse(localStorage.getItem(STORAGE_KEYS.PROGRESS) || '{}'),
     pinned: JSON.parse(localStorage.getItem(STORAGE_KEYS.PINNED) || '[]'),
-    recent: JSON.parse(localStorage.getItem(STORAGE_KEYS.RECENT) || '[]'),
     currentSubjectId: null,
     currentTab: 'notes',
     activeFilter: 'all',
@@ -31,22 +29,20 @@
   // --- DOM Elements Cache ---
   const elements = {
     html: document.documentElement,
+    siteNav: document.getElementById('site-nav'),
     themeToggleBtn: document.getElementById('theme-toggle-btn'),
     themeIcon: document.getElementById('theme-icon'),
-    heroSection: document.getElementById('hero-section'),
-    recentSection: document.getElementById('recent-section'),
-    recentList: document.getElementById('recent-list'),
+    mobileMenuBtn: document.getElementById('mobile-menu-btn'),
+    closeMobileMenuBtn: document.getElementById('close-mobile-menu-btn'),
+    mobileMenuDrawer: document.getElementById('mobile-menu-drawer'),
+    drawerThemeToggleBtn: document.getElementById('drawer-theme-toggle-btn'),
     subjectsGrid: document.getElementById('subjects-grid'),
-    filterBtns: document.querySelectorAll('.filter-btn'),
+    filterPills: document.querySelectorAll('.filter-pill'),
     homeView: document.getElementById('home-view'),
     subjectView: document.getElementById('subject-view'),
     subjectContainer: document.getElementById('subject-container'),
     schemeView: document.getElementById('scheme-view'),
     schemeContainer: document.getElementById('scheme-container'),
-    totalFilesCount: document.getElementById('total-files-count'),
-    completedFilesCount: document.getElementById('completed-files-count'),
-    overallProgressBar: document.getElementById('overall-progress-bar'),
-    overallProgressPct: document.getElementById('overall-progress-pct'),
     searchTriggerBtns: document.querySelectorAll('.search-trigger-btn'),
     searchModal: document.getElementById('search-modal'),
     searchInput: document.getElementById('search-input'),
@@ -60,10 +56,8 @@
     viewerDownloadBtn: document.getElementById('viewer-download-btn'),
     viewerNewTabBtn: document.getElementById('viewer-new-tab-btn'),
     closeViewerBtn: document.getElementById('close-viewer-btn'),
-    timetableGrid: document.getElementById('timetable-grid'),
     resetProgressBtn: document.getElementById('reset-progress-btn'),
-    currentYearSpan: document.getElementById('current-year-span'),
-    lastUpdatedSpan: document.getElementById('last-updated-span')
+    currentYearSpan: document.getElementById('current-year-span')
   };
 
   // --- SVG Icons Map ---
@@ -85,15 +79,8 @@
     applyTheme(state.theme);
     setupEventListeners();
     setupRouting();
-    renderHeroStats();
-    renderRecentlyOpened();
     renderSubjectsGrid();
-    renderTimetables();
     
-    // Update dates
-    if (elements.lastUpdatedSpan) {
-      elements.lastUpdatedSpan.textContent = state.data.meta?.lastUpdated || 'October 2026';
-    }
     if (elements.currentYearSpan) {
       elements.currentYearSpan.textContent = new Date().getFullYear();
     }
@@ -112,6 +99,21 @@
 
   function toggleTheme() {
     applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+  }
+
+  // --- Mobile Navigation Drawer ---
+  function openMobileMenu() {
+    if (elements.mobileMenuDrawer) {
+      elements.mobileMenuDrawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileMenu() {
+    if (elements.mobileMenuDrawer) {
+      elements.mobileMenuDrawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   }
 
   // --- Routing & Navigation ---
@@ -161,7 +163,6 @@
     if (elements.schemeView) elements.schemeView.classList.remove('active');
     elements.homeView.classList.add('active');
     renderSubjectsGrid();
-    renderHeroStats();
   }
 
   function openSchemeView(pushHistory = true) {
@@ -183,7 +184,6 @@
     if (elements.schemeView) elements.schemeView.classList.remove('active');
     elements.homeView.classList.add('active');
     renderSubjectsGrid();
-    renderHeroStats();
   }
 
   // --- Calculations & Progress Helpers ---
@@ -213,26 +213,6 @@
     };
   }
 
-  function getGlobalProgress() {
-    let total = 0;
-    let completed = 0;
-    state.data.subjects.forEach(s => {
-      s.units.forEach(u => {
-        u.files.forEach(f => {
-          total++;
-          if (state.progress[f.id]) {
-            completed++;
-          }
-        });
-      });
-    });
-    return {
-      total,
-      completed,
-      pct: total > 0 ? Math.round((completed / total) * 100) : 0
-    };
-  }
-
   function toggleFileProgress(fileId) {
     if (state.progress[fileId]) {
       delete state.progress[fileId];
@@ -242,7 +222,6 @@
     localStorage.setItem(STORAGE_KEYS.PROGRESS, JSON.stringify(state.progress));
     
     // Update active UI elements without full page flicker
-    renderHeroStats();
     if (state.currentSubjectId) {
       const subject = state.data.subjects.find(s => s.id === state.currentSubjectId);
       if (subject) {
@@ -257,7 +236,6 @@
     if (confirm("Are you sure you want to reset your study progress? All completed file marks will be cleared.")) {
       state.progress = {};
       localStorage.removeItem(STORAGE_KEYS.PROGRESS);
-      renderHeroStats();
       if (state.currentSubjectId) {
         const subject = state.data.subjects.find(s => s.id === state.currentSubjectId);
         if (subject) renderSubjectDetail(subject);
@@ -288,47 +266,7 @@
     }
   }
 
-  // --- Recently Opened Tracking ---
-  function trackOpenedFile(file, subject) {
-    const item = {
-      fileId: file.id,
-      title: file.title,
-      path: file.path,
-      subjectId: subject.id,
-      subjectShort: subject.shortName,
-      type: file.type,
-      timestamp: Date.now()
-    };
-    state.recent = [item, ...state.recent.filter(r => r.fileId !== file.id)].slice(0, 4);
-    localStorage.setItem(STORAGE_KEYS.RECENT, JSON.stringify(state.recent));
-    renderRecentlyOpened();
-  }
-
-  function renderRecentlyOpened() {
-    if (!elements.recentSection || !elements.recentList) return;
-    if (state.recent.length === 0) {
-      elements.recentSection.style.display = 'none';
-      return;
-    }
-    elements.recentSection.style.display = 'block';
-    elements.recentList.innerHTML = state.recent.map(r => `
-      <a href="#subject-${r.subjectId}" class="recent-pill" data-file-id="${r.fileId}" title="Jump to ${escapeHtml(r.title)}">
-        <span class="file-type-icon ${r.type}" style="width:20px;height:20px;font-size:0.6rem;">${r.type.toUpperCase()}</span>
-        <strong style="color:var(--text-primary);">${escapeHtml(r.subjectShort)}</strong>: ${escapeHtml(r.title.slice(0, 30))}${r.title.length > 30 ? '...' : ''}
-      </a>
-    `).join('');
-  }
-
-  // --- Hero Section Stats ---
-  function renderHeroStats() {
-    const stats = getGlobalProgress();
-    if (elements.totalFilesCount) elements.totalFilesCount.textContent = stats.total;
-    if (elements.completedFilesCount) elements.completedFilesCount.textContent = stats.completed;
-    if (elements.overallProgressBar) elements.overallProgressBar.style.width = `${stats.pct}%`;
-    if (elements.overallProgressPct) elements.overallProgressPct.textContent = `${stats.pct}%`;
-  }
-
-  // --- Render Subjects Grid ---
+  // --- Render Subjects Grid ("What We Do" Card Style) ---
   function renderSubjectsGrid() {
     if (!elements.subjectsGrid) return;
 
@@ -352,55 +290,54 @@
 
     elements.subjectsGrid.innerHTML = list.map(subject => {
       const isPinned = state.pinned.includes(subject.id);
-      const fileCount = getSubjectFileCount(subject);
       const progress = getSubjectProgress(subject);
-      const unitCount = subject.units.filter(u => !u.isPractice).length;
-      const hasPractice = subject.units.some(u => u.isPractice);
+      const shortInitial = subject.shortName || subject.code;
+
+      // Dynamic Hashtag chips based on actual contents
+      const chips = [];
+      if (subject.status === 'full_notes') {
+        chips.push('# Notes');
+      } else {
+        chips.push('# Syllabus only');
+      }
+      if (subject.units.some(u => u.isPractice)) {
+        chips.push('# Practice');
+      }
+      if (subject.lab) {
+        chips.push('# Lab');
+      }
 
       return `
-        <div class="subject-card" style="--card-accent: ${subject.accent.primary};" onclick="window.SEM5_APP.openSubject('${subject.id}')">
+        <div class="subject-card" onclick="window.SEM5_APP.openSubject('${subject.id}')" role="button" tabindex="0" aria-label="Open ${escapeHtml(subject.name)} notes">
           <div class="card-top-row">
-            <div class="card-badge-group">
-              <span class="code-badge">${escapeHtml(subject.code)}</span>
-              ${subject.status === 'full_notes' 
-                ? `<span class="status-badge full">Full Notes</span>`
-                : `<span class="status-badge syllabus">Syllabus & Info</span>`
-              }
-              ${hasPractice ? `<span class="status-badge full" style="background:var(--status-warning-bg);color:var(--status-warning);border-color:rgba(245,158,11,0.3)">Practice Ready</span>` : ''}
-            </div>
-            <button class="pin-btn ${isPinned ? 'pinned' : ''}" onclick="window.SEM5_APP.togglePinSubject('${subject.id}', event)" title="${isPinned ? 'Unpin' : 'Pin subject to top'}">
+            <span class="card-code-circle" aria-hidden="true">${escapeHtml(shortInitial)}</span>
+            <button class="pin-btn ${isPinned ? 'pinned' : ''}" onclick="window.SEM5_APP.togglePinSubject('${subject.id}', event)" title="${isPinned ? 'Unpin' : 'Pin subject to top'}" aria-label="${isPinned ? 'Unpin' : 'Pin'}">
               ${isPinned ? ICONS.pinnedFilled : ICONS.pin}
             </button>
           </div>
 
-          <h3 class="card-title">${escapeHtml(subject.name)}</h3>
-          <p class="card-desc">${escapeHtml(subject.description)}</p>
-
-          <div class="card-meta-list">
-            <div class="meta-row">
-              <span class="meta-label">Credits / Hours:</span>
-              <span class="meta-val">${escapeHtml(subject.credits || 'Pending')} ${subject.contactHours ? `· ${escapeHtml(subject.contactHours)}` : ''}</span>
+          <div class="card-main-info">
+            <h3 class="card-title">${escapeHtml(subject.name)}</h3>
+            <p class="card-desc">${escapeHtml(subject.description)}</p>
+            <div class="card-meta-line">
+              <span>${escapeHtml(subject.credits || 'TBD')} Credits</span>
+              ${subject.coordinator ? ` · <span>${escapeHtml(subject.coordinator)}</span>` : ''}
+              ${subject.contactHours ? ` · <span>${escapeHtml(subject.contactHours)}</span>` : ''}
             </div>
-            ${subject.coordinator ? `
-              <div class="meta-row">
-                <span class="meta-label">Coordinator:</span>
-                <span class="meta-val">${escapeHtml(subject.coordinator)}</span>
+            ${progress.total > 0 ? `
+              <div class="card-progress-pill" title="${progress.completed} of ${progress.total} studied (${progress.pct}%)">
+                <div class="card-progress-fill" style="width: ${progress.pct}%;"></div>
               </div>
             ` : ''}
-            <div class="meta-row">
-              <span class="meta-label">Coverage:</span>
-              <span class="meta-val">${unitCount} Units · ${fileCount} Files</span>
-            </div>
           </div>
 
-          <div class="card-progress-wrap">
-            <div class="progress-header" style="margin-bottom: 0.35rem;">
-              <span style="color:var(--text-muted);font-size:0.75rem;">Study Progress</span>
-              <span style="font-weight:600;font-size:0.75rem;color:var(--text-primary);">${progress.completed} / ${progress.total} (${progress.pct}%)</span>
+          <div class="card-footer-row">
+            <div class="card-chips-left">
+              ${chips.map(chip => `<span class="hash-chip">${escapeHtml(chip)}</span>`).join('')}
             </div>
-            <div class="card-progress-bar">
-              <div class="card-progress-fill" style="width: ${progress.pct}%;"></div>
-            </div>
+            <span class="card-arrow-btn" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </span>
           </div>
         </div>
       `;
@@ -427,80 +364,71 @@
     }
 
     elements.subjectContainer.innerHTML = `
-      <div class="subject-view-header" style="--subject-glow: ${subject.accent.glow};">
+      <div class="subject-view-header">
         <div class="back-btn-row">
-          <button class="back-btn" onclick="window.SEM5_APP.closeSubjectView()">
-            ${ICONS.arrowLeft} <span>Back to All Subjects</span>
+          <button class="back-pill-btn" onclick="window.SEM5_APP.closeSubjectView()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>ALL SUBJECTS</span>
           </button>
-          <div class="subject-action-row">
-            <button id="subject-header-pin-btn" class="btn-secondary ${isPinned ? 'pinned' : ''}" onclick="window.SEM5_APP.togglePinSubject('${subject.id}', event)">
-              ${isPinned ? ICONS.pinnedFilled : ICONS.pin} <span>${isPinned ? 'Pinned Subject' : 'Pin Subject'}</span>
+          <div class="subject-action-row" style="display:flex;gap:0.5rem;">
+            <button id="subject-header-pin-btn" class="pill-btn-outline pill-btn-sm ${isPinned ? 'pinned' : ''}" onclick="window.SEM5_APP.togglePinSubject('${subject.id}', event)">
+              ${isPinned ? ICONS.pinnedFilled : ICONS.pin} <span>${isPinned ? 'PINNED' : 'PIN'}</span>
             </button>
             ${hasRichSyllabus ? `
-              <button class="btn-secondary" onclick="window.print()" title="Print Syllabus">
-                ${ICONS.printer} <span>Print Syllabus</span>
+              <button class="pill-btn-outline pill-btn-sm" onclick="window.print()" title="Print Syllabus">
+                ${ICONS.printer} <span>PRINT</span>
               </button>
             ` : ''}
           </div>
         </div>
 
-        <div class="subject-view-meta-bar">
-          <span class="meta-pill-tag" style="color:${subject.accent.primary};border-color:${subject.accent.primary};font-weight:700;">
-            ${escapeHtml(subject.code)}
-          </span>
-          <span class="meta-pill-tag">
-            Credits: ${escapeHtml(subject.credits || 'TBD')}
-          </span>
-          ${subject.contactHours ? `<span class="meta-pill-tag">${escapeHtml(subject.contactHours)}</span>` : ''}
-          ${subject.coordinator ? `<span class="meta-pill-tag">Coord: ${escapeHtml(subject.coordinator)}</span>` : ''}
-          ${subject.prerequisites ? `<span class="meta-pill-tag">Prereq: ${escapeHtml(subject.prerequisites)}</span>` : ''}
+        <div class="subject-meta-pill-bar">
+          <span class="pill-tag-green">${escapeHtml(subject.code)}</span>
+          <span class="pill-btn-outline pill-btn-sm" style="cursor:default;">${escapeHtml(subject.credits || '3')} CREDITS</span>
+          ${subject.contactHours ? `<span class="card-meta-line">${escapeHtml(subject.contactHours)}</span>` : ''}
+          ${subject.coordinator ? `<span class="card-meta-line">Coord: ${escapeHtml(subject.coordinator)}</span>` : ''}
+          ${subject.prerequisites ? `<span class="card-meta-line">Prereq: ${escapeHtml(subject.prerequisites)}</span>` : ''}
         </div>
 
         <h1 class="subject-view-title">${escapeHtml(subject.name)}</h1>
         <p class="subject-view-desc">${escapeHtml(subject.description)}</p>
 
-        <div class="overall-progress-box" style="max-width: 380px;">
-          <div class="progress-header">
-            <span style="color:var(--text-muted);">Subject Study Progress</span>
-            <span id="subject-progress-text" style="font-weight:700;color:var(--text-primary);">${progress.completed} of ${progress.total} items completed (${progress.pct}%)</span>
+        ${progress.total > 0 ? `
+          <div class="overall-progress-box">
+            <span class="card-meta-line" style="font-weight:700;color:var(--ink);">${progress.completed} of ${progress.total} Completed (${progress.pct}%)</span>
+            <div class="progress-pill-track">
+              <div id="subject-progress-fill" class="progress-pill-fill" style="width: ${progress.pct}%;"></div>
+            </div>
           </div>
-          <div class="progress-track">
-            <div id="subject-progress-fill" class="progress-fill" style="width: ${progress.pct}%; background: ${subject.accent.primary};"></div>
-          </div>
-        </div>
+        ` : ''}
       </div>
 
       <!-- Notice card for Subjects without full unit notes yet -->
       ${subject.notesNotice ? `
         <div class="notice-card">
-          <div class="notice-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          </div>
-          <div class="notice-content">
-            <h4 class="notice-title">Notes Status: In Preparation</h4>
-            <p class="notice-text">${escapeHtml(subject.notesNotice)}</p>
-          </div>
+          <h4 class="notice-title">Status: Syllabus Only</h4>
+          <p class="notice-text">${escapeHtml(subject.notesNotice)}</p>
         </div>
       ` : ''}
 
-      <!-- Subject Tabs -->
-      <div class="subject-tabs-nav">
-        <button class="subject-tab-btn ${state.currentTab === 'notes' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('notes')">
-          Unit Notes & Documents (${subject.units.filter(u => !u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
+      <!-- Pill Segmented Control Tabs (Like One-Time/Monthly in Reference) -->
+      <div class="subject-tabs-track">
+        <button class="segmented-tab ${state.currentTab === 'notes' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('notes')">
+          Notes &amp; Docs (${subject.units.filter(u => !u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
         </button>
         ${hasPractice ? `
-          <button class="subject-tab-btn ${state.currentTab === 'practice' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('practice')">
-            Practice & Question Banks (${subject.units.filter(u => u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
+          <button class="segmented-tab ${state.currentTab === 'practice' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('practice')">
+            Practice (${subject.units.filter(u => u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
           </button>
         ` : ''}
         ${hasLab ? `
-          <button class="subject-tab-btn ${state.currentTab === 'lab' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('lab')">
+          <button class="segmented-tab ${state.currentTab === 'lab' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('lab')">
             Laboratory (${escapeHtml(subject.lab.code || 'Lab')})
           </button>
         ` : ''}
         ${hasRichSyllabus ? `
-          <button class="subject-tab-btn ${state.currentTab === 'syllabus' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('syllabus')">
-            Official Syllabus & Pedagogy
+          <button class="segmented-tab ${state.currentTab === 'syllabus' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('syllabus')">
+            Syllabus &amp; Books
           </button>
         ` : ''}
       </div>
@@ -522,9 +450,7 @@
 
   function updateSubjectProgressUI(subject) {
     const progress = getSubjectProgress(subject);
-    const textEl = document.getElementById('subject-progress-text');
     const fillEl = document.getElementById('subject-progress-fill');
-    if (textEl) textEl.textContent = `${progress.completed} of ${progress.total} items completed (${progress.pct}%)`;
     if (fillEl) fillEl.style.width = `${progress.pct}%`;
   }
 
@@ -548,73 +474,80 @@
       `;
     }
 
-    return units.map(unit => {
+    return units.map((unit, idx) => {
+      const isOpen = idx === 0 ? 'open' : '';
       return `
-        <div class="unit-card">
-          <div class="unit-card-header">
-            <div class="unit-header-info">
-              <span class="unit-badge ${unit.isPractice ? 'practice' : ''}">
+        <details class="unit-pill-card" ${isOpen}>
+          <summary class="unit-card-summary">
+            <div class="unit-summary-info">
+              <span class="pill-tag-green">
                 ${unit.isPractice ? 'Practice' : (typeof unit.unitNumber === 'number' ? `Unit ${unit.unitNumber}` : unit.unitNumber)}
               </span>
-              <h3 class="unit-title-text">${escapeHtml(unit.title)}</h3>
+              <h3 class="unit-summary-title">${escapeHtml(unit.title)}</h3>
             </div>
-            <span style="font-size:0.75rem;font-family:var(--font-mono);color:var(--text-muted);">
-              ${unit.files.length} ${unit.files.length === 1 ? 'file' : 'files'}
-            </span>
-          </div>
-
-          ${unit.topics ? `
-            <div class="unit-topics-snippet">
-              <strong>Key Coverage:</strong> ${escapeHtml(unit.topics)}
+            <div class="unit-summary-meta">
+              <span>${unit.files.length} ${unit.files.length === 1 ? 'file' : 'files'}</span>
+              <span class="unit-chevron" aria-hidden="true">▾</span>
             </div>
-          ` : ''}
+          </summary>
 
-          <div class="files-list">
-            ${unit.files.map(file => renderFileRow(file, subject)).join('')}
+          <div class="unit-card-body">
+            ${unit.topics ? `
+              <p class="unit-topics-snippet">
+                <strong>Key Coverage:</strong> ${escapeHtml(unit.topics)}
+              </p>
+            ` : ''}
+
+            <div class="files-list">
+              ${unit.files.map(file => renderFileRow(file, subject)).join('')}
+            </div>
           </div>
-        </div>
+        </details>
       `;
     }).join('');
   }
 
   function renderFileRow(file, subject) {
     const isDone = !!state.progress[file.id];
+    const isLarge = file.sizeBytes && file.sizeBytes > 20000000;
+    const largeNote = isLarge ? `(~${Math.round(file.sizeBytes / 1048576)} MB)` : '';
 
     return `
-      <div class="file-row" id="file-row-${file.id}">
+      <div class="file-row ${isDone ? 'is-done' : ''}" id="file-row-${file.id}">
         <div class="file-info-group">
           <label class="done-checkbox-wrap" title="Mark as studied">
-            <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${file.id}')" />
+            <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${file.id}')" aria-label="Mark ${escapeHtml(file.title)} as studied" />
           </label>
 
-          <span class="file-type-icon ${file.type}">${file.type.toUpperCase()}</span>
+          <span class="file-type-pill">${file.type.toUpperCase()}</span>
 
           <div class="file-details-col">
             <div class="file-title-wrap">
               <span class="file-title">${escapeHtml(file.title)}</span>
-              ${file.isAlternate ? `<span class="pill-alt-notes">Alternate / Condensed</span>` : ''}
-              ${file.isConverted ? `<span style="font-size:0.7rem;color:var(--text-muted);font-family:var(--font-mono);">(Converted for browser viewing)</span>` : ''}
+              ${file.isAlternate ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">Condensed</span>` : ''}
+              ${file.isConverted ? `<span class="file-tag-converted">(Converted for preview)</span>` : ''}
+              ${isLarge ? `<span class="kbd-shortcut" title="Consider alternate notes on mobile data">${largeNote}</span>` : ''}
             </div>
             <div class="file-submeta">
-              <span>${file.size}</span>
-              <span>•</span>
+              <span class="code-mono">${file.size}</span>
+              <span>·</span>
               <span title="Original file name">${escapeHtml(file.originalName)}</span>
             </div>
           </div>
         </div>
 
         <div class="file-actions-group">
-          <button class="btn-file-action view-btn" onclick="window.SEM5_APP.openViewer('${file.id}')" title="Read in built-in PDF viewer">
-            ${ICONS.eye} <span>View</span>
+          <button class="pill-btn-green pill-btn-sm view-btn" onclick="window.SEM5_APP.openViewer('${file.id}')" title="Read in built-in PDF viewer">
+            ${ICONS.eye} <span>VIEW</span>
           </button>
           
-          <a href="${file.path}" download class="btn-file-action" title="Download PDF copy">
-            ${ICONS.download} <span>PDF</span>
+          <a href="${file.path}" download class="pill-btn-outline pill-btn-sm" title="Download PDF copy">
+            ${ICONS.download} <span>DOWNLOAD</span>
           </a>
 
           ${file.originalPath ? `
-            <a href="${file.originalPath}" download class="btn-file-action" title="Download original format (${file.type.toUpperCase()})">
-              ${ICONS.download} <span>Original (${file.originalPath.split('.').pop().toUpperCase()})</span>
+            <a href="${file.originalPath}" download class="pill-btn-outline pill-btn-sm" title="Download original format (${file.type.toUpperCase()})">
+              ${ICONS.download} <span>${file.originalPath.split('.').pop().toUpperCase()}</span>
             </a>
           ` : ''}
         </div>
@@ -689,7 +622,7 @@
                 <tbody>
                   ${syl.courseOutcomes.map(c => `
                     <tr>
-                      <td><strong style="color:var(--brand-primary);">${escapeHtml(c.co)}</strong></td>
+                      <td><strong class="code-mono">${escapeHtml(c.co)}</strong></td>
                       <td>${escapeHtml(c.text)}</td>
                       <td><span style="font-family:var(--font-mono);font-size:0.78rem;">${escapeHtml(c.mapping)}</span></td>
                     </tr>
@@ -739,13 +672,13 @@
       <div class="lab-container">
         <div class="lab-info-banner">
           <div class="subject-view-meta-bar" style="margin-bottom: 0;">
-            <span class="meta-pill-tag" style="color:var(--brand-primary);border-color:var(--brand-primary);font-weight:700;">
+            <span class="subject-code-tag">
               ${escapeHtml(lab.code)}
             </span>
-            <span class="meta-pill-tag">Credits: ${escapeHtml(lab.credits)}</span>
-            ${lab.contactHours ? `<span class="meta-pill-tag">${escapeHtml(lab.contactHours)}</span>` : ''}
-            ${lab.coordinator ? `<span class="meta-pill-tag">Coord: ${escapeHtml(lab.coordinator)}</span>` : ''}
-            ${lab.prerequisites ? `<span class="meta-pill-tag">Prereq: ${escapeHtml(lab.prerequisites)}</span>` : ''}
+            <span class="meta-text-item">Credits: ${escapeHtml(lab.credits)}</span>
+            ${lab.contactHours ? `<span class="meta-text-item">${escapeHtml(lab.contactHours)}</span>` : ''}
+            ${lab.coordinator ? `<span class="meta-text-item">Coord: ${escapeHtml(lab.coordinator)}</span>` : ''}
+            ${lab.prerequisites ? `<span class="meta-text-item">Prereq: ${escapeHtml(lab.prerequisites)}</span>` : ''}
           </div>
           <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-primary);">${escapeHtml(lab.title)}</h2>
           <p style="font-size:0.92rem;color:var(--text-secondary);">${escapeHtml(lab.description)}</p>
@@ -865,10 +798,9 @@
           </button>
         </div>
 
-        <div class="hero-pill-badge" style="margin-top: 1rem;">
-          <span class="dot" aria-hidden="true"></span>
-          <span>Official Autonomous Syllabus Scheme · ${escapeHtml(scheme.degree)}</span>
-        </div>
+        <p class="section-subtitle" style="margin-top: 1rem;">
+          Official Autonomous Syllabus Scheme · ${escapeHtml(scheme.degree)}
+        </p>
 
         <h1 class="subject-view-title" style="margin-top: 0.5rem;">${escapeHtml(scheme.title)}</h1>
         <p class="subject-view-desc">
@@ -876,21 +808,21 @@
         </p>
 
         <div class="scheme-meta-summary">
-          <div class="scheme-summary-pill">
-            <span>Total Scheme Credits:</span>
-            <strong>${scheme.totalCredits} Credits</strong>
+          <div class="scheme-summary-item">
+            <span class="meta-label">Total Scheme Credits:</span>
+            <span class="meta-val">${scheme.totalCredits} Credits</span>
           </div>
-          <div class="scheme-summary-pill">
-            <span>Total Contact Hours/Week:</span>
-            <strong>${scheme.totalContactHoursPerWeek} Hours</strong>
+          <div class="scheme-summary-item">
+            <span class="meta-label">Total Contact Hours/Week:</span>
+            <span class="meta-val">${scheme.totalContactHoursPerWeek} Hours</span>
           </div>
-          <div class="scheme-summary-pill">
-            <span>Credit Split (L:T:P):</span>
-            <strong>${scheme.creditBreakdown.L} : ${scheme.creditBreakdown.T} : ${scheme.creditBreakdown.P}</strong>
+          <div class="scheme-summary-item">
+            <span class="meta-label">Credit Split (L:T:P):</span>
+            <span class="meta-val">${scheme.creditBreakdown.L} : ${scheme.creditBreakdown.T} : ${scheme.creditBreakdown.P}</span>
           </div>
-          <div class="scheme-summary-pill">
-            <span>Self-Study Hours:</span>
-            <strong>${scheme.creditBreakdown.S} Hours</strong>
+          <div class="scheme-summary-item">
+            <span class="meta-label">Self-Study Hours:</span>
+            <span class="meta-val">${scheme.creditBreakdown.S} Hours</span>
           </div>
         </div>
       </div>
@@ -898,7 +830,6 @@
       <!-- Semester V Scheme Table -->
       <div class="scheme-section-card">
         <h2 class="scheme-section-title">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
           <span>V Semester Teaching Scheme &amp; Course Matrix</span>
         </h2>
         <p class="scheme-section-subtitle">
@@ -923,15 +854,15 @@
             <tbody>
               ${scheme.courses.map(c => `
                 <tr>
-                  <td><span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-muted);">${c.slNo}</span></td>
-                  <td><strong style="color:var(--brand-primary);font-family:var(--font-mono);">${escapeHtml(c.code)}</strong></td>
+                  <td><span class="code-mono">${c.slNo}</span></td>
+                  <td><strong class="code-mono">${escapeHtml(c.code)}</strong></td>
                   <td><strong>${escapeHtml(c.name)}</strong></td>
-                  <td><span style="font-size:0.8rem;">${escapeHtml(c.dept)}</span></td>
-                  <td><span class="rule-type-badge">${escapeHtml(c.category)}</span></td>
-                  <td><span style="font-family:var(--font-mono);font-size:0.8rem;">${escapeHtml(c.credits)}</span></td>
-                  <td><strong style="color:var(--text-primary);font-family:var(--font-mono);">${c.totalCredits}</strong></td>
-                  <td><span style="font-size:0.8rem;color:var(--text-muted);">${escapeHtml(c.contactHours)}</span></td>
-                  <td><span style="font-size:0.82rem;">${escapeHtml(c.coordinator)}</span></td>
+                  <td><span>${escapeHtml(c.dept)}</span></td>
+                  <td><span class="category-tag">${escapeHtml(c.category)}</span></td>
+                  <td><span class="code-mono">${escapeHtml(c.credits)}</span></td>
+                  <td><strong class="code-mono">${c.totalCredits}</strong></td>
+                  <td><span class="code-mono">${escapeHtml(c.contactHours)}</span></td>
+                  <td><span>${escapeHtml(c.coordinator)}</span></td>
                 </tr>
               `).join('')}
             </tbody>
@@ -985,13 +916,9 @@
 
     if (!targetFile) return;
 
-    // Track recently opened
-    trackOpenedFile(targetFile, targetSubject);
-
-    // Responsive Mobile check: on narrow screens, opening in new tab is often cleaner
+    // Responsive Mobile check: on mobile screens, opening in native browser viewer
     const isMobile = window.innerWidth < 768;
-    if (isMobile && targetFile.type === 'pdf') {
-      // Direct opening in new tab provides native pinch-to-zoom on iOS/Android
+    if (isMobile) {
       window.open(targetFile.path, '_blank');
       return;
     }
@@ -1022,40 +949,6 @@
     elements.viewerIframe.src = 'about:blank';
     elements.viewerImage.src = '';
     document.body.style.overflow = '';
-  }
-
-  // --- Exam Timetable Section ---
-  function renderTimetables() {
-    if (!elements.timetableGrid) return;
-    const tt = state.data.timetable;
-    if (!tt || !tt.enabled || !tt.items) {
-      const sec = document.getElementById('timetable-section');
-      if (sec) sec.style.display = 'none';
-      return;
-    }
-
-    elements.timetableGrid.innerHTML = tt.items.map(item => `
-      <div class="timetable-card">
-        <div class="timetable-top">
-          <span class="category-tag">${escapeHtml(item.category)}</span>
-          <span class="${item.statusBadge === 'Completed' ? 'badge-completed' : 'badge-pending'}">
-            ${escapeHtml(item.status)}
-          </span>
-        </div>
-        <h4 class="timetable-title">${escapeHtml(item.title)}</h4>
-        <p class="timetable-desc">${escapeHtml(item.description)}</p>
-        <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border-subtle);font-size:0.8rem;color:var(--text-muted);font-family:var(--font-mono);">
-          <span>${escapeHtml(item.dateRange)}</span>
-          ${item.pdfUrl ? `
-            <a href="${item.pdfUrl}" target="_blank" class="btn-file-action" style="padding:0.3rem 0.65rem;">
-              ${ICONS.eye} <span>View Schedule</span>
-            </a>
-          ` : `
-            <span style="font-style:italic;">PDF Pending</span>
-          `}
-        </div>
-      </div>
-    `).join('');
   }
 
   // --- Global Search Functionality ---
@@ -1277,21 +1170,39 @@
     if (!query) return escapeHtml(text);
     const escapedText = escapeHtml(text);
     const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
-    return escapedText.replace(regex, '<mark style="background:rgba(99,102,241,0.3);color:inherit;border-radius:2px;padding:0 2px;">$1</mark>');
+    return escapedText.replace(regex, '<mark class="search-highlight">$1</mark>');
   }
 
   // --- Event Listeners Setup ---
   function setupEventListeners() {
-    // Theme toggle
+    // Theme toggles
     if (elements.themeToggleBtn) {
       elements.themeToggleBtn.addEventListener('click', toggleTheme);
     }
+    if (elements.drawerThemeToggleBtn) {
+      elements.drawerThemeToggleBtn.addEventListener('click', toggleTheme);
+    }
 
-    // Filter Buttons
-    if (elements.filterBtns) {
-      elements.filterBtns.forEach(btn => {
+    // Mobile Menu Drawer
+    if (elements.mobileMenuBtn) {
+      elements.mobileMenuBtn.addEventListener('click', openMobileMenu);
+    }
+    if (elements.closeMobileMenuBtn) {
+      elements.closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+    }
+
+    // Header Scroll State
+    window.addEventListener('scroll', () => {
+      if (elements.siteNav) {
+        elements.siteNav.classList.toggle('is-scrolled', window.scrollY > 20);
+      }
+    }, { passive: true });
+
+    // Filter Pills
+    if (elements.filterPills) {
+      elements.filterPills.forEach(btn => {
         btn.addEventListener('click', () => {
-          elements.filterBtns.forEach(b => b.classList.remove('active'));
+          elements.filterPills.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           state.activeFilter = btn.dataset.filter || 'all';
           renderSubjectsGrid();
@@ -1351,7 +1262,9 @@
         e.preventDefault();
         openSearch();
       } else if (e.key === 'Escape') {
-        if (elements.searchModal.classList.contains('open')) {
+        if (elements.mobileMenuDrawer && elements.mobileMenuDrawer.classList.contains('open')) {
+          closeMobileMenu();
+        } else if (elements.searchModal.classList.contains('open')) {
           closeSearch();
         } else if (elements.viewerModal.classList.contains('open')) {
           closeViewer();
@@ -1404,6 +1317,9 @@
     closeSubjectView,
     openSchemeView,
     closeSchemeView,
+    openMobileMenu,
+    closeMobileMenu,
+    toggleTheme,
     switchTab,
     openViewer,
     closeViewer,
