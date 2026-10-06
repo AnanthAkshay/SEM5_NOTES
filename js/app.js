@@ -468,6 +468,42 @@
     }
   }
 
+  // --- Units Collapse/Expand State Helper ---
+  function toggleAllUnits() {
+    const container = document.getElementById('subject-container');
+    if (!container) return;
+    const detailsList = container.querySelectorAll('details.unit-pill-card');
+    if (!detailsList.length) return;
+
+    const anyOpen = Array.from(detailsList).some(d => d.open);
+    const shouldOpen = !anyOpen;
+
+    detailsList.forEach(d => {
+      d.open = shouldOpen;
+    });
+
+    const toggleBtn = document.getElementById('toggle-all-units-btn');
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      toggleBtn.innerHTML = `<span>${shouldOpen ? 'COLLAPSE ALL' : 'EXPAND ALL'}</span>`;
+    }
+
+    if (state.currentSubjectId) {
+      sessionStorage.setItem(`units_collapsed_${state.currentSubjectId}_${state.currentTab}`, shouldOpen ? 'false' : 'true');
+    }
+  }
+
+  function syncToggleAllButton() {
+    const toggleBtn = document.getElementById('toggle-all-units-btn');
+    const container = document.getElementById('subject-container');
+    if (!toggleBtn || !container) return;
+    const detailsList = container.querySelectorAll('details.unit-pill-card');
+    if (!detailsList.length) return;
+    const anyOpen = Array.from(detailsList).some(d => d.open);
+    toggleBtn.setAttribute('aria-expanded', anyOpen ? 'true' : 'false');
+    toggleBtn.innerHTML = `<span>${anyOpen ? 'COLLAPSE ALL' : 'EXPAND ALL'}</span>`;
+  }
+
   // --- Render Units & Files List ---
   function renderUnitsList(subject, isPracticeOnly = false) {
     const units = subject.units.filter(u => isPracticeOnly ? u.isPractice : !u.isPractice);
@@ -480,37 +516,48 @@
       `;
     }
 
-    return units.map((unit, idx) => {
-      const isOpen = idx === 0 ? 'open' : '';
-      return `
-        <details class="unit-pill-card" ${isOpen}>
-          <summary class="unit-card-summary">
-            <div class="unit-summary-info">
-              <span class="pill-tag-green">
-                ${unit.isPractice ? 'Practice' : (typeof unit.unitNumber === 'number' ? `Unit ${unit.unitNumber}` : unit.unitNumber)}
-              </span>
-              <h3 class="unit-summary-title">${escapeHtml(unit.title)}</h3>
-            </div>
-            <div class="unit-summary-meta">
-              <span>${unit.files.length} ${unit.files.length === 1 ? 'file' : 'files'}</span>
-              <span class="unit-chevron" aria-hidden="true">▾</span>
-            </div>
-          </summary>
+    const isCollapsed = sessionStorage.getItem(`units_collapsed_${subject.id}_${state.currentTab}`) === 'true';
+    const isOpen = !isCollapsed ? 'open' : '';
 
-          <div class="unit-card-body">
-            ${unit.topics ? `
-              <p class="unit-topics-snippet">
-                <strong>Key Coverage:</strong> ${escapeHtml(unit.topics)}
-              </p>
-            ` : ''}
+    return `
+      <div class="units-header-bar">
+        <span class="units-count-label">${units.length} ${units.length === 1 ? 'UNIT' : 'UNITS'}</span>
+        <button id="toggle-all-units-btn" class="pill-btn-outline pill-btn-sm toggle-all-btn" onclick="window.SEM5_APP.toggleAllUnits()" aria-expanded="${!isCollapsed ? 'true' : 'false'}">
+          <span>${!isCollapsed ? 'COLLAPSE ALL' : 'EXPAND ALL'}</span>
+        </button>
+      </div>
 
-            <div class="files-list">
-              ${unit.files.map(file => renderFileRow(file, subject)).join('')}
+      <div class="units-details-container">
+        ${units.map((unit, idx) => `
+          <details class="unit-pill-card" ${isOpen} ontoggle="window.SEM5_APP.syncToggleAllButton()">
+            <summary class="unit-card-summary">
+              <div class="unit-summary-info">
+                <span class="pill-tag-green">
+                  ${unit.isPractice ? 'Practice' : (typeof unit.unitNumber === 'number' ? `Unit ${unit.unitNumber}` : unit.unitNumber)}
+                </span>
+                <h3 class="unit-summary-title">${escapeHtml(unit.title)}</h3>
+              </div>
+              <div class="unit-summary-meta">
+                <span>${unit.files.length} ${unit.files.length === 1 ? 'file' : 'files'}</span>
+                <span class="unit-chevron" aria-hidden="true">▾</span>
+              </div>
+            </summary>
+
+            <div class="unit-card-body">
+              ${unit.topics ? `
+                <p class="unit-topics-snippet">
+                  <strong>Key Coverage:</strong> ${escapeHtml(unit.topics)}
+                </p>
+              ` : ''}
+
+              <div class="files-list">
+                ${unit.files.map(file => renderFileRow(file, subject)).join('')}
+              </div>
             </div>
-          </div>
-        </details>
-      `;
-    }).join('');
+          </details>
+        `).join('')}
+      </div>
+    `;
   }
 
   function renderFileRow(file, subject) {
@@ -566,27 +613,48 @@
     const syl = subject.syllabus;
     if (!syl) return '';
 
+    const isCollapsed = sessionStorage.getItem(`units_collapsed_${subject.id}_${state.currentTab}`) === 'true';
+    const isOpen = !isCollapsed ? 'open' : '';
+
     return `
       <div class="syllabus-container">
         <!-- Units Outline -->
         <div class="syllabus-section-card">
-          <h2 class="syl-card-title">Detailed Unit Syllabus & NPTEL Video Lectures</h2>
-          ${syl.units.map(u => `
-            <div class="syl-unit-block">
-              <h3 class="syl-unit-heading">${escapeHtml(u.title)}</h3>
-              <p class="syl-unit-topics">${escapeHtml(u.topics)}</p>
-              ${u.pedagogy ? `<p class="syl-pedagogy"><strong>Pedagogy:</strong> ${escapeHtml(u.pedagogy)}</p>` : ''}
-              ${u.links && u.links.length > 0 ? `
-                <div class="syl-links-list">
-                  ${u.links.map(l => `
-                    <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="syl-link-pill">
-                      ${ICONS.externalLink} <span>${escapeHtml(l.label)}</span>
-                    </a>
-                  `).join('')}
+          <div class="units-header-bar">
+            <h2 class="syl-card-title" style="margin-bottom:0;">Detailed Unit Syllabus &amp; NPTEL Video Lectures</h2>
+            <button id="toggle-all-units-btn" class="pill-btn-outline pill-btn-sm toggle-all-btn" onclick="window.SEM5_APP.toggleAllUnits()" aria-expanded="${!isCollapsed ? 'true' : 'false'}">
+              <span>${!isCollapsed ? 'COLLAPSE ALL' : 'EXPAND ALL'}</span>
+            </button>
+          </div>
+          <div class="units-details-container" style="margin-top:1.25rem;">
+            ${syl.units.map((u, idx) => `
+              <details class="unit-pill-card" ${isOpen} ontoggle="window.SEM5_APP.syncToggleAllButton()" style="margin-bottom:1rem;">
+                <summary class="unit-card-summary">
+                  <div class="unit-summary-info">
+                    <span class="pill-tag-green">Unit ${idx + 1}</span>
+                    <h3 class="unit-summary-title">${escapeHtml(u.title)}</h3>
+                  </div>
+                  <div class="unit-summary-meta">
+                    ${u.links && u.links.length > 0 ? `<span>${u.links.length} lectures</span>` : ''}
+                    <span class="unit-chevron" aria-hidden="true">▾</span>
+                  </div>
+                </summary>
+                <div class="unit-card-body" style="padding: 1.25rem 1.75rem;">
+                  <p class="syl-unit-topics">${escapeHtml(u.topics)}</p>
+                  ${u.pedagogy ? `<p class="syl-pedagogy" style="margin-top:0.5rem;"><strong>Pedagogy:</strong> ${escapeHtml(u.pedagogy)}</p>` : ''}
+                  ${u.links && u.links.length > 0 ? `
+                    <div class="syl-links-list">
+                      ${u.links.map(l => `
+                        <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="syl-link-pill">
+                          ${ICONS.externalLink} <span>${escapeHtml(l.label)}</span>
+                        </a>
+                      `).join('')}
+                    </div>
+                  ` : ''}
                 </div>
-              ` : ''}
-            </div>
-          `).join('')}
+              </details>
+            `).join('')}
+          </div>
         </div>
 
         <!-- Prescribed Textbooks & Reference Books -->
@@ -1099,6 +1167,7 @@
             action: () => {
               closeSearch();
               openSubject(subject.id);
+              switchTab(unit.isPractice ? 'practice' : 'notes');
             }
           });
         }
@@ -1117,7 +1186,17 @@
               action: () => {
                 closeSearch();
                 openSubject(subject.id);
-                setTimeout(() => openViewer(file.id), 200);
+                switchTab(unit.isPractice ? 'practice' : 'notes');
+                setTimeout(() => {
+                  const targetRow = document.getElementById(`file-row-${file.id}`);
+                  if (targetRow) {
+                    const parentDetails = targetRow.closest('details.unit-pill-card');
+                    if (parentDetails) parentDetails.open = true;
+                    targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    targetRow.classList.add('file-row-highlighted');
+                    setTimeout(() => targetRow.classList.remove('file-row-highlighted'), 2400);
+                  }
+                }, 220);
               }
             });
           }
@@ -1327,6 +1406,8 @@
     closeMobileMenu,
     toggleTheme,
     switchTab,
+    toggleAllUnits,
+    syncToggleAllButton,
     openViewer,
     closeViewer,
     toggleFileProgress,
