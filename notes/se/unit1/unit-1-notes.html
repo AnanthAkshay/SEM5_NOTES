@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 1: Professional Software Development, Processes & Agile | SE Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Software Engineering (IS52) Unit 1: Professional Development, Software Ethics, Waterfall, Incremental, Boehm's Spiral Model, CMMI, XP, and Scrum Framework.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/se" class="back-btn" title="Return to Software Engineering Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>SE Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/se">Software Engineering (IS52)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 1</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="se-u1-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 1 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Professional Software Development</a>
+        <a href="#sec-2" class="toc-link">§ 2 Software Engineering Ethics</a>
+        <a href="#sec-3" class="toc-link">§ 3 Case Studies (Insulin & Mentcare)</a>
+        <a href="#sec-4" class="toc-link">§ 4 Software Process Models</a>
+        <a href="#sec-5" class="toc-link">§ 5 Coping with Change & Spiral Model</a>
+        <a href="#sec-6" class="toc-link">§ 6 Process Improvement & CMMI</a>
+        <a href="#sec-7" class="toc-link">§ 7 Agile Methods & Extreme Programming</a>
+        <a href="#sec-8" class="toc-link">§ 8 The Scrum Framework & Velocity</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">SE &bull; IS52</span>
+          <span class="unit-tag">UNIT 1</span>
+          <span class="unit-tag read-time">~34 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Professional Software Development, Processes & Agile</h1>
+        <p class="unit-subtitle">Comprehensive coverage of engineering ethics, attributes of good software, classical process models (Waterfall, Incremental, Reuse-oriented), Boehm's Spiral risk model, CMMI maturity levels, Extreme Programming (XP), and the Scrum framework with worked sprint velocity metrics.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Professional Software Development:</strong> Software engineering definition, attributes of good software (maintainability, dependability, efficiency, acceptability), engineering diversity.</li>
+            <li><strong>Software Engineering Ethics:</strong> ACM/IEEE Code of Ethics 8 principles (Public, Client/Employer, Product, Judgment, Management, Profession, Colleagues, Self).</li>
+            <li><strong>Case Studies:</strong> Insulin Pump control system (safety-critical), Mentcare mental health system (privacy-critical), Wilderness weather station.</li>
+            <li><strong>Software Processes:</strong> Waterfall model, Incremental development, Integration and configuration / Reuse-oriented engineering.</li>
+            <li><strong>Process Activities & Change:</strong> Specification, Development, Validation, Evolution; Prototyping, Boehm's Spiral Model.</li>
+            <li><strong>Process Improvement:</strong> CMMI 5 capability maturity levels.</li>
+            <li><strong>Agile Software Development:</strong> Agile Manifesto principles, Plan-driven vs Agile, Extreme Programming (XP: pair programming, TDD, refactoring).</li>
+            <li><strong>Scrum Framework:</strong> Roles (Product Owner, Scrum Master, Team), Events (Sprint, Planning, Daily Scrum, Review, Retrospective), Artifacts (Product Backlog, Sprint Backlog, Increment, Burndown).</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit1/unit-1-1.pdf" class="source-link" target="_blank" rel="noopener">Unit 1.1 Slides PDF</a>
+          <a href="../unit1/unit-1-2.pdf" class="source-link" target="_blank" rel="noopener">Unit 1.2 Agile PDF</a>
+          <a href="../unit1/unit-1-3.pdf" class="source-link" target="_blank" rel="noopener">Unit 1.3 Requirements PDF</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Professional Software Development & Essential Attributes</h2>
+
+        <p class="section-lead"><strong>Software Engineering</strong> is an engineering discipline concerned with all aspects of software production from early system specification through to maintaining the system after it has gone into use.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">SOFTWARE ENGINEERING VS COMPUTER SCIENCE</span>
+          <ul>
+            <li><strong>Computer Science:</strong> Concerned with theories, mathematical algorithms, and foundational computation principles.</li>
+            <li><strong>Software Engineering:</strong> Concerned with the practical problems of producing software: economics, project management, customer collaboration, team development, toolchains, and quality assurance.</li>
+          </ul>
+        </div>
+
+        <h3>The Four Essential Attributes of Good Software</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Engineering Definition</th>
+                <th>Practical Significance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Maintainability</strong></td>
+                <td>Software must be written in such a way that it can evolve to meet the changing needs of customers.</td>
+                <td>Over 70% of lifecycle software costs occur after initial delivery during maintenance and adaptation.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Dependability & Security</strong></td>
+                <td>Includes reliability, security, safety, and resilience. Software should not cause physical or economic damage in the event of system failure.</td>
+                <td>Essential for safety-critical medical devices, banking transactions, and aerospace control systems.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Efficiency</strong></td>
+                <td>Software should not make wasteful use of system resources (memory, CPU processing cycles, network bandwidth).</td>
+                <td>Critical for battery-powered mobile devices and cloud microservices where compute costs scale with usage.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Acceptability</strong></td>
+                <td>Software must be acceptable to the type of users for which it was designed: understandable, usable, and compatible with other systems.</td>
+                <td>Software with great architecture will still fail in the marketplace if the user experience is hostile.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Software engineering focuses on practical, cost-effective delivery of reliable software.</li>
+            <li>4 Essential Attributes: <strong>Maintainability, Dependability/Security, Efficiency, Acceptability</strong>.</li>
+            <li>Maintenance constitutes the majority of the lifetime cost of software.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Software Engineering Ethics (ACM/IEEE Code)</h2>
+
+        <p class="section-lead">Software engineers do not simply apply technical skills; they carry ethical and social responsibilities. Software can directly impact human safety, privacy, and economic well-being. The joint <strong>ACM/IEEE-CS Code of Ethics</strong> establishes eight ethical principles.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Principle #</th>
+                <th>Principle Name</th>
+                <th>Core Ethical Mandate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1</strong></td>
+                <td><strong>PUBLIC</strong></td>
+                <td>Software engineers shall act consistently with the public interest, prioritizing safety, health, and welfare.</td>
+              </tr>
+              <tr>
+                <td><strong>2</strong></td>
+                <td><strong>CLIENT & EMPLOYER</strong></td>
+                <td>Act in the best interests of their client and employer, consistent with the public interest.</td>
+              </tr>
+              <tr>
+                <td><strong>3</strong></td>
+                <td><strong>PRODUCT</strong></td>
+                <td>Ensure that products and related modifications meet the highest professional standards possible.</td>
+              </tr>
+              <tr>
+                <td><strong>4</strong></td>
+                <td><strong>JUDGMENT</strong></td>
+                <td>Maintain integrity and independence in their professional judgment; reject bribes or compromised audits.</td>
+              </tr>
+              <tr>
+                <td><strong>5</strong></td>
+                <td><strong>MANAGEMENT</strong></td>
+                <td>Managers and leaders shall subscribe to and promote an ethical approach to the management of software development.</td>
+              </tr>
+              <tr>
+                <td><strong>6</strong></td>
+                <td><strong>PROFESSION</strong></td>
+                <td>Advance the integrity and reputation of the profession consistent with the public interest.</td>
+              </tr>
+              <tr>
+                <td><strong>7</strong></td>
+                <td><strong>COLLEAGUES</strong></td>
+                <td>Be fair to and supportive of their colleagues; mentor junior engineers and credit intellectual contributions.</td>
+              </tr>
+              <tr>
+                <td><strong>8</strong></td>
+                <td><strong>SELF</strong></td>
+                <td>Participate in lifelong learning regarding the practice of their profession and promote an ethical approach.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>ACM/IEEE Code of Ethics contains 8 principles.</li>
+            <li>Top priority: <strong>Public interest ALWAYS supersedes client or employer demands!</strong></li>
+            <li>Confidentiality, Competence, and Intellectual Property must be honored.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Three Landmark Case Studies (Sommerville)</h2>
+
+        <p class="section-lead">Sommerville grounds software engineering principles in three diverse real-world systems, each illustrating different operational challenges.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Case Study System</th>
+                <th>System Domain</th>
+                <th>Core Architectural & Engineering Challenges</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Insulin Pump Control System</strong></td>
+                <td>Embedded safety-critical medical device</td>
+                <td>
+                  Monitors blood glucose levels and injects calculated micro-doses of insulin. <strong>Zero margin for error:</strong> overdosing induces hypoglycemic coma/death; underdosing causes organ failure. Requires formal verification, fault-tolerant fail-safe hardware backups, and rigorous plan-driven documentation.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>2. Mentcare Mental Health System</strong></td>
+                <td>Information system / Clinical record database</td>
+                <td>
+                  Maintains patient history and prescribed medications across regional mental health clinics. <strong>Primary challenge:</strong> balancing medical staff access in psychiatric emergencies with strict patient data privacy regulations (HIPAA/GDPR).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>3. Wilderness Weather Station</strong></td>
+                <td>Distributed sensor data collection</td>
+                <td>
+                  Autonomous weather sensor stations deployed in harsh, remote wilderness with solar/battery power and satellite communications. <strong>Primary challenge:</strong> power conservation, self-healing reboot mechanisms, dynamic reconfiguration, and autonomous sensor calibration without human intervention.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Insulin Pump: Safety-critical, formal verification, fail-safe architecture.</li>
+            <li>Mentcare: Information system, privacy regulations vs emergency usability.</li>
+            <li>Wilderness Weather Station: Distributed, low power, autonomous fault recovery.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">Software Process Models</h2>
+
+        <p class="section-lead">A <strong>software process</strong> is a structured set of activities required to develop a software system. All processes involve four fundamental activities: <strong>Specification</strong> (defining requirements), <strong>Development</strong> (design and coding), <strong>Validation</strong> (testing), and <strong>Evolution</strong> (maintenance).</p>
+
+        <h3>1. The Waterfall Model (Classic SDLC)</h3>
+        <p>A strictly plan-driven, sequential process where each phase must be signed off before the next phase begins:</p>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div><strong>Requirements Analysis & Definition:</strong> System services, constraints, and goals established with users.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div><strong>System & Software Design:</strong> Overall system architecture and data structures established.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div><strong>Implementation & Unit Testing:</strong> Code written and verified as individual modules.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">4</span>
+            <div><strong>Integration & System Testing:</strong> Individual program units integrated and tested as a complete system.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">5</span>
+            <div><strong>Operation & Maintenance:</strong> System installed, put into practical use, and bugs fixed over time.</div>
+          </div>
+        </div>
+        <p><em>Strengths:</em> Highly structured, predictable documentation, clear milestones for contract management.<br>
+        <em>Weaknesses:</em> Inflexible partitioning; late integration; disaster strikes if requirements change halfway through.</p>
+
+        <h3>2. Incremental Development</h3>
+        <p>Specification, development, and validation are interleaved. The system is developed as a series of increments (versions), with each increment adding functional features to previous releases.</p>
+        <ul>
+          <li><strong>Advantages:</strong> Cost of accommodating changing customer requirements is greatly reduced; early feedback from working software; rapid delivery of useful functionality.</li>
+          <li><strong>Disadvantages:</strong> Process is not visible (managers need documents to measure progress); system architecture tends to degrade as new increments are added unless refactored.</li>
+        </ul>
+
+        <h3>3. Reuse-Oriented Software Engineering (Integration & Configuration)</h3>
+        <p>Relies on integrating existing Commercial Off-The-Shelf (COTS) software components, open-source libraries, or cloud web services rather than writing from scratch.</p>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>4 Activities: Specification &rarr; Development &rarr; Validation &rarr; Evolution.</li>
+            <li>Waterfall: sequential, rigid, document-driven, best for stable requirements (embedded/safety-critical).</li>
+            <li>Incremental: interleaved, early feedback, lower risk of customer rejection.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Coping with Change & Boehm's Spiral Model</h2>
+
+        <p class="section-lead">Change is an inevitable reality in all software development. Software engineering processes incorporate two primary strategies to reduce the cost of rework: <strong>System Prototyping</strong> and <strong>Boehm's Spiral Model</strong>.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">SYSTEM PROTOTYPING: THROWAWAY VS EVOLUTIONARY</span>
+          <ul>
+            <li><strong>Throwaway Prototyping:</strong> A quick prototype developed solely to clarify poorly understood requirements. Once requirements are clear, the prototype is discarded and the production system is engineered properly.</li>
+            <li><strong>Evolutionary Prototyping:</strong> Starts with an initial working prototype that is repeatedly refined through customer feedback, eventually evolving into the final delivered product.</li>
+          </ul>
+        </div>
+
+        <h3>Boehm's Spiral Model (Risk-Driven Process)</h3>
+        <p>In Barry Boehm's Spiral Model, the software process is represented as a spiral rather than a sequence of activities with backtracking. Each loop represents a phase of the process, partitioned into <strong>four distinct sectors</strong>:</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Sector #</th>
+                <th>Spiral Sector Name</th>
+                <th>Activities Conducted in Sector</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Quadrant 1</strong></td>
+                <td><strong>Determine Objectives & Constraints</strong></td>
+                <td>Specific objectives for the phase identified; constraints on the process and product determined; alternative management plans drawn up.</td>
+              </tr>
+              <tr>
+                <td><strong>Quadrant 2</strong></td>
+                <td><strong>Identify & Resolve Risks</strong></td>
+                <td>Detailed risk analysis conducted; prototyping and simulation used to resolve identified technical, management, and cost risks.</td>
+              </tr>
+              <tr>
+                <td><strong>Quadrant 3</strong></td>
+                <td><strong>Development & Testing</strong></td>
+                <td>A development model (Waterfall, Incremental) chosen based on remaining risks; software is designed, coded, and verified.</td>
+              </tr>
+              <tr>
+                <td><strong>Quadrant 4</strong></td>
+                <td><strong>Plan the Next Phase</strong></td>
+                <td>Project is reviewed; decision made whether to continue with a further loop; next phase plans developed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Spiral model is strictly <strong>risk-driven</strong>: each loop incorporates risk assessment.</li>
+            <li>4 Quadrants: (1) Objectives &rarr; (2) Risk Analysis &rarr; (3) Development &rarr; (4) Planning next phase.</li>
+            <li>Radius of spiral represents cumulative cost; angular dimension represents progress.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Process Improvement & The CMMI Framework</h2>
+
+        <p class="section-lead">Process improvement aims to understand existing processes and change them to improve product quality, reduce costs, or accelerate delivery schedules. The <strong>Capability Maturity Model Integration (CMMI)</strong> provides a staged architecture to evaluate organizational maturity.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Level #</th>
+                <th>CMMI Maturity Level</th>
+                <th>Characterization of Organizational Process</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Level 1</strong></td>
+                <td><strong>Initial (Ad-hoc)</strong></td>
+                <td>Processes are unpredictable, poorly controlled, and reactive. Success depends entirely on individual heroics.</td>
+              </tr>
+              <tr>
+                <td><strong>Level 2</strong></td>
+                <td><strong>Managed (Repeatable)</strong></td>
+                <td>Basic project management practices established (tracking costs, schedule, functionality). Repeatable across similar projects.</td>
+              </tr>
+              <tr>
+                <td><strong>Level 3</strong></td>
+                <td><strong>Defined</strong></td>
+                <td>Processes documented, standardized, and integrated across the entire organization. Standard software process defined.</td>
+              </tr>
+              <tr>
+                <td><strong>Level 4</strong></td>
+                <td><strong>Quantitatively Managed</strong></td>
+                <td>Detailed quantitative metrics collected for both process and product quality. Statistical process control applied.</td>
+              </tr>
+              <tr>
+                <td><strong>Level 5</strong></td>
+                <td><strong>Optimizing</strong></td>
+                <td>Continuous process improvement achieved through quantitative feedback and innovative pilot technology insertion.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>CMMI 5 Levels: <strong>Initial &rarr; Managed &rarr; Defined &rarr; Quantitatively Managed &rarr; Optimizing</strong>.</li>
+            <li>Level 2 establishes project tracking; Level 3 standardizes company-wide; Level 4 measures with stats; Level 5 optimizes continuously.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Agile Software Development & Extreme Programming (XP)</h2>
+
+        <p class="section-lead">Dissatisfaction with the overhead of heavy plan-driven models led in 2001 to the <strong>Agile Manifesto</strong>, prioritizing working software, collaboration, and rapid responsiveness over rigid process documentation.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">THE 4 CORE VALUES OF THE AGILE MANIFESTO</span>
+          <ol>
+            <li><strong>Individuals and interactions</strong> over processes and tools.</li>
+            <li><strong>Working software</strong> over comprehensive documentation.</li>
+            <li><strong>Customer collaboration</strong> over contract negotiation.</li>
+            <li><strong>Responding to change</strong> over following a plan.</li>
+          </ol>
+        </div>
+
+        <h3>Extreme Programming (XP) Key Practices</h3>
+        <ul>
+          <li><strong>Pair Programming:</strong> Developers work in pairs at a single workstation (driver and navigator). Continuous peer code review improves quality and shares knowledge.</li>
+          <li><strong>Test-First Development (TDD):</strong> Automated unit tests are written <em>before</em> writing the code itself. Code is only considered complete when it passes all tests.</li>
+          <li><strong>Refactoring:</strong> Programmers continuously look for improvements to code structure ("cleaning code smells") even if no new functionality is added.</li>
+          <li><strong>Continuous Integration:</strong> Code is integrated into the mainline repository multiple times a day; automated tests immediately verify build integrity.</li>
+          <li><strong>Small Releases:</strong> Releases occur every two to three weeks, keeping user feedback immediate.</li>
+        </ul>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Agile values working software and responding to change over rigid documentation.</li>
+            <li>XP practices: Pair Programming, Test-First Development (TDD), Refactoring, Continuous Integration.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-8" class="note-section">
+        <div class="section-badge">&sect; 8</div>
+        <h2 class="section-title">The Scrum Framework, Sprint Velocity & Burndown</h2>
+
+        <p class="section-lead"><strong>Scrum</strong> is an agile framework that focuses on managing iterative development rather than specific programming practices. It provides a lightweight structure of roles, events, and artifacts.</p>
+
+        <h3>Scrum Roles, Events, and Artifacts</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Scrum Dimension</th>
+                <th>Element</th>
+                <th>Role & Responsibility</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3"><strong>Roles</strong></td>
+                <td><strong>Product Owner</strong></td>
+                <td>Represents the business and customer. Owns, prioritizes, and maintains the Product Backlog.</td>
+              </tr>
+              <tr>
+                <td><strong>Scrum Master</strong></td>
+                <td>Servant-leader. Ensures Scrum practices are followed, facilitates meetings, and removes external impediments for the team.</td>
+              </tr>
+              <tr>
+                <td><strong>Development Team</strong></td>
+                <td>Self-organizing, cross-functional team (typically 5&ndash;9 people) that designs, develops, tests, and delivers the increment.</td>
+              </tr>
+              <tr>
+                <td rowspan="5"><strong>Events</strong></td>
+                <td><strong>Sprint</strong></td>
+                <td>Fixed time-box of 1 to 4 weeks during which a "Done" usable increment is created.</td>
+              </tr>
+              <tr>
+                <td><strong>Sprint Planning</strong></td>
+                <td>Team selects user stories from Product Backlog and defines how they will be built.</td>
+              </tr>
+              <tr>
+                <td><strong>Daily Scrum</strong></td>
+                <td>15-minute daily standup answering: What did I do yesterday? What will I do today? Any blockers?</td>
+              </tr>
+              <tr>
+                <td><strong>Sprint Review</strong></td>
+                <td>Demo of completed increment to stakeholders for live feedback.</td>
+              </tr>
+              <tr>
+                <td><strong>Sprint Retrospective</strong></td>
+                <td>Team reflects on its own process to identify continuous improvements for next sprint.</td>
+              </tr>
+              <tr>
+                <td rowspan="3"><strong>Artifacts</strong></td>
+                <td><strong>Product Backlog</strong></td>
+                <td>Prioritized master list of all features, enhancements, and bug fixes for the product.</td>
+              </tr>
+              <tr>
+                <td><strong>Sprint Backlog</strong></td>
+                <td>The subset of product backlog items chosen for the current sprint plus technical tasks.</td>
+              </tr>
+              <tr>
+                <td><strong>Increment</strong></td>
+                <td>The sum of all Product Backlog items completed during a Sprint meeting the Definition of Done.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL: SPRINT VELOCITY -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; FULLY VERIFIED PASS</span>
+            <span class="problem-points">[8 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">Scrum Velocity and Release Burndown Calculation</h4>
+          <p>A software product backlog starts with a total estimated scope of $\mathbf{180\text{ Story Points (SP)}}$. A Scrum team completes three consecutive 2-week sprints with the following completed story points:</p>
+          <ul>
+            <li>Sprint 1: Planned 45 SP &rarr; Completed 40 SP</li>
+            <li>Sprint 2: Planned 45 SP &rarr; Completed 45 SP</li>
+            <li>Sprint 3: Planned 50 SP &rarr; Completed 47 SP</li>
+          </ul>
+          <p>Calculate: (a) The total completed points, (b) The team's average velocity, (c) The remaining backlog, and (d) The estimated number of additional sprints needed to finish the release.</p>
+
+          <p><strong>Step 1: Total Completed Points:</strong></p>
+          $$\text{Total Completed} = 40 + 45 + 47 = \mathbf{132\text{ Story Points}}$$
+
+          <p><strong>Step 2: Team Average Velocity:</strong></p>
+          $$\text{Velocity} = \frac{\text{Total Completed}}{\text{Number of Sprints}} = \frac{132}{3} = \mathbf{44.00\text{ SP per sprint}}$$
+
+          <p><strong>Step 3: Remaining Backlog:</strong></p>
+          $$\text{Remaining Backlog} = 180 - 132 = \mathbf{48\text{ Story Points}}$$
+
+          <p><strong>Step 4: Estimated Additional Sprints:</strong></p>
+          $$\text{Sprints Remaining} = \frac{\text{Remaining Backlog}}{\text{Average Velocity}} = \frac{48}{44.00} \approx \mathbf{1.09\text{ sprints}}$$
+          <div class="result-box">
+            The project requires $\lceil 1.09 \rceil = \mathbf{2\text{ additional sprints}}$ (4 weeks) to fully deliver the remaining backlog items.
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Scrum Roles: Product Owner (backlog priority), Scrum Master (coach/remover of blockers), Team (delivery).</li>
+            <li>Scrum Events: Sprint, Planning, Daily Standup (15 min), Review (demo), Retrospective (process improvement).</li>
+            <li>Velocity = Story points completed per sprint; Burndown tracks remaining work over time.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Good Software Attributes</h4>
+            <ul>
+              <li>Maintainability: evolvable to change (70% cost).</li>
+              <li>Dependability/Security: reliable and safe.</li>
+              <li>Efficiency: zero resource waste.</li>
+              <li>Acceptability: usable and adopted by users.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Process Models</h4>
+            <ul>
+              <li>Waterfall: sequential, plan-driven, document-heavy.</li>
+              <li>Incremental: interleaved, early delivery, reduced risk.</li>
+              <li>Spiral Model: 4 sectors, strictly risk-driven.</li>
+              <li>CMMI: Initial &rarr; Managed &rarr; Defined &rarr; Quant Managed &rarr; Optimizing.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Extreme Programming (XP)</h4>
+            <ul>
+              <li>Pair programming: driver & navigator.</li>
+              <li>TDD: write automated unit tests before code.</li>
+              <li>Refactoring: clean architecture continuously.</li>
+              <li>Continuous integration: merge code multiple times/day.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Scrum Framework</h4>
+            <ul>
+              <li>PO: owns product backlog. SM: process facilitator.</li>
+              <li>Sprint: 1&ndash;4 weeks time-box.</li>
+              <li>Artifacts: Product Backlog, Sprint Backlog, Increment.</li>
+              <li>Velocity: $\sum SP_{completed} / \text{Sprints}$.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> List the four essential attributes of professional software.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> (1) Maintainability, (2) Dependability and Security, (3) Efficiency, and (4) Acceptability.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is the primary difference between plan-driven and agile development?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> In plan-driven development, all process activities are planned in advance and progress is measured against this formal plan. In agile development, planning is incremental and continual, and it is easier to change the software to meet evolving customer needs.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What are the four sectors in Boehm's Spiral Model?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> (1) Determine objectives and constraints, (2) Identify and resolve risks, (3) Development and validation, and (4) Plan the next phase.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the roles and ceremonies in the Scrum framework.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Detail the three roles (Product Owner, Scrum Master, Development Team) and the five standard ceremonies (Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) as presented in Section 8.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Describe the five maturity levels of the CMMI framework.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> (1) Initial (ad-hoc), (2) Managed (project tracking), (3) Defined (organization-wide standards), (4) Quantitatively Managed (statistical process control), and (5) Optimizing (continuous technological innovation), as detailed in Section 6.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Compare the Waterfall model with Incremental development. Under what project conditions should each be selected?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong> Compare both models across phase overlap, accommodation of requirement changes, customer feedback speed, documentation overhead, and architectural integrity. Recommend Waterfall for critical systems with fixed specifications (e.g. avionics, medical pumps) and Incremental for e-commerce, cloud software, and business applications with volatile requirements.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past CIE examination papers in <code>notes/se/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Software Engineering (IS52)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain the waterfall model with a neat diagram. Discuss its advantages and disadvantages."</p>
+          <p class="archive-note"><em>Study Note:</em> Full 5-step flow and evaluation provided in Section 4.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Question Bank</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"What is Extreme Programming (XP)? Explain key XP practices including pair programming, test-driven development, and refactoring."</p>
+          <p class="archive-note"><em>Study Note:</em> Key practices detailed in Section 7.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Model Question Paper</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain the Scrum framework in detail. Define Product Backlog, Sprint, Sprint Backlog, and Burndown charts."</p>
+          <p class="archive-note"><em>Study Note:</em> Comprehensive roles, ceremonies, and artifacts table plus worked velocity problem provided in Section 8.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; PROCESS SELECTION</span>
+          </div>
+          <h4 class="problem-title">Which process model would you recommend for developing flight control software for a commercial airliner? Justify.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p><strong>Recommendation: The Waterfall Model (Plan-Driven).</strong></p>
+              <p>Flight control software is safety-critical. Requirements are thoroughly analyzed and regulated by aviation authorities before development begins. Comprehensive formal documentation, traceability, and sign-offs are mandatory for regulatory certification, and unexpected architectural changes during late phases would be disastrous.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; SPRINT VELOCITY</span>
+          </div>
+          <h4 class="problem-title">A team completes 30, 34, and 38 story points in sprints 1, 2, and 3. How many 2-week sprints will it take to finish a 170-point product backlog?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ul>
+                <li>Total completed = $30 + 34 + 38 = 102\text{ SP}$.</li>
+                <li>Average velocity = $102 / 3 = 34\text{ SP/sprint}$.</li>
+                <li>Remaining backlog = $170 - 102 = 68\text{ SP}$.</li>
+                <li>Sprints remaining = $68 / 34 = \mathbf{2\text{ sprints}}$ (4 weeks).</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Ian Sommerville</strong> &mdash; <em>Software Engineering</em>, 10th Edition, Pearson, Chapters 1, 2, & 3.</li>
+            <li><strong>Roger S. Pressman, Bruce R. Maxim</strong> &mdash; <em>Software Engineering: A Practitioner's Approach</em>, 9th Edition, McGraw Hill, Chapters 1, 2, & 3.</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 1 (Course Code IS52).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../../../notes/ai/unit3/unit-3-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS SUBJECT &bull; UNIT 3</span>
+              <span class="pag-title">Artificial Intelligence (ISE552): CSP & Minimax</span>
+            </div>
+          </a>
+          <a href="../unit2/unit-2-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT UNIT</span>
+              <span class="pag-title">Unit 2: Requirements Engineering & Modeling</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
