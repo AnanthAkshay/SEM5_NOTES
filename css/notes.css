@@ -521,6 +521,8 @@ body {
   padding: 2.25rem 2.25rem;
   margin-bottom: 2.5rem;
   box-shadow: var(--shadow-faint);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 .section-number {
