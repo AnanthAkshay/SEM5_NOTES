@@ -418,6 +418,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "ml-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/ml/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "38 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "ml-u1-pdf",
               title: "ML Unit 1: Introduction & Concept Learning Notes",
               originalName: "Unit 1.pdf",
@@ -438,6 +450,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "ml-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/ml/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "42 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "ml-u2-pdf",
               title: "ML Unit 2: Decision Tree Learning & Artificial Neural Networks",
               originalName: "Unit 2.pdf",
@@ -457,6 +481,18 @@ window.SEM5_DATA = {
           topics: "Nearest-Neighbor Learning, Weighted KNN, LWR. Linear Regression, Multiple Linear Regression, Polynomial Regression, Logistic Regression. Decision Tree Induction.",
           isPractice: false,
           files: [
+            {
+              id: "ml-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/ml/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
             {
               id: "ml-u3-poly-pdf",
               title: "Unit 3: Polynomial Regression & Mathematical Formulation",
@@ -677,6 +713,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "se-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/se/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "se-u1-1-pdf",
               title: "Unit 1.1: Software Processes & SDLC Models",
               originalName: "Unit 1.1.pptx",
@@ -719,6 +767,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "se-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/se/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "42 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "se-u2-pdf",
               title: "Unit 2: Architectural Design & System Architecture Notes",
               originalName: "Unit 2.pptx",
@@ -729,6 +789,27 @@ window.SEM5_DATA = {
               sizeBytes: 416031,
               isConverted: true
             }
+          ]
+        },
+                {
+          id: "se-unit3",
+          unitNumber: 3,
+          title: "Unit 3: Architectural Design & Implementation",
+          topics: "Architectural design decisions, architectural views (4+1), architectural patterns (Layered, Repository, Client-Server, Pipe and Filter), application architectures, object-oriented design and design patterns.",
+          isPractice: false,
+          files: [
+            {
+              id: "se-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/se/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "42 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
           ]
         },
         {
@@ -970,6 +1051,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "cn-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/cn/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "42 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "cn-u1-pdf",
               title: "IS53 CN Unit 1 Complete Notes",
               originalName: "IS53-CN-Unit1.pptx",
@@ -990,6 +1083,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "cn-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/cn/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "45 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "cn-u2-pdf",
               title: "IS53 CN Unit 2 Complete Notes",
               originalName: "IS53-CN-Unit2.pptx",
@@ -1000,6 +1105,27 @@ window.SEM5_DATA = {
               sizeBytes: 10268479,
               isConverted: true
             }
+          ]
+        },
+                {
+          id: "cn-unit3",
+          unitNumber: 3,
+          title: "Unit 3: Network Layer Services, IPv4 & Routing",
+          topics: "Network Layer Design Issues, IPv4 Addressing, Subnetting & CIDR, Routing Algorithms (Distance Vector, Link State / Dijkstra), Hierarchical Routing, Congestion Control Principles.",
+          isPractice: false,
+          files: [
+            {
+              id: "cn-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/cn/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "45 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
           ]
         },
         {
@@ -1149,6 +1275,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "toc-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/toc/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "42 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "toc-u1-main",
               title: "Unit 1: Finite Automata & Regular Expressions (Comprehensive)",
               originalName: "Unit 1.pdf",
@@ -1183,6 +1321,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "toc-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/toc/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "toc-u2-main",
               title: "Unit 2: Regular Languages & Pumping Lemma (Comprehensive)",
               originalName: "Unit 2.pdf",
@@ -1203,6 +1353,18 @@ window.SEM5_DATA = {
           topics: "Context free grammars, Parse trees: Constructing parse trees, The yield of a parse tree, Applications, Ambiguity in grammars and Languages, Normal forms for CFGs.",
           isPractice: false,
           files: [
+            {
+              id: "toc-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/toc/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "42 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
             {
               id: "toc-u3-main",
               title: "Unit 3: CFGs & Pushdown Automata (Comprehensive)",
@@ -1306,7 +1468,7 @@ window.SEM5_DATA = {
       contactHours: "45L+45S",
       coordinator: "Dr. Jagadeesh Sai D",
       prerequisites: "NIL",
-      status: "syllabus_only",
+      status: "full_notes",
       accent: {
         primary: "#8B5CF6",
         secondary: "#A78BFA",
@@ -1315,7 +1477,7 @@ window.SEM5_DATA = {
       },
       tags: ["Program Elective", "PEC", "AI & ML Track"],
       description: "Foundations of intelligent agents, problem-solving search algorithms, game playing, propositional and first-order logic reasoning, uncertainty, and modern Generative AI foundations.",
-      notesNotice: "Notes coming soon. The complete official syllabus, NPTEL video lecture links, recommended textbooks, and evaluation scheme are detailed below.",
+      // notesNotice: "Notes coming soon. The complete official syllabus, NPTEL video lecture links, recommended textbooks, and evaluation scheme are detailed below.",
       syllabus: {
         textbook: {
           title: "Artificial Intelligence: A Modern Approach",
@@ -1420,6 +1582,69 @@ window.SEM5_DATA = {
         ]
       },
       units: [
+                {
+          id: "ai-unit1",
+          unitNumber: 1,
+          title: "Unit 1: Introduction to AI, Intelligent Agents & Problem Formulation",
+          topics: "Foundations of AI, Rational Agents, PEAS Framework, Agent Environment Classification, Agent Architectures (Reflex, Goal, Utility, Learning), State-Space Problem Formulation.",
+          isPractice: false,
+          files: [
+            {
+              id: "ai-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/ai/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+          ]
+        },
+        {
+          id: "ai-unit2",
+          unitNumber: 2,
+          title: "Unit 2: Uninformed, Informed & Local Search Strategies",
+          topics: "Uninformed Search (BFS, DFS, UCS, DLS, IDDFS), Heuristic Search (Greedy Best-First, A* Graph Search, Admissible & Consistent Heuristics), Local Search (Hill Climbing, Simulated Annealing).",
+          isPractice: false,
+          files: [
+            {
+              id: "ai-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/ai/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "45 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+          ]
+        },
+        {
+          id: "ai-unit3",
+          unitNumber: 3,
+          title: "Unit 3: Adversarial Search (Games) & Constraint Satisfaction Problems",
+          topics: "Game Theory, Minimax Algorithm, Alpha-Beta Pruning, CSP Formulation, Constraint Propagation (AC-3 Algorithm), Backtracking Search with MRV & Forward Checking.",
+          isPractice: false,
+          files: [
+            {
+              id: "ai-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/ai/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "42 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+          ]
+        },
         {
           id: "ai-syllabus-unit",
           unitNumber: "Syllabus",
@@ -1588,6 +1813,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "rmipr-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/rmipr/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "38 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "rmipr-u1-pdf",
               title: "RM & IPR Unit 1 Complete Presentation Notes",
               originalName: "RM & IPR Unit 1 PPT (1).pptx",
@@ -1608,6 +1845,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "rmipr-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/rmipr/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "rmipr-u2-pdf",
               title: "RM & IPR Unit 2 Complete Presentation Notes",
               originalName: "Unit 2 ppt.pptx",
@@ -1618,6 +1867,27 @@ window.SEM5_DATA = {
               sizeBytes: 1319874,
               isConverted: true
             }
+          ]
+        },
+                {
+          id: "rmipr-unit3",
+          unitNumber: 3,
+          title: "Unit 3: Data Collection, Sampling & Hypothesis Testing",
+          topics: "Primary & Secondary Data, Measurement & Scaling (Stevens' 4 Scales), Sampling Designs, Hypothesis Testing (Z-test, t-test, Chi-square), ANOVA & ANOCOVA.",
+          isPractice: false,
+          files: [
+            {
+              id: "rmipr-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/rmipr/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "45 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
           ]
         },
         {
@@ -1676,7 +1946,7 @@ window.SEM5_DATA = {
       contactHours: "15L+15S",
       coordinator: "J R Shruti",
       prerequisites: "HTML, CSS, and JavaScript",
-      status: "syllabus_only",
+      status: "full_notes",
       accent: {
         primary: "#3B82F6",
         secondary: "#60A5FA",
@@ -1685,7 +1955,7 @@ window.SEM5_DATA = {
       },
       tags: ["Ability Enhancement", "AEC-V", "Frontend Web"],
       description: "Declarative UI, React philosophy, JSX compilation, functional & class components, props & state management, SyntheticEvents, controlled forms, React DevTools, React Router, Hooks, CSS styling, and Netlify deployment.",
-      notesNotice: "Notes coming soon. The complete 5-unit official syllabus with official documentation links and textbook details is presented below.",
+      // notesNotice: "Notes coming soon. The complete 5-unit official syllabus with official documentation links and textbook details is presented below.",
       syllabus: {
         textbook: {
           title: "Beginning ReactJS Foundations Building User Interfaces with ReactJS An Approachable Guide",
@@ -1781,6 +2051,69 @@ window.SEM5_DATA = {
         ]
       },
       units: [
+                {
+          id: "reactjs-unit1",
+          unitNumber: 1,
+          title: "Unit 1: Introduction to React, Vite & JSX",
+          topics: "React Philosophy, Declarative UI, Virtual DOM & Reconciliation, Vite Setup, Project Structure, JSX Syntax, Embedding Expressions, Conditional & List Rendering.",
+          isPractice: false,
+          files: [
+            {
+              id: "reactjs-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/reactjs/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "38 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+          ]
+        },
+        {
+          id: "reactjs-unit2",
+          unitNumber: 2,
+          title: "Unit 2: Components, Props and State",
+          topics: "Functional Components, Class Components Overview, Passing & Accessing Props, Props vs State, React Fragments, props.children, useState Hook & Immutability.",
+          isPractice: false,
+          files: [
+            {
+              id: "reactjs-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/reactjs/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+          ]
+        },
+        {
+          id: "reactjs-unit3",
+          unitNumber: 3,
+          title: "Unit 3: Events & Form Handling",
+          topics: "SyntheticEvent System, Event Binding, Controlled vs Uncontrolled Components, Form Inputs (input, textarea, select), Multi-field Forms, Lifting State Up.",
+          isPractice: false,
+          files: [
+            {
+              id: "reactjs-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/reactjs/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+          ]
+        },
         {
           id: "react-syllabus-unit",
           unitNumber: "Syllabus",
@@ -1890,6 +2223,18 @@ window.SEM5_DATA = {
           isPractice: false,
           files: [
             {
+              id: "evs-u1-notes",
+              title: "Unit 1: Interactive Notes",
+              originalName: "unit-1-notes.html",
+              path: "notes/evs/unit1/unit-1-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "38 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
+            {
               id: "evs-u1-pdf",
               title: "Unit 1: Ecosystems & Biodiversity Presentation Notes",
               originalName: "Unit-1.pptx",
@@ -1909,6 +2254,18 @@ window.SEM5_DATA = {
           topics: "Forest resources, water resources distribution, mineral extraction impacts, food resources and modern agriculture, land degradation, soil erosion and desertification.",
           isPractice: false,
           files: [
+            {
+              id: "evs-u2-notes",
+              title: "Unit 2: Interactive Notes",
+              originalName: "unit-2-notes.html",
+              path: "notes/evs/unit2/unit-2-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
             {
               id: "evs-u2-overview-pdf",
               title: "Unit 2: Natural Resources Presentation Overview",
@@ -1984,6 +2341,18 @@ window.SEM5_DATA = {
           topics: "Causes, effects and control of air, water, soil, marine, noise, and thermal pollution. Solid waste management and disaster management.",
           isPractice: false,
           files: [
+            {
+              id: "evs-u3-notes",
+              title: "Unit 3: Interactive Notes",
+              originalName: "unit-3-notes.html",
+              path: "notes/evs/unit3/unit-3-notes.html",
+              originalPath: null,
+              type: "notes",
+              tag: "Interactive notes",
+              readingTime: "40 min read",
+              size: "Interactive Notes",
+              isConverted: false
+            },
             {
               id: "evs-u3-pdf",
               title: "Unit 3: Environmental Pollution & Control Presentation Notes",
