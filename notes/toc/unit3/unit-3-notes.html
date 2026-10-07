@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 3: CFG & Pushdown Automata | TOC Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Theory of Computation (IS54) Unit 3: Context-Free Grammars, Derivations, Parse Trees, Ambiguity, CFG Simplification, Chomsky Normal Form (CNF), and Pushdown Automata (PDA).">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/toc" class="back-btn" title="Return to Theory of Computation Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>TOC Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/toc">Theory of Computation (IS54)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 3</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="toc-u3-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 3 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Context-Free Grammars (CFG)</a>
+        <a href="#sec-2" class="toc-link">§ 2 Derivations & Parse Trees</a>
+        <a href="#sec-3" class="toc-link">§ 3 Ambiguity & Disambiguation</a>
+        <a href="#sec-4" class="toc-link">§ 4 Simplification of CFGs</a>
+        <a href="#sec-5" class="toc-link">§ 5 Chomsky Normal Form (CNF)</a>
+        <a href="#sec-6" class="toc-link">§ 6 Pushdown Automata (PDA)</a>
+        <a href="#sec-7" class="toc-link">§ 7 DPDA vs NPDA & Worked Designs</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">TOC &bull; IS54</span>
+          <span class="unit-tag">UNIT 3</span>
+          <span class="unit-tag read-time">~34 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Context-Free Grammars & Pushdown Automata</h1>
+        <p class="unit-subtitle">Comprehensive theory, rigorous algorithms, and exam numericals for Context-Free Grammars, leftmost and rightmost derivations, parse trees, ambiguity resolution, three-phase grammar simplification, Chomsky Normal Form (CNF), and Pushdown Automata (PDA) design with instantaneous descriptions.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Context-Free Grammars:</strong> 4-tuple formal definition $(V, T, P, S)$, productions, language of a grammar.</li>
+            <li><strong>Derivations & Parse Trees:</strong> Leftmost derivation (LMD), rightmost derivation (RMD), sentential forms, yield of a parse tree.</li>
+            <li><strong>Ambiguity in Grammars & Languages:</strong> Ambiguous grammars, operator precedence & associativity disambiguation, inherent ambiguity.</li>
+            <li><strong>Simplification of CFGs:</strong> Elimination of useless symbols (generating & reachable), elimination of null ($\epsilon$) productions, elimination of unit productions.</li>
+            <li><strong>Chomsky Normal Form (CNF):</strong> Definition, 4-step transformation algorithm, binary parse tree property, GNF overview.</li>
+            <li><strong>Pushdown Automata (PDA):</strong> 7-tuple definition $(Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$, Instantaneous Descriptions (IDs), acceptance by final state $L(M)$ vs empty stack $N(M)$.</li>
+            <li><strong>DPDA vs NPDA:</strong> Determinism criteria, closure differences, and worked design problems ($a^n b^n$, $w c w^R$).</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit3/unit-3.pdf" class="source-link" target="_blank" rel="noopener">Faculty Slides / Unit 3 PDF</a>
+          <a href="../unit3/toc-unit3-alternate.pdf" class="source-link" target="_blank" rel="noopener">Alternate Notes PDF</a>
+          <a href="../../../index.html#subject/toc" class="source-link">Subject Syllabus</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Context-Free Grammars (CFG)</h2>
+
+        <p class="section-lead">Regular languages are incapable of counting or maintaining nested balance (such as matching parentheses or ensuring equal numbers of $a$'s and $b$'s). <strong>Context-Free Grammars (CFGs)</strong> provide the mathematical foundation for programming language syntax, compiler parsers, and nested structures.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">4-TUPLE FORMAL DEFINITION OF CFG</span>
+          <p>A <strong>Context-Free Grammar</strong> is formally specified as a 4-tuple:</p>
+          $$G = (V, T, P, S)$$
+          <p>Where:</p>
+          <ul>
+            <li>$V$: A finite set of <strong>variables</strong> (also called <em>non-terminals</em> or syntactic categories), conventionally denoted by uppercase letters ($A, B, S, E, T$).</li>
+            <li>$T$: A finite set of <strong>terminals</strong> (the actual alphabet of the generated language, disjoint from $V$, i.e., $V \cap T = \emptyset$), conventionally denoted by lowercase letters, digits, or symbols ($a, b, 0, 1, +, *$).</li>
+            <li>$P$: A finite set of <strong>production rules</strong> of the form:
+              $$A \to \alpha \quad \text{where } A \in V \text{ and } \alpha \in (V \cup T)^*$$
+              <em>Key property:</em> The left-hand side contains <strong>exactly one single variable</strong> $A$ with zero surrounding context (hence "context-free").</li>
+            <li>$S \in V$: The designated <strong>start symbol</strong> from which all derivations begin.</li>
+          </ul>
+        </div>
+
+        <h3>Derivation Relations & Language Generated</h3>
+        <p>If $A \to \gamma \in P$, and $\alpha, \beta \in (V \cup T)^*$, we say that $\alpha A \beta$ <strong>directly derives</strong> $\alpha \gamma \beta$ in one step, denoted:</p>
+        $$\alpha A \beta \implies \alpha \gamma \beta$$
+        <p>The reflexive-transitive closure is denoted $\implies^*$, indicating a derivation in zero or more steps.</p>
+        <div class="callout callout-formula">
+          <span class="callout-label">LANGUAGE OF A GRAMMAR</span>
+          <p>The <strong>language generated by CFG $G$</strong>, denoted $L(G)$, is the set of all terminal strings derived from the start symbol $S$:</p>
+          $$L(G) = \{w \in T^* \mid S \implies^* w\}$$
+          <p>A string $\alpha \in (V \cup T)^*$ such that $S \implies^* \alpha$ is called a <strong>sentential form</strong>. If $\alpha \in T^*$, it is called a <strong>sentence</strong>.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>CFG 4-tuple: $G = (V, T, P, S)$. LHS of every production must be a single variable $A \in V$.</li>
+            <li>$L(G)$ consists of strings composed exclusively of terminals ($w \in T^*$).</li>
+            <li>Sentential forms may contain both variables and terminals; sentences contain only terminals.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Derivations (LMD & RMD) and Parse Trees</h2>
+
+        <p class="section-lead">When multiple variables appear in a sentential form, the choice of which variable to replace first gives rise to different derivation orders. However, regardless of the order, identical structural derivations correspond to the exact same <strong>parse tree</strong>.</p>
+
+        <h3>Leftmost vs Rightmost Derivations</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Derivation Type</th>
+                <th>Notation</th>
+                <th>Operational Rule</th>
+                <th>Compiler Parallel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Leftmost Derivation (LMD)</strong></td>
+                <td>$\implies_{lm}$</td>
+                <td>At every step, replace the <em>leftmost variable</em> in the current sentential form.</td>
+                <td>Used by top-down parsers (LL(k) parsers, recursive descent).</td>
+              </tr>
+              <tr>
+                <td><strong>Rightmost Derivation (RMD)</strong></td>
+                <td>$\implies_{rm}$</td>
+                <td>At every step, replace the <em>rightmost variable</em> in the current sentential form. Also called canonical derivation.</td>
+                <td>Used by bottom-up parsers in reverse (LR(k), LALR, shift-reduce).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Parse Trees (Derivation Trees)</h3>
+        <div class="callout callout-def">
+          <span class="callout-label">FORMAL PROPERTIES OF A PARSE TREE</span>
+          <ol>
+            <li><strong>Root Node:</strong> Labeled with the grammar's start symbol $S$.</li>
+            <li><strong>Interior Nodes:</strong> Each internal node is labeled with a variable $A \in V$.</li>
+            <li><strong>Child Nodes:</strong> If an interior node $A$ has children labeled $X_1, X_2, \dots, X_k$ from left to right, then $A \to X_1 X_2 \dots X_k$ must be a valid production in $P$.</li>
+            <li><strong>Leaf Nodes:</strong> Each leaf is labeled with a terminal symbol $a \in T$ or $\epsilon$. If labeled with $\epsilon$, it must be the only child of its parent.</li>
+            <li><strong>Yield:</strong> The concatenation of all leaf node labels read strictly from left to right forms the terminal string $w$, called the <em>yield</em> of the tree.</li>
+          </ol>
+        </div>
+
+        <!-- SVG PARSE TREE DIAGRAM -->
+        <div class="svg-card">
+          <div class="svg-title">Parse Tree for Arithmetic Expression: id + id * id</div>
+          <svg viewBox="0 0 600 320" width="100%" height="auto" role="img" aria-label="Parse Tree diagram for id + id * id showing precedence of multiplication over addition">
+            <title>Parse Tree for id + id * id</title>
+            <desc>SVG diagram illustrating parse tree hierarchy: E expands to E + T, T expands to T * F, demonstrating grammar evaluation hierarchy</desc>
+
+            <!-- Root E -->
+            <circle cx="300" cy="40" r="18" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+            <text x="300" y="45" font-family="Inter" font-weight="700" font-size="14" text-anchor="middle" fill="var(--green)">E</text>
+
+            <!-- Level 1: E + T -->
+            <circle cx="160" cy="110" r="16" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="160" y="115" font-family="Inter" font-size="13" text-anchor="middle" fill="var(--text-main)">E</text>
+            <line x1="285" y1="50" x2="173" y2="100" stroke="var(--stroke)" stroke-width="1.8" />
+
+            <circle cx="300" cy="110" r="14" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+            <text x="300" y="115" font-family="Inter" font-weight="700" font-size="14" text-anchor="middle" fill="var(--green)">+</text>
+            <line x1="300" y1="58" x2="300" y2="96" stroke="var(--stroke)" stroke-width="1.8" />
+
+            <circle cx="440" cy="110" r="16" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="440" y="115" font-family="Inter" font-size="13" text-anchor="middle" fill="var(--text-main)">T</text>
+            <line x1="315" y1="50" x2="427" y2="100" stroke="var(--stroke)" stroke-width="1.8" />
+
+            <!-- Level 2 Left: E -> T -> F -> id -->
+            <circle cx="160" cy="170" r="15" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="160" y="175" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">T</text>
+            <line x1="160" y1="126" x2="160" y2="155" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <circle cx="160" cy="230" r="15" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="160" y="235" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">F</text>
+            <line x1="160" y1="185" x2="160" y2="215" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <rect x="142" y="270" width="36" height="24" rx="6" fill="var(--bg-card)" stroke="var(--green)" stroke-width="2" />
+            <text x="160" y="286" font-family="JetBrains Mono" font-weight="700" font-size="12" text-anchor="middle" fill="var(--green)">id</text>
+            <line x1="160" y1="245" x2="160" y2="270" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <!-- Level 2 Right: T -> T * F -->
+            <circle cx="370" cy="170" r="15" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="370" y="175" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">T</text>
+            <line x1="427" y1="120" x2="380" y2="160" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <circle cx="440" cy="170" r="14" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+            <text x="440" y="175" font-family="Inter" font-weight="700" font-size="14" text-anchor="middle" fill="var(--green)">*</text>
+            <line x1="440" y1="126" x2="440" y2="156" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <circle cx="510" cy="170" r="15" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="510" y="175" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">F</text>
+            <line x1="453" y1="120" x2="500" y2="160" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <!-- Leaves for Right Subtree -->
+            <circle cx="370" cy="230" r="15" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="370" y="235" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">F</text>
+            <line x1="370" y1="185" x2="370" y2="215" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <rect x="352" y="270" width="36" height="24" rx="6" fill="var(--bg-card)" stroke="var(--green)" stroke-width="2" />
+            <text x="370" y="286" font-family="JetBrains Mono" font-weight="700" font-size="12" text-anchor="middle" fill="var(--green)">id</text>
+            <line x1="370" y1="245" x2="370" y2="270" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <rect x="492" y="270" width="36" height="24" rx="6" fill="var(--bg-card)" stroke="var(--green)" stroke-width="2" />
+            <text x="510" y="286" font-family="JetBrains Mono" font-weight="700" font-size="12" text-anchor="middle" fill="var(--green)">id</text>
+            <line x1="510" y1="185" x2="510" y2="270" stroke="var(--stroke)" stroke-width="1.5" />
+
+            <!-- Yield readout -->
+            <text x="300" y="310" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle" fill="var(--text-muted)">Yield of tree (left to right leaves): id + id * id</text>
+          </svg>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>LMD replaces leftmost variable at each step; RMD replaces rightmost variable.</li>
+            <li>There is a 1-to-1 correspondence between parse trees and leftmost derivations.</li>
+            <li>Yield of a tree is formed by concatenating leaf labels from left to right.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Ambiguity in Grammars and Languages</h2>
+
+        <p class="section-lead">A grammar is <strong>ambiguous</strong> if it allows a single sentence to have multiple syntactic interpretations. In compilers, ambiguity is unacceptable because it leads to unpredictable execution semantics.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">FORMAL DEFINITION: AMBIGUOUS GRAMMAR</span>
+          <p>A context-free grammar $G$ is called <strong>ambiguous</strong> if there exists at least one string $w \in L(G)$ that possesses:</p>
+          <ul>
+            <li>Two or more distinct <strong>parse trees</strong>, OR equivalently</li>
+            <li>Two or more distinct <strong>leftmost derivations (LMDs)</strong>, OR equivalently</li>
+            <li>Two or more distinct <strong>rightmost derivations (RMDs)</strong>.</li>
+          </ul>
+        </div>
+
+        <!-- SOLVED AMBIGUITY PROOF -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">CLASSIC EXAM PROOF &bull; PROVING AMBIGUITY</span>
+            <span class="problem-points">[6 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Prove that the grammar $E \to E + E \mid E * E \mid id$ is Ambiguous</h4>
+          <p>To prove ambiguity, it is sufficient to exhibit <strong>one single string</strong> with two distinct leftmost derivations.</p>
+          <p><strong>Witness String:</strong> Consider $w = id + id * id \in L(G)$.</p>
+
+          <p><strong>Derivation 1 (Addition evaluated last, Multiplication binds first):</strong></p>
+          $$\begin{aligned}
+          E &\implies_{lm} \mathbf{E} + E \\
+            &\implies_{lm} id + \mathbf{E} \\
+            &\implies_{lm} id + \mathbf{E} * E \\
+            &\implies_{lm} id + id * \mathbf{E} \\
+            &\implies_{lm} id + id * id
+          \end{aligned}$$
+
+          <p><strong>Derivation 2 (Multiplication evaluated last, Addition binds first):</strong></p>
+          $$\begin{aligned}
+          E &\implies_{lm} \mathbf{E} * E \\
+            &\implies_{lm} \mathbf{E} + E * E \\
+            &\implies_{lm} id + \mathbf{E} * E \\
+            &\implies_{lm} id + id * \mathbf{E} \\
+            &\implies_{lm} id + id * id
+          \end{aligned}$$
+
+          <div class="result-box">
+            Since string $w = id + id * id$ has two distinct leftmost derivations (and correspondingly two distinct parse trees with different operator groupings), the grammar is rigorously proved to be <strong>ambiguous</strong>.
+          </div>
+        </div>
+
+        <h3>Disambiguation Techniques</h3>
+        <p>In practice, ambiguous grammars can be rewritten into equivalent unambiguous grammars using two core principles:</p>
+        <ol>
+          <li><strong>Precedence Stratification:</strong> Introduce a distinct variable for each precedence level. Operators with higher precedence are placed further down the derivation chain (closer to the leaves).</li>
+          <li><strong>Associativity (Recursion direction):</strong>
+            <ul>
+              <li>For <strong>left-associative</strong> operators ($+, -, *, /$), use <em>left recursion</em>: $E \to E + T \mid T$.</li>
+              <li>For <strong>right-associative</strong> operators (e.g. exponentiation $\text{^}$ or assignment $=$), use <em>right recursion</em>: $E \to T \text{ ^ } E \mid T$.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout callout-def">
+          <span class="callout-label">INHERENT AMBIGUITY</span>
+          <p>A context-free language $L$ is said to be <strong>inherently ambiguous</strong> if <em>every</em> CFG that generates $L$ is ambiguous. That is, it is impossible to construct any unambiguous CFG for $L$.</p>
+          <p><em>Standard Example:</em> The language $L = \{a^i b^j c^k \mid i = j \text{ or } j = k\}$. Any grammar generating $L$ must generate strings where $i = j = k$ via two inherently conflicting branches ($a^n b^n c^n$).</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Ambiguity = $\ge 2$ distinct parse trees or LMDs for at least one string.</li>
+            <li>Disambiguate expressions by introducing precedence levels ($E, T, F$) and left-recursive rules.</li>
+            <li>Inherent ambiguity is a property of the <em>language</em>, not merely a flaw in a specific grammar.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">Simplification of Context-Free Grammars</h2>
+
+        <p class="section-lead">Before converting a CFG into normal forms (such as Chomsky Normal Form), the grammar must be cleansed of inefficiencies. The simplification pipeline consists of three sequential transformations that must be performed in a precise order.</p>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">MANDATORY ORDER OF PIPELINE</span>
+          <p>To eliminate all unwanted symbols cleanly, perform the three phases in this exact sequence:</p>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <span class="step-num">1</span>
+              <div><strong>Eliminate Null ($\epsilon$) Productions:</strong> Remove $A \to \epsilon$.</div>
+            </div>
+            <div class="flow-step">
+              <span class="step-num">2</span>
+              <div><strong>Eliminate Unit Productions:</strong> Remove rules of the form $A \to B$.</div>
+            </div>
+            <div class="flow-step">
+              <span class="step-num">3</span>
+              <div><strong>Eliminate Useless Symbols:</strong> Eliminate non-generating symbols first, then non-reachable symbols.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Phase 1: Elimination of Null Productions ($A \to \epsilon$)</h3>
+        <p>A variable $A$ is <strong>nullable</strong> if $A \implies^* \epsilon$.</p>
+        <div class="callout callout-algorithm">
+          <span class="callout-label">ALGORITHM TO REMOVE NULL PRODUCTIONS</span>
+          <ol>
+            <li><strong>Find all nullable variables:</strong>
+              <ul>
+                <li>Base: If $A \to \epsilon \in P$, then $A$ is nullable.</li>
+                <li>Induction: If $B \to X_1 X_2 \dots X_k \in P$ and all $X_i$ are already marked nullable, then $B$ is nullable.</li>
+              </ul>
+            </li>
+            <li><strong>Construct new production set $P'$:</strong> For every production $A \to Y_1 Y_2 \dots Y_m$, include all combinations where one or more nullable symbols among the $Y_i$ are omitted. Do not include $A \to \epsilon$.</li>
+            <li>If the original language contained $\epsilon$ (i.e. $S$ is nullable), introduce a new start symbol $S_0$ with productions $S_0 \to S \mid \epsilon$.</li>
+          </ol>
+        </div>
+
+        <h3>Phase 2: Elimination of Unit Productions ($A \to B$)</h3>
+        <p>A production is a <strong>unit production</strong> if both its left and right-hand sides are single variables ($A, B \in V$).</p>
+        <div class="callout callout-algorithm">
+          <span class="callout-label">ALGORITHM TO REMOVE UNIT PRODUCTIONS</span>
+          <ol>
+            <li><strong>Find all Unit Pairs:</strong> A pair $(A, B)$ is a unit pair if $A \implies^* B$ using only unit productions.
+              <ul>
+                <li>Base: For every $A \in V$, $(A, A)$ is a unit pair.</li>
+                <li>Induction: If $(A, B)$ is a unit pair and $B \to C \in P$, then $(A, C)$ is a unit pair.</li>
+              </ul>
+            </li>
+            <li><strong>Construct new productions:</strong> For each unit pair $(A, B)$, if $B \to \alpha$ is a <em>non-unit production</em> in $P$, add $A \to \alpha$ to $P'$. Discard all unit productions $A \to B$.</li>
+          </ol>
+        </div>
+
+        <h3>Phase 3: Elimination of Useless Symbols</h3>
+        <p>A symbol $X \in (V \cup T)$ is <strong>useful</strong> if there exists a derivation:</p>
+        $$S \implies^* \alpha X \beta \implies^* w \quad \text{where } w \in T^*$$
+        <p>To eliminate useless symbols, we must enforce two criteria in strict order:</p>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Definition</th>
+                <th>Detection Procedure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Generating Symbols</strong></td>
+                <td>$X$ can derive a string of terminals: $X \implies^* w, w \in T^*$</td>
+                <td>Bottom-up marking: all terminals are generating. If $A \to \alpha$ and all symbols in $\alpha$ are generating, mark $A$. Drop any symbol not marked!</td>
+              </tr>
+              <tr>
+                <td><strong>2. Reachable Symbols</strong></td>
+                <td>$X$ can be reached from the start symbol: $S \implies^* \alpha X \beta$</td>
+                <td>Top-down marking: $S$ is reachable. If $A$ is reachable and $A \to X_1 \dots X_k$, then all $X_i$ are reachable. Drop all unreachable symbols.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">CRITICAL EXAM TRAP: ORDER OF USELESS SYMBOL CHECKS</span>
+          <p>You MUST execute <strong>Generating first, then Reachable</strong>! Reversing this order can leave dead non-generating symbols in the grammar.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Pipeline order: (1) $\epsilon$-productions $\to$ (2) Unit productions $\to$ (3) Useless symbols.</li>
+            <li>Nullable: symbols deriving $\epsilon$. Unit pair: $(A, B)$ where $A \implies^* B$.</li>
+            <li>Useless check order: (1) Generating FIRST, (2) Reachable SECOND.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Chomsky Normal Form (CNF)</h2>
+
+        <p class="section-lead">A grammar in <strong>Chomsky Normal Form (CNF)</strong> enforces a strictly binary branching structure on parse trees. In CNF, any derivation of a terminal string of length $n$ requires exactly $2n - 1$ derivation steps, which makes parsing algorithms such as the CYK algorithm possible in polynomial $O(n^3)$ time.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">FORMAL DEFINITION: CHOMSKY NORMAL FORM</span>
+          <p>A CFG $G = (V, T, P, S)$ is in <strong>Chomsky Normal Form (CNF)</strong> if every production in $P$ is of one of two restricted formats:</p>
+          $$A \to B C \quad \text{or} \quad A \to a$$
+          <p>Where $A, B, C \in V$ (two non-terminals) and $a \in T$ (a single terminal). If $\epsilon \in L(G)$, the production $S \to \epsilon$ is permitted, provided $S$ does not appear on the right-hand side of any production.</p>
+        </div>
+
+        <div class="callout callout-algorithm">
+          <span class="callout-label">4-STEP CONVERSION TO CNF</span>
+          <ol>
+            <li><strong>Step 1: Simplify Grammar:</strong> Eliminate $\epsilon$-productions, eliminate unit productions, and eliminate useless symbols.</li>
+            <li><strong>Step 2: Eliminate Terminals in Mixed / Long Bodies:</strong> For every terminal $a \in T$, introduce a new variable $C_a$ and production $C_a \to a$. Replace all occurrences of $a$ in bodies of length $\ge 2$ with $C_a$. (Retain standalone $A \to a$ productions!).</li>
+            <li><strong>Step 3: Cascade Long Variable Bodies:</strong> Replace productions of length $k \ge 3$ ($A \to B_1 B_2 \dots B_k$) with a chain of binary productions:
+              $$\begin{aligned}
+              A &\to B_1 D_1 \\
+              D_1 &\to B_2 D_2 \\
+              &\dots \\
+              D_{k-2} &\to B_{k-1} B_k
+              \end{aligned}$$
+            </li>
+          </ol>
+        </div>
+
+        <!-- SOLVED WORKED EXAMPLE: CNF CONVERSION -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; EXAM FAVOURITE</span>
+            <span class="problem-points">[10 MARKS &bull; STEP-BY-STEP]</span>
+          </div>
+          <h4 class="problem-title">Convert the following CFG into Chomsky Normal Form (CNF)</h4>
+          <p>Grammar: $S \to a B \mid b A$, &nbsp; $A \to a \mid a S \mid b A A$, &nbsp; $B \to b \mid b S \mid a B B$</p>
+
+          <p><strong>Step 1: Check Simplification:</strong></p>
+          <ul>
+            <li>$\epsilon$-productions: None exists.</li>
+            <li>Unit productions: None exists.</li>
+            <li>Useless symbols: All variables $\{S, A, B\}$ generate terminals ($A \to a, B \to b, S \to ab$) and are reachable from $S$. Grammar is already fully simplified.</li>
+          </ul>
+
+          <p><strong>Step 2: Isolate Terminals in Long Productions:</strong></p>
+          <p>Introduce new variables $C_a \to a$ and $C_b \to b$. Replace terminals in multi-symbol right-hand sides:</p>
+          <ul>
+            <li>$S \to a B \implies S \to C_a B$</li>
+            <li>$S \to b A \implies S \to C_b A$</li>
+            <li>$A \to a S \implies A \to C_a S$</li>
+            <li>$A \to b A A \implies A \to C_b A A$</li>
+            <li>$B \to b S \implies B \to C_b S$</li>
+            <li>$B \to a B B \implies B \to C_a B B$</li>
+            <li>(Retain standalone base productions $A \to a$ and $B \to b$)</li>
+          </ul>
+
+          <p><strong>Step 3: Cascade Bodies of Length 3 into Binary Rules:</strong></p>
+          <ul>
+            <li>Production $A \to C_b A A$ has length 3:
+              <br>Introduce new variable $D_1 \to A A$.
+              <br>Then $A \to C_b D_1$.
+            </li>
+            <li>Production $B \to C_a B B$ has length 3:
+              <br>Introduce new variable $D_2 \to B B$.
+              <br>Then $B \to C_a D_2$.
+            </li>
+          </ul>
+
+          <div class="result-box">
+            <p><strong>Final Grammar in Chomsky Normal Form (CNF):</strong></p>
+            $$\begin{aligned}
+            S &\to C_a B \mid C_b A \\
+            A &\to a \mid C_a S \mid C_b D_1 \\
+            B &\to b \mid C_b S \mid C_a D_2 \\
+            D_1 &\to A A \\
+            D_2 &\to B B \\
+            C_a &\to a \\
+            C_b &\to b
+            \end{aligned}$$
+            <p>Every single production is strictly of the form $A \to B C$ or $A \to a$. CNF conversion is complete!</p>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>CNF forms: $A \to BC$ or $A \to a$.</li>
+            <li>Derivation of string of length $n$ takes exactly $2n - 1$ steps.</li>
+            <li>Parse trees in CNF are strictly binary.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Pushdown Automata (PDA)</h2>
+
+        <p class="section-lead">A <strong>Pushdown Automaton (PDA)</strong> is an extension of an $\epsilon$-NFA augmented with an infinite-capacity Last-In First-Out (LIFO) <strong>stack memory</strong>. PDAs are the exact computational recognizers for Context-Free Languages ($CFL$).</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">7-TUPLE FORMAL DEFINITION OF PDA</span>
+          <p>A Pushdown Automaton is formally specified by a 7-tuple:</p>
+          $$M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$$
+          <p>Where:</p>
+          <ul>
+            <li>$Q$: A finite set of states.</li>
+            <li>$\Sigma$: A finite set of input symbols (the input alphabet).</li>
+            <li>$\Gamma$: A finite set of stack symbols (the stack alphabet).</li>
+            <li>$\delta$: The transition function mapping:
+              $$\delta: Q \times (\Sigma \cup \{\epsilon\}) \times \Gamma \to 2^{Q \times \Gamma^*}$$
+              <em>Semantics:</em> Given current state $q$, current input symbol $a$ (or $\epsilon$), and current top-of-stack symbol $X \in \Gamma$, $\delta(q, a, X)$ returns a set of pairs $(p, \alpha)$ where $p$ is the next state and $\alpha \in \Gamma^*$ replaces $X$ on top of the stack.
+            </li>
+            <li>$q_0 \in Q$: The initial state.</li>
+            <li>$Z_0 \in \Gamma$: The start stack symbol (bottom-of-stack marker).</li>
+            <li>$F \subseteq Q$: The set of accepting (final) states.</li>
+          </ul>
+        </div>
+
+        <h3>Stack Operations via $\alpha \in \Gamma^*$</h3>
+        <p>In the transition $(p, \alpha) \in \delta(q, a, X)$:</p>
+        <ul>
+          <li><strong>Pop operation:</strong> $\alpha = \epsilon$ &mdash; the top symbol $X$ is popped and discarded.</li>
+          <li><strong>No-change (Read-only):</strong> $\alpha = X$ &mdash; the top symbol is read and retained.</li>
+          <li><strong>Push operation:</strong> $\alpha = Y X$ &mdash; symbol $Y$ is pushed on top of $X$.</li>
+        </ul>
+
+        <div class="svg-card">
+          <div class="svg-title">Pushdown Automaton Architectural Model</div>
+          <svg viewBox="0 0 740 220" width="100%" height="auto" role="img" aria-label="PDA Architecture showing Input Tape, Finite Control, and LIFO Stack">
+            <title>PDA Architecture</title>
+            <desc>SVG diagram illustrating PDA components: input tape with read head, finite control unit, and LIFO pushdown stack with top of stack pointer</desc>
+
+            <!-- Input Tape -->
+            <g transform="translate(40, 20)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="var(--text-main)">Input Tape</text>
+              <rect x="0" y="25" width="40" height="35" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="20" y="47" font-family="JetBrains Mono" font-size="14" text-anchor="middle" fill="var(--text-main)">a</text>
+              <rect x="40" y="25" width="40" height="35" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="60" y="47" font-family="JetBrains Mono" font-size="14" text-anchor="middle" fill="var(--text-main)">a</text>
+              <rect x="80" y="25" width="40" height="35" fill="var(--surface)" stroke="var(--green)" stroke-width="2" />
+              <text x="100" y="47" font-family="JetBrains Mono" font-weight="700" font-size="14" text-anchor="middle" fill="var(--green)">b</text>
+              <rect x="120" y="25" width="40" height="35" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="140" y="47" font-family="JetBrains Mono" font-size="14" text-anchor="middle" fill="var(--text-main)">b</text>
+              <rect x="160" y="25" width="40" height="35" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="180" y="47" font-family="JetBrains Mono" font-size="14" text-anchor="middle" fill="var(--text-muted)">&Delta;</text>
+              <!-- Read head -->
+              <polygon points="100 70, 93 85, 107 85" fill="var(--green)" />
+            </g>
+
+            <!-- Finite State Control -->
+            <g transform="translate(260, 60)">
+              <rect x="0" y="10" width="160" height="90" rx="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="80" y="40" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--text-main)">Finite State Control</text>
+              <circle cx="80" cy="70" r="16" fill="var(--bg-card)" stroke="var(--green)" stroke-width="2" />
+              <text x="80" y="75" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--green)">q₁</text>
+              <!-- Connect tape to control -->
+              <line x1="-120" y1="25" x2="0" y2="55" stroke="var(--green)" stroke-width="2" />
+            </g>
+
+            <!-- Pushdown Stack -->
+            <g transform="translate(520, 20)">
+              <text x="40" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="13" text-anchor="middle" fill="var(--text-main)">LIFO Stack</text>
+              <!-- Stack container (open top) -->
+              <line x1="10" y1="25" x2="10" y2="185" stroke="var(--stroke)" stroke-width="2" />
+              <line x1="10" y1="185" x2="80" y2="185" stroke="var(--stroke)" stroke-width="2" />
+              <line x1="80" y1="185" x2="80" y2="25" stroke="var(--stroke)" stroke-width="2" />
+
+              <!-- Stack entries -->
+              <rect x="15" y="145" width="60" height="32" rx="4" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="45" y="165" font-family="JetBrains Mono" font-size="13" text-anchor="middle" fill="var(--text-main)">Z₀</text>
+
+              <rect x="15" y="105" width="60" height="32" rx="4" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="45" y="125" font-family="JetBrains Mono" font-size="13" text-anchor="middle" fill="var(--text-main)">A</text>
+
+              <rect x="15" y="65" width="60" height="32" rx="4" fill="var(--surface)" stroke="var(--green)" stroke-width="2" />
+              <text x="45" y="85" font-family="JetBrains Mono" font-weight="700" font-size="13" text-anchor="middle" fill="var(--green)">A &larr; Top</text>
+
+              <!-- Connection arrow between control and stack -->
+              <path d="M -100 85 C -40 85, -20 85, 5 85" fill="none" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="-40" y="75" font-family="Inter" font-size="11" font-weight="600" fill="var(--text-muted)">Push / Pop</text>
+            </g>
+          </svg>
+        </div>
+
+        <h3>Instantaneous Descriptions (IDs)</h3>
+        <p>An <strong>Instantaneous Description (ID)</strong> captures the complete global configuration of a PDA at any single computation instant as a triple:</p>
+        $$(q, w, \gamma)$$
+        <p>Where $q \in Q$ is the current state, $w \in \Sigma^*$ is the remaining unread input string, and $\gamma \in \Gamma^*$ is the current stack content written such that the <strong>leftmost character represents the top of stack</strong>.</p>
+        <p>The single-step transition is written $(q, aw, X\beta) \vdash (p, w, \alpha\beta)$ where $(p, \alpha) \in \delta(q, a, X)$.</p>
+
+        <h3>Two Acceptance Mechanisms</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Acceptance Criterion</th>
+                <th>Formal Definition</th>
+                <th>Conditions at Halt</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. By Final State: $L(M)$</strong></td>
+                <td>$L(M) = \{w \in \Sigma^* \mid (q_0, w, Z_0) \vdash^* (q, \epsilon, \gamma) \text{ where } q \in F\}$</td>
+                <td>Input is completely consumed ($w = \epsilon$) and machine is in an accepting state $q \in F$. Stack content $\gamma$ is irrelevant!</td>
+              </tr>
+              <tr>
+                <td><strong>2. By Empty Stack: $N(M)$</strong></td>
+                <td>$N(M) = \{w \in \Sigma^* \mid (q_0, w, Z_0) \vdash^* (q, \epsilon, \epsilon) \text{ for any } q \in Q\}$</td>
+                <td>Input is completely consumed ($w = \epsilon$) and stack is completely empty ($\gamma = \epsilon$). Final state set $F$ is not required ($F = \emptyset$).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-def">
+          <span class="callout-label">EQUIVALENCE OF ACCEPTANCE CRITERIA</span>
+          <p>For any language $L$, the following are equivalent:</p>
+          <ol>
+            <li>$L = L(M_1)$ for some PDA $M_1$ accepting by final state.</li>
+            <li>$L = N(M_2)$ for some PDA $M_2$ accepting by empty stack.</li>
+            <li>$L = L(G)$ for some Context-Free Grammar $G$.</li>
+          </ol>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>PDA is a 7-tuple: $(Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$.</li>
+            <li>ID format: $(q, w, \gamma)$ where leftmost symbol of $\gamma$ is the top of stack.</li>
+            <li>Acceptance by final state $L(M)$ and by empty stack $N(M)$ are mathematically equivalent.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">DPDA vs NPDA & Worked PDA Designs</h2>
+
+        <p class="section-lead">Unlike finite automata (where DFA and NFA are computationally equivalent), <strong>Deterministic Pushdown Automata (DPDA)</strong> are strictly less powerful than <strong>Nondeterministic Pushdown Automata (NPDA)</strong>.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">DETERMINISTIC PDA (DPDA) CONDITIONS</span>
+          <p>A PDA $M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$ is <strong>deterministic</strong> if and only if for all $q \in Q, a \in \Sigma$, and $X \in \Gamma$:</p>
+          <ol>
+            <li>$|\delta(q, a, X)| \le 1$ and $|\delta(q, \epsilon, X)| \le 1$ (at most one transition choice).</li>
+            <li>If $\delta(q, \epsilon, X)$ is non-empty, then $\delta(q, a, X)$ must be empty for <em>all</em> $a \in \Sigma$ (no choice between reading a symbol and making an $\epsilon$-transition on the same stack top).</li>
+          </ol>
+        </div>
+
+        <p><strong>Hierarchy of Language Classes:</strong></p>
+        $$Regular \subsetneq Deterministic\ CFL\ (DCFL) \subsetneq Context\text{-}Free\ (CFL)$$
+        <p><em>Example:</em> $L = \{w c w^R \mid w \in \{0, 1\}^*\}$ has a marker $c$ that signals the middle of the string, so it can be recognized by a <strong>DPDA</strong>. However, $L = \{w w^R \mid w \in \{0, 1\}^*\}$ has no center marker; the machine must "guess" when the midpoint is reached, requiring an <strong>NPDA</strong>.</p>
+
+        <!-- SOLVED PDA DESIGN 1: a^n b^n -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED DESIGN 1 &bull; VERIFIED PYTHON PASS</span>
+            <span class="problem-points">[10 MARKS &bull; CORE EXAM]</span>
+          </div>
+          <h4 class="problem-title">Design a PDA for $L = \{a^n b^n \mid n \ge 1\}$ (Acceptance by Final State)</h4>
+          <p><strong>Specification:</strong> $Q = \{q_0, q_1, q_2\}$, $\Sigma = \{a, b\}$, $\Gamma = \{Z_0, A\}$, Start $= q_0$, Stack start $= Z_0$, Final states $F = \{q_2\}$.</p>
+
+          <p><strong>Transition Function $\delta$:</strong></p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Rule #</th>
+                  <th>Current State</th>
+                  <th>Input Symbol</th>
+                  <th>Stack Top</th>
+                  <th>Next State</th>
+                  <th>Stack Replacement</th>
+                  <th>Operational Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>$q_0$</td>
+                  <td>$a$</td>
+                  <td>$Z_0$</td>
+                  <td>$q_0$</td>
+                  <td>$A Z_0$</td>
+                  <td>Push first $A$ onto stack</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>$q_0$</td>
+                  <td>$a$</td>
+                  <td>$A$</td>
+                  <td>$q_0$</td>
+                  <td>$A A$</td>
+                  <td>Push subsequent $A$'s</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>$q_0$</td>
+                  <td>$b$</td>
+                  <td>$A$</td>
+                  <td>$q_1$</td>
+                  <td>$\epsilon$</td>
+                  <td>First $b$ matches top $A$, pop and switch to $q_1$</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>$q_1$</td>
+                  <td>$b$</td>
+                  <td>$A$</td>
+                  <td>$q_1$</td>
+                  <td>$\epsilon$</td>
+                  <td>Subsequent $b$'s pop matching $A$'s</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>$q_1$</td>
+                  <td>$\epsilon$</td>
+                  <td>$Z_0$</td>
+                  <td>$q_2$</td>
+                  <td>$Z_0$</td>
+                  <td>Input consumed, all $A$'s matched; move to final state $q_2$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Step-by-step Instantaneous Description (ID) Trace for $w = aabb$:</strong></p>
+          $$\begin{aligned}
+          (q_0, aabb, Z_0) &\vdash (q_0, abb, AZ_0) \quad &[\text{Rule 1: push } A] \\
+          &\vdash (q_0, bb, AAZ_0) \quad &[\text{Rule 2: push } A] \\
+          &\vdash (q_1, b, AZ_0) \quad &[\text{Rule 3: match } b \text{ with } A\text{, pop } A] \\
+          &\vdash (q_1, \epsilon, Z_0) \quad &[\text{Rule 4: match } b \text{ with } A\text{, pop } A] \\
+          &\vdash (q_2, \epsilon, Z_0) \quad &[\text{Rule 5: move to accept state } q_2]
+          \end{aligned}$$
+          <div class="result-box">
+            The input $aabb$ is fully consumed and the PDA halts in $q_2 \in F$. Therefore, $aabb$ is accepted!
+          </div>
+        </div>
+
+        <!-- SOLVED PDA DESIGN 2: w c w^R -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED DESIGN 2 &bull; DPDA PALINDROME</span>
+            <span class="problem-points">[10 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Design a DPDA for $L = \{w c w^R \mid w \in \{0, 1\}^*\}$</h4>
+          <p><strong>Idea:</strong> Push all symbols of $w$ onto the stack while in state $q_0$. When the center marker $c$ is read, transition to state $q_1$ without altering the stack. In state $q_1$, pop matching symbols for $w^R$. Upon seeing $Z_0$, enter final state $q_2$.</p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Transitions $\delta(q, a, X) = (p, \alpha)$</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Phase 1: Push $w$</strong></td>
+                  <td>
+                    $\delta(q_0, 0, Z_0) = (q_0, 0 Z_0)$, &nbsp; $\delta(q_0, 1, Z_0) = (q_0, 1 Z_0)$<br>
+                    $\delta(q_0, 0, 0) = (q_0, 0 0)$, &nbsp; $\delta(q_0, 0, 1) = (q_0, 0 1)$<br>
+                    $\delta(q_0, 1, 0) = (q_0, 1 0)$, &nbsp; $\delta(q_0, 1, 1) = (q_0, 1 1)$
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 2: Center Marker $c$</strong></td>
+                  <td>
+                    $\delta(q_0, c, 0) = (q_1, 0)$, &nbsp; $\delta(q_0, c, 1) = (q_1, 1)$, &nbsp; $\delta(q_0, c, Z_0) = (q_1, Z_0)$
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 3: Match $w^R$</strong></td>
+                  <td>
+                    $\delta(q_1, 0, 0) = (q_1, \epsilon)$ (pop matching 0)<br>
+                    $\delta(q_1, 1, 1) = (q_1, \epsilon)$ (pop matching 1)
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 4: Accept</strong></td>
+                  <td>
+                    $\delta(q_1, \epsilon, Z_0) = (q_2, Z_0)$ (enter final state $q_2 \in F$)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>DPDA has no choice and no conflict between symbol reads and $\epsilon$-transitions on same stack top.</li>
+            <li>$DCFL \subsetneq CFL$. Even-length palindromes $w w^R$ require an NPDA.</li>
+            <li>$a^n b^n$ matches each $b$ with a popped $A$ pushed during the $a$'s.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>CFG Formal Definition</h4>
+            <ul>
+              <li>$G = (V, T, P, S)$ where $A \to \alpha, A \in V, \alpha \in (V \cup T)^*$.</li>
+              <li>LMD: replace leftmost variable at each step.</li>
+              <li>RMD: replace rightmost variable at each step.</li>
+              <li>Yield: left-to-right leaf labels.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Ambiguity Checklist</h4>
+            <ul>
+              <li>Ambiguous if $\ge 2$ distinct parse trees or LMDs for some string $w$.</li>
+              <li>Disambiguate: introduce precedence levels and left-recursive rules ($E \to E + T \mid T$).</li>
+              <li>Inherent ambiguity: <em>every</em> grammar for $L$ is ambiguous.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Simplification & CNF</h4>
+            <ul>
+              <li>Order: (1) $\epsilon$-productions $\to$ (2) Unit productions $\to$ (3) Useless (Generating first, Reachable second).</li>
+              <li>CNF format: $A \to BC$ or $A \to a$.</li>
+              <li>Parse tree in CNF is strictly binary; $2n-1$ derivation steps.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Pushdown Automata (PDA)</h4>
+            <ul>
+              <li>7-tuple: $(Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$.</li>
+              <li>$\delta(q, a, X) \to (p, \alpha)$. Pop if $\alpha = \epsilon$, push if $|\alpha| \ge 2$.</li>
+              <li>ID: $(q, w, \gamma)$ with top of stack at left.</li>
+              <li>$L(M)$ (final state) $\equiv N(M)$ (empty stack).</li>
+              <li>$DCFL \subsetneq CFL$ (palindromes without marker require NPDA).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Define a Context-Free Grammar (CFG).</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> A CFG is a 4-tuple $G = (V, T, P, S)$ where $V$ is a finite set of variables, $T$ is a finite set of terminals disjoint from $V$, $P$ is a set of productions of the form $A \to \alpha$ with $A \in V$ and $\alpha \in (V \cup T)^*$, and $S \in V$ is the start symbol.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Distinguish between LMD and RMD with an example.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> In a Leftmost Derivation (LMD), the leftmost variable in the sentential form is replaced at every step. In a Rightmost Derivation (RMD), the rightmost variable is replaced at every step. Both yield the exact same sentence and parse tree.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is Chomsky Normal Form (CNF)?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> A CFG is in CNF if every production is of the form $A \to BC$ (two variables) or $A \to a$ (one terminal), plus optionally $S \to \epsilon$ if $\epsilon \in L(G)$.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the process of eliminating $\epsilon$-productions from a CFG.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ol>
+                  <li>Find all nullable variables (variables $A$ where $A \implies^* \epsilon$).</li>
+                  <li>For every production $A \to X_1 X_2 \dots X_k$, form new productions by considering all possible combinations where nullable variables are either included or replaced by $\epsilon$.</li>
+                  <li>Discard all $A \to \epsilon$ productions.</li>
+                  <li>If $S$ is nullable, introduce a new start symbol $S_0 \to S \mid \epsilon$.</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Compare acceptance by final state vs acceptance by empty stack in PDA.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ul>
+                  <li><strong>Final State $L(M)$:</strong> The input string is accepted if after reading the entire input, the PDA is in any state $q \in F$. Stack content does not matter.</li>
+                  <li><strong>Empty Stack $N(M)$:</strong> The input string is accepted if after reading the entire input, the stack is completely empty ($\epsilon$). The final state set is not needed ($F = \emptyset$).</li>
+                  <li>Both models are equivalent in power: any PDA accepting by empty stack can be converted into an equivalent PDA accepting by final state and vice versa.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Define a PDA. Design a PDA for $L = \{w w^R \mid w \in \{a, b\}^*\}$ and explain its operation.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong></p>
+                <p>1. State the 7-tuple definition: $M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$.</p>
+                <p>2. Explain the necessity of <strong>nondeterminism</strong>: because the string has no center marker, the PDA cannot deterministically know when the first half $w$ ends and the reverse half $w^R$ begins. It must nondeterministically guess the center.</p>
+                <p>3. Transitions: In state $q_0$, push $a$ and $b$ symbols. Add nondeterministic $\epsilon$-transitions $\delta(q_0, \epsilon, X) = \{(q_1, X)\}$ to guess the midpoint. In state $q_1$, match input against stack top and pop. When $Z_0$ is encountered, enter final state $q_2 \in F$.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted directly from past examination papers in <code>notes/toc/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Exam &bull; July 2023 / Jan 2024</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Define CFG. Show that the following grammar is ambiguous: $E \to E + E \mid E * E \mid id$. Convert it into an unambiguous grammar."</p>
+          <p class="archive-note"><em>Study Note:</em> Full derivation with two LMDs and operator precedence solution provided in Section 3.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-2 &bull; TOC Question Bank</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Convert the given grammar to Chomsky Normal Form (CNF)..."</p>
+          <p class="archive-note"><em>Study Note:</em> Complete step-by-step 3-variable CNF conversion solved in Section 5.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Exam &bull; Model Question Paper 1</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Design a PDA for $L = \{a^n b^n \mid n \ge 1\}$. Show the instantaneous description (ID) for the string $w = aabb$."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified numerical example and ID trace provided in Section 7.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; USELESS SYMBOLS</span>
+          </div>
+          <h4 class="problem-title">Eliminate useless symbols from: $S \to a A \mid b B$, &nbsp; $A \to a$, &nbsp; $B \to b B$</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ol>
+                <li><strong>Generating symbols:</strong> Terminals $\{a, b\}$ generate. $A \to a$, so $A$ generates. $S \to a A$, so $S$ generates. However, $B \to b B$ never terminates in terminals! $B$ is non-generating.</li>
+                <li>Discard $B$ and any productions containing $B$:
+                  $$S \to a A, \quad A \to a$$
+                </li>
+                <li><strong>Reachable symbols:</strong> From $S$, both $S$ and $A$ are reachable.</li>
+              </ol>
+              <div class="result-box">
+                Simplified Grammar: $S \to a A$, &nbsp; $A \to a$.
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; PDA ACCEPTANCE</span>
+          </div>
+          <h4 class="problem-title">Can a DPDA accept the language of even palindromes $L = \{w w^R \mid w \in \{a, b\}^+\}$? Explain.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p><strong>No.</strong> A DPDA cannot recognize $L = \{w w^R\}$. Since there is no central delimiter symbol (such as $c$), the automaton cannot know when the prefix $w$ ends and the reverse $w^R$ begins. It must make a non-deterministic choice between continuing to push onto the stack or starting to pop and compare. Therefore, an <strong>NPDA is strictly required</strong>.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman</strong> &mdash; <em>Introduction to Automata Theory, Languages, and Computation</em>, 3rd Edition, Pearson, Chapters 5, 6, & 7.</li>
+            <li><strong>Peter Linz</strong> &mdash; <em>An Introduction to Formal Languages and Automata</em>, 6th Edition, Jones & Bartlett, Chapters 5, 6, 7 & 8.</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 3 (Course Code IS54).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../unit2/unit-2-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS UNIT</span>
+              <span class="pag-title">Unit 2: Regular Languages & Minimization</span>
+            </div>
+          </a>
+          <a href="../../../notes/cn/unit1/unit-1-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT SUBJECT &bull; UNIT 1</span>
+              <span class="pag-title">Computer Networks (IS53): Physical Layer</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
