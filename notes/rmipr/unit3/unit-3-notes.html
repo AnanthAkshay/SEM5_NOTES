@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMIPR Unit 3: Data Collection, Sampling &amp; Hypothesis Testing | SEM5 Study Notes</title>
+  <meta name="description" content="Exam-focused interactive HTML notes for RMIPR (AL58) Unit 3: Primary/secondary data collection, measurement scales, sampling techniques, hypothesis testing (Z-test, t-test, Chi-square, ANOVA/ANOCOVA), and solved university exam numericals.">
+  <link rel="stylesheet" href="../../../css/notes.css">
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <script defer src="../../../assets/katex/katex.min.js"></script>
+  <script defer src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script defer src="../../../js/notes.js"></script>
+</head>
+<body data-theme="light">
+  <!-- Skip to Main Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="notes-header">
+    <div class="header-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">Semester V</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="../../../index.html#rmipr">RMIPR (AL58)</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Unit 3</span>
+      </nav>
+
+      <div class="header-main">
+        <div class="header-left">
+          <div class="badge-row">
+            <span class="badge badge-course">AL58</span>
+            <span class="badge badge-unit">Unit 3</span>
+            <span class="badge badge-reading-time">⏱️ 45 min read</span>
+          </div>
+          <h1 class="unit-title">Data Collection, Sampling &amp; Hypothesis Testing</h1>
+          <p class="unit-subtitle">Primary &amp; secondary data, measurement scales, sampling designs, hypothesis testing ($Z$-test, Student's $t$-test, Chi-Square), ANOVA, ANOCOVA, and solved exam numericals.</p>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn-action" aria-label="Toggle theme">
+            <span class="icon">🌓</span> <span class="action-text">Theme</span>
+          </button>
+          <button id="print-btn" class="btn-action" aria-label="Print or save as PDF">
+            <span class="icon">🖨️</span> <span class="action-text">Print / PDF</span>
+          </button>
+          <button id="mark-done-btn" class="btn-action" aria-label="Mark unit as completed">
+            <span class="icon">✅</span> <span class="action-text">Mark Done</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Syllabus Topics Bar -->
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <span class="syllabus-tag">Syllabus Breakdown</span>
+          <span class="syllabus-count">8 Core Modules</span>
+        </div>
+        <ul class="syllabus-list">
+          <li><strong>Data Collection:</strong> Primary vs. secondary sources, observation, questionnaires, and schedules</li>
+          <li><strong>Measurement &amp; Scaling:</strong> Nominal, Ordinal, Interval, and Ratio scales, reliability, validity</li>
+          <li><strong>Sampling Fundamentals:</strong> Census vs. sample, sampling criteria, probability vs. non-probability</li>
+          <li><strong>Hypothesis Testing Concepts:</strong> Null ($H_0$) &amp; alternative ($H_1$), Type I &amp; II errors, $\alpha$, power ($1-\beta$)</li>
+          <li><strong>Testing Procedure:</strong> 5-step protocol, critical region, two-tailed vs. one-tailed decisions</li>
+          <li><strong>Parametric Tests:</strong> $Z$-test (mean with FPC, proportions) and Student's $t$-test for small samples</li>
+          <li><strong>Non-Parametric &amp; Variance:</strong> Chi-square ($\chi^2$) test of independence, contingency tables</li>
+          <li><strong>ANOVA &amp; ANOCOVA:</strong> One-Way Analysis of Variance, $F$-ratio, and Analysis of Covariance overview</li>
+        </ul>
+      </div>
+
+      <!-- Original Faculty Files Download Links -->
+      <div class="source-links-card">
+        <span class="source-label">Original Courseware:</span>
+        <a href="../practice/rmipr-see-feb-mar-2025.pdf" class="source-link" target="_blank" rel="noopener">📝 SEE Feb/Mar 2025 Paper</a>
+        <a href="../practice/rmipr-makeup-apr-2025.pdf" class="source-link" target="_blank" rel="noopener">📝 Makeup Apr 2025 Paper</a>
+        <a href="../unit1/rm-ipr-unit1.pdf" class="source-link" target="_blank" rel="noopener">📄 Course Reference (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Layout with Sticky TOC -->
+  <div class="notes-layout">
+    <!-- Sticky Desktop / Mobile Accordion Navigation -->
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-sticky-container">
+        <div class="toc-header">
+          <h2 class="toc-title">On this page</h2>
+          <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-nav">Contents ▾</button>
+        </div>
+        <nav id="toc-nav" class="toc-nav">
+          <ol class="toc-list">
+            <li><a href="#sec-data-collection">1. Methods of Data Collection</a></li>
+            <li><a href="#sec-measurement-scales">2. Measurement &amp; Scaling Techniques</a></li>
+            <li><a href="#sec-sampling-design">3. Sampling Fundamentals &amp; Types</a></li>
+            <li><a href="#sec-hypothesis-concepts">4. Foundations of Hypothesis Testing</a></li>
+            <li><a href="#sec-testing-procedure">5. 5-Step Hypothesis Testing Protocol</a></li>
+            <li><a href="#sec-parametric-tests">6. Parametric Tests ($Z$-Test &amp; $t$-Test)</a></li>
+            <li><a href="#sec-chi-square">7. Chi-Square ($\chi^2$) Test</a></li>
+            <li><a href="#sec-anova-anocova">8. ANOVA &amp; ANOCOVA</a></li>
+            <li><a href="#sec-numericals">9. Solved University Exam Numericals</a></li>
+            <li><a href="#revision-sheet">10. Quick Revision Sheet</a></li>
+            <li><a href="#exam-questions">11. Exam Questions &amp; Practice</a></li>
+            <li><a href="#sec-references">12. Prescribed References</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="notes-body">
+
+      <!-- SECTION 1 -->
+      <section id="sec-data-collection" class="content-section">
+        <h2 class="section-title">1. Methods of Data Collection</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong>Primary Data</strong> are gathered afresh and for the first time by the investigator, having an original character. <strong>Secondary Data</strong> are those already collected and compiled by an external agency, having passed through statistical processing.</p>
+        </div>
+
+        <h3 class="subsection-title">1.1 Primary Data Collection Methods</h3>
+        <ul>
+          <li><strong>Observation Method:</strong> Data gathered through direct monitoring without asking the respondent.
+            <ul>
+              <li><em>Structured vs. Unstructured:</em> Structured defines specific observational units in advance; Unstructured monitors naturally without predefined categories.</li>
+              <li><em>Participant vs. Non-participant:</em> In participant observation, the researcher actively joins the group being observed.</li>
+            </ul>
+          </li>
+          <li><strong>Interview Method:</strong> Oral verbal stimulus presented in face-to-face interaction or telephonically.
+            <ul>
+              <li><em>Structured:</em> Uses predetermined, rigidly sequenced questions.</li>
+              <li><em>Unstructured:</em> Flexible, conversational, exploring psychological nuances.</li>
+            </ul>
+          </li>
+          <li><strong>Questionnaires vs. Schedules:</strong>
+            <ul>
+              <li>A <em>Questionnaire</em> is mailed or handed to respondents to be read and answered by themselves without assistance.</li>
+              <li>A <em>Schedule</em> contains identical questions but is read aloud and filled out by a trained enumerator/investigator who visits the respondent in person.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Questionnaire Method</th>
+                <th>Schedule Method</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Administration</strong></td>
+                <td>Self-administered by the respondent.</td>
+                <td>Filled out by trained enumerator in person.</td>
+              </tr>
+              <tr>
+                <td><strong>Cost &amp; Coverage</strong></td>
+                <td>Low cost, wide geographic reach.</td>
+                <td>High cost, requires hiring and training enumerators.</td>
+              </tr>
+              <tr>
+                <td><strong>Non-Response Rate</strong></td>
+                <td>High (many recipients discard forms).</td>
+                <td>Very low (enumerator ensures completion).</td>
+              </tr>
+              <tr>
+                <td><strong>Literacy Dependency</strong></td>
+                <td>Requires literate respondents.</td>
+                <td>Applicable even for non-literate respondents.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Primary data is gathered afresh (observation, interview, questionnaires, schedules). Questionnaires are self-filled by respondents; schedules are administered by trained enumerators.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-measurement-scales" class="content-section">
+        <h2 class="section-title">2. Measurement &amp; Scaling Techniques</h2>
+        <p>Measurement is the process of mapping numbers or symbols to properties of objects according to specific rules. S.S. Stevens established four levels of measurement scales:</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Scale Level</th>
+                <th>Mathematical Properties</th>
+                <th>Permissible Statistics</th>
+                <th>Engineering Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Nominal</strong></td>
+                <td>Identity / Classification only ($A = B$ or $A \neq B$). No order or distance.</td>
+                <td>Mode, Frequency, Percentage, Chi-square ($\chi^2$).</td>
+                <td>Operating System type (Linux, Windows, macOS); Packet protocol (TCP, UDP, ICMP).</td>
+              </tr>
+              <tr>
+                <td><strong>2. Ordinal</strong></td>
+                <td>Classification + Rank Ordering ($A > B > C$). Intervals between ranks are unequal/unknown.</td>
+                <td>Median, Percentiles, Spearman's rank correlation.</td>
+                <td>Software defect severity (Low, Medium, High, Critical); Likert agreement scales (1 to 5).</td>
+              </tr>
+              <tr>
+                <td><strong>3. Interval</strong></td>
+                <td>Classification + Rank + Equal Intervals. Arbitrary (non-absolute) zero point. Addition &amp; subtraction valid.</td>
+                <td>Mean, Standard Deviation, Pearson's $r$, $t$-test, $F$-test.</td>
+                <td>Temperature in Celsius/Fahrenheit; Calendar year (2025); Calendar time.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Ratio</strong></td>
+                <td>Classification + Rank + Equal Intervals + <strong>Absolute True Zero</strong>. Ratios ($A = 2B$) are physically meaningful.</td>
+                <td>All statistics: Geometric mean, Harmonic mean, Coefficient of variation.</td>
+                <td>Execution latency (microseconds), Memory usage (megabytes), Clock frequency (GHz), Weight.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subsection-title">2.1 Tests of Sound Measurement</h3>
+        <ul>
+          <li><strong>Reliability:</strong> Consistency and repeatability of measurement. Assessed via Test-Retest reliability, Split-Half reliability, and Cronbach's Alpha ($\alpha \ge 0.70$).</li>
+          <li><strong>Validity:</strong> Whether the instrument truly measures what it purports to measure.
+            <ul>
+              <li><em>Content Validity:</em> Adequate coverage of all facets of the construct.</li>
+              <li><em>Criterion-Related Validity:</em> Correlation with an external benchmark (Predictive or Concurrent).</li>
+              <li><em>Construct Validity:</em> Alignment with underlying theoretical concepts (Convergent &amp; Discriminant).</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Stevens' 4 scales: Nominal (labels) &rarr; Ordinal (ranks) &rarr; Interval (equal units, arbitrary zero) &rarr; Ratio (equal units, absolute true zero). Ratio permits multiplication and division.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-sampling-design" class="content-section">
+        <h2 class="section-title">3. Sampling Fundamentals &amp; Types of Sample Design</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Sample</strong> is a finite subset of a population selected to estimate the parameters of that population. <strong>Sampling Design</strong> is the predetermined plan for obtaining a sample from a given population before any data are gathered.</p>
+        </div>
+
+        <h3 class="subsection-title">3.1 Probability Sampling vs. Non-Probability Sampling</h3>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Technique</th>
+                <th>Mechanism &amp; Defining Feature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="4"><strong>Probability Sampling</strong><br>(Every element has a known, non-zero inclusion probability)</td>
+                <td><strong>Simple Random Sampling (SRS)</strong></td>
+                <td>Every item has an equal probability ($\frac{1}{N}$) of selection via lottery or random number generators.</td>
+              </tr>
+              <tr>
+                <td><strong>Systematic Sampling</strong></td>
+                <td>Select every $k^{\text{th}}$ element from an ordered list after picking the first element randomly ($k = N/n$).</td>
+              </tr>
+              <tr>
+                <td><strong>Stratified Random Sampling</strong></td>
+                <td>Population is partitioned into mutually exclusive, homogeneous strata (e.g. Freshmen, Sophomores, Seniors), and SRS is drawn from each stratum (Proportional or Disproportional).</td>
+              </tr>
+              <tr>
+                <td><strong>Cluster Sampling</strong></td>
+                <td>Population is divided into heterogeneous naturally occurring clusters (e.g. server racks); a random sample of clusters is chosen, and all items in selected clusters are inspected.</td>
+              </tr>
+              <tr>
+                <td rowspan="4"><strong>Non-Probability Sampling</strong><br>(Selection based on subjective human discretion)</td>
+                <td><strong>Convenience Sampling</strong></td>
+                <td>Units chosen based on immediate geographic proximity or ease of access.</td>
+              </tr>
+              <tr>
+                <td><strong>Purposive / Judgment Sampling</strong></td>
+                <td>Researcher hand-picks units deemed most representative based on professional expertise.</td>
+              </tr>
+              <tr>
+                <td><strong>Quota Sampling</strong></td>
+                <td>Interviewer fills specific demographic quotas (e.g. 50 female developers, 50 male developers) non-randomly.</td>
+              </tr>
+              <tr>
+                <td><strong>Snowball Sampling</strong></td>
+                <td>Existing study subjects recruit future subjects from among their acquaintances (used for rare/hidden populations).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Probability sampling (SRS, Systematic, Stratified, Cluster) eliminates selection bias and supports statistical inference. Non-probability (Convenience, Judgment, Quota, Snowball) relies on subjective judgment.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-hypothesis-concepts" class="content-section">
+        <h2 class="section-title">4. Foundations of Hypothesis Testing</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Statistical Hypothesis</strong> is an assertive, testable proposition concerning one or more unknown parameters of a population probability distribution.</p>
+        </div>
+
+        <h3 class="subsection-title">4.1 Null Hypothesis ($H_0$) and Alternative Hypothesis ($H_1$)</h3>
+        <ul>
+          <li><strong>Null Hypothesis ($H_0$):</strong> The default hypothesis of "no difference", "no effect", or "no relationship" (e.g., $H_0: \mu = 320$, or $H_0: p = 0.20$). It is presumed innocent until proven guilty by compelling empirical evidence.</li>
+          <li><strong>Alternative Hypothesis ($H_1$ or $H_a$):</strong> The assertion that a real effect, difference, or relationship exists (e.g., $H_1: \mu \neq 320$, $H_1: \mu > 320$).</li>
+        </ul>
+
+        <h3 class="subsection-title">4.2 Decision Outcomes: Type I &amp; Type II Errors</h3>
+        <p>In evaluating a null hypothesis based on sample data, an investigator faces four possible outcomes:</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>True State of Nature</th>
+                <th>Decision: Accept (Fail to Reject) $H_0$</th>
+                <th>Decision: Reject $H_0$ (Accept $H_1$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>$H_0$ is Actually True</strong></td>
+                <td><span style="color:var(--green);font-weight:700;">Correct Decision</span><br>Probability = $1 - \alpha$ (Confidence Level)</td>
+                <td><span style="color:#d9534f;font-weight:700;">Type I Error ($\alpha$)</span><br>"False Alarm" (Rejecting a true null hypothesis)</td>
+              </tr>
+              <tr>
+                <td><strong>$H_0$ is Actually False</strong></td>
+                <td><span style="color:#d9534f;font-weight:700;">Type II Error ($\beta$)</span><br>"Missed Detection" (Failing to reject a false null hypothesis)</td>
+                <td><span style="color:var(--green);font-weight:700;">Correct Decision</span><br>Probability = $1 - \beta$ (Statistical Power of the Test)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SVG 3.1: Normal Distribution with Critical Regions -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 3.1: Two-Tailed Hypothesis Testing Decision Regions ($\alpha = 0.05$)</div>
+          <svg viewBox="0 0 760 260" class="svg-diagram" aria-label="Two-tailed standard normal curve showing critical rejection regions at plus minus 1.96">
+            <title>Two-Tailed Rejection Region Diagram</title>
+            <!-- Baseline axis -->
+            <line x1="60" y1="210" x2="700" y2="210" stroke="var(--text-primary)" stroke-width="2"/>
+            <text x="380" y="240" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Standardized Test Statistic ($Z$)</text>
+
+            <!-- Normal curve -->
+            <path d="M 80 205 Q 240 200 320 100 Q 380 30 440 100 Q 520 200 680 205" fill="none" stroke="var(--text-primary)" stroke-width="2.5"/>
+
+            <!-- Left Critical Region (Z <= -1.96) -->
+            <path d="M 80 205 Q 160 203 190 185 L 190 210 L 80 210 Z" fill="#d9534f" opacity="0.3"/>
+            <line x1="190" y1="185" x2="190" y2="210" stroke="#d9534f" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="190" y="230" text-anchor="middle" font-weight="700" fill="#d9534f" font-size="11">-1.96</text>
+            <text x="135" y="170" text-anchor="middle" font-weight="600" fill="#d9534f" font-size="10">Reject $H_0$</text>
+            <text x="135" y="185" text-anchor="middle" fill="#d9534f" font-size="9">$\alpha/2 = 0.025$</text>
+
+            <!-- Center Non-Rejection Region -->
+            <rect x="230" y="110" width="300" height="70" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="2"/>
+            <text x="380" y="135" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Non-Rejection Region (Accept $H_0$)</text>
+            <text x="380" y="155" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Confidence Level: $1 - \alpha = 0.95$ ($95\%$)</text>
+
+            <!-- Right Critical Region (Z >= +1.96) -->
+            <path d="M 570 185 Q 600 203 680 205 L 680 210 L 570 210 Z" fill="#d9534f" opacity="0.3"/>
+            <line x1="570" y1="185" x2="570" y2="210" stroke="#d9534f" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="570" y="230" text-anchor="middle" font-weight="700" fill="#d9534f" font-size="11">+1.96</text>
+            <text x="625" y="170" text-anchor="middle" font-weight="600" fill="#d9534f" font-size="10">Reject $H_0$</text>
+            <text x="625" y="185" text-anchor="middle" fill="#d9534f" font-size="9">$\alpha/2 = 0.025$</text>
+
+            <!-- Center mark 0 -->
+            <line x1="380" y1="35" x2="380" y2="210" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="380" y="225" text-anchor="middle" font-weight="700" font-size="11">0</text>
+          </svg>
+          <div class="diagram-caption">In a two-tailed test at $\alpha = 0.05$, if $|Z_{\text{cal}}| \ge 1.96$, the sample lies in the critical red region and $H_0$ is rejected.</div>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Type I Error ($\alpha$) = false alarm (rejecting true $H_0$). Type II Error ($\beta$) = missed detection (failing to reject false $H_0$). Statistical Power = $1 - \beta$.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-testing-procedure" class="content-section">
+        <h2 class="section-title">5. The Universal 5-Step Hypothesis Testing Protocol</h2>
+        <p>Every hypothesis testing exam question must strictly follow these five structured steps:</p>
+        <ol>
+          <li><strong>Step 1: State the Hypotheses:</strong> Formulate $H_0$ (null condition of equality) and $H_1$ (alternative condition, noting whether one-tailed or two-tailed).</li>
+          <li><strong>Step 2: Specify the Significance Level ($\alpha$):</strong> Identify $\alpha$ (typically $0.05$ or $0.01$) and note the degree of confidence $1 - \alpha$.</li>
+          <li><strong>Step 3: Select and Calculate the Test Statistic:</strong> Compute $Z_{\text{cal}}$, $t_{\text{cal}}$, $\chi^2_{\text{cal}}$, or $F_{\text{cal}}$ using sample data and appropriate standard error formulas.</li>
+          <li><strong>Step 4: Determine the Critical Region (Rejection Threshold):</strong> Read critical value ($Z_{\text{crit}}$ or $t_{\text{crit}}$) from statistical tables for given $\alpha$ and degrees of freedom ($df$).</li>
+          <li><strong>Step 5: Formulate the Decision &amp; Managerial Interpretation:</strong>
+            <ul>
+              <li>If the test statistic falls in the critical region ($|Z_{\text{cal}}| \ge Z_{\text{crit}}$), <strong>Reject $H_0$</strong>.</li>
+              <li>Otherwise, <strong>Fail to reject $H_0$</strong> (Accept $H_0$). State the conclusion in plain language relative to the problem context.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>The 5 Steps: 1. State $H_0, H_1$; 2. Set $\alpha$; 3. Compute test statistic; 4. Find critical threshold; 5. Conclude (Reject or Fail to Reject $H_0$).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-parametric-tests" class="content-section">
+        <h2 class="section-title">6. Parametric Tests ($Z$-Test &amp; Student's $t$-Test)</h2>
+
+        <h3 class="subsection-title">6.1 $Z$-Test for Population Mean (Large Sample $n \ge 30$ or Known $\sigma$)</h3>
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 1: Standard $Z$-Test for Mean</span>
+          $$\mathbf{Z = \frac{\bar{X} - \mu_0}{\sigma_{\bar{X}}}}$$
+          <p>where $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$ for an infinite (or very large) population.</p>
+        </div>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 2: Finite Population Correction Factor (FPC)</span>
+          <p>When sampling without replacement from a finite population of size $N$ such that the sampling fraction exceeds 5% ($\frac{n}{N} > 0.05$), the standard error <strong>must</strong> be multiplied by the Finite Population Correction (FPC):</p>
+          $$\sigma_{\bar{X}} = \left(\frac{\sigma}{\sqrt{n}}\right) \cdot \sqrt{\frac{N - n}{N - 1}}$$
+        </div>
+
+        <h3 class="subsection-title">6.2 $Z$-Test for Population Proportion</h3>
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 3: $Z$-Test for Single Proportion</span>
+          $$\mathbf{Z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0 \cdot q_0}{n}}}}$$
+          <p>where $p_0$ is the hypothesized proportion, $q_0 = 1 - p_0$, and $\hat{p} = \frac{x}{n}$ is the sample proportion of successes.</p>
+        </div>
+
+        <h3 class="subsection-title">6.3 Student's $t$-Test for Small Samples ($n < 30$, Unknown $\sigma$)</h3>
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 4: One-Sample Student's $t$-Test</span>
+          $$\mathbf{t = \frac{\bar{X} - \mu_0}{\frac{s}{\sqrt{n}}}, \quad df = n - 1}$$
+          <p>where $s$ is the sample standard deviation calculated with Bessel's correction $(n - 1)$:</p>
+          $$s = \sqrt{\frac{\sum_{i=1}^n (X_i - \bar{X})^2}{n - 1}}$$
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Use $Z$-test for large samples ($n \ge 30$) or known $\sigma$. If finite population fraction $n/N > 0.05$, apply FPC $\sqrt{\frac{N-n}{N-1}}$. Use Student's $t$-test for small samples ($n < 30$) with unknown $\sigma$ ($df = n-1$).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-chi-square" class="content-section">
+        <h2 class="section-title">7. Chi-Square ($\chi^2$) Test of Independence</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>The <strong>Chi-Square ($\chi^2$) Test of Independence</strong> is a non-parametric statistical test used to determine whether a significant association exists between two categorical variables arranged in an $r \times c$ contingency table.</p>
+        </div>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula: Chi-Square Test Statistic</span>
+          $$\mathbf{\chi^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}, \quad df = (r - 1)(c - 1)}$$
+          <p>where $O_{ij}$ is the observed frequency in cell $(i, j)$, and $E_{ij}$ is the theoretical expected frequency under the null hypothesis of independence:</p>
+          $$E_{ij} = \frac{(\text{Row } i \text{ Total}) \times (\text{Column } j \text{ Total})}{\text{Grand Total } N}$$
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">Validity Conditions for Chi-Square</span>
+          <ul>
+            <li>Observations must be independent and collected randomly.</li>
+            <li>Total sample size $N$ should be reasonably large ($N \ge 50$).</li>
+            <li>No expected cell frequency $E_{ij}$ should be less than 5. If $E_{ij} < 5$, adjacent categories must be pooled or Yates' correction for continuity applied for $2 \times 2$ tables.</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>$\chi^2 = \sum \frac{(O - E)^2}{E}$ with $df = (r-1)(c-1)$. Expected frequency $E = \frac{\text{Row Total} \times \text{Col Total}}{\text{Grand Total}}$. Valid only when all $E \ge 5$.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-anova-anocova" class="content-section">
+        <h2 class="section-title">8. Analysis of Variance (ANOVA) &amp; Covariance (ANOCOVA)</h2>
+
+        <h3 class="subsection-title">8.1 One-Way Analysis of Variance (ANOVA)</h3>
+        <p>While the $t$-test compares two means, <strong>ANOVA</strong> tests the equality of $k \ge 3$ population means simultaneously without inflating the Type I error rate:</p>
+        $$H_0: \mu_1 = \mu_2 = \dots = \mu_k \quad \text{vs.} \quad H_1: \text{At least one mean differs}$$
+        <p>ANOVA partitions total variance into two orthogonal components:</p>
+        $$SS_{\text{Total}} = SS_{\text{Between}} + SS_{\text{Within}}$$
+        $$F = \frac{MS_{\text{Between}}}{MS_{\text{Within}}} = \frac{SS_{\text{Between}} / (k - 1)}{SS_{\text{Within}} / (N - k)}$$
+
+        <h3 class="subsection-title">8.2 Analysis of Covariance (ANOCOVA)</h3>
+        <p><strong>ANOCOVA</strong> combines ANOVA with linear regression. It removes the confounding effect of one or more uncontrolled continuous concomitant variables (covariates, $X$) that correlate with the dependent variable ($Y$), thereby reducing residual experimental error and sharpening treatment comparisons.</p>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>ANOVA compares $k \ge 3$ means using the $F$-ratio ($MS_{\text{Between}} / MS_{\text{Within}}$). ANOCOVA integrates regression to statistically adjust for confounding continuous covariates.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 9: SOLVED EXAM NUMERICALS -->
+      <section id="sec-numericals" class="content-section">
+        <h2 class="section-title">9. Solved University Exam Numericals</h2>
+
+        <!-- Numerical 1: SEE Feb/Mar 2025 Q5b -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Exam Problem 3.1: Finite Population Mean Test (SEE Feb/Mar 2025, Q5b, 10 Marks)</span>
+          <p><strong>Problem Statement:</strong> Suppose we are interested in a population of 20 industrial units of the same size, all of which are experiencing excessive labour turnover problems. The past records show that the mean of the distribution of annual turnover is 320 employees, with a standard deviation of 75 employees. A sample of 5 of these industrial units is taken at random which gives a mean of annual turnover as 300 employees. Is the sample mean consistent with the population mean? Test at 5% level of significance.</p>
+
+          <p><strong>Step 1: Formulate Hypotheses:</strong></p>
+          <ul>
+            <li>Null Hypothesis $H_0: \mu = 320$ (Sample mean is consistent with population mean turnover).</li>
+            <li>Alternative Hypothesis $H_1: \mu \neq 320$ (Two-tailed test).</li>
+          </ul>
+
+          <p><strong>Step 2: Identify Parameters &amp; Check Finite Population Condition:</strong></p>
+          <ul>
+            <li>Population size $N = 20$</li>
+            <li>Sample size $n = 5$</li>
+            <li>Hypothesized mean $\mu_0 = 320$, Population standard deviation $\sigma = 75$</li>
+            <li>Sample mean $\bar{X} = 300$, Significance level $\alpha = 0.05$</li>
+          </ul>
+          <p>Check sampling fraction: $\frac{n}{N} = \frac{5}{20} = 0.25 = 25\% > 5\%$. Therefore, the <strong>Finite Population Correction (FPC)</strong> factor is strictly required!</p>
+
+          <p><strong>Step 3: Calculate Standard Error with FPC:</strong></p>
+          $$\text{FPC} = \sqrt{\frac{N - n}{N - 1}} = \sqrt{\frac{20 - 5}{20 - 1}} = \sqrt{\frac{15}{19}} \approx 0.8885$$
+          $$\sigma_{\bar{X}} = \left(\frac{\sigma}{\sqrt{n}}\right) \times \text{FPC} = \left(\frac{75}{\sqrt{5}}\right) \times 0.8885 = 33.541 \times 0.8885 \approx 29.8020$$
+
+          <p><strong>Step 4: Compute Test Statistic:</strong></p>
+          $$Z_{\text{cal}} = \frac{\bar{X} - \mu_0}{\sigma_{\bar{X}}} = \frac{300 - 320}{29.8020} = \frac{-20}{29.8020} \approx \mathbf{-0.6711}$$
+
+          <p><strong>Step 5: Decision &amp; Conclusion:</strong></p>
+          <p>For a two-tailed test at $\alpha = 0.05$, the critical value is $Z_{0.025} = \pm 1.96$.</p>
+          <p>Since $|Z_{\text{cal}}| = 0.6711 < 1.96$, the test statistic falls comfortably in the non-rejection region.</p>
+          <div class="formula-box">
+            $$\mathbf{|Z_{\text{cal}}| = 0.6711 < 1.96 \implies \text{Fail to Reject } H_0}$$
+          </div>
+          <p><strong>Conclusion:</strong> The sample mean turnover of 300 employees is statistically consistent with the population mean of 320 employees at the 5% level of significance.</p>
+        </div>
+
+        <!-- Numerical 2: SEE Feb/Mar 2025 Q6b -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Exam Problem 3.2: $Z$-Test for Population Proportion (SEE Feb/Mar 2025, Q6b, 10 Marks)</span>
+          <p><strong>Problem Statement:</strong> The null hypothesis is that 20 per cent of the passengers go in first class, but management recognizes the possibility that this percentage could be more or less. A random sample of 400 passengers includes 70 passengers holding first class tickets. Can we reject the null hypothesis at the 5% level of significance?</p>
+
+          <p><strong>Step 1: Formulate Hypotheses:</strong></p>
+          <ul>
+            <li>Null Hypothesis $H_0: p = 0.20$ (20% of passengers travel in first class).</li>
+            <li>Alternative Hypothesis $H_1: p \neq 0.20$ (Two-tailed test).</li>
+          </ul>
+
+          <p><strong>Step 2: Sample Proportion &amp; Standard Error:</strong></p>
+          <ul>
+            <li>Sample size $n = 400$</li>
+            <li>Successes $x = 70 \implies \hat{p} = \frac{70}{400} = 0.175$</li>
+            <li>Hypothesized proportion $p_0 = 0.20 \implies q_0 = 1 - 0.20 = 0.80$</li>
+          </ul>
+          $$\sigma_p = \sqrt{\frac{p_0 \cdot q_0}{n}} = \sqrt{\frac{0.20 \times 0.80}{400}} = \sqrt{\frac{0.16}{400}} = \sqrt{0.0004} = 0.02$$
+
+          <p><strong>Step 3: Compute $Z_{\text{cal}}$:</strong></p>
+          $$Z_{\text{cal}} = \frac{\hat{p} - p_0}{\sigma_p} = \frac{0.175 - 0.20}{0.02} = \frac{-0.025}{0.02} = \mathbf{-1.25}$$
+
+          <p><strong>Step 4: Decision:</strong></p>
+          <p>At $\alpha = 0.05$ (two-tailed), critical $Z = \pm 1.96$.</p>
+          <div class="formula-box">
+            $$\mathbf{|Z_{\text{cal}}| = 1.25 < 1.96 \implies \text{Fail to Reject } H_0}$$
+          </div>
+          <p><strong>Conclusion:</strong> We cannot reject the null hypothesis. The observed difference ($17.5\%$ vs $20\%$) is attributable to chance sampling variation at the 5% level.</p>
+        </div>
+
+        <!-- Numerical 3: Makeup Apr 2025 Q6b -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Exam Problem 3.3: Small Sample Student's $t$-Test (Makeup Apr 2025, Q6b, 10 Marks)</span>
+          <p><strong>Problem Statement:</strong> The average adult male height in a certain country is 170 cm. We suspect that the men in a certain city in that country might have a different average height due to environmental factors. We pick a random sample of size 9 from the adult males in the city and obtain the following values for their heights (in cm):<br>
+          <code>176.2, 157.9, 160.1, 180.9, 165.1, 167.2, 162.9, 155.7, 166.2</code>.<br>
+          Test whether average male height can be 170 cm. Consider significance level to be 5%.</p>
+
+          <p><strong>Step 1: State Hypotheses:</strong></p>
+          <ul>
+            <li>$H_0: \mu = 170$ cm (Average male height in the city is 170 cm).</li>
+            <li>$H_1: \mu \neq 170$ cm (Two-tailed test).</li>
+          </ul>
+
+          <p><strong>Step 2: Compute Sample Mean ($\bar{X}$) and Sample Standard Deviation ($s$):</strong></p>
+          $$\sum X = 176.2 + 157.9 + 160.1 + 180.9 + 165.1 + 167.2 + 162.9 + 155.7 + 166.2 = 1492.2$$
+          $$\bar{X} = \frac{1492.2}{9} = \mathbf{165.80 \text{ cm}}$$
+
+          <p>Deviations $(X_i - \bar{X})$ and squared deviations $(X_i - \bar{X})^2$:</p>
+          <ul>
+            <li>$176.2 - 165.8 = +10.4 \implies (10.4)^2 = 108.16$</li>
+            <li>$157.9 - 165.8 = -7.9 \implies (-7.9)^2 = 62.41$</li>
+            <li>$160.1 - 165.8 = -5.7 \implies (-5.7)^2 = 32.49$</li>
+            <li>$180.9 - 165.8 = +15.1 \implies (15.1)^2 = 228.01$</li>
+            <li>$165.1 - 165.8 = -0.7 \implies (-0.7)^2 = 0.49$</li>
+            <li>$167.2 - 165.8 = +1.4 \implies (1.4)^2 = 1.96$</li>
+            <li>$162.9 - 165.8 = -2.9 \implies (-2.9)^2 = 8.41$</li>
+            <li>$155.7 - 165.8 = -10.1 \implies (-10.1)^2 = 102.01$</li>
+            <li>$166.2 - 165.8 = +0.4 \implies (0.4)^2 = 0.16$</li>
+          </ul>
+          $$\sum (X_i - \bar{X})^2 = 108.16 + 62.41 + 32.49 + 228.01 + 0.49 + 1.96 + 8.41 + 102.01 + 0.16 = 544.10$$
+          $$s = \sqrt{\frac{\sum (X_i - \bar{X})^2}{n - 1}} = \sqrt{\frac{544.10}{8}} = \sqrt{68.0125} \approx \mathbf{8.2470 \text{ cm}}$$
+
+          <p><strong>Step 3: Calculate Student's $t$ Statistic:</strong></p>
+          $$\text{SE} = \frac{s}{\sqrt{n}} = \frac{8.2470}{\sqrt{9}} = \frac{8.2470}{3} \approx 2.7490$$
+          $$t_{\text{cal}} = \frac{\bar{X} - \mu_0}{\text{SE}} = \frac{165.80 - 170.00}{2.7490} = \frac{-4.20}{2.7490} \approx \mathbf{-1.5278}$$
+
+          <p><strong>Step 4: Critical Value and Decision:</strong></p>
+          <p>Degrees of freedom $df = n - 1 = 9 - 1 = 8$.</p>
+          <p>From the Student's $t$-table, two-tailed critical $t$ for $df = 8$ at $\alpha = 0.05$ is $t_{0.025, 8} = \mathbf{\pm 2.306}$.</p>
+          <div class="formula-box">
+            $$\mathbf{|t_{\text{cal}}| = 1.5278 < 2.306 \implies \text{Fail to Reject } H_0}$$
+          </div>
+          <p><strong>Conclusion:</strong> We accept $H_0$. There is insufficient statistical evidence at the 5% level to reject the claim that average adult male height in the city is 170 cm.</p>
+        </div>
+
+        <!-- Numerical 4: Chi-Square Test of Independence -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 3.4: Chi-Square ($\chi^2$) Test of Independence on $2 \times 2$ Table</span>
+          <p><strong>Problem Statement:</strong> A survey evaluated 100 software repositories to test whether defect rates depend on development methodology (Agile vs. Waterfall). The observed counts are:</p>
+          <div class="table-container">
+            <table class="notes-table">
+              <thead>
+                <tr>
+                  <th>Methodology</th>
+                  <th>High Defect (> 10)</th>
+                  <th>Low Defect (<= 10)</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Agile</td><td>15</td><td>35</td><td>50</td></tr>
+                <tr><td>Waterfall</td><td>30</td><td>20</td><td>50</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>45</strong></td><td><strong>55</strong></td><td><strong>100</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Test at the 5% level ($\alpha = 0.05$) whether defect rate is independent of development methodology.</p>
+
+          <p><strong>Step 1: Compute Expected Frequencies ($E = \frac{\text{Row Total} \times \text{Col Total}}{\text{Grand Total}}$):</strong></p>
+          <ul>
+            <li>$E_{11} = \frac{50 \times 45}{100} = 22.5$</li>
+            <li>$E_{12} = \frac{50 \times 55}{100} = 27.5$</li>
+            <li>$E_{21} = \frac{50 \times 45}{100} = 22.5$</li>
+            <li>$E_{22} = \frac{50 \times 55}{100} = 27.5$</li>
+          </ul>
+
+          <p><strong>Step 2: Calculate $\chi^2_{\text{cal}}$:</strong></p>
+          $$\chi^2 = \frac{(15 - 22.5)^2}{22.5} + \frac{(35 - 27.5)^2}{27.5} + \frac{(30 - 22.5)^2}{22.5} + \frac{(20 - 27.5)^2}{27.5}$$
+          $$\chi^2 = \frac{(-7.5)^2}{22.5} + \frac{(7.5)^2}{27.5} + \frac{(7.5)^2}{22.5} + \frac{(-7.5)^2}{27.5} = \frac{56.25}{22.5} + \frac{56.25}{27.5} + \frac{56.25}{22.5} + \frac{56.25}{27.5}$$
+          $$\chi^2 = 2.5000 + 2.0455 + 2.5000 + 2.0455 = \mathbf{9.0910}$$
+
+          <p><strong>Step 3: Degrees of Freedom &amp; Critical Value:</strong></p>
+          $$df = (r - 1)(c - 1) = (2 - 1)(2 - 1) = 1$$
+          <p>Critical $\chi^2_{0.05, 1} = \mathbf{3.841}$.</p>
+          <div class="formula-box">
+            $$\mathbf{\chi^2_{\text{cal}} = 9.0910 > 3.841 \implies \text{Reject } H_0}$$
+          </div>
+          <p><strong>Conclusion:</strong> Reject $H_0$. There is a statistically significant association between development methodology and defect rates ($p < 0.01$).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 10: REVISION SHEET -->
+      <section id="revision-sheet" class="content-section">
+        <h2 class="section-title">10. Quick Revision Sheet</h2>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Test / Formula</th>
+                <th>When to Use</th>
+                <th>Test Statistic Formula</th>
+                <th>Critical Cut-off ($\alpha=0.05$, two-tailed)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>$Z$-Test (Mean)</strong></td>
+                <td>$n \ge 30$ or known $\sigma$. (Apply FPC if $n/N > 0.05$)</td>
+                <td>$Z = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}} \cdot \text{FPC}}$</td>
+                <td>$\pm 1.96$</td>
+              </tr>
+              <tr>
+                <td><strong>$Z$-Test (Proportion)</strong></td>
+                <td>Categorical success rate ($n \ge 30$)</td>
+                <td>$Z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0 q_0}{n}}}$</td>
+                <td>$\pm 1.96$</td>
+              </tr>
+              <tr>
+                <td><strong>Student's $t$-Test</strong></td>
+                <td>Small sample $n < 30$, unknown $\sigma$, normal population</td>
+                <td>$t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}, \quad df = n - 1$</td>
+                <td>Read from $t$-table at $df = n - 1$</td>
+              </tr>
+              <tr>
+                <td><strong>Chi-Square ($\chi^2$)</strong></td>
+                <td>Test of independence on contingency tables ($r \times c$)</td>
+                <td>$\chi^2 = \sum \frac{(O - E)^2}{E}, \quad df = (r-1)(c-1)$</td>
+                <td>$3.841$ for $df = 1$</td>
+              </tr>
+              <tr>
+                <td><strong>ANOVA ($F$-Test)</strong></td>
+                <td>Testing equality of $k \ge 3$ population means</td>
+                <td>$F = \frac{MS_{\text{Between}}}{MS_{\text{Within}}}$</td>
+                <td>Read from $F$-table at $(k-1, N-k)$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 11: EXAM QUESTIONS -->
+      <section id="exam-questions" class="content-section">
+        <h2 class="section-title">11. Important Exam Questions &amp; Practice</h2>
+
+        <h3 class="subsection-title">2-Mark &amp; 4-Mark Questions</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">1. Define Confidence Level and Significance Level. (Makeup Apr 2025, 4 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Confidence Level ($1 - \alpha$):</strong> The probability that a decision will not reject a true null hypothesis, representing confidence in statistical conclusions (e.g. 95% or 0.95).</p>
+            <p><strong>Significance Level ($\alpha$):</strong> The maximum allowable probability of committing a Type I Error (rejecting a true null hypothesis, e.g. $\alpha = 0.05$ or 5%). It marks the boundary of the critical rejection region.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">2. Distinguish between Type I and Type II errors.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Type I Error ($\alpha$):</strong> Rejecting the null hypothesis $H_0$ when it is actually true (a false alarm). <strong>Type II Error ($\beta$):</strong> Failing to reject $H_0$ when it is actually false (a missed detection).</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">8-Mark &amp; 10-Mark Model Questions</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">3. How are the interview method and questionnaires different in data collection? (Makeup Apr 2025, 8 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Questionnaires:</strong> Mailed or digitally distributed; self-administered by the respondent without interviewer presence; low cost, wide reach; high non-response rate; cannot clarify ambiguous responses.</p>
+            <p><strong>Interviews:</strong> Direct verbal inquiry conducted in-person or telephonically; high response rate; allows probing into nuanced responses and non-verbal cues; expensive; potential for interviewer bias.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">4. Discuss different statistical measurement scales with examples. (SEE Feb/Mar 2025, 10 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>Discuss S.S. Stevens' four scales in detail:</p>
+            <ul>
+              <li><strong>Nominal Scale:</strong> Classification only (e.g. Operating system type, gender). Mode and Chi-square valid.</li>
+              <li><strong>Ordinal Scale:</strong> Rank ordered (e.g. Bug severity, Likert scale). Median and rank correlation valid.</li>
+              <li><strong>Interval Scale:</strong> Equal units, arbitrary zero (e.g. Temperature in Celsius). Mean, standard deviation, and $t$-test valid.</li>
+              <li><strong>Ratio Scale:</strong> Absolute true zero point (e.g. Response latency, memory size). All arithmetic operations valid.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Practice Problems with Answers</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">Practice Problem 1: Field Trip Proportion Test (Makeup Apr 2025, Q5c, 8 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Problem:</strong> A teacher believes that 85% of students want to go on a field trip ($p_0 = 0.85$). She samples 50 students, and 39 say yes. Conduct a hypothesis test at $\alpha = 0.05$.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+              <li>$H_0: p = 0.85 \quad \text{vs.} \quad H_1: p \neq 0.85$</li>
+              <li>$\hat{p} = \frac{39}{50} = 0.78$</li>
+              <li>$\sigma_p = \sqrt{\frac{0.85 \times 0.15}{50}} = \sqrt{0.00255} \approx 0.0505$</li>
+              <li>$Z_{\text{cal}} = \frac{0.78 - 0.85}{0.0505} = \frac{-0.07}{0.0505} \approx -1.386$</li>
+              <li>Critical value for two-tailed test at $\alpha = 0.05$ is $\pm 1.96$.</li>
+              <li>Since $|-1.386| < 1.96$, <strong>Fail to reject $H_0$</strong>. The percentage is not significantly different from 85%.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 12: REFERENCES -->
+      <section id="sec-references" class="content-section">
+        <h2 class="section-title">12. Prescribed References</h2>
+        <div class="callout callout-note">
+          <span class="callout-label">Official Course Textbooks</span>
+          <ol>
+            <li><strong>C.R. Kothari and Gourav Garg</strong>, <em>Research Methodology: Methods and Techniques</em>, 4th Edition, New Age International Publishers. (Chapters 5, 6, 8 &amp; 9).</li>
+            <li><strong>David V. Thiel</strong>, <em>Research Methods for Engineers</em>, Cambridge University Press, ISBN 978-1-107-03488-4. (Chapters 6 &amp; 7).</li>
+            <li><strong>Dipankar Deb, Rajeeb Dey, Valentina E. Balas</strong>, <em>Engineering Research Methodology</em>, Springer Intelligent Systems Reference Library, ISBN 978-981-13-2946-3.</li>
+          </ol>
+          <p class="exam-disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+      </section>
+
+      <!-- Unit Footer Navigation -->
+      <nav class="unit-navigation" aria-label="Unit Navigation">
+        <a href="../unit2/unit-2-notes.html" class="nav-btn prev-btn">
+          <span class="nav-arrow">←</span>
+          <span class="nav-meta">Previous Unit</span>
+          <span class="nav-title">Unit 2: Research Design &amp; Sampling</span>
+        </a>
+        <a href="../../evs/unit1/unit-1-notes.html" class="nav-btn next-btn">
+          <span class="nav-meta">Next Subject</span>
+          <span class="nav-title">EVS Unit 1</span>
+          <span class="nav-arrow">→</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
