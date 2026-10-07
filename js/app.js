@@ -97,13 +97,35 @@
     state.theme = theme;
     elements.html.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEYS.THEME, theme);
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    const nextLabel = `Switch to ${nextTheme} mode`;
+    const iconSvg = theme === 'dark' ? ICONS.sun : ICONS.moon;
+
     if (elements.themeIcon) {
-      elements.themeIcon.innerHTML = theme === 'dark' ? ICONS.sun : ICONS.moon;
-      elements.themeToggleBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+      elements.themeIcon.innerHTML = iconSvg;
+    }
+    if (elements.themeToggleBtn) {
+      elements.themeToggleBtn.setAttribute('aria-label', nextLabel);
+    }
+    if (elements.drawerThemeToggleBtn) {
+      elements.drawerThemeToggleBtn.innerHTML = `
+        <span style="display:inline-flex; align-items:center; gap:0.5rem;">
+          ${iconSvg}
+          <span>SWITCH TO ${nextTheme.toUpperCase()} MODE</span>
+        </span>
+      `;
+      elements.drawerThemeToggleBtn.setAttribute('aria-label', nextLabel);
     }
   }
 
+  let lastThemeToggleTime = 0;
   function toggleTheme() {
+    const now = Date.now();
+    // Protect against rapid double-taps or duplicate event dispatches on mobile touch devices
+    if (now - lastThemeToggleTime < 250) {
+      return;
+    }
+    lastThemeToggleTime = now;
     applyTheme(state.theme === 'dark' ? 'light' : 'dark');
   }
 

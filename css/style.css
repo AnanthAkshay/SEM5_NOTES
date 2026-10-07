@@ -500,13 +500,16 @@ a {
   }
 }
 
-/* Theme Pill Button on Desktop */
+/* Theme Toggle Button (Circular icon on mobile, Pill on desktop) */
 .pill-theme-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  width: 44px;
   height: 44px;
-  padding: 0 1.15rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border);
   background-color: var(--surface);
@@ -516,11 +519,34 @@ a {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: border-color var(--transition);
+  transition: border-color var(--transition), background-color var(--transition), color var(--transition);
+}
+
+.pill-theme-btn .theme-text {
+  display: none;
+}
+
+#theme-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .pill-theme-btn:hover {
   border-color: var(--ink);
+}
+
+@media (min-width: 1024px) and (pointer: fine) {
+  .pill-theme-btn {
+    width: auto;
+    padding: 0 1.15rem;
+    gap: 0.5rem;
+  }
+
+  .pill-theme-btn .theme-text {
+    display: inline;
+  }
 }
 
 /* --- 6. MOBILE FULL-SCREEN MENU SHEET --- */
