@@ -1,0 +1,104 @@
+=== Page 42 ===
+ 
+38 
+ 
+Research Methodology and IPR 
+Course Code: AL58 Credits: 3:0:0 
+Pre – requisites: NIL Contact Hours: 45L+45S 
+Course Coordinator: Dr. Anitha P 
+Course Content 
+Unit I 
+Introduction: Meaning of Research, Objectives of Research, Types of Research, Ethics in 
+Research, Types of Research Misconduct. Literature Review and Technical Reading: New and 
+Existing Knowledge, Analysis and Synthesis of Prior Art, Bibliographic Databases, 
+Conceptualizing Research, Critical and Creative Reading. Citations: Functions and Attributes, 
+Impact of Title and Keywords on Citations, Knowledge flow through Citations, Acknowledgments, 
+and Attributions. 
+ Pedagogy/Course Delivery tools: Chalk-and-talk and ppts. 
+ Links: https://www.nptel.ac.in/courses/121106007? 
+Unit II 
+Research Design: Need for Research Design, Important Concepts Related to Research Design: 
+Dependent and Independent Variables, Extraneous Variable, Variable, Common Control, 
+Confounded Relationship, Research Hypothesis, Experimental and Control Groups, Treatments.  
+Experimental Designs: Introduction to Randomised Block Design, Complete Randomised 
+Design, Latin Square Design, and Factorial Design. 
+ Pedagogy/Course Delivery tools: Chalk-and-talk, ppts. 
+ Links: https://nptel.ac.in/courses/121106007   
+Unit III 
+Method of Data Collection: Primary and Secondary Data Collection.  
+Sampling Design: Sampling fundamentals, Measurement, and Scaling Techniques, Criteria of 
+Selecting a Sampling Procedure, Characteristics of a Good Sample Design, and Types of Sample 
+Design.  
+Data Analysis: Testing of Hypotheses: Null Hypothesis, Alternative Hypothesis, Type I and Type 
+II Errors, Level of Significance. Procedure for Hypothesis Testing: Mean, Variance, Proportions. 
+Chi-square Test, Analysis of Variance (One Way ANOVA), and Covariance (ANOCOVA) 
+ 
+ Pedagogy/Course Delivery tools: Chalk-and-talk, ppts. 
+ Links: https://nptel.ac.in/courses/111104032. 
+Unit IV 
+Introduction to IPR: Different forms of IPR, Role of IPR in Research and Development. TRIPS 
+Agreement, Patent Cooperation Treaty (PCT). 
+Patents: Brief history of Patents -Indian and Global Scenario, Principle s Underlying Patent Law, 
+Types of Patent Applications in India, Procedure for Obtaining a Patent. Non -Patentable 
+Inventions. Rights Conferred to a Patentee, Basmati Rice Patent Case. 
+ Pedagogy/Course Delivery tools: Chalk-and-talk, ppts.  
+ Links: https://nptel.ac.in/courses/109105191.  
+Unit V 
+Design: What is a Design? Essential Requirements for a Registrable Design, Procedure of 
+Registration of a Design.  
+Trademarks: Essentials of a Trademark, Registration, and Protection of Trademarks, Rights 
+Conferred by Registration of Trademarks, Infringements, Types of Reliefs, Case Studies.  
+Copyrights: Characteristics of Copyrights, Rights Conferred by Registration of Copyrights, 
+Registration of Copyrights , Infringements, Remedies against Infringement of Copyrights, Case 
+studies. 
+=== Page 43 ===
+ 
+39 
+ Pedagogy/Course Delivery tools: Chalk-and-talk, ppts. 
+ Links: https://nptel.ac.in/courses/109104135. 
+ 
+Text Book: 
+1. C. R Kothari, Gourav Garg, Research Methodology – Methods and Techniques. New Age 
+International Publishers. 
+2. Dr. B L Wadehra – Law relating to Intellectual property. Universal Law Publishing Co. 
+Dipankar Deb, Rajeeb Dey, Valentina E. Balas “Engineering Research Methodology”, 
+ISSN 1868 -4394 ISSN 1868 -4408 (electronic), Intelligent Systems Reference Library, 
+ISBN 978-981-13-2946-3 ISBN 978-981-13-2947-0 (eBook), https://doi.org/10.1007/978-
+981-13-2947-0. 
+ 
+Reference Books: 
+ 
+1. David V. Thiel “Research Methods for Engineers” Cambridge University Press, 978-1-107-
+03488-4. 
+Self-Learning: Problem solving. 
+ 
+Course Outcomes(COs): 
+At the end of the course, the student will be able to: 
+1. Possess the knowledge of research and conduct a literature review.   
+2. Apply the knowledge of research design and design of experiments.  
+3. Analyze data collection methods, analysis, and sampling design.  
+4. Understand the global and Indian scenarios of patents and patent applications.  
+5. Acquire the requirements of registration and infringements related to trademarks, 
+copyrights, and designs.  
+Course Assessment and Evaluation: 
+Continuous Internal Evaluation (CIE): 50 Marks 
+Assessment Tool Marks Course outcomes attained 
+Internal Test-I <Times, size=12> 30 CO1, CO2, CO3 
+Internal Test-II 30 CO3, CO4, CO5 
+Average of the two internal tests shall be taken for 30 marks. 
+Other Components     
+Assignment 10 CO1, CO2, CO3, CO4,CO5 
+MCQ 10 CO1, CO2, CO3, CO4,CO5 
+Semester-End Examination 
+(SEE) 
+100 
+ 
+CO1, CO2, CO3, CO4, CO5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,137 @@
+=== Page 23 ===
+ 
+19 
+ Computer Networks 
+Course Code: IS53 Credits: 4:0:0:4 
+Pre – requisites: NIL Contact Hours: 60L+60S 
+Course Coordinator: Suresh Kumar K R 
+ 
+Course Content 
+Unit I 
+Data communication Fundamentals:  Introduction, Networks, Network types (LAN, WAN, 
+MAN, Internet), Protocol Layering, TCP/IP protocol suite, OSI Model, Physical layer: Data and 
+Signals, Basics of Periodic analog signals and digital signals, Transmission impairments, Data rate 
+limits, Line coding schemes (unipolar, polar, bipolar) in digital-to-digital conversion. 
+ Pedagogy/Course Delivery tools: Chalk & talk, Power Point and Multimedia Presentation  
+ Links: https://nptel.ac.in/courses/106105082 
+https://nptel.ac.in/courses/106105080 
+https://nptel.ac.in/courses/106105183 
+Unit II 
+Data Link layer: Introduction, Three types of addresses, ARP, Error detection and correction: 
+Types of errors, redundancy, error detection vs error correction, block coding, cyclic codes - CRC 
+and polynomials, checksum (Basic concept and internet checksum), Data link control: Framing, 
+Media Access Control, Random Access Protocols, Controlled Access Protocols, Channelization. 
+ Pedagogy/Course Delivery tools: Chalk & talk, Power Point and Multimedia Presentation  
+ Links: https://nptel.ac.in/courses/106105082 
+https://nptel.ac.in/courses/106106091 
+https://nptel.ac.in/courses/106105183 
+Unit III 
+Network layer: Network layer services, Introduction to connectionless service and connection 
+oriented service, Congestion control, IPV4 Addresses (Address space, classful addressing, classless 
+addressing, and NAT), Internet protocol (IP) datagram format, fragmentation, IP options, ICMP 
+error reporting and query messages, Routing algorithms: Distance Vector Routing, Link State 
+Routing, Multicast Distance Vector (DVMRP). 
+ Pedagogy/Course Delivery tools: Chalk & talk, Power Point and Multimedia Presentation  
+ Links: https://nptel.ac.in/courses/106105082 
+https://nptel.ac.in/courses/106106091 
+ Impartus recording: https://a.impartus.com/ilc/#/course/81474/295   
+Unit IV 
+Network Layer: IPV6 address representation and address space, The IPV6 Packet format, 
+Extension header, Transition from IPV4 to IPV6, Transport Layer: Introduction, Transport layer 
+Protocols ( FSMs excluded) - Simple Protocol, Stop -and-Wait Protocol, Go -Back-N Prot ocol 
+(GBN), Selective-Repeat Protocol, Bidirectional Protocols: Piggybacking.  
+ Pedagogy/Course Delivery tools: Chalk & talk, Power Point and Multimedia Presentation  
+ Links: https://nptel.ac.in/courses/106105081 
+https://nptel.ac.in/courses/106106183 
+ Impartus recording: https://a.impartus.com/ilc/#/course/81474/295   
+ 
+Unit V 
+=== Page 24 ===
+ 
+20 
+Transport Layer: Services, Port Numbers, User Datagram Protocol (UDP) – user datagram, 
+services and applications, Transmission control Protocol (FSMs excluded): TCP Services and 
+features, Segment, TCP Connection, Error control, and TCP Congestion control; Domain Name 
+System (DNS) – Purpose and Resolution. 
+ Pedagogy/Course Delivery tools: Chalk & talk, Power Point and Multimedia Presentation  
+ Links: https://nptel.ac.in/courses/106105091 
+https://nptel.ac.in/courses/106106183 
+ Impartus recording: https://a.impartus.com/ilc/#/course/81474/295   
+Text Book: 
+2. Behrouz A. Forouzan – “Data Communications and Networking”, 5th Edition, Tata 
+McGraw- Hill 
+Reference Books: 
+3. Alberto Leon -Garcia and Indra Widjaja – “Communication Networks –Fundamental 
+Concepts and Key architectures”, Second Edition, Tata McGraw-Hill. 
+4. William Stallings – “Data and Computer Communication”, Eight Edition, Pearson 
+Education. 
+Self-Learning: 
+1. Tool Demonstration: The students (in a group of 3/4 members) has to demonstrate the 
+topics learnt in the above syllabus using the following tools:  
+ Cisco Packet Tracer 
+ GNS3 (Graphical Network Simulator) 
+ Wireshark 
+ tcpdump (Linux) 
+ Advanced IP Scanner 
+ nslookup / dig 
+ Speedtest / iPerf 
+ 
+2. Case Study:  The students (in a group of 3/4 members) has to give a seminar on any two 
+case study topics from the below list. 
+ ARP Spoofing Attack in Corporate Network 
+ Congestion in Video Streaming Platforms 
+ Routing Failure in Data Centers 
+ Communication in Autonomous Vehicles 
+ UDP in Online Gaming Applications 
+ TCP Congestion Collapse in Large Networks 
+ DNS Outage in Major Websites 
+ Performance Analysis of Wi-Fi vs Ethernet 
+ Rural Internet Connectivity Using Wireless Links 
+ Routing Optimization in Railway Communication System 
+ Email Protocols (SMTP, POP3, IMAP) 
+ VoIP Protocols (SIP, RTP, RTCP) 
+ 
+ 
+=== Page 25 ===
+ 
+21 
+Course Outcomes(COs): 
+At the end of the course, the student will be able to: 
+1. Describe the fundamentals of data communication, network types, layered architectures 
+(OSI and TCP/IP), and signal transmission techniques. (PO-1,2,3,5,9,11; PSO-2) 
+2. Understand the functioning of the Data Link Layer through addressing techniques, framing 
+mechanisms, media access protocols and solve the errors induced during data transmission. 
+(PO-1,2,3,5,9,11; PSO-2) 
+3. Use different algorithms to make the routing decisions, analyze IP addressing techniques 
+and packet delivery mechanisms in IPv4 networks. (PO-1,2,3,4,5,8,9,11; PSO-2) 
+4. Differentiate between IPv4 - IPv6 protocols and explain transport layer communication 
+through basic protocols. (PO-1,2,3,4,5,8,9,11; PSO-2) 
+5. Illustrate the working principles of UDP, TCP and the process of domain name resolution 
+using DNS. (PO-1,2,3,5,8,9,11; PSO-2) 
+Course Assessment and Evaluation: 
+Continuous Internal Evaluation (CIE): 50 Marks 
+ 
+Assessment tool Marks Course outcomes attained 
+Internal Test-I 30 CO1, CO2, CO3 
+Internal Test-II 30 CO3, CO4, CO5 
+Average of the two internal tests shall be taken for 30 marks. 
+ 
+Other Components Marks Course outcomes attained 
+Tool Demonstration 10 CO1, CO2, CO3, CO4, CO5 
+Case Study 10 CO1, CO2, CO3, CO4, CO5 
+ 
+Semester End Examination 
+(SEE) 
+100 (Scale down to 50 Marks) CO1, CO2, CO3, CO4, CO5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

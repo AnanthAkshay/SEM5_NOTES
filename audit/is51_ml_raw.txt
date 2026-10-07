@@ -1,0 +1,135 @@
+=== Page 17 ===
+ 
+13 
+ 
+Machine Learning 
+Course Code: IS51 Credits: 3:0:0:3  
+Pre – requisites: NIL Contact Hours: 45L+45S  
+Course Coordinator: Dr. Sumana M 
+Course Content 
+Unit I 
+Introduction: Need for Machine Learning, Machine Learning Explained, Machine Learning in 
+Relation to other Fields, Types of Machine Learning, Challenges of Machine Learning, Machine 
+Learning Process, Machine Learning Applications. 
+Understanding Data – 1: Introduction, Big Data Analysis Framework, Descriptive Statistics, 
+Univariate Data Analysis and Visualization , Bivariate Data and Multivariate Data, Multivariate 
+Statistics 
+ 
+ Pedagogy/Course Delivery tools: Chalk and talk, PowerPoint Presentation, Videos 
+ Links: https://nptel.ac.in/courses/106106198 
+ 
+Unit II 
+Understanding Data – 2: Mathematics for Multivariate Data, Feature Engineering and 
+Dimensionality Reduction Techniques. 
+Basic Learning Theory: Design of Learning System, Introduction to Concept of Learning,  
+Induction biases, Modelling in Machine Learning , learning Frameworks. 
+ 
+ Pedagogy/Course Delivery tools: Chalk and talk, PowerPoint Presentation, Videos 
+ Links: https://nptel.ac.in/courses/106106198 
+https://www.youtube.com/watch?v=TIFFfLejkcA 
+ 
+Unit III 
+Similarity-based Learning: Nearest-Neighbor Learning, Weighted K -Nearest-Neighbor 
+Algorithm, Nearest Centroid Classifier, Locally Weighted Regression (LWR). 
+Regression Analysis:  Introduction to Regression, Introduction to Linear Regression, Multiple 
+Linear Regression, Polynomial Regression, Logistic Regression. 
+Decision Tree Learning: Introduction to Decision Tree Learning Model, Decision Tree Induction 
+Algorithms. 
+ 
+ Pedagogy/Course Delivery tools: Chalk and talk, PowerPoint Presentation, Videos 
+ Links: https://www.youtube.com/watch?v=DlQli0OCkf8 
+https://www.youtube.com/watch?v=OQV8WmUdeIo&list=PLbMVogVj5nJSpj5sl-
+8tdKARg1lw2wEa 
+https://www.youtube.com/watch?v=XX8jz3jOXOs 
+ 
+Unit IV 
+=== Page 18 ===
+ 
+14 
+Rule Based Learning : Introduction, Sequential Covering Algorithm, First order Rule Learning, 
+Association Rule Mining. 
+Bayesian Learning: Introduction to Probability-based Learning, Fundamentals of Bayes Theorem, 
+Classification Using Bayes Model, Naïve Bayes Algorithm for Continuous Attributes. 
+Artificial Neural Networks: Introduction, Biological Neurons, Artificial Neurons, Perceptron and 
+Learning Theory, Types of Artificial Neural Networks, Popular Applications o f Artificial Neural 
+Networks, Advantages and Disadvantages of ANN, Challenges of ANN 
+ Pedagogy/Course Delivery tools: Chalk and talk, PowerPoint Presentation, Videos 
+ Links: https://www.youtube.com/watch?v=GSEu5hn2q98 
+https://www.youtube.com/watch?v=Lveq5dIaiXY 
+https://www.youtube.com/watch?v=xbYgKoG4x2g 
+ 
+Unit V 
+Ensemble Learning : Introduction, Parallel Ensemble Models, Incremental Ensemble Models, 
+Sequential Ensemble Models 
+Clustering Algorithms: Introduction to Clustering Approaches, Proximity Measures, Hierarchical 
+Clustering Algorithms, Partitional Clu stering Algorithm, Density -based Methods, Grid -based 
+Approach. 
+ Pedagogy/Course Delivery tools: Chalk and talk, PowerPoint Presentation, Videos 
+ Links: https://www.youtube.com/watch?v=kB44EPN33GI 
+https://www.youtube.com/watch?v=WF9hVgUOgP4 
+ 
+Text Book: 
+1. S Sridhar, M Vijayalakshmi, “Machine Learning”, OXFORD University Press 2021, First 
+Edition. 
+2. T. M. Mitchell, “Machine Learning”, McGraw Hill, 1997.  
+ 
+Reference Books: 
+1. M N Murty and Ananthanarayana V S, “Machine Learning: Theory and Practice”, 
+Universities Press (India) Pvt. Limited, 2024.           
+2. Stephen Marsland, “Machine Learning - An Algorithmic Perspective”, Second Edition, 
+CRC Press - Taylor and Francis Group, 2015. 
+3. Jiawei Han, Micheline Kamber and Jian Pei, Data Mining: Concepts and Techniques, 3rd 
+ed, The Morgan Kaufmann Series in Data Management Systems Morgan Kaufmann 
+Publishers, July 2011. 
+Self-Learning: Programming Assignment/ Case Study/ Project Based Learning/ MOOC based 
+learning / GATE oriented aptitude test / Simulation 
+ 
+Course Outcomes(COs): 
+At the end of the course, the student will be able to: 
+1. Describe the need for machine learning, its relationship to other fields, and different types 
+of machine learning. 
+2. Analyse the fundamental principles of univariate, bivariate and multivariate data, 
+dimensionality reduction techniques and learning system. 
+3. Apply sim ilarity-based learning methods and perform linear, polynomial regression 
+analysis 
+4. Apply supervised learning techniques to classify datasets and make predictions. 
+5. Analyse unsupervised learning techniques to cluster data and discover associations. 
+=== Page 19 ===
+ 
+15 
+ 
+Course Assessment and Evaluation: 
+Continuous Internal Evaluation (CIE): 50 Marks 
+Assessment Tool Marks Course outcomes attained 
+Internal Test-I  30 CO1, CO2, CO3 
+Internal Test-II 30 CO3, CO4, CO5 
+Average of the two internal tests shall be taken for 30 marks. 
+Other Components     
+NPTEL/Coursera 10 CO1, CO2, CO3, CO4,CO5 
+Problem Based Test 10 CO1, CO2, CO3, CO4,CO5 
+Semester-End Examination 
+(SEE) 
+100 
+ CO1, CO2, CO3, CO4, CO5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,102 @@
+=== Page 26 ===
+ 
+22 
+ 
+Theory of Computation   
+Course Code: IS54 Credits: 2:1:0:2 
+Pre – requisites: NIL Contact Hours: 30L+15T+30S 
+Course Coordinator: Dr. Rajeshwari S B 
+Course Content 
+Unit I 
+Finite Automata and Regular Expressions: Introduction to Finite Automata: Central concepts of 
+Automata theory, Deterministic finite automata, Nondeterministic finite automata, Application of 
+finite automata, Finite automata with Epsilon-transitions.  
+ Pedagogy/Course Delivery tools: Chalk-and-talk  
+ Links: https://nptel.ac.in/courses/106104148  
+ Impartus recording: https://a.impartus.com/ilc/#/course/96129/452 
+Unit II 
+Regular Languages, Properties of Regular Languages: Regular expressions; Finite Automata 
+and Regular Expressions, Equivalence and minimization of automata.  
+ Pedagogy/Course Delivery tools:  Chalk-and-talk 
+ Links: https://nptel.ac.in/courses/106104148 
+ Impartus recording: https://a.impartus.com/ilc/#/course/96129/452  
+Unit III 
+Context-Free Grammars and Languages: Context free grammars, Parse trees: Constructing 
+parse trees, The yield of a parse tree, Applications, Ambiguity in grammars and Languages, 
+Normal forms for CFGs.  
+ Pedagogy/Course Delivery tools: Chalk-and-talk 
+ Links: https://nptel.ac.in/courses/106104148 
+ Impartus recording: https://a.impartus.com/ilc/#/course/96129/452  
+Unit IV 
+Pushdown Automata: The Pushdown automata: The languages of a PDA, Equivalence of 
+PDA’s and CFG’s, Deterministic Pushdown Automata.  
+ Pedagogy/Course Delivery tools: Chalk-and-talk    
+ Links: https://nptel.ac.in/courses/106104148 
+ Impartus recording: https://a.impartus.com/ilc/#/course/326267/703  
+Unit V 
+Introduction to Turing Machine: The Turning Machine, Programming Techniques for Turning 
+Machines, Extensions to the Basic Turning Machines, Turing Machine and Computers. 
+Introduction to NP Hard and NP complete  
+ Pedagogy/Course Delivery tools: Chalk-and-talk  
+ Links: https://nptel.ac.in/courses/106104148 
+ Impartus recording: https://a.impartus.com/ilc/#/course/326267/703  
+TUTORIALS 
+ Practice the design of Deterministic Finite Automata problems. 
+ Design of Non- Deterministic Finite Automata problems. 
+ Construct Ɛ-Non- Deterministic Finite Automata problems. 
+ Show the steps for converting NFA to DFA. 
+ Show the Converting step from Ɛ-NFA to DFA problems. 
+ Construct Regular expression for the given a regular language. 
+ Design problems on Minimization of DFA. 
+ Construct Context free grammar given a context free language. 
+ Normal forms for CFGs 
+=== Page 27 ===
+ 
+23 
+ Find the Ambiguity in grammars and Languages. 
+ Design Deterministic Push Down Automata problems 
+ Design Non Deterministic Push Down Automata problems 
+ Show the steps for converting PDA to CFG and Vice versa. 
+ Design of Turing Machine problems 
+Text Book: 
+1. John E. Hopcroft, Rajeev Motwani , Jeffrey Ullman: Introduction to Automata, 
+Theory, Languages and Computation, 3rd Edition, Pearson education 2015  
+                    
+Reference Books: 
+1. John C Martin: Introduction to Languages and Automata Theory, 3rd Edition, Tata 
+McGraw- Hill, 2018 
+2. Daniel I.A. Cohen: Introduction to Computer Theory, 2nd Edition, John Wiley & Sons, 
+2014         
+ 
+Self-Learning:  
+Demonstrate the simulation of finite automata, regular expressions, context-free grammars, 
+pushdown automata and Turing machines using the JFLAP simulator tool. 
+ 
+Course Outcomes(COs): 
+At the end of the course, the student will be able to: 
+1. Design and evaluate different types of finite state machines using automata theory 
+principles.  (PO-1,2,3,5,8,9; PSO-2)  
+2. Derive regular expressions from finite automata and construct finite automata from regular 
+expressions. (PO-1,2,3,5,8,9; PSO-2) 
+3. Generate context free grammars for given languages and apply grammar transformation 
+techniques to convert context free grammar into chomsky normal form. (PO -1,2,3,5,8,9; 
+PSO-2)  
+4. Build pushdown automata from context free grammar and derive context free grammar 
+from pushdown automata. (PO-1,2,3,5,8,9; PSO-2) 
+5. Apply turing machine programming techniques and extensions to design turing  machines 
+for given languages. (PO-1,2,3,5,8,9; PSO-2) 
+Course Assessment and Evaluation: 
+Continuous Internal Evaluation (CIE): 50 Marks 
+Assessment Tool Marks Course outcomes attained 
+Internal Test-I  30 CO1, CO2, CO3 
+Internal Test-II 30 CO3, CO4, CO5 
+Average of the two internal tests shall be taken for 30 marks. 
+Other Components     
+Tool Demonstration 10 CO1, CO2, CO3, CO4,CO5 
+Case Study  10 CO1, CO2, CO3, CO4,CO5 
+Semester-End Examination 
+(SEE) 
+100 
+ CO1, CO2, CO3, CO4, CO5 
+ 
+ 

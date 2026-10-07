@@ -1,0 +1,130 @@
+=== Page 20 ===
+ 
+16 
+ Software Engineering  
+Course Code: IS52 Credits: 2:0:1:2 
+Pre – requisites: NIL Contact Hours: 30L+15P+30S  
+Course Coordinator: Mushtaq Ahmed D M 
+Course Content 
+Unit I 
+Introduction: Professional software development; Software engineering ethics; Case studies. 
+Software processes: Software process models; Process activities; Coping with change; Process 
+improvement. Agile software development: Agile methods; Plan -driven and agile develop ment; 
+Extreme programming; Agile project management; Scaling agile methods.  
+ 
+Lab Exercises:   
+Initialize a GitHub repository and set up a Kanban board to manage tasks for a sample project.  
+Define a Product Backlog and perform a mini-sprint including task estimation and daily updates.  
+ Pedagogy: Lecture with case-based discussion  
+ Links: https://nptel.ac.in/courses/106105182  
+Unit II 
+Requirements engineering: Functional and non -functional requirements;  The software 
+requirements document; Requirements specification; Requirements engineering processes; 
+Requirements elicitation and analysis; Requirements validation; Requirements management. 
+System modeling: Context models; Interaction models; Structural mo dels; Behavioral models; 
+Model-driven engineering. 
+ 
+Lab Exercises:  
+Develop a Software Requirements Specification (SRS) document for a given problem statement.  
+Draw Use Case and Activity diagrams for a chosen system using a tool like StarUML or Draw.io.   
+ Pedagogy: Problem-based learning and modeling exercises  
+ Links: https://nptel.ac.in/courses/106105182 
+Unit III 
+Architectural design: Architectural design decisions; Architectural views; Architectural patterns; 
+Application architectures. Design and implementation: Object -oriented design using the UML; 
+Design patterns; Implementation issues; Open source development. 
+ 
+Lab Exercises:   
+Create detailed Class and Sequence diagrams to represent the internal logic of the system.  Map 
+system requirements to a specific architectural pattern. 
+ Pedagogy: Design-oriented discussions and worked examples  
+ Links: https://nptel.ac.in/courses/106105182 
+Unit IV 
+Software testing: Development testing; Test-driven development; Release testing; User testing. 
+Software evolution: Evolution processes; Legacy systems; Software maintenance.  
+ 
+ 
+Lab Exercises:  
+Write and execute test cases for core modules using frameworks like JUnit or PyTest.   
+Set up a simple automated build pipeline (e.g., GitHub Actions) to run tests on every code push.  
+=== Page 21 ===
+ 
+17 
+ Pedagogy: Demonstration-based learning with illustrative examples  
+ Links: https://nptel.ac.in/courses/106105182  
+Unit V 
+Project management: Management activities; Project planning; Risk management; Project 
+scheduling. Project planning: Software pricing; Plan -driven development; Project scheduling; 
+Estimation techniques. Quality management: Software quality; Software standards; Reviews and 
+inspections; Software measurement and metrics.   
+ 
+Lab Exercises:  
+Develop a complete project plan for a given case study.  
+Run a static code analysis tool to identify "code smells" and technical debt in your project. 
+ Pedagogy: Case-study based learning and numerical problem solving  
+ Links: https://nptel.ac.in/courses/106105182  
+Text Book: 
+1. Ian Sommerville, Software Engineering, 10th Edition, Pearson, 2020.                       
+Reference Books: 
+1. Roger S. Pressman and Bruce R. Maxim, Software Engineering: A Practitioner’s Approach, 
+9th Edition, McGraw-Hill, 2020.  
+2. Len Bass, Paul Clements, Rick Kazman, Software Architecture in Practice, 4th Edition, 
+Addison-Wesley, 2021 
+Self-Learning: Students shal l carry out a hands -on exercise such as preparing a Software 
+Requirements Specification (SRS) and UML models for a given problem statement. It may also 
+include reviewing an open-source project to understand its software process, design structure and 
+version control practices. 
+ 
+Course Outcomes(COs): 
+At the end of the course, the student will be able to: 
+1. Apply the concepts of software engineering and agile development processes using modern 
+project management tools. (PO1, 5, 8, 9, 10, 11) (PSO 1)  
+2. Analyze functional and non -functional requirements to create comprehensive software 
+specifications and system models. (PO1, 2, 5, 9, 11) (PSO 1)  
+3. Design architectural patterns and object-oriented systems using modeling tools and design 
+principles. (PO1, 2, 3, 5, 9) (PSO 1)  
+4. Implement software testing strategies and automated build pipelines to manage software 
+evolution. (PO1, 4, 5, 11) (PSO 1)  
+5. Evaluate software project plans, quality metrics and ethics through risk management and 
+static analysis. (PO1, 2, 5, 7, 10)  (PSO 1) 
+ 
+ 
+ 
+ 
+ 
+ 
+=== Page 22 ===
+ 
+18 
+Course Assessment and Evaluation: 
+Continuous Internal Evaluation (CIE): 50 Marks 
+Assessment Tool Marks Course outcomes attained 
+Internal Test-I  30 CO1, CO2, CO3 
+Internal Test-II 30 CO3, CO4, CO5 
+Average of the two internal tests shall be taken for 30 marks. 
+Other Components     
+              Virtual Lab 20 CO1, CO2, CO3, CO4,CO5 
+Semester-End Examination 
+(SEE) 
+100 
+ CO1, CO2, CO3, CO4, CO5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
