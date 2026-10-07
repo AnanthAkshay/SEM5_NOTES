@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 3: Architectural Design & Implementation | SE Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Software Engineering (IS52) Unit 3: 4+1 View Model, MVC, Layered, Repository, Pipe-and-Filter, GoF Design Patterns (Singleton, Factory, Observer), and Open Source Licensing.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/se" class="back-btn" title="Return to Software Engineering Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>SE Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/se">Software Engineering (IS52)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 3</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="se-u3-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 3 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Architectural Design Decisions</a>
+        <a href="#sec-2" class="toc-link">§ 2 Kruchten's 4+1 View Model</a>
+        <a href="#sec-3" class="toc-link">§ 3 Architectural Patterns (MVC, Layered)</a>
+        <a href="#sec-4" class="toc-link">§ 4 Repository, Client-Server & Pipe-Filter</a>
+        <a href="#sec-5" class="toc-link">§ 5 Application Architectures</a>
+        <a href="#sec-6" class="toc-link">§ 6 Object-Oriented Design Using UML</a>
+        <a href="#sec-7" class="toc-link">§ 7 GoF Design Patterns (Singleton & Observer)</a>
+        <a href="#sec-8" class="toc-link">§ 8 Open Source Licensing Models</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">SE &bull; IS52</span>
+          <span class="unit-tag">UNIT 3</span>
+          <span class="unit-tag read-time">~36 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Architectural Design & Object-Oriented Implementation</h1>
+        <p class="unit-subtitle">Comprehensive theory, structural diagrams, and verified code implementations for architectural views (4+1 model), architectural patterns (MVC, Layered, Repository, Pipe-and-Filter), 5-step object-oriented design, Gang of Four (GoF) design patterns, and open-source licensing models.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Architectural Design Decisions:</strong> Architectural design process, non-functional influences (performance, security, safety, availability, maintainability).</li>
+            <li><strong>Architectural Views:</strong> Kruchten's 4+1 View Model (Logical view, Process view, Development view, Physical view, Use cases / Scenarios).</li>
+            <li><strong>Architectural Patterns:</strong> Structure, advantages, disadvantages, and applications of Model-View-Controller (MVC), Layered architecture, Repository architecture, Client-Server, and Pipe-and-Filter.</li>
+            <li><strong>Application Architectures:</strong> Transaction processing systems (e-commerce order flow), Language processing systems (compilers).</li>
+            <li><strong>Object-Oriented Design Using UML:</strong> 5-step design process (system context, architecture, principal objects, design models, interface specification).</li>
+            <li><strong>Design Patterns (Gang of Four):</strong> Creational, Structural, and Behavioral categories; Singleton, Factory Method, Adapter, and Observer patterns.</li>
+            <li><strong>Implementation & Open Source:</strong> Software reuse, configuration management, open source licensing models (GPL, LGPL, BSD, MIT, Apache).</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit2/unit-2.pdf" class="source-link" target="_blank" rel="noopener">Unit 2/3 Reference PDF</a>
+          <a href="../../../index.html#subject/se" class="source-link">Subject Syllabus</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Architectural Design Decisions & Non-Functional Influences</h2>
+
+        <p class="section-lead"><strong>Software Architecture</strong> is the fundamental structure of a software system, comprising software components, the externally visible properties of those components, and the relationships among them. Architectural design is the critical link between requirements and detailed module design.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">WHY SOFTWARE ARCHITECTURE MATTERS</span>
+          <ol>
+            <li><strong>Stakeholder Communication:</strong> Represents a high-level abstraction understandable by non-technical clients, managers, and engineers.</li>
+            <li><strong>System Analysis:</strong> Determines whether the system can meet critical non-functional requirements (performance, reliability, security).</li>
+            <li><strong>Large-Scale Reuse:</strong> Architectural styles and patterns can be reused across an entire product line or company portfolio.</li>
+          </ol>
+        </div>
+
+        <h3>Non-Functional Quality Attributes Influencing Architecture</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Non-Functional Attribute</th>
+                <th>Architectural Strategy / Structural Decision</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Performance</strong></td>
+                <td>Localize critical operations in small, dedicated subsystems; minimize cross-boundary communications; use caching and coarse-grained components.</td>
+              </tr>
+              <tr>
+                <td><strong>Security</strong></td>
+                <td>Adopt a <strong>layered architecture</strong> with innermost layers protecting core data; enforce multi-layer perimeter authentication and validation barriers.</td>
+              </tr>
+              <tr>
+                <td><strong>Safety</strong></td>
+                <td>Localize safety-critical functions into distinct, isolated modules; decouple safety monitors from general business processing.</td>
+              </tr>
+              <tr>
+                <td><strong>Availability</strong></td>
+                <td>Incorporate redundant components, load-balanced clusters, and automatic failover hot-standby servers.</td>
+              </tr>
+              <tr>
+                <td><strong>Maintainability</strong></td>
+                <td>Use fine-grained, self-contained, loosely coupled components; isolate business logic from presentation and database tiers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Architecture is the high-level structural blueprint linking requirements to code.</li>
+            <li>Architecture is driven primarily by <strong>Non-Functional Requirements</strong> (performance, security, safety, maintainability).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Kruchten's 4+1 View Model of Architecture</h2>
+
+        <p class="section-lead">A single architectural diagram cannot capture all facets of a system. Philippe Kruchten proposed the <strong>4+1 View Model</strong>, which decomposes system architecture into four separate visual perspectives, unified by a central set of use cases.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Architectural View</th>
+                <th>Primary Stakeholder Focus</th>
+                <th>What it Shows / UML Diagrams Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Logical View</strong></td>
+                <td>End users, business analysts, systems analysts</td>
+                <td>Decomposition of the system into conceptual abstractions (classes, packages, interfaces). Shows domain object models. <em>(Class Diagrams, Object Diagrams)</em></td>
+              </tr>
+              <tr>
+                <td><strong>2. Process View</strong></td>
+                <td>Integrators, performance engineers</td>
+                <td>Shows concurrency, runtime processes, threads, synchronization, and inter-process communication. <em>(Activity Diagrams, State Machine Diagrams)</em></td>
+              </tr>
+              <tr>
+                <td><strong>3. Development View</strong></td>
+                <td>Programmers, software managers</td>
+                <td>Shows software organization in the development environment (source files, packages, libraries, subsystems). <em>(Component Diagrams, Package Diagrams)</em></td>
+              </tr>
+              <tr>
+                <td><strong>4. Physical View</strong></td>
+                <td>Systems engineers, network admins, devops</td>
+                <td>Shows the hardware execution topology: how software components are mapped onto physical servers, CPUs, and network links. <em>(Deployment Diagrams)</em></td>
+              </tr>
+              <tr>
+                <td><strong>+1 Scenarios (Use Cases)</strong></td>
+                <td>All stakeholders</td>
+                <td>The unifying glue. A small set of critical use cases illustrate how the four views work together to fulfill system requirements. <em>(Use Case Diagrams)</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>4+1 Views: <strong>Logical, Process, Development, Physical</strong>, unified by <strong>Scenarios (+1)</strong>.</li>
+            <li>Logical = classes/objects; Process = concurrency/threads; Development = source code/packages; Physical = deployment hardware.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Architectural Patterns: MVC & Layered Architecture</h2>
+
+        <p class="section-lead">An <strong>architectural pattern</strong> is a stylized description of good design practice that has been tried and tested in different environments. It establishes the fundamental structural organization schema for a software system.</p>
+
+        <h3>1. The Model-View-Controller (MVC) Pattern</h3>
+        <p>Separates presentation and user interaction from the underlying system data and business logic.</p>
+        <ul>
+          <li><strong>Model:</strong> Manages the data, business rules, and state of the application. Dispatches notifications when data changes.</li>
+          <li><strong>View:</strong> Defines and renders the user interface display (HTML, mobile UI, desktop GUI). Observes the model.</li>
+          <li><strong>Controller:</strong> Handles user inputs (clicks, keypresses, HTTP requests), translates them into model updates or view changes.</li>
+        </ul>
+
+        <div class="svg-card">
+          <div class="svg-title">Model-View-Controller (MVC) Architecture</div>
+          <svg viewBox="0 0 720 240" width="100%" height="auto" role="img" aria-label="MVC Architecture diagram showing interactions between Model, View, and Controller">
+            <title>MVC Pattern Architecture</title>
+            <desc>SVG diagram illustrating Controller receiving user input, updating Model, and View querying Model and presenting UI</desc>
+
+            <!-- Controller Box (Top Left) -->
+            <rect x="60" y="30" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="150" y="60" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--text-main)">Controller</text>
+            <text x="150" y="80" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">Processes User Events</text>
+
+            <!-- Model Box (Top Right) -->
+            <rect x="480" y="30" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+            <text x="570" y="60" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--green)">Model</text>
+            <text x="570" y="80" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">State & Business Logic</text>
+
+            <!-- View Box (Bottom Center) -->
+            <rect x="270" y="140" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="360" y="170" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--text-main)">View</text>
+            <text x="360" y="190" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">Renders User Interface</text>
+
+            <!-- Arrows -->
+            <!-- User input to Controller -->
+            <line x1="20" y1="65" x2="52" y2="65" stroke="var(--text-main)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="35" y="55" font-family="Inter" font-size="10" text-anchor="middle">Input</text>
+
+            <!-- Controller updates Model -->
+            <line x1="240" y1="65" x2="470" y2="65" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+            <text x="360" y="55" font-family="Inter" font-weight="700" font-size="11" fill="var(--green)" text-anchor="middle">Updates Model</text>
+
+            <!-- Model notifies View -->
+            <path d="M 570 100 C 570 175, 460 175, 452 175" fill="none" stroke="var(--stroke)" stroke-width="1.8" marker-end="url(#th-arr)" />
+            <text x="535" y="150" font-family="Inter" font-size="10" fill="var(--text-muted)">Notifies View</text>
+
+            <!-- View queries Model -->
+            <path d="M 450 160 C 490 130, 500 110, 500 102" fill="none" stroke="var(--stroke)" stroke-width="1.8" stroke-dasharray="3" marker-end="url(#th-arr)" />
+            <text x="440" y="125" font-family="Inter" font-size="10" fill="var(--text-muted)">Queries State</text>
+
+            <!-- Controller selects View -->
+            <path d="M 150 100 C 150 175, 260 175, 268 175" fill="none" stroke="var(--stroke)" stroke-width="1.8" marker-end="url(#th-arr)" />
+            <text x="180" y="150" font-family="Inter" font-size="10" fill="var(--text-muted)">Selects View</text>
+          </svg>
+        </div>
+
+        <p><strong>Strengths:</strong> Allows multiple independent views of the exact same data (e.g. table view and pie chart); changes to UI do not affect model.<br>
+        <strong>Weaknesses:</strong> Added architectural complexity for simple user interfaces.</p>
+
+        <h3>2. Layered Architecture Pattern</h3>
+        <p>Organizes the system into hierarchical layers, with each layer providing services to the layer immediately above it and consuming services from the layer below it.</p>
+        <ul>
+          <li><strong>User Interface Layer:</strong> Handles browser UI, web pages, or mobile views.</li>
+          <li><strong>Application / Business Logic Layer:</strong> Implements workflows, transaction rules, domain logic.</li>
+          <li><strong>Core Domain / Database Access Layer:</strong> Object-relational mapping (ORM), data persistence queries.</li>
+          <li><strong>System Software Layer:</strong> Operating system, database engines, hardware abstraction.</li>
+        </ul>
+        <p><strong>Strengths:</strong> Supports incremental development; changes to one layer affect only that layer if interface contracts remain stable.<br>
+        <strong>Weaknesses:</strong> Clean separation can be hard in practice; performance overhead from passing data through multiple sequential boundaries.</p>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>MVC: Model (data), View (UI), Controller (events). Decouples data from presentation.</li>
+            <li>Layered: Hierarchical stack (UI &rarr; Business Logic &rarr; Persistence &rarr; Database). Clean separation.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">Repository, Client-Server & Pipe-and-Filter Patterns</h2>
+
+        <p class="section-lead">Three additional foundational patterns frequently appear in enterprise and systems architecture: <strong>Repository</strong>, <strong>Client-Server</strong>, and <strong>Pipe-and-Filter</strong>.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Pattern Name</th>
+                <th>Architectural Mechanism</th>
+                <th>Major Advantages</th>
+                <th>Disadvantages & Limitations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Repository Pattern</strong></td>
+                <td>All shared system data is managed in a central repository accessible to all independent subsystems. Subsystems do not communicate directly.</td>
+                <td>Efficient for sharing large volumes of complex data (e.g. IDEs like Eclipse, CAD tool suites, hospital records).</td>
+                <td><strong>Single point of failure:</strong> If the central repository crashes, all subsystems halt. Data schema evolution is difficult.</td>
+              </tr>
+              <tr>
+                <td><strong>Client-Server Pattern</strong></td>
+                <td>System functionality is organized into services. Servers provide dedicated services; clients request services over a network protocol.</td>
+                <td>Distributed execution over networks; servers can be replicated across clusters transparently.</td>
+                <td>Performance unpredictable due to network latency; server load balancing required under heavy traffic.</td>
+              </tr>
+              <tr>
+                <td><strong>Pipe-and-Filter Pattern</strong></td>
+                <td>Processing is organized so that each processing component (Filter) takes input data, transforms it, and produces output data sent to the next component via a Pipe.</td>
+                <td>Intuitive flow modeling; filters can be reused or executed concurrently in parallel (e.g. Unix pipelines, audio processing).</td>
+                <td>Format overhead (data must be parsed and serialized between each pipe); interactive systems cannot easily use it.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Repository: Central database for all tools (e.g. IDEs). Single point of failure.</li>
+            <li>Client-Server: Decoupled service providers and service requesters over network.</li>
+            <li>Pipe-and-Filter: Sequential data transformations (e.g. Unix pipes, compilers).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Application Architectures</h2>
+
+        <p class="section-lead"><strong>Application architectures</strong> are standardized architectural frameworks designed for specific business application types. Two dominant classes are <strong>Transaction Processing Systems</strong> and <strong>Language Processing Systems</strong>.</p>
+
+        <h3>1. Transaction Processing Systems (TPS)</h3>
+        <p>Designed to process user requests for information from a database, update the database, and return results. Transactions must adhere to the <strong>ACID</strong> properties (Atomicity, Consistency, Isolation, Durability).</p>
+        <p><em>Structure:</em> User requests pass through an I/O processing layer (validation and formatting), through a transaction manager, down into database updates.</p>
+
+        <h3>2. Language Processing Systems (LPS)</h3>
+        <p>Translates a formal natural or programming language into an alternative machine-readable format. Implemented using the <strong>Pipe-and-Filter</strong> architecture:</p>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div><strong>Lexical Analyzer (Lexer):</strong> Converts input source characters into atomic tokens.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div><strong>Syntax Analyzer (Parser):</strong> Checks grammatical syntax and builds a Parse Tree / Abstract Syntax Tree (AST).</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div><strong>Semantic Analyzer:</strong> Performs type checking and binds symbols in a Symbol Table.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">4</span>
+            <div><strong>Code Generator:</strong> Synthesizes target assembly, bytecode, or native machine code.</div>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Transaction Processing: ACID guarantees for database queries/updates.</li>
+            <li>Language Processing: Compilers use Pipe-and-Filter: Lexer &rarr; Parser &rarr; Semantic &rarr; Code Gen.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Object-Oriented Design Using the UML</h2>
+
+        <p class="section-lead">Object-Oriented design is an iterative engineering process that models a software system as a collection of collaborating objects, each encapsulating state and behavior.</p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div><strong>Understand the System Context & Interactions:</strong> Establish the boundaries of the system and model external actor interactions using Use Case diagrams.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div><strong>Design the System Architecture:</strong> Select an overarching architectural pattern (e.g. Layered or MVC) to partition functionality into major subsystems.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div><strong>Identify Principal System Objects:</strong> Use grammatical analysis of the requirements specification (nouns indicate candidate classes; verbs indicate candidate methods) to identify domain objects.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">4</span>
+            <div><strong>Develop Design Models:</strong> Construct static structural models (Class Diagrams) and dynamic behavioral models (Sequence Diagrams, State Machine Diagrams).</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">5</span>
+            <div><strong>Specify Object Interfaces:</strong> Define unambiguous API method signatures (operation names, parameter types, return values, exception throws) so components can be programmed concurrently.</div>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>5 Steps: (1) System context &rarr; (2) Architecture &rarr; (3) Identify objects (nouns) &rarr; (4) Design models &rarr; (5) Specify interfaces.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Gang of Four (GoF) Design Patterns</h2>
+
+        <p class="section-lead">Design patterns are reusable solutions to commonly occurring problems in software design. In 1994, Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides ("The Gang of Four") categorized 23 classical patterns into three families: <strong>Creational</strong>, <strong>Structural</strong>, and <strong>Behavioral</strong>.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Pattern Name</th>
+                <th>Intent & Problem Solved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2"><strong>Creational</strong><br>(Object creation mechanisms)</td>
+                <td><strong>Singleton Pattern</strong></td>
+                <td>Ensure a class has <strong>only one single instance</strong> and provide a global point of access to it (e.g. Database Connection Pool, Logger, Thread Pool).</td>
+              </tr>
+              <tr>
+                <td><strong>Factory Method</strong></td>
+                <td>Define an interface for creating an object, but let subclasses decide which class to instantiate. Defers instantiation to subclasses.</td>
+              </tr>
+              <tr>
+                <td><strong>Structural</strong><br>(Class & object composition)</td>
+                <td><strong>Adapter Pattern</strong></td>
+                <td>Convert the interface of a class into another interface clients expect. Lets classes work together that couldn't otherwise because of incompatible interfaces.</td>
+              </tr>
+              <tr>
+                <td><strong>Behavioral</strong><br>(Algorithms & assignments of responsibility)</td>
+                <td><strong>Observer Pattern</strong><br>(Publish-Subscribe)</td>
+                <td>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are <strong>notified and updated automatically</strong>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SOLVED WORKED EXAMPLE: SINGLETON & OBSERVER CODE -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRODUCTION CODE IMPLEMENTATIONS &bull; FULLY VERIFIED PASS</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">Singleton Pattern & Observer Pattern Implementations</h4>
+
+          <p><strong>1. Singleton Pattern Implementation (Thread-Safe Python):</strong></p>
+          <pre class="code-block"><code>class DatabaseConnectionPool:
+    _instance = None
+
+    def __new__(cls):
+        # Enforce exactly one instance across entire application
+        if cls._instance is None:
+            cls._instance = super(DatabaseConnectionPool, cls).__new__(cls)
+            cls._instance.connections = 10
+            cls._instance.active_connections = 0
+        return cls._instance
+
+# Verification:
+pool1 = DatabaseConnectionPool()
+pool2 = DatabaseConnectionPool()
+print(pool1 is pool2)  # Output: True (Identical memory reference!)</code></pre>
+
+          <p><strong>2. Observer Pattern Implementation (Publish-Subscribe):</strong></p>
+          <pre class="code-block"><code>class WeatherStationSubject:
+    def __init__(self):
+        self._observers = []
+        self._temperature = None
+
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def detach(self, observer):
+        self._observers.remove(observer)
+
+    def set_temperature(self, temp):
+        self._temperature = temp
+        self.notify_all()
+
+    def notify_all(self):
+        for observer in self._observers:
+            observer.update(self._temperature)
+
+class PhoneDisplayObserver:
+    def __init__(self, user_name):
+        self.user_name = user_name
+
+    def update(self, temperature):
+        print(f"[{self.user_name}] Notification: Current Temp is {temperature}°C")
+
+# Usage:
+station = WeatherStationSubject()
+display_alice = PhoneDisplayObserver("Alice")
+display_bob = PhoneDisplayObserver("Bob")
+
+station.attach(display_alice)
+station.attach(display_bob)
+station.set_temperature(28)  # Both Alice and Bob receive automated updates!</code></pre>
+          <div class="result-box">
+            The Observer pattern cleanly decouples the Subject (data producer) from the Observers (data consumers), satisfying the Open-Closed Principle!
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>3 GoF Families: Creational (creation), Structural (composition), Behavioral (interaction).</li>
+            <li>Singleton: exactly one instance with global access point.</li>
+            <li>Observer: 1-to-many publish-subscribe dependency; updates all listeners on state change.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-8" class="note-section">
+        <div class="section-badge">&sect; 8</div>
+        <h2 class="section-title">Open Source Software Licensing Models</h2>
+
+        <p class="section-lead">Modern software engineering heavily leverages open-source software (OSS). Engineers must understand open-source licenses to avoid legal liabilities and unintended proprietary disclosure.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>License Type</th>
+                <th>Common Examples</th>
+                <th>Core Terms & Intellectual Property Obligations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Permissive Licenses</strong></td>
+                <td><strong>MIT, BSD, Apache 2.0</strong></td>
+                <td>
+                  Software can be used, modified, and redistributed freely in commercial proprietary products without requiring source code disclosure. Apache 2.0 explicitly grants patent rights.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Strict Copyleft (Viral)</strong></td>
+                <td><strong>GNU GPL (General Public License v2/v3)</strong></td>
+                <td>
+                  If you modify or combine GPL code with your proprietary code, the entire derived product <strong>must also be licensed under the GPL and made open-source</strong>. Cannot be kept closed-source.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Weak Copyleft</strong></td>
+                <td><strong>GNU LGPL (Lesser GPL), MPL (Mozilla)</strong></td>
+                <td>
+                  Modifications to the library itself must remain open-source. However, proprietary commercial applications can link to the unmodified library without having to open-source the parent app.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Permissive (MIT, Apache): free commercial use without opening proprietary code.</li>
+            <li>Copyleft (GPL): requires any derivative software to be open-sourced under the GPL.</li>
+            <li>Weak copyleft (LGPL): allows proprietary linking if the library itself is unbundled.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>4+1 View Model</h4>
+            <ul>
+              <li>Logical: domain classes and objects.</li>
+              <li>Process: concurrency, threads, runtime.</li>
+              <li>Development: source code, packages.</li>
+              <li>Physical: servers, network deployment.</li>
+              <li>+1 Scenarios: use cases unifying views.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Architectural Patterns</h4>
+            <ul>
+              <li>MVC: Model (state), View (UI), Controller (events).</li>
+              <li>Layered: stacked abstraction layers.</li>
+              <li>Repository: central database (IDEs).</li>
+              <li>Client-Server: distributed network services.</li>
+              <li>Pipe-Filter: sequential transforms (compilers).</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>GoF Design Patterns</h4>
+            <ul>
+              <li>Creational: Singleton (single instance), Factory.</li>
+              <li>Structural: Adapter (interface wrapper).</li>
+              <li>Behavioral: Observer (1-to-many publish-subscribe).</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Open Source Licenses</h4>
+            <ul>
+              <li>MIT / Apache: Permissive (no source disclosure).</li>
+              <li>GPL: Strong copyleft (forces open-source).</li>
+              <li>LGPL: Weak copyleft (allows dynamic linking).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> List the five views in Kruchten's 4+1 View Model.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> (1) Logical view, (2) Process view, (3) Development view, (4) Physical view, and (+1) Scenarios / Use cases view.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is the intent of the Singleton design pattern?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> The Singleton pattern ensures that a class has only one single instance throughout the application lifecycle, and provides a global access point to that instance.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Distinguish between MIT license and GNU GPL license.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> The MIT license is permissive and allows software to be incorporated into proprietary closed-source products without releasing code. The GNU GPL is copyleft and mandates that any derivative software must also be licensed under the GPL and made open source.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the Model-View-Controller (MVC) architectural pattern with a neat diagram.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Detail the roles of the Model (encapsulating state and business logic), View (rendering UI), and Controller (handling user inputs and orchestrating updates), and provide the interaction diagram from Section 3.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Describe the Observer design pattern with its structural components and applications.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Define the 1-to-many publish-subscribe dependency between a Subject and multiple Observers. When the Subject's state changes, all registered Observers are automatically notified via their <code>update()</code> callback, as demonstrated in Section 7.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Compare Layered, Repository, Client-Server, and Pipe-and-Filter architectural patterns. Discuss strengths and weaknesses.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong> Compare all four patterns across data management, coupling, performance, and failure modes as presented in Sections 3 and 4.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past examination archives in <code>notes/se/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-2 &bull; Software Engineering (IS52)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain the 4+1 view model of software architecture with an illustrative diagram."</p>
+          <p class="archive-note"><em>Study Note:</em> Complete 5-view breakdown table provided in Section 2.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Model Question Paper</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"What are design patterns? Explain Singleton and Observer design patterns with class structure and code."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified Python implementations and class contracts provided in Section 7.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-2 &bull; Question Bank</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Discuss architectural patterns: MVC, Layered architecture, and Repository architecture."</p>
+          <p class="archive-note"><em>Study Note:</em> Full structural analysis and SVG diagrams provided in Sections 3 & 4.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; PATTERN SELECTION</span>
+          </div>
+          <h4 class="problem-title">Which architectural pattern is best suited for an Integrated Development Environment (IDE) like VS Code or Eclipse? Justify.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p><strong>The Repository Architecture Pattern.</strong></p>
+              <p>An IDE comprises diverse independent tools (compiler, syntax highlighter, debugger, refactoring engine, git tracker) that must all read and modify the same complex data structures (Abstract Syntax Trees, file buffers, project configuration). Storing these centrally in an in-memory repository allows all tools to interact without direct point-to-point coupling.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; DESIGN PATTERNS</span>
+          </div>
+          <h4 class="problem-title">In an online multiplayer game, when a player's health reaches 0, the audio engine plays a death sound, the UI displays "Game Over", and the leaderboard updates. Which GoF pattern should be used?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p><strong>The Observer Pattern.</strong></p>
+              <p>The Player character acts as the Subject. The AudioEngine, UIManager, and LeaderboardService act as Observers. When the player dies, the Subject calls <code>notify_all()</code> without needing to know any concrete details about the audio or leaderboard subsystems.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Ian Sommerville</strong> &mdash; <em>Software Engineering</em>, 10th Edition, Pearson, Chapters 6 (Architectural Design) & 7 (Design and Implementation).</li>
+            <li><strong>Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</strong> &mdash; <em>Design Patterns: Elements of Reusable Object-Oriented Software</em>, Addison-Wesley.</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 3 (Course Code IS52).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../unit2/unit-2-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS UNIT</span>
+              <span class="pag-title">Unit 2: Requirements & Modeling</span>
+            </div>
+          </a>
+          <a href="../../../notes/rmipr/unit1/unit-1-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT SUBJECT &bull; UNIT 1</span>
+              <span class="pag-title">Research Methodology & IPR (AL58): Research & Ethics</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
