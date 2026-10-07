@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 1: Introduction to AI, Intelligent Agents & Search | AI Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Artificial Intelligence (ISE552) Unit 1: Definitions of AI, Turing Test, Rational Agents, PEAS Framework, Environment Classification, Agent Architectures, and Problem Formulation with State Spaces.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/ai" class="back-btn" title="Return to Artificial Intelligence Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>AI Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/ai">Artificial Intelligence (ISE552)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 1</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="ai-u1-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 1 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 What is AI & 4 Definitions</a>
+        <a href="#sec-2" class="toc-link">§ 2 Intelligent Agents & Percepts</a>
+        <a href="#sec-3" class="toc-link">§ 3 Rationality & Autonomy</a>
+        <a href="#sec-4" class="toc-link">§ 4 PEAS Specification Framework</a>
+        <a href="#sec-5" class="toc-link">§ 5 Environment Classifications</a>
+        <a href="#sec-6" class="toc-link">§ 6 Agent Architectures</a>
+        <a href="#sec-7" class="toc-link">§ 7 Problem-Solving by Search</a>
+        <a href="#sec-8" class="toc-link">§ 8 State Space Formulations</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">AI &bull; ISE552</span>
+          <span class="unit-tag">UNIT 1</span>
+          <span class="unit-tag read-time">~33 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Introduction to AI, Intelligent Agents & Problem Solving</h1>
+        <p class="unit-subtitle">Comprehensive theory, foundational principles, and exam problem formulations covering the four historical definitions of AI, the Turing test, rationality vs omniscience, PEAS specifications, environmental properties, internal agent architectures, and state space search modeling.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Definitions of AI:</strong> Thinking humanly (cognitive modeling), acting humanly (Turing test), thinking rationally (laws of thought), and acting rationally (rational agent approach).</li>
+            <li><strong>Foundations of AI:</strong> Philosophy, Mathematics, Economics, Neuroscience, Psychology, Control Theory, Linguistics.</li>
+            <li><strong>Intelligent Agents:</strong> Agents and environments, sensors, actuators, percept sequence, agent function $f: P^* \to A$, and agent program.</li>
+            <li><strong>Concept of Rationality:</strong> Performance measure, rationality vs omniscience, information gathering, exploration, and autonomy.</li>
+            <li><strong>PEAS Framework:</strong> Performance measure, Environment, Actuators, Sensors specification for diverse applications.</li>
+            <li><strong>Environment Properties:</strong> Fully vs partially observable, single vs multi-agent, deterministic vs stochastic, episodic vs sequential, static vs dynamic, discrete vs continuous, known vs unknown.</li>
+            <li><strong>Agent Architectures:</strong> Simple reflex, model-based reflex, goal-based, utility-based, and learning agents.</li>
+            <li><strong>Problem Solving by Search:</strong> Problem-solving agents, 5 components of a well-defined problem (initial state, actions, transition model, goal test, path cost), state space formulations (8-puzzle, 8-queens, vacuum world, route-finding).</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../syllabus/ai-ise552-syllabus.pdf" class="source-link" target="_blank" rel="noopener">Official Syllabus PDF</a>
+          <a href="../../../index.html#subject/ai" class="source-link">Subject Overview</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">What is AI? The Four Historical Approaches</h2>
+
+        <p class="section-lead">Historically, researchers have approached <strong>Artificial Intelligence</strong> along two fundamental dimensions: whether the goal is to match <em>human performance</em> or adhere to an ideal standard of <em>rationality</em>, and whether the focus is on internal <em>thought processes</em> or external <em>behavior (actions)</em>.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Focus Dimension</th>
+                <th>Human-Centric Approach</th>
+                <th>Rationality-Centric (Ideal Standard)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Thinking (Mind / Reasoning)</strong></td>
+                <td>
+                  <strong>1. Thinking Humanly (Cognitive Modeling)</strong><br>
+                  Requires determining <em>how humans think</em> through psychological experiments, brain scans (fMRI), or introspective analysis. Compares computer traces to human cognitive behavior.
+                </td>
+                <td>
+                  <strong>2. Thinking Rationally (Laws of Thought)</strong><br>
+                  Rooted in Aristotle's syllogisms and formal mathematical logic. Focuses on irrefutable reasoning patterns ($P \implies Q, P \vdash Q$). Limited by computational tractability and expressing informal uncertain knowledge.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Acting (Behavior / Output)</strong></td>
+                <td>
+                  <strong>3. Acting Humanly (The Turing Test)</strong><br>
+                  Proposed by Alan Turing (1950). An agent passes if a human interrogator cannot distinguish its conversational replies from those of a human. Requires NLP, knowledge representation, automated reasoning, and machine learning.
+                </td>
+                <td>
+                  <strong>4. Acting Rationally (The Rational Agent) &mdash; MODERN STANDARD</strong><br>
+                  A <strong>rational agent</strong> is one that acts so as to achieve the best expected outcome, or best expected utility when uncertainty is present. Correct inference is one way to act rationally, but reflexive safety actions are also rational.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-def">
+          <span class="callout-label">WHY MODERN AI FOCUSES ON THE RATIONAL AGENT APPROACH</span>
+          <p>The rational agent approach is superior to human modeling for two main reasons:</p>
+          <ol>
+            <li>It is more general than the "laws of thought" approach, because correct inference is only one of several mechanisms for achieving rationality (e.g. reflex actions can be rational without logical deduction).</li>
+            <li>It is more mathematically amenable to scientific development than approaches based on human behavior, because the standard of rationality is mathematically well-defined and completely independent of human biological quirks and cognitive errors.</li>
+          </ol>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>4 Approaches: Thinking Humanly, Acting Humanly (Turing), Thinking Rationally (Logic), Acting Rationally (Agents).</li>
+            <li>Turing Test requires: NLP, Knowledge Representation, Automated Reasoning, Machine Learning. (Total Turing Test adds Computer Vision & Robotics).</li>
+            <li>Modern AI standard: <strong>Acting Rationally</strong> (maximizing expected performance).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Intelligent Agents and Environments</h2>
+
+        <p class="section-lead">An <strong>agent</strong> is anything that can be viewed as perceiving its <strong>environment</strong> through <strong>sensors</strong> and acting upon that environment through <strong>actuators</strong>.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">AGENT MATHEMATICAL FORMALISM</span>
+          <ul>
+            <li><strong>Percept:</strong> The agent's perceptual inputs at any given instant.</li>
+            <li><strong>Percept Sequence:</strong> The complete history of everything the agent has ever perceived: $P^*$.</li>
+            <li><strong>Agent Function:</strong> An abstract mathematical mapping from any percept sequence to an action:
+              $$f: P^* \to A$$
+            </li>
+            <li><strong>Agent Program:</strong> The concrete computational implementation of the agent function running on a physical computing architecture:
+              $$\text{Agent} = \text{Architecture} + \text{Program}$$
+            </li>
+          </ul>
+        </div>
+
+        <div class="svg-card">
+          <div class="svg-title">Agent Interaction with its Environment</div>
+          <svg viewBox="0 0 720 220" width="100%" height="auto" role="img" aria-label="Agent Environment interaction model with sensors and actuators">
+            <title>Agent-Environment Interaction Model</title>
+            <desc>SVG diagram illustrating an agent receiving percepts from the environment through sensors and applying actions through actuators</desc>
+
+            <!-- Agent Box -->
+            <g transform="translate(60, 30)">
+              <rect x="0" y="0" width="220" height="150" rx="16" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+              <text x="110" y="35" font-family="Bricolage Grotesque" font-weight="700" font-size="16" text-anchor="middle" fill="var(--green)">AGENT</text>
+              <rect x="25" y="55" width="170" height="75" rx="10" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="110" y="85" font-family="Inter" font-weight="600" font-size="13" text-anchor="middle" fill="var(--text-main)">Agent Program</text>
+              <text x="110" y="105" font-family="JetBrains Mono" font-size="11" text-anchor="middle" fill="var(--text-muted)">f: P* &rarr; A</text>
+            </g>
+
+            <!-- Environment Box -->
+            <g transform="translate(440, 30)">
+              <rect x="0" y="0" width="220" height="150" rx="16" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="110" y="85" font-family="Bricolage Grotesque" font-weight="700" font-size="16" text-anchor="middle" fill="var(--text-main)">ENVIRONMENT</text>
+            </g>
+
+            <!-- Sensors Flow (Percepts) -->
+            <!-- From Environment to Agent Sensors -->
+            <path d="M 440 65 L 280 65" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+            <text x="360" y="55" font-family="Inter" font-weight="700" font-size="12" fill="var(--green)" text-anchor="middle">Sensors (Percepts)</text>
+
+            <!-- Actuators Flow (Actions) -->
+            <!-- From Agent Actuators to Environment -->
+            <path d="M 280 145 L 440 145" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="360" y="135" font-family="Inter" font-weight="700" font-size="12" fill="var(--text-main)" text-anchor="middle">Actuators (Actions)</text>
+          </svg>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Agent perceives environment via sensors; affects environment via actuators.</li>
+            <li>Agent Function is an abstract mathematical mapping: $f: P^* \to A$.</li>
+            <li>Agent Program is the concrete software code running on the physical architecture.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">The Concept of Rationality and Autonomy</h2>
+
+        <p class="section-lead">What is rational at any given time depends on four factors: the <strong>performance measure</strong> that defines the criterion of success, the agent's <strong>prior knowledge</strong> of the environment, the <strong>actions</strong> that the agent can perform, and the agent's <strong>percept sequence</strong> to date.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">DEFINITION OF A RATIONAL AGENT</span>
+          <p>For each possible percept sequence, a rational agent should select an action that is expected to <strong>maximize its performance measure</strong>, given the evidence provided by the percept sequence and whatever built-in knowledge the agent has.</p>
+        </div>
+
+        <h3>Critical Distinctions in Rationality</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Key Definition</th>
+                <th>Crucial Exam Contrast</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Omniscience vs Rationality</strong></td>
+                <td>An <strong>omniscient agent</strong> knows the <em>actual</em> outcome of its actions and can act accordingly.</td>
+                <td>Omniscience is impossible in reality. Rationality maximizes <strong>expected performance</strong> based on available information, not actual outcome (e.g. looking both ways before crossing a street is rational, even if a meteorite strikes).</td>
+              </tr>
+              <tr>
+                <td><strong>Information Gathering & Exploration</strong></td>
+                <td>Doing actions to modify future percepts (e.g. looking around, medical tests).</td>
+                <td>A rational agent must gather information and explore unfamiliar environments rather than blindly acting on initial assumptions.</td>
+              </tr>
+              <tr>
+                <td><strong>Autonomy</strong></td>
+                <td>An agent is <strong>autonomous</strong> to the extent that its behavior is determined by its own experience (learning), rather than solely by the initial knowledge programmed by its designer.</td>
+                <td>A non-autonomous agent relies entirely on pre-baked assumptions and fails when the environment changes. Truly rational agents learn to become autonomous over time.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Rationality depends on: Performance measure, Prior knowledge, Actions, Percept sequence.</li>
+            <li>Rationality $\ne$ Omniscience. Rationality maximizes <em>expected</em> success, not perfection in hindsight.</li>
+            <li>Autonomy = learning from experience rather than relying solely on built-in prior knowledge.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">The PEAS Specification Framework</h2>
+
+        <p class="section-lead">To design a rational agent, we must first specify the <strong>task environment</strong> using the <strong>PEAS</strong> framework: <strong>P</strong>erformance measure, <strong>E</strong>nvironment, <strong>A</strong>ctuators, and <strong>S</strong>ensors.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Agent Type</th>
+                <th>Performance Measure (P)</th>
+                <th>Environment (E)</th>
+                <th>Actuators (A)</th>
+                <th>Sensors (S)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Automated Taxi Driver</strong></td>
+                <td>Safe, fast, legal trip; maximize profits; minimize passenger discomfort; fuel efficiency.</td>
+                <td>City roads, traffic, pedestrians, weather conditions, customers.</td>
+                <td>Steering wheel, accelerator, brakes, gear shift, horn, turn signals, display screen.</td>
+                <td>Video cameras, sonar/radar, LIDAR, GPS, speedometer, engine sensors, accelerometer.</td>
+              </tr>
+              <tr>
+                <td><strong>Medical Diagnosis System</strong></td>
+                <td>Healthy patient, minimized healthcare costs, zero misdiagnoses, patient recovery time.</td>
+                <td>Patient, hospital clinical staff, insurance systems, laboratory.</td>
+                <td>Display screen (diagnostic reports, treatment plans, prescription suggestions).</td>
+                <td>Keyboard (symptoms entered by doctor), patient medical history, lab test results.</td>
+              </tr>
+              <tr>
+                <td><strong>Part-Picking Robot</strong></td>
+                <td>Percentage of parts correctly sorted into bins; speed; zero damaged parts.</td>
+                <td>Conveyor belt, parts bins, assembly line.</td>
+                <td>Jointed robotic arm, pneumatic gripper, conveyor belt speed control.</td>
+                <td>RGB-D camera, infrared proximity sensors, tactile grip sensors.</td>
+              </tr>
+              <tr>
+                <td><strong>Interactive AI Language Tutor</strong></td>
+                <td>Student mastery test scores, student engagement time, minimized frustration.</td>
+                <td>Set of students, curriculum database, learning management system.</td>
+                <td>Display screen (exercises, feedback, hints, motivational voice synthesis).</td>
+                <td>Keyboard and mouse input, speech recognition microphone, webcam (facial attentiveness).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>PEAS: Performance measure, Environment, Actuators, Sensors.</li>
+            <li>Always state Performance measure objectively from the perspective of an external observer.</li>
+            <li>Actuators are the mechanisms that affect the world; Sensors are the perception devices.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Environment Classifications & Dimensions</h2>
+
+        <p class="section-lead">The design of an agent program is determined almost entirely by the nature of its task environment. Environments are classified across seven fundamental conceptual dimensions.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Dichotomy Definition</th>
+                <th>Example: Easy vs Hard</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Observability</strong></td>
+                <td><strong>Fully Observable:</strong> Agent's sensors give complete access to the entire state of the environment at all times.<br><strong>Partially Observable:</strong> Noise, inaccurate sensors, or hidden state prevents full view.</td>
+                <td>Chess is fully observable.<br>Poker / Driving is partially observable.</td>
+              </tr>
+              <tr>
+                <td><strong>Number of Agents</strong></td>
+                <td><strong>Single-Agent:</strong> Agent operates alone.<br><strong>Multi-Agent:</strong> Environment contains multiple agents. Can be <strong>Competitive</strong> (adversarial) or <strong>Cooperative</strong>.</td>
+                <td>Crossword puzzle is single-agent.<br>Chess is competitive multi-agent.</td>
+              </tr>
+              <tr>
+                <td><strong>Determinism</strong></td>
+                <td><strong>Deterministic:</strong> Next state is completely determined by current state and the agent's action.<br><strong>Stochastic:</strong> Uncertainty or randomness (probabilities) affect outcomes.</td>
+                <td>Vacuum world without slippage is deterministic.<br>Autonomous driving is stochastic.</td>
+              </tr>
+              <tr>
+                <td><strong>Episodic vs Sequential</strong></td>
+                <td><strong>Episodic:</strong> Experience is divided into atomic episodes; current decision does not affect future episodes.<br><strong>Sequential:</strong> Current action affects all future states and rewards (requires planning).</td>
+                <td>Defective part detection is episodic.<br>Chess and Maze navigation are sequential.</td>
+              </tr>
+              <tr>
+                <td><strong>Static vs Dynamic</strong></td>
+                <td><strong>Static:</strong> Environment does not change while the agent is deliberating.<br><strong>Dynamic:</strong> Environment continuously changes while the agent thinks (semidynamic = score drops).</td>
+                <td>Crossword is static.<br>Taxi driving is dynamic.<br>Timed chess is semidynamic.</td>
+              </tr>
+              <tr>
+                <td><strong>Discrete vs Continuous</strong></td>
+                <td><strong>Discrete:</strong> Finite, distinct number of states, actions, and percepts.<br><strong>Continuous:</strong> Smoothly varying values over time (speed, coordinates).</td>
+                <td>Chess is discrete.<br>Taxi driving is continuous.</td>
+              </tr>
+              <tr>
+                <td><strong>Known vs Unknown</strong></td>
+                <td><strong>Known:</strong> The laws / physics of the environment are known to the agent.<br><strong>Unknown:</strong> The agent must explore and learn how the environment works.</td>
+                <td>Video game with known rules is known.<br>Real world exploration is unknown.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">EXAM SUMMARY: THE HARDEST ENVIRONMENT TYPE</span>
+          <p>The most difficult task environment for an AI agent is: <strong>Partially observable, Multi-agent, Stochastic, Sequential, Dynamic, Continuous, and Unknown</strong> (e.g. Automated Taxi Driving in a foreign city!).</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>7 Dimensions: Observability, Agents, Determinism, Episodic/Sequential, Static/Dynamic, Discrete/Continuous, Known/Unknown.</li>
+            <li>Chess: Fully observable, Deterministic, Sequential, Static, Discrete, Known.</li>
+            <li>Taxi Driving: Partially observable, Stochastic, Sequential, Dynamic, Continuous, Unknown.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Internal Agent Architectures</h2>
+
+        <p class="section-lead">Russell and Norvig define five basic agent architectures of increasing sophistication: <strong>Simple Reflex</strong>, <strong>Model-Based Reflex</strong>, <strong>Goal-Based</strong>, <strong>Utility-Based</strong>, and <strong>Learning Agents</strong>.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Agent Architecture</th>
+                <th>Internal State & Mechanism</th>
+                <th>Action Selection Rule</th>
+                <th>Limitation / Failure Mode</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Simple Reflex Agent</strong></td>
+                <td>No memory of past percepts. Direct link from current percept to action.</td>
+                <td>Condition-Action Rules:<br><code>if condition then action</code></td>
+                <td>Infinite loops in partially observable environments (e.g. can't escape if state looks identical).</td>
+              </tr>
+              <tr>
+                <td><strong>2. Model-Based Reflex Agent</strong></td>
+                <td>Maintains an <strong>internal state</strong> tracking aspects of the unobserved world.</td>
+                <td>Updates state using transition model ("How world evolves") and sensor model ("How actions affect world").</td>
+                <td>Lacks explicit future goals; only acts on current beliefs.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Goal-Based Agent</strong></td>
+                <td>Combines internal state with explicit <strong>Goal information</strong> describing desirable situations.</td>
+                <td>Uses <strong>Search and Planning</strong> to find sequences of actions that achieve the goal.</td>
+                <td>Binary satisfaction (goal achieved vs not); cannot trade off between conflicting goals.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Utility-Based Agent</strong></td>
+                <td>Uses an explicit <strong>Utility function</strong> mapping states to real numbers (degrees of happiness).</td>
+                <td>Selects the action that maximizes <em>Expected Utility</em>.</td>
+                <td>Computationally expensive; designing complex multi-attribute utility functions is hard.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Learning Agent</strong></td>
+                <td>Divided into 4 functional modules: <em>Critic</em>, <em>Learning Element</em>, <em>Performance Element</em>, <em>Problem Generator</em>.</td>
+                <td>Learns from feedback to improve performance beyond initial programming.</td>
+                <td>Requires training samples and exploration-exploitation balance.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>The Four Components of a Learning Agent</h3>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div><strong>Critic:</strong> Evaluates how well the agent is doing against an external, fixed performance standard. Provides feedback to the learning element.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div><strong>Learning Element:</strong> Responsible for making improvements. Takes critic feedback and experiments with new behaviors.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div><strong>Performance Element:</strong> The traditional agent that selects external actions based on percepts (what we previously called the agent).</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">4</span>
+            <div><strong>Problem Generator:</strong> Suggests actions that lead to new and informative experiences (exploration), even if they may yield suboptimal short-term rewards.</div>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Simple reflex: condition-action rules; fails if partially observable.</li>
+            <li>Model-based: internal state tracks the world.</li>
+            <li>Goal-based: uses search/planning to achieve goal.</li>
+            <li>Utility-based: maximizes expected utility (handles trade-offs).</li>
+            <li>Learning agent: Critic, Learning Element, Performance Element, Problem Generator.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Problem Solving by Search & The 5 Components</h2>
+
+        <p class="section-lead">A <strong>problem-solving agent</strong> is a goal-based agent that decides what to do by finding sequences of actions that lead to desirable states. When the correct action cannot be determined immediately, the agent formulates a search problem.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">5 FIVE COMPONENTS OF A WELL-DEFINED SEARCH PROBLEM</span>
+          <ol>
+            <li><strong>Initial State ($s_0$):</strong> The state that the agent starts in (e.g. $In(Arad)$).</li>
+            <li><strong>Actions ($Actions(s)$):</strong> A description of the possible actions available to the agent in state $s$. Given state $s$, $Actions(s)$ returns the set of legal actions.</li>
+            <li><strong>Transition Model ($Result(s, a)$):</strong> A description of what each action does. $Result(s, a)$ returns the state that results from doing action $a$ in state $s$.</li>
+            <li><strong>Goal Test ($IsGoal(s)$):</strong> Determines whether a given state $s$ is a goal state. Can be explicit (e.g. $s = In(Bucharest)$) or implicit (e.g. checkmate in chess).</li>
+            <li><strong>Path Cost ($c(s, a, s')$):</strong> A function that assigns a numeric cost to each step. The step cost of taking action $a$ in state $s$ to reach $s'$ is denoted $c(s, a, s')$. The total path cost is the sum of step costs along the path.</li>
+          </ol>
+        </div>
+
+        <p>A <strong>solution</strong> is an action sequence that leads from the initial state to a goal state. An <strong>optimal solution</strong> is a solution that has the lowest path cost among all solutions.</p>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>5 Components: Initial State, Actions, Transition Model, Goal Test, Path Cost.</li>
+            <li>State Space: set of all reachable states from the initial state.</li>
+            <li>Optimal solution = lowest path cost among all solutions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-8" class="note-section">
+        <div class="section-badge">&sect; 8</div>
+        <h2 class="section-title">State Space Formulations for Toy & Real-World Problems</h2>
+
+        <p class="section-lead">A <strong>state space</strong> is the complete set of all states reachable from the initial state by any sequence of actions. State space formulation abstracts away irrelevant physical details to focus on formal problem solving.</p>
+
+        <!-- SOLVED WORKED FORMULATION: 8-PUZZLE -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">CORE PROBLEM FORMULATION &bull; VERIFIED SCRIPT PASS</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">Formal State-Space Formulation of the 8-Puzzle</h4>
+          <p>The 8-puzzle consists of a $3 \times 3$ board with 8 numbered sliding tiles and one blank space.</p>
+
+          <p><strong>1. Formal 5-Component Specification:</strong></p>
+          <ul>
+            <li><strong>States:</strong> A specification of the position of each of the 8 numbered tiles and the blank square in the $3 \times 3$ grid.</li>
+            <li><strong>Initial State:</strong> Any valid configuration of the board.</li>
+            <li><strong>Actions:</strong> Movements of the <em>blank space</em>: $\{\text{Left}, \text{Right}, \text{Up}, \text{Down}\}$. (Moving the blank is cleaner than moving individual tiles!).</li>
+            <li><strong>Transition Model:</strong> Given state $s$ and blank move $a$, returns the resulting board with the blank and adjacent tile swapped.</li>
+            <li><strong>Goal Test:</strong> Matches the designated goal configuration (e.g. tiles ordered 1 to 8 with blank at bottom-right or center).</li>
+            <li><strong>Path Cost:</strong> Each step costs 1 (path cost = number of moves).</li>
+          </ul>
+
+          <p><strong>2. State Space Size & Inversion Parity Analysis:</strong></p>
+          <ul>
+            <li>Total distinct arrangements of 9 squares $= 9! = \mathbf{362,880\text{ states}}$.</li>
+            <li><strong>Inversion Parity Theorem:</strong> The state space is partitioned into <strong>two disjoint graph components of size $9! / 2 = 181,440$ states each</strong>. Any legal slide move preserves the even/odd parity of the number of tile inversions. Exactly half the states can reach the goal; the other half are provably impossible!</li>
+          </ul>
+
+          <p><strong>3. Branching Factor:</strong></p>
+          <ul>
+            <li>Blank in corner (4 corners): 2 legal moves.</li>
+            <li>Blank on edge (4 edges): 3 legal moves.</li>
+            <li>Blank in center (1 center): 4 legal moves.</li>
+            <li>Average branching factor: $b = \frac{4(2) + 4(3) + 1(4)}{9} = \frac{8 + 12 + 4}{9} = \frac{24}{9} \approx \mathbf{2.67}$.</li>
+          </ul>
+        </div>
+
+        <!-- SOLVED WORKED FORMULATION: 8-QUEENS -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">FORMULATION 2 &bull; 8-QUEENS PROBLEM</span>
+            <span class="problem-points">[8 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Incremental vs Complete-State Formulation of 8-Queens</h4>
+          <p>Place 8 queens on an $8 \times 8$ chessboard such that no queen attacks another (no two queens share the same row, column, or diagonal).</p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Formulation Style</th>
+                  <th>State Representation</th>
+                  <th>State Space Size</th>
+                  <th>Search Methodology</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Naive Incremental</strong></td>
+                  <td>Any arrangement of 0 to 8 queens on the 64 squares.</td>
+                  <td>$$\binom{64}{8} \approx 4.4 \times 10^9\text{ states}$$</td>
+                  <td>Place queen on any empty square. Massive redundant search.</td>
+                </tr>
+                <tr>
+                  <td><strong>Clever Incremental</strong></td>
+                  <td>Place one queen per column in columns 1 to $k$ such that no queen is attacked.</td>
+                  <td>$$8^8 \approx 1.68 \times 10^7\text{ states}$$</td>
+                  <td>Place next queen in leftmost empty column without conflict.</td>
+                </tr>
+                <tr>
+                  <td><strong>Complete-State Formulation</strong></td>
+                  <td>All 8 queens are on the board, exactly one queen per column.</td>
+                  <td>$$8! = \mathbf{40,320\text{ states}}$$</td>
+                  <td>Used by local search (Hill Climbing / Min-Conflicts) to slide queens vertically within their column.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>8-puzzle: $9! = 362,880$ permutations; $181,440$ reachable states due to inversion parity.</li>
+            <li>8-puzzle average branching factor $b = 24/9 \approx 2.67$.</li>
+            <li>8-queens complete-state formulation reduces search space from $4.4 \times 10^9$ to $8! = 40,320$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Definitions of AI</h4>
+            <ul>
+              <li>Thinking Humanly: cognitive modeling (mind).</li>
+              <li>Acting Humanly: Turing Test (behavior).</li>
+              <li>Thinking Rationally: formal logic (syllogisms).</li>
+              <li>Acting Rationally: <strong>rational agent</strong> (modern paradigm).</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>PEAS & Environments</h4>
+            <ul>
+              <li>PEAS: Performance measure, Environment, Actuators, Sensors.</li>
+              <li>7 Dimensions: Observability, Agents, Determinism, Episodic, Static, Discrete, Known.</li>
+              <li>Hardest: Partially observable, Multi-agent, Stochastic, Sequential, Dynamic, Continuous.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Agent Architectures</h4>
+            <ul>
+              <li>Simple Reflex: condition-action rules.</li>
+              <li>Model-Based: internal state tracks unseen world.</li>
+              <li>Goal-Based: planning and search for goals.</li>
+              <li>Utility-Based: maximizes expected utility.</li>
+              <li>Learning: Critic, Learning, Performance, Problem Gen.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Problem Formulation</h4>
+            <ul>
+              <li>5 Components: Initial state, Actions, Transition model, Goal test, Path cost.</li>
+              <li>8-Puzzle: $9! / 2 = 181,440$ reachable states; $b \approx 2.67$.</li>
+              <li>8-Queens: $8! = 40,320$ permutations in complete-state.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Define an agent and write the agent function mathematically.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> An agent is anything that perceives its environment through sensors and acts upon it through actuators. The agent function maps any percept sequence to an action: $f: P^* \to A$.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Distinguish between rationality and omniscience.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> An omniscient agent knows the actual outcome of its actions, which is impossible in real-world environments. Rationality maximizes expected performance based on the agent's percept sequence and prior knowledge to date.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What are condition-action rules in simple reflex agents?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Condition-action rules are production rules of the form <code>if condition then action</code> that map current percepts directly to actions without retaining memory of past percepts.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the Turing Test approach to AI and list the capabilities required to pass it.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Proposed by Alan Turing (1950), the Turing Test places a human interrogator in teletype conversation with a human and a computer. If the interrogator cannot tell which is which, the machine passes. Required capabilities:</p>
+                <ul>
+                  <li>Natural Language Processing (NLP) to communicate fluently.</li>
+                  <li>Knowledge Representation to store what it knows or hears.</li>
+                  <li>Automated Reasoning to use stored information to answer questions.</li>
+                  <li>Machine Learning to adapt and detect new patterns.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Detail the PEAS specification for an automated taxi driver.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ul>
+                  <li><strong>P (Performance):</strong> Safety, speed, adherence to traffic laws, passenger comfort, fuel efficiency, profitability.</li>
+                  <li><strong>E (Environment):</strong> Urban streets, highway traffic, pedestrians, weather, road construction, passengers.</li>
+                  <li><strong>A (Actuators):</strong> Steering wheel, accelerator, brakes, horn, turn signals, display screen.</li>
+                  <li><strong>S (Sensors):</strong> Cameras, sonar, LIDAR, GPS, speedometer, engine sensors, accelerometer.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Explain the five agent architectures with neat diagrams, and compare their operational mechanisms.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong> Discuss and draw diagrams for all 5 architectures as detailed in Section 6: Simple Reflex, Model-Based Reflex, Goal-Based, Utility-Based, and the 4 components of the Learning Agent (Critic, Learning Element, Performance Element, Problem Generator).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past CIE examination papers in <code>notes/ai/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Artificial Intelligence (ISE552)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Define a rational agent. Explain the PEAS description of an automated taxi driver and medical diagnosis system."</p>
+          <p class="archive-note"><em>Study Note:</em> Full PEAS breakdown table provided in Section 4.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Question Bank</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain the different environment characteristics with suitable examples."</p>
+          <p class="archive-note"><em>Study Note:</em> Complete 7-dimension classification matrix provided in Section 5.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Model Question Paper</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Give the state space formulation for the 8-puzzle problem. Calculate the total number of states and the branching factor."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified mathematical derivation provided in Section 8.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; ENVIRONMENT CLASSIFICATION</span>
+          </div>
+          <h4 class="problem-title">Classify the environment of playing Poker along the 7 dimensions.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ul>
+                <li><strong>Observability:</strong> Partially observable (opponent cards are hidden).</li>
+                <li><strong>Agents:</strong> Multi-agent competitive.</li>
+                <li><strong>Determinism:</strong> Stochastic (card dealing involves probability).</li>
+                <li><strong>Episodic/Sequential:</strong> Sequential (betting affects future hands).</li>
+                <li><strong>Static/Dynamic:</strong> Static (hands do not change while player thinks, unless timed).</li>
+                <li><strong>Discrete/Continuous:</strong> Discrete (finite deck, chips, and actions).</li>
+                <li><strong>Known/Unknown:</strong> Known (rules of poker are fixed).</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; 8-PUZZLE INVERSION PARITY</span>
+          </div>
+          <h4 class="problem-title">Can the 8-puzzle state `[1, 2, 3, 4, 5, 6, 8, 7, 0]` reach the standard goal `[1, 2, 3, 4, 5, 6, 7, 8, 0]`?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>In the goal state, inversions = 0 (even parity). In the given start state, tiles 8 and 7 are inverted ($8 > 7$), giving exactly 1 inversion (odd parity). Because legal tile slides preserve inversion parity, a state with an odd number of inversions can <strong>never</strong> reach an even parity goal. <strong>Answer: Impossible!</strong></p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Stuart Russell, Peter Norvig</strong> &mdash; <em>Artificial Intelligence: A Modern Approach</em>, 3rd/4th Edition, Pearson, Chapters 1, 2, & 3.</li>
+            <li><strong>Elaine Rich, Kevin Knight, Shivashankar B. Nair</strong> &mdash; <em>Artificial Intelligence</em>, 3rd Edition, McGraw Hill, Chapters 1 & 2.</li>
+            <li><strong>Faculty Syllabus & Notes:</strong> Department of ISE, Semester V, Unit 1 (Course Code ISE552).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../../../notes/cn/unit3/unit-3-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS SUBJECT &bull; UNIT 3</span>
+              <span class="pag-title">Computer Networks (IS53): Network Layer & Routing</span>
+            </div>
+          </a>
+          <a href="../unit2/unit-2-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT UNIT</span>
+              <span class="pag-title">Unit 2: Uninformed, Informed & Local Search</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
