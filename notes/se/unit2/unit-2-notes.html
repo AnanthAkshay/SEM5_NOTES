@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2: Requirements Engineering & System Modeling | SE Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Software Engineering (IS52) Unit 2: Functional vs Non-Functional Requirements, IEEE 830 SRS, Use Case Diagrams, Sequence Diagrams, Class Diagrams, Activity Diagrams, and RTM.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/se" class="back-btn" title="Return to Software Engineering Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>SE Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/se">Software Engineering (IS52)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 2</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="se-u2-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 2 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Functional vs Non-Functional Requirements</a>
+        <a href="#sec-2" class="toc-link">§ 2 The Software Requirements Document (SRS)</a>
+        <a href="#sec-3" class="toc-link">§ 3 Requirements Engineering Processes</a>
+        <a href="#sec-4" class="toc-link">§ 4 Context & Interaction Models (Use Cases)</a>
+        <a href="#sec-5" class="toc-link">§ 5 Sequence Diagrams & Message Traces</a>
+        <a href="#sec-6" class="toc-link">§ 6 Structural & Class Models</a>
+        <a href="#sec-7" class="toc-link">§ 7 Behavioral Models (Activity & State)</a>
+        <a href="#sec-8" class="toc-link">§ 8 Model-Driven Engineering (MDE)</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">SE &bull; IS52</span>
+          <span class="unit-tag">UNIT 2</span>
+          <span class="unit-tag read-time">~35 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Requirements Engineering & System Modeling</h1>
+        <p class="unit-subtitle">Comprehensive theory, UML visual notation, and exam case studies covering functional and non-functional requirements metrics, IEEE 830 SRS documents, requirements elicitation, validation, traceability (RTM), Use Case modeling, Sequence diagrams, Class models, and Statecharts.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Requirements Engineering:</strong> Functional vs non-functional requirements, product, organizational, and external requirements, NFR metrics.</li>
+            <li><strong>The Software Requirements Document:</strong> Structure of the SRS, IEEE 830 standard guidelines, users of an SRS.</li>
+            <li><strong>Requirements Specification:</strong> Natural language, structured, and tabular specifications.</li>
+            <li><strong>Requirements Engineering Processes:</strong> Elicitation and analysis, requirements validation, requirements management and traceability matrix (RTM).</li>
+            <li><strong>System Modeling:</strong> Context models, Interaction models (Use Case diagrams, tabular specifications, Sequence diagrams).</li>
+            <li><strong>Structural Models:</strong> Class diagrams, associations, aggregations, compositions, generalizations.</li>
+            <li><strong>Behavioral Models:</strong> Activity diagrams with swimlanes, State machine diagrams.</li>
+            <li><strong>Model-Driven Engineering (MDE):</strong> MDA framework (CIM, PIM, PSM) and automated code synthesis.</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit2/unit-2.pdf" class="source-link" target="_blank" rel="noopener">Unit 2 Slides PDF</a>
+          <a href="../unit1/unit-1-3.pdf" class="source-link" target="_blank" rel="noopener">Requirements Reference PDF</a>
+          <a href="../../../index.html#subject/se" class="source-link">Subject Syllabus</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Functional vs Non-Functional Requirements</h2>
+
+        <p class="section-lead">A <strong>software requirement</strong> is a condition or capability needed by a user to solve a problem or achieve an objective. Requirements range from high-level abstract statements of service to detailed formal mathematical specifications.</p>
+
+        <h3>1. Functional Requirements</h3>
+        <p>Statements of services the system should provide, how the system should react to particular inputs, and how the system should behave in particular situations. (In some cases, they also state what the system should <em>not</em> do).</p>
+        <p><em>Example:</em> "The system shall allow students to search for courses by department, course code, or instructor name."</p>
+
+        <h3>2. Non-Functional Requirements (NFRs)</h3>
+        <p>Constraints on the services or functions offered by the system. They include timing constraints, constraints on the development process, standards, security policies, and performance targets.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Classification</th>
+                <th>Sub-Category</th>
+                <th>Engineering Definition & Concrete Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3"><strong>Product Requirements</strong><br>(Constrain runtime behavior)</td>
+                <td><strong>Performance / Speed</strong></td>
+                <td>The system shall render search query results in less than 0.5 seconds under a load of 1,000 concurrent queries.</td>
+              </tr>
+              <tr>
+                <td><strong>Reliability & Availability</strong></td>
+                <td>The system shall maintain an uptime availability of $99.9\%$, with Mean Time Between Failures ($\text{MTBF}$) $\ge 720\text{ hours}$.</td>
+              </tr>
+              <tr>
+                <td><strong>Security & Usability</strong></td>
+                <td>All stored passwords shall be hashed using bcrypt (cost 12); user interface shall comply with WCAG 2.1 AA accessibility guidelines.</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>Organizational Requirements</strong><br>(Constrain policies & processes)</td>
+                <td><strong>Development Standards</strong></td>
+                <td>All backend services must be written in Java 17 and follow the Google Java Style Guide with 80% test coverage.</td>
+              </tr>
+              <tr>
+                <td><strong>Delivery & Operational</strong></td>
+                <td>The system must be containerized using Docker and deployable onto Kubernetes clusters.</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>External Requirements</strong><br>(Arise from external factors)</td>
+                <td><strong>Regulatory / Privacy</strong></td>
+                <td>Patient medical data must comply with HIPAA regulations and GDPR data erasure guidelines.</td>
+              </tr>
+              <tr>
+                <td><strong>Ethical / Legal</strong></td>
+                <td>The system shall not collect geographic location data without explicit, opt-in consent from the user.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Quantifying Non-Functional Requirements with Metrics</h3>
+        <p>Vague non-functional requirements (e.g. "The system shall be user-friendly and fast") are impossible to verify. Engineers must translate them into <strong>measurable, quantifiable metrics</strong>:</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Quality Property</th>
+                <th>Verifiable Measurement Metric</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Speed</strong></td>
+                <td>Processed transactions/second; response time to user input; screen refresh rate.</td>
+              </tr>
+              <tr>
+                <td><strong>Size</strong></td>
+                <td>Megabytes of RAM; gigabytes of disk storage footprint; binary payload size.</td>
+              </tr>
+              <tr>
+                <td><strong>Ease of Use</strong></td>
+                <td>Training time required for novices; number of help desk tickets/user/month.</td>
+              </tr>
+              <tr>
+                <td><strong>Reliability</strong></td>
+                <td>Mean Time To Failure (MTTF); Probability of Failure on Demand (POFOD); Rate of Occurrence of Failure (ROCOF).</td>
+              </tr>
+              <tr>
+                <td><strong>Robustness</strong></td>
+                <td>Time to restart after failure; percentage of events causing catastrophic data loss.</td>
+              </tr>
+              <tr>
+                <td><strong>Portability</strong></td>
+                <td>Percentage of target-dependent statements; number of supported operating systems.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Functional: what the system DOES (services, behaviors).</li>
+            <li>Non-Functional: constraints on how the system does it (Product, Organizational, External).</li>
+            <li>NFRs must be measurable (e.g. response time $\le 0.5$s, availability $\ge 99.9\%$).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">The Software Requirements Specification (SRS) & IEEE 830</h2>
+
+        <p class="section-lead">The <strong>Software Requirements Specification (SRS)</strong> is the official statement of what the system developers should implement. It serves as a contract between customers, users, systems engineers, software developers, and quality assurance testers.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">STANDARD STRUCTURE OF AN IEEE 830 SRS DOCUMENT</span>
+          <ol>
+            <li><strong>1. Introduction</strong>
+              <ul>
+                <li>1.1 Purpose of the document</li>
+                <li>1.2 Scope of the product / system</li>
+                <li>1.3 Definitions, acronyms, and abbreviations</li>
+                <li>1.4 References</li>
+                <li>1.5 Overview of document structure</li>
+              </ul>
+            </li>
+            <li><strong>2. General Description</strong>
+              <ul>
+                <li>2.1 Product perspective (relationship to other systems)</li>
+                <li>2.2 Product functions (summary of major services)</li>
+                <li>2.3 User characteristics and educational level</li>
+                <li>2.4 General constraints (regulatory, hardware limits)</li>
+                <li>2.5 Assumptions and dependencies</li>
+              </ul>
+            </li>
+            <li><strong>3. Specific Requirements</strong>
+              <ul>
+                <li>3.1 External interface requirements (User, Hardware, Software, Communications)</li>
+                <li>3.2 Functional requirements (organized by use case or feature mode)</li>
+                <li>3.3 Performance requirements (speed, throughput, memory)</li>
+                <li>3.4 Design constraints (standards, programming language)</li>
+                <li>3.5 Software system attributes (reliability, security, maintainability)</li>
+              </ul>
+            </li>
+            <li><strong>4. Appendices & Index</strong></li>
+          </ol>
+        </div>
+
+        <h3>Attributes of a High-Quality SRS</h3>
+        <ul>
+          <li><strong>Correct:</strong> Every requirement accurately reflects customer needs.</li>
+          <li><strong>Unambiguous:</strong> Every requirement has only one single possible interpretation.</li>
+          <li><strong>Complete:</strong> Covers all significant requirements, inputs, responses, and error conditions.</li>
+          <li><strong>Consistent:</strong> No conflicting statements (e.g. one section states blue background while another states green).</li>
+          <li><strong>Verifiable (Testable):</strong> A cost-effective inspection or automated test can prove compliance.</li>
+          <li><strong>Modifiable:</strong> Structure allows changes without destroying the document hierarchy.</li>
+          <li><strong>Traceable:</strong> Each requirement has a unique identifier linked to its origin and downstream code/tests.</li>
+        </ul>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>IEEE 830 standard divides SRS into: (1) Introduction, (2) General Description, (3) Specific Requirements.</li>
+            <li>Key SRS qualities: Unambiguous, Complete, Consistent, Verifiable, Traceable.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Requirements Engineering Processes & Traceability (RTM)</h2>
+
+        <p class="section-lead">The requirements engineering process is an iterative spiral comprising four major sub-activities: <strong>Feasibility study</strong>, <strong>Elicitation & analysis</strong>, <strong>Specification</strong>, and <strong>Validation</strong>.</p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Requirements Elicitation & Analysis:</strong> Technical staff collaborate with customers to discover the application domain, what services the system should provide, and operational constraints. Techniques include:
+              <ul>
+                <li><em>Interviews:</em> Closed (pre-set questions) and open (exploratory discussions).</li>
+                <li><em>Scenarios & User Stories:</em> Concrete stories of how a system is used in everyday workflows.</li>
+                <li><em>Ethnography (Observation):</em> Analysts observe actual workplace operations to uncover tacit social and implicit organizational requirements.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Requirements Validation:</strong> Demonstrating that requirements define the system the customer truly wants. Techniques: Formal requirements reviews, Prototyping, and Test-case generation.
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Requirements Management & Change Control:</strong> Managing changes to agreed requirements as the business evolves. Includes formal change request forms, impact analysis, and tracking via a <strong>Requirements Traceability Matrix (RTM)</strong>.
+            </div>
+          </div>
+        </div>
+
+        <h3>Requirements Traceability Matrix (RTM)</h3>
+        <p>An RTM is a grid linking each unique user requirement to its architectural module, design element, and automated verification test cases:</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Requirement ID</th>
+                <th>Requirement Description</th>
+                <th>Architectural Module</th>
+                <th>Verification Test Case(s)</th>
+                <th>Compliance Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>REQ-01</strong></td>
+                <td>User Multi-Factor Authentication (OTP via SMS)</td>
+                <td><code>AuthModule</code></td>
+                <td><code>TC-01, TC-02</code></td>
+                <td>Verified / Pass</td>
+              </tr>
+              <tr>
+                <td><strong>REQ-02</strong></td>
+                <td>Course Catalog Filtering by Department</td>
+                <td><code>CatalogModule</code></td>
+                <td><code>TC-03</code></td>
+                <td>Verified / Pass</td>
+              </tr>
+              <tr>
+                <td><strong>REQ-03</strong></td>
+                <td>Shopping Cart Seat Reservation Hold (10 min)</td>
+                <td><code>CartModule</code></td>
+                <td><code>TC-04</code></td>
+                <td>Verified / Pass</td>
+              </tr>
+              <tr>
+                <td><strong>REQ-04</strong></td>
+                <td>Payment Gateway Integration (Stripe/PayPal)</td>
+                <td><code>PaymentModule</code></td>
+                <td><code>TC-05, TC-06</code></td>
+                <td>Verified / Pass</td>
+              </tr>
+              <tr>
+                <td><strong>REQ-05</strong></td>
+                <td>Automated Registration Confirmation Email</td>
+                <td><code>NotificationModule</code></td>
+                <td><code>TC-07</code></td>
+                <td>Verified / Pass</td>
+              </tr>
+              <tr>
+                <td><strong>REQ-06</strong></td>
+                <td>Semester Grade Report PDF Export</td>
+                <td><code>ReportingModule</code></td>
+                <td><code>TC-08</code></td>
+                <td>Verified / Pass</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Elicitation techniques: Interviews, Scenarios, Use cases, Ethnography (passive observation).</li>
+            <li>Validation: Reviews, Prototyping, Test-case generation.</li>
+            <li>RTM links Requirements &rarr; Architecture &rarr; Code &rarr; Test Cases.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">Context & Interaction Models: Use Case Diagrams</h2>
+
+        <p class="section-lead"><strong>System modeling</strong> uses graphical notations (principally the Unified Modeling Language - UML) to represent different perspectives of a system: <em>External context</em>, <em>Interaction</em>, <em>Structural</em>, and <em>Behavioral</em>.</p>
+
+        <h3>Use Case Modeling</h3>
+        <p>A <strong>Use Case</strong> describes an interaction between the system and external actors (humans or external hardware/software systems). Actors are represented by stick figures, use cases by horizontal ellipses, and relationships by solid or dashed arrows.</p>
+
+        <!-- SVG USE CASE DIAGRAM -->
+        <div class="svg-card">
+          <div class="svg-title">Use Case Diagram for Student Course Registration</div>
+          <svg viewBox="0 0 760 320" width="100%" height="auto" role="img" aria-label="Use Case diagram for course registration showing actors, use cases, include and extend">
+            <title>Course Registration Use Case</title>
+            <desc>SVG diagram illustrating Student and Registrar actors interacting with Login, Register for Course, View Catalog, and Pay Fees use cases with include and extend relationships</desc>
+
+            <!-- System Boundary Box -->
+            <rect x="180" y="20" width="400" height="280" rx="14" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="380" y="45" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--text-main)">Course Registration System Boundary</text>
+
+            <!-- Left Actor: Student -->
+            <g transform="translate(60, 100)">
+              <!-- Head -->
+              <circle cx="20" cy="20" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <!-- Body -->
+              <line x1="20" y1="34" x2="20" y2="70" stroke="var(--stroke)" stroke-width="2" />
+              <!-- Arms -->
+              <line x1="0" y1="48" x2="40" y2="48" stroke="var(--stroke)" stroke-width="2" />
+              <!-- Legs -->
+              <line x1="20" y1="70" x2="5" y2="105" stroke="var(--stroke)" stroke-width="2" />
+              <line x1="20" y1="70" x2="35" y2="105" stroke="var(--stroke)" stroke-width="2" />
+              <text x="20" y="125" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">Student</text>
+            </g>
+
+            <!-- Right Actor: Registrar -->
+            <g transform="translate(660, 100)">
+              <circle cx="20" cy="20" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <line x1="20" y1="34" x2="20" y2="70" stroke="var(--stroke)" stroke-width="2" />
+              <line x1="0" y1="48" x2="40" y2="48" stroke="var(--stroke)" stroke-width="2" />
+              <line x1="20" y1="70" x2="5" y2="105" stroke="var(--stroke)" stroke-width="2" />
+              <line x1="20" y1="70" x2="35" y2="105" stroke="var(--stroke)" stroke-width="2" />
+              <text x="20" y="125" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">Registrar</text>
+            </g>
+
+            <!-- Use Cases Inside Boundary -->
+            <!-- 1. View Course Catalog -->
+            <ellipse cx="280" cy="90" rx="75" ry="25" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="280" y="95" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" fill="var(--text-main)">View Course Catalog</text>
+
+            <!-- 2. Register for Course -->
+            <ellipse cx="280" cy="170" rx="75" ry="25" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+            <text x="280" y="175" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" fill="var(--green)">Register for Course</text>
+
+            <!-- 3. Verify Prerequisites (Included) -->
+            <ellipse cx="480" cy="170" rx="80" ry="25" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="480" y="175" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" fill="var(--text-main)">Verify Prerequisites</text>
+
+            <!-- 4. Manage Course Offerings (Registrar) -->
+            <ellipse cx="460" cy="90" rx="85" ry="25" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="460" y="95" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" fill="var(--text-main)">Manage Course Offerings</text>
+
+            <!-- Association Lines -->
+            <line x1="100" y1="140" x2="205" y2="95" stroke="var(--stroke)" stroke-width="1.8" />
+            <line x1="100" y1="145" x2="205" y2="170" stroke="var(--stroke)" stroke-width="1.8" />
+            <line x1="660" y1="140" x2="545" y2="95" stroke="var(--stroke)" stroke-width="1.8" />
+
+            <!-- <<include>> arrow: Register -> Verify -->
+            <line x1="355" y1="170" x2="395" y2="170" stroke="var(--green)" stroke-width="2" stroke-dasharray="4" marker-end="url(#th-arr-green)" />
+            <text x="375" y="160" font-family="Inter" font-weight="700" font-size="10" fill="var(--green)" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+          </svg>
+        </div>
+
+        <div class="callout callout-def">
+          <span class="callout-label">INCLUDE VS EXTEND RELATIONSHIPS IN USE CASES</span>
+          <ul>
+            <li><strong><code>&lt;&lt;include&gt;&gt;</code>:</strong> Mandatory behavior. The base use case <em>always</em> executes the included use case as an essential sub-step (e.g. Registering for a course <code>&lt;&lt;include&gt;&gt;</code> Verifying Prerequisites).</li>
+            <li><strong><code>&lt;&lt;extend&gt;&gt;</code>:</strong> Optional / Conditional behavior. The extension use case is executed <em>only under specific circumstances</em> governed by an extension point (e.g. Booking flight ticket <code>&lt;&lt;extend&gt;&gt;</code> Purchasing Travel Insurance).</li>
+          </ul>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Actor: external entity interacting with system (stick figure).</li>
+            <li>Use case: specific service / interaction sequence (ellipse).</li>
+            <li><code>&lt;&lt;include&gt;&gt;</code> is mandatory sub-routine; <code>&lt;&lt;extend&gt;&gt;</code> is optional/conditional.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Interaction Models: Sequence Diagrams</h2>
+
+        <p class="section-lead">A <strong>Sequence Diagram</strong> models the dynamic interaction between objects in a use case by depicting the chronological exchange of messages along vertical <strong>lifelines</strong>.</p>
+
+        <!-- SVG SEQUENCE DIAGRAM -->
+        <div class="svg-card">
+          <div class="svg-title">Sequence Diagram: Two-Factor Authentication (OTP Login)</div>
+          <svg viewBox="0 0 740 300" width="100%" height="auto" role="img" aria-label="Sequence Diagram illustrating user login, authentication server, and SMS gateway">
+            <title>Two-Factor Authentication Sequence Diagram</title>
+            <desc>SVG diagram showing lifelines for User, LoginController, AuthService, and SMSGateway with chronological message exchanges</desc>
+
+            <!-- Columns / Lifelines: User (100), Controller (280), AuthService (480), SMSGateway (660) -->
+            <!-- Headers -->
+            <rect x="50" y="20" width="100" height="35" rx="6" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="100" y="42" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">:User</text>
+
+            <rect x="220" y="20" width="120" height="35" rx="6" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="280" y="42" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">:LoginController</text>
+
+            <rect x="420" y="20" width="120" height="35" rx="6" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="480" y="42" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">:AuthService</text>
+
+            <rect x="600" y="20" width="120" height="35" rx="6" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+            <text x="660" y="42" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">:SMSGateway</text>
+
+            <!-- Vertical Dashed Lifelines -->
+            <line x1="100" y1="55" x2="100" y2="280" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+            <line x1="280" y1="55" x2="280" y2="280" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+            <line x1="480" y1="55" x2="480" y2="280" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+            <line x1="660" y1="55" x2="660" y2="280" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+
+            <!-- Activations -->
+            <rect x="94" y="70" width="12" height="190" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.2" />
+            <rect x="274" y="80" width="12" height="170" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.2" />
+            <rect x="474" y="95" width="12" height="110" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.2" />
+
+            <!-- Message 1: submitCredentials(user, pass) -->
+            <line x1="106" y1="85" x2="268" y2="85" stroke="var(--text-main)" stroke-width="1.8" marker-end="url(#th-arr)" />
+            <text x="187" y="77" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--text-main)">login(username, password)</text>
+
+            <!-- Message 2: validateUser() -->
+            <line x1="286" y1="105" x2="468" y2="105" stroke="var(--text-main)" stroke-width="1.8" marker-end="url(#th-arr)" />
+            <text x="377" y="97" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--text-main)">validateCredentials()</text>
+
+            <!-- Message 3: sendOTP() to SMSGateway -->
+            <line x1="486" y1="130" x2="654" y2="130" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+            <text x="570" y="122" font-family="JetBrains Mono" font-weight="700" font-size="10" text-anchor="middle" fill="var(--green)">sendOTP(phone, code)</text>
+
+            <!-- Return Message 4: OTP Prompt -->
+            <line x1="274" y1="170" x2="112" y2="170" stroke="var(--stroke)" stroke-width="1.8" stroke-dasharray="4" marker-end="url(#th-arr)" />
+            <text x="187" y="162" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--text-muted)">showOTPPrompt()</text>
+
+            <!-- Message 5: submitOTP(123456) -->
+            <line x1="106" y1="210" x2="268" y2="210" stroke="var(--text-main)" stroke-width="1.8" marker-end="url(#th-arr)" />
+            <text x="187" y="202" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--text-main)">submitOTP(code)</text>
+
+            <!-- Return Message 6: Login Success Token -->
+            <line x1="274" y1="245" x2="112" y2="245" stroke="var(--green)" stroke-width="2" stroke-dasharray="4" marker-end="url(#th-arr-green)" />
+            <text x="187" y="237" font-family="JetBrains Mono" font-weight="700" font-size="10" text-anchor="middle" fill="var(--green)">authSuccess(JWT_Token)</text>
+          </svg>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Lifeline: vertical dashed line showing object existence over time.</li>
+            <li>Activation: thin vertical box showing period of active execution.</li>
+            <li>Synchronous call = solid line with filled arrowhead; Return = dashed line with open arrow.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Structural Models: UML Class Diagrams</h2>
+
+        <p class="section-lead"><strong>Structural models</strong> display the static organization of a system in terms of components, classes, and relationships. The UML <strong>Class Diagram</strong> is the premier structural modeling tool.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Relationship</th>
+                <th>UML Notation</th>
+                <th>Semantic Meaning & Lifecycle Binding</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Association</strong></td>
+                <td>Solid line with label / arrow</td>
+                <td>General structural relationship indicating objects know about each other ("uses-a").</td>
+              </tr>
+              <tr>
+                <td><strong>Aggregation</strong></td>
+                <td>Hollow diamond at container end</td>
+                <td>"Has-a" part-whole relationship. <strong>Weak ownership:</strong> parts can exist independently of the whole (e.g. Department & Professors).</td>
+              </tr>
+              <tr>
+                <td><strong>Composition</strong></td>
+                <td><strong>Filled black diamond</strong> at container end</td>
+                <td>"Contains-a" part-whole relationship. <strong>Strong ownership:</strong> parts cannot exist without the whole; if container is destroyed, parts are destroyed (e.g. Building & Rooms).</td>
+              </tr>
+              <tr>
+                <td><strong>Generalization (Inheritance)</strong></td>
+                <td>Hollow triangle pointing to superclass</td>
+                <td>"Is-a" relationship where subclass inherits attributes and operations from superclass (e.g. Student extends Person).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Aggregation (hollow diamond): weak ownership (parts survive without whole).</li>
+            <li>Composition (filled black diamond): strong ownership (parts destroyed with whole).</li>
+            <li>Generalization (hollow triangle): inheritance ("is-a").</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Behavioral Models: Activity & State Machine Diagrams</h2>
+
+        <p class="section-lead"><strong>Behavioral models</strong> describe what happens when a system responds to internal or external stimuli. They model the dynamic operational control flow of the application.</p>
+
+        <h3>1. Activity Diagrams</h3>
+        <p>Model the procedural flow of business logic and workflows. Key notations:</p>
+        <ul>
+          <li><strong>Initial Node:</strong> Solid black circle.</li>
+          <li><strong>Action State:</strong> Rounded rectangle representing a unit of work.</li>
+          <li><strong>Decision Node:</strong> Diamond with outgoing guarded branches ($[\text{condition}]$).</li>
+          <li><strong>Forks and Joins:</strong> Horizontal/vertical solid bars used to represent <strong>concurrent parallel threads</strong> of execution (a fork splits one flow into multiple; a join waits for all concurrent flows to arrive).</li>
+          <li><strong>Swimlanes:</strong> Vertical columns grouping activities by organizational role (e.g. Customer, OrderDesk, Inventory, Warehouse).</li>
+        </ul>
+
+        <h3>2. State Machine Diagrams (Statecharts)</h3>
+        <p>Model the life cycle of a reactive object across discrete <strong>states</strong> in response to <strong>events</strong>.</p>
+        <div class="callout callout-def">
+          <span class="callout-label">STATE TRANSITION LABELING NOTATION</span>
+          $$\mathbf{\text{Event [Guard Condition] / Action}}$$
+          <p><em>Example:</em> $\text{CardInserted [PIN\_Valid] / DisplayAccountMenu()}$</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Activity Diagram: procedural workflows; forks/joins handle parallel concurrency; swimlanes assign responsibilities.</li>
+            <li>State Machine: states and transitions for reactive objects ($\text{Event [Guard] / Action}$).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-8" class="note-section">
+        <div class="section-badge">&sect; 8</div>
+        <h2 class="section-title">Model-Driven Engineering (MDE & MDA)</h2>
+
+        <p class="section-lead"><strong>Model-Driven Engineering (MDE)</strong> is an approach to software development in which models, rather than source code, are the principal outputs of the development process. Programs that execute on hardware platforms are then generated automatically from these models.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Model Layer</th>
+                <th>Model Name</th>
+                <th>Level of Abstraction & Contents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Layer 1 (Top)</strong></td>
+                <td><strong>Computation Independent Model (CIM)</strong></td>
+                <td>Models business domain concepts without any reference to system implementation (sometimes called a Domain Model).</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 2 (Middle)</strong></td>
+                <td><strong>Platform Independent Model (PIM)</strong></td>
+                <td>Models the operational behavior of the software system without committing to any specific implementation technology or target platform.</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 3 (Bottom)</strong></td>
+                <td><strong>Platform Specific Model (PSM)</strong></td>
+                <td>Transforms the PIM into specific implementation environments (e.g. Java Spring Boot + PostgreSQL, or .NET C# + SQL Server) using automated translator tools.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>MDA 3 Tiers: <strong>CIM &rarr; PIM &rarr; PSM</strong>.</li>
+            <li>CIM = business domain concepts.</li>
+            <li>PIM = system behavior independent of hardware/OS.</li>
+            <li>PSM = concrete technology implementation for code generation.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Requirements Basics</h4>
+            <ul>
+              <li>Functional: services system provides.</li>
+              <li>Non-functional: Product, Organizational, External.</li>
+              <li>NFRs must be measurable (speed, availability, MTBF).</li>
+              <li>IEEE 830: Intro, General, Specific requirements.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Elicitation & RTM</h4>
+            <ul>
+              <li>Elicitation: interviews, scenarios, ethnography.</li>
+              <li>Validation: reviews, prototyping, test cases.</li>
+              <li>RTM: matrix linking requirement to code and tests.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>UML Interaction Models</h4>
+            <ul>
+              <li>Use Case: Actor, Ellipse, Boundary.</li>
+              <li><code>&lt;&lt;include&gt;&gt;</code>: mandatory sub-step.</li>
+              <li><code>&lt;&lt;extend&gt;&gt;</code>: conditional extension.</li>
+              <li>Sequence: lifelines, activations, messages.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Structural & MDE</h4>
+            <ul>
+              <li>Aggregation (hollow): weak ownership.</li>
+              <li>Composition (filled): strong ownership.</li>
+              <li>Generalization (hollow triangle): inheritance.</li>
+              <li>MDA tiers: CIM &rarr; PIM &rarr; PSM.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Distinguish between functional and non-functional requirements.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Functional requirements state the specific services, functions, and behaviors the system must deliver. Non-functional requirements specify constraints on these services (e.g. performance speed, security standards, availability, and regulatory compliance).</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Differentiate between `<<include>>` and `<<extend>>` in use case diagrams.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> An <code>&lt;&lt;include&gt;&gt;</code> relationship indicates mandatory behavior that is always executed as an integral part of the base use case. An <code>&lt;&lt;extend&gt;&gt;</code> relationship represents optional or conditional behavior executed only under specific extension point conditions.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is a Requirements Traceability Matrix (RTM)?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> An RTM is a table that links every individual user requirement from its initial inception through system architecture modules, source code files, and automated verification test cases, ensuring complete test coverage and tracking change impact.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the structure of an SRS document according to the IEEE 830 standard.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Outline the three main sections: (1) Introduction (purpose, scope, definitions), (2) General Description (product perspective, functions, user characteristics, constraints), and (3) Specific Requirements (external interfaces, functional requirements, performance, design constraints), as detailed in Section 2.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Compare aggregation and composition in UML class diagrams with examples.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ul>
+                  <li><strong>Aggregation (hollow diamond):</strong> Represents a weak part-whole relationship. The contained objects can exist independently of the whole. Example: A Department has Professors; if the Department closes, Professors still exist.</li>
+                  <li><strong>Composition (filled black diamond):</strong> Represents strong ownership. The parts are created and destroyed with the container. Example: A Building has Rooms; if the Building is demolished, the Rooms cease to exist.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Design a Use Case diagram and Sequence diagram for a Course Registration System. Explain all elements.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong> Provide the complete Use Case diagram showing Student and Registrar actors with <code>&lt;&lt;include&gt;&gt;</code> prerequisite validation from Section 4, and the Sequence diagram depicting message exchanges across lifelines and activation bars from Section 5.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past CIE examination papers in <code>notes/se/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Software Engineering (IS52)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"What are non-functional requirements? Classify them with examples. How can non-functional requirements be quantified using metrics?"</p>
+          <p class="archive-note"><em>Study Note:</em> Complete 3-tier classification and metrics table provided in Section 1.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-2 &bull; Software Engineering</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Draw a sequence diagram for user authentication with OTP and explain lifelines, messages, and activation bars."</p>
+          <p class="archive-note"><em>Study Note:</em> Full visual SVG sequence diagram and detailed explanation provided in Section 5.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Model Question Paper</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain the Model-Driven Architecture (MDA). Differentiate between CIM, PIM, and PSM."</p>
+          <p class="archive-note"><em>Study Note:</em> Three-layer abstraction table provided in Section 8.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; AVAILABILITY CALCULATION</span>
+          </div>
+          <h4 class="problem-title">A cloud server has an MTBF of 500 hours and an MTTR of 2 hours. Calculate its availability percentage.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>Formula: $\text{Availability } A = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}}$</p>
+              $$A = \frac{500}{500 + 2} = \frac{500}{502} \approx 0.996016 = \mathbf{99.602\%}$$
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; NFR CLASSIFICATION</span>
+          </div>
+          <h4 class="problem-title">Classify the requirement: "The system must conform to ISO 9001 quality audit documentation."</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p><strong>Organizational Requirement &bull; Development Standards.</strong> It dictates the organizational development and auditing process rather than the functional runtime behavior of the software product.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Ian Sommerville</strong> &mdash; <em>Software Engineering</em>, 10th Edition, Pearson, Chapters 4 (Requirements Engineering) & 5 (System Modeling).</li>
+            <li><strong>Roger S. Pressman, Bruce R. Maxim</strong> &mdash; <em>Software Engineering: A Practitioner's Approach</em>, 9th Edition, McGraw Hill, Chapters 5 & 6.</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 2 (Course Code IS52).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../unit1/unit-1-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS UNIT</span>
+              <span class="pag-title">Unit 1: Processes, Ethics & Agile</span>
+            </div>
+          </a>
+          <a href="../unit3/unit-3-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT UNIT</span>
+              <span class="pag-title">Unit 3: Architectural Design & Patterns</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
