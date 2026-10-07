@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2: Understanding Data – 2 & Basic Learning Theory | ML Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-oriented interactive study notes for Machine Learning (IS51) Unit 2: Multivariate Mathematics, Feature Engineering, PCA, Design of Learning Systems, Find-S, Candidate Elimination, Inductive Bias, and PAC Learning.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/ml" class="back-btn" title="Return to Machine Learning Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>ML Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/ml">Machine Learning (IS51)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 2</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="ml-u2-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout Grid -->
+  <div class="notes-container">
+    <!-- Sticky Desktop Sidebar / TOC -->
+    <aside class="notes-sidebar" id="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-title">
+        <span>ON THIS PAGE</span>
+        <span class="pill-tag pill-tag-outline" style="font-size:10px;">UNIT 2</span>
+      </div>
+      <nav class="toc-nav">
+        <ol>
+          <li class="toc-item"><a href="#sec-multivariate-math">§ 1. Multivariate Mathematics</a></li>
+          <li class="toc-item"><a href="#sec-feature-engineering">§ 2. Feature Engineering</a></li>
+          <li class="toc-item"><a href="#sec-dim-reduction">§ 3. Dimensionality Reduction (PCA)</a></li>
+          <li class="toc-item"><a href="#sec-design-learning-sys">§ 4. Design of a Learning System</a></li>
+          <li class="toc-item"><a href="#sec-concept-learning">§ 5. Concept Learning & Ordering</a></li>
+          <li class="toc-item"><a href="#sec-find-s">§ 6. Find-S Algorithm</a></li>
+          <li class="toc-item"><a href="#sec-candidate-elimination">§ 7. Candidate Elimination</a></li>
+          <li class="toc-item"><a href="#sec-inductive-bias">§ 8. Inductive Bias & Learner Fallacy</a></li>
+          <li class="toc-item"><a href="#sec-modelling-ml">§ 9. Modelling in Machine Learning</a></li>
+          <li class="toc-item"><a href="#sec-learning-frameworks">§ 10. Learning Frameworks (PAC & VC)</a></li>
+          <li class="toc-item"><a href="#sec-revision-sheet">Revision Sheet</a></li>
+          <li class="toc-item"><a href="#sec-important-questions">Important Exam Questions</a></li>
+          <li class="toc-item"><a href="#sec-questions-asked-before">Questions Asked Before</a></li>
+          <li class="toc-item"><a href="#sec-practice-problems">Practice Problems</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Mobile TOC Accordion Button -->
+      <div class="mobile-toc-toggle-wrap">
+        <button class="mobile-toc-btn" id="mobile-toc-btn" aria-expanded="false" aria-controls="notes-sidebar">
+          <span>Table of Contents · Unit 2</span>
+          <span aria-hidden="true">▾</span>
+        </button>
+      </div>
+
+      <!-- Unit Header Hero Card -->
+      <header class="notes-header-card">
+        <div class="header-badge-row">
+          <span class="pill-tag pill-tag-green">Course Code: IS51</span>
+          <span class="pill-tag pill-tag-outline">Credits: 3:0:0:3</span>
+          <span class="pill-tag pill-tag-outline">PCC Core</span>
+          <span class="pill-tag pill-tag-outline">Est. Reading: 40 min</span>
+        </div>
+
+        <h1 class="notes-headline">Unit 2: Understanding Data – 2 & Basic Learning Theory</h1>
+        <p class="notes-subheadline">
+          Comprehensive, exam-focused study notes covering multivariate linear algebra, feature selection taxonomy, Principal Component Analysis (PCA), Mitchell's four design stages of learning systems, general-to-specific concept learning, Find-S, Candidate Elimination version spaces, inductive bias, and PAC learnability.
+        </p>
+
+        <div class="syllabus-box">
+          <div class="syllabus-box-label">Official Syllabus Coverage</div>
+          <p>
+            <strong>Understanding Data – 2:</strong> Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques.<br>
+            <strong>Basic Learning Theory:</strong> Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, Learning Frameworks.
+          </p>
+        </div>
+
+        <div class="header-links-row">
+          <span>Original Course Materials:</span>
+          <a href="../unit2/unit-2.pdf" target="_blank" rel="noopener" class="resource-link-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            Unit 2 Slides PDF (104 Pages)
+          </a>
+          <a href="../practice/unit-1-qb.pdf" target="_blank" rel="noopener" class="resource-link-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            Department Question Bank
+          </a>
+        </div>
+      </header>
+
+      <!-- ===================================================================
+           SECTION 1: MATHEMATICS FOR MULTIVARIATE DATA
+           =================================================================== -->
+      <section class="notes-section" id="sec-multivariate-math">
+        <span class="section-number">§ 1</span>
+        <h2 class="section-title">Mathematics for Multivariate Data</h2>
+
+        <p>
+          Multivariate machine learning relies on linear algebra to represent collections of instances and perform geometric projections. An individual observation with $d$ features is represented as a column vector $\mathbf{x} \in \mathbb{R}^d$, and a dataset of $n$ instances forms a data matrix $\mathbf{X} \in \mathbb{R}^{n \times d}$.
+        </p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">Fundamental Linear Algebra Primitives</span>
+          <p>
+            <strong>Mean Vector ($\boldsymbol{\mu}$):</strong> The vector containing the arithmetic mean of each feature:
+            $$\boldsymbol{\mu} = \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i = \begin{bmatrix} \bar{x}_1 & \bar{x}_2 & \dots & \bar{x}_d \end{bmatrix}^T$$
+            <strong>Covariance Matrix ($\boldsymbol{\Sigma}$):</strong> A symmetric $d \times d$ matrix where diagonal entries represent feature variances and off-diagonal entries represent pairwise covariances:
+            $$\boldsymbol{\Sigma} = \frac{1}{n - 1} (\mathbf{X} - \boldsymbol{\mu})^T (\mathbf{X} - \boldsymbol{\mu})$$
+            $$\boldsymbol{\Sigma}_{j, k} = \text{Cov}(X_j, X_k) = \frac{1}{n - 1} \sum_{i=1}^n (x_{ij} - \bar{x}_j)(x_{ik} - \bar{x}_k)$$
+          </p>
+        </div>
+
+        <h3 class="subsection-title">Eigenvalues and Eigenvectors</h3>
+        <p>
+          For a square matrix $\mathbf{A} \in \mathbb{R}^{d \times d}$, a non-zero vector $\mathbf{v}$ is an <strong>eigenvector</strong> and scalar $\lambda$ is its corresponding <strong>eigenvalue</strong> if linear transformation by $\mathbf{A}$ merely scales $\mathbf{v}$ without changing its direction:
+        </p>
+        $$\mathbf{A} \mathbf{v} = \lambda \mathbf{v} \iff (\mathbf{A} - \lambda \mathbf{I}) \mathbf{v} = \mathbf{0}$$
+        <p>
+          Non-trivial solutions exist if and only if the characteristic determinant vanishes:
+        </p>
+        $$\det(\mathbf{A} - \lambda \mathbf{I}) = 0$$
+        <p>
+          In machine learning, when $\mathbf{A} = \boldsymbol{\Sigma}$ (the sample covariance matrix), the eigenvectors point along the <em>principal axes of variance</em>, and the eigenvalues quantify the amount of variance concentrated along those axes.
+        </p>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            Covariance matrix $\boldsymbol{\Sigma}$ is symmetric ($d \times d$) and positive semi-definite. Eigenvectors represent axes of maximum variance; eigenvalues measure the variance along each axis.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 2: FEATURE ENGINEERING
+           =================================================================== -->
+      <section class="notes-section" id="sec-feature-engineering">
+        <span class="section-number">§ 2</span>
+        <h2 class="section-title">Feature Engineering & Feature Selection</h2>
+
+        <p>
+          Feature engineering is the process of using domain knowledge to extract, transform, and select variables from raw data that maximize the predictive accuracy of machine learning models.
+        </p>
+
+        <h3 class="subsection-title">Taxonomy of Feature Selection Methods</h3>
+        <p>
+          Feature selection reduces overfitting, improves model explainability, and shortens training time by isolating the most informative subset of original features:
+        </p>
+
+        <!-- Inline SVG: Feature Selection Methods -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 190" width="100%" height="190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Taxonomy of Feature Selection Methods">
+            <title>Feature Selection Techniques</title>
+            <desc>Diagram showing Filter, Wrapper, and Embedded feature selection approaches.</desc>
+            <!-- Card 1: Filter -->
+            <rect x="20" y="20" width="190" height="150" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="115" y="48" font-family="var(--font-display)" font-size="13" font-weight="700" text-anchor="middle" fill="var(--ink)">1. FILTER METHODS</text>
+            <text x="115" y="75" font-family="var(--font-body)" font-size="11" text-anchor="middle" fill="var(--ink-muted)">Statistical scoring</text>
+            <text x="115" y="93" font-family="var(--font-body)" font-size="11" text-anchor="middle" fill="var(--ink-muted)">Independent of model</text>
+            <rect x="35" y="115" width="160" height="36" rx="6" fill="var(--surface-alt)" stroke="var(--border)" />
+            <text x="115" y="138" font-family="var(--font-mono)" font-size="10" text-anchor="middle" fill="var(--ink)">Chi2, ANOVA, Pearson r</text>
+
+            <!-- Card 2: Wrapper -->
+            <rect x="245" y="20" width="190" height="150" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="340" y="48" font-family="var(--font-display)" font-size="13" font-weight="700" text-anchor="middle" fill="var(--ink)">2. WRAPPER METHODS</text>
+            <text x="340" y="75" font-family="var(--font-body)" font-size="11" text-anchor="middle" fill="var(--ink-muted)">Model evaluates subsets</text>
+            <text x="340" y="93" font-family="var(--font-body)" font-size="11" text-anchor="middle" fill="var(--ink-muted)">Computationally heavy</text>
+            <rect x="260" y="115" width="160" height="36" rx="6" fill="var(--surface-alt)" stroke="var(--border)" />
+            <text x="340" y="138" font-family="var(--font-mono)" font-size="10" text-anchor="middle" fill="var(--ink)">Forward, Backward, RFE</text>
+
+            <!-- Card 3: Embedded -->
+            <rect x="470" y="20" width="190" height="150" rx="14" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.5" />
+            <text x="565" y="48" font-family="var(--font-display)" font-size="13" font-weight="700" text-anchor="middle" fill="var(--green-ink)">3. EMBEDDED METHODS</text>
+            <text x="565" y="75" font-family="var(--font-body)" font-size="11" text-anchor="middle" fill="var(--green-tint-ink)">Selection occurs</text>
+            <text x="565" y="93" font-family="var(--font-body)" font-size="11" text-anchor="middle" fill="var(--green-tint-ink)">during model training</text>
+            <rect x="485" y="115" width="160" height="36" rx="6" fill="var(--surface)" stroke="var(--green)" />
+            <text x="565" y="138" font-family="var(--font-mono)" font-size="10" font-weight="600" text-anchor="middle" fill="var(--green-ink)">L1 Lasso, Tree Gini</text>
+          </svg>
+          <div class="svg-caption">Figure 2.1: The three foundational paradigms of feature selection.</div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Method Category</th><th>Mechanism</th><th>Advantages</th><th>Disadvantages</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Filter Methods</strong></td>
+                <td>Ranks features by statistical correlation or information gain with the target (e.g., Pearson $r$, $\chi^2$ test, Mutual Information) without training a model.</td>
+                <td>Extremely fast ($O(d)$); model-agnostic; non-iterative.</td>
+                <td>Ignores feature interactions; may select redundant collinear features.</td>
+              </tr>
+              <tr>
+                <td><strong>Wrapper Methods</strong></td>
+                <td>Uses a machine learning model as an evaluation oracle. Searches through feature subsets using heuristics (Forward Stepwise Selection, Backward Elimination, Recursive Feature Elimination [RFE]).</td>
+                <td>Captures feature interactions; optimizes directly for target learner.</td>
+                <td>Computationally expensive ($O(2^d)$ search); prone to overfitting on small datasets.</td>
+              </tr>
+              <tr>
+                <td><strong>Embedded Methods</strong></td>
+                <td>Feature selection is built directly into the objective mathematical formulation of the learning algorithm (e.g., $L_1$ Lasso Regularization penalizing $|w_i|$, Decision Tree Gini importance).</td>
+                <td>Balances statistical rigor and computational efficiency; considers interactions.</td>
+                <td>Tied to specific model families (e.g., linear models or tree ensembles).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subsection-title">Data Transformation & Encoding</h3>
+        <ul>
+          <li><strong>One-Hot Encoding:</strong> Converts nominal categoricals without natural rank (e.g., Color $\in$ {Red, Green, Blue}) into $k$ binary indicator columns to prevent artificial ordinal bias.</li>
+          <li><strong>Label Encoding:</strong> Maps ordinal attributes with natural ranking (e.g., Education $\in$ {HighSchool, Bachelors, Masters, PhD} $\to \{0, 1, 2, 3\}$).</li>
+          <li><strong>Missing Value Imputation:</strong> Replacing nulls using column Mean (symmetric numeric data), Median (skewed data with outliers), Mode (categorical data), or KNN imputation.</li>
+        </ul>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            <strong>Filter:</strong> Statistical test, model-free, fast. <strong>Wrapper:</strong> Iteratively trains model on subsets, expensive. <strong>Embedded:</strong> Built into loss function (L1 Lasso shrinks weights to 0).
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 3: DIMENSIONALITY REDUCTION (PCA)
+           =================================================================== -->
+      <section class="notes-section" id="sec-dim-reduction">
+        <span class="section-number">§ 3</span>
+        <h2 class="section-title">Dimensionality Reduction Techniques: Principal Component Analysis (PCA)</h2>
+
+        <p>
+          High-dimensional feature spaces trigger the <strong>Curse of Dimensionality</strong>: the volume of the feature space grows exponentially, making available data points sparse, invalidating distance metrics, and drastically increasing variance. Dimensionality reduction compresses data into $k \ll d$ dimensions while retaining the maximal possible variance.
+        </p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">Definition: Principal Component Analysis (PCA)</span>
+          <p>
+            <strong>PCA</strong> is an unsupervised linear dimensionality reduction technique invented by Karl Pearson. It orthogonally projects high-dimensional data onto a new coordinate system such that the first coordinate (the <strong>First Principal Component</strong>, $\text{PC}_1$) accounts for the largest possible variance, the second component ($\text{PC}_2$) accounts for the second largest variance orthogonal to the first, and so on.
+          </p>
+        </div>
+
+        <!-- Inline SVG: PCA Rotation Diagram -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Geometric Intuition of Principal Component Analysis">
+            <title>PCA Coordinate Rotation</title>
+            <desc>Scatter plot showing data oriented along an angled axis PC1 representing maximum variance, with PC2 perpendicular to it.</desc>
+            <!-- Original Axes -->
+            <line x1="80" y1="170" x2="620" y2="170" stroke="var(--border-strong)" stroke-width="1.5" />
+            <line x1="80" y1="170" x2="80" y2="30" stroke="var(--border-strong)" stroke-width="1.5" />
+            <text x="620" y="190" font-family="var(--font-mono)" font-size="11" fill="var(--ink-muted)">Original X1</text>
+            <text x="50" y="30" font-family="var(--font-mono)" font-size="11" fill="var(--ink-muted)">Original X2</text>
+
+            <!-- Data Cluster Points -->
+            <circle cx="160" cy="145" r="4" fill="var(--ink-muted)" />
+            <circle cx="230" cy="130" r="4" fill="var(--ink-muted)" />
+            <circle cx="310" cy="105" r="4" fill="var(--ink-muted)" />
+            <circle cx="350" cy="100" r="4" fill="var(--ink-muted)" />
+            <circle cx="420" cy="75" r="4" fill="var(--ink-muted)" />
+            <circle cx="500" cy="55" r="4" fill="var(--ink-muted)" />
+
+            <!-- PC1 Vector Line (Major axis) -->
+            <line x1="100" y1="165" x2="560" y2="35" stroke="var(--green)" stroke-width="3" />
+            <text x="570" y="30" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--green-tint-ink)">PC1 (Max Variance, λ1)</text>
+
+            <!-- PC2 Vector Line (Orthogonal Minor axis) -->
+            <line x1="260" y1="20" x2="440" y2="180" stroke="var(--callout-formula-label)" stroke-width="2" stroke-dasharray="4" />
+            <text x="450" y="185" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--callout-formula-label)">PC2 (Orthogonal, λ2)</text>
+          </svg>
+          <div class="svg-caption">Figure 2.2: Orthogonal rotation of coordinates in PCA: PC1 captures maximum variance.</div>
+        </div>
+
+        <h3 class="subsection-title">Step-by-Step Mathematical Derivation of PCA</h3>
+        <ol>
+          <li><strong>Mean Centering:</strong> Center each feature by subtracting its sample mean: $\mathbf{X}_c = \mathbf{X} - \bar{\mathbf{X}}$.</li>
+          <li><strong>Compute Covariance Matrix:</strong> $\boldsymbol{\Sigma} = \frac{1}{n - 1} \mathbf{X}_c^T \mathbf{X}_c$.</li>
+          <li><strong>Compute Eigenvalues & Eigenvectors:</strong> Solve the characteristic polynomial $\det(\boldsymbol{\Sigma} - \lambda \mathbf{I}) = 0$.</li>
+          <li><strong>Rank Principal Components:</strong> Sort eigenvalues in descending order $\lambda_1 \ge \lambda_2 \ge \dots \ge \lambda_d \ge 0$.</li>
+          <li><strong>Select Top $k$ Components:</strong> Form the projection transformation matrix $\mathbf{W} = [\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k] \in \mathbb{R}^{d \times k}$.</li>
+          <li><strong>Project Data:</strong> Compute transformed low-dimensional coordinates $\mathbf{Z} = \mathbf{X}_c \mathbf{W} \in \mathbb{R}^{n \times k}$.</li>
+          <li><strong>Explained Variance Ratio:</strong>
+            $$\text{EVR}_1 = \frac{\lambda_1}{\sum_{j=1}^d \lambda_j}$$
+          </li>
+        </ol>
+
+        <!-- ===============================================================
+             SOLVED PROBLEM 1: 2D PCA STEP-BY-STEP
+             =============================================================== -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">Solved Problem 1 · Exam Level</span>
+            <span class="pill-tag pill-tag-outline">Dimensionality Reduction</span>
+          </div>
+          <div class="problem-statement">
+            Given a 2-dimensional dataset with $n = 4$ observations:
+            $$\mathbf{X} = \begin{bmatrix} 2 & 4 \\ 3 & 6 \\ 5 & 8 \\ 6 & 10 \end{bmatrix}$$
+            Perform PCA by hand to:
+            <ol>
+              <li>Compute the sample mean vector and centered data matrix $\mathbf{X}_c$.</li>
+              <li>Determine the sample covariance matrix $\boldsymbol{\Sigma}$.</li>
+              <li>Find the eigenvalues $\lambda_1, \lambda_2$ and the percentage of total variance explained by the first principal component.</li>
+              <li>Determine the normalized principal eigenvector $\mathbf{v}_1$.</li>
+              <li>Project the 4 centered data points onto the 1st principal component.</li>
+            </ol>
+          </div>
+
+          <div class="solution-steps">
+            <div class="step-item">
+              <div class="step-title">Step 1: Compute Mean Vector and Center the Data</div>
+              $$\bar{x}_1 = \frac{2 + 3 + 5 + 6}{4} = \frac{16}{4} = 4.0, \quad \bar{x}_2 = \frac{4 + 6 + 8 + 10}{4} = \frac{28}{4} = 7.0$$
+              $$\mathbf{X}_c = \begin{bmatrix} 2 - 4.0 & 4 - 7.0 \\ 3 - 4.0 & 6 - 7.0 \\ 5 - 4.0 & 8 - 7.0 \\ 6 - 4.0 & 10 - 7.0 \end{bmatrix} = \begin{bmatrix} -2 & -3 \\ -1 & -1 \\ +1 & +1 \\ +2 & +3 \end{bmatrix}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 2: Construct the Sample Covariance Matrix $\boldsymbol{\Sigma}$</div>
+              $$\text{Var}(X_1) = \frac{(-2)^2 + (-1)^2 + 1^2 + 2^2}{4 - 1} = \frac{4 + 1 + 1 + 4}{3} = \frac{10}{3} \approx 3.3333$$
+              $$\text{Var}(X_2) = \frac{(-3)^2 + (-1)^2 + 1^2 + 3^2}{4 - 1} = \frac{9 + 1 + 1 + 9}{3} = \frac{20}{3} \approx 6.6667$$
+              $$\text{Cov}(X_1, X_2) = \frac{(-2)(-3) + (-1)(-1) + (1)(1) + (2)(3)}{4 - 1} = \frac{6 + 1 + 1 + 6}{3} = \frac{14}{3} \approx 4.6667$$
+              $$\boldsymbol{\Sigma} = \begin{bmatrix} 10/3 & 14/3 \\ 14/3 & 20/3 \end{bmatrix}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 3: Solve the Characteristic Equation for Eigenvalues</div>
+              $$\det(\boldsymbol{\Sigma} - \lambda \mathbf{I}) = \left( \frac{10}{3} - \lambda \right)\left( \frac{20}{3} - \lambda \right) - \left( \frac{14}{3} \right)^2 = 0$$
+              $$\lambda^2 - \left( \frac{10}{3} + \frac{20}{3} \right) \lambda + \left( \frac{200}{9} - \frac{196}{9} \right) = 0 \implies \lambda^2 - 10\lambda + \frac{4}{9} = 0$$
+              $$\lambda = \frac{10 \pm \sqrt{100 - 4(4/9)}}{2} = \frac{10 \pm \sqrt{100 - 16/9}}{2} = \frac{10 \pm \sqrt{884/9}}{2} = 5 \pm \frac{\sqrt{884}}{6}$$
+              $$\sqrt{884} \approx 29.7321 \implies \frac{29.7321}{6} \approx 4.9554$$
+              $$\lambda_1 = 5 + 4.9554 = \mathbf{9.9554}, \quad \lambda_2 = 5 - 4.9554 = \mathbf{0.0446}$$
+              $$\text{Total Variance} = \lambda_1 + \lambda_2 = 10.0$$
+              $$\text{Explained Variance Ratio (PC}_1) = \frac{9.9554}{10.0} \times 100\% = \mathbf{99.55\%}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 4: Solve for the Principal Eigenvector $\mathbf{v}_1$</div>
+              $$(\boldsymbol{\Sigma} - \lambda_1 \mathbf{I}) \mathbf{v}_1 = \mathbf{0} \implies \left( \frac{10}{3} - 9.9554 \right) v_{11} + \frac{14}{3} v_{12} = 0$$
+              $$-6.6221 v_{11} + 4.6667 v_{12} = 0 \implies v_{12} = \frac{6.6221}{4.6667} v_{11} \approx 1.4190 v_{11}$$
+              <p>Normalizing to unit length $\|\mathbf{v}_1\| = 1$:</p>
+              $$v_{11}^2 + (1.4190 v_{11})^2 = 1 \implies 3.0136 v_{11}^2 = 1 \implies v_{11} \approx 0.5760, \quad v_{12} \approx 0.8174$$
+              $$\mathbf{v}_1 = \begin{bmatrix} 0.5760 \\ 0.8174 \end{bmatrix}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 5: Project Centered Data onto $\mathbf{v}_1$</div>
+              $$z_i = x_{c, i1} v_{11} + x_{c, i2} v_{12}$$
+              <ul>
+                <li>Point 1: $(-2)(0.5760) + (-3)(0.8174) = -1.1520 - 2.4522 = \mathbf{-3.6042}$</li>
+                <li>Point 2: $(-1)(0.5760) + (-1)(0.8174) = -0.5760 - 0.8174 = \mathbf{-1.3934}$</li>
+                <li>Point 3: $(+1)(0.5760) + (+1)(0.8174) = +0.5760 + 0.8174 = \mathbf{+1.3934}$</li>
+                <li>Point 4: $(+2)(0.5760) + (+3)(0.8174) = +1.1520 + 2.4522 = \mathbf{+3.6042}$</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="final-answer-box">
+            <span class="final-answer-label">Final Verified Results</span>
+            <span class="final-answer-value">λ1 = 9.9554 (99.55% Var) | v1 = [0.576, 0.817]ᵀ | Z = [-3.604, -1.393, +1.393, +3.604]</span>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            PCA projects data onto eigenvectors of the covariance matrix. The first principal component corresponds to the largest eigenvalue $\lambda_1$. Total variance equals the sum of all eigenvalues.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 4: DESIGN OF A LEARNING SYSTEM
+           =================================================================== -->
+      <section class="notes-section" id="sec-design-learning-sys">
+        <span class="section-number">§ 4</span>
+        <h2 class="section-title">Design of a Learning System</h2>
+
+        <p>
+          In Chapter 1 of Tom Mitchell's classic text, the architecture of machine learning systems is formalized through the design of a computer program that learns to play <strong>Checkers</strong>. Designing any machine learning system involves four sequential engineering decisions:
+        </p>
+
+        <!-- Inline SVG: Mitchell's Learning System Architecture -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 180" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mitchell's Learning System Architecture">
+            <title>Learning System Architecture</title>
+            <desc>Flow between Performance System, Critic, Generalizer, and Experiment Generator in Mitchell's checkers learning system.</desc>
+            <!-- 4 Modules -->
+            <rect x="20" y="30" width="130" height="60" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="85" y="55" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--ink)">Experiment</text>
+            <text x="85" y="72" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--ink)">Generator</text>
+
+            <line x1="150" y1="60" x2="185" y2="60" stroke="var(--ink-muted)" stroke-width="1.5" marker-end="url(#arr)" />
+
+            <rect x="185" y="30" width="130" height="60" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="250" y="55" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--ink)">Performance</text>
+            <text x="250" y="72" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--ink)">System</text>
+
+            <line x1="315" y1="60" x2="350" y2="60" stroke="var(--ink-muted)" stroke-width="1.5" />
+
+            <rect x="350" y="30" width="130" height="60" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="415" y="55" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--ink)">Critic</text>
+            <text x="415" y="72" font-family="var(--font-body)" font-size="9" text-anchor="middle" fill="var(--ink-muted)">(Credit Assign)</text>
+
+            <line x1="480" y1="60" x2="515" y2="60" stroke="var(--ink-muted)" stroke-width="1.5" />
+
+            <rect x="515" y="30" width="145" height="60" rx="10" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.5" />
+            <text x="587" y="55" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--green-ink)">Generalizer</text>
+            <text x="587" y="72" font-family="var(--font-body)" font-size="9" text-anchor="middle" fill="var(--green-tint-ink)">(LMS Weight Update)</text>
+
+            <!-- Feedback loops -->
+            <path d="M 587 90 L 587 135 L 250 135 L 250 90" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="4" />
+            <text x="415" y="150" font-family="var(--font-mono)" font-size="10" text-anchor="middle" fill="var(--green-tint-ink)">Updated Hypothesis Weights w</text>
+
+            <path d="M 85 90 L 85 135 L 20 135 L 20 60 L 20 60" fill="none" stroke="var(--ink-muted)" stroke-width="1" />
+          </svg>
+          <div class="svg-caption">Figure 2.3: Closed-loop architecture of Mitchell's Checkers Learning System.</div>
+        </div>
+
+        <h3 class="subsection-title">The Four Sequential Design Steps</h3>
+        <ol>
+          <li><strong>Step 1: Choosing the Training Experience:</strong>
+            <ul>
+              <li><em>Direct vs. Indirect Feedback:</em> Direct feedback provides the optimal move for every board state. Indirect feedback provides only the final outcome (Win/Loss) after 50 moves, introducing the <strong>Credit Assignment Problem</strong> (determining which specific moves were responsible for the win).</li>
+              <li><em>Teacher Control vs. Autonomous Exploration:</em> The teacher dictates board positions versus the learner self-plays games against itself.</li>
+            </ul>
+          </li>
+          <li><strong>Step 2: Choosing the Target Function:</strong>
+            Define the exact mathematical mapping to be learned:
+            $$V: B \to \mathbb{R}$$
+            Where $B$ is the set of legal board states. Target values:
+            <ul>
+              <li>$V(b) = +100$: If $b$ is a final board state won by the program.</li>
+              <li>$V(b) = -100$: If $b$ is a final board state lost by the program.</li>
+              <li>$V(b) = 0$: If $b$ is a draw state.</li>
+              <li>$V(b) = V(b')$: If $b$ is an intermediate state, where $b'$ is the subsequent board state following optimal play.</li>
+            </ul>
+          </li>
+          <li><strong>Step 3: Choosing a Representation for the Target Function:</strong>
+            Trade-off: A more expressive representation (e.g., lookup table) can capture any function but requires infinite training examples. A linear evaluation function parameterizes board states using feature weights:
+            $$\hat{V}(b) = w_0 + w_1 x_1(b) + w_2 x_2(b) + w_3 x_3(b) + w_4 x_4(b) + w_5 x_5(b) + w_6 x_6(b)$$
+            Where $x_1(b)$ = number of black pieces, $x_2(b)$ = number of red pieces, $x_3(b)$ = black kings, $x_4(b)$ = red kings, $x_5(b)$ = black pieces threatened, $x_6(b)$ = red pieces threatened.
+          </li>
+          <li><strong>Step 4: Choosing a Function Approximation Algorithm:</strong>
+            Learn weights $w_i$ to minimize the Mean Squared Error:
+            $$E = \sum_{b \in \text{Training}} (V_{\text{train}}(b) - \hat{V}(b))^2$$
+            Using the <strong>LMS (Least Mean Squares) / Widrow-Hoff Weight Update Rule</strong>:
+            $$w_i \leftarrow w_i + \eta \cdot (V_{\text{train}}(b) - \hat{V}(b)) \cdot x_i(b)$$
+            Where $\eta > 0$ is the learning rate.
+          </li>
+        </ol>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            The 4 design decisions: (1) Training Experience (direct/indirect), (2) Target Function ($V(b)$), (3) Representation (linear $\sum w_i x_i$), and (4) Learning Algorithm (LMS weight update).
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 5: INTRODUCTION TO CONCEPT LEARNING
+           =================================================================== -->
+      <section class="notes-section" id="sec-concept-learning">
+        <span class="section-number">§ 5</span>
+        <h2 class="section-title">Introduction to Concept Learning</h2>
+
+        <p>
+          <strong>Concept Learning</strong> is the task of inferring a boolean-valued target function $c: X \to \{0, 1\}$ from a set of training instances. Instances labeled $1$ are <em>positive examples</em>; instances labeled $0$ are <em>negative examples</em>.
+        </p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">EnjoySport Domain Formulation</span>
+          <p>
+            Target Concept: <em>"Days on which my friend enjoys water sports."</em> Defined over 6 attributes:
+            <ol>
+              <li>$\text{Sky} \in \{\text{Sunny}, \text{Cloudy}, \text{Rainy}\}$</li>
+              <li>$\text{AirTemp} \in \{\text{Warm}, \text{Cold}\}$</li>
+              <li>$\text{Humidity} \in \{\text{Normal}, \text{High}\}$</li>
+              <li>$\text{Wind} \in \{\text{Strong}, \text{Weak}\}$</li>
+              <li>$\text{Water} \in \{\text{Warm}, \text{Cool}\}$</li>
+              <li>$\text{Forecast} \in \{\text{Same}, \text{Change}\}$</li>
+            </ol>
+            Total possible distinct instances: $|X| = 3 \times 2 \times 2 \times 2 \times 2 \times 2 = 96$.
+          </p>
+        </div>
+
+        <h3 class="subsection-title">Hypothesis Representation</h3>
+        <p>
+          Each hypothesis $h$ is a conjunction of attribute constraints represented as a vector:
+          $$h = \langle c_1, c_2, c_3, c_4, c_5, c_6 \rangle$$
+          Where each constraint $c_i$ can be:
+          <ul>
+            <li>A specific literal value (e.g., $\text{Sunny}$).</li>
+            <li>A "don't care" wildcard ($?$), which accepts any value of that attribute.</li>
+            <li>A null constraint ($\emptyset$), which rejects all values.</li>
+          </ul>
+          Total syntactically distinct hypotheses: $(3+2) \times (2+2)^5 + 1 = 5 \times 4^5 + 1 = 5121$.<br>
+          Total semantically distinct hypotheses: $1 + (3 \times 2 \times 2 \times 2 \times 2 \times 2) \times (1 + \dots) = 1 + 4 \times 3^5 = 973$ (since any hypothesis containing $\emptyset$ classifies zero instances).
+        </p>
+
+        <h3 class="subsection-title">General-to-Specific Ordering of Hypotheses ($\ge_g$)</h3>
+        <p>
+          Hypothesis $h_j$ is <strong>more-general-than-or-equal-to</strong> $h_k$ (denoted $h_j \ge_g h_k$) if and only if every instance satisfied by $h_k$ is also satisfied by $h_j$:
+        </p>
+        $$h_j \ge_g h_k \iff \forall x \in X : [h_k(x) = 1 \implies h_j(x) = 1]$$
+        <p>
+          This relation forms a <strong>partial ordering</strong> over the hypothesis space $H$, allowing algorithms to navigate hypotheses without exhaustive search.
+        </p>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            Hypothesis space: $\langle \emptyset, \dots \rangle$ is maximally specific; $\langle ?, \dots \rangle$ is maximally general. $h_1 \ge_g h_2$ means $h_1$ covers a superset of the instances satisfied by $h_2$.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 6: FIND-S ALGORITHM
+           =================================================================== -->
+      <section class="notes-section" id="sec-find-s">
+        <span class="section-number">§ 6</span>
+        <h2 class="section-title">The Find-S Algorithm</h2>
+
+        <p>
+          <strong>Find-S</strong> is an algorithm that searches the hypothesis space from specific to general to find the <em>maximally specific hypothesis</em> that is consistent with all positive training examples.
+        </p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">Find-S Algorithmic Steps</span>
+          <ol>
+            <li>Initialize $h$ to the most specific hypothesis in $H$:
+              $$h \leftarrow \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle$$
+            </li>
+            <li>For each positive training instance $x$:
+              <ul>
+                <li>For each attribute constraint $a_i$ in $h$:</li>
+                <li>If the constraint $a_i$ is satisfied by $x$, do nothing.</li>
+                <li>Else, replace $a_i$ in $h$ with the next more general constraint that is satisfied by $x$ (replace with $?$ if literal differs).</li>
+              </ul>
+            </li>
+            <li>Output the final hypothesis $h$. (Note: Negative training instances are completely ignored!)</li>
+          </ol>
+        </div>
+
+        <!-- ===============================================================
+             SOLVED PROBLEM 2: FIND-S TRACE
+             =============================================================== -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">Solved Problem 2 · Exam Level</span>
+            <span class="pill-tag pill-tag-outline">Concept Learning Trace</span>
+          </div>
+          <div class="problem-statement">
+            Trace the step-by-step execution of the <strong>Find-S algorithm</strong> on the following 4 training instances for the EnjoySport target concept:
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Example</th><th>Sky</th><th>AirTemp</th><th>Humidity</th><th>Wind</th><th>Water</th><th>Forecast</th><th>EnjoySport</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Sunny</td><td>Warm</td><td>Normal</td><td>Strong</td><td>Warm</td><td>Same</td><td><strong>Yes (+)</strong></td></tr>
+                  <tr><td>2</td><td>Sunny</td><td>Warm</td><td>High</td><td>Strong</td><td>Warm</td><td>Same</td><td><strong>Yes (+)</strong></td></tr>
+                  <tr><td>3</td><td>Rainy</td><td>Cold</td><td>High</td><td>Strong</td><td>Warm</td><td>Change</td><td><strong>No (-)</strong></td></tr>
+                  <tr><td>4</td><td>Sunny</td><td>Warm</td><td>High</td><td>Strong</td><td>Cool</td><td>Change</td><td><strong>Yes (+)</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="solution-steps">
+            <div class="step-item">
+              <div class="step-title">Initialization</div>
+              $$h_0 = \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Instance 1 (Positive: Sunny, Warm, Normal, Strong, Warm, Same)</div>
+              <p>Since $h_0$ contains all $\emptyset$, generalize each constraint to match the positive instance:</p>
+              $$h_1 = \langle \text{Sunny}, \text{Warm}, \text{Normal}, \text{Strong}, \text{Warm}, \text{Same} \rangle$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Instance 2 (Positive: Sunny, Warm, High, Strong, Warm, Same)</div>
+              <p>Compare $h_1$ with Instance 2:</p>
+              <ul>
+                <li>Sky: Sunny = Sunny $\implies$ Keep "Sunny"</li>
+                <li>AirTemp: Warm = Warm $\implies$ Keep "Warm"</li>
+                <li>Humidity: Normal $\neq$ High $\implies$ Generalize to <strong>?</strong></li>
+                <li>Wind, Water, Forecast: Strong, Warm, Same $\implies$ Keep literals</li>
+              </ul>
+              $$h_2 = \langle \text{Sunny}, \text{Warm}, ?, \text{Strong}, \text{Warm}, \text{Same} \rangle$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Instance 3 (Negative: Rainy, Cold, High, Strong, Warm, Change)</div>
+              <p>Find-S ignores negative instances because it assumes the target concept belongs to $H$ and training data is noiseless.</p>
+              $$h_3 = h_2 = \langle \text{Sunny}, \text{Warm}, ?, \text{Strong}, \text{Warm}, \text{Same} \rangle$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Instance 4 (Positive: Sunny, Warm, High, Strong, Cool, Change)</div>
+              <p>Compare $h_3$ with Instance 4:</p>
+              <ul>
+                <li>Water: Warm $\neq$ Cool $\implies$ Generalize to <strong>?</strong></li>
+                <li>Forecast: Same $\neq$ Change $\implies$ Generalize to <strong>?</strong></li>
+              </ul>
+              $$h_4 = \langle \text{Sunny}, \text{Warm}, ?, \text{Strong}, ?, ? \rangle$$
+            </div>
+          </div>
+
+          <div class="final-answer-box">
+            <span class="final-answer-label">Final Verified Hypothesis</span>
+            <span class="final-answer-value">h4 = ⟨Sunny, Warm, ?, Strong, ?, ?⟩</span>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Key Limitations of Find-S</h3>
+        <ul>
+          <li><strong>Cannot Detect Multiple Consistent Hypotheses:</strong> It outputs only one hypothesis without indicating whether other hypotheses also fit the data.</li>
+          <li><strong>Cannot Detect Inconsistencies or Noise:</strong> If positive training data contains labeling errors, Find-S blindly generalizes without warning.</li>
+          <li><strong>Cannot Tell if It Has Converged:</strong> It cannot determine whether additional training examples are needed.</li>
+          <li><strong>Sensitive to Order of Examples:</strong> Ignores negative data entirely.</li>
+        </ul>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            Find-S starts at $\langle \emptyset, \dots \rangle$, generalizes attributes upon observing mismatching positive examples, ignores negative instances, and outputs the single most specific hypothesis.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 7: CANDIDATE ELIMINATION & VERSION SPACES
+           =================================================================== -->
+      <section class="notes-section" id="sec-candidate-elimination">
+        <span class="section-number">§ 7</span>
+        <h2 class="section-title">Candidate Elimination Algorithm & Version Spaces</h2>
+
+        <p>
+          The <strong>Candidate Elimination Algorithm</strong> overcomes the shortcomings of Find-S by maintaining a representation of <em>all</em> hypotheses consistent with the training data, utilizing both positive and negative examples.
+        </p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">Definition: Version Space</span>
+          <p>
+            A hypothesis $h$ is <strong>consistent</strong> with a set of training examples $D$ if and only if $h(x) = c(x)$ for all $\langle x, c(x) \rangle \in D$:
+            $$\text{Consistent}(h, D) \iff (\forall \langle x, c(x) \rangle \in D) \; [h(x) = c(x)]$$
+            The <strong>Version Space</strong> ($VS_{H, D}$) is the subset of all hypotheses in $H$ that are consistent with $D$:
+            $$VS_{H, D} = \{ h \in H \mid \text{Consistent}(h, D) \}$$
+          </p>
+        </div>
+
+        <h3 class="subsection-title">The Boundary Representation Theorem</h3>
+        <p>
+          Instead of enumerating all consistent hypotheses, the Version Space is compactly bounded by two sets:
+        </p>
+        <ul>
+          <li><strong>Specific Boundary ($S$):</strong> The set of minimally general (most specific) hypotheses in $H$ consistent with $D$.</li>
+          <li><strong>General Boundary ($G$):</strong> The set of maximally general hypotheses in $H$ consistent with $D$.</li>
+        </ul>
+
+        <!-- Inline SVG: Version Space Dual Boundaries -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 180" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Version Space Dual Boundary Representation">
+            <title>Version Space Boundaries</title>
+            <desc>Diagram showing the General Boundary G at the top, Specific Boundary S at the bottom, and consistent hypotheses enclosed between them.</desc>
+            <!-- G Set (Top) -->
+            <rect x="180" y="20" width="320" height="34" rx="17" fill="var(--surface)" stroke="var(--border)" stroke-width="2" />
+            <text x="340" y="42" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">G: Maximally General Boundary</text>
+
+            <!-- S Set (Bottom) -->
+            <rect x="180" y="125" width="320" height="34" rx="17" fill="var(--green-tint)" stroke="var(--green)" stroke-width="2" />
+            <text x="340" y="147" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--green-ink)">S: Maximally Specific Boundary</text>
+
+            <!-- Version space lines -->
+            <line x1="220" y1="54" x2="220" y2="125" stroke="var(--border-strong)" stroke-width="1.5" stroke-dasharray="3" />
+            <line x1="340" y1="54" x2="340" y2="125" stroke="var(--border-strong)" stroke-width="1.5" stroke-dasharray="3" />
+            <line x1="460" y1="54" x2="460" y2="125" stroke="var(--border-strong)" stroke-width="1.5" stroke-dasharray="3" />
+            <text x="340" y="93" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink-muted)">Version Space (All Consistent Hypotheses)</text>
+          </svg>
+          <div class="svg-caption">Figure 2.4: Version space bounded from above by G and from below by S.</div>
+        </div>
+
+        <!-- ===============================================================
+             SOLVED PROBLEM 3: CANDIDATE ELIMINATION TRACE
+             =============================================================== -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">Solved Problem 3 · Exam Level</span>
+            <span class="pill-tag pill-tag-outline">Candidate Elimination</span>
+          </div>
+          <div class="problem-statement">
+            Trace the Candidate Elimination algorithm through the 4 EnjoySport instances from Problem 2, demonstrating how $S$ generalizes and $G$ specializes:
+            <ol>
+              <li>State the initial sets $S_0$ and $G_0$.</li>
+              <li>Show the updates after Instance 1 (+), Instance 2 (+), Instance 3 (-), and Instance 4 (+).</li>
+            </ol>
+          </div>
+
+          <div class="solution-steps">
+            <div class="step-item">
+              <div class="step-title">Initialization</div>
+              $$S_0 = \{ \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle \}$$
+              $$G_0 = \{ \langle ?, ?, ?, ?, ?, ? \rangle \}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 1: Process Instance 1 (+) (Sunny, Warm, Normal, Strong, Warm, Same)</div>
+              <p>Positive instance: Generalize $S_0$ minimally to cover Instance 1. Remove any hypotheses from $G_0$ inconsistent with Instance 1 ($G_0$ remains consistent).</p>
+              $$S_1 = \{ \langle \text{Sunny}, \text{Warm}, \text{Normal}, \text{Strong}, \text{Warm}, \text{Same} \rangle \}$$
+              $$G_1 = \{ \langle ?, ?, ?, ?, ?, ? \rangle \}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 2: Process Instance 2 (+) (Sunny, Warm, High, Strong, Warm, Same)</div>
+              <p>Positive instance: Generalize $S_1$ minimally at the Humidity attribute ($Normal \neq High \implies ?$):</p>
+              $$S_2 = \{ \langle \text{Sunny}, \text{Warm}, ?, \text{Strong}, \text{Warm}, \text{Same} \rangle \}$$
+              $$G_2 = \{ \langle ?, ?, ?, ?, ?, ? \rangle \}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 3: Process Instance 3 (-) (Rainy, Cold, High, Strong, Warm, Change)</div>
+              <p>Negative instance: $S_2$ already correctly rejects this negative example ($S_3 = S_2$). Specialize $G_2$ minimally such that each new hypothesis in $G_3$ rejects Instance 3 while remaining more general than $S_2$:</p>
+              <ul>
+                <li>Instance 3 has $\text{Sky}=\text{Rainy}$. Since $S_2$ requires $\text{Sky}=\text{Sunny}$, specialize $?$ to <strong>Sunny</strong>: $\langle \text{Sunny}, ?, ?, ?, ?, ? \rangle$.</li>
+                <li>Instance 3 has $\text{AirTemp}=\text{Cold}$. Since $S_2$ requires $\text{AirTemp}=\text{Warm}$, specialize $?$ to <strong>Warm</strong>: $\langle ?, \text{Warm}, ?, ?, ?, ? \rangle$.</li>
+                <li>Attribute constraints where $S_2$ has $?$ (Humidity) cannot be used to specialize $G$.</li>
+              </ul>
+              $$S_3 = \{ \langle \text{Sunny}, \text{Warm}, ?, \text{Strong}, \text{Warm}, \text{Same} \rangle \}$$
+              $$G_3 = \{ \langle \text{Sunny}, ?, ?, ?, ?, ? \rangle, \; \langle ?, \text{Warm}, ?, ?, ?, ? \rangle \}$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 4: Process Instance 4 (+) (Sunny, Warm, High, Strong, Cool, Change)</div>
+              <p>Positive instance: Generalize $S_3$ minimally at Water and Forecast ($Warm \neq Cool \implies ?$, $Same \neq Change \implies ?$):</p>
+              $$S_4 = \{ \langle \text{Sunny}, \text{Warm}, ?, \text{Strong}, ?, ? \rangle \}$$
+              <p>Both hypotheses in $G_3$ satisfy Instance 4 ($\text{Sky}=\text{Sunny}$ and $\text{AirTemp}=\text{Warm}$), so $G$ remains unchanged:</p>
+              $$G_4 = \{ \langle \text{Sunny}, ?, ?, ?, ?, ? \rangle, \; \langle ?, \text{Warm}, ?, ?, ?, ? \rangle \}$$
+            </div>
+          </div>
+
+          <div class="final-answer-box">
+            <span class="final-answer-label">Final Version Space Boundaries</span>
+            <span class="final-answer-value">S4 = {⟨Sunny, Warm, ?, Strong, ?, ?⟩} | G4 = {⟨Sunny, ?, ?, ?, ?, ?⟩, ⟨?, Warm, ?, ?, ?, ?⟩}</span>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            Positive instances <strong>generalize $S$</strong> and prune inconsistent $G$. Negative instances <strong>specialize $G$</strong> (keeping hypotheses $\ge_g S$) and prune inconsistent $S$. When $S = G$, the target concept is uniquely identified.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 8: INDUCTIVE BIAS & LEARNER FALLACY
+           =================================================================== -->
+      <section class="notes-section" id="sec-inductive-bias">
+        <span class="section-number">§ 8</span>
+        <h2 class="section-title">Inductive Bias & The Unbiased Learner Fallacy</h2>
+
+        <p>
+          A central insight of machine learning theory is that <strong>a learner that makes no prior assumptions cannot generalize to unseen instances</strong>.
+        </p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">Formal Definition: Inductive Bias</span>
+          <p>
+            Consider a concept learning algorithm $L$ for instances $X$, target concept $c$, and training examples $D_c = \{\langle x, c(x) \rangle\}$. Let $L(x_i, D_c)$ denote the classification assigned to instance $x_i$ by $L$ after training on $D_c$.<br><br>
+            The <strong>inductive bias</strong> of $L$ is any minimal set of assertions $B$ such that for any target concept $c$ and corresponding training data $D_c$:
+            $$\forall x_i \in X : \Big( B \wedge D_c \wedge x_i \vdash L(x_i, D_c) \Big)$$
+            Where $\vdash$ denotes formal logical deduction.
+          </p>
+        </div>
+
+        <h3 class="subsection-title">The Unbiased Learner Fallacy</h3>
+        <p>
+          Suppose we eliminate bias entirely by allowing the hypothesis space $H$ to represent <em>every possible boolean function</em> over $X$ (the power set $2^X$). For the EnjoySport domain with $|X| = 96$ instances, $|H| = 2^{96} \approx 7.9 \times 10^{28}$.
+        </p>
+        <p>
+          If we train this unbiased learner on a finite sample $D$:
+        </p>
+        <ul>
+          <li>The $S$ boundary will simply be the disjunction of all positive instances observed so far: $S = \{x_1 \vee x_2 \vee \dots \vee x_k\}$.</li>
+          <li>The $G$ boundary will be the negation of all negative instances: $G = \{\neg(x_{neg, 1} \vee \dots)\}$.</li>
+          <li>For any new, unseen instance $x_{new} \notin D$, exactly half of the remaining hypotheses in the Version Space will predict $x_{new} = 1$ and the other half will predict $x_{new} = 0$!</li>
+        </ul>
+        <p>
+          The learner is completely incapable of generalizing beyond the training set. It becomes a glorified lookup table (rote memorizer). <strong>Inductive bias is not a flaw; it is the mathematical prerequisite for generalization.</strong>
+        </p>
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            An unbiased learner cannot generalize to a single unseen instance. Inductive bias ($B$) provides the background assumptions required to deductively justify predictions made on unseen data.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 9: MODELLING IN MACHINE LEARNING
+           =================================================================== -->
+      <section class="notes-section" id="sec-modelling-ml">
+        <span class="section-number">§ 9</span>
+        <h2 class="section-title">Modelling in Machine Learning</h2>
+
+        <p>
+          Modelling formalizes learning as mathematical optimization over a parameterized family of functions $\mathcal{F}$.
+        </p>
+
+        <h3 class="subsection-title">Empirical Risk Minimization (ERM)</h3>
+        <p>
+          Let $L(y, f(x))$ be a loss function quantifying the discrepancy between ground-truth $y$ and prediction $f(x)$. The theoretical <strong>True Risk (Generalization Error)</strong> is:
+        </p>
+        $$R(f) = \mathbb{E}_{(x, y) \sim P}[L(y, f(x))]$$
+        <p>
+          Because the true joint distribution $P(x, y)$ is unknown, learning algorithms approximate it by minimizing the <strong>Empirical Risk (Training Error)</strong> across the available sample:
+        </p>
+        $$\hat{R}_n(f) = \frac{1}{n} \sum_{i=1}^n L(y_i, f(x_i))$$
+        <p>
+          To prevent ERM from simply overfitting, <strong>Structural Risk Minimization (SRM)</strong> adds a regularization penalty $\Omega(f)$ penalizing model complexity:
+        </p>
+        $$\min_{f \in \mathcal{F}} \left[ \frac{1}{n} \sum_{i=1}^n L(y_i, f(x_i)) + \lambda \Omega(f) \right]$$
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            True Risk is expected error over all data; Empirical Risk is observed error on training data. Structural Risk Minimization adds a complexity penalty $\lambda \Omega(f)$ to prevent overfitting.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 10: LEARNING FRAMEWORKS (PAC & VC DIMENSION)
+           =================================================================== -->
+      <section class="notes-section" id="sec-learning-frameworks">
+        <span class="section-number">§ 10</span>
+        <h2 class="section-title">Learning Frameworks: PAC Learning & VC Dimension</h2>
+
+        <p>
+          Computational learning theory provides mathematical guarantees on the number of training samples required to learn a concept with provable accuracy.
+        </p>
+
+        <h3 class="subsection-title">Probably Approximately Correct (PAC) Learning</h3>
+        <p>
+          Formulated by Leslie Valiant (Turing Award winner). A learner cannot guarantee 100% accuracy because training samples are finite and drawn stochastically. Instead, we demand:
+        </p>
+        <ul>
+          <li><strong>Approximately Correct:</strong> True error of the learned hypothesis is at most $\epsilon$: $\text{error}(h) \le \epsilon$.</li>
+          <li><strong>Probably:</strong> This accuracy holds with high confidence $1 - \delta$: $P(\text{error}(h) \le \epsilon) \ge 1 - \delta$.</li>
+        </ul>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">PAC Sample Complexity Theorem (Finite Hypothesis Spaces)</span>
+          <p>
+            For any consistent learner over a finite hypothesis space $H$, the number of training instances $m$ required to ensure with confidence at least $(1 - \delta)$ that the true error is at most $\epsilon$ is:
+            $$m \ge \frac{1}{\epsilon} \left( \ln |H| + \ln \frac{1}{\delta} \right)$$
+          </p>
+        </div>
+
+        <!-- ===============================================================
+             SOLVED PROBLEM 4: PAC SAMPLE COMPLEXITY
+             =============================================================== -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">Solved Problem 4 · Exam Level</span>
+            <span class="pill-tag pill-tag-outline">PAC Learnability</span>
+          </div>
+          <div class="problem-statement">
+            Consider the EnjoySport domain with $|H| = 973$ semantically distinct conjunctive hypotheses. An engineer requires that with probability at least $95\%$ ($\delta = 0.05$), the learned hypothesis has a true generalization error of at most $10\%$ ($\epsilon = 0.10$).
+            <br>
+            Calculate the minimum number of random training examples $m$ required under the PAC framework.
+          </div>
+
+          <div class="solution-steps">
+            <div class="step-item">
+              <div class="step-title">Step 1: Identify Parameters</div>
+              $$|H| = 973, \quad \epsilon = 0.10, \quad \delta = 0.05 \implies \frac{1}{\delta} = \frac{1}{0.05} = 20$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 2: Evaluate Logarithms</div>
+              $$\ln(|H|) = \ln(973) \approx 6.8804$$
+              $$\ln\left(\frac{1}{\delta}\right) = \ln(20) \approx 2.9957$$
+            </div>
+
+            <div class="step-item">
+              <div class="step-title">Step 3: Evaluate Sample Complexity Bound</div>
+              $$m \ge \frac{1}{0.10} \Big( 6.8804 + 2.9957 \Big) = 10 \times 9.8761 = \mathbf{98.761}$$
+              <p>Since the sample size must be an integer, round up to the next whole number:</p>
+              $$m \ge 99 \text{ training examples}$$
+            </div>
+          </div>
+
+          <div class="final-answer-box">
+            <span class="final-answer-label">Final Verified Result</span>
+            <span class="final-answer-value">m ≥ 99 training instances required for (0.10, 0.05)-PAC guarantee</span>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Vapnik-Chervonenkis (VC) Dimension</h3>
+        <p>
+          What if the hypothesis space $H$ is infinite (e.g., all lines in $\mathbb{R}^2$)? Since $|H| = \infty$, the finite PAC bound fails ($\ln \infty = \infty$).
+        </p>
+        <p>
+          Vladimir Vapnik introduced the <strong>VC Dimension</strong>, $VC(H)$: the maximum number of instances that can be <strong>shattered</strong> (classified in all $2^d$ possible ways) by $H$.
+        </p>
+        <ul>
+          <li>For linear decision boundaries in 2D space ($ax + by + c = 0$): $VC(H) = 3$. Any 3 non-collinear points can be shattered, but no 4 points can be shattered (XOR configuration fails).</li>
+          <li>For linear hyperplanes in $d$ dimensions: $VC(H) = d + 1$.</li>
+        </ul>
+        <p>
+          PAC sample complexity bound using VC Dimension:
+        </p>
+        $$m \ge \frac{1}{\epsilon} \left( 4 \log_2 \frac{2}{\delta} + 8 \cdot VC(H) \log_2 \frac{13}{\epsilon} \right)$$
+
+        <div class="quick-recall-box">
+          <div class="quick-recall-label">Quick Recall</div>
+          <p>
+            PAC learning bounds sample size $m \ge \frac{1}{\epsilon}(\ln |H| + \ln \frac{1}{\delta})$. For infinite hypothesis spaces, VC dimension measures capacity ($d+1$ for linear classifiers).
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           REVISION SHEET
+           =================================================================== -->
+      <section class="revision-sheet" id="sec-revision-sheet">
+        <h2 class="section-title">Unit 2 Quick Revision Sheet</h2>
+        <p>Essential formulas, design stages, and algorithmic rules for rapid recall.</p>
+
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>PCA Pipeline</h4>
+            <p>1. Center data $\mathbf{X}_c = \mathbf{X} - \bar{\mathbf{X}}$<br>2. Covariance $\boldsymbol{\Sigma} = \frac{1}{n-1}\mathbf{X}_c^T\mathbf{X}_c$<br>3. Solve $\det(\boldsymbol{\Sigma} - \lambda\mathbf{I}) = 0$<br>4. Project onto $\mathbf{v}_1$.</p>
+          </div>
+
+          <div class="revision-card">
+            <h4>Checkers System Design</h4>
+            <p>1. Experience: Self-play games<br>2. Target Function: $V: B \to \mathbb{R}$<br>3. Representation: Linear $\sum w_i x_i$<br>4. Learning: LMS update $w_i \leftarrow w_i + \eta(V - \hat{V})x_i$.</p>
+          </div>
+
+          <div class="revision-card">
+            <h4>Find-S vs Candidate Elim</h4>
+            <p><strong>Find-S:</strong> Tracks only $S$, ignores negative data.<br><strong>Candidate Elim:</strong> Tracks both $S$ and $G$, handles negative data, represents full Version Space.</p>
+          </div>
+
+          <div class="revision-card">
+            <h4>Inductive Bias</h4>
+            <p>Assertions $B$ ensuring $B \wedge D \wedge x \vdash L(x, D)$. An unbiased learner ($2^X$) cannot classify a single unseen instance.</p>
+          </div>
+
+          <div class="revision-card">
+            <h4>Feature Selection</h4>
+            <p><strong>Filter:</strong> Chi2, Pearson $r$ (fast).<br><strong>Wrapper:</strong> RFE, forward selection (model-based).<br><strong>Embedded:</strong> L1 Lasso (built-in penalty).</p>
+          </div>
+
+          <div class="revision-card">
+            <h4>PAC Bound Formula</h4>
+            <p>$m \ge \frac{1}{\epsilon} \left( \ln |H| + \ln \frac{1}{\delta} \right)$<br>Guarantees error $\le \epsilon$ with confidence $\ge 1 - \delta$.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           IMPORTANT EXAM QUESTIONS
+           =================================================================== -->
+      <section class="questions-section" id="sec-important-questions">
+        <h2 class="section-title">Important Exam Questions</h2>
+        <p>Curated questions aligned with semester examination patterns (2, 5, and 10 marks).</p>
+
+        <h3 class="question-group-title">2-Mark Questions</h3>
+
+        <details class="model-answer">
+          <summary>Q1. What is the Curse of Dimensionality?</summary>
+          <div class="answer-body">
+            As the number of feature dimensions $d$ increases, the volume of feature space grows exponentially, making data instances extremely sparse. Pairwise distances between all points converge to similar values, severely degrading distance-based learners like $K$-NN and increasing the risk of overfitting.
+          </div>
+        </details>
+
+        <details class="model-answer">
+          <summary>Q2. Define the Credit Assignment Problem in learning systems.</summary>
+          <div class="answer-body">
+            When a learning system receives only indirect delayed feedback (e.g., game won after 50 moves), the credit assignment problem refers to the challenge of determining which specific individual actions or intermediate moves in the sequence were responsible for the eventual victory or defeat.
+          </div>
+        </details>
+
+        <details class="model-answer">
+          <summary>Q3. Define Version Space.</summary>
+          <div class="answer-body">
+            The Version Space ($VS_{H, D}$) is the subset of all hypotheses in hypothesis space $H$ that correctly classify every training example in $D$:
+            $$VS_{H, D} = \{ h \in H \mid \forall \langle x, c(x) \rangle \in D, \; h(x) = c(x) \}$$
+          </div>
+        </details>
+
+        <h3 class="question-group-title">5-Mark Questions</h3>
+
+        <details class="model-answer">
+          <summary>Q4. Explain why an unbiased learner is incapable of learning novel instances.</summary>
+          <div class="answer-body">
+            If a learner's hypothesis space $H$ is unbiased (capable of expressing all $2^{|X|}$ boolean functions), then for any unseen query instance $x \notin D$, exactly half of the remaining hypotheses in the Version Space will predict $x=1$ and the other half will predict $x=0$. The training examples eliminate only hypotheses inconsistent with observed data, but provide zero deductive basis to prefer one label over another for unseen instances. Thus, inductive bias is essential for generalization.
+          </div>
+        </details>
+
+        <details class="model-answer">
+          <summary>Q5. Differentiate between Filter, Wrapper, and Embedded feature selection techniques.</summary>
+          <div class="answer-body">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Feature</th><th>Filter</th><th>Wrapper</th><th>Embedded</th></tr></thead>
+                <tbody>
+                  <tr><td>Model Dependency</td><td>Model-free (statistical metrics)</td><td>Uses target ML algorithm</td><td>Built into optimization loss</td></tr>
+                  <tr><td>Computation</td><td>Very fast, $O(d)$</td><td>Very slow, iterative</td><td>Moderate</td></tr>
+                  <tr><td>Feature Interactions</td><td>Ignored</td><td>Captured</td><td>Captured</td></tr>
+                  <tr><td>Examples</td><td>$\chi^2$, Pearson $r$, ANOVA</td><td>RFE, Forward selection</td><td>$L_1$ Lasso, Decision trees</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <h3 class="question-group-title">10-Mark Questions</h3>
+
+        <details class="model-answer">
+          <summary>Q6. Explain the four steps in designing a learning system in detail, illustrating each step with Mitchell's Checkers learning program.</summary>
+          <div class="answer-body">
+            A complete answer requires explaining:
+            <ol>
+              <li><strong>Choosing Training Experience:</strong> Self-play games (indirect delayed feedback, autonomous). Addresses credit assignment.</li>
+              <li><strong>Choosing Target Function:</strong> Board evaluation function $V: B \to \mathbb{R}$ where $+100$ is win, $-100$ is loss, $0$ is draw, and intermediate boards equal successors under optimal play.</li>
+              <li><strong>Choosing Representation:</strong> Linear combination of 6 board features $\hat{V}(b) = w_0 + w_1 x_1 + \dots + w_6 x_6$.</li>
+              <li><strong>Choosing Function Approximation Algorithm:</strong> Least Mean Squares (LMS) rule $w_i \leftarrow w_i + \eta (V_{\text{train}}(b) - \hat{V}(b)) x_i$.</li>
+            </ol>
+            <em>Include Figure 2.3 showing Experiment Generator, Performance System, Critic, and Generalizer in your response.</em>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================================================================
+           QUESTIONS ASKED BEFORE
+           =================================================================== -->
+      <section class="questions-section" id="sec-questions-asked-before">
+        <h2 class="section-title">Questions Asked in Department Assessments</h2>
+        <p>Cited directly from official question banks in <code>notes/ml/practice/unit-1-qb.pdf</code>.</p>
+
+        <details class="model-answer">
+          <summary>1. Explain the steps in designing a learning system in detail. [Source: unit-1-qb.pdf, Page 2]</summary>
+          <div class="answer-body">
+            Refer to Section 4 and Question 6 above. Emphasize the interaction between the four functional modules: Experiment Generator, Performance System, Critic, and Generalizer.
+          </div>
+        </details>
+
+        <details class="model-answer">
+          <summary>2. Differentiate between Find-S and Candidate Elimination algorithm. [Source: unit-1-qb.pdf]</summary>
+          <div class="answer-body">
+            <strong>Find-S:</strong> Tracks only a single maximally specific hypothesis ($S$). It completely ignores negative training instances, cannot detect if multiple hypotheses are consistent, and cannot identify noise.<br><br>
+            <strong>Candidate Elimination:</strong> Tracks both the specific boundary ($S$) and general boundary ($G$), utilizing both positive and negative training examples to bound the entire Version Space. Detects inconsistencies if $S$ and $G$ become empty.
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================================================================
+           PRACTICE PROBLEMS
+           =================================================================== -->
+      <section class="questions-section" id="sec-practice-problems">
+        <h2 class="section-title">Practice Problems</h2>
+        <p>Unsolved problems to verify your understanding before the examination.</p>
+
+        <div class="problem-card">
+          <div class="problem-statement">
+            <strong>Practice Problem 1 (Find-S):</strong> Given a concept learning domain with 3 attributes: $A_1 \in \{A, B\}$, $A_2 \in \{1, 2\}$, $A_3 \in \{X, Y\}$. Two positive training examples are provided: $e_1 = \langle A, 1, X \rangle (+)$ and $e_2 = \langle A, 2, X \rangle (+)$. What is the output of Find-S?
+          </div>
+          <details class="model-answer">
+            <summary>View Verified Solution</summary>
+            <div class="answer-body">
+              $h_0 = \langle \emptyset, \emptyset, \emptyset \rangle$<br>
+              After $e_1$: $h_1 = \langle A, 1, X \rangle$<br>
+              After $e_2$: $A_1 = A, A_2 = ?, A_3 = X \implies h_2 = \mathbf{\langle A, ?, X \rangle}$.
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-statement">
+            <strong>Practice Problem 2 (PAC Bound):</strong> If $|H| = 2000$, $\epsilon = 0.05$, and $\delta = 0.01$, calculate the minimum sample complexity $m$ required under PAC framework.
+          </div>
+          <details class="model-answer">
+            <summary>View Verified Solution</summary>
+            <div class="answer-body">
+              $\ln(2000) \approx 7.6009$<br>
+              $\ln(1 / 0.01) = \ln(100) \approx 4.6052$<br>
+              $m \ge \frac{1}{0.05} (7.6009 + 4.6052) = 20 \times 12.2061 = \mathbf{244.12} \implies \mathbf{245 \text{ samples}}$.
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           REFERENCES & DISCLAIMER
+           =================================================================== -->
+      <footer class="references-card">
+        <h4>Prescribed Academic Textbooks & References</h4>
+        <ol>
+          <li>Tom M. Mitchell, <em>Machine Learning</em>, McGraw Hill, 1997 (Chapter 1: Introduction; Chapter 2: Concept Learning and the General-to-Specific Ordering; Chapter 7: Computational Learning Theory).</li>
+          <li>S. Sridhar, M. Vijayalakshmi, <em>Machine Learning</em>, Oxford University Press, 2021, First Edition (Chapter 2: Understanding Data; Chapter 3: Feature Engineering).</li>
+        </ol>
+        <p style="margin-top:0.75rem; font-size:12.5px;">
+          <em>Academic Note:</em> Structure aligned with official RIT Department of Information Science & Engineering curriculum. Verify specific classroom guidelines and problem sets before university exams.
+        </p>
+      </footer>
+
+      <!-- Navigation Arrows Footer -->
+      <nav class="unit-nav-footer" aria-label="Unit Navigation">
+        <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn">
+          <span class="nav-arrow-sub">← Previous Unit</span>
+          <span class="nav-arrow-title">Unit 1: Introduction & Data – 1</span>
+        </a>
+        <a href="../unit3/unit-3-notes.html" class="nav-arrow-btn" style="text-align: right;">
+          <span class="nav-arrow-sub">Next Unit →</span>
+          <span class="nav-arrow-title">Unit 3: Similarity, Regression & Decision Trees</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+
+  <!-- Shared Scripts & Self-Hosted KaTeX Math Rendering -->
+  <script src="../../../assets/katex/katex.min.js"></script>
+  <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
