@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReactJS Unit 2: Components, Props and State | SEM5 Study Notes</title>
+  <meta name="description" content="Exam-focused interactive HTML notes for Front End Development using ReactJS (ISAEC594) Unit 2: Functional vs class components, passing props, props vs state, React Fragments, props.children, and the useState hook with immutable updates.">
+  <link rel="stylesheet" href="../../../css/notes.css">
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <script defer src="../../../assets/katex/katex.min.js"></script>
+  <script defer src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script defer src="../../../js/notes.js"></script>
+</head>
+<body data-theme="light">
+  <!-- Skip to Main Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="notes-header">
+    <div class="header-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">Semester V</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="../../../index.html#reactjs">ReactJS (ISAEC594)</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Unit 2</span>
+      </nav>
+
+      <div class="header-main">
+        <div class="header-left">
+          <div class="badge-row">
+            <span class="badge badge-course">ISAEC594</span>
+            <span class="badge badge-unit">Unit 2</span>
+            <span class="badge badge-reading-time">⏱️ 40 min read</span>
+          </div>
+          <h1 class="unit-title">Components, Props &amp; State</h1>
+          <p class="unit-subtitle">Functional components, class components overview, passing &amp; destructuring props, props vs state comparison, React Fragments, props.children composition, and the useState hook.</p>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn-action" aria-label="Toggle theme">
+            <span class="icon">🌓</span> <span class="action-text">Theme</span>
+          </button>
+          <button id="print-btn" class="btn-action" aria-label="Print or save as PDF">
+            <span class="icon">🖨️</span> <span class="action-text">Print / PDF</span>
+          </button>
+          <button id="mark-done-btn" class="btn-action" aria-label="Mark unit as completed">
+            <span class="icon">✅</span> <span class="action-text">Mark Done</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Syllabus Topics Bar -->
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <span class="syllabus-tag">Syllabus Breakdown</span>
+          <span class="syllabus-count">8 Core Modules</span>
+        </div>
+        <ul class="syllabus-list">
+          <li><strong>Functional Components:</strong> Pure JavaScript functions, JSX return, rendering components</li>
+          <li><strong>Class Components Overview:</strong> ES6 class syntax, `React.Component`, `render()` method, legacy lifecycle</li>
+          <li><strong>Passing &amp; Accessing Props:</strong> Props as read-only objects, destructuring, default parameter values</li>
+          <li><strong>Props vs. State:</strong> Immutability vs. internal mutability, ownership, and re-rendering triggers</li>
+          <li><strong>React Fragments:</strong> Grouping sibling elements without unnecessary DOM wrapper nodes (`&lt;&gt;&lt;/&gt;`)</li>
+          <li><strong>Component Composition:</strong> The `props.children` pattern, building reusable container wrappers</li>
+          <li><strong>State with `useState`:</strong> Hook syntax, setter functions, functional updates (`prev =&gt; prev + 1`)</li>
+          <li><strong>State Immutability:</strong> Updating primitives, objects (spread operator), and arrays (filter, map)</li>
+        </ul>
+      </div>
+
+      <!-- Original Faculty Files Download Links -->
+      <div class="source-links-card">
+        <span class="source-label">Official Documentation Links:</span>
+        <a href="https://legacy.reactjs.org/docs/components-and-props.html" class="source-link" target="_blank" rel="noopener">🌐 React Docs: Components and Props</a>
+        <a href="https://react.dev/reference/react/useState" class="source-link" target="_blank" rel="noopener">⚡ React Docs: useState Reference</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Layout with Sticky TOC -->
+  <div class="notes-layout">
+    <!-- Sticky Desktop / Mobile Accordion Navigation -->
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-sticky-container">
+        <div class="toc-header">
+          <h2 class="toc-title">On this page</h2>
+          <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-nav">Contents ▾</button>
+        </div>
+        <nav id="toc-nav" class="toc-nav">
+          <ol class="toc-list">
+            <li><a href="#sec-components-intro">1. Functional vs. Class Components</a></li>
+            <li><a href="#sec-props-fundamentals">2. Passing &amp; Accessing Props</a></li>
+            <li><a href="#sec-props-vs-state">3. Props vs. State (Comparative Analysis)</a></li>
+            <li><a href="#sec-react-fragments">4. React Fragments (`&lt;&gt;...&lt;/&gt;`)</a></li>
+            <li><a href="#sec-props-children">5. Component Composition &amp; `props.children`</a></li>
+            <li><a href="#sec-usestate-hook">6. State Management with `useState`</a></li>
+            <li><a href="#sec-state-immutability">7. Immutable State Updates (Objects &amp; Arrays)</a></li>
+            <li><a href="#sec-code-demos">8. Tested Component Implementations</a></li>
+            <li><a href="#revision-sheet">9. Quick Revision Sheet</a></li>
+            <li><a href="#exam-questions">10. Exam Questions &amp; Practice</a></li>
+            <li><a href="#sec-references">11. Prescribed References</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="notes-body">
+
+      <!-- SECTION 1 -->
+      <section id="sec-components-intro" class="content-section">
+        <h2 class="section-title">1. Functional vs. Class Components</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>React Component</strong> is a self-contained, reusable piece of user interface that accepts inputs (props) and returns a React element tree (JSX) describing what should appear on the screen.</p>
+        </div>
+
+        <h3 class="subsection-title">1.1 Functional Components (Modern Industry Standard)</h3>
+        <p>A functional component is simply a JavaScript function that accepts a single <code>props</code> object as an argument and returns JSX. With the introduction of React Hooks (React 16.8+), functional components possess all capabilities previously restricted to classes, including local state and lifecycle side-effects:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-fn-comp">Copy</button>
+          </div>
+          <pre id="code-fn-comp"><code>// Modern Functional Component
+export default function WelcomeBanner({ username }) {
+  return (
+    &lt;div className="banner"&gt;
+      &lt;h1&gt;Welcome to SEM5 Portal, {username}!&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+
+        <h3 class="subsection-title">1.2 Class Components (Overview &amp; Legacy Codebases)</h3>
+        <p>Before React Hooks, class components were required whenever a component needed internal state or lifecycle methods. A class component extends <code>React.Component</code> and implements a mandatory <code>render()</code> method:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-class-comp">Copy</button>
+          </div>
+          <pre id="code-class-comp"><code>// Legacy Class Component
+import React, { Component } from 'react';
+
+class WelcomeBannerClass extends Component {
+  render() {
+    // Props are accessed via this.props
+    return (
+      &lt;div className="banner"&gt;
+        &lt;h1&gt;Welcome to SEM5 Portal, {this.props.username}!&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+export default WelcomeBannerClass;</code></pre>
+        </div>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Functional Components</th>
+                <th>Class Components (Legacy)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Syntax</strong></td>
+                <td>Plain JavaScript function.</td>
+                <td>ES6 class extending <code>React.Component</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>Props Access</strong></td>
+                <td>Directly via function arguments: <code>props.name</code> or <code>({ name })</code>.</td>
+                <td>Via class instance: <code>this.props.name</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>State Management</strong></td>
+                <td>Using the <code>useState</code> hook.</td>
+                <td>Via <code>this.state = {...}</code> and <code>this.setState()</code>.</td>
+              </tr>
+              <tr>
+                <td><strong><code>this</code> Keyword Binding</strong></td>
+                <td><strong>None</strong> (no <code>this</code> confusion!).</td>
+                <td>Requires manual method binding (<code>this.handleClick.bind(this)</code>).</td>
+              </tr>
+              <tr>
+                <td><strong>Code Conciseness</strong></td>
+                <td>High (less boilerplate, easier to test and compose).</td>
+                <td>Low (verbose constructor, render method).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Functional components are plain JS functions returning JSX and managed via Hooks. Class components extend <code>React.Component</code>, access props via <code>this.props</code>, and require a <code>render()</code> method.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-props-fundamentals" class="content-section">
+        <h2 class="section-title">2. Passing &amp; Accessing Props</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong>Props (short for Properties)</strong> are read-only configuration inputs passed from a parent component down to a child component, analogous to HTML attributes or function arguments.</p>
+        </div>
+
+        <h3 class="subsection-title">2.1 Pure Functions &amp; Props Immutability Rule</h3>
+        <div class="callout callout-warning">
+          <span class="callout-label">Fundamental Rule of React</span>
+          <p><strong>All React components must act like pure functions with respect to their props.</strong> A component must NEVER mutate its own props (e.g. <code>props.score = 100</code> is strictly forbidden and triggers runtime errors or unpredictability).</p>
+        </div>
+
+        <h3 class="subsection-title">2.2 Destructuring Props with Default Values</h3>
+        <p>Instead of typing <code>props.title</code> throughout the component body, modern React idiomatically destructures props in the function parameter list with fallback default values:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-props-destruct">Copy</button>
+          </div>
+          <pre id="code-props-destruct"><code>// Parent Component
+function CourseDirectory() {
+  return (
+    &lt;div&gt;
+      {/* Passing different prop types: string, number, boolean, object */}
+      &lt;CourseCard 
+        title="Front End Development using ReactJS" 
+        code="ISAEC594" 
+        credits={1} 
+        isElective={true}
+      /&gt;
+      &lt;CourseCard 
+        title="Machine Learning" 
+        code="IS51" 
+        credits={4} 
+        isElective={false}
+      /&gt;
+    &lt;/div&gt;
+  );
+}
+
+// Child Component with Destructuring and Default Values
+function CourseCard({ title, code, credits = 3, isElective = false }) {
+  return (
+    &lt;div className="course-card"&gt;
+      &lt;h3&gt;{title} ({code})&lt;/h3&gt;
+      &lt;p&gt;Credits: {credits} | Type: {isElective ? "Elective" : "Core"}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Props are immutable inputs passed from parent to child. Components must never mutate props. Destructure props in parameter lists with default values: <code>({ title, credits = 3 })</code>.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-props-vs-state" class="content-section">
+        <h2 class="section-title">3. Props vs. State (Comparative Analysis)</h2>
+        <p>A classic exam question asks students to contrast Props and State across ownership, mutability, and architectural intent:</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Props (Properties)</th>
+                <th>State</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Origin &amp; Ownership</strong></td>
+                <td>Passed from parent component (External).</td>
+                <td>Created and managed internally inside the component (Internal).</td>
+              </tr>
+              <tr>
+                <td><strong>Mutability</strong></td>
+                <td><strong>Immutable (Read-Only)</strong> from the child's perspective.</td>
+                <td><strong>Mutable</strong> via its dedicated setter function (<code>setState</code>).</td>
+              </tr>
+              <tr>
+                <td><strong>Purpose</strong></td>
+                <td>Configuring child components; passing data and event callbacks downward.</td>
+                <td>Tracking dynamic data that changes over time based on user interactions (clicks, inputs).</td>
+              </tr>
+              <tr>
+                <td><strong>Re-render Trigger</strong></td>
+                <td>Child re-renders when parent passes new prop values.</td>
+                <td>Component re-renders whenever its state setter function is called with a new value.</td>
+              </tr>
+              <tr>
+                <td><strong>Analogy</strong></td>
+                <td>Function arguments passed into a function.</td>
+                <td>Local variables declared inside the function body.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Props = external, read-only data passed from parents. State = internal, dynamic data managed by the component itself via setter functions.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-react-fragments" class="content-section">
+        <h2 class="section-title">4. React Fragments (<code>&lt;&gt;...&lt;/&gt;</code>)</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>React Fragment</strong> allows a component to group a list of multiple adjacent children without adding extra wrapper nodes (such as unnecessary <code>&lt;div&gt;</code> elements) to the real DOM.</p>
+        </div>
+
+        <h3 class="subsection-title">4.1 Why Are Fragments Necessary?</h3>
+        <ul>
+          <li><strong>Semantic HTML Integrity:</strong> Adding an extraneous <code>&lt;div&gt;</code> inside a table row (<code>&lt;tr&gt;</code>) or a flexbox/grid container breaks HTML validation and CSS layout flow:
+          <div class="code-block-wrapper">
+            <div class="code-header"><span class="code-lang">jsx</span></div>
+            <pre><code>// INVALID HTML: A &lt;div&gt; cannot be a direct child of &lt;tr&gt;!
+function TableColumns() {
+  return (
+    &lt;div&gt;
+      &lt;td&gt;IS51&lt;/td&gt;
+      &lt;td&gt;Machine Learning&lt;/td&gt;
+    &lt;/div&gt;
+  );
+}
+
+// VALID WITH FRAGMENTS: No extra DOM node injected!
+function TableColumns() {
+  return (
+    &lt;&gt;
+      &lt;td&gt;IS51&lt;/td&gt;
+      &lt;td&gt;Machine Learning&lt;/td&gt;
+    &lt;/&gt;
+  );
+}</code></pre>
+          </div>
+          </li>
+          <li><strong>Keyed Fragments:</strong> When mapping a list of fragments inside a loop, use the explicit <code>&lt;React.Fragment key={item.id}&gt;</code> syntax because the short syntax (<code>&lt;&gt;</code>) cannot take attributes.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Fragments (<code>&lt;&gt;...&lt;/&gt;</code>) group children without inserting redundant wrapper elements into the DOM tree. Use <code>&lt;React.Fragment key={id}&gt;</code> when keys are required.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-props-children" class="content-section">
+        <h2 class="section-title">5. Component Composition &amp; <code>props.children</code></h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong><code>props.children</code></strong> is a special built-in prop in React that represents whatever JSX markup or child components are nested between an opening and closing component tag.</p>
+        </div>
+        <p>React favors <strong>composition over inheritance</strong>. Instead of creating complex class inheritance hierarchies, developers create generic "box" or "container" components that receive nested content through <code>children</code>:</p>
+
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-props-children">Copy</button>
+          </div>
+          <pre id="code-props-children"><code>// 1. Generic Container Component (Card)
+function Card({ title, borderColor = "#ccc", children }) {
+  return (
+    &lt;div className="card-container" style={{ border: `2px solid ${borderColor}`, padding: "16px", borderRadius: "10px" }}&gt;
+      &lt;div className="card-header"&gt;
+        &lt;h3&gt;{title}&lt;/h3&gt;
+      &lt;/div&gt;
+      {/* Renders whatever JSX was placed between &lt;Card&gt; and &lt;/Card&gt; */}
+      &lt;div className="card-body"&gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
+// 2. Using the Card Component with Arbitrary Content
+function Dashboard() {
+  return (
+    &lt;Card title="Examination Alert" borderColor="#d9534f"&gt;
+      &lt;p&gt;CIE-1 for 5th Semester begins on 20th October!&lt;/p&gt;
+      &lt;button className="btn-alert"&gt;Download Time Table&lt;/button&gt;
+    &lt;/Card&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p><code>props.children</code> enables component composition: whatever JSX is nested inside <code>&lt;Component&gt;children here&lt;/Component&gt;</code> is accessible to the component via <code>props.children</code>.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-usestate-hook" class="content-section">
+        <h2 class="section-title">6. State Management with the <code>useState</code> Hook</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong><code>useState</code></strong> is the foundational React Hook that allows functional components to declare and retain local state variables across re-renders.</p>
+        </div>
+
+        <h3 class="subsection-title">6.1 Hook Syntax &amp; Array Destructuring</h3>
+        <p>The <code>useState</code> function returns an array containing exactly two items:</p>
+        <div class="formula-box">
+          $$\mathbf{[stateVariable, \ setstateVariable] = \text{useState}(initialValue);}$$
+        </div>
+        <ol>
+          <li><code>stateVariable</code>: The current state value during this render.</li>
+          <li><code>setstateVariable</code>: A setter function used to update the state and schedule a component re-render.</li>
+        </ol>
+
+        <h3 class="subsection-title">6.2 Direct Updates vs. Functional (Updater) Updates</h3>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-usestate-patterns">Copy</button>
+          </div>
+          <pre id="code-usestate-patterns"><code>import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  // Direct Update: Safe when new state does not depend on current state
+  const resetCount = () =&gt; {
+    setCount(0);
+  };
+
+  // Functional Update: MANDATORY when new state depends on previous state!
+  const incrementByThree = () =&gt; {
+    // If you wrote:
+    // setCount(count + 1);
+    // setCount(count + 1);
+    // setCount(count + 1);
+    // All three read the same stale snapshot of 'count' (e.g. 0), resulting in count = 1!
+
+    // PASSING AN UPDATER FUNCTION: Guarantees latest state from queue!
+    setCount(prevCount =&gt; prevCount + 1); // 0 + 1 = 1
+    setCount(prevCount =&gt; prevCount + 1); // 1 + 1 = 2
+    setCount(prevCount =&gt; prevCount + 1); // 2 + 1 = 3 -> Correct!
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Count: {count}&lt;/h2&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;+1&lt;/button&gt;
+      &lt;button onClick={incrementByThree}&gt;+3 (Batch Safe)&lt;/button&gt;
+      &lt;button onClick={resetCount}&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p><code>const [state, setState] = useState(initial);</code>. Always use functional updates <code>setState(prev =&gt; prev + 1)</code> when the new state depends on the previous state to prevent stale batching bugs.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-state-immutability" class="content-section">
+        <h2 class="section-title">7. Immutable State Updates (Objects &amp; Arrays)</h2>
+        <p>In React, state should be treated as <strong>strictly read-only</strong>. Never mutate objects or arrays in-place (e.g., <code>user.age = 22</code> or <code>items.push(newItem)</code>), because React performs an object reference identity check (<code>Object.is(oldState, newState)</code>). If the memory reference has not changed, React assumes nothing was modified and skips re-rendering!</p>
+
+        <h3 class="subsection-title">7.1 Updating Objects via the Spread Operator (<code>...</code>)</h3>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-obj-update">Copy</button>
+          </div>
+          <pre id="code-obj-update"><code>const [profile, setProfile] = useState({ name: "Kavya", semester: 5, cgpa: 9.1 });
+
+// WRONG: Mutates state in place! Component will NOT re-render!
+// profile.cgpa = 9.3;
+// setProfile(profile);
+
+// CORRECT: Create a shallow copy and override specific fields
+const updateCgpa = (newCgpa) =&gt; {
+  setProfile(prevProfile =&gt; ({
+    ...prevProfile,      // Copy all existing fields (name, semester)
+    cgpa: newCgpa        // Override the target property
+  }));
+};</code></pre>
+        </div>
+
+        <h3 class="subsection-title">7.2 Updating Arrays Immutably</h3>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Operation</th>
+                <th>Mutating Method (DO NOT USE in React)</th>
+                <th>Immutable Idiomatic Replacement (USE THIS)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Add Item</strong></td>
+                <td><code>arr.push(item)</code>, <code>arr.unshift(item)</code></td>
+                <td>Spread syntax: <code>[...arr, item]</code> or <code>[item, ...arr]</code></td>
+              </tr>
+              <tr>
+                <td><strong>Remove Item</strong></td>
+                <td><code>arr.splice(index, 1)</code>, <code>arr.pop()</code></td>
+                <td>Filter method: <code>arr.filter(item =&gt; item.id !== targetId)</code></td>
+              </tr>
+              <tr>
+                <td><strong>Update Item</strong></td>
+                <td><code>arr[index] = newItem</code></td>
+                <td>Map method: <code>arr.map(item =&gt; item.id === targetId ? { ...item, done: true } : item)</code></td>
+              </tr>
+              <tr>
+                <td><strong>Sort / Reverse</strong></td>
+                <td><code>arr.sort()</code>, <code>arr.reverse()</code> (mutates original!)</td>
+                <td>Copy first: <code>[...arr].sort(...)</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Never mutate state in-place. Copy objects using spread <code>{ ...prev, field: val }</code>. Modify arrays using immutable methods: spread to add, <code>.filter()</code> to delete, <code>.map()</code> to update.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 8: COMPLETE TESTED CODE DEMONSTRATIONS -->
+      <section id="sec-code-demos" class="content-section">
+        <h2 class="section-title">8. Tested Component Implementations</h2>
+
+        <div class="callout callout-example">
+          <span class="callout-label">Complete Tested Component: Study Task Tracker with Array State</span>
+          <p>This runnable component demonstrates functional state management, array addition via spread, and deletion via <code>.filter()</code>:</p>
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">jsx</span>
+              <button class="btn-copy" data-target="code-task-tracker">Copy</button>
+            </div>
+            <pre id="code-task-tracker"><code>import { useState } from 'react';
+
+export default function StudyTracker() {
+  const [tasks, setTasks] = useState([
+    { id: 1, text: "Review ML Unit 1 Notes", priority: "High" },
+    { id: 2, text: "Practice TOC DFA Minimization", priority: "Medium" }
+  ]);
+  const [inputVal, setInputVal] = useState("");
+
+  // Handler: Add new task immutably using spread operator
+  const handleAddTask = () =&gt; {
+    if (!inputVal.trim()) return;
+    const newTask = {
+      id: Date.now(), // Unique ID for key prop
+      text: inputVal.trim(),
+      priority: "Normal"
+    };
+    setTasks(prevTasks =&gt; [...prevTasks, newTask]);
+    setInputVal(""); // Reset input field
+  };
+
+  // Handler: Remove task immutably using .filter()
+  const handleDeleteTask = (idToDelete) =&gt; {
+    setTasks(prevTasks =&gt; prevTasks.filter(task =&gt; task.id !== idToDelete));
+  };
+
+  return (
+    &lt;div className="tracker-card" style={{ padding: "20px", border: "1px solid #ddd", borderRadius: "10px" }}&gt;
+      &lt;h3&gt;V Semester Study Goals ({tasks.length} Pending)&lt;/h3&gt;
+      
+      &lt;div style={{ display: "flex", gap: "8px", marginBottom: "16px" }}&gt;
+        &lt;input 
+          type="text" 
+          value={inputVal} 
+          onChange={(e) =&gt; setInputVal(e.target.value)} 
+          placeholder="Enter exam study topic..."
+          style={{ flexGrow: 1, padding: "8px" }}
+        /&gt;
+        &lt;button onClick={handleAddTask} style={{ padding: "8px 16px" }}&gt;Add Task&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;ul style={{ listStyle: "none", padding: 0 }}&gt;
+        {tasks.map((task) =&gt; (
+          &lt;li key={task.id} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #eee" }}&gt;
+            &lt;span&gt;📌 {task.text} &lt;em style={{ color: "#888" }}&gt;({task.priority})&lt;/em&gt;&lt;/span&gt;
+            &lt;button onClick={() =&gt; handleDeleteTask(task.id)} style={{ color: "red", cursor: "pointer" }}&gt;✕ Done&lt;/button&gt;
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+          </div>
+          <p><strong>Step-by-Step Click Trace:</strong></p>
+          <ol>
+            <li>User types "Learn React Hooks" &rarr; <code>onChange</code> fires &rarr; <code>setInputVal</code> updates <code>inputVal</code> &rarr; input element re-renders displaying text.</li>
+            <li>User clicks "Add Task" &rarr; <code>handleAddTask</code> creates new object with <code>id: Date.now()</code> &rarr; <code>setTasks([...prev, newTask])</code> schedules re-render &rarr; list updates to 3 tasks.</li>
+            <li>User clicks "✕ Done" on task 1 &rarr; <code>handleDeleteTask(1)</code> runs <code>filter(t =&gt; t.id !== 1)</code> &rarr; task 1 removed &rarr; state now contains remaining 2 tasks.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- SECTION 9: REVISION SHEET -->
+      <section id="revision-sheet" class="content-section">
+        <h2 class="section-title">9. Quick Revision Sheet</h2>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Syntax / Rule</th>
+                <th>Exam Trap</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Functional Component</strong></td>
+                <td><code>function MyComp(props) { return &lt;div&gt;...&lt;/div&gt;; }</code></td>
+                <td>Name MUST start with a Capital letter (lowercase tags are treated as HTML!).</td>
+              </tr>
+              <tr>
+                <td><strong>Props</strong></td>
+                <td>Read-only configuration passed from parent.</td>
+                <td>NEVER mutate props inside the child component.</td>
+              </tr>
+              <tr>
+                <td><strong>State</strong></td>
+                <td>Internal dynamic data managed via <code>useState</code>.</td>
+                <td>Changing state triggers a component re-render.</td>
+              </tr>
+              <tr>
+                <td><strong>Fragments</strong></td>
+                <td><code>&lt;&gt;...&lt;/&gt;</code> or <code>&lt;React.Fragment key={id}&gt;</code></td>
+                <td>Short syntax <code>&lt;&gt;</code> CANNOT take keys or attributes.</td>
+              </tr>
+              <tr>
+                <td><strong><code>props.children</code></strong></td>
+                <td>Captures nested JSX between opening and closing tags.</td>
+                <td>Enables component composition rather than class inheritance.</td>
+              </tr>
+              <tr>
+                <td><strong>Object State Update</strong></td>
+                <td><code>setState(prev =&gt; ({ ...prev, key: val }))</code></td>
+                <td>Always wrap returned object literal in parentheses <code>({ ... })</code>!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 10: EXAM QUESTIONS -->
+      <section id="exam-questions" class="content-section">
+        <h2 class="section-title">10. Important Exam Questions &amp; Practice</h2>
+
+        <h3 class="subsection-title">2-Mark Questions (Short Answers)</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">1. Differentiate between Props and State in React.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Props</strong> are external, read-only parameters passed from a parent component to configure a child. <strong>State</strong> is internal, private data created and managed within the component itself that can change over time via its setter function, triggering a re-render when modified.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">2. What are React Fragments and why are they used?</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>React Fragments (<code>&lt;&gt;...&lt;/&gt;</code>) allow developers to group multiple sibling JSX elements without adding an extra wrapper node (such as an unwanted <code>&lt;div&gt;</code>) to the real DOM, preserving semantic HTML structures like table rows and flexbox layouts.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">3. Explain the purpose of `props.children`.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><code>props.children</code> is a special prop that automatically contains whatever JSX elements or text are nested between the opening and closing tags of a component (e.g. <code>&lt;Card&gt;&lt;p&gt;Content&lt;/p&gt;&lt;/Card&gt;</code>), enabling flexible component composition and container design patterns.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">4. Explain the useState hook in React with syntax and a complete working counter example. (10 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><code>useState</code> is a React Hook that declares a local state variable in functional components. Syntax: <code>const [state, setState] = useState(initialValue);</code>.</p>
+            <p>It returns a 2-element array: the current state value and an updater function. When the updater function is called, React schedules a re-render with the new value.</p>
+            <p>Explain direct vs. functional updates (<code>setState(prev =&gt; prev + 1)</code>) and provide the working Counter component from Section 6.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">5. Why is state immutability crucial in React? How do you update objects and arrays in state? (5 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>React uses shallow reference equality checks (<code>Object.is</code>) to determine whether state has changed. If a developer mutates an existing object or array in place (e.g. <code>state.count = 5</code>), the reference remains identical, causing React to skip re-rendering and fail to update the UI.</p>
+            <p><strong>Objects:</strong> Copied with the spread operator: <code>setObj(prev =&gt; ({ ...prev, age: 21 }))</code>.</p>
+            <p><strong>Arrays:</strong> Add via spread <code>[...prev, item]</code>, delete via <code>prev.filter(...)</code>, update via <code>prev.map(...)</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 11: REFERENCES -->
+      <section id="sec-references" class="content-section">
+        <h2 class="section-title">11. Prescribed References</h2>
+        <div class="callout callout-note">
+          <span class="callout-label">Course Reference Literature</span>
+          <ol>
+            <li><strong>Chris Minnick</strong>, <em>Beginning ReactJS Foundations: Building User Interfaces with ReactJS - An Approachable Guide</em>, Wiley, 2022. (Chapters 4, 5 &amp; 6).</li>
+            <li><strong>Anthony Accomazzo, Ari Lerner, Nate Murray, Clay Allsopp, David Gutman, and Tyler McGinnis</strong>, <em>Fullstack React: The Complete Guide to ReactJS and Friends</em>, 2017.</li>
+            <li><strong>React Official Documentation</strong>: <a href="https://react.dev" target="_blank" rel="noopener">https://react.dev</a>.</li>
+          </ol>
+          <p class="exam-disclaimer"><em>AI-assisted study notes written from the official courseware. Verify against the prescribed textbook before the exam.</em></p>
+        </div>
+      </section>
+
+      <!-- Unit Footer Navigation -->
+      <nav class="unit-navigation" aria-label="Unit Navigation">
+        <a href="../unit1/unit-1-notes.html" class="nav-btn prev-btn">
+          <span class="nav-arrow">←</span>
+          <span class="nav-meta">Previous Unit</span>
+          <span class="nav-title">Unit 1: Introduction to React &amp; JSX</span>
+        </a>
+        <a href="../unit3/unit-3-notes.html" class="nav-btn next-btn">
+          <span class="nav-meta">Next Unit</span>
+          <span class="nav-title">Unit 3: Events &amp; Form Handling</span>
+          <span class="nav-arrow">→</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
