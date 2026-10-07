@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 3: Network Layer, IPv4 & Routing | CN Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Computer Networks (IS53) Unit 3: Datagram vs Virtual Circuits, Network Delays, CIDR Subnetting, VLSM Design, IPv4 Header & Fragmentation, ICMPv4, Distance Vector, and Dijkstra's Link State Routing.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/cn" class="back-btn" title="Return to Computer Networks Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>CN Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/cn">Computer Networks (IS53)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 3</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="cn-u3-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 3 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Network Layer Services & Switching</a>
+        <a href="#sec-2" class="toc-link">§ 2 Network Performance & Delays</a>
+        <a href="#sec-3" class="toc-link">§ 3 IPv4 Addressing & CIDR Subnetting</a>
+        <a href="#sec-4" class="toc-link">§ 4 VLSM Design & NAT Architecture</a>
+        <a href="#sec-5" class="toc-link">§ 5 IPv4 Datagram Header & Fragmentation</a>
+        <a href="#sec-6" class="toc-link">§ 6 ICMPv4 Protocol & Diagnostics</a>
+        <a href="#sec-7" class="toc-link">§ 7 Routing Algorithms (Distance Vector & Dijkstra)</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">CN &bull; IS53</span>
+          <span class="unit-tag">UNIT 3</span>
+          <span class="unit-tag read-time">~38 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Network Layer Services, IPv4 & Routing</h1>
+        <p class="unit-subtitle">Comprehensive coverage of datagram networks, delay models, classful vs classless CIDR addressing, variable length subnet masking (VLSM), NAT translation, complete 14-field IPv4 datagram header, MTU fragmentation numericals, ICMPv4 error mechanics, Distance Vector routing, and Dijkstra's Shortest Path algorithm.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Network Layer Services:</strong> Packetizing, routing, forwarding, datagram networks vs virtual-circuit networks.</li>
+            <li><strong>Network Performance:</strong> Transmission delay, propagation delay, queuing delay, processing delay, bandwidth-delay product.</li>
+            <li><strong>IPv4 Addressing:</strong> Classful addressing, CIDR slash notation (/n), subnet masks, network & broadcast addresses, valid host counts.</li>
+            <li><strong>Hierarchical Addressing & NAT:</strong> Variable Length Subnet Masking (VLSM) enterprise allocation, RFC 1918 private blocks, NAT/NAPT operation.</li>
+            <li><strong>IPv4 Datagram Header & Fragmentation:</strong> Structure of all 14 fields, MTU constraints, offset and MF flag calculation algorithms.</li>
+            <li><strong>ICMPv4 Protocol:</strong> Error-reporting messages (Type 3, 11, 12, 4, 5) and query messages (Ping Echo, Timestamp).</li>
+            <li><strong>Routing Algorithms:</strong> Distance Vector Routing (Bellman-Ford, count-to-infinity, split horizon) and Link State Routing (Dijkstra SPF tree).</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit2/is53-cn-unit2.pdf" class="source-link" target="_blank" rel="noopener">Unit 2/3 Reference PDF</a>
+          <a href="../../../index.html#subject/cn" class="source-link">Subject Syllabus</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Network Layer Services & Switching Models</h2>
+
+        <p class="section-lead">The <strong>Network Layer</strong> is responsible for host-to-host delivery of individual packets across multiple diverse network links. It encapsulates transport-layer segments into network <strong>datagrams</strong> at the sender, routes them across intermediate routers, and delivers them to the destination host.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">THREE FUNDAMENTAL NETWORK LAYER SERVICES</span>
+          <ol>
+            <li><strong>Packetizing:</strong> Encapsulating the transport-layer payload into a network-layer datagram by adding an IP header at the source, and decapsulating it at the destination.</li>
+            <li><strong>Routing:</strong> The global decision-making process of determining the optimal, end-to-end path that packets should traverse from source to destination using routing protocols (OSPF, BGP, RIP).</li>
+            <li><strong>Forwarding:</strong> The local action taken by each individual router of transferring a packet from an incoming interface link to the appropriate outgoing interface link based on its forwarding table.</li>
+          </ol>
+        </div>
+
+        <h3>Datagram (Connectionless) vs Virtual-Circuit (Connection-Oriented) Networks</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Feature / Dimension</th>
+                <th>Datagram Approach (e.g. The Internet / IP)</th>
+                <th>Virtual-Circuit Approach (e.g. ATM, X.25)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Setup Phase</strong></td>
+                <td>None. Packets can be injected immediately.</td>
+                <td>Mandatory connection setup phase before sending data; teardown after.</td>
+              </tr>
+              <tr>
+                <td><strong>Packet Header</strong></td>
+                <td>Contains full 32-bit (or 128-bit) Source and Destination IP addresses.</td>
+                <td>Contains only a short <strong>Virtual Circuit Identifier (VCI)</strong> label.</td>
+              </tr>
+              <tr>
+                <td><strong>Routing Path</strong></td>
+                <td>Each datagram is routed independently. Packets between same source and destination may take completely different paths.</td>
+                <td>All packets for a connection follow the exact same established physical path.</td>
+              </tr>
+              <tr>
+                <td><strong>Packet Ordering</strong></td>
+                <td>Packets may arrive out-of-order at destination; receiver must resequence.</td>
+                <td>Packets guaranteed to arrive strictly in the order sent.</td>
+              </tr>
+              <tr>
+                <td><strong>Router State & Robustness</strong></td>
+                <td>Routers maintain <strong>no per-connection state</strong>. Highly robust against router crashes (traffic automatically reroutes).</td>
+                <td>Routers maintain connection state tables. If any intermediate switch crashes, the entire connection is severed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Routing = global path selection (control plane); Forwarding = local packet switching (data plane).</li>
+            <li>The Internet uses the <strong>Datagram model</strong>: connectionless, independent packet routing, robust against router failure.</li>
+            <li>Virtual-circuit uses setup/teardown phases and VCI labels.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Network Performance & Delay Modeling</h2>
+
+        <p class="section-lead">As a datagram journeys from source host to destination, it encounters four distinct delay components at every intermediate router. Understanding these delays is essential for network dimensioning and quality of service (QoS).</p>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">TOTAL NODAL DELAY EQUATION</span>
+          $$\mathbf{d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}}$$
+          <ol>
+            <li><strong>Processing Delay ($d_{proc}$):</strong> The time required for a router to inspect the packet header, check bit-level checksums, and look up the destination IP in the routing table (microseconds).</li>
+            <li><strong>Queuing Delay ($d_{queue}$):</strong> The time a packet spends waiting in the router's transmission buffer queue before being placed on the link. Highly variable, depends on traffic congestion and queue depth.</li>
+            <li><strong>Transmission Delay ($d_{trans}$):</strong> The time required to push all bits of the packet onto the physical transmission link:
+              $$d_{trans} = \frac{L}{R} \quad \text{[seconds]}$$
+              where $L$ is packet length (bits) and $R$ is link transmission rate / bandwidth (bps).
+            </li>
+            <li><strong>Propagation Delay ($d_{prop}$):</strong> The time required for a single bit to travel physically across the transmission medium from source to destination:
+              $$d_{prop} = \frac{d}{v} \quad \text{[seconds]}$$
+              where $d$ is distance (meters) and $v$ is propagation velocity of the medium ($\approx 2 \times 10^8\text{ m/s}$ in copper/fiber, $3 \times 10^8\text{ m/s}$ in air).
+            </li>
+          </ol>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">CRITICAL DISTINCTION: TRANSMISSION VS PROPAGATION DELAY</span>
+          <p><strong>Transmission delay ($L/R$)</strong> depends on packet size and transmission rate (bandwidth). It is the time to <em>push the bits into the pipe</em>.</p>
+          <p><strong>Propagation delay ($d/v$)</strong> depends solely on physical distance and propagation velocity. It is the time for a bit to <em>travel through the pipe</em>.</p>
+        </div>
+
+        <h3>Bandwidth-Delay Product (BDP)</h3>
+        <p>The <strong>Bandwidth-Delay Product</strong> defines the volume of bits that can fill the transmission link end-to-end at any instant (the "pipe volume"):</p>
+        $$\mathbf{\text{BDP} = \text{Bandwidth} \times \text{Delay} = R \times t_{prop}}$$
+        <p><em>Example:</em> A 100 Mbps link with a 20 ms one-way propagation delay has a BDP of $(100 \times 10^6\text{ bps}) \times (0.020\text{ s}) = 2,000,000\text{ bits} = 250\text{ KB}$. The sender can emit 250 KB before the first bit reaches the receiver!</p>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>$d_{trans} = L / R$ (packet length / bandwidth); $d_{prop} = d / v$ (distance / speed).</li>
+            <li>Total delay = $d_{proc} + d_{queue} + d_{trans} + d_{prop}$.</li>
+            <li>$\text{BDP} = R \times t_{prop}$ represents maximum bits in flight.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">IPv4 Addressing & CIDR Subnetting</h2>
+
+        <p class="section-lead">An <strong>IPv4 address</strong> is a 32-bit binary identifier uniquely assigned to every host network interface card connected to the global Internet. Addresses are conventionally written in <strong>dotted-decimal notation</strong> (e.g. `192.168.1.1`), where each 8-bit octet is represented as a decimal number between 0 and 255.</p>
+
+        <h3>1. Historic Classful Addressing Architecture</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Leading Bits</th>
+                <th>First Octet Range</th>
+                <th>Default Mask</th>
+                <th>NetID / HostID Split</th>
+                <th>Number of Networks & Hosts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Class A</strong></td>
+                <td>`0...`</td>
+                <td>`1.0.0.0` &ndash; `126.255.255.255`</td>
+                <td>`255.0.0.0` (/8)</td>
+                <td>8 bits NetID, 24 bits HostID</td>
+                <td>126 networks, $2^{24} - 2 = 16,777,214$ hosts each</td>
+              </tr>
+              <tr>
+                <td><strong>Class B</strong></td>
+                <td>`10...`</td>
+                <td>`128.0.0.0` &ndash; `191.255.255.255`</td>
+                <td>`255.255.0.0` (/16)</td>
+                <td>16 bits NetID, 16 bits HostID</td>
+                <td>16,384 networks, $2^{16} - 2 = 65,534$ hosts each</td>
+              </tr>
+              <tr>
+                <td><strong>Class C</strong></td>
+                <td>`110...`</td>
+                <td>`192.0.0.0` &ndash; `223.255.255.255`</td>
+                <td>`255.255.255.0` (/24)</td>
+                <td>24 bits NetID, 8 bits HostID</td>
+                <td>2,097,152 networks, $2^8 - 2 = 254$ hosts each</td>
+              </tr>
+              <tr>
+                <td><strong>Class D</strong></td>
+                <td>`1110...`</td>
+                <td>`224.0.0.0` &ndash; `239.255.255.255`</td>
+                <td>N/A</td>
+                <td>Reserved for <strong>Multicast</strong></td>
+                <td>No NetID/HostID distinction</td>
+              </tr>
+              <tr>
+                <td><strong>Class E</strong></td>
+                <td>`1111...`</td>
+                <td>`240.0.0.0` &ndash; `255.255.255.255`</td>
+                <td>N/A</td>
+                <td>Reserved for <strong>Experimental</strong></td>
+                <td>Future research and testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><em>Special Note:</em> `127.0.0.0/8` is reserved for loopback testing (`127.0.0.1` = localhost).</p>
+
+        <h3>2. Classless Inter-Domain Routing (CIDR)</h3>
+        <p>Classful addressing caused massive address wastage (a company needing 500 hosts had to take a Class B with 65,534 addresses). In 1993, <strong>CIDR (Classless Inter-Domain Routing)</strong> abandoned fixed classes in favor of arbitrary prefix lengths specified using <strong>slash notation (`/n`)</strong>.</p>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">CIDR BLOCK MATHEMATICAL LAWS</span>
+          <p>For an IP block specified as $\mathbf{A.B.C.D / n}$:</p>
+          <ol>
+            <li><strong>Prefix length ($n$):</strong> Number of 1s in the subnet mask ($0 \le n \le 32$).</li>
+            <li><strong>Host bits ($h$):</strong> $h = 32 - n$.</li>
+            <li><strong>Total IP addresses in block ($N$):</strong>
+              $$N = 2^{32 - n} = 2^h$$
+            </li>
+            <li><strong>Total assignable usable hosts ($N_{usable}$):</strong>
+              $$N_{usable} = 2^{32 - n} - 2$$
+              (Subtract 2: one for Network Address, one for Directed Broadcast Address).
+            </li>
+            <li><strong>Network Address:</strong> Bitwise AND between IP address and subnet mask.</li>
+            <li><strong>Directed Broadcast Address:</strong> Bitwise OR between IP address and inverted mask (replace all $h$ host bits with 1s).</li>
+            <li><strong>First Usable Host IP:</strong> $\text{Network Address} + 1$.</li>
+            <li><strong>Last Usable Host IP:</strong> $\text{Broadcast Address} - 1$.</li>
+          </ol>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL: CIDR ANALYSIS -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; VERIFIED SCRIPT PASS</span>
+            <span class="problem-points">[8 MARKS &bull; EXAM FAVOURITE]</span>
+          </div>
+          <h4 class="problem-title">Comprehensive Analysis of CIDR Block: 200.16.70.82/27</h4>
+          <p>Given the host IPv4 address $\mathbf{200.16.70.82/27}$, determine:</p>
+          <ol>
+            <li>Subnet mask in dotted-decimal format</li>
+            <li>Network address (Subnet ID)</li>
+            <li>Directed broadcast address</li>
+            <li>Range of usable host IP addresses</li>
+            <li>Total number of assignable host addresses</li>
+          </ol>
+
+          <p><strong>Step 1: Subnet Mask:</strong></p>
+          <p>Prefix length $n = 27$ means twenty-seven 1s followed by five 0s:</p>
+          $$\text{Mask} = \underbrace{11111111}_{255} . \underbrace{11111111}_{255} . \underbrace{11111111}_{255} . \underbrace{11100000}_{224} = \mathbf{255.255.255.224}$$
+
+          <p><strong>Step 2: Network Address:</strong></p>
+          <p>Focus on the 4th octet: $82 = 01010010_2$. Mask 4th octet $= 11100000_2$.</p>
+          $$\begin{aligned}
+          01010010_2\ (82) \\
+          \text{AND } 11100000_2\ (224) &= 01000000_2 = 64
+          \end{aligned}$$
+          <div class="result-box">
+            $$\text{Network Address} = \mathbf{200.16.70.64}$$
+          </div>
+
+          <p><strong>Step 3: Directed Broadcast Address:</strong></p>
+          <p>Set all $32 - 27 = 5$ host bits in 4th octet to 1s:</p>
+          $$01000000_2 \text{ OR } 00011111_2 = 01011111_2 = 64 + 31 = 95$$
+          <div class="result-box">
+            $$\text{Broadcast Address} = \mathbf{200.16.70.95}$$
+          </div>
+
+          <p><strong>Step 4: Usable Host Range & Usable Count:</strong></p>
+          <ul>
+            <li>First usable host: $\text{Network Address} + 1 = \mathbf{200.16.70.65}$</li>
+            <li>Last usable host: $\text{Broadcast Address} - 1 = \mathbf{200.16.70.94}$</li>
+            <li>Total usable hosts: $2^{32 - 27} - 2 = 2^5 - 2 = 32 - 2 = \mathbf{30\text{ usable hosts}}$.</li>
+          </ul>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Class A = /8, Class B = /16, Class C = /24. Class D = Multicast.</li>
+            <li>CIDR `/n`: $h = 32 - n$. Total IPs = $2^h$; Usable hosts = $2^h - 2$.</li>
+            <li>Network address has all host bits = 0; Broadcast address has all host bits = 1.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">VLSM Hierarchical Design & NAT Architecture</h2>
+
+        <p class="section-lead"><strong>Variable Length Subnet Masking (VLSM)</strong> enables network engineers to allocate subnets of different sizes tailored precisely to the number of hosts required in each departmental segment, completely eliminating address fragmentation.</p>
+
+        <!-- SOLVED WORKED NUMERICAL: VLSM DESIGN -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED DESIGN &bull; VERIFIED SCRIPT PASS</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">Enterprise VLSM Design for 4 Departments</h4>
+          <p>An enterprise is assigned base network block $\mathbf{192.168.1.0/24}$ ($256$ addresses). Design an efficient VLSM subnet scheme to support four departments:</p>
+          <ul>
+            <li>Department A: 120 hosts</li>
+            <li>Department B: 60 hosts</li>
+            <li>Department C: 30 hosts</li>
+            <li>Department D: 10 hosts</li>
+          </ul>
+
+          <p><strong>Golden Rule of VLSM:</strong> <em>Always sort requirements in descending order of host size!</em></p>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Dept</th>
+                  <th>Hosts Needed</th>
+                  <th>Formula ($2^h - 2 \ge \text{Needed}$)</th>
+                  <th>Allocated Block</th>
+                  <th>Subnet Mask</th>
+                  <th>Usable Host IP Range</th>
+                  <th>Broadcast IP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Dept A</strong></td>
+                  <td>120 hosts</td>
+                  <td>$2^7 - 2 = 126 \ge 120 \implies h=7, n=25$</td>
+                  <td>`192.168.1.0/25`</td>
+                  <td>`255.255.255.128`</td>
+                  <td>`192.168.1.1` &ndash; `192.168.1.126`</td>
+                  <td>`192.168.1.127`</td>
+                </tr>
+                <tr>
+                  <td><strong>Dept B</strong></td>
+                  <td>60 hosts</td>
+                  <td>$2^6 - 2 = 62 \ge 60 \implies h=6, n=26$</td>
+                  <td>`192.168.1.128/26`</td>
+                  <td>`255.255.255.192`</td>
+                  <td>`192.168.1.129` &ndash; `192.168.1.190`</td>
+                  <td>`192.168.1.191`</td>
+                </tr>
+                <tr>
+                  <td><strong>Dept C</strong></td>
+                  <td>30 hosts</td>
+                  <td>$2^5 - 2 = 30 \ge 30 \implies h=5, n=27$</td>
+                  <td>`192.168.1.192/27`</td>
+                  <td>`255.255.255.224`</td>
+                  <td>`192.168.1.193` &ndash; `192.168.1.222`</td>
+                  <td>`192.168.1.223`</td>
+                </tr>
+                <tr>
+                  <td><strong>Dept D</strong></td>
+                  <td>10 hosts</td>
+                  <td>$2^4 - 2 = 14 \ge 10 \implies h=4, n=28$</td>
+                  <td>`192.168.1.224/28`</td>
+                  <td>`255.255.255.240`</td>
+                  <td>`192.168.1.225` &ndash; `192.168.1.238`</td>
+                  <td>`192.168.1.239`</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="result-box">
+            Remaining unallocated addresses: `192.168.1.240` to `192.168.1.255` (`/28` block of 16 IPs available for future WAN point-to-point links).
+          </div>
+        </div>
+
+        <h3>Network Address Translation (NAT)</h3>
+        <p><strong>NAT</strong> maps multiple private local IP addresses to a single globally routable public IP address, prolonging the lifespan of IPv4.</p>
+        <div class="callout callout-def">
+          <span class="callout-label">RFC 1918 PRIVATE IP ADDRESS RANGES</span>
+          <ul>
+            <li><strong>10.0.0.0/8:</strong> `10.0.0.0` &ndash; `10.255.255.255` ($16,777,216$ addresses, large enterprises).</li>
+            <li><strong>172.16.0.0/12:</strong> `172.16.0.0` &ndash; `172.31.255.255` ($1,048,576$ addresses, medium networks).</li>
+            <li><strong>192.168.0.0/16:</strong> `192.168.0.0` &ndash; `192.168.255.255` ($65,536$ addresses, home/SOHO routers).</li>
+          </ul>
+        </div>
+        <p><strong>NAPT (Network Address Port Translation):</strong> The router replaces the private IP and port with its own public IP and an ephemeral translated port (e.g. `192.168.1.5:3344` &rarr; `203.0.113.1:50001`), maintaining state in its NAT Translation Table.</p>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>VLSM golden rule: sort host requirements in descending order before allocating subnets.</li>
+            <li>Private IP blocks (RFC 1918): `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`.</li>
+            <li>NAPT maps many private hosts to one public IP using distinct transport-layer port numbers.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">The IPv4 Datagram Header & Fragmentation</h2>
+
+        <p class="section-lead">The <strong>IPv4 Datagram Header</strong> is a 20-to-60 byte protocol control structure prefixing every Internet packet. Because underlying physical networks possess different <strong>Maximum Transmission Units (MTUs)</strong>, the network layer must fragment oversized datagrams and reassemble them at the final destination host.</p>
+
+        <!-- SVG IPV4 HEADER DIAGRAM -->
+        <div class="svg-card">
+          <div class="svg-title">Structure of the IPv4 Datagram Header (32 Bits Wide)</div>
+          <svg viewBox="0 0 760 300" width="100%" height="auto" role="img" aria-label="IPv4 Header Format diagram showing 32-bit rows and all 14 fields">
+            <title>IPv4 Header Format</title>
+            <desc>SVG diagram illustrating 32-bit wide IPv4 header structure: Version, IHL, TOS, Total Length, Identification, Flags, Fragment Offset, TTL, Protocol, Header Checksum, Source IP, Destination IP, and Options</desc>
+
+            <!-- Row 1: Bits 0 - 31 -->
+            <g transform="translate(40, 30)">
+              <!-- Version (4) -->
+              <rect x="0" y="0" width="85" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="42" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--text-main)">VER (4)</text>
+
+              <!-- IHL (4) -->
+              <rect x="85" y="0" width="85" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="127" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--text-main)">IHL (4)</text>
+
+              <!-- TOS / DSCP (8) -->
+              <rect x="170" y="0" width="170" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="255" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--text-main)">TOS / DSCP (8 bits)</text>
+
+              <!-- Total Length (16) -->
+              <rect x="340" y="0" width="340" height="40" fill="var(--surface)" stroke="var(--green)" stroke-width="2" />
+              <text x="510" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--green)">Total Length (16 bits)</text>
+            </g>
+
+            <!-- Row 2: Identification, Flags, Fragment Offset -->
+            <g transform="translate(40, 70)">
+              <!-- Identification (16) -->
+              <rect x="0" y="0" width="340" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="170" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--text-main)">Identification (16 bits)</text>
+
+              <!-- Flags (3) -->
+              <rect x="340" y="0" width="70" height="40" fill="var(--bg-card)" stroke="var(--green)" stroke-width="2" />
+              <text x="375" y="24" font-family="Inter" font-weight="700" font-size="10" text-anchor="middle" fill="var(--green)">Flags (3)</text>
+
+              <!-- Fragment Offset (13) -->
+              <rect x="410" y="0" width="270" height="40" fill="var(--surface)" stroke="var(--green)" stroke-width="2" />
+              <text x="545" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--green)">Fragment Offset (13 bits)</text>
+            </g>
+
+            <!-- Row 3: TTL, Protocol, Header Checksum -->
+            <g transform="translate(40, 110)">
+              <!-- TTL (8) -->
+              <rect x="0" y="0" width="170" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="85" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--text-main)">TTL (8 bits)</text>
+
+              <!-- Protocol (8) -->
+              <rect x="170" y="0" width="170" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="255" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--text-main)">Protocol (8 bits)</text>
+
+              <!-- Header Checksum (16) -->
+              <rect x="340" y="0" width="340" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="510" y="24" font-family="Inter" font-weight="700" font-size="11" text-anchor="middle" fill="var(--text-main)">Header Checksum (16 bits)</text>
+            </g>
+
+            <!-- Row 4: Source IP Address -->
+            <g transform="translate(40, 150)">
+              <rect x="0" y="0" width="680" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="340" y="24" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">Source IP Address (32 bits)</text>
+            </g>
+
+            <!-- Row 5: Destination IP Address -->
+            <g transform="translate(40, 190)">
+              <rect x="0" y="0" width="680" height="40" fill="var(--surface)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="340" y="24" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">Destination IP Address (32 bits)</text>
+            </g>
+
+            <!-- Row 6: Options and Padding -->
+            <g transform="translate(40, 230)">
+              <rect x="0" y="0" width="680" height="35" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="340" y="22" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">Options + Padding (0 to 40 bytes, optional)</text>
+            </g>
+          </svg>
+        </div>
+
+        <h3>Key Header Fields & Explanations</h3>
+        <ul>
+          <li><strong>VER (4 bits):</strong> IP version number (always `4` for IPv4).</li>
+          <li><strong>IHL (4 bits):</strong> Internet Header Length in 4-byte (32-bit) words. Minimum is $5 \times 4 = 20\text{ bytes}$; maximum is $15 \times 4 = 60\text{ bytes}$.</li>
+          <li><strong>Total Length (16 bits):</strong> Total datagram length (header + payload) in bytes. Maximum theoretical size is $2^{16} - 1 = 65,535\text{ bytes}$.</li>
+          <li><strong>Time to Live (TTL, 8 bits):</strong> Hop limit counter. Decremented by 1 at every router hop. When TTL reaches 0, the datagram is dropped and an ICMP Time Exceeded message is sent back to the source (prevents infinite routing loops).</li>
+          <li><strong>Protocol (8 bits):</strong> Identifies the transport-layer protocol carried in payload: `1` for ICMP, `6` for TCP, `17` for UDP.</li>
+          <li><strong>Flags (3 bits):</strong> Bit 0: Reserved (0). Bit 1: <strong>DF (Don't Fragment)</strong>: if 1, router cannot fragment packet; if oversized, router drops it. Bit 2: <strong>MF (More Fragments)</strong>: 1 means more fragments follow; 0 means this is the final fragment.</li>
+          <li><strong>Fragment Offset (13 bits):</strong> Relative position of the fragmented data payload compared to the original unfragmented payload, <strong>measured in 8-byte (64-bit) units</strong>.</li>
+        </ul>
+
+        <!-- SOLVED WORKED NUMERICAL: FRAGMENTATION -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; FULLY VERIFIED PASS</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">IPv4 Datagram Fragmentation Calculation</h4>
+          <p>An IPv4 datagram with a total length of $4000\text{ bytes}$ (including a standard $20\text{-byte}$ header) arrives at a router. The outgoing link has an MTU of $1500\text{ bytes}$.</p>
+          <p>Determine: (a) Number of fragments, (b) Total length of each fragment, (c) Data payload size of each fragment, (d) Values of DF and MF flags, and (e) Fragment offset values.</p>
+
+          <p><strong>Step 1: Compute Original Payload & Maximum Fragment Payload:</strong></p>
+          <ul>
+            <li>Original total data payload $= 4000 - 20 = \mathbf{3980\text{ bytes}}$.</li>
+            <li>Link MTU $= 1500\text{ bytes}$. Each fragment carries its own 20-byte IP header.</li>
+            <li>Max payload per fragment $= 1500 - 20 = 1480\text{ bytes}$.</li>
+            <li><em>Check divisibility by 8:</em> $1480 / 8 = 185$ (perfect integer &mdash; valid!).</li>
+          </ul>
+
+          <p><strong>Step 2: Partition the 3980 Bytes into Fragments:</strong></p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Fragment #</th>
+                  <th>Payload Data (Bytes)</th>
+                  <th>Total Length (with 20B Header)</th>
+                  <th>Byte Range Carried</th>
+                  <th>Fragment Offset ($\text{Start Byte} / 8$)</th>
+                  <th>MF Flag</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Fragment 1</strong></td>
+                  <td>1480 bytes</td>
+                  <td>1500 bytes</td>
+                  <td>Bytes 0 &ndash; 1479</td>
+                  <td>$0 / 8 = \mathbf{0}$</td>
+                  <td>$\mathbf{1}$ (More follow)</td>
+                </tr>
+                <tr>
+                  <td><strong>Fragment 2</strong></td>
+                  <td>1480 bytes</td>
+                  <td>1500 bytes</td>
+                  <td>Bytes 1480 &ndash; 2959</td>
+                  <td>$1480 / 8 = \mathbf{185}$</td>
+                  <td>$\mathbf{1}$ (More follow)</td>
+                </tr>
+                <tr>
+                  <td><strong>Fragment 3</strong></td>
+                  <td>$3980 - 2960 = \mathbf{1020\text{ B}}$</td>
+                  <td>$1020 + 20 = \mathbf{1040\text{ B}}$</td>
+                  <td>Bytes 2960 &ndash; 3979</td>
+                  <td>$2960 / 8 = \mathbf{370}$</td>
+                  <td>$\mathbf{0}$ (Final fragment)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="result-box">
+            The datagram is fragmented into 3 parts. All fragments share the identical Identification number. Reassembly occurs strictly at the destination host!
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>IHL is in 4-byte units (min 5 = 20B). Total length is in bytes (max 65,535B).</li>
+            <li>Fragment offset is strictly measured in <strong>8-byte blocks</strong> ($\text{Offset} = \text{Data Start Byte} / 8$).</li>
+            <li>MF = 1 for all fragments except the last, where MF = 0.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Internet Control Message Protocol (ICMPv4)</h2>
+
+        <p class="section-lead">IPv4 is a best-effort, connectionless datagram protocol lacking built-in error reporting or query management. <strong>ICMPv4</strong> operates as an companion protocol at the Network Layer to report transmission errors back to the source and provide diagnostic queries.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Code</th>
+                <th>Message Name</th>
+                <th>Trigger Event & Practical Application</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="4"><strong>Error-Reporting Messages</strong></td>
+                <td><strong>Type 3</strong></td>
+                <td>0&ndash;15</td>
+                <td>Destination Unreachable</td>
+                <td>Router cannot find a route to the destination host, network, or port (e.g. Code 3 = Port Unreachable).</td>
+              </tr>
+              <tr>
+                <td><strong>Type 11</strong></td>
+                <td>0</td>
+                <td>Time Exceeded</td>
+                <td><strong>TTL reaches 0</strong> before reaching destination. Formulates the foundation of the <code>traceroute</code> utility!</td>
+              </tr>
+              <tr>
+                <td><strong>Type 12</strong></td>
+                <td>0</td>
+                <td>Parameter Problem</td>
+                <td>Header contains ambiguity or corrupted field (checksum failure or invalid option).</td>
+              </tr>
+              <tr>
+                <td><strong>Type 5</strong></td>
+                <td>0&ndash;3</td>
+                <td>Redirection</td>
+                <td>Router informs host to update its default routing table with a more optimal local router.</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>Query Messages</strong></td>
+                <td><strong>Type 8 / 0</strong></td>
+                <td>0</td>
+                <td>Echo Request / Echo Reply</td>
+                <td>Used by the <code>ping</code> utility to verify host reachability and round-trip time (RTT).</td>
+              </tr>
+              <tr>
+                <td><strong>Type 13 / 14</strong></td>
+                <td>0</td>
+                <td>Timestamp Request / Reply</td>
+                <td>Computes clock synchronization and one-way transit delays.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">RULES FOR SUPPRESSING ICMP ERROR GENERATION</span>
+          <p>To avoid broadcast storms and infinite message loops, ICMP error messages are NEVER generated in response to:</p>
+          <ul>
+            <li>Another ICMP error message (no error about an error!).</li>
+            <li>A datagram carrying a broadcast or multicast destination address.</li>
+            <li>Any datagram fragment other than the initial fragment (offset 0).</li>
+          </ul>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>ICMP runs over IP (Protocol number = 1).</li>
+            <li>`ping` uses Type 8 (Echo Request) & Type 0 (Echo Reply).</li>
+            <li>`traceroute` uses Type 11 (Time Exceeded, TTL=0).</li>
+            <li>Never generate an ICMP error in response to an ICMP error or broadcast packet!</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Routing Algorithms: Distance Vector & Dijkstra's Link State</h2>
+
+        <p class="section-lead">A routing algorithm determines the optimal (least-cost) path through the network graph. The two foundational dynamic routing paradigms are <strong>Distance Vector Routing (Bellman-Ford)</strong> and <strong>Link State Routing (Dijkstra)</strong>.</p>
+
+        <h3>1. Distance Vector Routing (Bellman-Ford Algorithm)</h3>
+        <p>In Distance Vector (e.g. RIP), each router maintains a table containing its estimated distance to every destination in the network. Periodically and asynchronously, each router transmits its entire distance vector only to its <strong>immediate neighbors</strong>.</p>
+        <div class="callout callout-formula">
+          <span class="callout-label">BELLMAN-FORD OPTIMALITY EQUATION</span>
+          $$D_x(y) = \min_v \left\{ c(x, v) + D_v(y) \right\}$$
+          <p>Where $c(x, v)$ is the cost of the direct link from router $x$ to neighbor $v$, and $D_v(y)$ is neighbor $v$'s advertised cost to reach destination $y$.</p>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">COUNT-TO-INFINITY PROBLEM & REMEDIES</span>
+          <p>Distance Vector algorithms suffer from slow convergence when links fail: <em>"Good news travels fast, bad news travels slow."</em> Two adjacent routers can create a routing loop by continually incrementing their path estimates through each other towards infinity.</p>
+          <p><strong>Remedies:</strong></p>
+          <ul>
+            <li><strong>Split Horizon:</strong> Do not advertise a route back out the same interface through which it was learned.</li>
+            <li><strong>Poison Reverse:</strong> Advertise the route back to that neighbor with a cost of $\infty$ (unreachable).</li>
+            <li><strong>Hold-down Timers:</strong> Ignore route updates for a failed link for a defined period while network converges.</li>
+          </ul>
+        </div>
+
+        <h3>2. Link State Routing (Dijkstra's Algorithm)</h3>
+        <p>In Link State Routing (e.g. OSPF), every router discovers its neighbors and link costs, builds a <strong>Link State Advertisement (LSA)</strong>, and <strong>floods</strong> it to every router in the entire network. Every router constructs an identical, complete map of the network topology graph and independently runs <strong>Dijkstra's Shortest Path First (SPF)</strong> algorithm.</p>
+
+        <!-- SOLVED WORKED NUMERICAL: DIJKSTRA -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; FULLY VERIFIED PASS</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM FAVOURITE]</span>
+          </div>
+          <h4 class="problem-title">Dijkstra's Shortest Path Algorithm Trace Table</h4>
+          <p>Find the shortest path and path costs from source node $\mathbf{A}$ to all other nodes in a 6-node network graph with edges and weights:</p>
+          $$\begin{aligned}
+          &(A, B)=2, \quad (A, C)=4 \\
+          &(B, C)=1, \quad (B, D)=7 \\
+          &(C, E)=3 \\
+          &(D, E)=2, \quad (D, F)=1 \\
+          &(E, F)=5
+          \end{aligned}$$
+
+          <p><strong>Step-by-Step Execution Trace Table:</strong></p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Step</th>
+                  <th>Permanently Visited Set $N'$</th>
+                  <th>$D(B), p(B)$</th>
+                  <th>$D(C), p(C)$</th>
+                  <th>$D(D), p(D)$</th>
+                  <th>$D(E), p(E)$</th>
+                  <th>$D(F), p(F)$</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Init</strong></td>
+                  <td>$\{A\}$</td>
+                  <td><strong>2, A</strong></td>
+                  <td>4, A</td>
+                  <td>$\infty$</td>
+                  <td>$\infty$</td>
+                  <td>$\infty$</td>
+                </tr>
+                <tr>
+                  <td><strong>1</strong></td>
+                  <td>$\{A, B\}$ (pick B)</td>
+                  <td>&mdash;</td>
+                  <td>$\min(4, 2+1) = \mathbf{3, B}$</td>
+                  <td>$\min(\infty, 2+7) = 9, B$</td>
+                  <td>$\infty$</td>
+                  <td>$\infty$</td>
+                </tr>
+                <tr>
+                  <td><strong>2</strong></td>
+                  <td>$\{A, B, C\}$ (pick C)</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>9, B</td>
+                  <td>$\min(\infty, 3+3) = \mathbf{6, C}$</td>
+                  <td>$\infty$</td>
+                </tr>
+                <tr>
+                  <td><strong>3</strong></td>
+                  <td>$\{A, B, C, E\}$ (pick E)</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>$\min(9, 6+2) = \mathbf{8, E}$</td>
+                  <td>&mdash;</td>
+                  <td>$\min(\infty, 6+5) = 11, E$</td>
+                </tr>
+                <tr>
+                  <td><strong>4</strong></td>
+                  <td>$\{A, B, C, E, D\}$ (pick D)</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>$\min(11, 8+1) = \mathbf{9, D}$</td>
+                </tr>
+                <tr>
+                  <td><strong>5</strong></td>
+                  <td>$\{A, B, C, E, D, F\}$ (pick F)</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="result-box">
+            <p><strong>Final Shortest Paths & Routing Table from Source Node A:</strong></p>
+            <ul>
+              <li>To Node B: Cost = $\mathbf{2}$ &bull; Path: $A \to B$</li>
+              <li>To Node C: Cost = $\mathbf{3}$ &bull; Path: $A \to B \to C$</li>
+              <li>To Node E: Cost = $\mathbf{6}$ &bull; Path: $A \to B \to C \to E$</li>
+              <li>To Node D: Cost = $\mathbf{8}$ &bull; Path: $A \to B \to C \to E \to D$</li>
+              <li>To Node F: Cost = $\mathbf{9}$ &bull; Path: $A \to B \to C \to E \to D \to F$</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Distance Vector (RIP): Bellman-Ford, local neighbors, count-to-infinity problem.</li>
+            <li>Link State (OSPF): Dijkstra SPF, global topology map via LSA flooding, $O(|V|^2)$ time.</li>
+            <li>Dijkstra iteratively picks the unvisited node with minimum tentative cost.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Network Delays</h4>
+            <ul>
+              <li>$d_{trans} = L / R$ (packet length / bandwidth).</li>
+              <li>$d_{prop} = d / v$ (distance / propagation speed).</li>
+              <li>Total nodal delay: $d_{proc} + d_{queue} + d_{trans} + d_{prop}$.</li>
+              <li>$\text{BDP} = R \times t_{prop}$.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>CIDR & VLSM Formulas</h4>
+            <ul>
+              <li>Prefix `/n` has $h = 32 - n$ host bits.</li>
+              <li>Total addresses = $2^h$; Usable hosts = $2^h - 2$.</li>
+              <li>Network IP: AND with mask. Broadcast IP: OR with inverted mask.</li>
+              <li>VLSM: always sort subnets by host count descending!</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>IPv4 Header & Frag</h4>
+            <ul>
+              <li>IHL in 4-byte words (min 5 = 20B, max 15 = 60B).</li>
+              <li>Fragment Offset is in <strong>8-byte blocks</strong>.</li>
+              <li>MF = 1 (more fragments follow), MF = 0 (final fragment).</li>
+              <li>TTL prevents loops; decremented at each hop.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>ICMP & Routing</h4>
+            <ul>
+              <li>ICMP Type 8/0 = Ping Echo; Type 11 = TTL Exceeded (Traceroute).</li>
+              <li>Distance Vector: $D_x(y) = \min_v \{c(x, v) + D_v(y)\}$.</li>
+              <li>Dijkstra Link State: greedy min-cost expansion on flooded LSA map.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Distinguish between routing and forwarding.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Routing is the global process of determining the end-to-end optimal path across the entire network (control plane). Forwarding is the local operation at a router transferring a packet from its input link to the appropriate output link based on its forwarding table (data plane).</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Why is the fragment offset in an IPv4 header multiplied by 8?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> The fragment offset field is only 13 bits wide, but total datagram length can be up to 65,535 bytes ($2^{16}$). By measuring the offset in 8-byte units ($2^3$), $2^{13} \times 2^3 = 2^{16} = 65,536$, allowing the 13-bit field to span the entire 64 KB address space.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is the purpose of the TTL field in the IPv4 header?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Time-to-Live (TTL) prevents packets from circulating endlessly in routing loops. It is decremented by 1 at every router hop; when it reaches 0, the packet is discarded and an ICMP Time Exceeded message is returned to the source.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Compare Distance Vector Routing with Link State Routing.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ul>
+                  <li><strong>Information shared:</strong> Distance Vector shares its entire distance table only with immediate neighbors. Link State shares only link states to its immediate neighbors, but floods this to <em>all routers in the entire network</em>.</li>
+                  <li><strong>Convergence:</strong> Distance Vector converges slowly and suffers from count-to-infinity loops. Link State converges rapidly without loops.</li>
+                  <li><strong>Computational complexity:</strong> Distance Vector runs localized Bellman-Ford calculations. Link State requires every router to independently execute Dijkstra's algorithm ($O(|V|^2)$).</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain Network Address Translation (NAT) and its advantages.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> NAT maps multiple private IPv4 addresses from internal networks (RFC 1918) to a single registered public IP address when communicating over the Internet. It conserves globally routable IPv4 addresses and enhances security by masking internal network topologies from outside observation.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Draw the IPv4 datagram header format and explain the function of each field in detail.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong> Draw the 32-bit wide header diagram and explain all 14 fields (Version, IHL, TOS/DSCP, Total Length, Identification, Flags DF/MF, Fragment Offset, TTL, Protocol, Header Checksum, Source & Destination IP, Options) as presented in Section 5.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past CIE-2 and model papers in <code>notes/cn/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-2 &bull; Computer Networks (IS53)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"An IPv4 packet with a size of 4000 bytes arrives at a router that needs to forward it over a link with MTU of 1500 bytes. Show the fragmentation parameters for each fragment."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified fragmentation numerical solved step-by-step in Section 5.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Model Question Paper</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Apply Dijkstra's algorithm to find the shortest path from node A to all other nodes in the given weighted network graph."</p>
+          <p class="archive-note"><em>Study Note:</em> Complete step-by-step trace table provided in Section 7.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Exam &bull; Model Paper 2</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Given an IP address 200.16.70.82/27, find the subnet mask, network address, broadcast address, and number of usable host addresses."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified CIDR numerical solved in Section 3.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; SUBNET HOSTS</span>
+          </div>
+          <h4 class="problem-title">How many usable host IP addresses are available in a `/29` subnet block?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>Host bits $h = 32 - 29 = 3$.</p>
+              $$\text{Total usable hosts} = 2^h - 2 = 2^3 - 2 = 8 - 2 = \mathbf{6\text{ usable hosts}}$$
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; TRANSMISSION DELAY</span>
+          </div>
+          <h4 class="problem-title">Calculate the transmission delay for a 1500-byte frame transmitted over a 1 Gbps Gigabit Ethernet link.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>Formula: $d_{trans} = L / R$</p>
+              $$L = 1500 \times 8 = 12,000\text{ bits}$$
+              $$R = 1\text{ Gbps} = 10^9\text{ bps}$$
+              $$d_{trans} = \frac{12,000}{10^9} = 1.2 \times 10^{-5}\text{ s} = \mathbf{12\text{ }\mu\text{s}}$$
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Behrouz A. Forouzan</strong> &mdash; <em>Data Communications and Networking</em>, 5th Edition, McGraw Hill, Chapters 18, 19, 20, 21, & 22.</li>
+            <li><strong>James F. Kurose, Keith W. Ross</strong> &mdash; <em>Computer Networking: A Top-Down Approach</em>, 8th Edition, Pearson, Chapter 4 (The Network Layer).</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 3 (Course Code IS53).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../unit2/unit-2-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS UNIT</span>
+              <span class="pag-title">Unit 2: Data Link Layer & MAC</span>
+            </div>
+          </a>
+          <a href="../../../notes/ai/unit1/unit-1-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT SUBJECT &bull; UNIT 1</span>
+              <span class="pag-title">Artificial Intelligence (ISE552): Agents & Problem Solving</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
