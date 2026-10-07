@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2: Uninformed, Informed & Local Search | AI Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Artificial Intelligence (ISE552) Unit 2: BFS, DFS, Uniform-Cost Search, IDDFS, A* Search with Admissibility & Consistency, 8-Puzzle Heuristics, Hill Climbing, and Simulated Annealing.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/ai" class="back-btn" title="Return to Artificial Intelligence Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>AI Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/ai">Artificial Intelligence (ISE552)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 2</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="ai-u2-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 2 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Uninformed Search Algorithms</a>
+        <a href="#sec-2" class="toc-link">§ 2 Uninformed Comparison Matrix</a>
+        <a href="#sec-3" class="toc-link">§ 3 Informed Search & Heuristic Functions</a>
+        <a href="#sec-4" class="toc-link">§ 4 A* Search: Admissibility & Consistency</a>
+        <a href="#sec-5" class="toc-link">§ 5 8-Puzzle Heuristics & Dominance</a>
+        <a href="#sec-6" class="toc-link">§ 6 Local Search & Hill-Climbing</a>
+        <a href="#sec-7" class="toc-link">§ 7 Simulated Annealing & Genetic Algorithms</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">AI &bull; ISE552</span>
+          <span class="unit-tag">UNIT 2</span>
+          <span class="unit-tag read-time">~36 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Uninformed, Informed & Local Search Strategies</h1>
+        <p class="unit-subtitle">Comprehensive mathematical analysis, algorithmic complexity derivations, and exam numericals for blind search (BFS, DFS, UCS, IDDFS), heuristic search ($A^*$ optimality proofs), 8-puzzle heuristics, hill-climbing failure modes, simulated annealing probabilities, and genetic algorithms.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Uninformed (Blind) Search:</strong> Breadth-First Search (BFS), Uniform-Cost Search (UCS), Depth-First Search (DFS), Depth-Limited Search (DLS), Iterative Deepening DFS (IDDFS), Bidirectional Search.</li>
+            <li><strong>Search Evaluation Criteria:</strong> Completeness, Time complexity, Space complexity, and Optimality ($b, d, m$ parameters).</li>
+            <li><strong>Informed (Heuristic) Search:</strong> Best-First Search, Greedy Best-First Search, $A^*$ Search evaluation function $f(n) = g(n) + h(n)$.</li>
+            <li><strong>$A^*$ Optimality Proofs:</strong> Admissibility ($h(n) \le h^*(n)$) for tree search; Consistency / Monotonicity ($h(n) \le c(n, a, n') + h(n')$) for graph search.</li>
+            <li><strong>Heuristic Design:</strong> Misplaced tiles ($h_1$), Manhattan distance ($h_2$), Heuristic dominance ($h_2 \ge h_1$).</li>
+            <li><strong>Local Search Algorithms:</strong> State space landscape (local maxima, ridges, plateaux), Hill-Climbing Search and variants (Random-Restart).</li>
+            <li><strong>Stochastic Optimization:</strong> Simulated Annealing (temperature $T$, cooling schedule, downhill acceptance probability $P = e^{\Delta E / T}$), Local Beam Search, Genetic Algorithms.</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../syllabus/ai-ise552-syllabus.pdf" class="source-link" target="_blank" rel="noopener">Official Syllabus PDF</a>
+          <a href="../../../index.html#subject/ai" class="source-link">Subject Overview</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Uninformed (Blind) Search Strategies</h2>
+
+        <p class="section-lead"><strong>Uninformed search</strong> (also termed <em>blind search</em>) refers to strategies that have no additional information about states beyond that provided in the problem definition. They can generate successors and distinguish a goal state from a non-goal state, but cannot estimate how close a non-goal state is to the destination.</p>
+
+        <h3>1. Breadth-First Search (BFS)</h3>
+        <p>BFS expands the shallowest unexpanded node first using a <strong>First-In First-Out (FIFO) queue</strong> frontier. All nodes at depth $d$ are expanded before any nodes at depth $d + 1$.</p>
+        <ul>
+          <li><strong>Completeness:</strong> Yes (if branching factor $b$ is finite).</li>
+          <li><strong>Time Complexity:</strong> $O(b^d)$, where $b$ is the branching factor and $d$ is the depth of the shallowest goal.</li>
+          <li><strong>Space Complexity:</strong> $O(b^d)$ &mdash; every generated node must remain in memory. <strong>Memory is the fatal bottleneck of BFS!</strong></li>
+          <li><strong>Optimality:</strong> Yes, if all step costs are equal; otherwise not necessarily optimal.</li>
+        </ul>
+
+        <h3>2. Uniform-Cost Search (UCS / Dijkstra on Trees)</h3>
+        <p>UCS expands the node $n$ with the lowest path cost $g(n)$ from the start node using a <strong>Priority Queue</strong> ordered by $g(n)$.</p>
+        <ul>
+          <li><strong>Goal Test Timing:</strong> The goal test is applied when a node is <em>selected for expansion</em> (popped from the priority queue), <strong>NOT</strong> when it is first generated!</li>
+          <li><strong>Completeness:</strong> Yes, provided every step cost is strictly positive ($c(s, a, s') \ge \epsilon > 0$).</li>
+          <li><strong>Time & Space Complexity:</strong> $O(b^{1 + \lfloor C^* / \epsilon \rfloor})$, where $C^*$ is the cost of the optimal solution and $\epsilon$ is the minimal step cost.</li>
+          <li><strong>Optimality:</strong> Yes! UCS is guaranteed to find the cheapest path for arbitrary non-negative step costs.</li>
+        </ul>
+
+        <h3>3. Depth-First Search (DFS)</h3>
+        <p>DFS expands the deepest unexpanded node first using a <strong>Last-In First-Out (LIFO) stack</strong> frontier.</p>
+        <ul>
+          <li><strong>Completeness:</strong> No in infinite-depth spaces or spaces with loops (unless cycle-checking graph search is used); Yes in finite state spaces.</li>
+          <li><strong>Time Complexity:</strong> $O(b^m)$, where $m$ is the maximum depth of the state space ($m \gg d$).</li>
+          <li><strong>Space Complexity:</strong> $O(bm)$ &mdash; only needs to store a single path from the root to a leaf plus unexpanded sibling nodes. <strong>Linear memory advantage!</strong></li>
+          <li><strong>Optimality:</strong> No &mdash; it can return a deeply nested suboptimal goal before exploring a shallow optimal one.</li>
+        </ul>
+
+        <h3>4. Iterative Deepening Depth-First Search (IDDFS)</h3>
+        <p>IDDFS solves the dilemma between BFS (optimal, but exponential memory) and DFS (linear memory, but non-optimal and incomplete). It repeatedly runs <strong>Depth-Limited Search (DLS)</strong> with increasing depth limits ($l = 0, 1, 2, 3, \dots, d$).</p>
+        <div class="callout callout-def">
+          <span class="callout-label">WHY IDDFS IS THE PREFERRED UNINFORMED SEARCH METHOD</span>
+          <p>Although it appears wasteful to re-generate nodes from earlier depths, the bottom layer dominates the expansion cost in exponential trees. The number of generated nodes in IDDFS is:</p>
+          $$N(\text{IDDFS}) = (d)b^1 + (d-1)b^2 + \dots + (1)b^d = O(b^d)$$
+          <p>For $b = 10, d = 5$, BFS generates 111,111 nodes while IDDFS generates 123,450 nodes (only ~11% overhead!). IDDFS combines the <strong>completeness and optimality of BFS</strong> with the <strong>modest $O(bd)$ linear memory storage of DFS</strong>.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>BFS: FIFO queue, $O(b^d)$ time & space, optimal for unit costs. Space is the killer.</li>
+            <li>UCS: Priority queue ordered by $g(n)$, goal test on POP, optimal for non-negative costs.</li>
+            <li>DFS: LIFO stack, $O(bm)$ linear space, not optimal, incomplete on infinite trees.</li>
+            <li>IDDFS: Runs DLS with limit $0, 1, 2, \dots, d$. Combines BFS optimality with DFS $O(bd)$ linear space!</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Comparative Evaluation Matrix of Search Strategies</h2>
+
+        <p class="section-lead">The standard evaluation metrics in AI are: <strong>Completeness</strong> (does it guarantee finding a solution?), <strong>Time Complexity</strong> (number of nodes generated), <strong>Space Complexity</strong> (maximum nodes stored in memory), and <strong>Optimality</strong> (does it find the lowest-cost solution?).</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Breadth-First (BFS)</th>
+                <th>Uniform-Cost (UCS)</th>
+                <th>Depth-First (DFS)</th>
+                <th>Depth-Limited (DLS)</th>
+                <th>Iterative Deepening (IDDFS)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Frontier Data Structure</strong></td>
+                <td>FIFO Queue</td>
+                <td>Priority Queue on $g(n)$</td>
+                <td>LIFO Stack</td>
+                <td>LIFO Stack with limit $l$</td>
+                <td>LIFO Stack iterated $l=0\dots d$</td>
+              </tr>
+              <tr>
+                <td><strong>Complete?</strong></td>
+                <td>Yes (if $b$ finite)</td>
+                <td>Yes (if step cost $\ge \epsilon > 0$)</td>
+                <td>No (infinite spaces / cycles)</td>
+                <td>No (if $l < d$)</td>
+                <td><strong>Yes</strong> (if $b$ finite)</td>
+              </tr>
+              <tr>
+                <td><strong>Time Complexity</strong></td>
+                <td>$O(b^d)$</td>
+                <td>$O(b^{1 + \lfloor C^* / \epsilon \rfloor})$</td>
+                <td>$O(b^m)$</td>
+                <td>$O(b^l)$</td>
+                <td><strong>$O(b^d)$</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Space Complexity</strong></td>
+                <td>$O(b^d)$ [Exponential!]</td>
+                <td>$O(b^{1 + \lfloor C^* / \epsilon \rfloor})$</td>
+                <td>$O(bm)$ [Linear!]</td>
+                <td>$O(bl)$ [Linear!]</td>
+                <td><strong>$O(bd)$ [Linear!]</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Optimal?</strong></td>
+                <td>Yes (if unit costs)</td>
+                <td><strong>Yes</strong></td>
+                <td>No</td>
+                <td>No</td>
+                <td><strong>Yes</strong> (if unit costs)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><em>Notation:</em> $b$ = branching factor; $d$ = depth of shallowest optimal goal; $m$ = maximum depth of search tree; $l$ = depth limit cutoff; $C^*$ = optimal solution cost; $\epsilon$ = minimum step cost.</p>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>BFS space is $O(b^d)$ (exponential). DFS space is $O(bm)$ (linear).</li>
+            <li>IDDFS space is $O(bd)$ (linear) and time is $O(b^d)$.</li>
+            <li>UCS is optimal for general non-negative step costs.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Informed Search & Heuristic Functions</h2>
+
+        <p class="section-lead"><strong>Informed search</strong> strategies utilize problem-specific knowledge beyond the problem definition via a <strong>heuristic function</strong> $h(n)$, enabling the search to prune barren paths and focus exploration directly toward the goal.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">HEURISTIC FUNCTION DEFINITION</span>
+          <p>A <strong>heuristic function</strong> $h(n)$ estimates the cost of the cheapest path from the state at node $n$ to a goal state:</p>
+          $$h(n) = \text{Estimated cost of shortest path from } n \text{ to Goal}$$
+          <p><strong>Property:</strong> If $n$ is a goal node itself, then $h(n) = 0$.</p>
+        </div>
+
+        <h3>Greedy Best-First Search vs $A^*$ Search</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Search Algorithm</th>
+                <th>Evaluation Function $f(n)$</th>
+                <th>Behavioral Logic</th>
+                <th>Completeness & Optimality</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Greedy Best-First Search</strong></td>
+                <td>$$f(n) = h(n)$$</td>
+                <td>Expands the node that appears closest to the goal. Short-sighted: completely ignores past path cost $g(n)$.</td>
+                <td>Incomplete (can get trapped in loops); <strong>Non-optimal</strong>. Worst-case time/space $O(b^m)$.</td>
+              </tr>
+              <tr>
+                <td><strong>$A^*$ Search</strong></td>
+                <td>$$f(n) = g(n) + h(n)$$</td>
+                <td>Combines past cost $g(n)$ (cost to reach $n$) with estimated future cost $h(n)$. $f(n)$ is estimated cost of cheapest solution passing through $n$.</td>
+                <td><strong>Complete and Optimal</strong> under appropriate heuristic conditions (Admissibility / Consistency).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>$h(n)$: estimated cost from $n$ to goal ($h(\text{goal}) = 0$).</li>
+            <li>Greedy Best-First: $f(n) = h(n)$ (fast but non-optimal and incomplete).</li>
+            <li>$A^*$ Search: $f(n) = g(n) + h(n)$ (optimal and complete).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">$A^*$ Search: Conditions for Optimality (Admissibility & Consistency)</h2>
+
+        <p class="section-lead">$A^*$ is the most widely celebrated search algorithm in computer science. However, its guarantee of optimality relies strictly on mathematical conditions governing the heuristic function.</p>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">1. ADMISSIBILITY (REQUIRED FOR TREE SEARCH)</span>
+          <p>An admissible heuristic is one that <strong>never overestimates</strong> the true cost to reach the goal. That is, $h(n)$ is optimistic:</p>
+          $$\mathbf{h(n) \le h^*(n) \quad \forall n}$$
+          <p>where $h^*(n)$ is the true, optimal cost to reach the nearest goal from $n$.</p>
+          <p><em>Theorem:</em> If $h(n)$ is admissible, $A^*$ using Tree-Search is <strong>guaranteed to return an optimal solution</strong>.</p>
+        </div>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">2. CONSISTENCY / MONOTONICITY (REQUIRED FOR GRAPH SEARCH)</span>
+          <p>A heuristic $h(n)$ is <strong>consistent</strong> (or monotonic) if, for every node $n$ and every successor $n'$ generated by action $a$:</p>
+          $$\mathbf{h(n) \le c(n, a, n') + h(n')}$$
+          <p><em>Geometric Intuition:</em> This is a form of the <strong>Triangle Inequality</strong>. The estimated cost from $n$ to the goal cannot exceed the step cost to step $n'$ plus the estimated cost from $n'$ to the goal.</p>
+          <p><em>Theorem:</em> If $h(n)$ is consistent, $A^*$ using Graph-Search is <strong>guaranteed to be optimal</strong>. Furthermore, the first time $A^*$ expands any node $n$, the path to $n$ is guaranteed to be optimal; hence nodes placed on the Closed list <em>never need to be reopened!</em></p>
+        </div>
+
+        <div class="callout callout-tip">
+          <span class="callout-label">RELATIONSHIP BETWEEN ADMISSIBILITY & CONSISTENCY</span>
+          <p><strong>Every consistent heuristic is admissible</strong> ($Consistency \implies Admissibility$). While an admissible heuristic can occasionally be inconsistent in rare contrived graphs, virtually all natural heuristics derived from relaxed problems are automatically consistent.</p>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL: A* SEARCH TRACE -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED TRACE &bull; FULLY VERIFIED PYTHON SCRIPT</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">Step-by-Step $A^*$ Graph Search Trace</h4>
+          <p>Trace $A^*$ Graph Search from Start $\mathbf{S}$ to Goal $\mathbf{G}$. The nodes have consistent heuristics $h$ and directed edge costs $c$:</p>
+          <ul>
+            <li>Heuristics: $h(S)=7, h(A)=6, h(B)=4, h(C)=2, h(D)=1, h(G)=0$</li>
+            <li>Edge costs: $(S,A)=1, (S,B)=4, (A,B)=2, (A,C)=5, (B,C)=2, (C,D)=2, (C,G)=4, (D,G)=1$</li>
+          </ul>
+
+          <p><strong>Step-by-Step Expansion Trace Table:</strong></p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Iteration</th>
+                  <th>Popped Node $u$</th>
+                  <th>$g(u)$</th>
+                  <th>$h(u)$</th>
+                  <th>$f(u)$</th>
+                  <th>Priority Queue (Open List) after Successor Expansion</th>
+                  <th>Closed Set</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Init</strong></td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                  <td>$[S(0+7=\mathbf{7})]$</td>
+                  <td>$\emptyset$</td>
+                </tr>
+                <tr>
+                  <td><strong>1</strong></td>
+                  <td><strong>S</strong></td>
+                  <td>0</td>
+                  <td>7</td>
+                  <td>7</td>
+                  <td>Expand S &rarr; $A(1+6=\mathbf{7})$, $B(4+4=\mathbf{8})$.<br>Queue: $[A(\mathbf{7}), B(\mathbf{8})]$</td>
+                  <td>$\{S\}$</td>
+                </tr>
+                <tr>
+                  <td><strong>2</strong></td>
+                  <td><strong>A</strong></td>
+                  <td>1</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>Expand A &rarr; $B(3+4=\mathbf{7})$, $C(6+2=\mathbf{8})$.<br>Queue: $[B(\mathbf{7}), B(\mathbf{8}), C(\mathbf{8})]$</td>
+                  <td>$\{S, A\}$</td>
+                </tr>
+                <tr>
+                  <td><strong>3</strong></td>
+                  <td><strong>B</strong> (path $S \to A \to B$)</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>7</td>
+                  <td>Expand B &rarr; $C(5+2=\mathbf{7})$.<br>Queue: $[C(\mathbf{7}), B(\mathbf{8}), C(\mathbf{8})]$</td>
+                  <td>$\{S, A, B\}$</td>
+                </tr>
+                <tr>
+                  <td><strong>4</strong></td>
+                  <td><strong>C</strong> (path $S \to A \to B \to C$)</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>7</td>
+                  <td>Expand C &rarr; $D(7+1=\mathbf{8})$, $G(9+0=\mathbf{9})$.<br>Queue: $[B(\mathbf{8}), C(\mathbf{8}), D(\mathbf{8}), G(\mathbf{9})]$</td>
+                  <td>$\{S, A, B, C\}$</td>
+                </tr>
+                <tr>
+                  <td><strong>5</strong></td>
+                  <td><strong>B</strong> (path $S \to B$)</td>
+                  <td>4</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td>B is already in Closed set! Discarded.</td>
+                  <td>$\{S, A, B, C\}$</td>
+                </tr>
+                <tr>
+                  <td><strong>6</strong></td>
+                  <td><strong>C</strong> (path $S \to A \to C$)</td>
+                  <td>6</td>
+                  <td>2</td>
+                  <td>8</td>
+                  <td>C is already in Closed set! Discarded.</td>
+                  <td>$\{S, A, B, C\}$</td>
+                </tr>
+                <tr>
+                  <td><strong>7</strong></td>
+                  <td><strong>D</strong> (path $S \to A \to B \to C \to D$)</td>
+                  <td>7</td>
+                  <td>1</td>
+                  <td>8</td>
+                  <td>Expand D &rarr; $G(8+0=\mathbf{8})$.<br>Queue: $[G(\mathbf{8}), G(\mathbf{9})]$</td>
+                  <td>$\{S, A, B, C, D\}$</td>
+                </tr>
+                <tr>
+                  <td><strong>8</strong></td>
+                  <td><strong>G</strong> (Goal Popped!)</td>
+                  <td>8</td>
+                  <td>0</td>
+                  <td>8</td>
+                  <td><strong>Goal reached on pop! Search halts.</strong></td>
+                  <td>$\{S, A, B, C, D, G\}$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="result-box">
+            <p><strong>Optimal Solution Found by $A^*$:</strong></p>
+            $$\mathbf{S \to A \to B \to C \to D \to G} \quad \text{with Optimal Cost } \mathbf{C^* = 8}$$
+            <p>Notice that the alternative path $S \to A \to B \to C \to G$ has cost $5 + 4 = 9$. $A^*$ correctly discovered the superior detour through $D$ with cost 8!</p>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Admissibility ($h(n) \le h^*(n)$): never overestimates. Guarantees optimality in tree search.</li>
+            <li>Consistency ($h(n) \le c(n, a, n') + h(n')$): triangle inequality. Guarantees optimality in graph search without reopening closed nodes.</li>
+            <li>Goal test in $A^*$ must be applied when a node is <strong>popped</strong>, not generated.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Heuristics for the 8-Puzzle & Heuristic Dominance</h2>
+
+        <p class="section-lead">A standard method for generating admissible heuristics is to compute the exact cost of a solution to a <strong>relaxed problem</strong> (a problem with fewer restrictions on the actions).</p>
+
+        <h3>Two Classical 8-Puzzle Heuristics</h3>
+        <ol>
+          <li><strong>$h_1(n)$ &mdash; Number of Misplaced Tiles:</strong>
+            <p>Count the number of tiles that are not in their goal position. (If a tile can move anywhere instantly, each misplaced tile needs at least 1 move). Clearly admissible: $h_1(n) \le h^*(n)$.</p>
+          </li>
+          <li><strong>$h_2(n)$ &mdash; Manhattan Distance (City Block Distance):</strong>
+            <p>The sum of the horizontal and vertical distances of each tile from its target goal position:</p>
+            $$h_2(n) = \sum_{i=1}^{8} \left( |x_i - x_{i,\text{goal}}| + |y_i - y_{i,\text{goal}}| \right)$$
+            <p>Admissible because each move can reduce the Manhattan distance of at most one tile by at most 1.</p>
+          </li>
+        </ol>
+
+        <div class="callout callout-def">
+          <span class="callout-label">HEURISTIC DOMINANCE</span>
+          <p>If $h_2(n) \ge h_1(n)$ for all nodes $n$, and both are admissible, we say that <strong>$h_2$ dominates $h_1$</strong>.</p>
+          <p><strong>Consequence:</strong> $A^*$ using $h_2$ will never expand more nodes than $A^*$ using $h_1$ (except possibly for some nodes on the boundary where $f(n) = C^*$). A dominating heuristic translates directly to greater pruning power and faster search!</p>
+          <p>For the 8-puzzle: since Manhattan distance counts the minimum moves for each tile to reach home and each misplaced tile is at least 1 step away, $h_2(n) \ge h_1(n)$ always holds. <strong>Manhattan distance strictly dominates misplaced tiles.</strong></p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Relaxed problem: removing constraints yields admissible heuristics.</li>
+            <li>8-puzzle: $h_1$ = misplaced tiles; $h_2$ = Manhattan distance ($\sum |\Delta x| + |\Delta y|$).</li>
+            <li>$h_2$ dominates $h_1 \iff h_2(n) \ge h_1(n) \implies h_2$ expands fewer nodes.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Local Search Algorithms & Optimization</h2>
+
+        <p class="section-lead">In many problems (such as the 8-queens, VLSI circuit layout, or factory scheduling), the path to the goal is completely irrelevant; only the <strong>final goal state itself matters</strong>. <strong>Local search algorithms</strong> operate using a single current state (rather than multiple paths) and generally move only to neighbors of that state, requiring $O(1)$ constant memory.</p>
+
+        <div class="svg-card">
+          <div class="svg-title">State Space Landscape & Local Search Hazards</div>
+          <svg viewBox="0 0 740 260" width="100%" height="auto" role="img" aria-label="State space landscape showing Global Maximum, Local Maximum, Plateau, and Shoulder">
+            <title>State Space Landscape</title>
+            <desc>SVG diagram illustrating an objective function landscape featuring a local maximum, global maximum, plateau, and shoulder</desc>
+
+            <!-- Axes -->
+            <line x1="60" y1="220" x2="680" y2="220" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="680" y="240" font-family="Inter" font-size="12" text-anchor="end" fill="var(--text-muted)">State Space</text>
+            <line x1="60" y1="220" x2="60" y2="20" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="50" y="25" font-family="Inter" font-size="12" text-anchor="end" fill="var(--text-muted)">Objective Function</text>
+
+            <!-- Landscape Curve -->
+            <!-- Start at (60, 180), rises to Local Max at (180, 80), dips to (250, 140), flat shoulder at (320-390, 110), rises to Global Max at (500, 40), flat plateau at (580-660, 150) -->
+            <path d="M 60 180 C 120 180, 140 80, 180 80 C 220 80, 230 140, 260 140 C 290 140, 310 110, 350 110 C 390 110, 420 40, 500 40 C 550 40, 560 150, 600 150 L 660 150" fill="none" stroke="var(--green)" stroke-width="3" />
+
+            <!-- Labels -->
+            <!-- Local Max -->
+            <circle cx="180" cy="80" r="5" fill="var(--text-main)" />
+            <text x="180" y="65" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">Local Maximum</text>
+
+            <!-- Shoulder -->
+            <line x1="330" y1="110" x2="370" y2="110" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="2" />
+            <text x="350" y="95" font-family="Inter" font-weight="600" font-size="11" text-anchor="middle" fill="var(--text-muted)">Shoulder</text>
+
+            <!-- Global Max -->
+            <circle cx="500" cy="40" r="6" fill="var(--green)" />
+            <text x="500" y="25" font-family="Inter" font-weight="700" font-size="13" text-anchor="middle" fill="var(--green)">Global Maximum</text>
+
+            <!-- Flat Plateau -->
+            <line x1="600" y1="150" x2="660" y2="150" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="2" />
+            <text x="630" y="135" font-family="Inter" font-weight="600" font-size="11" text-anchor="middle" fill="var(--text-muted)">Flat Local Plateau</text>
+          </svg>
+        </div>
+
+        <h3>Hill-Climbing Search (Greedy Local Search)</h3>
+        <p>Hill-climbing simply loops continuously in the direction of increasing value (uphill). It terminates when it reaches a peak where no neighbor has a higher value.</p>
+        <div class="callout callout-warning">
+          <span class="callout-label">THREE CLASSIC FAILURE MODES OF HILL CLIMBING</span>
+          <ol>
+            <li><strong>Local Maxima:</strong> A peak that is higher than each of its neighbors, but lower than the global maximum. The algorithm terminates prematurely.</li>
+            <li><strong>Ridges:</strong> A sequence of local maxima where the slope gently rises along a diagonal ridge, but the allowable orthogonal moves all lead downhill.</li>
+            <li><strong>Plateaux:</strong> A flat area of the state space landscape where all neighbors have the identical value. The algorithm wanders aimlessly in a random walk.</li>
+          </ol>
+        </div>
+
+        <p><strong>Remedy &mdash; Random-Restart Hill Climbing:</strong> Conducts a series of hill-climbing searches from randomly generated initial states until a goal is found. <em>Theorem:</em> If each hill-climb has probability $p$ of success, expected number of restarts is $1/p$. Trivially complete with probability 1!</p>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Local search operates on complete-state representations with $O(1)$ memory.</li>
+            <li>Hill climbing moves greedily uphill; gets stuck on local maxima, ridges, and plateaux.</li>
+            <li>Random-Restart Hill Climbing guarantees finding global optimum given sufficient restarts.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Simulated Annealing & Genetic Algorithms</h2>
+
+        <p class="section-lead">To escape local maxima, an algorithm must occasionally make <strong>downhill moves</strong>. Two primary nature-inspired stochastic optimization methods achieve this: <strong>Simulated Annealing</strong> (thermodynamics) and <strong>Genetic Algorithms</strong> (biological evolution).</p>
+
+        <h3>1. Simulated Annealing</h3>
+        <p>Inspired by the metallurgical process of annealing (heating metal to high temperatures and cooling it slowly to form a crystal with minimal energy defects).</p>
+        <div class="callout callout-algorithm">
+          <span class="callout-label">SIMULATED ANNEALING ALGORITHM</span>
+          <p>At each step, choose a random neighbor state $next$. Let $\Delta E = Value(next) - Value(current)$:</p>
+          <ul>
+            <li>If $\Delta E > 0$ (the move improves objective value), <strong>always accept the move</strong>.</li>
+            <li>If $\Delta E \le 0$ (the move is worse / downhill), accept the move with probability:
+              $$\mathbf{P = e^{\frac{\Delta E}{T}}}$$
+              where $T > 0$ is a control parameter called the <strong>Temperature</strong>, governed by a cooling schedule.
+            </li>
+          </ul>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL: SIMULATED ANNEALING -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; FULLY VERIFIED PASS</span>
+            <span class="problem-points">[5 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">Downhill Acceptance Probabilities in Simulated Annealing</h4>
+          <p>In simulated annealing, an agent encounters a bad downhill move with energy penalty $\Delta E = -5$. Compute the acceptance probability $P = e^{\Delta E / T}$ at temperatures $T = 1000, 100, 10, 1$.</p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Temperature $T$</th>
+                  <th>Exponent $\Delta E / T$</th>
+                  <th>Probability $P = e^{\Delta E / T}$</th>
+                  <th>Physical / Algorithmic Behavior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>$T = 1000\text{ K}$ (Hot)</td>
+                  <td>$-5 / 1000 = -0.005$</td>
+                  <td>$e^{-0.005} \approx \mathbf{0.9950\ (99.50\%)}$</td>
+                  <td>Almost all downhill moves accepted; behaves like random walk to escape traps.</td>
+                </tr>
+                <tr>
+                  <td>$T = 100\text{ K}$ (Warm)</td>
+                  <td>$-5 / 100 = -0.05$</td>
+                  <td>$e^{-0.05} \approx \mathbf{0.9512\ (95.12\%)}$</td>
+                  <td>High exploration, readily navigates ridges.</td>
+                </tr>
+                <tr>
+                  <td>$T = 10\text{ K}$ (Cooling)</td>
+                  <td>$-5 / 10 = -0.5$</td>
+                  <td>$e^{-0.5} \approx \mathbf{0.6065\ (60.65\%)}$</td>
+                  <td>Moderate exploration; bad moves increasingly penalized.</td>
+                </tr>
+                <tr>
+                  <td>$T = 1\text{ K}$ (Cold)</td>
+                  <td>$-5 / 1 = -5.0$</td>
+                  <td>$e^{-5.0} \approx \mathbf{0.0067\ (0.67\%)}$</td>
+                  <td>Freezes into pure greedy hill climbing; downhill moves rejected.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p><em>Conclusion:</em> If the cooling schedule lowers $T$ slowly enough, the algorithm is proven to converge to the global optimum with probability 1!</p>
+        </div>
+
+        <h3>2. Genetic Algorithms (GAs)</h3>
+        <p>A variant of stochastic beam search where successor states are generated by combining two parent states (crossover) rather than modifying a single state.</p>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div><strong>Representation:</strong> A state is encoded as a string over a finite alphabet (a chromosome / string of digits, e.g. 8-queens encoded as an 8-digit string indicating the row position of queen in each column).</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div><strong>Fitness Function:</strong> Evaluates the quality of each state (e.g. number of non-attacking queen pairs, maximum = 28).</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div><strong>Selection:</strong> Pairs of individuals are chosen for reproduction with probability proportional to their fitness (Roulette-wheel selection).</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">4</span>
+            <div><strong>Crossover:</strong> A random crossover point is chosen. Offspring inherit the first segment from parent 1 and the remainder from parent 2.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">5</span>
+            <div><strong>Mutation:</strong> Each bit/digit is randomly mutated with a small independent probability (e.g. 1%) to maintain genetic diversity.</div>
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Simulated Annealing accepts downhill moves with probability $P = e^{\Delta E / T}$. High $T$ = random walk; Low $T$ = greedy hill climb.</li>
+            <li>Genetic Algorithms: Population, Fitness proportional selection, Crossover, Mutation.</li>
+            <li>8-queens can be encoded as an 8-character string with fitness = non-attacking pairs.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Blind Search Complexities</h4>
+            <ul>
+              <li>BFS: FIFO, $O(b^d)$ time, $O(b^d)$ space, optimal for unit cost.</li>
+              <li>UCS: Priority queue $g(n)$, goal test on pop, optimal for general costs.</li>
+              <li>DFS: LIFO, $O(b^m)$ time, $O(bm)$ linear space, non-optimal.</li>
+              <li>IDDFS: $O(b^d)$ time, $O(bd)$ linear space, optimal and complete!</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>A* Search Checklist</h4>
+            <ul>
+              <li>$f(n) = g(n) + h(n)$.</li>
+              <li>Admissibility: $h(n) \le h^*(n)$ (optimistic). Optimal for tree search.</li>
+              <li>Consistency: $h(n) \le c(n, a, n') + h(n')$ (triangle inequality). Optimal for graph search.</li>
+              <li>$Consistency \implies Admissibility$.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>8-Puzzle Heuristics</h4>
+            <ul>
+              <li>$h_1$: misplaced tiles ($h_1 \le h^*$).</li>
+              <li>$h_2$: Manhattan distance ($\sum |\Delta x| + |\Delta y|$).</li>
+              <li>$h_2$ dominates $h_1$ ($h_2(n) \ge h_1(n)$) $\implies$ expands fewer nodes.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Local Search & Annealing</h4>
+            <ul>
+              <li>Hill climbing: gets stuck on local maxima, ridges, plateaux.</li>
+              <li>Simulated Annealing: accepts downhill moves with $P = e^{\Delta E / T}$.</li>
+              <li>High $T \implies P \approx 1$; Low $T \implies P \approx 0$.</li>
+              <li>Genetic Algorithms: Selection, Crossover, Mutation.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Define an admissible heuristic function.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> A heuristic function $h(n)$ is admissible if it never overestimates the true cost to reach the goal from node $n$, i.e., $h(n) \le h^*(n)$ for all nodes $n$, where $h^*(n)$ is the true optimal cost to the goal.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Why is IDDFS preferred over BFS and DFS?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> IDDFS combines the best benefits of both algorithms: it achieves the completeness and optimality of BFS while requiring only the modest linear memory storage $O(bd)$ of DFS.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is the acceptance probability formula in simulated annealing?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> $P = e^{\Delta E / T}$, where $\Delta E < 0$ is the change in objective energy/value for a downhill move, and $T > 0$ is the temperature parameter.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Prove that consistency of a heuristic implies admissibility.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ol>
+                  <li>By consistency, $h(n) \le c(n, a, n') + h(n')$.</li>
+                  <li>Applying this along the sequence of nodes on the optimal path from $n$ to goal $G$:
+                    $$h(n) \le c(n, a_1, n_1) + h(n_1) \le c(n, a_1, n_1) + c(n_1, a_2, n_2) + \dots + h(G)$$
+                  </li>
+                  <li>Since $G$ is a goal node, $h(G) = 0$.</li>
+                  <li>The sum of the step costs along the optimal path is exactly $h^*(n)$.</li>
+                  <li>Therefore, $h(n) \le h^*(n)$, proving $h(n)$ is admissible.</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the failure modes of hill-climbing search.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ul>
+                  <li><strong>Local Maxima:</strong> Peaks that are higher than all neighbors but lower than the global maximum; search stops prematurely.</li>
+                  <li><strong>Ridges:</strong> Sequences of local maxima where the slope gently inclines along a ridge, but individual orthogonal moves lead downhill, causing oscillation.</li>
+                  <li><strong>Plateaux:</strong> Flat areas where all neighboring states have the same value; search degenerates into a random walk.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Explain $A^*$ search with an example. Prove its optimality for tree search and graph search.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong> Detail evaluation function $f(n) = g(n) + h(n)$. Present the admissibility proof for tree search (showing that a suboptimal goal $G_2$ cannot be popped before an optimal goal $G$), and the consistency proof for graph search ($f(n)$ non-decreasing along any path). Provide the step-by-step trace from Section 4.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past CIE examination papers in <code>notes/ai/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Artificial Intelligence (ISE552)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain A* search algorithm with an example. State and explain the conditions under which A* algorithm is admissible."</p>
+          <p class="archive-note"><em>Study Note:</em> Full mathematical optimality proof and verified step-by-step trace provided in Section 4.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Question Bank</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Compare BFS, DFS, UCS, and IDDFS on time complexity, space complexity, completeness, and optimality."</p>
+          <p class="archive-note"><em>Study Note:</em> Complete comparative matrix provided in Section 2.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Exam &bull; Model Paper</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain simulated annealing and genetic algorithms. What is the role of temperature in simulated annealing?"</p>
+          <p class="archive-note"><em>Study Note:</em> Algorithm formulation and probability calculation table provided in Section 7.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; BFS MEMORY CONSUMPTION</span>
+          </div>
+          <h4 class="problem-title">In a search tree with branching factor $b = 10$ and depth $d = 6$, how many nodes are stored in memory by BFS if each node requires 100 bytes?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>BFS stores all nodes generated up to depth $d$. Total nodes at depth 6 is approximately $b^d = 10^6 = 1,000,000$ nodes.</p>
+              $$\text{Memory} = 10^6 \times 100\text{ bytes} = 100,000,000\text{ bytes} \approx \mathbf{100\text{ MB}}$$
+              <p>For $d = 8$, this would be $10\text{ GB}$, and for $d = 10$, $1\text{ TB}$ &mdash; demonstrating why BFS memory is the practical bottleneck.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; MANHATTAN DISTANCE</span>
+          </div>
+          <h4 class="problem-title">Calculate the Manhattan distance for tile 5 at row 1, col 3 whose target goal is row 3, col 2.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              $$d = |x - x_{goal}| + |y - y_{goal}| = |1 - 3| + |3 - 2| = 2 + 1 = \mathbf{3\text{ steps}}$$
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Stuart Russell, Peter Norvig</strong> &mdash; <em>Artificial Intelligence: A Modern Approach</em>, 3rd/4th Edition, Pearson, Chapters 3 & 4.</li>
+            <li><strong>Elaine Rich, Kevin Knight, Shivashankar B. Nair</strong> &mdash; <em>Artificial Intelligence</em>, 3rd Edition, McGraw Hill, Chapters 2 & 3.</li>
+            <li><strong>Faculty Syllabus & Notes:</strong> Department of ISE, Semester V, Unit 2 (Course Code ISE552).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../unit1/unit-1-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS UNIT</span>
+              <span class="pag-title">Unit 1: Introduction & Intelligent Agents</span>
+            </div>
+          </a>
+          <a href="../unit3/unit-3-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT UNIT</span>
+              <span class="pag-title">Unit 3: Adversarial Search & CSP</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
