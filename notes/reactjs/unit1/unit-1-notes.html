@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReactJS Unit 1: Introduction to React, Vite &amp; JSX | SEM5 Study Notes</title>
+  <meta name="description" content="Exam-focused interactive HTML notes for Front End Development using ReactJS (ISAEC594) Unit 1: React philosophy, Virtual DOM, Vite setup, project structure, JSX syntax, embedding expressions, conditional rendering, and compilation.">
+  <link rel="stylesheet" href="../../../css/notes.css">
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <script defer src="../../../assets/katex/katex.min.js"></script>
+  <script defer src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script defer src="../../../js/notes.js"></script>
+</head>
+<body data-theme="light">
+  <!-- Skip to Main Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="notes-header">
+    <div class="header-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">Semester V</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="../../../index.html#reactjs">ReactJS (ISAEC594)</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Unit 1</span>
+      </nav>
+
+      <div class="header-main">
+        <div class="header-left">
+          <div class="badge-row">
+            <span class="badge badge-course">ISAEC594</span>
+            <span class="badge badge-unit">Unit 1</span>
+            <span class="badge badge-reading-time">⏱️ 38 min read</span>
+          </div>
+          <h1 class="unit-title">Introduction to React, Vite &amp; JSX</h1>
+          <p class="unit-subtitle">React philosophy, component-based declarative UI, Virtual DOM &amp; reconciliation, Vite tooling, project architecture, JSX rules, expressions, and conditional rendering.</p>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn-action" aria-label="Toggle theme">
+            <span class="icon">🌓</span> <span class="action-text">Theme</span>
+          </button>
+          <button id="print-btn" class="btn-action" aria-label="Print or save as PDF">
+            <span class="icon">🖨️</span> <span class="action-text">Print / PDF</span>
+          </button>
+          <button id="mark-done-btn" class="btn-action" aria-label="Mark unit as completed">
+            <span class="icon">✅</span> <span class="action-text">Mark Done</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Syllabus Topics Bar -->
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <span class="syllabus-tag">Syllabus Breakdown</span>
+          <span class="syllabus-count">8 Core Modules</span>
+        </div>
+        <ul class="syllabus-list">
+          <li><strong>React Foundations:</strong> Features of React, Declarative UI, Component-Based Architecture, One-Way Data Flow</li>
+          <li><strong>The Virtual DOM:</strong> Real DOM bottlenecks, Virtual DOM diffing, reconciliation algorithm, Fiber batching</li>
+          <li><strong>Framework Comparison:</strong> React (Library) vs. Angular (Framework) vs. Vue.js</li>
+          <li><strong>Tooling &amp; Setup:</strong> Node.js, npm, why Vite replaced CRA, bootstrapping a modern React app</li>
+          <li><strong>Project Structure:</strong> Directory walkthrough, `main.jsx`, `createRoot()`, component mounting lifecycle</li>
+          <li><strong>JSX Syntax Rules:</strong> Single root requirement, closing tags, camelCase attributes (`className`, `htmlFor`)</li>
+          <li><strong>Embedding Expressions:</strong> Curly braces `{}` evaluation, variable interpolation, function calls</li>
+          <li><strong>Conditional &amp; List Rendering:</strong> Ternaries, short-circuit `&&`, `.map()` list transformation, and `key` prop</li>
+        </ul>
+      </div>
+
+      <!-- Original Faculty Files Download Links -->
+      <div class="source-links-card">
+        <span class="source-label">Official Syllabus Reference:</span>
+        <a href="https://legacy.reactjs.org/docs/introducing-jsx.html" class="source-link" target="_blank" rel="noopener">🌐 Official React Docs: Introducing JSX</a>
+        <a href="https://vitejs.dev/guide/" class="source-link" target="_blank" rel="noopener">⚡ Vite Official Documentation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Layout with Sticky TOC -->
+  <div class="notes-layout">
+    <!-- Sticky Desktop / Mobile Accordion Navigation -->
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-sticky-container">
+        <div class="toc-header">
+          <h2 class="toc-title">On this page</h2>
+          <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-nav">Contents ▾</button>
+        </div>
+        <nav id="toc-nav" class="toc-nav">
+          <ol class="toc-list">
+            <li><a href="#sec-react-philosophy">1. What is React? &amp; Core Philosophy</a></li>
+            <li><a href="#sec-virtual-dom">2. The Virtual DOM &amp; Reconciliation</a></li>
+            <li><a href="#sec-framework-comparison">3. React vs. Angular vs. Vue</a></li>
+            <li><a href="#sec-vite-setup">4. Tooling &amp; Environment Setup (Vite)</a></li>
+            <li><a href="#sec-project-structure">5. React Project Structure &amp; Lifecycle</a></li>
+            <li><a href="#sec-jsx-fundamentals">6. Introduction to JSX &amp; Syntax Rules</a></li>
+            <li><a href="#sec-jsx-expressions">7. Embedding Expressions &amp; Evaluation</a></li>
+            <li><a href="#sec-conditional-lists">8. Conditional &amp; List Rendering</a></li>
+            <li><a href="#sec-jsx-compilation">9. JSX Compilation Under the Hood</a></li>
+            <li><a href="#sec-code-demos">10. Complete Tested Code Demonstrations</a></li>
+            <li><a href="#revision-sheet">11. Quick Revision Sheet</a></li>
+            <li><a href="#exam-questions">12. Exam Questions &amp; Practice</a></li>
+            <li><a href="#sec-references">13. Prescribed References</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="notes-body">
+
+      <!-- SECTION 1 -->
+      <section id="sec-react-philosophy" class="content-section">
+        <h2 class="section-title">1. What is React? &amp; Core Philosophy</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong>React</strong> is an open-source, component-based JavaScript library created by Jordan Walke at Facebook (Meta) in 2013 for building rich, interactive, and high-performance user interfaces for Single Page Applications (SPAs).</p>
+        </div>
+
+        <h3 class="subsection-title">1.1 The Three Pillars of React Philosophy</h3>
+        <ol>
+          <li><strong>1. Declarative UI (Declarative vs. Imperative Programming):</strong>
+            <ul>
+              <li><em>Imperative (Traditional DOM/jQuery):</em> You tell the browser step-by-step <em>how</em> to manipulate the DOM (e.g., <code>document.getElementById('btn').classList.add('active')</code>). This becomes notoriously bug-prone as application state grows complex.</li>
+              <li><em>Declarative (React):</em> You declare <em>what</em> the UI should look like for a given state (e.g., <code>&lt;button className={isActive ? 'active' : ''}&gt;</code>). React automatically handles the underlying DOM mutations when state transitions.</li>
+            </ul>
+          </li>
+          <li><strong>2. Component-Based Architecture:</strong> UIs are constructed as independent, reusable, self-contained bricks called <strong>components</strong>. Each component encapsulates its own structure, internal state, and rendering logic.</li>
+          <li><strong>3. One-Way (Unidirectional) Data Flow:</strong> Data strictly flows downward from parent components to child components via immutable <strong>props</strong>. This guarantees predictable state changes, eliminates cascading side-effects, and makes debugging straightforward.</li>
+        </ol>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>React is a declarative, component-driven UI library utilizing unidirectional data flow. You specify what the UI looks like for a state; React manages the DOM updates.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-virtual-dom" class="content-section">
+        <h2 class="section-title">2. The Virtual DOM &amp; Reconciliation</h2>
+        <h3 class="subsection-title">2.1 Why the Real Browser DOM is Slow</h3>
+        <p>The native Browser Document Object Model (DOM) is a tree-like object structure representing HTML elements. Direct DOM manipulation is computationally expensive because altering a single node frequently forces the browser layout engine to trigger:</p>
+        <ul>
+          <li><strong>Reflow (Layout calculation):</strong> Recalculating the geometric coordinates and bounding boxes of all surrounding elements on the page.</li>
+          <li><strong>Repaint:</strong> Redrawing pixels on screen to reflect style and geometry shifts.</li>
+        </ul>
+
+        <h3 class="subsection-title">2.2 What is the Virtual DOM?</h3>
+        <p>The <strong>Virtual DOM (VDOM)</strong> is a lightweight, pure JavaScript object tree stored in memory that mirrors the actual DOM. It contains no browser-specific layout APIs, making in-memory operations instantaneous.</p>
+
+        <!-- SVG 1.1: Virtual DOM Reconciliation Workflow -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 1.1: The Virtual DOM Diffing and Reconciliation Process</div>
+          <svg viewBox="0 0 780 240" class="svg-diagram" aria-label="Workflow diagram showing State Change leading to Previous VDOM and New VDOM diffing, calculating minimal patch and updating Real DOM">
+            <title>Virtual DOM Reconciliation Architecture</title>
+            <!-- Step 1: State Change -->
+            <rect x="20" y="80" width="130" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="85" y="110" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">State Change</text>
+            <text x="85" y="130" text-anchor="middle" fill="var(--text-secondary)" font-size="10">User Interaction</text>
+
+            <path d="M 150 115 L 180 115" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 2: New VDOM Tree -->
+            <rect x="190" y="40" width="160" height="70" rx="10" fill="var(--surface)" stroke="var(--green)" stroke-width="2"/>
+            <text x="270" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">New VDOM Tree</text>
+            <text x="270" y="90" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Re-rendered in Memory</text>
+
+            <rect x="190" y="130" width="160" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="270" y="160" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Previous VDOM Tree</text>
+            <text x="270" y="180" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Cached Snapshot</text>
+
+            <!-- Diffing Algorithm Box -->
+            <path d="M 350 75 L 390 100" stroke="var(--green)" stroke-width="2" fill="none"/>
+            <path d="M 350 165 L 390 130" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <rect x="400" y="75" width="170" height="80" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="485" y="105" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="13">Diffing Algorithm</text>
+            <text x="485" y="125" text-anchor="middle" fill="var(--green)" font-weight="600" font-size="11">$O(n)$ Heuristic Diff</text>
+            <text x="485" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Computes Delta Patch</text>
+
+            <path d="M 570 115 L 610 115" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Real DOM Batch Update -->
+            <rect x="620" y="75" width="140" height="80" rx="12" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5"/>
+            <text x="690" y="105" text-anchor="middle" font-weight="800" fill="var(--green)" font-size="13">Real Browser DOM</text>
+            <text x="690" y="125" text-anchor="middle" fill="var(--text-primary)" font-size="10">Targeted Patch</text>
+            <text x="690" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Minimal Reflow/Repaint</text>
+          </svg>
+          <div class="diagram-caption">Reconciliation compares the new VDOM against the previous VDOM snapshot using an $O(n)$ heuristic diff, applying only minimal batched patches to the real DOM.</div>
+        </div>
+
+        <h3 class="subsection-title">2.3 The Reconciliation Algorithm &amp; Fiber Architecture</h3>
+        <p>A generic tree diffing algorithm operates in $O(n^3)$ time complexity, which would be unusable for interfaces with thousands of elements. React achieves an optimal <strong>$O(n)$</strong> linear reconciliation via two core heuristics:</p>
+        <ol>
+          <li><strong>Different Element Types:</strong> Two elements of different HTML types (e.g. changing <code>&lt;div&gt;</code> to <code>&lt;span&gt;</code>) will tear down and completely reconstruct that entire subtree from scratch.</li>
+          <li><strong>Keys for List Elements:</strong> Developers supply a persistent <code>key</code> prop so React can identify which items were inserted, deleted, or reordered without re-rendering the whole collection.</li>
+        </ol>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>VDOM is a lightweight in-memory JS representation of the UI. Reconciliation compares the new VDOM to the old VDOM via an $O(n)$ heuristic diff and batches minimal updates to the real DOM.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-framework-comparison" class="content-section">
+        <h2 class="section-title">3. React vs. Other Front-End Frameworks (Angular &amp; Vue)</h2>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>React (Meta)</th>
+                <th>Angular (Google)</th>
+                <th>Vue.js (Evan You)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Classification</strong></td>
+                <td><strong>UI Library</strong> (Unopinionated, flexible).</td>
+                <td><strong>Full-fledged Framework</strong> (Batteries included, highly opinionated).</td>
+                <td><strong>Progressive Framework</strong> (Incremental adoption).</td>
+              </tr>
+              <tr>
+                <td><strong>Language &amp; Templates</strong></td>
+                <td>JavaScript / TypeScript with <strong>JSX</strong>.</td>
+                <td>TypeScript with HTML template directives (<code>*ngIf</code>, <code>*ngFor</code>).</td>
+                <td>HTML templates (<code>v-if</code>, <code>v-for</code>) or JSX.</td>
+              </tr>
+              <tr>
+                <td><strong>Data Binding</strong></td>
+                <td><strong>One-way</strong> (Unidirectional binding).</td>
+                <td><strong>Two-way</strong> (<code>[(ngModel)]</code>) &amp; One-way.</td>
+                <td><strong>Two-way</strong> (<code>v-model</code>) &amp; One-way.</td>
+              </tr>
+              <tr>
+                <td><strong>DOM Mechanism</strong></td>
+                <td>Virtual DOM with Fiber Reconciliation.</td>
+                <td>Real DOM with Incremental DOM and zone-based change detection.</td>
+                <td>Virtual DOM with template compiler optimizations.</td>
+              </tr>
+              <tr>
+                <td><strong>Learning Curve</strong></td>
+                <td>Moderate (requires JS fluency and ecosystem curation).</td>
+                <td>Steep (TypeScript, RxJS observables, Dependency Injection).</td>
+                <td>Gentle (standard HTML/CSS/JS syntax).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>React is a flexible UI library using one-way data binding and JSX; Angular is an opinionated full framework with two-way binding; Vue is a progressive template framework.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-vite-setup" class="content-section">
+        <h2 class="section-title">4. Setting Up the React Environment with Vite</h2>
+        <h3 class="subsection-title">4.1 Why Vite Over Create React App (CRA)?</h3>
+        <p>The legacy <em>Create React App (CRA)</em> utility relied on Webpack, which bundles the entire application codebase in memory before serving, leading to sluggish server start times and slow rebuilds as projects grew. <strong>Vite</strong> revolutionizes frontend tooling:</p>
+        <ul>
+          <li><strong>Instant Server Start:</strong> Leverages native browser ES Modules (ESM) to serve source code on-demand without bundling beforehand.</li>
+          <li><strong>Lightning-Fast Pre-bundling:</strong> Uses <code>esbuild</code> (written in Go), pre-bundling dependencies $10-100\times$ faster than JavaScript-based bundlers.</li>
+          <li><strong>Hot Module Replacement (HMR):</strong> Updates modified component files instantly in the browser without losing application state.</li>
+        </ul>
+
+        <h3 class="subsection-title">4.2 Bootstrapping a Modern Vite React Application</h3>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="btn-copy" data-target="code-vite-setup">Copy</button>
+          </div>
+          <pre id="code-vite-setup"><code># 1. Initialize a new Vite project with the React template
+npm create vite@latest my-react-app -- --template react
+
+# 2. Navigate into the project folder
+cd my-react-app
+
+# 3. Install project dependencies
+npm install
+
+# 4. Launch the lightning-fast local development server
+npm run dev</code></pre>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Vite serves source code over native ES Modules (ESM) and uses Go-based <code>esbuild</code> for dependencies, offering near-instant dev server boot and fast Hot Module Replacement.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-project-structure" class="content-section">
+        <h2 class="section-title">5. React Project Structure &amp; Execution Lifecycle</h2>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">text</span>
+            <button class="btn-copy" data-target="code-dir-struct">Copy</button>
+          </div>
+          <pre id="code-dir-struct"><code>my-react-app/
+├── index.html           # HTML entry point containing the &lt;div id="root"&gt;&lt;/div&gt; container
+├── package.json         # Project metadata, scripts (dev, build), and dependencies
+├── vite.config.js       # Vite configuration and React plugins
+├── public/              # Static assets served as-is (favicon, icons)
+└── src/
+    ├── main.jsx         # JavaScript entry point; creates root and mounts &lt;App /&gt;
+    ├── App.jsx          # Root component of your application tree
+    ├── App.css          # Styles scoped to App component
+    └── index.css        # Global CSS rules and CSS custom properties</code></pre>
+        </div>
+
+        <h3 class="subsection-title">5.1 The Entry Point: <code>main.jsx</code></h3>
+        <p>In modern React 18+, the application attaches to the HTML DOM using the <code>createRoot</code> API from <code>react-dom/client</code>:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-main-jsx">Copy</button>
+          </div>
+          <pre id="code-main-jsx"><code>import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
+
+// Mount the root React component into the &lt;div id="root"&gt; in index.html
+ReactDOM.createRoot(document.getElementById('root')).render(
+  &lt;React.StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;
+);</code></pre>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Execution starts in <code>index.html</code> with <code>&lt;div id="root"&gt;</code>, which loads <code>main.jsx</code>, where <code>createRoot(...).render(&lt;App /&gt;)</code> mounts the root component tree.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-jsx-fundamentals" class="content-section">
+        <h2 class="section-title">6. Introduction to JSX &amp; Syntax Rules</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong>JSX (JavaScript XML)</strong> is a syntax extension for JavaScript that allows developers to write HTML-like markup directly inside JavaScript files. It is not valid JavaScript natively; build tools transpile it into standard JavaScript function calls.</p>
+        </div>
+
+        <h3 class="subsection-title">6.1 The Three Essential Rules of JSX</h3>
+        <ol>
+          <li><strong>1. Return a Single Root Element:</strong> A component cannot return multiple adjacent top-level JSX tags. You must wrap them in a parent element or a <strong>React Fragment</strong> (<code>&lt;&gt;...&lt;/&gt;</code> or <code>&lt;React.Fragment&gt;</code>), because JavaScript functions cannot return multiple values without an enclosing container.</li>
+          <li><strong>2. Close All Tags:</strong> Every tag must be explicitly closed. Tags that are void in HTML (like <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>) must be self-closing in JSX: <code>&lt;img src="..." alt="..." /&gt;</code>.</li>
+          <li><strong>3. camelCase Most HTML Attributes:</strong> Because JSX compiles to JavaScript objects and words like <code>class</code> and <code>for</code> are reserved keywords in JavaScript:
+            <ul>
+              <li>Use <code>className</code> instead of <code>class</code>.</li>
+              <li>Use <code>htmlFor</code> instead of <code>for</code> (in <code>&lt;label&gt;</code>).</li>
+              <li>Event handlers use camelCase: <code>onClick</code>, <code>onChange</code>, <code>onSubmit</code>.</li>
+              <li>Inline styles use camelCase properties inside double curly braces: <code>style={{ backgroundColor: 'red', marginTop: '10px' }}</code>.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>JSX rules: 1. Single root element (or Fragment <code>&lt;&gt;&lt;/&gt;</code>); 2. All tags must close (e.g. <code>&lt;br /&gt;</code>); 3. camelCase attributes (<code>className</code>, <code>htmlFor</code>, <code>onClick</code>).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-jsx-expressions" class="content-section">
+        <h2 class="section-title">7. Embedding Expressions &amp; Evaluation in JSX</h2>
+        <p>You can embed any valid JavaScript <strong>expression</strong> inside JSX markup by enclosing it in curly braces <code>{ }</code>:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-expressions">Copy</button>
+          </div>
+          <pre id="code-expressions"><code>function UserGreeting() {
+  const firstName = "Ananya";
+  const unreadCount = 4;
+  const user = { role: "admin", points: 150 };
+
+  return (
+    &lt;div className="profile-banner"&gt;
+      {/* 1. Variable interpolation */}
+      &lt;h1&gt;Welcome back, {firstName}!&lt;/h1&gt;
+
+      {/* 2. Arithmetic expression */}
+      &lt;p&gt;Bonus Points: {user.points * 2}&lt;/p&gt;
+
+      {/* 3. Function call evaluation */}
+      &lt;p&gt;Role: {user.role.toUpperCase()}&lt;/p&gt;
+
+      {/* 4. Dynamic attribute value (notice no quotes around the braces!) */}
+      &lt;span title={`User has ${unreadCount} messages`}&gt;
+        Notifications: {unreadCount}
+      &lt;/span&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">Important Limitation</span>
+          <p>Only <strong>expressions</strong> (code that evaluates to a value) can be placed inside <code>{ }</code>. JavaScript <strong>statements</strong> (like <code>if (...)</code>, <code>for (...)</code>, <code>switch (...)</code>, or <code>function (...)</code> declarations) cannot be placed directly inside JSX curly braces!</p>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Curly braces <code>{ }</code> open a window to JavaScript inside JSX. Only expressions (producing a value) are permitted; statements (<code>if</code>, <code>for</code>) cause syntax errors.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-conditional-lists" class="content-section">
+        <h2 class="section-title">8. Conditional &amp; List Rendering in JSX</h2>
+
+        <h3 class="subsection-title">8.1 Idiomatic Conditional Rendering Patterns</h3>
+        <ul>
+          <li><strong>1. Ternary Operator (<code>condition ? &lt;TrueView /&gt; : &lt;FalseView /&gt;</code>):</strong> Used when you want to render one element when true, and an alternate element when false.</li>
+          <li><strong>2. Logical AND Short-Circuit (<code>condition &amp;&amp; &lt;Component /&gt;</code>):</strong> Used when you want to render a component only if a condition is true, and nothing if false.
+            <div class="callout callout-warning" style="margin-top:8px;">
+              <span class="callout-label">The "Zero" Pitfall</span>
+              <p>Be careful when the condition is a number! In JavaScript, <code>0 &amp;&amp; &lt;Span /&gt;</code> evaluates to the number <code>0</code>, which React renders as text "0" on screen. To prevent this, check boolean explicitly: <code>messages.length &gt; 0 &amp;&amp; &lt;Badge /&gt;</code>.</p>
+            </div>
+          </li>
+          <li><strong>3. Early Return with <code>if / else</code>:</strong> When an entire component's return value depends on an early check (e.g. returning a loading spinner while data fetches).</li>
+        </ul>
+
+        <h3 class="subsection-title">8.2 Rendering Lists with the <code>.map()</code> Method and <code>key</code> Prop</h3>
+        <p>In React, collections of data are transformed into arrays of JSX elements using standard JavaScript array <code>.map()</code>:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-list-render">Copy</button>
+          </div>
+          <pre id="code-list-render"><code>function CourseList() {
+  const courses = [
+    { id: "cs101", title: "ReactJS Fundamentals", credits: 1 },
+    { id: "cs102", title: "Machine Learning", credits: 4 },
+    { id: "cs103", title: "Computer Networks", credits: 4 }
+  ];
+
+  return (
+    &lt;ul className="course-list"&gt;
+      {courses.map((course) =&gt; (
+        // KEY PROP: Must be unique among siblings!
+        &lt;li key={course.id} className="course-item"&gt;
+          &lt;strong&gt;{course.title}&lt;/strong&gt; - {course.credits} Credits
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">Why Array Indices Should Not Be Used as Keys</span>
+          <p>Using <code>key={index}</code> works for static, never-changing lists, but fails catastrophically if items can be sorted, filtered, inserted, or deleted. The index of an item changes when preceding items are modified, causing React to mistakenly match different component instances, resulting in corrupted form state and broken animations!</p>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Render lists using <code>array.map()</code>. Every item requires a unique, persistent <code>key</code> prop (use IDs, not indices) so the reconciliation algorithm can track element identity.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 9 -->
+      <section id="sec-jsx-compilation" class="content-section">
+        <h2 class="section-title">9. JSX Compilation Under the Hood</h2>
+        <p>Browsers cannot execute JSX directly. Build tools like Babel or esbuild compile JSX into pure JavaScript before execution.</p>
+
+        <h3 class="subsection-title">9.1 Classic Transform vs. Modern React 17+ JSX Transform</h3>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Original JSX Code</th>
+                <th>Classic Transform (Legacy <code>React.createElement</code>)</th>
+                <th>Modern Transform (React 17+ <code>_jsx</code> runtime)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;h1 className="title"&gt;Hello World&lt;/h1&gt;</code></td>
+                <td>
+                  <code>React.createElement('h1', { className: 'title' }, 'Hello World')</code><br>
+                  <em>(Requires <code>import React from 'react'</code> in every file!)</em>
+                </td>
+                <td>
+                  <code>import { jsx as _jsx } from 'react/jsx-runtime';</code><br>
+                  <code>_jsx('h1', { className: 'title', children: 'Hello World' })</code><br>
+                  <em>(Automated import; no manual React import needed!)</em>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>JSX compiles to JavaScript function calls. Modern React 17+ automatically uses <code>react/jsx-runtime</code> (<code>_jsx</code>), eliminating the legacy requirement to import React in every JSX file.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 10: CODE DEMONSTRATIONS -->
+      <section id="sec-code-demos" class="content-section">
+        <h2 class="section-title">10. Complete Tested Code Demonstrations</h2>
+
+        <div class="callout callout-example">
+          <span class="callout-label">Runnable Component: Student Dashboard Card with Expressions &amp; Conditions</span>
+          <p>This complete, self-contained functional component demonstrates dynamic expressions, conditional status badges, and list mapping with unique keys:</p>
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">jsx</span>
+              <button class="btn-copy" data-target="code-student-card">Copy</button>
+            </div>
+            <pre id="code-student-card"><code>// StudentProfile.jsx
+export default function StudentProfile() {
+  const student = {
+    name: "Aditya Kumar",
+    usn: "1MS22IS045",
+    gpa: 8.92,
+    enrolledCourses: [
+      { id: "is51", code: "IS51", name: "Machine Learning", credits: 4 },
+      { id: "is53", code: "IS53", name: "Computer Networks", credits: 4 },
+      { id: "isaec594", code: "ISAEC594", name: "ReactJS", credits: 1 }
+    ],
+    isEligibleForHonors: true
+  };
+
+  const totalCredits = student.enrolledCourses.reduce((sum, c) =&gt; sum + c.credits, 0);
+
+  return (
+    &lt;div className="student-card" style={{ padding: "20px", border: "1px solid #ccc", borderRadius: "12px" }}&gt;
+      &lt;h2&gt;{student.name} &lt;span style={{ fontSize: "14px", color: "#666" }}&gt;({student.usn})&lt;/span&gt;&lt;/h2&gt;
+      &lt;p&gt;Current GPA: &lt;strong&gt;{student.gpa.toFixed(2)}&lt;/strong&gt;&lt;/p&gt;
+      
+      {/* Conditional rendering using ternary operator */}
+      &lt;p&gt;
+        Academic Standing: {" "}
+        {student.gpa &gt;= 8.5 ? (
+          &lt;span style={{ color: "green", fontWeight: "bold" }}&gt;Dean's Merit List 🌟&lt;/span&gt;
+        ) : (
+          &lt;span style={{ color: "blue" }}&gt;Regular Standing&lt;/span&gt;
+        )}
+      &lt;/p&gt;
+
+      {/* Logical AND short-circuit rendering */}
+      {student.isEligibleForHonors &amp;&amp; (
+        &lt;div className="honors-badge" style={{ backgroundColor: "#e6f4ea", padding: "8px", borderRadius: "6px" }}&gt;
+          ✅ Eligible for B.E. Honors Degree Specialization
+        &lt;/div&gt;
+      )}
+
+      &lt;h3 style={{ marginTop: "16px" }}&gt;Enrolled Courses ({totalCredits} Credits Total):&lt;/h3&gt;
+      &lt;ul&gt;
+        {student.enrolledCourses.map((course) =&gt; (
+          &lt;li key={course.id}&gt;
+            &lt;strong&gt;{course.code}&lt;/strong&gt; - {course.name} ({course.credits} cr)
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+          </div>
+          <p><strong>Expected Output:</strong> Renders Aditya Kumar's card with GPA 8.92, green "Dean's Merit List" text, an active Honors badge, and 3 enrolled courses totaling 9 credits.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 11: REVISION SHEET -->
+      <section id="revision-sheet" class="content-section">
+        <h2 class="section-title">11. Quick Revision Sheet</h2>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Syntax / Principle</th>
+                <th>Must-Know Exam Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>React Definition</strong></td>
+                <td>Declarative, component-based, unidirectional UI library.</td>
+                <td>Library, NOT a full framework like Angular.</td>
+              </tr>
+              <tr>
+                <td><strong>Virtual DOM</strong></td>
+                <td>Lightweight in-memory JS tree; $O(n)$ heuristic reconciliation.</td>
+                <td>Minimizes expensive real DOM reflow and repaint operations.</td>
+              </tr>
+              <tr>
+                <td><strong>Vite Advantages</strong></td>
+                <td>Native ES Modules (ESM) + Go-based <code>esbuild</code>.</td>
+                <td>Replaced Create React App (CRA) due to instant dev server boot.</td>
+              </tr>
+              <tr>
+                <td><strong>JSX Syntax Rules</strong></td>
+                <td>Single root, close all tags, camelCase attributes.</td>
+                <td><code>className</code> (not class), <code>htmlFor</code> (not for).</td>
+              </tr>
+              <tr>
+                <td><strong>Embedding Expressions</strong></td>
+                <td>Enclosed in curly braces: <code>{expression}</code>.</td>
+                <td>Expressions ONLY; statements (<code>if</code>, <code>for</code>) cause syntax errors.</td>
+              </tr>
+              <tr>
+                <td><strong>List Keys</strong></td>
+                <td><code>key={item.id}</code> on outermost mapped element.</td>
+                <td>Do NOT use array index for dynamic/reordered lists.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 12: EXAM QUESTIONS -->
+      <section id="exam-questions" class="content-section">
+        <h2 class="section-title">12. Important Exam Questions &amp; Practice</h2>
+
+        <h3 class="subsection-title">2-Mark Questions (Short Answers)</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">1. What is the Virtual DOM and how does it improve web application performance?</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>The Virtual DOM is a lightweight, in-memory JavaScript representation of the actual DOM. When state changes occur, React compares the new VDOM with the previous VDOM snapshot using an $O(n)$ diffing algorithm (reconciliation) and updates only the altered nodes in the real browser DOM in a single batched operation, minimizing expensive browser reflow and repaint cycles.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">2. State three fundamental syntax rules of JSX.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>1. Every component must return a single top-level parent element or Fragment (<code>&lt;&gt;...&lt;/&gt;</code>); 2. All HTML tags must be explicitly closed (including self-closing tags like <code>&lt;img /&gt;</code>); 3. Standard HTML attributes must use camelCase conventions (such as <code>className</code> and <code>htmlFor</code>).</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">3. Why should array index not be used as the 'key' prop when rendering lists in React?</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>If items in a list are reordered, inserted, or filtered, the index associated with each item changes. This causes React's reconciliation algorithm to confuse identity between nodes, leading to subtle state retention bugs in uncontrolled inputs, unnecessary re-renders, and animation glitches. Unique, persistent entity IDs should always be used instead.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">4. Compare React with Angular and Vue.js across key architectural dimensions. (10 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>1. <strong>Classification:</strong> React is an unopinionated UI library; Angular is a complete batteries-included framework; Vue is an incrementally adoptable progressive framework.</p>
+            <p>2. <strong>Template Language:</strong> React uses JSX; Angular uses HTML templates with structural directives (<code>*ngIf</code>); Vue uses HTML directives (<code>v-if</code>) or JSX.</p>
+            <p>3. <strong>Data Flow:</strong> React strictly enforces unidirectional (one-way) data flow; Angular supports two-way data binding (<code>[(ngModel)]</code>); Vue supports two-way model binding (<code>v-model</code>).</p>
+            <p>4. <strong>DOM Implementation:</strong> React uses the Virtual DOM with Fiber reconciliation; Angular uses Incremental DOM; Vue uses an optimized Virtual DOM.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">5. Explain the reconciliation algorithm in React. How does React achieve $O(n)$ time complexity? (5 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>Standard tree comparison algorithms require $O(n^3)$ operations. React achieves linear $O(n)$ performance using two heuristic assumptions:</p>
+            <ul>
+              <li><strong>Different Element Types:</strong> Whenever the root element type changes (e.g. from <code>&lt;div&gt;</code> to <code>&lt;p&gt;</code>), React unmounts the old subtree and constructs the new subtree from scratch without inspecting deeper levels.</li>
+              <li><strong>Keys for List Identification:</strong> When children of a list are tagged with unique <code>key</code> props, React matches children across snapshots based on key rather than position, enabling instant detection of additions, removals, and reordering.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 13: REFERENCES -->
+      <section id="sec-references" class="content-section">
+        <h2 class="section-title">13. Prescribed References</h2>
+        <div class="callout callout-note">
+          <span class="callout-label">Course Reference Literature</span>
+          <ol>
+            <li><strong>Chris Minnick</strong>, <em>Beginning ReactJS Foundations: Building User Interfaces with ReactJS - An Approachable Guide</em>, Wiley, 2022. (Chapters 1, 2 &amp; 3).</li>
+            <li><strong>Anthony Accomazzo, Ari Lerner, Nate Murray, Clay Allsopp, David Gutman, and Tyler McGinnis</strong>, <em>Fullstack React: The Complete Guide to ReactJS and Friends</em>, 2017.</li>
+            <li><strong>React Official Documentation</strong>: <a href="https://react.dev" target="_blank" rel="noopener">https://react.dev</a>.</li>
+          </ol>
+          <p class="exam-disclaimer"><em>AI-assisted study notes written from the official courseware. Verify against the prescribed textbook before the exam.</em></p>
+        </div>
+      </section>
+
+      <!-- Unit Footer Navigation -->
+      <nav class="unit-navigation" aria-label="Unit Navigation">
+        <a href="../../evs/unit3/unit-3-notes.html" class="nav-btn prev-btn">
+          <span class="nav-arrow">←</span>
+          <span class="nav-meta">Previous Subject</span>
+          <span class="nav-title">EVS Unit 3</span>
+        </a>
+        <a href="../unit2/unit-2-notes.html" class="nav-btn next-btn">
+          <span class="nav-meta">Next Unit</span>
+          <span class="nav-title">Unit 2: Components, Props &amp; State</span>
+          <span class="nav-arrow">→</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
