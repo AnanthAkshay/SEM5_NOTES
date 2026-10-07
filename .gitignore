@@ -19,9 +19,7 @@ ehthumbs_vista.db
 *.log
 scratch/
 *.tmp
-audit/NOTES_PLAN.md
-audit/verify/
-audit/coverage/
+audit/
 
 # Raw Workspace Source Folders (Organized & converted copies live in notes/)
 /AI/
