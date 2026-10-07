@@ -116,14 +116,14 @@ This study website consolidates materials into an intuitive web interface with:
 
 | Subject Name | Code | Credits (L:T:P) | Type | Coordinator | Coverage Status | Materials Included |
 |---|---|---|---|---|---|---|
-| **Machine Learning** | `IS51` | `3:0:0` | PCC | Dr. Sumana M | **Full Notes + Lab + Practice** | Units 1–3 notes, Unit 1 QB, ISL56 Lab Programs (Tableau + Python), and CIE-1, CIE-2 & SEE 2026 combined paper. |
-| **Software Engineering** | `IS52` | `2:0:1` | IPCC | Mushtaq Ahmed D M | **Full Notes + Lab + Practice** | Units 1.1–1.3 & Unit 2 PPTs/PDFs, Unit-wise practical exercises, and CIE-1 & CIE-2 combined paper. |
-| **Computer Networks** | `IS53` | `4:0:0` | PCC | Suresh Kumar K R | **Full Notes + Lab + Practice** | Re-synced Unit 1 (11.7 MB PDF / 16.7 MB PPTX) & Unit 2 (9.8 MB PDF / 13.9 MB PPTX) lecture presentations, ISL57 Lab Part A & B programs, and CIE-1 & CIE-2 combined paper. |
-| **Theory of Computation** | `IS54` | `2:1:0` | PCC | Dr. Rajeshwari S B | **Full Notes + Practice** | Units 1–5 comprehensive notes + alternate condensed notes, and CIE-1, CIE-2 & SEE 2025 combined paper. |
-| **Artificial Intelligence** | `ISE552` | `3:0:0` | PEC | Dr. Jagadeesh Sai D | **Syllabus + Practice** | Complete 5 units transcribed from syllabus, verified NPTEL links, textbook & references, and CIE-1 & CIE-2 combined paper. |
-| **Research Methodology & IPR** | `AL58` | `3:0:0` | HSMC | Dr. Anitha P | **Full Notes + Practice** | Unit 1 & Unit 2 PPTs/PDFs, CIE-1 & CIE-2 paper, Make-Up Exam (Apr 2025), and SEE Backlog Exam (Feb/Mar 2025). |
-| **Front end Dev using ReactJS** | `ISAEC594` | `1:0:0` | AEC | J R Shruti | **Syllabus & Info** | Complete Units I–V transcribed syllabus, pedagogy tools, textbooks, and official React documentation links. |
-| **Environmental Studies** | `HS510` | `0:0:0` (NCMC) | NCMC | Civil / H&S Faculty | **Full Notes + Practice** | Units 1–5 PPTs/PDFs, Unit 2 natural resource references, 2024 CIE-1 QP, and CIE-1 50-mark paper. |
+| **Machine Learning** | `IS51` | `3:0:0` | PCC | Dr. Sumana M | **Interactive Notes + Full PDFs + Lab + Practice** | Units 1–3 Interactive HTML Notes, Units 1–3 faculty PDFs, Unit 1 QB, ISL56 Lab Programs (Tableau + Python), and CIE-1, CIE-2 & SEE 2026 combined paper. |
+| **Software Engineering** | `IS52` | `2:0:1` | IPCC | Mushtaq Ahmed D M | **Interactive Notes + Full PDFs + Lab + Practice** | Units 1–3 Interactive HTML Notes, Units 1.1–1.3 & Unit 2 PPTs/PDFs, Unit-wise practical exercises, and CIE-1 & CIE-2 combined paper. |
+| **Computer Networks** | `IS53` | `4:0:0` | PCC | Suresh Kumar K R | **Interactive Notes + Full PDFs + Lab + Practice** | Units 1–3 Interactive HTML Notes, Unit 1 & Unit 2 lecture presentations, ISL57 Lab Part A & B programs, and CIE-1 & CIE-2 combined paper. |
+| **Theory of Computation** | `IS54` | `2:1:0` | PCC | Dr. Rajeshwari S B | **Interactive Notes + Full PDFs + Practice** | Units 1–3 Interactive HTML Notes, Units 1–5 comprehensive notes + alternate condensed notes, and CIE-1, CIE-2 & SEE 2025 combined paper. |
+| **Artificial Intelligence** | `ISE552` | `3:0:0` | PEC | Dr. Jagadeesh Sai D | **Interactive Notes + Syllabus + Practice** | Units 1–3 Interactive HTML Notes, complete 5 units transcribed from syllabus, verified NPTEL links, textbook & references, and CIE-1 & CIE-2 combined paper. |
+| **Research Methodology & IPR** | `AL58` | `3:0:0` | HSMC | Dr. Anitha P | **Interactive Notes + Full PDFs + Practice** | Units 1–3 Interactive HTML Notes, Unit 1 & Unit 2 PPTs/PDFs, CIE-1 & CIE-2 paper, Make-Up Exam (Apr 2025), and SEE Backlog Exam (Feb/Mar 2025). |
+| **Front end Dev using ReactJS** | `ISAEC594` | `1:0:0` | AEC | J R Shruti | **Interactive Notes + Syllabus & Info** | Units 1–3 Interactive HTML Notes with runnable code examples, Units I–V transcribed syllabus, pedagogy tools, textbooks, and documentation links. |
+| **Environmental Studies** | `HS510` | `0:0:0` (NCMC) | NCMC | Civil / H&S Faculty | **Interactive Notes + Full PDFs + Practice** | Units 1–3 Interactive HTML Notes, Units 1–5 PPTs/PDFs, Unit 2 natural resource references, 2024 CIE-1 QP, and CIE-1 50-mark paper. |
 
 ---
 
@@ -133,36 +133,45 @@ This study website consolidates materials into an intuitive web interface with:
 SEM5_NOTES/
 ├── index.html              # Main application shell (SPA architecture)
 ├── README.md               # Comprehensive documentation & verified syllabus matrix
-├── .gitignore              # Ignores OS, IDE, and raw root duplicates (AI/, CN/, etc.)
+├── .gitignore              # Ignores OS, IDE, audit directories, and raw temp files
+├── assets/
+│   └── katex/              # Self-hosted KaTeX (CSS, JS, and web fonts for offline math rendering)
 ├── css/
-│   └── style.css           # Design tokens, themes, scheme view, lab programs & print styles
+│   ├── style.css           # Design tokens, themes, scheme view, lab programs & print styles
+│   └── notes.css           # Interactive study notes stylesheet (Hope Rise theme tokens, sidebar TOC, math & code boxes)
 ├── js/
-│   └── app.js              # Application controller, hash router, search index, and storage
+│   ├── app.js              # Application controller, hash router, global search, and progress storage
+│   └── notes.js            # Interactive notes engine (TOC scrollspy, collapsibles, copy buttons, progress sync)
 ├── data/
-│   └── subjects.js         # Single source of truth (V Sem Scheme, subjects, labs, timetables)
-└── notes/                  # Organized, URL-safe document repository
+│   ├── subjects.js         # Single source of truth (V Sem Scheme, subjects, labs, timetables, note paths)
+│   ├── notes-index.json    # Compact global search index for all 230 interactive note sections
+│   └── notes-index.js      # Offline fallback search index wrapper for file:// protocols
+└── notes/                  # Organized, URL-safe document and interactive notes repository
     ├── ai/
+    │   ├── unit1/ to unit3/# Interactive HTML study notes (unit-1-notes.html to unit-3-notes.html)
     │   ├── syllabus/       # Converted PDF, original DOCX, syllabus screenshots
     │   └── practice/       # AI CIE-1 & CIE-2 Question Papers
     ├── cn/
-    │   ├── unit1/ to unit2/# IS53 Computer Networks lecture notes
+    │   ├── unit1/ to unit3/# Interactive HTML notes & IS53 Computer Networks lecture presentations
     │   └── practice/       # CN CIE-1 & CIE-2 Question Papers
     ├── evs/
-    │   ├── unit1/ to unit5/# Converted PDFs and original PPTX files
+    │   ├── unit1/ to unit3/# Interactive HTML notes, converted PDFs, and original PPTX files
     │   └── practice/       # EVS CIE-1 (2024) QP & CIE-1 (50 Marks) Paper
     ├── ml/
-    │   ├── unit1/ to unit3/# Machine Learning units 1-3 lecture notes
+    │   ├── unit1/ to unit3/# Interactive HTML notes & Machine Learning lecture notes
     │   └── practice/       # Unit 1 QB & ML CIE-1, CIE-2 and SEE Combined Paper
     ├── reactjs/
+    │   ├── unit1/ to unit3/# Interactive HTML notes with tested code examples
     │   └── syllabus/       # Syllabus screenshot & transcribed content
     ├── rmipr/
-    │   ├── unit1/ to unit2/# RM & IPR Unit 1 & 2 presentations
+    │   ├── unit1/ to unit3/# Interactive HTML notes & RM and IPR presentations
     │   └── practice/       # CIE-1 & CIE-2, Make-Up Exam (2025), SEE Exam (2025)
     ├── se/
-    │   ├── unit1/ to unit2/# SE Units 1.1-1.3 & Unit 2 presentations
+    │   ├── unit1/ to unit3/# Interactive HTML notes & SE lecture presentations
     │   └── practice/       # SE CIE-1 & CIE-2 Question Papers
     └── toc/
-        ├── unit1/ to unit5/# Theory of Computation comprehensive units 1-5
+        ├── unit1/ to unit3/# Interactive HTML notes with inline SVG automata & traces
+        ├── unit1/ to unit5/# Theory of Computation comprehensive lecture notes
         └── practice/       # TOC CIE-1, CIE-2 and SEE Combined Paper
 ```
 
@@ -193,7 +202,7 @@ window.SEM5_DATA = {
       credits: "3:0:0",
       contactHours: "42 Hours",
       coordinator: "Dr. Jagadeesh Sai D",
-      status: "syllabus_only", // "full_notes" | "syllabus_only"
+      status: "full_notes", // "full_notes" | "syllabus_only"
       accent: { primary: "#8B5CF6", secondary: "#A78BFA", glow: "rgba(139, 92, 246, 0.28)" },
       units: [ ... ],
       syllabus: { ... }
@@ -249,6 +258,42 @@ Add a unit with `isPractice: true`:
   ]
 }
 ```
+
+### 3. Adding or Editing Interactive HTML Notes
+
+1. Create `notes/<subject>/unit<N>/unit-<N>-notes.html` following the standard Hope Rise unit template:
+   - Header with breadcrumbs, title, badge tags, reading time, and link back to subject page (`../../../index.html#subject/<id>`).
+   - Sticky sidebar Table of Contents (`<nav id="toc" class="toc-sidebar">`).
+   - Content sections matching the official syllabus line-for-line (`<section id="sec-..." class="note-section">`).
+   - Pure inline SVG diagrams (scalable, accessible `<title>`/`<desc>`, matching theme variables).
+   - KaTeX formulas and step-by-step solved numericals.
+   - End-of-unit Quick Revision Sheet, collapsible Important Questions (2M/5M/10M), Past Exam Questions, and Practice Problems.
+2. Link the shared CSS and JS:
+   - `<link rel="stylesheet" href="../../../assets/katex/katex.min.css" />`
+   - `<link rel="stylesheet" href="../../../css/notes.css" />`
+   - `<script src="../../../assets/katex/katex.min.js"></script>`
+   - `<script src="../../../assets/katex/contrib/auto-render.min.js"></script>`
+   - `<script src="../../../js/notes.js"></script>`
+3. Register the file in [`data/subjects.js`](./data/subjects.js) as the first file entry in the unit:
+   ```javascript
+   {
+     id: "<subject>-u<N>-notes",
+     title: "Unit <N>: Interactive Notes",
+     originalName: "unit-<N>-notes.html",
+     path: "notes/<subject>/unit<N>/unit-<N>-notes.html",
+     originalPath: null,
+     type: "notes",
+     tag: "Interactive notes",
+     readingTime: "40 min read",
+     size: "Interactive Notes",
+     isConverted: false
+   }
+   ```
+4. Rebuild the search index:
+   ```bash
+   python audit/generate_notes_index.py
+   python -c "with open('data/notes-index.json','r',encoding='utf-8') as f: r=f.read(); open('data/notes-index.js','w',encoding='utf-8').write('window.SEM5_NOTES_INDEX = ' + r + ';\n')"
+   ```
 
 ---
 
