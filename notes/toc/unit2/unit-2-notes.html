@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2: Regular Languages, Properties & Minimization | TOC Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Theory of Computation (IS54) Unit 2: Regular Expressions, Thompson's Construction, State Elimination, Arden's Theorem, Pumping Lemma, Closure & Decision Properties, and Table-Filling DFA Minimization.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/toc" class="back-btn" title="Return to Theory of Computation Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>TOC Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/toc">Theory of Computation (IS54)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 2</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="toc-u2-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 2 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Regular Expressions & Laws</a>
+        <a href="#sec-2" class="toc-link">§ 2 RE to Finite Automata (Thompson)</a>
+        <a href="#sec-3" class="toc-link">§ 3 FA to RE (State Elimination & Arden)</a>
+        <a href="#sec-4" class="toc-link">§ 4 Pumping Lemma for Regular Languages</a>
+        <a href="#sec-5" class="toc-link">§ 5 Closure Properties</a>
+        <a href="#sec-6" class="toc-link">§ 6 Decision Properties</a>
+        <a href="#sec-7" class="toc-link">§ 7 DFA Minimization (Table-Filling)</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">TOC &bull; IS54</span>
+          <span class="unit-tag">UNIT 2</span>
+          <span class="unit-tag read-time">~32 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Regular Languages, Properties & Minimization</h1>
+        <p class="unit-subtitle">Comprehensive mastery of regular expressions, algebraic laws, Thompson's construction, state elimination, Arden's theorem, non-regularity pumping lemma proofs, closure & decision properties, and the table-filling DFA minimization algorithm.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Regular Expressions:</strong> Inductive definition, operators, precedence, identities and algebraic laws.</li>
+            <li><strong>Equivalence of RE & Finite Automata:</strong> Converting RE to &epsilon;-NFA using Thompson's construction.</li>
+            <li><strong>Converting FA to Regular Expressions:</strong> State Elimination Method and Arden's Theorem.</li>
+            <li><strong>Pumping Lemma for Regular Languages:</strong> Formal statement, game framework, and contradiction proofs ($a^n b^n$, $w w^R$, $0^{n^2}$, primes).</li>
+            <li><strong>Closure Properties:</strong> Union, Concatenation, Kleene Star, Complement, Intersection, Reversal, Difference, Homomorphism.</li>
+            <li><strong>Decision Properties:</strong> Emptiness, Finiteness, Membership, and Equivalence algorithms.</li>
+            <li><strong>Minimization of DFA:</strong> Myhill-Nerode relations, Table-Filling (Marking) Algorithm, step-by-step reduction.</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit2/unit-2.pdf" class="source-link" target="_blank" rel="noopener">Faculty Slides / Unit 2 PDF</a>
+          <a href="../../../index.html#subject/toc" class="source-link">Subject Syllabus</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Regular Expressions (RE) & Algebraic Laws</h2>
+
+        <p class="section-lead">A <strong>regular expression</strong> provides an algebraic, declarative specification of a language accepted by a finite automaton. While finite automata describe machines that recognize strings step by step, regular expressions generate the same set of strings algebraically.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">INDUCTIVE DEFINITION OF REGULAR EXPRESSIONS</span>
+          <p>Let $\Sigma$ be a given alphabet. The regular expressions over $\Sigma$ and the languages they denote are defined inductively as follows:</p>
+          <p><strong>Basis Clauses:</strong></p>
+          <ol>
+            <li>$\emptyset$ is a regular expression denoting the empty language: $L(\emptyset) = \emptyset$.</li>
+            <li>$\epsilon$ is a regular expression denoting the language containing only the empty string: $L(\epsilon) = \{\epsilon\}$.</li>
+            <li>For each symbol $a \in \Sigma$, $\mathbf{a}$ is a regular expression denoting the singleton language: $L(\mathbf{a}) = \{a\}$.</li>
+          </ol>
+          <p><strong>Inductive Clauses:</strong> If $R$ and $S$ are regular expressions denoting languages $L(R)$ and $L(S)$ respectively, then:</p>
+          <ol>
+            <li><strong>Union (Alternate):</strong> $(R + S)$ or $(R \mid S)$ is a regular expression denoting $L(R + S) = L(R) \cup L(S)$.</li>
+            <li><strong>Concatenation:</strong> $(R \cdot S)$ or $(RS)$ is a regular expression denoting $L(RS) = L(R) \cdot L(S) = \{uv \mid u \in L(R), v \in L(S)\}$.</li>
+            <li><strong>Kleene Star (Closure):</strong> $(R^*)$ is a regular expression denoting $L(R^*) = (L(R))^* = \bigcup_{i=0}^{\infty} (L(R))^i$, where $(L(R))^0 = \{\epsilon\}$.</li>
+          </ol>
+        </div>
+
+        <h3>Operator Precedence</h3>
+        <p>In the absence of explicit parentheses, operators bind according to strict precedence:</p>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div><strong>Highest: Kleene Star ($*$)</strong> &mdash; binds tightest to its immediate preceding operand.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div><strong>Middle: Concatenation ($\cdot$)</strong> &mdash; evaluated before union.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div><strong>Lowest: Union ($+$ or $\mid$)</strong> &mdash; evaluated last.</div>
+          </div>
+        </div>
+        <p><em>Example:</em> $01^* + 10$ is strictly parenthesized as $((0(1^*)) + (10))$.</p>
+
+        <h3>Important Algebraic Identities</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Identity Name</th>
+                <th>Algebraic Law</th>
+                <th>Semantic Explanation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Commutativity of $+$</strong></td>
+                <td>$R + S = S + R$</td>
+                <td>Set union is symmetric.</td>
+              </tr>
+              <tr>
+                <td><strong>Associativity of $+$</strong></td>
+                <td>$(R + S) + T = R + (S + T)$</td>
+                <td>Grouping does not alter set union.</td>
+              </tr>
+              <tr>
+                <td><strong>Associativity of $\cdot$</strong></td>
+                <td>$(RS)T = R(ST)$</td>
+                <td>String concatenation is strictly associative.</td>
+              </tr>
+              <tr>
+                <td><strong>Distributivity</strong></td>
+                <td>$R(S + T) = RS + RT$<br>$(S + T)R = SR + TR$</td>
+                <td>Concatenation distributes from left and right over union.</td>
+              </tr>
+              <tr>
+                <td><strong>Identity Elements</strong></td>
+                <td>$R + \emptyset = \emptyset + R = R$<br>$R\epsilon = \epsilon R = R$</td>
+                <td>$\emptyset$ is additive identity; $\epsilon$ is multiplicative identity.</td>
+              </tr>
+              <tr>
+                <td><strong>Annihilator</strong></td>
+                <td>$R\emptyset = \emptyset R = \emptyset$</td>
+                <td>Concatenating any language with the empty set yields no strings.</td>
+              </tr>
+              <tr>
+                <td><strong>Idempotence of $+$</strong></td>
+                <td>$R + R = R$</td>
+                <td>Adding a set to itself does not introduce new strings.</td>
+              </tr>
+              <tr>
+                <td><strong>Closure Properties</strong></td>
+                <td>$(R^*)^* = R^*$<br>$\emptyset^* = \epsilon$<br>$\epsilon^* = \epsilon$<br>$R^+ = RR^* = R^*R$</td>
+                <td>Repeated closure does not expand the language beyond one star.</td>
+              </tr>
+              <tr>
+                <td><strong>Shifting Identity</strong></td>
+                <td>$(R + S)^* = (R^* S^*)^* = (R^* + S^*)^*$</td>
+                <td>Any interleaving of $R$ and $S$ strings is captured equally.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">COMMON MISTAKE ALERT</span>
+          <p><strong>Concatenation is NOT commutative:</strong> $RS \ne SR$ in general! For example, if $R = a$ and $S = b$, then $RS = \{ab\}$, whereas $SR = \{ba\}$. Do not swap the order of concatenation in algebraic simplifications.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Basis: $\emptyset, \epsilon, a$. Inductive operators: $+$, $\cdot$, $*$.</li>
+            <li>Precedence: $*$ &gt; $\cdot$ &gt; $+$.</li>
+            <li>$R\emptyset = \emptyset$, but $R\epsilon = R$. $\emptyset^* = \epsilon$. Concatenation does NOT commute.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Equivalence: RE to Finite Automata (Thompson's Construction)</h2>
+
+        <p class="section-lead"><strong>Kleene's Theorem</strong> establishes that a language is regular if and only if it is denoted by a regular expression and recognized by a finite automaton. Thompson's Construction converts any regular expression $R$ into an equivalent $\epsilon$-NFA with exactly <strong>one start state</strong> and <strong>one final state</strong>.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">THOMPSON'S STRUCTURAL INDUCTION RULES</span>
+          <p>For any regular expression $R$, the constructed $\epsilon$-NFA $M(R)$ satisfies:</p>
+          <ul>
+            <li>$M(R)$ has exactly one start state with no incoming transitions.</li>
+            <li>$M(R)$ has exactly one final state with no outgoing transitions.</li>
+            <li>Number of states is at most $2 \times (\text{number of symbols and operators in } R)$.</li>
+          </ul>
+        </div>
+
+        <h3>Structural Construction Gadgets</h3>
+        <p>Below are the canonical Thompson gadgets for base elements and operators:</p>
+
+        <div class="svg-card">
+          <div class="svg-title">Thompson's Construction Structural Gadgets</div>
+          <svg viewBox="0 0 800 420" width="100%" height="auto" role="img" aria-label="Thompson's Construction Gadgets for Union, Concatenation, and Kleene Star">
+            <title>Thompson Construction Gadgets</title>
+            <desc>SVG diagram illustrating Thompson's construction gadgets for symbol a, concatenation AB, union A or B, and Kleene star A*</desc>
+            <defs>
+              <marker id="th-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="var(--stroke)" />
+              </marker>
+              <marker id="th-arr-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="var(--green)" />
+              </marker>
+            </defs>
+
+            <!-- 1. Base Symbol 'a' -->
+            <g transform="translate(40, 30)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">1. Symbol 'a'</text>
+              <circle cx="40" cy="50" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="40" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">s</text>
+              <line x1="58" y1="50" x2="130" y2="50" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="95" y="42" font-family="Inter" font-size="13" font-weight="700" fill="var(--green)" text-anchor="middle">a</text>
+              <circle cx="150" cy="50" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="150" cy="50" r="14" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="150" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">f</text>
+            </g>
+
+            <!-- 2. Concatenation R1 R2 -->
+            <g transform="translate(320, 30)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">2. Concatenation: R₁ · R₂ (Merge f₁ into s₂ or &epsilon;)</text>
+              <rect x="30" y="30" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="70" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₁)</text>
+              <line x1="110" y1="50" x2="160" y2="50" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="135" y="42" font-family="Inter" font-size="13" font-weight="700" fill="var(--green)" text-anchor="middle">&epsilon;</text>
+              <rect x="160" y="30" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="200" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₂)</text>
+              <circle cx="280" cy="50" r="16" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="280" cy="50" r="12" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <line x1="240" y1="50" x2="262" y2="50" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            </g>
+
+            <!-- 3. Union R1 + R2 -->
+            <g transform="translate(40, 160)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">3. Union: R₁ + R₂</text>
+              <!-- new start s -->
+              <circle cx="30" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="30" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">s₀</text>
+              <!-- branch upper -->
+              <path d="M 45 80 C 70 50, 85 45, 110 45" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="75" y="55" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <rect x="110" y="25" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="150" y="50" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₁)</text>
+              <!-- branch lower -->
+              <path d="M 45 100 C 70 130, 85 135, 110 135" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="75" y="130" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <rect x="110" y="115" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="150" y="140" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₂)</text>
+              <!-- convergence to new final f -->
+              <path d="M 190 45 C 215 45, 230 75, 250 85" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <path d="M 190 135 C 215 135, 230 105, 250 95" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <circle cx="270" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="270" cy="90" r="14" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="270" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">f₀</text>
+            </g>
+
+            <!-- 4. Kleene Star R* -->
+            <g transform="translate(400, 160)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">4. Kleene Closure: R*</text>
+              <circle cx="40" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="40" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">s₀</text>
+              <line x1="58" y1="90" x2="110" y2="90" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="85" y="82" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <rect x="110" y="70" width="90" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="155" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R)</text>
+              <line x1="200" y1="90" x2="252" y2="90" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="226" y="82" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <circle cx="270" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="270" cy="90" r="14" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="270" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">f₀</text>
+              <!-- loopback epsilon: f(R) back to s(R) -->
+              <path d="M 180 70 C 180 40, 130 40, 130 70" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="155" y="32" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)" text-anchor="middle">&epsilon; (loop back)</text>
+              <!-- bypass epsilon: s0 to f0 -->
+              <path d="M 40 108 C 40 155, 270 155, 270 108" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="155" y="165" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)" text-anchor="middle">&epsilon; (bypass / empty string)</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Thompson's construction yields an $\epsilon$-NFA with exactly 1 start and 1 final state.</li>
+            <li>Star adds 2 new states and 4 $\epsilon$-transitions (forward into body, out of body, loopback, and zero-iteration bypass).</li>
+            <li>Union adds 2 new states and 4 $\epsilon$-transitions (splitting into branches and joining into final).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Converting Finite Automata to Regular Expressions</h2>
+
+        <p class="section-lead">Two established methods extract a regular expression from any finite automaton: the <strong>State Elimination Method</strong> and <strong>Arden's Theorem</strong>. Both are heavily examined in university evaluations.</p>
+
+        <h3>Method A: State Elimination Method</h3>
+        <p>This method converts a DFA or NFA into a <em>Generalized Transition Graph (GTG)</em> where edge labels are regular expressions, and then eliminates states one by one until only the start and final states remain.</p>
+
+        <div class="callout callout-algorithm">
+          <span class="callout-label">STATE ELIMINATION ALGORITHM</span>
+          <ol>
+            <li><strong>Standardize Start and Final States:</strong>
+              <ul>
+                <li>If the initial state has incoming transitions, create a new start state $s_{new}$ with an $\epsilon$-transition to the old start state.</li>
+                <li>If there are multiple final states or the final state has outgoing transitions, create a new final state $f_{new}$ and connect all old final states to $f_{new}$ via $\epsilon$-transitions. Remove final status from old final states.</li>
+              </ul>
+            </li>
+            <li><strong>Collapse parallel edges:</strong> For any pair of states $p$ and $q$, replace multiple transitions $R_1, R_2, \dots$ with a single transition labeled $(R_1 + R_2 + \dots)$.</li>
+            <li><strong>Eliminate Intermediate State $k$:</strong> For every pair of states $p$ (predecessor of $k$) and $q$ (successor of $k$), update the direct edge label from $p$ to $q$:
+              $$\alpha_{pq}^{new} = \alpha_{pq}^{old} + \alpha_{pk} \cdot (\alpha_{kk})^* \cdot \alpha_{kq}$$
+              where $\alpha_{kk}$ is the self-loop regular expression on state $k$ (or $\emptyset$ if no self-loop, yielding $\emptyset^* = \epsilon$).
+            </li>
+            <li>Repeat until only $s_{new}$ and $f_{new}$ remain. The final label on the edge $(s_{new}, f_{new})$ is the required regular expression.</li>
+          </ol>
+        </div>
+
+        <h3>Method B: Arden's Theorem</h3>
+        <div class="callout callout-formula">
+          <span class="callout-label">ARDEN'S THEOREM STATEMENT</span>
+          <p>Let $P$ and $Q$ be two regular expressions over $\Sigma$. If $P$ does not contain the null string $\epsilon$ ($P$ has no $\epsilon$), then the linear equation in $R$:</p>
+          $$R = Q + RP$$
+          <p>has a <strong>unique solution</strong> given by:</p>
+          $$R = QP^*$$
+        </div>
+
+        <div class="callout callout-proof">
+          <span class="callout-label">FORMAL PROOF OF ARDEN'S THEOREM</span>
+          <p><strong>Part 1: Proof of Existence (Substitution)</strong></p>
+          <p>Substitute $R = QP^*$ into the right-hand side:</p>
+          $$\text{RHS} = Q + (QP^*)P = Q(\epsilon + P^* P)$$
+          <p>Since $\epsilon + P^* P = P^*$, we have $\text{RHS} = QP^* = \text{LHS}$. Thus $R = QP^*$ satisfies the equation.</p>
+          <p><strong>Part 2: Proof of Uniqueness (Iterative Expansion)</strong></p>
+          <p>Repeatedly substitute $R = Q + RP$ into itself:</p>
+          $$R = Q + (Q + RP)P = Q + QP + RP^2$$
+          $$R = Q + QP + QP^2 + \dots + QP^k + RP^{k+1}$$
+          $$R = Q(\epsilon + P + P^2 + \dots + P^k) + RP^{k+1}$$
+          <p>As $k \to \infty$, since $\epsilon \notin P$, any string in $RP^{k+1}$ has length at least $k+1$. For any finite length string $w$, by choosing $k > |w|$, $w$ cannot belong to $RP^{k+1}$. Therefore, $R = Q \cdot P^*$, proving the solution is unique.</p>
+        </div>
+
+        <!-- SOLVED WORKED EXAMPLE: ARDEN'S THEOREM -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; EXAM LEVEL</span>
+            <span class="problem-points">[10 MARKS &bull; SEE/CIE]</span>
+          </div>
+          <h4 class="problem-title">Extract Regular Expression Using Arden's Theorem</h4>
+          <p>Consider the DFA with states $q_1, q_2, q_3$, start state $q_1$, and accept state $q_3$, defined by the transitions:</p>
+          <ul>
+            <li>$\delta(q_1, 0) = q_2$, $\delta(q_1, 1) = q_1$</li>
+            <li>$\delta(q_2, 0) = q_1$, $\delta(q_2, 1) = q_3$</li>
+            <li>$\delta(q_3, 0) = q_3$, $\delta(q_3, 1) = q_2$</li>
+          </ul>
+          <p><strong>Step 1: Formulate the characteristic state equations</strong></p>
+          <p>Express each state as the union of incoming transitions, adding $\epsilon$ to the start state equation:</p>
+          $$\begin{aligned}
+          q_1 &= q_1 1 + q_2 0 + \epsilon \quad &\text{--- (Eq. 1)} \\
+          q_2 &= q_1 0 + q_3 1 \quad &\text{--- (Eq. 2)} \\
+          q_3 &= q_2 1 + q_3 0 \quad &\text{--- (Eq. 3)}
+          \end{aligned}$$
+
+          <p><strong>Step 2: Solve Equation 3 for $q_3$ in terms of $q_2$ using Arden's Theorem</strong></p>
+          <p>Equation 3 is: $q_3 = q_2 1 + q_3 0$. This is of the form $R = Q + RP$ where $R = q_3, Q = q_2 1, P = 0$. Since $\epsilon \notin 0$, by Arden's Theorem:</p>
+          $$q_3 = (q_2 1)0^* = q_2 1 0^* \quad \text{--- (Eq. 4)}$$
+
+          <p><strong>Step 3: Substitute Eq. 4 into Eq. 2 to eliminate $q_3$</strong></p>
+          $$q_2 = q_1 0 + (q_2 1 0^*)1 = q_1 0 + q_2 (1 0^* 1)$$
+          <p>Apply Arden's Theorem ($R = q_2, Q = q_1 0, P = 1 0^* 1$):</p>
+          $$q_2 = q_1 0 (1 0^* 1)^* \quad \text{--- (Eq. 5)}$$
+
+          <p><strong>Step 4: Substitute Eq. 5 into Eq. 1 to solve for $q_1$</strong></p>
+          $$q_1 = q_1 1 + \left[q_1 0 (1 0^* 1)^*\right]0 + \epsilon = q_1 \left(1 + 0 (1 0^* 1)^* 0\right) + \epsilon$$
+          <p>Apply Arden's Theorem ($R = q_1, Q = \epsilon, P = 1 + 0 (1 0^* 1)^* 0$):</p>
+          $$q_1 = \epsilon \left(1 + 0 (1 0^* 1)^* 0\right)^* = \left(1 + 0 (1 0^* 1)^* 0\right)^*$$
+
+          <p><strong>Step 5: Compute regular expression for the accepting state $q_3$</strong></p>
+          <p>Using Eq. 5 and Eq. 4: $q_3 = q_2 1 0^* = \left[q_1 0 (1 0^* 1)^*\right] 1 0^*$. Substituting $q_1$:</p>
+          <div class="result-box">
+            $$\mathbf{R} = \left(1 + 0 (1 0^* 1)^* 0\right)^* \cdot 0 (1 0^* 1)^* 1 0^*$$
+          </div>
+          <p><em>Interpretation:</em> Any number of loops from $q_1$ to itself, followed by $0$ to reach $q_2$, any number of round-trips to $q_3$ and back ($1 0^* 1$), and a final transition $1 0^*$ into the accept state $q_3$.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>State Elimination: $\alpha_{pq}^{new} = \alpha_{pq} + \alpha_{pk}(\alpha_{kk})^*\alpha_{kq}$. Always isolate start and final states first.</li>
+            <li>Arden's theorem: $R = Q + RP \implies R = QP^*$ (valid when $\epsilon \notin P$).</li>
+            <li>Always add $+\epsilon$ to the equation of the START state.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">The Pumping Lemma for Regular Languages</h2>
+
+        <p class="section-lead">The <strong>Pumping Lemma</strong> is a powerful theoretical tool used exclusively to prove that a given language is <strong>NOT regular</strong>. It is derived from the Pigeonhole Principle: any finite automaton recognizing an infinite language must eventually repeat a state when processing a sufficiently long string.</p>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">FORMAL THEOREM: PUMPING LEMMA</span>
+          <p>Let $L$ be a regular language. Then there exists a constant integer $p \ge 1$ (called the <strong>pumping length</strong>), depending only on $L$, such that for every string $w \in L$ with $|w| \ge p$, $w$ can be broken into three substrings $w = xyz$ such that:</p>
+          <ol>
+            <li><strong>Length bound on head:</strong> $|xy| \le p$</li>
+            <li><strong>Non-empty pump:</strong> $|y| \ge 1$ &nbsp;(i.e., $y \ne \epsilon$)</li>
+            <li><strong>Pumping condition:</strong> For all integers $i \ge 0$, the pumped string $x y^i z \in L$.</li>
+          </ol>
+        </div>
+
+        <h3>Intuition & Proof Idea</h3>
+        <p>If $L$ is regular, there exists a DFA $M = (Q, \Sigma, \delta, q_0, F)$ accepting $L$ with $p = |Q|$ states. When $M$ consumes a string $w = a_1 a_2 \dots a_m$ of length $m \ge p$, the computation passes through a sequence of $m + 1$ states: $r_0, r_1, r_2, \dots, r_m$. Since $m + 1 > p$, by the <strong>Pigeonhole Principle</strong>, at least two states among the first $p + 1$ states ($r_0, \dots, r_p$) must be identical, say $r_j = r_k$ with $0 \le j &lt; k \le p$.</p>
+        <p>This creates a loop labeled by the substring $y = a_{j+1} \dots a_k$. Since the machine is in the exact same state at the beginning and end of $y$, the loop can be traversed 0 times ($i=0$), 1 time ($i=1$), or $i$ times ($i \ge 2$), and the machine will still reach the same accepting state!</p>
+
+        <div class="svg-card">
+          <div class="svg-title">Pumping Lemma Automata State Loop Mechanism</div>
+          <svg viewBox="0 0 740 180" width="100%" height="auto" role="img" aria-label="Pumping Lemma Loop Diagram showing x, y loop, and z to final state">
+            <title>Pumping Lemma State Loop</title>
+            <desc>SVG diagram illustrating how string w=xyz is processed by DFA: path x leads to state r_j, path y loops back to r_j, path z leads to final state</desc>
+            <circle cx="60" cy="90" r="22" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="60" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">q₀</text>
+            <line x1="20" y1="90" x2="38" y2="90" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+
+            <!-- Path x to r_j -->
+            <path d="M 82 90 L 220 90" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="150" y="80" font-family="Inter" font-size="14" font-weight="700" fill="var(--text-main)" text-anchor="middle">x (|x| = j)</text>
+
+            <!-- State r_j = r_k -->
+            <circle cx="240" cy="90" r="22" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+            <text x="240" y="95" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" fill="var(--text-main)">rⱼ = rₖ</text>
+
+            <!-- Loop y -->
+            <path d="M 235 68 C 210 15, 270 15, 245 68" fill="none" stroke="var(--green)" stroke-width="2.5" marker-end="url(#th-arr-green)" />
+            <text x="240" y="10" font-family="Inter" font-size="13" font-weight="700" fill="var(--green)" text-anchor="middle">y (|y| &ge; 1, |xy| &le; p)</text>
+
+            <!-- Path z to Final state -->
+            <path d="M 262 90 L 580 90" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="420" y="80" font-family="Inter" font-size="14" font-weight="700" fill="var(--text-main)" text-anchor="middle">z</text>
+
+            <!-- Final state r_m -->
+            <circle cx="605" cy="90" r="22" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <circle cx="605" cy="90" r="17" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+            <text x="605" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">r_m &isin; F</text>
+
+            <text x="370" y="150" font-family="Inter" font-size="13" font-weight="600" fill="var(--text-muted)" text-anchor="middle">Traversing the y-loop i times consumes string x yⁱ z, which must land on the same accepting state r_m!</text>
+          </svg>
+        </div>
+
+        <h3>Adversarial Game Framework</h3>
+        <p>To avoid logical pitfalls, treat the proof by contradiction as a 4-step game against an adversary (the "Demon"):</p>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div><strong>Assumption:</strong> Assume $L$ is regular. The adversary chooses the pumping length $p$ (you don't know $p$, but $p \ge 1$).</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div><strong>String Selection:</strong> You pick a clever string $w \in L$ parameterized by $p$ such that $|w| \ge p$.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div><strong>Division:</strong> The adversary partitions $w = xyz$ subject to $|xy| \le p$ and $|y| \ge 1$.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">4</span>
+            <div><strong>Contradiction:</strong> You pick an integer $i \ge 0$ such that $x y^i z \notin L$, defeating the adversary across all possible partitions of $y$. Hence $L$ cannot be regular.</div>
+          </div>
+        </div>
+
+        <!-- SOLVED PROOF 1: a^n b^n -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">CONTRADICTION PROOF 1 &bull; STANDARD EXAM QUESTION</span>
+            <span class="problem-points">[8 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Prove that $L = \{a^n b^n \mid n \ge 0\}$ is NOT Regular</h4>
+          <p><strong>Step 1: Assumption:</strong> Assume for contradiction that $L$ is regular. Let $p \ge 1$ be the pumping length given by the Pumping Lemma.</p>
+          <p><strong>Step 2: Choose String $w$:</strong> Let $w = a^p b^p$. Note that $w \in L$ and $|w| = 2p \ge p$.</p>
+          <p><strong>Step 3: Analyze decomposition $w = xyz$:</strong></p>
+          <ul>
+            <li>Condition 1 states $|xy| \le p$. Since the first $p$ characters of $w$ are all $a$'s, $xy$ must consist exclusively of $a$'s.</li>
+            <li>Condition 2 states $|y| \ge 1$. Therefore, $y = a^k$ for some integer $k \ge 1$.</li>
+            <li>Hence, $x = a^j$, $y = a^k$, $z = a^{p - j - k} b^p$, where $j \ge 0, k \ge 1$, and $j + k \le p$.</li>
+          </ul>
+          <p><strong>Step 4: Pump with $i = 2$:</strong></p>
+          <p>Consider the pumped string $w' = x y^2 z$:</p>
+          $$w' = x y y z = a^j a^{2k} a^{p - j - k} b^p = a^{p + k} b^p$$
+          <p>Since $k \ge 1$, $p + k &gt; p$. The number of $a$'s in $w'$ is $p + k$, while the number of $b$'s remains $p$. Since the number of $a$'s does not equal the number of $b$'s, $w' \notin L$.</p>
+          <div class="result-box">
+            This contradicts Condition 3 of the Pumping Lemma ($x y^i z \in L$ for all $i \ge 0$). Thus, the initial assumption must be false, and $\mathbf{L = \{a^n b^n \mid n \ge 0\}}$ is NOT regular.
+          </div>
+        </div>
+
+        <!-- SOLVED PROOF 2: 0^{n^2} -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">CONTRADICTION PROOF 2 &bull; NON-LINEAR EXPONENT</span>
+            <span class="problem-points">[8 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Prove that $L = \{0^{n^2} \mid n \ge 1\}$ is NOT Regular</h4>
+          <p><strong>Step 1:</strong> Assume $L$ is regular with pumping length $p \ge 1$.</p>
+          <p><strong>Step 2:</strong> Choose $w = 0^{p^2} \in L$. Length $|w| = p^2 \ge p$.</p>
+          <p><strong>Step 3:</strong> Partition $w = xyz$ with $|xy| \le p$ and $|y| = k \ge 1$. Since the alphabet is unary $\{0\}$, $y = 0^k$ where $1 \le k \le p$.</p>
+          <p><strong>Step 4: Pump with $i = 2$:</strong> Let $w' = x y^2 z$. The length of $w'$ is:</p>
+          $$|w'| = |xyz| + |y| = p^2 + k$$
+          <p>Now evaluate the bounds on this new length:</p>
+          <ul>
+            <li>Since $k \ge 1$, $|w'| = p^2 + k &gt; p^2$.</li>
+            <li>Since $k \le p$, $|w'| = p^2 + k \le p^2 + p &lt; p^2 + 2p + 1 = (p + 1)^2$.</li>
+          </ul>
+          <p>Therefore, we have strictly:</p>
+          $$p^2 &lt; |w'| &lt; (p + 1)^2$$
+          <p>The length of $w'$ lies strictly between two consecutive perfect squares $p^2$ and $(p+1)^2$. Hence, $|w'|$ cannot be a perfect square, meaning $w' \notin L$.</p>
+          <div class="result-box">
+            Contradiction! Hence, $\mathbf{L = \{0^{n^2} \mid n \ge 1\}}$ is NOT regular.
+          </div>
+        </div>
+
+        <div class="callout callout-tip">
+          <span class="callout-label">EXAM STRATEGY: HOW TO PROVE A LANGUAGE IS REGULAR VS NOT REGULAR</span>
+          <p>To prove a language <strong>IS regular</strong>: construct a DFA, NFA, or Regular Expression. NEVER use the Pumping Lemma to prove a language is regular!</p>
+          <p>To prove a language <strong>is NOT regular</strong>: use the Pumping Lemma or closure under intersection with a known regular language.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Pumping Lemma conditions: $|xy| \le p$, $|y| \ge 1$, and $\forall i \ge 0, xy^i z \in L$.</li>
+            <li>Pumping down ($i=0$) or pumping up ($i=2$) creates a length or symbol mismatch.</li>
+            <li>Pumping Lemma can ONLY prove non-regularity, never regularity.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Closure Properties of Regular Languages</h2>
+
+        <p class="section-lead">A class of languages is <strong>closed</strong> under an operation if applying that operation to languages within the class always produces another language within the same class. Regular languages enjoy extraordinary closure properties under almost all standard set-theoretic and string operations.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Operation</th>
+                <th>Formal Notation</th>
+                <th>Proof Technique / Construction</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Union</strong></td>
+                <td>$L_1 \cup L_2$</td>
+                <td>Thompson's construction: branch with $\epsilon$ to $M_1$ and $M_2$. Or Product DFA: $F_{prod} = (F_1 \times Q_2) \cup (Q_1 \times F_2)$.</td>
+              </tr>
+              <tr>
+                <td><strong>Concatenation</strong></td>
+                <td>$L_1 \cdot L_2$</td>
+                <td>Thompson's construction: connect final state of $M_1$ to start state of $M_2$ via $\epsilon$.</td>
+              </tr>
+              <tr>
+                <td><strong>Kleene Closure</strong></td>
+                <td>$L^*$</td>
+                <td>Thompson's construction: add bypass and loopback $\epsilon$-transitions.</td>
+              </tr>
+              <tr>
+                <td><strong>Complement</strong></td>
+                <td>$\overline{L} = \Sigma^* - L$</td>
+                <td>Take a <em>total</em> DFA $M = (Q, \Sigma, \delta, q_0, F)$ for $L$. Complement DFA is $M' = (Q, \Sigma, \delta, q_0, Q - F)$ (invert final and non-final states). <em>Must be a DFA, not NFA!</em></td>
+              </tr>
+              <tr>
+                <td><strong>Intersection</strong></td>
+                <td>$L_1 \cap L_2$</td>
+                <td>De Morgan's Law: $L_1 \cap L_2 = \overline{\overline{L_1} \cup \overline{L_2}}$. Or Cross-Product DFA construction where $F_{prod} = F_1 \times F_2$.</td>
+              </tr>
+              <tr>
+                <td><strong>Difference</strong></td>
+                <td>$L_1 - L_2$</td>
+                <td>$L_1 - L_2 = L_1 \cap \overline{L_2}$. Since regular languages are closed under complement and intersection, they are closed under difference.</td>
+              </tr>
+              <tr>
+                <td><strong>Reversal</strong></td>
+                <td>$L^R = \{w^R \mid w \in L\}$</td>
+                <td>Reverse all transition arrows in the FA, swap start and final states (introduce a single new start state if multiple finals).</td>
+              </tr>
+              <tr>
+                <td><strong>Homomorphism</strong></td>
+                <td>$h(L) = \{h(w) \mid w \in L\}$</td>
+                <td>Replace each symbol $a$ on transitions with string $h(a)$. The resulting transition graph is an $\epsilon$-NFA.</td>
+              </tr>
+              <tr>
+                <td><strong>Inverse Homomorphism</strong></td>
+                <td>$h^{-1}(L) = \{w \mid h(w) \in L\}$</td>
+                <td>Define DFA $M'$ with $\delta'(q, a) = \hat{\delta}(q, h(a))$. Start and final states remain unchanged.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">CRITICAL EXAM GOTCHA: COMPLEMENT OF NFA</span>
+          <p>You <strong>cannot</strong> complement an NFA simply by swapping its accepting and non-accepting states! Because an NFA can have multiple computation paths for the same string, swapping accept states does not compute the complement language. You MUST first convert the NFA to an equivalent DFA (ensuring all dead states are included), and only then swap final and non-final states.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Regular languages are closed under: $\cup, \cap, \cdot, *, \text{complement}, -, \text{reversal}, \text{homomorphism}, h^{-1}$.</li>
+            <li>Complement: invert accept states on a <strong>complete DFA</strong> (never an NFA directly).</li>
+            <li>Intersection via De Morgan's Law: $L_1 \cap L_2 = \overline{\overline{L_1} \cup \overline{L_2}}$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Decision Properties of Regular Languages</h2>
+
+        <p class="section-lead">A property of a language family is <strong>decidable</strong> if there exists an algorithm (a Turing machine that halts on all inputs) that answers yes or no to questions regarding that property. For regular languages, almost all standard properties are fully decidable.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Decision Problem</th>
+                <th>Question Asked</th>
+                <th>Deciding Algorithm & Time Complexity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Membership Problem</strong></td>
+                <td>Given DFA $M$ and string $w$, is $w \in L(M)$?</td>
+                <td>Simulate $M$ on $w$ symbol by symbol starting from $q_0$. Check if final state is in $F$.<br><strong>Complexity:</strong> $O(|w|)$ time.</td>
+              </tr>
+              <tr>
+                <td><strong>Emptiness Problem</strong></td>
+                <td>Given DFA $M$, is $L(M) = \emptyset$?</td>
+                <td>Perform Graph Reachability (BFS/DFS) starting from $q_0$ in the state transition graph. If no state in $F$ is reachable, $L(M) = \emptyset$; otherwise non-empty.<br><strong>Complexity:</strong> $O(|Q| + |E|)$.</td>
+              </tr>
+              <tr>
+                <td><strong>Finiteness Problem</strong></td>
+                <td>Given DFA $M$, is $L(M)$ finite or infinite?</td>
+                <td>
+                  <strong>Method 1: Cycle Detection:</strong> Eliminate all unreachable states and states that cannot reach any final state. Then check for directed cycles using DFS. If a cycle exists, $L(M)$ is infinite; else finite.<br>
+                  <strong>Method 2: Length Bounds:</strong> Test if $M$ accepts any string $w$ such that $n \le |w| &lt; 2n$, where $n = |Q|$. If yes, infinite; if none, finite.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Equivalence Problem</strong></td>
+                <td>Given DFAs $M_1, M_2$, is $L(M_1) = L(M_2)$?</td>
+                <td>
+                  <strong>Method 1: Symmetric Difference:</strong> Construct $L_{sym} = (L_1 \cap \overline{L_2}) \cup (\overline{L_1} \cap L_2)$. Run Emptiness test on $L_{sym}$. $L_1 = L_2 \iff L_{sym} = \emptyset$.<br>
+                  <strong>Method 2: Minimization:</strong> Minimize both $M_1$ and $M_2$. Check if minimal DFAs are isomorphic up to state renaming.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Subset / Containment</strong></td>
+                <td>Is $L(M_1) \subseteq L(M_2)$?</td>
+                <td>Test if $L_1 - L_2 = \emptyset$, which is equivalent to testing whether $L(M_1) \cap \overline{L(M_2)} = \emptyset$.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Membership: simulate DFA in $O(|w|)$.</li>
+            <li>Emptiness: BFS/DFS to check reachability of final states from $q_0$.</li>
+            <li>Finiteness: check for cycles on paths from $q_0$ to $F$, or test strings of length $n \le |w| &lt; 2n$.</li>
+            <li>Equivalence: $(L_1 \cap \overline{L_2}) \cup (\overline{L_1} \cap L_2) = \emptyset$, or check minimal DFA isomorphism.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Minimization of DFA (The Table-Filling Algorithm)</h2>
+
+        <p class="section-lead">A Deterministic Finite Automaton may contain redundant states that perform identical functional duties. The <strong>Myhill-Nerode Theorem</strong> guarantees that for every regular language, there exists a <strong>unique minimum-state DFA</strong> (up to state relabeling). The <strong>Table-Filling Algorithm</strong> (also known as Moore's / Hopcroft's state-marking algorithm) finds this minimal DFA.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">EQUIVALENT VS DISTINGUISHABLE STATES</span>
+          <p>Two states $p, q \in Q$ are said to be <strong>equivalent</strong> (indistinguishable, denoted $p \equiv q$) if for all strings $w \in \Sigma^*$:</p>
+          $$\hat{\delta}(p, w) \in F \iff \hat{\delta}(q, w) \in F$$
+          <p>Conversely, states $p$ and $q$ are <strong>distinguishable</strong> if there exists at least one string $w \in \Sigma^*$ (called a distinguishing witness string) such that exactly one of $\hat{\delta}(p, w)$ and $\hat{\delta}(q, w)$ is in $F$.</p>
+        </div>
+
+        <div class="callout callout-algorithm">
+          <span class="callout-label">TABLE-FILLING ALGORITHM (STEP-BY-STEP)</span>
+          <ol>
+            <li><strong>Step 0: Remove Unreachable States:</strong> Perform BFS/DFS from $q_0$. Discard any state that cannot be reached from the start state.</li>
+            <li><strong>Step 1: Construct the Lower-Triangular Table:</strong> Create a table of all unordered pairs $(p, q)$ with $p \ne q$. For $n$ states, there are $\frac{n(n-1)}{2}$ pairs.</li>
+            <li><strong>Step 2: Base Initialization (Distinguish Final from Non-Final):</strong> For every pair $(p, q)$, if one state is in $F$ and the other is NOT in $F$, mark the cell with an $\mathbf{X}$ (witness string is $\epsilon$).</li>
+            <li><strong>Step 3: Iterative Propagation:</strong> For every unmarked pair $(p, q)$:
+              <ul>
+                <li>For each symbol $a \in \Sigma$, compute $p' = \delta(p, a)$ and $q' = \delta(q, a)$.</li>
+                <li>If $p' \ne q'$ and the pair $(p', q')$ is already marked with an $\mathbf{X}$, mark $(p, q)$ with an $\mathbf{X}$.</li>
+              </ul>
+              Repeat Step 3 until an entire pass completes with <em>no new marks added</em> (fixed point reached).
+            </li>
+            <li><strong>Step 4: Group Equivalent States:</strong> All pairs $(p, q)$ that remain <em>unmarked</em> are equivalent ($p \equiv q$). Partition states into equivalence classes.</li>
+            <li><strong>Step 5: Construct Minimized DFA:</strong> Each equivalence class forms a single composite state. The start state is the class containing $q_0$. Accepting states are classes containing any original final state.</li>
+          </ol>
+        </div>
+
+        <!-- SOLVED WORKED EXAMPLE: TABLE-FILLING MINIMIZATION -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">COMPREHENSIVE NUMERICAL &bull; VERIFIED SCRIPT PASS</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM CORE]</span>
+          </div>
+          <h4 class="problem-title">Minimize a 5-State DFA Using Table-Filling Algorithm</h4>
+          <p>Given the DFA with states $Q = \{A, B, C, D, E\}$, alphabet $\Sigma = \{0, 1\}$, start state $A$, accept state $F = \{D\}$, and transition function:</p>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>State</th>
+                  <th>Input 0</th>
+                  <th>Input 1</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>&rarr; A</strong></td>
+                  <td>B</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td><strong>B</strong></td>
+                  <td>B</td>
+                  <td>D</td>
+                </tr>
+                <tr>
+                  <td><strong>C</strong></td>
+                  <td>B</td>
+                  <td>C</td>
+                </tr>
+                <tr>
+                  <td><strong>* D (Final)</strong></td>
+                  <td>B</td>
+                  <td>E</td>
+                </tr>
+                <tr>
+                  <td><strong>E</strong></td>
+                  <td>B</td>
+                  <td>C</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Step 1: Check Reachability:</strong></p>
+          <p>From start state $A$: $\delta(A, 0) = B$, $\delta(A, 1) = C$. From $B$: $\delta(B, 1) = D$. From $D$: $\delta(D, 1) = E$. All 5 states $\{A, B, C, D, E\}$ are reachable.</p>
+
+          <p><strong>Step 2: Base Initialization (Mark Accept vs Non-Accept):</strong></p>
+          <p>Since $F = \{D\}$, any pair containing $D$ and a non-accepting state $\{A, B, C, E\}$ is immediately marked with an $\mathbf{X}$:</p>
+          <ul>
+            <li>Marked: $(A, D)$, $(B, D)$, $(C, D)$, $(D, E)$.</li>
+          </ul>
+
+          <p><strong>Step 3: Iteration 1 across remaining unmarked pairs:</strong></p>
+          <ul>
+            <li><strong>Pair $(A, B)$:</strong>
+              <ul>
+                <li>On input 0: $\delta(A,0)=B, \delta(B,0)=B$ (same state).</li>
+                <li>On input 1: $\delta(A,1)=C, \delta(B,1)=D$. The pair $(C, D)$ is <em>already marked</em>!</li>
+                <li>&rarr; <strong>Mark $(A, B)$ with X.</strong></li>
+              </ul>
+            </li>
+            <li><strong>Pair $(A, C)$:</strong>
+              <ul>
+                <li>On input 0: $\delta(A,0)=B, \delta(C,0)=B$ (same).</li>
+                <li>On input 1: $\delta(A,1)=C, \delta(C,1)=C$ (same).</li>
+                <li>&rarr; <em>Cannot be marked!</em> Both transitions go to identical states.</li>
+              </ul>
+            </li>
+            <li><strong>Pair $(A, E)$:</strong>
+              <ul>
+                <li>On input 0: $\delta(A,0)=B, \delta(E,0)=B$ (same).</li>
+                <li>On input 1: $\delta(A,1)=C, \delta(E,1)=C$ (same).</li>
+                <li>&rarr; <em>Cannot be marked!</em></li>
+              </ul>
+            </li>
+            <li><strong>Pair $(B, C)$:</strong>
+              <ul>
+                <li>On input 1: $\delta(B,1)=D, \delta(C,1)=C$. Pair $(C, D)$ is marked!</li>
+                <li>&rarr; <strong>Mark $(B, C)$ with X.</strong></li>
+              </ul>
+            </li>
+            <li><strong>Pair $(B, E)$:</strong>
+              <ul>
+                <li>On input 1: $\delta(B,1)=D, \delta(E,1)=C$. Pair $(C, D)$ is marked!</li>
+                <li>&rarr; <strong>Mark $(B, E)$ with X.</strong></li>
+              </ul>
+            </li>
+            <li><strong>Pair $(C, E)$:</strong>
+              <ul>
+                <li>On input 0: both go to $B$. On input 1: both go to $C$. Identical!</li>
+                <li>&rarr; <em>Cannot be marked!</em></li>
+              </ul>
+            </li>
+          </ul>
+
+          <p><strong>Step 4: Iteration 2:</strong> Check remaining unmarked pairs $(A, C)$, $(A, E)$, $(C, E)$. No new pairs can be marked. The algorithm halts.</p>
+
+          <p><strong>Resulting Table Matrix:</strong></p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>A</th>
+                  <th>B</th>
+                  <th>C</th>
+                  <th>D</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>B</th>
+                  <td>X (on 1)</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th>C</th>
+                  <td><strong>&mdash; [Equiv]</strong></td>
+                  <td>X (on 1)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th>D</th>
+                  <td>X (Base)</td>
+                  <td>X (Base)</td>
+                  <td>X (Base)</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th>E</th>
+                  <td><strong>&mdash; [Equiv]</strong></td>
+                  <td>X (on 1)</td>
+                  <td><strong>&mdash; [Equiv]</strong></td>
+                  <td>X (Base)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Step 5: Equivalence Classes & State Merging:</strong></p>
+          <p>The unmarked pairs are $(A, C)$, $(A, E)$, and $(C, E)$. By transitivity, they form a single equivalence class:</p>
+          $$[A] = \{A, C, E\}$$
+          <p>The remaining singleton classes are $[B] = \{B\}$ and $[D] = \{D\}$.</p>
+
+          <div class="result-box">
+            <p><strong>Minimized 3-State DFA:</strong></p>
+            <ul>
+              <li>States: $Q_{min} = \{[A,C,E], [B], [D]\}$</li>
+              <li>Start State: $[A,C,E]$</li>
+              <li>Accept State: $[D]$</li>
+              <li>Transitions:
+                <ul>
+                  <li>$\delta([A,C,E], 0) = [B]$, $\delta([A,C,E], 1) = [A,C,E]$</li>
+                  <li>$\delta([B], 0) = [B]$, $\delta([B], 1) = [D]$</li>
+                  <li>$\delta([D], 0) = [B]$, $\delta([D], 1) = [A,C,E]$</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Before and After DFA State Diagrams</h3>
+        <div class="svg-card">
+          <div class="svg-title">Original (5 States) vs Minimized (3 States) DFA</div>
+          <svg viewBox="0 0 800 280" width="100%" height="auto" role="img" aria-label="Original 5-state DFA versus Minimized 3-state DFA transition diagrams">
+            <title>Original vs Minimized DFA</title>
+            <desc>SVG diagram showing 5-state DFA on the left and equivalent 3-state minimal DFA on the right where states A, C, and E are merged</desc>
+
+            <!-- LEFT: 5-state DFA -->
+            <g transform="translate(20, 20)">
+              <text x="160" y="20" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)" text-anchor="middle">Original DFA (5 States)</text>
+
+              <!-- State A -->
+              <circle cx="50" cy="80" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="50" y="85" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">A</text>
+              <line x1="15" y1="80" x2="32" y2="80" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+
+              <!-- State B -->
+              <circle cx="150" cy="80" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="150" y="85" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">B</text>
+
+              <!-- State C -->
+              <circle cx="50" cy="180" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="50" y="185" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">C</text>
+
+              <!-- State D (Accept) -->
+              <circle cx="260" cy="80" r="18" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+              <circle cx="260" cy="80" r="14" fill="none" stroke="var(--green)" stroke-width="1.5" />
+              <text x="260" y="85" font-family="Inter" font-size="12" font-weight="700" text-anchor="middle" fill="var(--green)">D</text>
+
+              <!-- State E -->
+              <circle cx="260" cy="180" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="260" y="185" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">E</text>
+
+              <!-- Transitions -->
+              <line x1="68" y1="80" x2="132" y2="80" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="100" y="72" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">0</text>
+
+              <line x1="50" y1="98" x2="50" y2="162" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="38" y="135" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">1</text>
+
+              <!-- B loop 0 -->
+              <path d="M 140 65 C 130 35, 170 35, 160 65" fill="none" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="150" y="25" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">0</text>
+
+              <!-- B to D 1 -->
+              <line x1="168" y1="80" x2="242" y2="80" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="205" y="72" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">1</text>
+
+              <!-- D to E 1 -->
+              <line x1="260" y1="98" x2="260" y2="162" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="272" y="135" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">1</text>
+
+              <!-- C loop 1 -->
+              <path d="M 40 195 C 20 220, 60 230, 55 200" fill="none" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="45" y="240" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">1</text>
+            </g>
+
+            <!-- Divider -->
+            <line x1="400" y1="30" x2="400" y2="240" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="6" />
+
+            <!-- RIGHT: Minimized DFA (3 states) -->
+            <g transform="translate(420, 20)">
+              <text x="180" y="20" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--green)" text-anchor="middle">Minimized Minimal DFA (3 States)</text>
+
+              <!-- Composite State {A, C, E} -->
+              <rect x="20" y="90" width="90" height="42" rx="21" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="65" y="116" font-family="Inter" font-size="12" font-weight="700" text-anchor="middle" fill="var(--text-main)">{A, C, E}</text>
+              <line x1="-5" y1="111" x2="18" y2="111" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+
+              <!-- State {B} -->
+              <circle cx="190" cy="111" r="21" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="190" y="116" font-family="Inter" font-size="12" font-weight="700" text-anchor="middle" fill="var(--text-main)">{B}</text>
+
+              <!-- State {D} Accept -->
+              <circle cx="310" cy="111" r="22" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+              <circle cx="310" cy="111" r="17" fill="none" stroke="var(--green)" stroke-width="1.5" />
+              <text x="310" y="116" font-family="Inter" font-size="12" font-weight="700" text-anchor="middle" fill="var(--green)">{D}</text>
+
+              <!-- Transitions -->
+              <!-- {A,C,E} to {B} on 0 -->
+              <path d="M 110 102 L 169 102" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="140" y="94" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" fill="var(--text-main)">0</text>
+
+              <!-- Loop on {A,C,E} on 1 -->
+              <path d="M 45 90 C 35 50, 85 50, 75 90" fill="none" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="60" y="45" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" fill="var(--green)">1</text>
+
+              <!-- Loop on {B} on 0 -->
+              <path d="M 180 90 C 170 50, 210 50, 200 90" fill="none" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="190" y="45" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" fill="var(--green)">0</text>
+
+              <!-- {B} to {D} on 1 -->
+              <line x1="211" y1="111" x2="288" y2="111" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="250" y="103" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" fill="var(--text-main)">1</text>
+
+              <!-- {D} back to {B} on 0 -->
+              <path d="M 300 132 C 270 170, 220 170, 195 132" fill="none" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="245" y="180" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" fill="var(--text-main)">0</text>
+
+              <!-- {D} back to {A,C,E} on 1 -->
+              <path d="M 310 89 C 310 10, 65 10, 65 88" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="180" y="8" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" fill="var(--green)">1</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Step 0: Prune unreachable states.</li>
+            <li>Base: Mark all $(f, q)$ where $f \in F, q \notin F$.</li>
+            <li>Induction: For $(p, q)$, if for some symbol $a$, $(\delta(p,a), \delta(q,a))$ is marked, mark $(p,q)$.</li>
+            <li>Unmarked cells form equivalence classes $[p]$ that become states in the minimal DFA.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Key Identities & Laws</h4>
+            <ul>
+              <li>$R + \emptyset = R$, $R\epsilon = R$, $R\emptyset = \emptyset$</li>
+              <li>$(R^*)^* = R^*$, $\emptyset^* = \epsilon$, $\epsilon^* = \epsilon$</li>
+              <li>$(R + S)^* = (R^* S^*)^* = (R^* + S^*)^*$</li>
+              <li>$R(S + T) = RS + RT$ (distributive)</li>
+              <li><strong>Arden's Theorem:</strong> $R = Q + RP \implies R = QP^*$ (when $\epsilon \notin P$)</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Pumping Lemma Checklist</h4>
+            <ul>
+              <li>Conditions: $|xy| \le p$, $|y| \ge 1$, $\forall i \ge 0, xy^i z \in L$.</li>
+              <li>$a^n b^n$: pick $w = a^p b^p$, $y = a^k$, pump $i=2 \implies a^{p+k}b^p \notin L$.</li>
+              <li>$w w^R$: pick $w = 0^p 1 1 0^p$, pump $i=2$.</li>
+              <li>$0^{n^2}$: pick $w = 0^{p^2}$, pump $i=2 \implies p^2 &lt; |w'| &lt; (p+1)^2$.</li>
+              <li>Used <em>only</em> for non-regularity proofs!</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Closure & Decision Properties</h4>
+            <ul>
+              <li>Closed under: $\cup, \cap, \cdot, *, \overline{L}, -, L^R, h(L), h^{-1}(L)$.</li>
+              <li>Complement: invert final states of <strong>complete DFA</strong>.</li>
+              <li>Membership: simulate DFA in $O(|w|)$.</li>
+              <li>Emptiness: check reachability from $q_0$ to $F$ (BFS/DFS).</li>
+              <li>Finiteness: check cycles on paths from $q_0$ to $F$.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>DFA Minimization Summary</h4>
+            <ul>
+              <li>Table-filling pairs: $\frac{n(n-1)}{2}$ cells.</li>
+              <li>Base: mark $(f, q)$ where $f \in F, q \notin F$.</li>
+              <li>Step: mark $(p, q)$ if $(\delta(p,a), \delta(q,a))$ marked for any $a \in \Sigma$.</li>
+              <li>Equivalent states remain unmarked.</li>
+              <li>Minimal DFA is unique up to state isomorphism.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> State Arden's Theorem and its condition of validity.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Let $P$ and $Q$ be two regular expressions. If $P$ does not contain $\epsilon$, then the equation $R = Q + RP$ has a unique solution given by $R = QP^*$. The condition $\epsilon \notin P$ is mandatory to guarantee uniqueness of the solution.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What are the three conditions of the Pumping Lemma for regular languages?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> For a string $w$ with $|w| \ge p$ decomposed as $w = xyz$:</p>
+                <ol>
+                  <li>$|xy| \le p$ (pump lies within first $p$ symbols)</li>
+                  <li>$|y| \ge 1$ (pump is non-empty)</li>
+                  <li>$xy^i z \in L$ for all $i \ge 0$ (pumping preserves membership)</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Why cannot an NFA be complemented simply by flipping its final and non-final states?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> An NFA can have multiple computational branches for a single string. If one branch terminates in a rejecting state while another branch terminates in an accepting state, the string is accepted. Flipping states would cause both branches to invert, and the string might still be accepted! Thus, one must determinize into a complete DFA before swapping states.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the State Elimination Method to convert an FA to a Regular Expression.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ol>
+                  <li>Create a new unique start state $s_{new}$ with an $\epsilon$-transition to the old start state, and a new unique final state $f_{new}$ receiving $\epsilon$-transitions from all old final states.</li>
+                  <li>Convert parallel edges between any two states into single edges labeled with the union ($R_1 + R_2$).</li>
+                  <li>Eliminate each intermediate state $k$ one by one. For every predecessor $p$ and successor $q$ of $k$, update edge $(p, q)$ to $\alpha_{pq}^{new} = \alpha_{pq} + \alpha_{pk}(\alpha_{kk})^*\alpha_{kq}$, where $\alpha_{kk}$ is the self-loop on $k$.</li>
+                  <li>When only $s_{new}$ and $f_{new}$ remain, the label on $(s_{new}, f_{new})$ is the equivalent regular expression.</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Describe the algorithm to decide whether the language of a DFA is finite or infinite.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ol>
+                  <li>Eliminate all states unreachable from $q_0$ using BFS/DFS.</li>
+                  <li>Eliminate all "dead" states (states from which no final state in $F$ can ever be reached).</li>
+                  <li>In the resulting pruned transition graph, test for the presence of a directed cycle using cycle-detection DFS.</li>
+                  <li>If any directed cycle exists, the language is <strong>infinite</strong> (the loop can be traversed arbitrarily many times to generate valid strings). If no cycles exist (it is a DAG), the language is <strong>finite</strong>.</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> State and prove the Pumping Lemma for regular languages, and use it to prove that $L = \{0^i 1^j \mid i &gt; j\}$ is not regular.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong></p>
+                <p><strong>1. Statement & Proof:</strong> State the lemma conditions ($|xy| \le p, |y| \ge 1, \forall i \ge 0, xy^i z \in L$). Proof relies on Pigeonhole Principle on the first $p+1$ states of a $p$-state DFA, showing a repeating state $r_j = r_k$ creates a loop of length $|y| = k - j \ge 1$.</p>
+                <p><strong>2. Non-regularity Proof for $L = \{0^i 1^j \mid i &gt; j\}$:</strong></p>
+                <ul>
+                  <li>Assume $L$ is regular with pumping length $p$.</li>
+                  <li>Choose $w = 0^{p+1} 1^p \in L$ (since $p+1 &gt; p$). $|w| = 2p + 1 \ge p$.</li>
+                  <li>Partition $w = xyz$ with $|xy| \le p$ and $|y| \ge 1$. Because $|xy| \le p$, $y$ consists strictly of $0$'s, so $y = 0^k$ with $1 \le k \le p$.</li>
+                  <li>Pump <em>down</em> using $i = 0$: $w' = x y^0 z = x z$.</li>
+                  <li>Length of $0$'s in $w'$ becomes $(p + 1) - k$. Since $k \ge 1$, $(p + 1) - k \le p$.</li>
+                  <li>Now the number of $0$'s is $\le p$, while the number of $1$'s remains $p$. The condition $i &gt; j$ no longer holds! Hence $w' \notin L$.</li>
+                  <li>Contradiction! Therefore $L$ is not regular.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted directly from the question papers and model banks in <code>notes/toc/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Exam &bull; July 2023 / Jan 2024</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Define regular expression. Find the regular expression corresponding to the following DFA using Arden's theorem..."</p>
+          <p class="archive-note"><em>Study Note:</em> This matches the exact worked numerical solved in Section 3 above.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-2 &bull; TOC Question Bank</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"State Pumping Lemma for regular languages. Show that the language $L = \{a^n b^n \mid n \ge 0\}$ is not regular."</p>
+          <p class="archive-note"><em>Study Note:</em> Complete 4-step proof provided in Section 4.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Exam &bull; Model Question Paper 2</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Minimize the given DFA using table-filling method and write the transition table of the minimized machine."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified numerical example with before-and-after SVG diagram provided in Section 7.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; REGULAR ALGEBRA</span>
+          </div>
+          <h4 class="problem-title">Simplify the Regular Expression: $R = (a + b)^* a + (a + b)^* a b^*$</h4>
+          <p>Simplify this expression using algebraic identities.</p>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>Factor $(a + b)^* a$ from the left:</p>
+              $$R = (a + b)^* a (\epsilon + b^*)$$
+              <p>Since $\epsilon \in b^*$, we have $\epsilon + b^* = b^*$.</p>
+              <div class="result-box">
+                $$R = (a + b)^* a b^*$$
+              </div>
+              <p>This denotes the language of all strings containing at least one $a$, followed by any number of $b$'s.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; PUMPING LEMMA</span>
+          </div>
+          <h4 class="problem-title">Show that $L = \{w \in \{a, b\}^* \mid w = w^R\}$ (palindromes) is not regular.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ol>
+                <li>Assume $L$ is regular with pumping length $p$.</li>
+                <li>Choose $w = a^p b a^p \in L$. Length $|w| = 2p + 1 \ge p$.</li>
+                <li>Decompose $w = xyz$ with $|xy| \le p$ and $|y| \ge 1$.</li>
+                <li>Because $|xy| \le p$, $y$ consists exclusively of the leading $a$'s: $y = a^k$ with $k \ge 1$.</li>
+                <li>Pump with $i = 2$: $w' = x y^2 z = a^{p+k} b a^p$.</li>
+                <li>Now the prefix has $p + k$ $a$'s while the suffix has only $p$ $a$'s. The string is no longer equal to its reverse ($w' \ne (w')^R$).</li>
+                <li>Hence $w' \notin L$, contradicting the lemma. $L$ is not regular.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman</strong> &mdash; <em>Introduction to Automata Theory, Languages, and Computation</em>, 3rd Edition, Pearson, Chapters 3 & 4.</li>
+            <li><strong>Peter Linz</strong> &mdash; <em>An Introduction to Formal Languages and Automata</em>, 6th Edition, Jones & Bartlett, Chapter 3 & 4.</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 2 (Course Code IS54).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../unit1/unit-1-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS UNIT</span>
+              <span class="pag-title">Unit 1: Finite Automata & RE</span>
+            </div>
+          </a>
+          <a href="../unit3/unit-3-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT UNIT</span>
+              <span class="pag-title">Unit 3: CFG & Pushdown Automata</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
