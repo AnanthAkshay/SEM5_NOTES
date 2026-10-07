@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2: Data Link Layer, Error Control & MAC | CN Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Computer Networks (IS53) Unit 2: Framing, ARP Protocol, Hamming Distance, Cyclic Redundancy Check (CRC), Internet Checksum, Pure & Slotted ALOHA, CSMA/CD, and Controlled Access.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/cn" class="back-btn" title="Return to Computer Networks Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>CN Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/cn">Computer Networks (IS53)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 2</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="cn-u2-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 2 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Data Link Layer Duties & Framing</a>
+        <a href="#sec-2" class="toc-link">§ 2 Address Resolution Protocol (ARP)</a>
+        <a href="#sec-3" class="toc-link">§ 3 Error Detection & Block Coding</a>
+        <a href="#sec-4" class="toc-link">§ 4 Cyclic Redundancy Check (CRC)</a>
+        <a href="#sec-5" class="toc-link">§ 5 Internet Checksum Algorithm</a>
+        <a href="#sec-6" class="toc-link">§ 6 Random Access (ALOHA & CSMA/CD)</a>
+        <a href="#sec-7" class="toc-link">§ 7 Controlled Access & Channelization</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">CN &bull; IS53</span>
+          <span class="unit-tag">UNIT 2</span>
+          <span class="unit-tag read-time">~36 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Data Link Layer, Error Control & Multiple Access</h1>
+        <p class="unit-subtitle">In-depth mathematical foundations, algorithms, and exam numericals for framing, Address Resolution Protocol (ARP), Hamming distance bounds, CRC polynomial long division, 16-bit Internet checksum, ALOHA throughput analysis, and CSMA/CD minimum frame size calculations.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Data Link Layer Framing:</strong> Bit stuffing (01111110 delimiter) and byte stuffing (ESC flags), physical MAC addressing.</li>
+            <li><strong>Address Resolution Protocol (ARP):</strong> ARP request/reply, packet format, ARP cache operation, ARP spoofing attacks.</li>
+            <li><strong>Error Detection & Correction:</strong> Single-bit vs burst errors, redundancy, block coding, Hamming distance ($d_{min} \ge s+1, d_{min} \ge 2t+1$).</li>
+            <li><strong>Cyclic Codes & CRC:</strong> Generator polynomial selection, binary modulo-2 long division at sender and receiver with verified numericals.</li>
+            <li><strong>Internet Checksum:</strong> 16-bit one's complement addition, wraparound carries, sender generation, receiver verification.</li>
+            <li><strong>Random Access MAC Protocols:</strong> Pure ALOHA ($S = G e^{-2G}$), Slotted ALOHA ($S = G e^{-G}$), CSMA persistence modes, CSMA/CD with collision detection and minimum frame length rule.</li>
+            <li><strong>Controlled Access & Channelization:</strong> Reservation, Polling, Token Ring, FDMA, TDMA, CDMA with orthogonal Walsh codes.</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit2/is53-cn-unit2.pdf" class="source-link" target="_blank" rel="noopener">Faculty Slides / Unit 2 PDF</a>
+          <a href="../unit2/is53-cn-unit2.pptx" class="source-link" target="_blank" rel="noopener">Original PPTX Source</a>
+          <a href="../../../index.html#subject/cn" class="source-link">Subject Syllabus</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Data Link Layer Duties & Framing Methods</h2>
+
+        <p class="section-lead">The <strong>Data Link Layer (DLL)</strong> transforms a raw, error-prone transmission facility into a reliable, hop-to-hop link for the Network Layer. It accomplishes this by packaging network-layer packets into discrete units called <strong>frames</strong>, regulating transmission speed via flow control, and detecting physical errors.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">CORE RESPONSIBILITIES OF THE DATA LINK LAYER</span>
+          <ul>
+            <li><strong>Framing:</strong> Divides the stream of bits received from the physical layer into manageable data units (frames) with distinct header and trailer delimiters.</li>
+            <li><strong>Physical Addressing:</strong> Appends a header containing the physical hardware addresses (48-bit MAC addresses) of the sender and immediate receiver.</li>
+            <li><strong>Flow Control:</strong> Prevents a fast sender from swamping a slow receiver using feedback-based sliding window mechanisms.</li>
+            <li><strong>Error Control:</strong> Detects and retransmits damaged or lost frames by adding trailers containing Cyclic Redundancy Check (CRC) codes.</li>
+            <li><strong>Access Control:</strong> In broadcast channels, determines which device has permission to transmit at any given time (MAC sublayer).</li>
+          </ul>
+        </div>
+
+        <h3>Framing Techniques: Character Count vs Stuffing</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Framing Technique</th>
+                <th>Delimiter / Mechanism</th>
+                <th>Operation & Vulnerability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Character Count</strong></td>
+                <td>Integer in the frame header specifies total frame length.</td>
+                <td><strong>Fatal flaw:</strong> If the count field is corrupted by a single bit flip, the receiver loses frame synchronization for all subsequent frames. Deprecated in modern networks.</td>
+              </tr>
+              <tr>
+                <td><strong>Byte Stuffing</strong> (Byte-Oriented)</td>
+                <td>Special flag bytes (e.g. `FLAG = 0x7E`) delimit start and end of frames.</td>
+                <td>If the flag pattern occurs naturally within data, the sender inserts an escape byte (`ESC = 0x7D`) before it. If an `ESC` occurs in data, it is escaped with another `ESC` (`ESC ESC`). Receiver strips the stuffing `ESC`.</td>
+              </tr>
+              <tr>
+                <td><strong>Bit Stuffing</strong> (Bit-Oriented)</td>
+                <td>Special bit pattern `01111110` (six consecutive 1s) delimits frame boundaries.</td>
+                <td><strong>Rule:</strong> Whenever the sender encounters <strong>five consecutive 1s</strong> (`11111`) in user data, it automatically stuffs a `0` after the fifth 1. Receiver detects five 1s and discards the stuffed 0.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-example">
+          <span class="callout-label">WORKED EXAMPLE: BIT STUFFING & UNSTUFFING</span>
+          <p><strong>Input Bit Stream:</strong> <code>010011111011111101011111110</code></p>
+          <p><strong>Step 1: Sender Stuffing (Insert 0 after every five consecutive 1s):</strong></p>
+          <ul>
+            <li><code>0100 11111</code> &rarr; stuff <code>0</code> &rarr; <code>0100 11111[0] 0</code></li>
+            <li><code>111111</code> &rarr; after five 1s, stuff <code>0</code> &rarr; <code>11111[0] 10</code></li>
+            <li><code>010 11111110</code> &rarr; after five 1s, stuff <code>0</code> &rarr; <code>010 11111[0] 110</code></li>
+          </ul>
+          <p><strong>Stuffed Stream Transmitted:</strong> <code>0100111110011111010010111110110</code></p>
+          <p><strong>Step 2: Receiver Unstuffing:</strong> Receiver encounters five 1s followed by a 0, removes the 0, perfectly restoring the original data stream.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>DLL handles hop-to-hop delivery using 48-bit physical MAC addresses.</li>
+            <li>Byte stuffing escapes special flag bytes with `ESC`.</li>
+            <li>Bit stuffing inserts a `0` after every <strong>five consecutive 1s</strong> (`11111`) to prevent imitation of flag `01111110`.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">Address Resolution Protocol (ARP)</h2>
+
+        <p class="section-lead">While the Network Layer routes packets based on 32-bit logical IPv4 addresses, physical local area networks (such as Ethernet) only deliver frames using 48-bit physical MAC addresses. The <strong>Address Resolution Protocol (ARP)</strong> dynamically maps a known IP address to its unknown physical MAC address on the local link.</p>
+
+        <div class="svg-card">
+          <div class="svg-title">ARP Protocol Exchange: Broadcast Request & Unicast Reply</div>
+          <svg viewBox="0 0 740 240" width="100%" height="auto" role="img" aria-label="ARP Request and Reply flow diagram across local subnet">
+            <title>ARP Protocol Workflow</title>
+            <desc>SVG diagram illustrating Host A broadcasting an ARP Request to all stations, and Host B responding with a unicast ARP Reply containing its MAC address</desc>
+
+            <!-- Sender Host A -->
+            <g transform="translate(60, 40)">
+              <rect x="0" y="0" width="140" height="70" rx="10" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="70" y="25" font-family="Bricolage Grotesque" font-weight="700" font-size="13" text-anchor="middle" fill="var(--text-main)">Host A (Sender)</text>
+              <text x="70" y="44" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--text-muted)">IP: 192.168.1.10</text>
+              <text x="70" y="58" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--green)">MAC: 00:AA:BB:11:22:33</text>
+            </g>
+
+            <!-- Receiver Host B -->
+            <g transform="translate(540, 40)">
+              <rect x="0" y="0" width="140" height="70" rx="10" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="70" y="25" font-family="Bricolage Grotesque" font-weight="700" font-size="13" text-anchor="middle" fill="var(--text-main)">Host B (Target)</text>
+              <text x="70" y="44" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--text-muted)">IP: 192.168.1.20</text>
+              <text x="70" y="58" font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="var(--green)">MAC: 00:AA:BB:44:55:66</text>
+            </g>
+
+            <!-- Intermediate Hub/Switch -->
+            <g transform="translate(320, 110)">
+              <rect x="0" y="0" width="100" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.8" />
+              <text x="50" y="25" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--text-main)">Ethernet Switch</text>
+            </g>
+
+            <!-- Step 1: Broadcast Request -->
+            <path d="M 200 65 L 320 120" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+            <text x="210" y="105" font-family="Inter" font-weight="700" font-size="11" fill="var(--green)">1. ARP Request (Broadcast: FF:FF:FF:FF:FF:FF)</text>
+            <text x="210" y="120" font-family="Inter" font-size="10" fill="var(--text-muted)">"Who has 192.168.1.20? Tell 192.168.1.10"</text>
+
+            <!-- Step 2: Unicast Reply -->
+            <path d="M 540 85 L 420 125" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <path d="M 320 135 L 200 95" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="440" y="175" font-family="Inter" font-weight="700" font-size="11" fill="var(--text-main)">2. ARP Reply (Unicast to Host A)</text>
+            <text x="440" y="190" font-family="Inter" font-size="10" fill="var(--text-muted)">"192.168.1.20 is at 00:AA:BB:44:55:66"</text>
+          </svg>
+        </div>
+
+        <h3>ARP Packet Fields (28-Byte Payload)</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Field Name</th>
+                <th>Length</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hardware Type (HTYPE)</strong></td>
+                <td>16 bits</td>
+                <td>Physical network protocol (Ethernet = `1`).</td>
+              </tr>
+              <tr>
+                <td><strong>Protocol Type (PTYPE)</strong></td>
+                <td>16 bits</td>
+                <td>Network layer protocol (IPv4 = `0x0800`).</td>
+              </tr>
+              <tr>
+                <td><strong>Hardware Length (HLEN)</strong></td>
+                <td>8 bits</td>
+                <td>Length of hardware address in bytes (Ethernet = `6`).</td>
+              </tr>
+              <tr>
+                <td><strong>Protocol Length (PLEN)</strong></td>
+                <td>8 bits</td>
+                <td>Length of logical address in bytes (IPv4 = `4`).</td>
+              </tr>
+              <tr>
+                <td><strong>Operation Code (OPER)</strong></td>
+                <td>16 bits</td>
+                <td>`1` for ARP Request, `2` for ARP Reply.</td>
+              </tr>
+              <tr>
+                <td><strong>Sender Hardware / IP</strong></td>
+                <td>6 + 4 bytes</td>
+                <td>MAC address and IP address of the transmitting node.</td>
+              </tr>
+              <tr>
+                <td><strong>Target Hardware / IP</strong></td>
+                <td>6 + 4 bytes</td>
+                <td>Target MAC (`00:00:00:00:00:00` in request) and Target IP.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">SECURITY WARNING: ARP SPOOFING / POISONING</span>
+          <p>Because ARP is completely stateless and does not authenticate replies, an attacker on the same local subnet can send unsolicited (gratuitous) fake ARP replies claiming their MAC address belongs to the default gateway's IP. All outbound traffic from victim hosts is then silently routed through the attacker (Man-in-the-Middle attack).</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>ARP maps 32-bit IPv4 address &rarr; 48-bit MAC address.</li>
+            <li>ARP Request is a <strong>Broadcast</strong> (`FF:FF:FF:FF:FF:FF`); ARP Reply is a <strong>Unicast</strong>.</li>
+            <li>ARP Cache stores mappings temporarily with a Time-to-Live (TTL).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Error Detection, Correction & Block Coding</h2>
+
+        <p class="section-lead">Electromagnetic noise and interference inevitably introduce errors during physical transmission. Errors are classified as <strong>single-bit errors</strong> (only 1 bit inverted in the entire data unit) or <strong>burst errors</strong> (2 or more consecutive bits corrupted, where the burst length is measured from the first to the last corrupted bit).</p>
+
+        <h3>Hamming Distance</h3>
+        <div class="callout callout-def">
+          <span class="callout-label">HAMMING DISTANCE DEFINITION</span>
+          <p>The <strong>Hamming distance</strong> $d(x, y)$ between two binary words of equal length is the number of bit positions in which the corresponding bits differ. It is easily calculated by taking the bitwise exclusive-OR ($x \oplus y$) and counting the number of 1s (Hamming weight).</p>
+          <p><em>Example:</em> $x = 10101$ and $y = 11110$. $x \oplus y = 01011$ (three 1s) &implies; $d(x, y) = 3$.</p>
+          <p>The <strong>minimum Hamming distance</strong> $d_{min}$ of a code is the smallest Hamming distance between all distinct pairs of valid codewords in that code.</p>
+        </div>
+
+        <h3>Mathematical Criteria for Detection and Correction</h3>
+        <div class="callout callout-formula">
+          <span class="callout-label">HAMMING DISTANCE CRITERIA</span>
+          <ol>
+            <li><strong>To detect up to $s$ errors:</strong>
+              $$\mathbf{d_{min} \ge s + 1}$$
+              <em>Intuition:</em> If a transmitted codeword incurs up to $s$ bit flips, the received pattern will lie at a distance $\le s$ from the original codeword, but at least 1 flip away from any other valid codeword, guaranteeing detection.
+            </li>
+            <li><strong>To correct up to $t$ errors:</strong>
+              $$\mathbf{d_{min} \ge 2t + 1}$$
+              <em>Intuition:</em> Spheres of radius $t$ drawn around valid codewords must never intersect. A received word with up to $t$ errors is uniquely closer to the original transmitted codeword than to any other.
+            </li>
+          </ol>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Hamming distance $d(x, y)$ = number of differing bits = weight of $x \oplus y$.</li>
+            <li>Error Detection: $d_{min} \ge s + 1$. Example: to detect 2 errors, $d_{min} \ge 3$.</li>
+            <li>Error Correction: $d_{min} \ge 2t + 1$. Example: to correct 1 error, $d_{min} \ge 3$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">Cyclic Redundancy Check (CRC)</h2>
+
+        <p class="section-lead"><strong>Cyclic Redundancy Check (CRC)</strong> is an exceptionally powerful, hardware-friendly error-detecting code used across Ethernet, Wi-Fi, and storage systems. It treats binary bit streams as algebraic polynomials with binary coefficients and performs <strong>modulo-2 polynomial division</strong>.</p>
+
+        <div class="callout callout-algorithm">
+          <span class="callout-label">CRC SENDER AND RECEIVER ALGORITHM</span>
+          <p>Let dataword $D$ have $k$ bits, and generator polynomial $G(x)$ have degree $r$ ($r + 1$ bits):</p>
+          <ol>
+            <li><strong>Sender Step 1:</strong> Append $r$ zeros to the right of dataword $D$, forming $D \cdot 2^r$.</li>
+            <li><strong>Sender Step 2:</strong> Divide the appended bit stream $D \cdot 2^r$ by the divisor $G(x)$ using <strong>modulo-2 binary division</strong> (bitwise XOR subtraction, no carries or borrows).</li>
+            <li><strong>Sender Step 3:</strong> The division yields a quotient (discarded) and an $r$-bit remainder $R$, called the <strong>CRC</strong>.</li>
+            <li><strong>Sender Step 4:</strong> Append the $r$-bit CRC remainder to original dataword $D$. Transmit codeword $T = D \cdot 2^r \oplus R$.</li>
+            <li><strong>Receiver Step:</strong> Divide the received codeword $T'$ by the identical generator $G(x)$. If the remainder is <strong>strictly all zeros</strong>, accept the frame; otherwise, an error occurred &mdash; discard frame!</li>
+          </ol>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL: CRC DIVISION -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; FULLY VERIFIED PASS</span>
+            <span class="problem-points">[10 MARKS &bull; EXAM FAVOURITE]</span>
+          </div>
+          <h4 class="problem-title">CRC Modulo-2 Division at Sender and Receiver</h4>
+          <p>Given Dataword $D = 100100$ and Generator polynomial $G(x) = x^3 + x^2 + 1$.</p>
+          <ol>
+            <li>Determine the binary representation and degree of $G(x)$.</li>
+            <li>Compute the transmitted codeword using modulo-2 binary division.</li>
+            <li>Verify error detection at the receiver when the transmission is error-free.</li>
+          </ol>
+
+          <p><strong>Step 1: Generator Polynomial Properties:</strong></p>
+          <p>$G(x) = 1 \cdot x^3 + 1 \cdot x^2 + 0 \cdot x^1 + 1 \cdot x^0 \implies \mathbf{1101}$. Degree $r = 3$.</p>
+
+          <p><strong>Step 2: Append $r = 3$ zeros to Dataword:</strong></p>
+          <p>Appended dividend $= 100100000$ (9 bits).</p>
+
+          <p><strong>Step 3: Modulo-2 Long Division at Sender:</strong></p>
+          <pre class="code-block"><code>        1101 ) 100100000 ( Quotient: 110010
+               1101
+               ----
+                1000
+                1101
+                ----
+                 1010
+                 0000
+                 ----
+                 1010
+                 1101
+                 ----
+                  1110
+                  1101
+                  ----
+                   0110
+                   0000
+                   ----
+                    001  <-- Remainder (CRC)</code></pre>
+          <p>The 3-bit remainder is $R = \mathbf{001}$.</p>
+
+          <p><strong>Step 4: Transmitted Codeword:</strong></p>
+          <div class="result-box">
+            $$\text{Codeword } T = 100100 \text{ concatenated with } 001 = \mathbf{100100001}$$
+          </div>
+
+          <p><strong>Step 5: Receiver Verification:</strong></p>
+          <p>Receiver divides received codeword $100100001$ by divisor $1101$:</p>
+          <pre class="code-block"><code>        1101 ) 100100001 ( Quotient: 110010
+               1101
+               ----
+                1000
+                1101
+                ----
+                 1010
+                 0000
+                 ----
+                 1010
+                 1101
+                 ----
+                  1110
+                  1101
+                  ----
+                   0111
+                   1101
+                   ----
+                    000  <-- Remainder = 000 (ACCEPTED!)</code></pre>
+          <div class="result-box">
+            Remainder is exactly $\mathbf{000}$. The transmission is verified and accepted without error.
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Append $r = \text{deg}(G(x))$ zeros to dataword before dividing.</li>
+            <li>Modulo-2 division uses XOR (same bits = 0, different bits = 1; NO carries/borrows).</li>
+            <li>Codeword = Dataword + Remainder. Receiver gets remainder 0 if error-free.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">The Internet Checksum Algorithm</h2>
+
+        <p class="section-lead">The <strong>Internet Checksum</strong> is utilized by IP, TCP, and UDP. It treats data as a sequence of 16-bit integers and computes their sum using <strong>one's complement arithmetic</strong> with end-around carry.</p>
+
+        <div class="callout callout-algorithm">
+          <span class="callout-label">CHECKSUM COMPUTATION STEPS</span>
+          <p><strong>At Sender:</strong></p>
+          <ol>
+            <li>Divide data into 16-bit words. (If length is odd, pad with a trailing zero byte).</li>
+            <li>Sum all 16-bit words together.</li>
+            <li>If a carry bit overflows beyond 16 bits (bit 16), wrap the carry around and add it to the least significant bit (LSB). Repeat until no carry remains.</li>
+            <li>Take the bitwise NOT (one's complement) of the 16-bit sum. This is the <strong>Checksum</strong>.</li>
+            <li>Send the data words along with the checksum.</li>
+          </ol>
+          <p><strong>At Receiver:</strong> Sum all received 16-bit words <em>including</em> the checksum using one's complement. If the result is all 1s (`0xFFFF`), which when complemented yields `0x0000`, the packet is accepted!</p>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL: CHECKSUM -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; FULLY VERIFIED PASS</span>
+            <span class="problem-points">[8 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Compute 16-bit Internet Checksum for Given Words</h4>
+          <p>Calculate the Internet Checksum for the following three 16-bit hexadecimal words:</p>
+          $$\text{Word 1: } \text{0x4500}, \quad \text{Word 2: } \text{0x003C}, \quad \text{Word 3: } \text{0x1C46}$$
+
+          <p><strong>Step 1: Standard Binary/Hexadecimal Addition:</strong></p>
+          $$\begin{aligned}
+          &\text{0x4500} \\
+          + &\text{0x003C} = \text{0x453C} \\
+          + &\text{0x1C46} = \text{0x6182}
+          \end{aligned}$$
+          <p>Since the sum $\text{0x6182}$ fits in 16 bits without carry overflow, wrapped sum $= \text{0x6182}$.</p>
+
+          <p><strong>Step 2: Take One's Complement (Bitwise Inversion):</strong></p>
+          $$\text{Sum} = 0110\ 0001\ 1000\ 0010_2\ (\text{0x6182})$$
+          $$\text{Checksum} = \sim \text{Sum} = 1001\ 1110\ 0111\ 1101_2 = \mathbf{\text{0x9E7D}}$$
+
+          <p><strong>Step 3: Receiver Verification:</strong></p>
+          $$\text{0x4500} + \text{0x003C} + \text{0x1C46} + \text{0x9E7D} = \text{0x6182} + \text{0x9E7D} = \mathbf{\text{0xFFFF}}$$
+          <div class="result-box">
+            Inverting $\text{0xFFFF}$ gives $\mathbf{\text{0x0000}}$. The data is completely verified!
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Internet Checksum uses 16-bit one's complement addition with end-around carry.</li>
+            <li>Sender checksum = bitwise NOT of sum.</li>
+            <li>Receiver sum of all words + checksum must equal all 1s (`0xFFFF`).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Random Access Protocols: ALOHA & CSMA/CD</h2>
+
+        <p class="section-lead">In a broadcast network, multiple stations share a single communication channel. <strong>Random Access (Contention) Protocols</strong> allow stations to transmit whenever they have data, resolving collisions when simultaneous transmissions overlap.</p>
+
+        <h3>1. Pure ALOHA vs Slotted ALOHA Throughput Analysis</h3>
+        <p>Let $G$ be the offered load (average number of frame generation requests per frame transmission time $T_{fr}$):</p>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Protocol</th>
+                <th>Vulnerable Window</th>
+                <th>Throughput Formula</th>
+                <th>Max Load ($G^*$)</th>
+                <th>Max Throughput ($S_{max}$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Pure ALOHA</strong></td>
+                <td>$$2 \times T_{fr}$$</td>
+                <td>$$S = G e^{-2G}$$</td>
+                <td>$$G = 0.5$$</td>
+                <td>$$\frac{1}{2e} \approx \mathbf{18.4\%}$$</td>
+              </tr>
+              <tr>
+                <td><strong>Slotted ALOHA</strong></td>
+                <td>$$T_{fr}$$</td>
+                <td>$$S = G e^{-G}$$</td>
+                <td>$$G = 1.0$$</td>
+                <td>$$\frac{1}{e} \approx \mathbf{36.8\%}$$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2. Carrier Sense Multiple Access (CSMA)</h3>
+        <p>Before transmitting, stations <em>"listen before speaking"</em> (sense the carrier) to avoid obvious collisions:</p>
+        <ul>
+          <li><strong>1-Persistent CSMA:</strong> If channel is idle, transmit immediately. If busy, continue sensing continuously until idle, then transmit with probability $p=1$. (High collision probability when two waiting stations transmit simultaneously upon channel becoming idle).</li>
+          <li><strong>Non-Persistent CSMA:</strong> If idle, transmit immediately. If busy, wait a random backoff time before sensing again. (Reduces collisions, but introduces channel idle time).</li>
+          <li><strong>p-Persistent CSMA:</strong> Used in slotted channels. If idle, transmit with probability $p$; defer to next slot with probability $1 - p$.</li>
+        </ul>
+
+        <h3>3. CSMA with Collision Detection (CSMA/CD)</h3>
+        <p>Stations <em>"listen while talking"</em>. If two signals collide on the wire, the collision energy spike is detected immediately, transmission is aborted, a 32-bit <strong>jamming signal</strong> is broadcast to alert all nodes, and stations invoke the <strong>Binary Exponential Backoff</strong> algorithm.</p>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">CSMA/CD MINIMUM FRAME LENGTH RULE</span>
+          <p>For a station to reliably detect a collision before it finishes transmitting its frame, the frame transmission time $T_{fr}$ must be at least twice the maximum end-to-end propagation delay $t_{prop}$ (round-trip time):</p>
+          $$T_{fr} \ge 2 \times t_{prop}$$
+          <p>Since $T_{fr} = \frac{L_{min}}{\text{Bandwidth}}$, we have the fundamental dimensioning formula:</p>
+          $$\mathbf{L_{min} \ge 2 \times t_{prop} \times \text{Bandwidth}}$$
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL: MINIMUM FRAME SIZE -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; VERIFIED SCRIPT PASS</span>
+            <span class="problem-points">[8 MARKS &bull; CORE EXAM]</span>
+          </div>
+          <h4 class="problem-title">CSMA/CD Minimum Frame Size Calculation</h4>
+          <p>A network operating CSMA/CD has a transmission bandwidth of $R = 10\text{ Mbps}$, a maximum cable length of $d = 2500\text{ m}$, and a signal propagation velocity of $v = 2 \times 10^8\text{ m/s}$. Calculate the minimum frame size required for collision detection.</p>
+
+          <p><strong>Step 1: Calculate One-Way Propagation Delay ($t_{prop}$):</strong></p>
+          $$t_{prop} = \frac{d}{v} = \frac{2500\text{ m}}{2 \times 10^8\text{ m/s}} = 1.25 \times 10^{-5}\text{ s} = 12.5\text{ }\mu\text{s}$$
+
+          <p><strong>Step 2: Calculate Round-Trip Time ($RTT = 2 t_{prop}$):</strong></p>
+          $$RTT = 2 \times t_{prop} = 2 \times 12.5\text{ }\mu\text{s} = 25.0\text{ }\mu\text{s}$$
+
+          <p><strong>Step 3: Apply Minimum Frame Size Equation:</strong></p>
+          $$L_{min} = 2 \times t_{prop} \times R = (25.0 \times 10^{-6}\text{ s}) \times (10 \times 10^6\text{ bps}) = \mathbf{250\text{ bits}}$$
+          <div class="result-box">
+            $$L_{min} = \frac{250}{8} = \mathbf{31.25\text{ bytes}} \approx \mathbf{32\text{ bytes}}$$
+          </div>
+          <p><em>Standard Ethernet Note:</em> In IEEE 802.3 10BASE5 standard Ethernet, accounting for 4 repeaters and worst-case delay, round-trip time is standardized to $51.2\text{ }\mu\text{s}$, producing the famous minimum frame size of $\mathbf{512\text{ bits} = 64\text{ bytes}}$.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Pure ALOHA max throughput: $18.4\%$ at $G = 0.5$. Slotted ALOHA max throughput: $36.8\%$ at $G = 1.0$.</li>
+            <li>CSMA: 1-persistent (greedy), non-persistent (random wait), p-persistent (probabilistic).</li>
+            <li>CSMA/CD requires $T_{fr} \ge 2 t_{prop} \implies L_{min} \ge 2 t_{prop} \times \text{Bandwidth}$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-7" class="note-section">
+        <div class="section-badge">&sect; 7</div>
+        <h2 class="section-title">Controlled Access & Channelization Protocols</h2>
+
+        <p class="section-lead">Unlike random access where stations compete and collide, <strong>Controlled Access</strong> ensures collision-free communication by having stations consult each other before transmitting, while <strong>Channelization</strong> divides channel capacity across frequency, time, or orthogonal code space.</p>
+
+        <h3>1. Controlled Access Protocols</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Protocol</th>
+                <th>Operational Mechanism</th>
+                <th>Pros & Cons</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Reservation</strong></td>
+                <td>Time is divided into intervals. In each interval, a reservation frame precedes data frames. Stations declare their intent in small mini-slots before sending.</td>
+                <td>Collision-free; overhead of reservation mini-slots.</td>
+              </tr>
+              <tr>
+                <td><strong>Polling</strong></td>
+                <td>One device acts as Primary (controller); others are Secondaries. Primary queries secondaries via <strong>Poll</strong> (to receive data) or <strong>Select</strong> (to send data).</td>
+                <td>Centralized control; single point of failure at primary; polling overhead latency.</td>
+              </tr>
+              <tr>
+                <td><strong>Token Passing</strong></td>
+                <td>Stations organized in a logical ring. A special bit pattern called the <strong>Token</strong> circulates. A station holding the token has exclusive right to transmit.</td>
+                <td>Deterministic, fair under heavy loads; token maintenance overhead (lost token, duplicate token).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2. Channelization Protocols (FDMA, TDMA, CDMA)</h3>
+        <ul>
+          <li><strong>FDMA (Frequency-Division Multiple Access):</strong> Available channel bandwidth is partitioned into discrete frequency bands separated by guard bands. Each station transmits continuously on its assigned band.</li>
+          <li><strong>TDMA (Time-Division Multiple Access):</strong> Stations share the entire frequency bandwidth but are allocated synchronized time slots within periodic frames.</li>
+          <li><strong>CDMA (Code-Division Multiple Access):</strong> All stations transmit simultaneously over the entire frequency bandwidth! Signals are separated by assigning each station an <strong>orthogonal chipping code (Walsh sequence)</strong> where:
+            $$\mathbf{c_i \cdot c_j = 0 \quad (i \ne j)}, \quad \mathbf{c_i \cdot c_i = m}$$
+          </li>
+        </ul>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Controlled access: Reservation (mini-slots), Polling (Primary/Secondary), Token Passing (Token Ring).</li>
+            <li>FDMA separates by frequency bands; TDMA separates by synchronized time slots.</li>
+            <li>CDMA allows simultaneous transmission over full bandwidth using orthogonal Walsh codes.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Framing & Stuffing</h4>
+            <ul>
+              <li>Bit stuffing: insert `0` after five consecutive 1s (`11111`). Delimiter: `01111110`.</li>
+              <li>Byte stuffing: escape flag byte with `ESC`.</li>
+              <li>ARP: maps IP (32-bit) &rarr; MAC (48-bit). Broadcast Request, Unicast Reply.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Hamming Distance & Codes</h4>
+            <ul>
+              <li>Hamming distance $d(x, y) = \text{weight}(x \oplus y)$.</li>
+              <li>Detect $s$ errors: $d_{min} \ge s + 1$.</li>
+              <li>Correct $t$ errors: $d_{min} \ge 2t + 1$.</li>
+              <li>Modulo-2 division uses XOR (no carries/borrows).</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>CRC & Checksum</h4>
+            <ul>
+              <li>Append $r = \text{deg}(G(x))$ zeros to dataword before dividing.</li>
+              <li>Codeword = Dataword + CRC Remainder.</li>
+              <li>Internet Checksum: 16-bit one's complement sum with end-around carry; complement at end.</li>
+              <li>Receiver checks for `0xFFFF`.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>MAC Protocols</h4>
+            <ul>
+              <li>Pure ALOHA: $S = G e^{-2G}$, $S_{max} = 18.4\%$ at $G = 0.5$.</li>
+              <li>Slotted ALOHA: $S = G e^{-G}$, $S_{max} = 36.8\%$ at $G = 1.0$.</li>
+              <li>CSMA/CD: $L_{min} \ge 2 t_{prop} \times \text{Bandwidth}$.</li>
+              <li>CDMA: orthogonal chipping sequences ($\mathbf{c_i \cdot c_j = 0}$).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is the purpose of bit stuffing in framing?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Bit stuffing prevents user data patterns from being falsely interpreted as frame boundary delimiters. Whenever the sender detects five consecutive 1s (`11111`) in data, it stuffs a `0`, preventing the flag sequence `01111110` from appearing in the payload.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> State the condition on minimum Hamming distance to correct $t$ errors.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> $d_{min} \ge 2t + 1$. This guarantees that spheres of radius $t$ centered around valid codewords never overlap, allowing unique nearest-neighbor correction.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Compare maximum throughput of Pure ALOHA and Slotted ALOHA.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Pure ALOHA has a maximum throughput of $18.4\%$ ($1/2e$) at an offered load of $G = 0.5$, whereas Slotted ALOHA doubles maximum throughput to $36.8\%$ ($1/e$) at $G = 1.0$ by eliminating partial frame overlaps.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the working of the Address Resolution Protocol (ARP).</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> When a source host needs to send an IP datagram to a local target but only knows the target's IP address, it broadcasts an ARP Request packet (`FF:FF:FF:FF:FF:FF`) asking "Who has IP X? Tell IP Y". Every host on the subnet receives the broadcast, but only the machine with IP X replies with an ARP Reply packet sent unicast back to the source containing its 48-bit physical MAC address. The source updates its ARP cache with a TTL.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain why CSMA/CD imposes a restriction on minimum frame size.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> In CSMA/CD, a station must detect a collision before it finishes transmitting its frame so it knows whether retransmission is needed. In the worst case, a collision occurs just before the signal reaches the furthest station at time $t_{prop}$, and the collision signal takes another $t_{prop}$ to propagate back. Therefore, the transmission duration must satisfy $T_{fr} \ge 2 t_{prop}$, yielding $L_{min} \ge 2 t_{prop} \times \text{Bandwidth}$.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Explain Cyclic Redundancy Check (CRC) with an example, and show division at both sender and receiver.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong> Detail polynomial modulo-2 arithmetic rules, zero appending, XOR long division at sender yielding CRC remainder, codeword concatenation, and receiver verification with remainder zero as solved step-by-step in Section 4.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past examination archives in <code>notes/cn/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Question Bank (IS53)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Given dataword 100100 and divisor polynomial x³ + x² + 1, find the CRC and transmitted codeword. Show receiver check."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified numerical solved step-by-step in Section 4.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Exam &bull; Model Paper</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Derive the throughput expressions for Pure ALOHA and Slotted ALOHA. Explain the significance of vulnerable time."</p>
+          <p class="archive-note"><em>Study Note:</em> Throughput analysis and comparison table provided in Section 6.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-2 &bull; Computer Networks</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"What is bit stuffing? Show bit stuffing for the data stream 010011111011111101011111110."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully worked bit stuffing example provided in Section 1.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; HAMMING DISTANCE</span>
+          </div>
+          <h4 class="problem-title">A code has a minimum Hamming distance of $d_{min} = 5$. How many errors can it detect, and how many can it correct?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ul>
+                <li>Error detection: $d_{min} \ge s + 1 \implies 5 \ge s + 1 \implies s = \mathbf{4\text{ errors detected}}$.</li>
+                <li>Error correction: $d_{min} \ge 2t + 1 \implies 5 \ge 2t + 1 \implies 2t \le 4 \implies t = \mathbf{2\text{ errors corrected}}$.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; ALOHA THROUGHPUT</span>
+          </div>
+          <h4 class="problem-title">In Pure ALOHA, if the offered load is $G = 1$, what is the throughput $S$?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>Formula: $S = G e^{-2G}$</p>
+              $$S = 1 \times e^{-2(1)} = e^{-2} \approx \frac{1}{7.389} \approx \mathbf{0.1353\ (13.53\%)}$$
+              <p>Notice that at $G=1$, Pure ALOHA throughput degrades to $13.53\%$ due to high collision frequency, well below its peak of $18.4\%$ at $G=0.5$.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Behrouz A. Forouzan</strong> &mdash; <em>Data Communications and Networking</em>, 5th Edition, McGraw Hill, Chapters 9, 10, 11, & 12.</li>
+            <li><strong>Andrew S. Tanenbaum, David J. Wetherall</strong> &mdash; <em>Computer Networks</em>, 5th Edition, Pearson, Chapters 3 & 4.</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 2 (Course Code IS53).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../unit1/unit-1-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS UNIT</span>
+              <span class="pag-title">Unit 1: Data Comm & Physical Layer</span>
+            </div>
+          </a>
+          <a href="../unit3/unit-3-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT UNIT</span>
+              <span class="pag-title">Unit 3: Network Layer, IPv4 & Routing</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
