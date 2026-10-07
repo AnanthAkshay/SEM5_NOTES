@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMIPR Unit 2: Research Design &amp; Experimental Designs | SEM5 Study Notes</title>
+  <meta name="description" content="Exam-focused interactive HTML notes for RMIPR (AL58) Unit 2: Research design fundamentals, variables, controls, CRD, RBD, Latin Square Design (LSD), factorial designs, and sample size calculations.">
+  <link rel="stylesheet" href="../../../css/notes.css">
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <script defer src="../../../assets/katex/katex.min.js"></script>
+  <script defer src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script defer src="../../../js/notes.js"></script>
+</head>
+<body data-theme="light">
+  <!-- Skip to Main Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="notes-header">
+    <div class="header-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">Semester V</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="../../../index.html#rmipr">RMIPR (AL58)</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Unit 2</span>
+      </nav>
+
+      <div class="header-main">
+        <div class="header-left">
+          <div class="badge-row">
+            <span class="badge badge-course">AL58</span>
+            <span class="badge badge-unit">Unit 2</span>
+            <span class="badge badge-reading-time">⏱️ 40 min read</span>
+          </div>
+          <h1 class="unit-title">Research Design &amp; Experimental Designs</h1>
+          <p class="unit-subtitle">Need and features of research design, experimental variables, control groups, principles of experimentation, CRD, RBD, Latin Square Design (LSD), factorial designs, and sample size calculation.</p>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn-action" aria-label="Toggle theme">
+            <span class="icon">🌓</span> <span class="action-text">Theme</span>
+          </button>
+          <button id="print-btn" class="btn-action" aria-label="Print or save as PDF">
+            <span class="icon">🖨️</span> <span class="action-text">Print / PDF</span>
+          </button>
+          <button id="mark-done-btn" class="btn-action" aria-label="Mark unit as completed">
+            <span class="icon">✅</span> <span class="action-text">Mark Done</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Syllabus Topics Bar -->
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <span class="syllabus-tag">Syllabus Breakdown</span>
+          <span class="syllabus-count">8 Core Modules</span>
+        </div>
+        <ul class="syllabus-list">
+          <li><strong>Need for Research Design:</strong> Purpose, conceptual structure, efficiency, and validity</li>
+          <li><strong>Features of Good Design:</strong> Reliability, experimental control, economy, and generalizability</li>
+          <li><strong>Important Design Concepts:</strong> Dependent, independent, and extraneous variables, confounded relationships</li>
+          <li><strong>Controls &amp; Hypotheses:</strong> Experimental vs. control groups, treatments, directional hypotheses</li>
+          <li><strong>Principles of Experimentation:</strong> Replication, Randomization, and Local Control</li>
+          <li><strong>Completely Randomized Design (CRD):</strong> One-way layout, model, ANOVA table, and limitations</li>
+          <li><strong>Randomized Block Design (RBD):</strong> Blocking nuisance factors, layout, ANOVA table, and benefits</li>
+          <li><strong>Latin Square (LSD) &amp; Factorial:</strong> Double-blocking ($m \times m$ grid), degrees of freedom, multi-factor interactions</li>
+        </ul>
+      </div>
+
+      <!-- Original Faculty Files Download Links -->
+      <div class="source-links-card">
+        <span class="source-label">Original Courseware:</span>
+        <a href="../unit2/rm-ipr-unit2.pdf" class="source-link" target="_blank" rel="noopener">📄 Unit 2 Slides (PDF)</a>
+        <a href="../unit2/rm-ipr-unit2.pptx" class="source-link" target="_blank" rel="noopener">📊 Unit 2 Presentation (PPTX)</a>
+        <a href="../practice/rmipr-see-feb-mar-2025.pdf" class="source-link" target="_blank" rel="noopener">📝 SEE Feb/Mar 2025 Paper</a>
+        <a href="../practice/rmipr-makeup-apr-2025.pdf" class="source-link" target="_blank" rel="noopener">📝 Makeup Apr 2025 Paper</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Layout with Sticky TOC -->
+  <div class="notes-layout">
+    <!-- Sticky Desktop / Mobile Accordion Navigation -->
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-sticky-container">
+        <div class="toc-header">
+          <h2 class="toc-title">On this page</h2>
+          <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-nav">Contents ▾</button>
+        </div>
+        <nav id="toc-nav" class="toc-nav">
+          <ol class="toc-list">
+            <li><a href="#sec-need-design">1. Need &amp; Features of Research Design</a></li>
+            <li><a href="#sec-core-concepts">2. Variables, Controls &amp; Confounding</a></li>
+            <li><a href="#sec-principles-experiment">3. Principles of Experimental Design</a></li>
+            <li><a href="#sec-crd">4. Completely Randomized Design (CRD)</a></li>
+            <li><a href="#sec-rbd">5. Randomized Block Design (RBD)</a></li>
+            <li><a href="#sec-lsd">6. Latin Square Design (LSD)</a></li>
+            <li><a href="#sec-factorial">7. Factorial Designs ($2^k$)</a></li>
+            <li><a href="#sec-sample-size">8. Sample Size Determination</a></li>
+            <li><a href="#sec-numericals">9. Solved Problems &amp; ANOVA Layouts</a></li>
+            <li><a href="#revision-sheet">10. Quick Revision Sheet</a></li>
+            <li><a href="#exam-questions">11. Exam Questions &amp; Practice</a></li>
+            <li><a href="#sec-references">12. Prescribed References</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="notes-body">
+
+      <!-- SECTION 1 -->
+      <section id="sec-need-design" class="content-section">
+        <h2 class="section-title">1. Need &amp; Features of Research Design</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Research Design</strong> is the conceptual blueprint, master plan, or architectural framework within which research is conducted. It outlines the strategy for data collection, measurement, and statistical analysis to answer the research questions while maximizing empirical control.</p>
+        </div>
+
+        <h3 class="subsection-title">1.1 Why is Research Design Necessary?</h3>
+        <ul>
+          <li><strong>Resource Optimization:</strong> Prevents wasteful expenditures of time, funding, compute cycles, and human labour by defining precise data boundaries.</li>
+          <li><strong>Reliable Causal Inference:</strong> Ensures that observed effects in the dependent variable can be unequivocally attributed to the independent variable rather than noise.</li>
+          <li><strong>Operational Guidance:</strong> Provides a standardized, reproducible roadmap for investigators and laboratory assistants.</li>
+          <li><strong>Flaw Detection:</strong> Enables peer reviewers and committee members to identify conceptual shortcomings before expensive experimental runs begin.</li>
+        </ul>
+
+        <h3 class="subsection-title">1.2 Features of a Good Research Design</h3>
+        <p>According to C.R. Kothari, a robust research design demonstrates four hallmark features:</p>
+        <ol>
+          <li><strong>Objectivity:</strong> Observational procedures and measurement scales yield identical data irrespective of the observer's subjective biases.</li>
+          <li><strong>Reliability:</strong> Consistency of measurement tools and stability of observations over repeated trials.</li>
+          <li><strong>Internal and External Validity:</strong>
+            <ul>
+              <li><em>Internal Validity:</em> The extent to which extraneous variables are controlled so that the observed difference is strictly caused by the treatment.</li>
+              <li><em>External Validity:</em> The generalizability of the findings across wider populations, operating environments, or hardware architectures.</li>
+            </ul>
+          </li>
+          <li><strong>Economy &amp; Flexibility:</strong> Maximizes statistical information gained per unit of cost while retaining adaptability to unexpected technical constraints.</li>
+        </ol>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Research design is the architectural blueprint of an investigation. Good design balances Objectivity, Reliability, Validity (Internal &amp; External), and Economy.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-core-concepts" class="content-section">
+        <h2 class="section-title">2. Variables, Controls &amp; Confounded Relationships</h2>
+        <p>In quantitative and experimental research, phenomena are operationalized as variables possessing measurable numerical values.</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Formal Definition</th>
+                <th>Engineering Benchmark Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Independent Variable (IV)</strong></td>
+                <td>The antecedent factor manipulated or categorized by the researcher to determine its causal effect.</td>
+                <td>Cache allocation size (8MB, 16MB, 32MB) in an embedded Linux system.</td>
+              </tr>
+              <tr>
+                <td><strong>Dependent Variable (DV)</strong></td>
+                <td>The consequent factor measured by the researcher to evaluate the influence of the IV.</td>
+                <td>Memory read/write access latency (nanoseconds).</td>
+              </tr>
+              <tr>
+                <td><strong>Extraneous Variable</strong></td>
+                <td>Unwanted background factors not of direct interest that could influence the DV if left unchecked.</td>
+                <td>Ambient operating temperature of the CPU or background OS scheduling daemon load.</td>
+              </tr>
+              <tr>
+                <td><strong>Confounded Relationship</strong></td>
+                <td>A condition where an extraneous variable varies systematically alongside the IV, rendering it impossible to isolate which factor caused the change in the DV.</td>
+                <td>Testing 8MB cache on an Intel Core i5 and 32MB cache on an AMD Ryzen 9—cache size is hopelessly confounded with processor microarchitecture!</td>
+              </tr>
+              <tr>
+                <td><strong>Experimental &amp; Control Groups</strong></td>
+                <td><em>Experimental:</em> Receives the novel treatment (e.g. new scheduling algorithm).<br><em>Control:</em> Receives the baseline or standard condition (e.g. standard Linux CFS scheduler).</td>
+                <td>Benchmarking custom TCP BBRv3 congestion control (Experimental) vs. traditional TCP Cubic (Control) under 100ms delay.</td>
+              </tr>
+              <tr>
+                <td><strong>Treatments</strong></td>
+                <td>The specific conditions or variable levels applied to experimental units.</td>
+                <td>Four distinct database indexing algorithms: $A$ (B-Tree), $B$ (LSM-Tree), $C$ (Hash Index), $D$ (Bitmap).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">Common Mistake</span>
+          <p>Assuming that extraneous variables can simply be ignored if the sample size is large. Randomization disperses unknown nuisance factors, but known systematic extraneous factors must be explicitly controlled through <strong>blocking</strong> or laboratory isolation!</p>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>IV = manipulated cause; DV = measured effect; Extraneous = uncontrolled nuisance. When an extraneous variable correlates with the IV, confounding destroys internal validity.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-principles-experiment" class="content-section">
+        <h2 class="section-title">3. Principles of Experimental Design</h2>
+        <p>Formulated by Sir Ronald A. Fisher, the three cardinal principles of modern experimental design form the theoretical foundation for all controlled testing:</p>
+
+        <!-- SVG 2.1: Fisher's Three Principles -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 2.1: The Three Cardinal Principles of Experimental Design (R.A. Fisher)</div>
+          <svg viewBox="0 0 760 220" class="svg-diagram" aria-label="Fisher's three principles of experimental design: Replication, Randomization, and Local Control">
+            <title>Principles of Experimental Design</title>
+            <!-- Card 1: Replication -->
+            <rect x="30" y="30" width="210" height="150" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="135" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="16">1. Replication</text>
+            <text x="135" y="105" text-anchor="middle" fill="var(--text-primary)" font-size="12">Repetition of treatments</text>
+            <text x="135" y="125" text-anchor="middle" fill="var(--text-secondary)" font-size="11">across multiple units.</text>
+            <text x="135" y="150" text-anchor="middle" fill="var(--text-primary)" font-weight="600" font-size="11">Estimates Exp. Error ($\sigma^2$)</text>
+
+            <!-- Card 2: Randomization -->
+            <rect x="275" y="30" width="210" height="150" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="380" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="16">2. Randomization</text>
+            <text x="380" y="105" text-anchor="middle" fill="var(--text-primary)" font-size="12">Random assignment</text>
+            <text x="380" y="125" text-anchor="middle" fill="var(--text-secondary)" font-size="11">of treatments to units.</text>
+            <text x="380" y="150" text-anchor="middle" fill="var(--text-primary)" font-weight="600" font-size="11">Eliminates Selection Bias</text>
+
+            <!-- Card 3: Local Control -->
+            <rect x="520" y="30" width="210" height="150" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="625" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="16">3. Local Control</text>
+            <text x="625" y="105" text-anchor="middle" fill="var(--text-primary)" font-size="12">Blocking &amp; grouping</text>
+            <text x="625" y="125" text-anchor="middle" fill="var(--text-secondary)" font-size="11">homogeneous units.</text>
+            <text x="625" y="150" text-anchor="middle" fill="var(--text-primary)" font-weight="600" font-size="11">Reduces Error Variance</text>
+          </svg>
+          <div class="diagram-caption">Replication yields an estimate of error; Randomization ensures statistical validity; Local Control isolates nuisance variation to heighten test sensitivity.</div>
+        </div>
+
+        <ol>
+          <li><strong>Principle of Replication:</strong> Applying each treatment to multiple independent experimental units. Replication provides an empirical estimate of random experimental error variance ($\sigma^2$) and increases the precision (power) of sample mean estimates by reducing the standard error ($\sigma / \sqrt{n}$).</li>
+          <li><strong>Principle of Randomization:</strong> Assigning treatments to experimental units strictly by a random mechanism. This provides insurance against systematic investigator bias and ensures the validity of statistical significance tests ($F$-test, $t$-test).</li>
+          <li><strong>Principle of Local Control (Blocking):</strong> Grouping homogeneous experimental units into "blocks" to partition out known extraneous variation. By isolating block-to-block differences into a separate sum of squares ($SS_{\text{Blocks}}$), the residual error sum of squares ($SS_{\text{Error}}$) is dramatically minimized, boosting statistical power.</li>
+        </ol>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Fisher's Triad: Replication enables error estimation; Randomization destroys systematic bias; Local Control blocks extraneous noise to sharpen detection sensitivity.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-crd" class="content-section">
+        <h2 class="section-title">4. Completely Randomized Design (CRD)</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Completely Randomized Design (CRD)</strong> is the simplest formal experimental design in which treatments are assigned to all experimental units completely at random, without grouping or blocking.</p>
+        </div>
+        <p>CRD applies the principles of <em>Replication</em> and <em>Randomization</em>, but completely ignores <em>Local Control</em>. It is appropriate exclusively when experimental units are strictly homogeneous (e.g. identical factory-calibrated microcontrollers operating under constant laboratory temperature).</p>
+
+        <h3 class="subsection-title">4.1 Mathematical Model &amp; ANOVA Table</h3>
+        <p>For $k$ treatments with $n_i$ replications each (total observations $N = \sum n_i$):</p>
+        $$Y_{ij} = \mu + \tau_i + \epsilon_{ij}, \quad \epsilon_{ij} \sim \mathcal{N}(0, \sigma^2)$$
+        <p>where $\mu$ is overall mean, $\tau_i$ is effect of treatment $i$, and $\epsilon_{ij}$ is random error.</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Source of Variation</th>
+                <th>Degrees of Freedom ($df$)</th>
+                <th>Sum of Squares ($SS$)</th>
+                <th>Mean Square ($MS$)</th>
+                <th>$F$-Statistic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Between Treatments</strong></td>
+                <td>$k - 1$</td>
+                <td>$SS_{\text{Tr}}$</td>
+                <td>$MS_{\text{Tr}} = \frac{SS_{\text{Tr}}}{k - 1}$</td>
+                <td>$F = \frac{MS_{\text{Tr}}}{MS_{\text{E}}}$</td>
+              </tr>
+              <tr>
+                <td><strong>Experimental Error</strong></td>
+                <td>$N - k$</td>
+                <td>$SS_{\text{E}}$</td>
+                <td>$MS_{\text{E}} = \frac{SS_{\text{E}}}{N - k}$</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td>$N - 1$</td>
+                <td>$SS_{\text{Total}}$</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subsection-title">4.2 Advantages and Disadvantages of CRD</h3>
+        <ul>
+          <li><strong>Advantages:</strong> Maximum degrees of freedom available for experimental error; complete layout flexibility (treatments can have unequal replications); extremely simple computational analysis.</li>
+          <li><strong>Disadvantages:</strong> Low precision if experimental units are heterogeneous, as all environmental variability gets dumped into the error term ($SS_{\text{E}}$), inflating the denominator and masking real treatment differences.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>CRD: Completely random assignment. Degrees of freedom: Treatments = $k-1$, Error = $N-k$, Total = $N-1$. Highly flexible, but only valid for homogeneous units.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-rbd" class="content-section">
+        <h2 class="section-title">5. Randomized Block Design (RBD)</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Randomized Block Design (RBD)</strong> is an experimental design where experimental units are grouped into homogeneous clusters called <em>blocks</em> based on an extraneous nuisance factor. Every treatment is assigned randomly within each block exactly once.</p>
+        </div>
+        <p>RBD incorporates all three principles: Replication (across blocks), Randomization (within blocks), and Local Control (blocking the single nuisance factor).</p>
+
+        <!-- SVG 2.2: RBD Layout Diagram -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 2.2: Randomized Block Design (RBD) Layout with 4 Treatments ($T_1, T_2, T_3, T_4$) across 3 Blocks</div>
+          <svg viewBox="0 0 740 220" class="svg-diagram" aria-label="RBD Grid showing randomized assignment of four treatments across three homogeneous blocks">
+            <title>Randomized Block Design Layout</title>
+            <!-- Block 1 -->
+            <rect x="30" y="40" width="200" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="130" y="65" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Block 1 (e.g. Low Load)</text>
+            <rect x="45" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="85" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_3$</text>
+            <rect x="135" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="175" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_1$</text>
+            <rect x="45" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="85" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_4$</text>
+            <rect x="135" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="175" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_2$</text>
+
+            <!-- Block 2 -->
+            <rect x="270" y="40" width="200" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="370" y="65" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Block 2 (Medium Load)</text>
+            <rect x="285" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="325" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_1$</text>
+            <rect x="375" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="415" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_4$</text>
+            <rect x="285" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="325" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_2$</text>
+            <rect x="375" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="415" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_3$</text>
+
+            <!-- Block 3 -->
+            <rect x="510" y="40" width="200" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="610" y="65" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Block 3 (High Load)</text>
+            <rect x="525" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="565" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_2$</text>
+            <rect x="615" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="655" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_3$</text>
+            <rect x="525" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="565" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_1$</text>
+            <rect x="615" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="655" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_4$</text>
+          </svg>
+          <div class="diagram-caption">Notice that each block contains all 4 treatments, randomized independently within each block to balance load heterogeneity.</div>
+        </div>
+
+        <h3 class="subsection-title">5.1 ANOVA Degrees of Freedom Partitioning</h3>
+        <p>For $t$ treatments and $b$ blocks (total observations $N = t \times b$):</p>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Source of Variation</th>
+                <th>Degrees of Freedom ($df$)</th>
+                <th>Mean Square ($MS$)</th>
+                <th>$F$-Ratio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Between Blocks</strong></td>
+                <td>$b - 1$</td>
+                <td>$MS_{\text{Blocks}} = \frac{SS_{\text{B}}}{b - 1}$</td>
+                <td>$F_{\text{Block}} = \frac{MS_{\text{B}}}{MS_{\text{E}}}$</td>
+              </tr>
+              <tr>
+                <td><strong>Between Treatments</strong></td>
+                <td>$t - 1$</td>
+                <td>$MS_{\text{Treat}} = \frac{SS_{\text{Tr}}}{t - 1}$</td>
+                <td>$F_{\text{Treat}} = \frac{MS_{\text{Tr}}}{MS_{\text{E}}}$</td>
+              </tr>
+              <tr>
+                <td><strong>Residual Error</strong></td>
+                <td>$(b - 1)(t - 1)$</td>
+                <td>$MS_{\text{Error}} = \frac{SS_{\text{E}}}{(b-1)(t-1)}$</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td>$bt - 1 = N - 1$</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subsection-title">5.2 Advantages and Disadvantages of RBD</h3>
+        <ul>
+          <li><strong>Advantages:</strong> Dramatically more precise than CRD because block-to-block variability is extracted from the error term; missing data can be estimated using Yates' formula; intuitive to design.</li>
+          <li><strong>Disadvantages:</strong> If blocks are not homogeneous within themselves, error variance increases; cannot control more than one extraneous variable simultaneously.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>RBD blocks <strong>one</strong> nuisance factor. $df$: Blocks = $b-1$, Treatments = $t-1$, Error = $(b-1)(t-1)$, Total = $bt-1$. Substantially sharper $F$-test than CRD.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-lsd" class="content-section">
+        <h2 class="section-title">6. Latin Square Design (LSD)</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Latin Square Design (LSD)</strong> is a two-factor blocking design that simultaneously eliminates <strong>two independent sources of extraneous variation</strong> by arranging $m$ treatments in an $m \times m$ square matrix such that every treatment appears <em>exactly once in each row</em> and <em>exactly once in each column</em>.</p>
+        </div>
+        <p>In computer systems engineering, Latin Squares are deployed when experiments face two confounding nuisance factors—such as varying CPU architectures (Rows) and varying Network Congestion levels (Columns) across $m$ routing protocols (Treatments).</p>
+
+        <!-- SVG 2.3: 4x4 Latin Square Grid -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 2.3: Layout of a $4 \times 4$ Latin Square Design with 4 Compression Algorithms ($A, B, C, D$)</div>
+          <svg viewBox="0 0 680 320" class="svg-diagram" aria-label="4 by 4 Latin Square Matrix balancing two blocking factors across four treatments">
+            <title>4x4 Latin Square Design Grid</title>
+            <!-- Column Headers (RAM Speeds) -->
+            <text x="80" y="30" text-anchor="middle" font-weight="700" fill="var(--text-secondary)" font-size="12">Row \ Col</text>
+            <text x="200" y="30" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Col 1 (DDR4-2400)</text>
+            <text x="330" y="30" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Col 2 (DDR4-3200)</text>
+            <text x="460" y="30" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Col 3 (DDR5-4800)</text>
+            <text x="590" y="30" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Col 4 (DDR5-6000)</text>
+
+            <!-- Row 1 -->
+            <text x="80" y="85" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Row 1 (2 Cores)</text>
+            <rect x="160" y="55" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="200" y="88" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">A</text>
+            <rect x="290" y="55" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="330" y="88" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">B</text>
+            <rect x="420" y="55" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="460" y="88" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">C</text>
+            <rect x="550" y="55" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="590" y="88" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">D</text>
+
+            <!-- Row 2 -->
+            <text x="80" y="150" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Row 2 (4 Cores)</text>
+            <rect x="160" y="120" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="200" y="153" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">B</text>
+            <rect x="290" y="120" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="330" y="153" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">C</text>
+            <rect x="420" y="120" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="460" y="153" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">D</text>
+            <rect x="550" y="120" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="590" y="153" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">A</text>
+
+            <!-- Row 3 -->
+            <text x="80" y="215" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Row 3 (8 Cores)</text>
+            <rect x="160" y="185" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="200" y="218" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">C</text>
+            <rect x="290" y="185" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="330" y="218" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">D</text>
+            <rect x="420" y="185" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="460" y="218" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">A</text>
+            <rect x="550" y="185" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="590" y="218" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">B</text>
+
+            <!-- Row 4 -->
+            <text x="80" y="280" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Row 4 (16 Cores)</text>
+            <rect x="160" y="250" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="200" y="283" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">D</text>
+            <rect x="290" y="250" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="330" y="283" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">A</text>
+            <rect x="420" y="250" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="460" y="283" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">B</text>
+            <rect x="550" y="250" width="80" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="590" y="283" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="16">C</text>
+          </svg>
+          <div class="diagram-caption">Double-blocking: Row factor (CPU Cores) and Column factor (RAM Speed) are orthogonally controlled so treatment differences ($A, B, C, D$) can be tested with surgical precision.</div>
+        </div>
+
+        <h3 class="subsection-title">6.1 LSD ANOVA Degrees of Freedom Partitioning</h3>
+        <p>For an $m \times m$ Latin Square with total observations $N = m^2$:</p>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Source of Variation</th>
+                <th>Degrees of Freedom ($df$)</th>
+                <th>For $m=4$</th>
+                <th>$F$-Statistic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Rows (Nuisance Factor 1)</strong></td>
+                <td>$m - 1$</td>
+                <td>3</td>
+                <td>$F_{\text{Row}} = \frac{MS_{\text{Row}}}{MS_{\text{E}}}$</td>
+              </tr>
+              <tr>
+                <td><strong>Columns (Nuisance Factor 2)</strong></td>
+                <td>$m - 1$</td>
+                <td>3</td>
+                <td>$F_{\text{Col}} = \frac{MS_{\text{Col}}}{MS_{\text{E}}}$</td>
+              </tr>
+              <tr>
+                <td><strong>Treatments</strong></td>
+                <td>$m - 1$</td>
+                <td>3</td>
+                <td>$F_{\text{Treat}} = \frac{MS_{\text{Tr}}}{MS_{\text{E}}}$</td>
+              </tr>
+              <tr>
+                <td><strong>Residual Error</strong></td>
+                <td>$(m - 1)(m - 2)$</td>
+                <td>$3 \times 2 = 6$</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td>$m^2 - 1$</td>
+                <td>15</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subsection-title">6.2 Trade-Offs of Latin Square Design</h3>
+        <ul>
+          <li><strong>Advantages:</strong> Controls two sources of extraneous variation simultaneously without requiring full factorial combinations; achieves high precision with relatively few experimental runs ($m^2$ instead of $m^3$).</li>
+          <li><strong>Disadvantages:</strong> Rigid constraint that number of rows, number of columns, and number of treatments must all equal $m$; assumes zero interaction between rows, columns, and treatments; for $m < 4$, error degrees of freedom become dangerously small ($m=3 \implies df_E = 2$).</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>LSD blocks <strong>two</strong> factors simultaneously. Grid size = $m \times m$. Degrees of freedom: Rows = $m-1$, Cols = $m-1$, Treat = $m-1$, Error = $(m-1)(m-2)$, Total = $m^2-1$.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-factorial" class="content-section">
+        <h2 class="section-title">7. Factorial Designs ($2^k$)</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Factorial Design</strong> is an experimental strategy in which two or more factors are investigated simultaneously across all possible combinations of their levels. A design with $k$ factors each at 2 levels (low and high) is denoted as a $2^k$ factorial design.</p>
+        </div>
+
+        <h3 class="subsection-title">7.1 Main Effects vs. Interaction Effects</h3>
+        <p>Traditional "One-Factor-at-a-Time" (OFAT) testing fails to detect <strong>interactions</strong>—situations where the effect of one factor depends on the setting of another factor.</p>
+        <ul>
+          <li><strong>Main Effect of Factor $A$:</strong> The average change in response produced by moving Factor $A$ from its low level ($-$) to high level ($+$).</li>
+          <li><strong>Interaction Effect ($A \times B$):</strong> When the magnitude or direction of $A$'s effect differs drastically depending on whether $B$ is low or high (e.g. increasing thread count speeds up processing only when database cache is high, but causes cache-thrashing slowdowns when cache is low!).</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Factorial designs test all combination pairs, uncovering interaction effects ($A \times B$) that standard One-Factor-at-a-Time (OFAT) experiments miss.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-sample-size" class="content-section">
+        <h2 class="section-title">8. Sample Size Determination</h2>
+        <p>A pivotal decision in sampling and experimental design is calculating the minimum sample size ($n$) required to guarantee that sample estimates stay within an allowable margin of error ($E$) at a specified confidence level ($1 - \alpha$).</p>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 1: Sample Size for Estimating a Proportion</span>
+          $$\mathbf{n = \frac{Z^2 \cdot p \cdot q}{E^2}}$$
+          <p>where:</p>
+          <ul>
+            <li>$Z$: Critical value from standard normal distribution corresponding to confidence level ($Z=1.96$ for 95%, $Z=2.576$ for 99%).</li>
+            <li>$p$: Estimated proportion of the population possessing the characteristic. When unknown, use $p=0.5$ (which maximizes $p \cdot q = 0.25$, giving the most conservative, safe sample size).</li>
+            <li>$q = 1 - p$: Complementary proportion.</li>
+            <li>$E$: Allowable margin of error (e.g., $E = 0.05$ for $\pm 5\%$).</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 2: Sample Size for Estimating a Population Mean</span>
+          $$\mathbf{n = \frac{Z^2 \cdot \sigma^2}{E^2}}$$
+          <p>where $\sigma$ is the population standard deviation (or sample standard deviation $s$ from a pilot study), and $E$ is the acceptable margin of error in the same units as the mean.</p>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>For proportions: $n = \frac{Z^2 pq}{E^2}$. When $p$ is unknown, assume $p=0.5$ for maximum conservatism. For means: $n = \frac{Z^2 \sigma^2}{E^2}$.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 9: SOLVED NUMERICALS -->
+      <section id="sec-numericals" class="content-section">
+        <h2 class="section-title">9. Solved Problems &amp; ANOVA Layouts</h2>
+
+        <!-- Problem 1: Sample size for proportion -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 2.1: Sample Size for Estimating Software Adoption Proportion</span>
+          <p><strong>Problem Statement:</strong> A systems engineering team wants to estimate the proportion of autonomous vehicles adopting a new RTOS communication protocol. They require a 95% confidence level ($Z = 1.96$) and an allowable margin of error of $\pm 5\%$ ($E = 0.05$). No prior estimate of $p$ is available. Determine the necessary sample size.</p>
+
+          <p><strong>Step 1: Identify given parameters:</strong></p>
+          <ul>
+            <li>Confidence Level = 95% $\implies Z = 1.96$</li>
+            <li>Margin of error $E = 0.05$</li>
+            <li>Since $p$ is unknown, assume the conservative worst-case scenario: $p = 0.5 \implies q = 1 - 0.5 = 0.5$.</li>
+          </ul>
+
+          <p><strong>Step 2: Apply the sample size formula:</strong></p>
+          $$n = \frac{Z^2 \cdot p \cdot q}{E^2} = \frac{(1.96)^2 \cdot (0.5) \cdot (0.5)}{(0.05)^2}$$
+
+          <p><strong>Step 3: Compute intermediate values:</strong></p>
+          $$(1.96)^2 = 3.8416$$
+          $$p \cdot q = 0.25$$
+          $$(0.05)^2 = 0.0025$$
+          $$n = \frac{3.8416 \times 0.25}{0.0025} = \frac{0.9604}{0.0025} = 384.16$$
+
+          <p><strong>Step 4: Round up to the nearest integer:</strong></p>
+          <p>Always round up fractional sample sizes to maintain the prescribed precision threshold:</p>
+          <div class="formula-box">
+            $$\mathbf{n = 385 \text{ vehicles}}$$
+          </div>
+        </div>
+
+        <!-- Problem 2: Sample size for mean -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 2.2: Sample Size for Estimating Mean Microprocessor Latency</span>
+          <p><strong>Problem Statement:</strong> An architect wishes to estimate the average interrupt handling latency of an ARM microcontroller. Prior studies indicate a standard deviation $\sigma = 15.0$ microseconds. How large a sample of measurements must be recorded to be 99% confident ($Z = 2.576$) that the sample mean will be within $3.0$ microseconds of the true population mean?</p>
+
+          <p><strong>Step 1: Parameter Identification:</strong></p>
+          <ul>
+            <li>Confidence Level = 99% $\implies Z = 2.576$</li>
+            <li>Population standard deviation $\sigma = 15.0$</li>
+            <li>Allowable error $E = 3.0$</li>
+          </ul>
+
+          <p><strong>Step 2: Substitute into formula:</strong></p>
+          $$n = \frac{Z^2 \cdot \sigma^2}{E^2} = \frac{(2.576)^2 \times (15.0)^2}{(3.0)^2}$$
+
+          <p><strong>Step 3: Simplify arithmetically:</strong></p>
+          $$(2.576)^2 = 6.635776$$
+          $$\frac{\sigma^2}{E^2} = \left(\frac{15}{3}\right)^2 = (5)^2 = 25$$
+          $$n = 6.635776 \times 25 = 165.8944$$
+
+          <div class="formula-box">
+            $$\mathbf{n = \lceil 165.8944 \rceil = 166 \text{ measurements}}$$
+          </div>
+        </div>
+
+        <!-- Problem 3: LSD ANOVA Breakdown -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 2.3: ANOVA Degrees of Freedom Partitioning in $4 \times 4$ LSD</span>
+          <p><strong>Problem Statement:</strong> In a $4 \times 4$ Latin Square Design evaluating 4 cryptographic ciphers, total sum of squares is $SS_{\text{Total}} = 240$, $SS_{\text{Row}} = 45$, $SS_{\text{Col}} = 55$, and $SS_{\text{Treat}} = 110$. Construct the full ANOVA table and state the error degrees of freedom.</p>
+
+          <p><strong>Step 1: Determine degrees of freedom ($m=4$):</strong></p>
+          <ul>
+            <li>$df_{\text{Row}} = m - 1 = 4 - 1 = 3$</li>
+            <li>$df_{\text{Col}} = m - 1 = 4 - 1 = 3$</li>
+            <li>$df_{\text{Treat}} = m - 1 = 4 - 1 = 3$</li>
+            <li>$df_{\text{Error}} = (m - 1)(m - 2) = (3)(2) = 6$</li>
+            <li>$df_{\text{Total}} = m^2 - 1 = 16 - 1 = 15$</li>
+          </ul>
+
+          <p><strong>Step 2: Compute Error Sum of Squares ($SS_{\text{E}}$):</strong></p>
+          $$SS_{\text{E}} = SS_{\text{Total}} - (SS_{\text{Row}} + SS_{\text{Col}} + SS_{\text{Treat}}) = 240 - (45 + 55 + 110) = 240 - 210 = 30$$
+
+          <p><strong>Step 3: Compute Mean Squares and $F$-Ratio for Treatments:</strong></p>
+          $$MS_{\text{Treat}} = \frac{SS_{\text{Treat}}}{df_{\text{Treat}}} = \frac{110}{3} \approx 36.67$$
+          $$MS_{\text{Error}} = \frac{SS_{\text{E}}}{df_{\text{Error}}} = \frac{30}{6} = 5.00$$
+          $$F_{\text{Treat}} = \frac{MS_{\text{Treat}}}{MS_{\text{Error}}} = \frac{36.67}{5.00} = 7.33$$
+
+          <div class="formula-box">
+            $$\mathbf{df_{\text{Error}} = 6, \quad MS_{\text{Error}} = 5.00, \quad F_{\text{Treat}} = 7.33}$$
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 10: REVISION SHEET -->
+      <section id="revision-sheet" class="content-section">
+        <h2 class="section-title">10. Quick Revision Sheet</h2>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Design Type</th>
+                <th>Sources Blocked</th>
+                <th>Error Degrees of Freedom</th>
+                <th>Primary Use Case / When to Choose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CRD</strong></td>
+                <td>0 (No blocking)</td>
+                <td>$N - k$</td>
+                <td>Homogeneous experimental units (controlled laboratory tests).</td>
+              </tr>
+              <tr>
+                <td><strong>RBD</strong></td>
+                <td>1 (Single blocking factor)</td>
+                <td>$(b - 1)(t - 1)$</td>
+                <td>One known nuisance gradient (e.g. varying workload levels or hardware batches).</td>
+              </tr>
+              <tr>
+                <td><strong>LSD</strong></td>
+                <td>2 (Rows and Columns)</td>
+                <td>$(m - 1)(m - 2)$</td>
+                <td>Two independent nuisance factors in an $m \times m$ grid.</td>
+              </tr>
+              <tr>
+                <td><strong>Factorial ($2^k$)</strong></td>
+                <td>Evaluates interactions</td>
+                <td>Depends on replication</td>
+                <td>Investigating interaction effects ($A \times B$) between multiple factors.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 11: EXAM QUESTIONS -->
+      <section id="exam-questions" class="content-section">
+        <h2 class="section-title">11. Important Exam Questions &amp; Practice</h2>
+
+        <h3 class="subsection-title">2-Mark Questions (Short Answers)</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">1. What is an Extraneous Variable? Give an example.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>An extraneous variable is an unwanted independent factor that is not related to the primary purpose of the study but may influence the dependent variable. Example: Ambient operating temperature affecting CPU clock speed when testing an algorithm's runtime.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">2. State the three principles of experimental design formulated by R.A. Fisher.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>1. <strong>Principle of Replication</strong> (repetition of treatments to estimate error variance); 2. <strong>Principle of Randomization</strong> (random treatment allocation to eliminate bias); 3. <strong>Principle of Local Control</strong> (blocking homogeneous units to reduce residual error).</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">3. What is a Research Design? Explain the need for research design and its features. (SEE Feb/Mar 2025, 10 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Definition:</strong> Research design is the conceptual framework or blueprint within which research is conducted. It specifies methods for sampling, data collection, and statistical testing.</p>
+            <p><strong>Need for Research Design:</strong> Facilitates smooth sailing of research operations, maximizes information yield per unit of expenditure, prevents confounding, and provides architectural clarity for peer evaluation.</p>
+            <p><strong>Features of a Good Design:</strong> Objectivity, High Reliability, Internal Validity (controlling extraneous noise), External Validity (generalizability), and Economic Feasibility.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">4. Describe Latin Square Design (L.S. Design) in detail with an example and ANOVA table. (Makeup Apr 2025, 10 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Latin Square Design</strong> is a two-way blocking experimental layout where $m$ treatments are allocated across an $m \times m$ grid such that every treatment appears exactly once in each row and once in each column.</p>
+            <p><strong>Example:</strong> Evaluating 4 algorithms $A, B, C, D$ across 4 CPU configurations (rows) and 4 RAM speeds (columns). Refer to Figure 2.3 for the complete layout grid.</p>
+            <p><strong>ANOVA Table:</strong> Rows $df = m-1$, Columns $df = m-1$, Treatments $df = m-1$, Residual Error $df = (m-1)(m-2)$, and Total $df = m^2-1$.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">5. Explain Randomized Block Design (RBD) along with its advantages and disadvantages. (Makeup Apr 2025, 10 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Concept:</strong> In RBD, experimental units are stratified into homogeneous blocks based on one extraneous nuisance factor. Treatments are assigned completely at random within each block.</p>
+            <p><strong>Advantages:</strong> Substantially higher precision than CRD; isolates block variance from experimental error; yields simple ANOVA computations.</p>
+            <p><strong>Disadvantages:</strong> Ineffective if blocks fail to remain homogeneous; can control only a single nuisance factor at a time.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Practice Problems with Answers</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">Practice Problem 1: Degrees of Freedom in a $5 \times 5$ Latin Square</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Problem:</strong> For an experiment conducted using a $5 \times 5$ Latin Square Design, find the degrees of freedom for: Rows, Columns, Treatments, Error, and Total.</p>
+            <p><strong>Solution:</strong> Here $m = 5$:</p>
+            <ul>
+              <li>$df_{\text{Rows}} = 5 - 1 = 4$</li>
+              <li>$df_{\text{Cols}} = 5 - 1 = 4$</li>
+              <li>$df_{\text{Treat}} = 5 - 1 = 4$</li>
+              <li>$df_{\text{Error}} = (5 - 1)(5 - 2) = (4)(3) = 12$</li>
+              <li>$df_{\text{Total}} = 5^2 - 1 = 25 - 1 = 24$</li>
+            </ul>
+            <p>Check: $4 + 4 + 4 + 12 = 24$.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 12: REFERENCES -->
+      <section id="sec-references" class="content-section">
+        <h2 class="section-title">12. Prescribed References</h2>
+        <div class="callout callout-note">
+          <span class="callout-label">Official Course Textbooks</span>
+          <ol>
+            <li><strong>C.R. Kothari and Gourav Garg</strong>, <em>Research Methodology: Methods and Techniques</em>, 4th Edition, New Age International Publishers. (Chapters 3 &amp; 4).</li>
+            <li><strong>David V. Thiel</strong>, <em>Research Methods for Engineers</em>, Cambridge University Press, ISBN 978-1-107-03488-4. (Chapters 4 &amp; 5).</li>
+            <li><strong>Dipankar Deb, Rajeeb Dey, Valentina E. Balas</strong>, <em>Engineering Research Methodology</em>, Springer Intelligent Systems Reference Library, ISBN 978-981-13-2946-3.</li>
+          </ol>
+          <p class="exam-disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+      </section>
+
+      <!-- Unit Footer Navigation -->
+      <nav class="unit-navigation" aria-label="Unit Navigation">
+        <a href="../unit1/unit-1-notes.html" class="nav-btn prev-btn">
+          <span class="nav-arrow">←</span>
+          <span class="nav-meta">Previous Unit</span>
+          <span class="nav-title">Unit 1: Introduction &amp; Literature Review</span>
+        </a>
+        <a href="../unit3/unit-3-notes.html" class="nav-btn next-btn">
+          <span class="nav-meta">Next Unit</span>
+          <span class="nav-title">Unit 3: Data Collection, Sampling &amp; Hypothesis Testing</span>
+          <span class="nav-arrow">→</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
