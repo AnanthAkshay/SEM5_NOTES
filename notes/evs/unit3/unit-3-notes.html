@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVS Unit 3: Biodiversity, Threats &amp; Conservation Strategies | SEM5 Study Notes</title>
+  <meta name="description" content="Exam-focused interactive HTML notes for Environmental Studies (HS510) Unit 3: Levels of biodiversity, biogeographic zones of India, biodiversity hotspots, threats, in-situ vs ex-situ conservation, Simpson and Shannon diversity index calculations.">
+  <link rel="stylesheet" href="../../../css/notes.css">
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <script defer src="../../../assets/katex/katex.min.js"></script>
+  <script defer src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script defer src="../../../js/notes.js"></script>
+</head>
+<body data-theme="light">
+  <!-- Skip to Main Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="notes-header">
+    <div class="header-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">Semester V</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="../../../index.html#evs">Environmental Studies (HS510)</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Unit 3</span>
+      </nav>
+
+      <div class="header-main">
+        <div class="header-left">
+          <div class="badge-row">
+            <span class="badge badge-course">HS510</span>
+            <span class="badge badge-unit">Unit 3</span>
+            <span class="badge badge-reading-time">⏱️ 40 min read</span>
+          </div>
+          <h1 class="unit-title">Biodiversity, Threats &amp; Conservation Strategies</h1>
+          <p class="unit-subtitle">Levels of biodiversity, biogeographic zones, value of biodiversity, mega-diversity, hotspots (Myers criteria), threats, in-situ and ex-situ conservation, and diversity indices.</p>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn-action" aria-label="Toggle theme">
+            <span class="icon">🌓</span> <span class="action-text">Theme</span>
+          </button>
+          <button id="print-btn" class="btn-action" aria-label="Print or save as PDF">
+            <span class="icon">🖨️</span> <span class="action-text">Print / PDF</span>
+          </button>
+          <button id="mark-done-btn" class="btn-action" aria-label="Mark unit as completed">
+            <span class="icon">✅</span> <span class="action-text">Mark Done</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Syllabus Topics Bar -->
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <span class="syllabus-tag">Syllabus Breakdown</span>
+          <span class="syllabus-count">8 Core Modules</span>
+        </div>
+        <ul class="syllabus-list">
+          <li><strong>Levels of Biodiversity:</strong> Genetic, species (richness &amp; evenness), and community ($\alpha, \beta, \gamma$) diversity</li>
+          <li><strong>Biogeographic Classification:</strong> The 10 distinct biogeographic zones of India</li>
+          <li><strong>Value of Biodiversity:</strong> Consumptive, productive, ethical, aesthetic, and ecosystem services</li>
+          <li><strong>Mega-Diversity Nation:</strong> India's global biodiversity ranking, endemism, and floral/faunal wealth</li>
+          <li><strong>Biodiversity Hotspots:</strong> Norman Myers criteria, Western Ghats, Eastern Himalayas, Indo-Burma, Sundaland</li>
+          <li><strong>Threats to Biodiversity:</strong> Habitat fragmentation, poaching, invasive alien species, and climate disruption</li>
+          <li><strong>Conservation Strategies:</strong> In-situ (National Parks, Sanctuaries, Biosphere Reserves) vs. Ex-situ (Gene banks, Cryopreservation)</li>
+          <li><strong>Diversity Metrics:</strong> Solved Simpson's Diversity Index ($D$) and Shannon-Wiener Index ($H'$) calculations</li>
+        </ul>
+      </div>
+
+      <!-- Original Faculty Files Download Links -->
+      <div class="source-links-card">
+        <span class="source-label">Original Courseware:</span>
+        <a href="../unit3/unit-3.pdf" class="source-link" target="_blank" rel="noopener">📄 Unit 3 Slides (PDF)</a>
+        <a href="../unit3/unit-3.pptx" class="source-link" target="_blank" rel="noopener">📊 Unit 3 Presentation (PPTX)</a>
+        <a href="../practice/evs-cie1-qp-2024.pdf" class="source-link" target="_blank" rel="noopener">📝 CIE 1 Question Paper (2024)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Layout with Sticky TOC -->
+  <div class="notes-layout">
+    <!-- Sticky Desktop / Mobile Accordion Navigation -->
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-sticky-container">
+        <div class="toc-header">
+          <h2 class="toc-title">On this page</h2>
+          <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-nav">Contents ▾</button>
+        </div>
+        <nav id="toc-nav" class="toc-nav">
+          <ol class="toc-list">
+            <li><a href="#sec-levels-biodiversity">1. Concept &amp; Levels of Biodiversity</a></li>
+            <li><a href="#sec-biogeographic-zones">2. Biogeographical Zones of India</a></li>
+            <li><a href="#sec-values-biodiversity">3. Values of Biodiversity</a></li>
+            <li><a href="#sec-megadiversity">4. India as a Mega-Diversity Nation</a></li>
+            <li><a href="#sec-hotspots">5. Biodiversity Hotspots (Myers Criteria)</a></li>
+            <li><a href="#sec-threats">6. Threats to Biodiversity</a></li>
+            <li><a href="#sec-endangered-endemic">7. Endangered &amp; Endemic Species</a></li>
+            <li><a href="#sec-conservation-strategies">8. In-Situ vs. Ex-Situ Conservation</a></li>
+            <li><a href="#sec-numericals">9. Solved Diversity Index Calculations</a></li>
+            <li><a href="#revision-sheet">10. Quick Revision Sheet</a></li>
+            <li><a href="#exam-questions">11. Exam Questions &amp; Practice</a></li>
+            <li><a href="#sec-references">12. Prescribed References</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="notes-body">
+
+      <!-- SECTION 1 -->
+      <section id="sec-levels-biodiversity" class="content-section">
+        <h2 class="section-title">1. Concept &amp; Levels of Biodiversity</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong>Biological Diversity (Biodiversity)</strong> refers to the structural and functional variety and variability among all living organisms from all sources (terrestrial, marine, and other aquatic ecosystems) and the ecological complexes of which they are part. Coined by Walter G. Rosen in 1985 and popularized by sociobiologist Edward O. Wilson.</p>
+        </div>
+
+        <h3 class="subsection-title">1.1 The Three Hierarchical Levels of Biodiversity</h3>
+        <ol>
+          <li><strong>1. Genetic Diversity:</strong> The total genetic information contained in the genes of individuals of a single species.
+            <ul>
+              <li>High genetic variation enables populations to adapt to evolutionary pressures, resist novel viral pathogens, and survive climatic fluctuations.</li>
+              <li><em>Example:</em> India alone possesses over $50,000$ distinct strains of cultivated rice (<em>Oryza sativa</em>) and over $1,000$ varieties of mango (<em>Mangifera indica</em>).</li>
+            </ul>
+          </li>
+          <li><strong>2. Species Diversity:</strong> The variety of species within a specific biological community or geographic region. Consists of two distinct ecological dimensions:
+            <ul>
+              <li><em>Species Richness ($S$):</em> The simple raw count of different species present in a community.</li>
+              <li><em>Species Evenness (Equitability, $J'$):</em> The relative abundance and equitability with which individuals are distributed among the various species.</li>
+            </ul>
+          </li>
+          <li><strong>3. Ecosystem / Community Diversity:</strong> The structural and functional diversity of ecological habitats, biotic communities, and ecological processes across the biosphere. Ecologist R.H. Whittaker partitioned this into three spatial scales:
+            <ul>
+              <li><strong>Alpha ($\alpha$) Diversity:</strong> Species diversity within a single local, homogeneous habitat or community.</li>
+              <li><strong>Beta ($\beta$) Diversity:</strong> The rate of species turnover (differentiation) along an environmental gradient between adjacent distinct habitats.</li>
+              <li><strong>Gamma ($\gamma$) Diversity:</strong> The overall total species richness across a large regional landscape or entire biome.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <!-- SVG 3.1: Whittaker's Diversity Scales -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 3.1: Spatial Scales of Ecosystem Diversity ($\alpha, \beta, \gamma$)</div>
+          <svg viewBox="0 0 740 220" class="svg-diagram" aria-label="Whittaker's spatial scales of diversity showing Alpha, Beta, and Gamma levels">
+            <title>Whittaker Diversity Scales</title>
+            <!-- Habitat 1 (Forest) -->
+            <rect x="40" y="40" width="200" height="130" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="140" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="14">Habitat 1 (Wetland)</text>
+            <text x="140" y="100" text-anchor="middle" fill="var(--text-primary)" font-size="12">5 Fish Species</text>
+            <text x="140" y="125" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">$\alpha_1 = 5$</text>
+
+            <!-- Gradient arrow (Beta) -->
+            <path d="M 250 105 L 340 105" stroke="var(--green)" stroke-width="2.5" marker-end="url(#arrow)" fill="none"/>
+            <path d="M 340 105 L 250 105" stroke="var(--green)" stroke-width="2.5" marker-end="url(#arrow)" fill="none"/>
+            <text x="295" y="90" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">$\beta$-Diversity</text>
+            <text x="295" y="130" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Species Turnover</text>
+
+            <!-- Habitat 2 (Grassland) -->
+            <rect x="350" y="40" width="200" height="130" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="450" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="14">Habitat 2 (Forest)</text>
+            <text x="450" y="100" text-anchor="middle" fill="var(--text-primary)" font-size="12">6 Bird Species</text>
+            <text x="450" y="125" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">$\alpha_2 = 6$</text>
+
+            <!-- Regional Landscape (Gamma) -->
+            <rect x="580" y="40" width="130" height="130" rx="12" fill="var(--surface)" stroke="var(--green)" stroke-width="2"/>
+            <text x="645" y="75" text-anchor="middle" font-weight="800" fill="var(--green)" font-size="14">$\gamma$-Diversity</text>
+            <text x="645" y="105" text-anchor="middle" fill="var(--text-primary)" font-size="11">Total Landscape</text>
+            <text x="645" y="125" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Regional Richness</text>
+          </svg>
+          <div class="diagram-caption">$\alpha$ measures local richness, $\beta$ measures compositional change between habitats, and $\gamma$ measures landscape-wide richness.</div>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Three levels: Genetic (allelic variation within species), Species (richness + evenness), and Ecosystem ($\alpha$ = within-habitat, $\beta$ = between-habitat turnover, $\gamma$ = landscape total).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-biogeographic-zones" class="content-section">
+        <h2 class="section-title">2. Biogeographical Classification of India</h2>
+        <p>The Wildlife Institute of India (Rodgers and Panwar, 1988) classified India into <strong>10 Biogeographic Zones</strong> reflecting distinct geographic, climatic, and floral/faunal compositions:</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Zone Number &amp; Name</th>
+                <th>Geographic Coverage</th>
+                <th>Characteristic Keystone Flora &amp; Fauna</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Trans-Himalaya</strong></td>
+                <td>High altitude Tibetan plateau (Ladakh, Lahaul-Spiti).</td>
+                <td>Snow Leopard, Tibetan Wild Ass (Kiang), Wild Yak, Black-necked Crane.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Himalaya</strong></td>
+                <td>Northwestern, Western, Central, and Eastern Himalayan ranges.</td>
+                <td>Musk Deer, Himalayan Tahr, Red Panda, Rhododendrons, Deodar.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Desert</strong></td>
+                <td>Arid Thar desert (Rajasthan) and Great Rann of Kutch (Gujarat).</td>
+                <td>Great Indian Bustard (critically endangered), Desert Fox, Chinkara.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Semi-Arid</strong></td>
+                <td>Transition belt between desert and Deccan (Gujarat, Rajasthan, Punjab).</td>
+                <td>Asiatic Lion (Gir Forest, Gujarat), Blackbuck, Nilgai, Caracal.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Western Ghats</strong></td>
+                <td>Malabar plains and Sahyadri mountain chain along the west coast.</td>
+                <td>Lion-tailed Macaque, Nilgiri Tahr, Malabar Grey Hornbill, Evergreen Rainforests.</td>
+              </tr>
+              <tr>
+                <td><strong>6. Deccan Peninsula</strong></td>
+                <td>Largest zone ($43\%$ of India's landmass; southern/central plateau).</td>
+                <td>Tiger, Indian Elephant, Sambar, Gaur (Indian Bison), Teak and Sal forests.</td>
+              </tr>
+              <tr>
+                <td><strong>7. Gangetic Plain</strong></td>
+                <td>Alluvial river basin of Ganges and Yamuna rivers.</td>
+                <td>Gangetic River Dolphin (National Aquatic Animal), Gharial, One-horned Rhino.</td>
+              </tr>
+              <tr>
+                <td><strong>8. Coasts</strong></td>
+                <td>East and West coastlines, Sundarbans mangrove delta.</td>
+                <td>Olive Ridley Sea Turtles (Gahirmatha beach nesting), Royal Bengal Tiger in Sundarbans.</td>
+              </tr>
+              <tr>
+                <td><strong>9. North-East</strong></td>
+                <td>Assam valley and Cachar hills (high rainfall biodiversity hotspot).</td>
+                <td>Hoolock Gibbon (India's only ape), Great Indian One-horned Rhinoceros (Kaziranga).</td>
+              </tr>
+              <tr>
+                <td><strong>10. Islands</strong></td>
+                <td>Andaman &amp; Nicobar (Bay of Bengal) and Lakshadweep (Arabian Sea).</td>
+                <td>Dugong (Sea Cow), Nicobar Megapode, Coral reefs, giant robber crabs.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Rodgers &amp; Panwar classified India into 10 zones: Trans-Himalaya, Himalaya, Desert, Semi-Arid, Western Ghats, Deccan Peninsula, Gangetic Plain, Coasts, North-East, and Islands.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-values-biodiversity" class="content-section">
+        <h2 class="section-title">3. Values of Biodiversity</h2>
+        <p>Ecological economists evaluate biodiversity across direct and indirect value streams:</p>
+        <ul>
+          <li><strong>1. Consumptive Use Value:</strong> Direct harvest of natural products for subsistence without passing through a formal commercial market (e.g. firewood, edible forest fruits, wild medicinal plants consumed directly by forest-dwelling tribes).</li>
+          <li><strong>2. Productive Use Value:</strong> Commercial products harvested, processed, and traded in national/international markets:
+            <ul>
+              <li><em>Pharmaceuticals:</em> Over $25\%$ of prescription medicines originate from plant alkaloids (e.g., <strong>Quinine</strong> from <em>Cinchona</em> bark for malaria; <strong>Taxol</strong> from <em>Taxus</em> yew tree for chemotherapy; <strong>Vincristine</strong> from Madagascar periwinkle <em>Catharanthus roseus</em> for leukemia).</li>
+              <li><em>Industrial materials:</em> Natural rubber, silk, timber, essential oils, tannins, and resins.</li>
+            </ul>
+          </li>
+          <li><strong>3. Social &amp; Ethical Value:</strong> Cultural respect and traditional sanctity attached to flora and fauna (e.g. <em>Ocimum sanctum</em> [Tulsi], <em>Ficus religiosa</em> [Peepal], Sacred Groves preserved untouched across rural India).</li>
+          <li><strong>4. Aesthetic &amp; Ecotourism Value:</strong> Psychological recreation and revenue generated by national parks and wildlife sanctuaries.</li>
+          <li><strong>5. Ecosystem Service Value:</strong> Unpriced fundamental life-support functions: insect pollination of agricultural crops (worth billions of dollars), watershed retention, carbon sequestration, and soil formation.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Values of biodiversity: Consumptive (direct domestic use), Productive (market commodities e.g. Quinine, Taxol), Social/Ethical (sacred groves), and Ecosystem Services (pollination, carbon sequestration).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-megadiversity" class="content-section">
+        <h2 class="section-title">4. India as a Mega-Diversity Nation</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Mega-Diversity Status</span>
+          <p>India is officially designated as one of the world's <strong>17 Mega-Diversity Nations</strong> by Conservation International. Despite occupying merely <strong>$2.4\%$</strong> of the world's total land area, India contributes an astonishing <strong>$7 - 8\%$</strong> of all recorded biological species on Earth!</p>
+        </div>
+        <ul>
+          <li><strong>Floral Wealth:</strong> Over $48,000$ plant species (representing $11\%$ of global flora), of which nearly $33\%$ are strictly endemic to India.</li>
+          <li><strong>Faunal Wealth:</strong> Over $102,000$ recorded animal species (including $3,000+$ fish, $500+$ amphibians, $1,300+$ bird species, and $400+$ mammals).</li>
+          <li><strong>Agrobiodiversity:</strong> Center of origin for major crops (rice, sugarcane, pigeonpea, mango, turmeric, black pepper).</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>India holds 17-megadiverse status: $2.4\%$ of global surface supports $7-8\%$ of global species, including $>48,000$ plant and $>102,000$ animal species.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-hotspots" class="content-section">
+        <h2 class="section-title">5. Biodiversity Hotspots (Norman Myers Criteria)</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p>A <strong>Biodiversity Hotspot</strong> is a biogeographic region characterized by exceptional levels of plant endemism experiencing severe, irreversible habitat destruction.</p>
+        </div>
+
+        <h3 class="subsection-title">5.1 The Two Strict Criteria (Norman Myers, 1988)</h3>
+        <p>To qualify as a global biodiversity hotspot, a region must strictly satisfy two empirical thresholds:</p>
+        <ol>
+          <li><strong>1. Exceptional Endemism:</strong> It must support at least <strong>$1,500$ species of endemic vascular plants</strong> ($>0.5\%$ of the world's total vascular flora) found nowhere else on Earth.</li>
+          <li><strong>2. High Degree of Threat:</strong> It must have lost at least <strong>$70\%$ of its original primary native habitat</strong> (possessing $\le 30\%$ of its pristine natural vegetation remaining).</li>
+        </ol>
+
+        <h3 class="subsection-title">5.2 The 4 Biodiversity Hotspots Covering India</h3>
+        <p>Globally, 36 biodiversity hotspots are recognized. Four of these intersect the sovereign territory of India:</p>
+        <ul>
+          <li><strong>1. Western Ghats &amp; Sri Lanka:</strong> Continuous mountain chain running parallel to India's west coast through Maharashtra, Goa, Karnataka, Kerala, and Tamil Nadu. Exhibits extraordinary endemism in amphibians ($>75\%$ endemic), reptiles, and flowering plants. Home to the endangered Lion-tailed Macaque and Nilgiri Tahr.</li>
+          <li><strong>2. Eastern Himalayas:</strong> Encompasses Bhutan, northeastern India (Arunachal Pradesh, Sikkim), and northern Myanmar. Rich in alpine rhododendrons, orchids, Red Panda, and Snow Leopard.</li>
+          <li><strong>3. Indo-Burma:</strong> Covers northeastern states south of the Brahmaputra river (Assam, Manipur, Mizoram, Nagaland) extending through Myanmar, Thailand, and Vietnam.</li>
+          <li><strong>4. Sundaland:</strong> Includes the southern Nicobar Islands of India, extending across Indonesia, Malaysia, and Borneo. Characterized by lush mangrove swamps and tropical rainforests.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Myers criteria: $\ge 1,500$ endemic vascular plant species AND $\ge 70\%$ primary habitat lost. Four Indian hotspots: Western Ghats, Eastern Himalayas, Indo-Burma, and Sundaland.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-threats" class="content-section">
+        <h2 class="section-title">6. Threats to Biodiversity (The "Evil Quartet")</h2>
+        <p>E.O. Wilson characterized the major drivers of modern anthropogenic extinction as the <em>Evil Quartet</em>:</p>
+        <ul>
+          <li><strong>1. Habitat Destruction &amp; Fragmentation:</strong> The leading driver of extinction. Clearing pristine forests for agriculture, urbanization, or highways fractures contiguous biological ranges into isolated ecological fragments, triggering genetic inbreeding and edge-effect degradation.</li>
+          <li><strong>2. Over-Exploitation &amp; Poaching:</strong> Commercial hunting of wildlife for international black markets (e.g. elephant ivory poaching, tiger bones and pelts for pseudo-traditional medicines, rhinoceros horns).</li>
+          <li><strong>3. Invasive Alien Species Introductions:</strong> Non-native species introduced intentionally or accidentally that outcompete native flora and fauna:
+            <ul>
+              <li><em>Parthenium hysterophorus</em> (Congress Grass / Carrot Grass): Toxic weed outcompeting native forage.</li>
+              <li><em>Lantana camara</em>: Toxic shrub overtaking Indian forest understories.</li>
+              <li><em>Eichhornia crassipes</em> (Water Hyacinth / "Terror of Bengal"): Clogs water bodies, blocking sunlight and asphyxiating aquatic biodiversity.</li>
+            </ul>
+          </li>
+          <li><strong>4. Co-Extinctions &amp; Climate Change:</strong> When a host species becomes extinct (e.g. a specific pollinating fig wasp), obligate dependent symbionts inevitably perish.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>The Evil Quartet: 1. Habitat loss &amp; fragmentation (primary cause); 2. Over-exploitation (poaching); 3. Invasive alien species (<em>Lantana, Parthenium, Eichhornia</em>); 4. Co-extinction.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-endangered-endemic" class="content-section">
+        <h2 class="section-title">7. Endangered &amp; Endemic Species of India</h2>
+
+        <h3 class="subsection-title">7.1 IUCN Red List Categories</h3>
+        <p>The International Union for Conservation of Nature (IUCN) classifies species into standardized conservation risk tiers:</p>
+        <ul>
+          <li><strong>Extinct (EX):</strong> No living individual remains on Earth (e.g. Asiatic Cheetah declared extinct in India in 1952; Dodo).</li>
+          <li><strong>Critically Endangered (CR):</strong> Extremely high risk of extinction in the wild (e.g. Great Indian Bustard, Gharial, Pygmy Hog).</li>
+          <li><strong>Endangered (EN):</strong> Very high risk of extinction in the wild (e.g. Asian Elephant, Tiger, Lion-tailed Macaque, Ganges River Dolphin).</li>
+          <li><strong>Vulnerable (VU):</strong> High risk of endangerment (e.g. One-horned Rhino, Nilgiri Tahr).</li>
+          <li><strong>Near Threatened (NT) &amp; Least Concern (LC).</strong></li>
+        </ul>
+
+        <h3 class="subsection-title">7.2 Flagship Endemic Species of India</h3>
+        <ul>
+          <li><strong>Lion-Tailed Macaque (<em>Macaca silenus</em>):</strong> Arboreal primate endemic exclusively to the tropical evergreen rainforest canopy of the Western Ghats.</li>
+          <li><strong>Nilgiri Tahr (<em>Nilgiritragus hylocrius</em>):</strong> Mountain ungulate endemic to the high-altitude shola-grassland ecosystem of the Western Ghats (Eravikulam National Park).</li>
+          <li><strong>Sangai (Brow-Antlered Deer):</strong> Endemic exclusively to Keibul Lamjao National Park (the world's only floating national park on Loktak Lake, Manipur).</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>IUCN Red List: Extinct &rarr; Critically Endangered &rarr; Endangered &rarr; Vulnerable. Endemic species: Lion-tailed Macaque (Western Ghats), Sangai Deer (floating Loktak lake, Manipur).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-conservation-strategies" class="content-section">
+        <h2 class="section-title">8. In-Situ vs. Ex-Situ Conservation Strategies</h2>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Conservation Paradigm</th>
+                <th>Definition &amp; Core Philosophy</th>
+                <th>Implementation Modalities &amp; Legal Protection</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>In-Situ Conservation (On-Site Preservation)</strong></td>
+                <td>Conserving genetic resources, wild species, and ecosystems directly within their natural native habitats where evolutionary processes continue.</td>
+                <td>
+                  <ul>
+                    <li><strong>National Parks (IUCN Cat II):</strong> Strict protection. Zero human settlement, livestock grazing, or private exploitation permitted (e.g. Kaziranga, Corbett, Bandipur).</li>
+                    <li><strong>Wildlife Sanctuaries (IUCN Cat IV):</strong> Protection focused on particular wildlife species; limited traditional forestry and grazing permitted under permission.</li>
+                    <li><strong>Biosphere Reserves (UNESCO MAB):</strong> Large landscapes consisting of 3 zones: <em>Core Zone</em> (pristine/untouched), <em>Buffer Zone</em> (research/education), and <em>Transition Zone</em> (sustainable community living). 18 in India (Nilgiri, Nanda Devi).</li>
+                    <li><strong>Sacred Groves:</strong> Traditional community-protected forest patches.</li>
+                    <li><strong>Flagship Projects:</strong> Project Tiger (1973), Project Elephant (1992).</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Ex-Situ Conservation (Off-Site Preservation)</strong></td>
+                <td>Conserving endangered species outside their natural habitats in artificial, human-managed captive environments to safeguard genetic stock against imminent extinction.</td>
+                <td>
+                  <ul>
+                    <li><strong>Zoological Parks &amp; Botanical Gardens:</strong> Captive breeding and propagation.</li>
+                    <li><strong>Seed Banks &amp; Gene Banks:</strong> Long-term storage of desiccated plant seeds at $-20^\circ\text{C}$ (e.g. National Bureau of Plant Genetic Resources - NBPGR, New Delhi).</li>
+                    <li><strong>Cryopreservation:</strong> Preserving gametes, embryos, and vegetative cells in liquid nitrogen at <strong>$-196^\circ\text{C}$</strong> for indefinite periods.</li>
+                    <li><strong>In-Vitro Tissue Culture:</strong> Clonal micropropagation of endangered flora.</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>In-situ = on-site (National Parks [no grazing], Sanctuaries, Biosphere Reserves [Core, Buffer, Transition]). Ex-situ = off-site (Botanical gardens, Gene banks, Cryopreservation at $-196^\circ\text{C}$).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 9: SOLVED NUMERICALS -->
+      <section id="sec-numericals" class="content-section">
+        <h2 class="section-title">9. Solved Diversity Index Calculations</h2>
+
+        <!-- Numerical 1: Simpson's Diversity Index -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 3.1: Calculating Simpson's Diversity Index</span>
+          <p><strong>Problem Statement:</strong> An ecologist surveys a $1\text{-hectare}$ sample plot in the Western Ghats and records the following tree species counts:</p>
+          <ul>
+            <li>Species A (Teak): $n_1 = 40$</li>
+            <li>Species B (Rosewood): $n_2 = 25$</li>
+            <li>Species C (Sandalwood): $n_3 = 15$</li>
+            <li>Species D (Ebony): $n_4 = 12$</li>
+            <li>Species E (Ironwood): $n_5 = 8$</li>
+          </ul>
+          <p>Calculate: 1. Simpson's Index of Dominance ($D$); 2. Simpson's Index of Diversity ($1 - D$); 3. Simpson's Reciprocal Index ($\frac{1}{D}$).</p>
+
+          <p><strong>Step 1: Compute Total Number of Individuals ($N$):</strong></p>
+          $$N = 40 + 25 + 15 + 12 + 8 = 100$$
+          $$N(N - 1) = 100 \times 99 = 9,900$$
+
+          <p><strong>Step 2: Calculate $n_i(n_i - 1)$ for Each Species:</strong></p>
+          <ul>
+            <li>Species A: $40 \times 39 = 1,560$</li>
+            <li>Species B: $25 \times 24 = 600$</li>
+            <li>Species C: $15 \times 14 = 210$</li>
+            <li>Species D: $12 \times 11 = 132$</li>
+            <li>Species E: $8 \times 7 = 56$</li>
+          </ul>
+          $$\sum n_i(n_i - 1) = 1,560 + 600 + 210 + 132 + 56 = \mathbf{2,558}$$
+
+          <p><strong>Step 3: Compute Simpson's Index ($D$):</strong></p>
+          $$D = \frac{\sum n_i(n_i - 1)}{N(N - 1)} = \frac{2,558}{9,900} \approx \mathbf{0.2584}$$
+
+          <p><strong>Step 4: Compute Simpson's Index of Diversity ($1 - D$) and Reciprocal Index ($\frac{1}{D}$):</strong></p>
+          $$\text{Simpson's Diversity } (1 - D) = 1 - 0.2584 = \mathbf{0.7416}$$
+          $$\text{Reciprocal Index } \left(\frac{1}{D}\right) = \frac{1}{0.2584} \approx \mathbf{3.870}$$
+
+          <div class="formula-box">
+            $$\mathbf{D = 0.2584, \quad \text{Simpson's Diversity } (1 - D) = 0.7416, \quad \frac{1}{D} = 3.87}$$
+          </div>
+          <p><strong>Ecological Interpretation:</strong> There is a $74.16\%$ probability that two randomly selected trees from this forest plot belong to different species, indicating high community diversity.</p>
+        </div>
+
+        <!-- Numerical 2: Shannon-Wiener Diversity Index -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 3.2: Calculating Shannon-Wiener Diversity Index ($H'$)</span>
+          <p><strong>Problem Statement:</strong> Using the identical tree species data from Problem 3.1 ($N = 100$ individuals across $S = 5$ species), compute the Shannon-Wiener Diversity Index ($H'$) and the Species Evenness ($J'$).</p>
+
+          <p><strong>Formula:</strong></p>
+          $$H' = -\sum_{i=1}^S p_i \ln(p_i), \quad p_i = \frac{n_i}{N}$$
+          $$J' = \frac{H'}{H_{\text{max}}} = \frac{H'}{\ln(S)}$$
+
+          <p><strong>Step 1: Tabulate Proportions and Natural Logarithms:</strong></p>
+          <div class="table-container">
+            <table class="notes-table">
+              <thead>
+                <tr>
+                  <th>Species</th>
+                  <th>Count ($n_i$)</th>
+                  <th>Proportion ($p_i$)</th>
+                  <th>$\ln(p_i)$</th>
+                  <th>$p_i \ln(p_i)$</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>40</td><td>$0.40$</td><td>$-0.9163$</td><td>$-0.3665$</td></tr>
+                <tr><td>B</td><td>25</td><td>$0.25$</td><td>$-1.3863$</td><td>$-0.3466$</td></tr>
+                <tr><td>C</td><td>15</td><td>$0.15$</td><td>$-1.8971$</td><td>$-0.2846$</td></tr>
+                <tr><td>D</td><td>12</td><td>$0.12$</td><td>$-2.1203$</td><td>$-0.2544$</td></tr>
+                <tr><td>E</td><td>8</td><td>$0.08$</td><td>$-2.5257$</td><td>$-0.2021$</td></tr>
+                <tr><td><strong>Sum</strong></td><td><strong>100</strong></td><td><strong>1.00</strong></td><td>—</td><td><strong>-1.4541</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Step 2: Calculate $H'$:</strong></p>
+          $$H' = -(-1.4541) = \mathbf{1.4541}$$
+
+          <p><strong>Step 3: Compute Species Evenness ($J'$):</strong></p>
+          $$H_{\text{max}} = \ln(S) = \ln(5) \approx 1.6094$$
+          $$J' = \frac{H'}{H_{\text{max}}} = \frac{1.4541}{1.6094} \approx \mathbf{0.9035}$$
+
+          <div class="formula-box">
+            $$\mathbf{H' = 1.4541, \quad J' = 0.9035 \text{ (90.35% Evenness)}}$$
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 10: REVISION SHEET -->
+      <section id="revision-sheet" class="content-section">
+        <h2 class="section-title">10. Quick Revision Sheet</h2>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Key Criteria / Formula</th>
+                <th>Must-Know Exam Facts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Levels of Biodiversity</strong></td>
+                <td>Genetic, Species (richness + evenness), Ecosystem ($\alpha, \beta, \gamma$).</td>
+                <td>India has $>50,000$ strains of rice.</td>
+              </tr>
+              <tr>
+                <td><strong>Biodiversity Hotspots</strong></td>
+                <td>$\ge 1,500$ endemic vascular plants AND lost $\ge 70\%$ habitat.</td>
+                <td>4 in India: Western Ghats, Eastern Himalayas, Indo-Burma, Sundaland.</td>
+              </tr>
+              <tr>
+                <td><strong>The Evil Quartet</strong></td>
+                <td>Habitat destruction (primary), Over-exploitation, Alien invasives, Co-extinctions.</td>
+                <td>Invasive species: <em>Lantana, Parthenium, Eichhornia</em>.</td>
+              </tr>
+              <tr>
+                <td><strong>In-Situ vs Ex-Situ</strong></td>
+                <td>In-situ = on-site (National Parks); Ex-situ = off-site (Cryopreservation).</td>
+                <td>National parks allow ZERO human settlement or grazing.</td>
+              </tr>
+              <tr>
+                <td><strong>Simpson's Diversity</strong></td>
+                <td>$D = \sum \frac{n_i(n_i-1)}{N(N-1)}, \quad \text{Diversity} = 1 - D$.</td>
+                <td>Higher $1-D$ indicates greater community diversity.</td>
+              </tr>
+              <tr>
+                <td><strong>Shannon-Wiener Index</strong></td>
+                <td>$H' = -\sum p_i \ln(p_i), \quad J' = \frac{H'}{\ln(S)}$.</td>
+                <td>Captures both species richness and equitability.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 11: EXAM QUESTIONS -->
+      <section id="exam-questions" class="content-section">
+        <h2 class="section-title">11. Important Exam Questions &amp; Practice</h2>
+
+        <h3 class="subsection-title">2-Mark Questions (Short Answers)</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">1. Define the term 'Endemic Species' with an example from India.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>Endemic species are plants or animals whose natural wild distribution is strictly restricted to a specific geographic locality and found nowhere else on Earth. Example: The Lion-tailed Macaque (<em>Macaca silenus</em>), endemic exclusively to the tropical evergreen forests of the Western Ghats.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">2. State the two criteria proposed by Norman Myers to designate a Biodiversity Hotspot.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>1. Must contain at least 1,500 species of endemic vascular plants ($>0.5\%$ of global flora); 2. Must have lost at least $70\%$ of its original primary native vegetation habitat.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">3. Differentiate between In-Situ and Ex-Situ conservation strategies with suitable examples. (10 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>In-Situ Conservation (On-Site):</strong> Protecting endangered species within their native natural ecosystems where evolutionary processes continue unimpeded. Examples: National Parks (Bandipur, Kaziranga), Wildlife Sanctuaries, Biosphere Reserves (Nilgiri), and Sacred Groves.</p>
+            <p><strong>Ex-Situ Conservation (Off-Site):</strong> Preserving endangered organisms in artificial, human-controlled environments away from their natural habitats to avoid extinction. Examples: Botanical Gardens, Zoological Parks, Seed Banks (NBPGR, New Delhi), and Cryopreservation (liquid nitrogen storage at $-196^\circ\text{C}$).</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">4. Explain the major threats to biodiversity under the 'Evil Quartet'. (8 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>1. <strong>Habitat Destruction and Fragmentation:</strong> Deforestation and infrastructure projects fracture natural ranges, isolating populations and accelerating extinction.</p>
+            <p>2. <strong>Over-Exploitation:</strong> Unsustainable hunting, commercial poaching (rhino horns, elephant ivory), and overfishing.</p>
+            <p>3. <strong>Alien Invasive Species:</strong> Proliferation of non-native species (<em>Parthenium, Lantana, Eichhornia</em>) that outcompete and smother native biodiversity.</p>
+            <p>4. <strong>Co-Extinctions:</strong> Extinction of an obligate host organism triggering the extinction of dependent symbiotic parasites and pollinators.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 12: REFERENCES -->
+      <section id="sec-references" class="content-section">
+        <h2 class="section-title">12. Prescribed References</h2>
+        <div class="callout callout-note">
+          <span class="callout-label">Course Reference Literature</span>
+          <ol>
+            <li><strong>Erach Bharucha</strong>, <em>Textbook of Environmental Studies for Undergraduate Courses</em>, Universities Press / UGC India. (Chapter 4: Biodiversity).</li>
+            <li><strong>Benny Joseph</strong>, <em>Environmental Studies</em>, Tata McGraw-Hill Education.</li>
+            <li><strong>R. Rajagopalan</strong>, <em>Environmental Studies: From Crisis to Cure</em>, Oxford University Press.</li>
+          </ol>
+          <p class="exam-disclaimer"><em>AI-assisted study notes written from the official courseware. Verify against your faculty's presentation slides before the exam.</em></p>
+        </div>
+      </section>
+
+      <!-- Unit Footer Navigation -->
+      <nav class="unit-navigation" aria-label="Unit Navigation">
+        <a href="../unit2/unit-2-notes.html" class="nav-btn prev-btn">
+          <span class="nav-arrow">←</span>
+          <span class="nav-meta">Previous Unit</span>
+          <span class="nav-title">Unit 2: Natural Resources &amp; Energy</span>
+        </a>
+        <a href="../../reactjs/unit1/unit-1-notes.html" class="nav-btn next-btn">
+          <span class="nav-meta">Next Subject</span>
+          <span class="nav-title">ReactJS Unit 1</span>
+          <span class="nav-arrow">→</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
