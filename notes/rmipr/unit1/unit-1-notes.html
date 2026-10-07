@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMIPR Unit 1: Introduction to Research, Ethics & Literature Review | SEM5 Study Notes</title>
+  <meta name="description" content="Exam-focused interactive HTML notes for RMIPR (AL58) Unit 1: Research types, ethics, FFP misconduct, literature review, bibliographic databases, h-index calculations, and citation dynamics.">
+  <link rel="stylesheet" href="../../../css/notes.css">
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <script defer src="../../../assets/katex/katex.min.js"></script>
+  <script defer src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script defer src="../../../js/notes.js"></script>
+</head>
+<body data-theme="light">
+  <!-- Skip to Main Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="notes-header">
+    <div class="header-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">Semester V</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <a href="../../../index.html#rmipr">RMIPR (AL58)</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Unit 1</span>
+      </nav>
+
+      <div class="header-main">
+        <div class="header-left">
+          <div class="badge-row">
+            <span class="badge badge-course">AL58</span>
+            <span class="badge badge-unit">Unit 1</span>
+            <span class="badge badge-reading-time">⏱️ 38 min read</span>
+          </div>
+          <h1 class="unit-title">Introduction to Research, Ethics &amp; Literature Review</h1>
+          <p class="unit-subtitle">Meaning and types of research, scientific method, research ethics, FFP misconduct, prior art synthesis, bibliographic databases, citations, and bibliometric indices.</p>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn-action" aria-label="Toggle theme">
+            <span class="icon">🌓</span> <span class="action-text">Theme</span>
+          </button>
+          <button id="print-btn" class="btn-action" aria-label="Print or save as PDF">
+            <span class="icon">🖨️</span> <span class="action-text">Print / PDF</span>
+          </button>
+          <button id="mark-done-btn" class="btn-action" aria-label="Mark unit as completed">
+            <span class="icon">✅</span> <span class="action-text">Mark Done</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Syllabus Topics Bar -->
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <span class="syllabus-tag">Syllabus Breakdown</span>
+          <span class="syllabus-count">8 Core Modules</span>
+        </div>
+        <ul class="syllabus-list">
+          <li><strong>Introduction:</strong> Meaning of research, objectives, and scientific voyage</li>
+          <li><strong>Types of Research:</strong> Descriptive vs. Analytical, Applied vs. Fundamental, Quantitative vs. Qualitative</li>
+          <li><strong>Ethics in Research:</strong> Core ethical values, institutional integrity, social accountability</li>
+          <li><strong>Research Misconduct:</strong> Fabrication, Falsification, Plagiarism (FFP), predatory practices, gift authorship</li>
+          <li><strong>Literature Review:</strong> New vs. existing knowledge, prior art analysis, research gap discovery</li>
+          <li><strong>Critical &amp; Creative Reading:</strong> Evaluation lenses, argument deconstruction, conceptualizing research</li>
+          <li><strong>Bibliographic Databases:</strong> Web of Science (WoS), Scopus, IEEE Xplore, Google Scholar</li>
+          <li><strong>Citations &amp; Bibliometrics:</strong> Citation functions, keywords impact, knowledge flow, $h$-index, JIF</li>
+        </ul>
+      </div>
+
+      <!-- Original Faculty Files Download Links -->
+      <div class="source-links-card">
+        <span class="source-label">Original Courseware:</span>
+        <a href="../unit1/rm-ipr-unit1.pdf" class="source-link" target="_blank" rel="noopener">📄 Unit 1 Slides (PDF)</a>
+        <a href="../unit1/rm-ipr-unit1.pptx" class="source-link" target="_blank" rel="noopener">📊 Unit 1 Presentation (PPTX)</a>
+        <a href="../practice/rmipr-see-feb-mar-2025.pdf" class="source-link" target="_blank" rel="noopener">📝 SEE Feb/Mar 2025 Paper</a>
+        <a href="../practice/rmipr-makeup-apr-2025.pdf" class="source-link" target="_blank" rel="noopener">📝 Makeup Apr 2025 Paper</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Layout with Sticky TOC -->
+  <div class="notes-layout">
+    <!-- Sticky Desktop / Mobile Accordion Navigation -->
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-sticky-container">
+        <div class="toc-header">
+          <h2 class="toc-title">On this page</h2>
+          <button class="toc-mobile-toggle" aria-expanded="false" aria-controls="toc-nav">Contents ▾</button>
+        </div>
+        <nav id="toc-nav" class="toc-nav">
+          <ol class="toc-list">
+            <li><a href="#sec-meaning-research">1. Meaning &amp; Nature of Research</a></li>
+            <li><a href="#sec-objectives-motivation">2. Objectives &amp; Motivations</a></li>
+            <li><a href="#sec-types-research">3. Types of Research</a></li>
+            <li><a href="#sec-ethics-research">4. Ethics in Research</a></li>
+            <li><a href="#sec-misconduct">5. Research Misconduct (FFP)</a></li>
+            <li><a href="#sec-lit-review">6. Literature Review &amp; Prior Art</a></li>
+            <li><a href="#sec-reading-conceptualizing">7. Critical &amp; Creative Reading</a></li>
+            <li><a href="#sec-databases-bibliometrics">8. Databases &amp; Metrics ($h$-index, JIF)</a></li>
+            <li><a href="#sec-citations-flow">9. Citations &amp; Knowledge Flow</a></li>
+            <li><a href="#sec-numericals">10. Solved Problems &amp; Bibliometrics</a></li>
+            <li><a href="#revision-sheet">11. Quick Revision Sheet</a></li>
+            <li><a href="#exam-questions">12. Exam Questions &amp; Practice</a></li>
+            <li><a href="#sec-references">13. Prescribed References</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="notes-body">
+
+      <!-- SECTION 1 -->
+      <section id="sec-meaning-research" class="content-section">
+        <h2 class="section-title">1. Meaning &amp; Nature of Research</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Definition</span>
+          <p><strong>Research</strong> is a systematic, organized, and objective investigation undertaken to establish facts, solve problems, test hypotheses, or discover new knowledge through the rigorous application of the scientific method.</p>
+        </div>
+        <p>Etymologically, research comprises two Latin-derived parts: <strong>"Re"</strong> (meaning <em>again, anew, or afresh</em>) and <strong>"Search"</strong> (meaning <em>to examine closely and carefully, or to test and try</em>). It is fundamentally a movement from the known to the unknown—a voyage of discovery.</p>
+
+        <h3 class="subsection-title">1.1 Research vs. Random Exploration</h3>
+        <p>Unsystematic trial-and-error differs drastically from scientific research. Research demands:</p>
+        <ul>
+          <li><strong>Systematization:</strong> Planned, structured execution following established methodological protocols.</li>
+          <li><strong>Empirical Evidence:</strong> Reliance on observable, measurable phenomena rather than superstition, tradition, or unverified claims.</li>
+          <li><strong>Reproducibility (Replicability):</strong> Independent researchers following identical procedures under equivalent constraints must obtain commensurate findings.</li>
+          <li><strong>Controlled Conditions:</strong> Isolating causal relationships by moderating extraneous variables.</li>
+        </ul>
+
+        <!-- SVG 1.1: The Iterative Scientific Research Process -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 1.1: The Sequential Stages of the Scientific Research Process</div>
+          <svg viewBox="0 0 840 280" class="svg-diagram" aria-label="Research Process Flowchart showing sequential steps from problem formulation to conclusions">
+            <title>Scientific Research Process Flowchart</title>
+            <desc>Step-by-step diagram showing: Define Research Problem -> Extensive Literature Survey -> Formulate Hypotheses -> Research Design -> Data Collection -> Data Analysis -> Hypothesis Testing -> Generalizations and Interpretation</desc>
+            <!-- Step 1 -->
+            <rect x="20" y="30" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="100" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">1. Problem</text>
+            <text x="100" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Formulation &amp; Scope</text>
+
+            <!-- Arrow 1-2 -->
+            <path d="M 180 65 L 210 65" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 2 -->
+            <rect x="220" y="30" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="300" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">2. Prior Art</text>
+            <text x="300" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Literature Review</text>
+
+            <!-- Arrow 2-3 -->
+            <path d="M 380 65 L 410 65" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 3 -->
+            <rect x="420" y="30" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="500" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">3. Hypothesis</text>
+            <text x="500" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Formulate $H_0$ &amp; $H_1$</text>
+
+            <!-- Arrow 3-4 -->
+            <path d="M 580 65 L 610 65" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 4 -->
+            <rect x="620" y="30" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="710" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">4. Research Design</text>
+            <text x="710" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Sampling &amp; Experiment</text>
+
+            <!-- Arrow down from 4 to 5 -->
+            <path d="M 710 100 L 710 140 L 710 150" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 5 -->
+            <rect x="620" y="160" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="710" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">5. Data Collection</text>
+            <text x="710" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Primary / Secondary</text>
+
+            <!-- Arrow 5-6 (leftward) -->
+            <path d="M 620 195 L 590 195" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 6 -->
+            <rect x="420" y="160" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="500" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">6. Data Analysis</text>
+            <text x="500" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Coding &amp; Statistical Test</text>
+
+            <!-- Arrow 6-7 -->
+            <path d="M 420 195 L 390 195" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 7 -->
+            <rect x="220" y="160" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="300" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">7. Hypothesis Test</text>
+            <text x="300" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Accept or Reject $H_0$</text>
+
+            <!-- Arrow 7-8 -->
+            <path d="M 220 195 L 190 195" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 8 -->
+            <rect x="20" y="160" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="100" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">8. Conclusions</text>
+            <text x="100" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Generalize &amp; Report</text>
+
+            <!-- Marker Def -->
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--green)"/>
+              </marker>
+            </defs>
+          </svg>
+          <div class="diagram-caption">Steps in research as outlined in C.R. Kothari's methodology framework. Note that feedback loops occur between analysis, hypothesis refinement, and design.</div>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Research is a scientific voyage moving systematically from known axioms to unknown realities via hypothesis formulation, experimental control, empirical evidence, and peer validation.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-objectives-motivation" class="content-section">
+        <h2 class="section-title">2. Objectives &amp; Motivations in Research</h2>
+        <p>The principal objective of research is to unearth answers to questions through scientific procedures that prevent subjective human bias from corrupting the truth.</p>
+
+        <h3 class="subsection-title">2.1 Four Broad Classes of Research Objectives</h3>
+        <ol>
+          <li><strong>Exploratory / Formulative:</strong> To achieve familiarity with an unfamiliar phenomenon or achieve new insights (e.g., preliminary pilot study into an emerging zero-day cybersecurity vulnerability).</li>
+          <li><strong>Descriptive:</strong> To accurately portray the characteristics of a particular individual, situation, community, or software architecture (e.g., census surveys, measuring average developer turnover rate in Bangalore tech firms).</li>
+          <li><strong>Diagnostic:</strong> To establish the frequency with which an event occurs or with which it associates with another condition (e.g., investigating why database latency spikes sharply during flash sales).</li>
+          <li><strong>Hypothesis-Testing (Causal):</strong> To test a causal hypothesis asserting a definitive relationship between dependent and independent variables (e.g., testing whether increasing CPU cache from 16MB to 32MB significantly reduces inference latency of a transformer model).</li>
+        </ol>
+
+        <h3 class="subsection-title">2.2 What Motivates People to Undertake Research?</h3>
+        <ul>
+          <li><strong>Intellectual Curiosity:</strong> The desire to understand the unexplained mechanics of natural or computational phenomena.</li>
+          <li><strong>Solving Practical Challenges:</strong> The urge to resolve societal, environmental, or engineering bottlenecks (e.g., developing low-power IoT MAC protocols).</li>
+          <li><strong>Academic &amp; Professional Growth:</strong> Earning an advanced research degree (M.S., Ph.D.) or gaining intellectual recognition among peers.</li>
+          <li><strong>Social Responsibility &amp; Utility:</strong> Directing technical innovation to elevate human well-being and public safety.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Four objective pillars: Exploratory (new insights), Descriptive (profiling traits), Diagnostic (frequency &amp; association), and Hypothesis-testing (causal verification).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-types-research" class="content-section">
+        <h2 class="section-title">3. Types of Research</h2>
+        <p>In academic examinations (such as Make-Up April 2025 and SEE Feb/March 2025), questions regularly demand clear tabular contrasts between the major research paradigms.</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Classification Dimension</th>
+                <th>Paradigm A</th>
+                <th>Paradigm B</th>
+                <th>Core Distinction</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Inquiry Purpose</strong></td>
+                <td><strong>Descriptive Research</strong></td>
+                <td><strong>Analytical Research</strong></td>
+                <td>Descriptive reports "what is" (ex post facto facts without variable control); Analytical evaluates "why and how" using critical causal analysis.</td>
+              </tr>
+              <tr>
+                <td><strong>Utility &amp; Scope</strong></td>
+                <td><strong>Fundamental / Basic / Pure</strong></td>
+                <td><strong>Applied Research</strong></td>
+                <td>Fundamental seeks knowledge expansion and general theory formulation (e.g. Einstein's relativity, P vs NP); Applied targets immediate practical solution to a pressing industry/societal problem.</td>
+              </tr>
+              <tr>
+                <td><strong>Data Modality</strong></td>
+                <td><strong>Quantitative Research</strong></td>
+                <td><strong>Qualitative Research</strong></td>
+                <td>Quantitative measures phenomena numerically (metrics, ratios, statistical tests); Qualitative explores subjective meanings, motivations, attitudes, and behavioral contexts.</td>
+              </tr>
+              <tr>
+                <td><strong>Methodological Basis</strong></td>
+                <td><strong>Conceptual Research</strong></td>
+                <td><strong>Empirical Research</strong></td>
+                <td>Conceptual relates to abstract ideas, philosophies, or reinterpreting existing concepts (favored by philosophers and theorists); Empirical relies on hard observation and verifiable experimental experiments.</td>
+              </tr>
+              <tr>
+                <td><strong>Time Horizon</strong></td>
+                <td><strong>Cross-Sectional / One-Time</strong></td>
+                <td><strong>Longitudinal Research</strong></td>
+                <td>Cross-sectional captures data across subjects at a single snapshot in time; Longitudinal observes subjects repeatedly over extended temporal periods.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-label">Common Mistake</span>
+          <p>Confusing <em>Applied Research</em> with <em>Empirical Research</em>. Applied research refers to the <em>intent</em> (solving an immediate industry problem), whereas Empirical refers to the <em>method</em> (data collection via experimental observation). An applied project can be empirical, but so can a fundamental scientific experiment!</p>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Key pairs to memorize: Descriptive (describes status quo) vs. Analytical (proves causality); Fundamental (theory expansion) vs. Applied (real-world problem solving); Quantitative (numerical measurement) vs. Qualitative (contextual meaning).</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-ethics-research" class="content-section">
+        <h2 class="section-title">4. Ethics in Research</h2>
+        <p>Research ethics provides the moral compass governing all scholarly inquiry, data curation, experimental treatment, and publication dissemination.</p>
+
+        <h3 class="subsection-title">4.1 Foundational Ethical Principles</h3>
+        <ul>
+          <li><strong>Honesty:</strong> Honestly report data, results, methods, and publication status. Never deceive colleagues, grant sponsors, or the public.</li>
+          <li><strong>Objectivity:</strong> Eliminate bias in experimental design, data interpretation, peer review, personnel decisions, and expert testimony.</li>
+          <li><strong>Integrity:</strong> Keep agreements and promises; act with sincerity; strive for consistency of thought and action.</li>
+          <li><strong>Carefulness:</strong> Avoid careless errors and negligence; examine your work and colleagues' work with rigorous scrutiny; maintain spotless logs.</li>
+          <li><strong>Openness:</strong> Share data, results, tools, resources, and ideas openly. Remain receptive to novel ideas and healthy criticism.</li>
+          <li><strong>Respect for Intellectual Property:</strong> Honor patents, copyrights, trademarks, trade secrets, and licenses. Never use unpublished data without prior authorization. Always give credit where credit is due.</li>
+          <li><strong>Confidentiality:</strong> Safeguard confidential communications (e.g., papers submitted for blind peer review, grant proposals, patient health records, industrial trade secrets).</li>
+          <li><strong>Social Responsibility:</strong> Strive to promote social good and prevent harm through research, public education, and advocacy.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Ethical research rests on the bedrock of Honesty, Objectivity, Carefulness, Openness, and unconditional respect for Intellectual Property.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-misconduct" class="content-section">
+        <h2 class="section-title">5. Types of Research Misconduct (The FFP Triad &amp; Beyond)</h2>
+        <div class="callout callout-def">
+          <span class="callout-label">Core Triad</span>
+          <p>In international scientific consensus (including US Office of Research Integrity and Indian UGC/AICTE regulations), research misconduct is explicitly defined as <strong>Fabrication</strong>, <strong>Falsification</strong>, or <strong>Plagiarism</strong> (FFP) in proposing, performing, or reviewing research, or in reporting research results.</p>
+        </div>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Misconduct Type</th>
+                <th>Formal Definition</th>
+                <th>Concrete Engineering Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Fabrication</strong></td>
+                <td>Inventing data, synthetic observations, or fictitious experiments and recording/reporting them as genuine real-world trials.</td>
+                <td>Simulating 1,000 sensor battery runs in an Excel sheet by typing random discharge numbers instead of running physical field tests.</td>
+              </tr>
+              <tr>
+                <td><strong>Falsification</strong></td>
+                <td>Manipulating research materials, equipment, or processes, or changing/omitting data points such that research is not accurately represented in record.</td>
+                <td>Discarding 14 latency outliers because they violate an algorithm's claimed sub-millisecond execution bound.</td>
+              </tr>
+              <tr>
+                <td><strong>Plagiarism</strong></td>
+                <td>Appropriation of another person's ideas, processes, results, code, or text without giving appropriate attribution or credit.</td>
+                <td>Pasting a competitor's neural network architecture and mathematical formulation into your paper without citation.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subsection-title">5.2 Secondary Forms of Ethical Malpractice</h3>
+        <ul>
+          <li><strong>Self-Plagiarism (Duplicate Publication):</strong> Re-publishing one's own previously copyrighted text, figures, or findings in a new venue without clear disclosure or citation.</li>
+          <li><strong>Salami Slicing (Data Fragmentation):</strong> Partitioning a coherent, unified large study into thin, minimally publishable units solely to artificially inflate publication counts.</li>
+          <li><strong>Gift / Honorary Authorship:</strong> Adding the name of a senior professor, department chair, or influential acquaintance to an author list when they contributed no intellectual work.</li>
+          <li><strong>Ghost Authorship:</strong> Concealing the true author (e.g., an industrial ghostwriter hired by a pharmaceutical firm) to mask bias.</li>
+          <li><strong>Predatory Publishing:</strong> Submitting manuscripts to commercial pay-to-publish scam journals that bypass authentic peer review for financial gain.</li>
+        </ul>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>FFP Triad: Fabrication = making up data; Falsification = altering data/dropping outliers; Plagiarism = stealing another's work without attribution.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-lit-review" class="content-section">
+        <h2 class="section-title">6. Literature Review &amp; Analysis of Prior Art</h2>
+        <p>A literature review is not a superficial bibliography; it is an analytical synthesis of published scholarship establishing the context and justification for your investigation.</p>
+
+        <h3 class="subsection-title">6.1 Interplay of New and Existing Knowledge</h3>
+        <p>Scientific advancement is cumulative. Sir Isaac Newton famously observed: <em>"If I have seen further, it is by standing on the shoulders of Giants."</em></p>
+        <ul>
+          <li><strong>Grounding:</strong> Existing knowledge provides validated methodologies, established theoretical models, and standard benchmarks.</li>
+          <li><strong>De-duplication:</strong> Prevents "reinventing the wheel" by ensuring researchers do not replicate solved problems.</li>
+          <li><strong>Gap Identification:</strong> Highlighting limitations, contradictory findings, unexamined boundary conditions, or scalability bottlenecks in the existing literature.</li>
+          <li><strong>Synthesizing:</strong> Connecting disjoint findings from distinct disciplines to construct a novel overarching framework.</li>
+        </ul>
+
+        <!-- SVG 1.2: Literature Review Synthesis Funnel -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 1.2: The Literature Review Analytical Synthesis Funnel</div>
+          <svg viewBox="0 0 760 260" class="svg-diagram" aria-label="Literature review funnel diagram showing filtering from Broad Survey to Critical Gap">
+            <title>Synthesis Funnel Diagram</title>
+            <polygon points="60,30 700,30 550,110 210,110" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="380" y="65" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="14">Broad Survey of State of the Art</text>
+            <text x="380" y="85" text-anchor="middle" fill="var(--text-secondary)" font-size="12">100+ papers across WoS, Scopus, IEEE Xplore</text>
+
+            <polygon points="210,115 550,115 470,185 290,185" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="380" y="145" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">Critical Appraisal &amp; Method Comparison</text>
+            <text x="380" y="165" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Comparing algorithmic complexity, datasets, benchmarks</text>
+
+            <polygon points="290,190 470,190 420,240 340,240" fill="var(--surface)" stroke="var(--green)" stroke-width="2"/>
+            <text x="380" y="215" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Unresolved Research Gap</text>
+            <text x="380" y="232" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Target of Your Investigation</text>
+          </svg>
+          <div class="diagram-caption">The literature synthesis funnel: filtering broad bibliographies down to actionable, verifiable research questions.</div>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>A literature review identifies prior art, avoids redundant wheel-reinvention, and isolates the precise research gap that justifies your novel study.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="sec-reading-conceptualizing" class="content-section">
+        <h2 class="section-title">7. Critical and Creative Reading in Research</h2>
+        <p>Technical reading demands a higher cognitive engagement than casual reading. Researchers must read on two intertwined planes: <strong>critically</strong> and <strong>creatively</strong>.</p>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Critical Reading (Analytical Lens)</th>
+                <th>Creative Reading (Generative Lens)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Primary Mindset</strong></td>
+                <td>Skeptical, evaluating, dissecting validity and soundness.</td>
+                <td>Visionary, connecting dots, exploring possibilities.</td>
+              </tr>
+              <tr>
+                <td><strong>Guiding Questions</strong></td>
+                <td><em>"Are the assumptions justified? Are the statistics rigorous? Does the conclusion truly follow from the evidence?"</em></td>
+                <td><em>"What if we relaxed assumption X? Can this technique be applied to an entirely different engineering domain?"</em></td>
+              </tr>
+              <tr>
+                <td><strong>Focus Areas</strong></td>
+                <td>Threats to validity, unstated biases, confounding variables.</td>
+                <td>Untapped cross-pollinations, novel architectural hybridizations.</td>
+              </tr>
+              <tr>
+                <td><strong>Outcome</strong></td>
+                <td>Accurate judgment of the paper's actual scientific contribution.</td>
+                <td>Conceptualizing your own innovative research hypothesis.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Critical reading validates the soundness and rigor of an author's claims; creative reading envisions novel extensions, adaptations, and future directions.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="sec-databases-bibliometrics" class="content-section">
+        <h2 class="section-title">8. Bibliographic Databases &amp; Metrics ($h$-index, JIF)</h2>
+        <p>Reliable scholarly literature must be discovered through curated, indexed bibliographic repositories rather than generic commercial search engines.</p>
+
+        <h3 class="subsection-title">8.1 Leading Bibliographic Repositories</h3>
+        <ul>
+          <li><strong>Web of Science (WoS):</strong> Maintained by Clarivate Analytics; the oldest citation indexing service (originating from Eugene Garfield's Science Citation Index). Highly curated, covers high-impact journals, calculates the official Journal Citation Reports (JCR) Impact Factor.</li>
+          <li><strong>Scopus:</strong> Maintained by Elsevier; comprehensive multidisciplinary abstract and citation database indexing over 25,000 peer-reviewed journals, book series, and conference proceedings. Generates CiteScore and SJR metrics.</li>
+          <li><strong>IEEE Xplore:</strong> Digital library dedicated to electrical engineering, electronics, computer science, and telecommunications. High relevance for engineering students.</li>
+          <li><strong>Google Scholar:</strong> Free web search engine indexing scholarly literature across publishers. Highly comprehensive but includes uncurated, pre-print, and predatory sources without quality filtering.</li>
+        </ul>
+
+        <h3 class="subsection-title">8.2 Quantitative Bibliometrics: Definitions &amp; Formulas</h3>
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 1: The Hirsch Index ($h$-index)</span>
+          <p>A researcher has index $h$ if $h$ of their $N_p$ papers have at least $h$ citations each, and the other $(N_p - h)$ papers have $\le h$ citations each.</p>
+          $$\max \{ r \mid c_r \ge r \}$$
+          <p>where papers are sorted in descending order of citation counts $c_1 \ge c_2 \ge \dots \ge c_{N_p}$, and $r$ is the 1-indexed rank.</p>
+        </div>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 2: The $i10$-Index</span>
+          <p>Used widely by Google Scholar, the $i10$-index is simply the number of academic publications by an author that have received at least 10 citations each:</p>
+          $$i10 = \sum_{i=1}^{N_p} \mathbb{I}(c_i \ge 10)$$
+        </div>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">Formula 3: Two-Year Journal Impact Factor (JIF)</span>
+          <p>The Journal Impact Factor for year $t$ measures the average frequency with which peer-reviewed articles published in that journal during the preceding two years were cited in year $t$:</p>
+          $$\text{JIF}_t = \frac{\text{Citations in year } t \text{ to items published in } (t-1) \text{ and } (t-2)}{\text{Total citable items (articles + reviews) published in } (t-1) \text{ and } (t-2)}$$
+        </div>
+
+        <!-- SVG 1.3: Geometric Illustration of h-index -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 1.3: Graphical Determination of the $h$-index</div>
+          <svg viewBox="0 0 720 300" class="svg-diagram" aria-label="h-index graph showing citation curve intersecting the diagonal y equals x">
+            <title>h-index Graphical Coordinate Plane</title>
+            <!-- Axes -->
+            <line x1="80" y1="240" x2="660" y2="240" stroke="var(--text-primary)" stroke-width="2"/>
+            <line x1="80" y1="240" x2="80" y2="30" stroke="var(--text-primary)" stroke-width="2"/>
+            <text x="640" y="270" text-anchor="end" fill="var(--text-secondary)" font-size="12">Paper Rank ($r$)</text>
+            <text x="30" y="45" fill="var(--text-secondary)" font-size="12">Citations ($c_r$)</text>
+
+            <!-- 45-degree diagonal: y = x -->
+            <line x1="80" y1="240" x2="480" y2="60" stroke="var(--border)" stroke-width="2" stroke-dasharray="5,5"/>
+            <text x="495" y="65" fill="var(--text-secondary)" font-size="11">Diagonal: Citations = Rank</text>
+
+            <!-- Citation curve (decreasing) -->
+            <path d="M 90 40 Q 180 80 260 120 T 360 150 T 480 215 T 620 235" fill="none" stroke="var(--green)" stroke-width="3"/>
+            <text x="210" y="70" fill="var(--green)" font-weight="700" font-size="12">Citation Profile $c(r)$</text>
+
+            <!-- Intersection Point (h, h) -->
+            <circle cx="360" cy="150" r="6" fill="var(--green)"/>
+            <line x1="360" y1="150" x2="360" y2="240" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <line x1="80" y1="150" x2="360" y2="150" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="360" y="260" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">$h$</text>
+            <text x="60" y="155" text-anchor="end" font-weight="700" fill="var(--text-primary)" font-size="13">$h$</text>
+
+            <!-- Highlight h x h square -->
+            <rect x="80" y="150" width="280" height="90" fill="var(--green)" opacity="0.1"/>
+            <text x="220" y="195" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">$h \times h$ Square Area</text>
+          </svg>
+          <div class="diagram-caption">The $h$-index corresponds to the maximum square that fits under the sorted citation curve, balancing productivity with scientific impact.</div>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>$h$-index = maximum rank $r$ where paper citations $\ge r$. JIF = citations in year $t$ to articles published in previous 2 years divided by total citable items published in those 2 years.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 9 -->
+      <section id="sec-citations-flow" class="content-section">
+        <h2 class="section-title">9. Citations, Knowledge Flow &amp; Attributions</h2>
+        <p>A citation is a formal reference linking an author's claim to an earlier published work, forming the connective tissue of human intellectual heritage.</p>
+
+        <h3 class="subsection-title">9.1 Functions and Attributes of Citations</h3>
+        <ul>
+          <li><strong>Verification &amp; Evidence:</strong> Allows critical peers to audit the empirical validity and context of claims.</li>
+          <li><strong>Intellectual Property &amp; Priority:</strong> Acknowledges who first conceived an idea, established a theorem, or discovered a compound.</li>
+          <li><strong>Navigational Roadmap:</strong> Directs readers toward deeper technical treatments and foundational proofs.</li>
+          <li><strong>Defensive Intellectual Property:</strong> Demonstrates prior art when defending against invalid patent filings.</li>
+        </ul>
+
+        <h3 class="subsection-title">9.2 Impact of Title and Keywords on Citation Velocity</h3>
+        <p>In modern automated indexing systems, the title and author keywords dictate discovery:</p>
+        <ul>
+          <li><strong>Title Specificity:</strong> Concise, declarative, and informative titles attract significantly higher click-through and download rates than vague or poetic phrasing.</li>
+          <li><strong>Keywords Optimization:</strong> Choosing standard MeSH / IEEE taxonomy keywords ensures that search algorithms surface the manuscript in automated queries.</li>
+          <li><strong>Accessibility Factor:</strong> If indexing spiders fail to match metadata to active researcher searches, even groundbreaking theorems remain uncited.</li>
+        </ul>
+
+        <h3 class="subsection-title">9.3 Knowledge Flow Through Citation Networks</h3>
+        <p>Knowledge diffuses across geography and academic disciplines via directed citation graphs. When Paper $C$ cites Paper $B$, which cited foundational Paper $A$, intellectual concepts propagate outward, spawning commercial patents, technical standards, and follow-on breakthroughs.</p>
+
+        <!-- SVG 1.4: Citation Knowledge Flow Graph -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 1.4: Directed Acyclic Graph of Knowledge Diffusion via Citations</div>
+          <svg viewBox="0 0 780 220" class="svg-diagram" aria-label="Directed network diagram showing knowledge diffusion from foundational research through applied studies to commercial technology">
+            <title>Citation Knowledge Network</title>
+            <!-- Node A (Foundational) -->
+            <circle cx="100" cy="110" r="42" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5"/>
+            <text x="100" y="105" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Paper A</text>
+            <text x="100" y="125" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Foundational</text>
+
+            <!-- Node B1 -->
+            <circle cx="340" cy="55" r="38" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="340" y="52" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="11">Paper B1</text>
+            <text x="340" y="68" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Algorithm Impr.</text>
+
+            <!-- Node B2 -->
+            <circle cx="340" cy="165" r="38" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="340" y="162" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="11">Paper B2</text>
+            <text x="340" y="178" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Domain Adapt.</text>
+
+            <!-- Node C (Applied / Industry) -->
+            <circle cx="620" cy="110" r="42" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5"/>
+            <text x="620" y="105" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Product / Patent</text>
+            <text x="620" y="125" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Commercial Tech</text>
+
+            <!-- Directed Arrows (Cites backward / Knowledge flows forward) -->
+            <path d="M 302 55 L 142 98" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+            <path d="M 302 165 L 142 122" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+            <path d="M 578 100 L 378 65" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+            <path d="M 578 120 L 378 155" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <text x="210" y="65" fill="var(--text-secondary)" font-size="10">cites</text>
+            <text x="210" y="160" fill="var(--text-secondary)" font-size="10">cites</text>
+            <text x="490" y="75" fill="var(--text-secondary)" font-size="10">cites</text>
+            <text x="490" y="150" fill="var(--text-secondary)" font-size="10">cites</text>
+          </svg>
+          <div class="diagram-caption">Citations flow backwards to acknowledge intellectual origins; knowledge flows forward to drive new implementations.</div>
+        </div>
+
+        <h3 class="subsection-title">9.4 Major Citation Styles: IEEE vs. APA</h3>
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>IEEE Style (Numbered Citation)</th>
+                <th>APA Style (Author-Date Citation)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>In-text Citation</strong></td>
+                <td>Bracketed sequential integer: <code>[1]</code>, <code>[2]-[4]</code>.</td>
+                <td>Author and year in parentheses: <code>(Kothari, 2019)</code> or <code>Kothari (2019)</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>Journal Article Entry</strong></td>
+                <td>A. B. Author, "Title of article," <em>Abbrev. Title of Journal</em>, vol. x, no. y, pp. 12-25, Month, Year.</td>
+                <td>Author, A. A. (Year). Title of article. <em>Title of Periodical</em>, x(y), 12-25.</td>
+              </tr>
+              <tr>
+                <td><strong>Primary Field</strong></td>
+                <td>Engineering, Computer Science, Telecommunications.</td>
+                <td>Psychology, Social Sciences, Education, Business.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary">
+          <span class="callout-label">Quick Recall</span>
+          <p>Citations provide evidentiary tracing and IP priority. IEEE uses bracketed integers <code>[1]</code>; APA uses author-year <code>(Kothari, 2019)</code>.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 10: SOLVED NUMERICALS -->
+      <section id="sec-numericals" class="content-section">
+        <h2 class="section-title">10. Solved Problems &amp; Bibliometric Calculations</h2>
+
+        <!-- Problem 1: h-index and i10-index -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 1.1: Calculating $h$-index and $i10$-index</span>
+          <p><strong>Problem Statement:</strong> An assistant professor has authored 10 peer-reviewed papers. Their citation counts are as follows:</p>
+          <p>$$P_1: 42, \quad P_2: 28, \quad P_3: 17, \quad P_4: 14, \quad P_5: 11, \quad P_6: 8, \quad P_7: 7, \quad P_8: 5, \quad P_9: 2, \quad P_{10}: 1$$</p>
+          <p>Compute the professor's $h$-index and $i10$-index step by step.</p>
+
+          <p><strong>Step 1: Sort citations in descending order and assign ranks:</strong></p>
+          <div class="table-container">
+            <table class="notes-table">
+              <thead>
+                <tr>
+                  <th>Rank ($r$)</th>
+                  <th>Citations ($c_r$)</th>
+                  <th>Condition: $c_r \ge r$?</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>42</td><td>$42 \ge 1$</td><td>Satisfied</td></tr>
+                <tr><td>2</td><td>28</td><td>$28 \ge 2$</td><td>Satisfied</td></tr>
+                <tr><td>3</td><td>17</td><td>$17 \ge 3$</td><td>Satisfied</td></tr>
+                <tr><td>4</td><td>14</td><td>$14 \ge 4$</td><td>Satisfied</td></tr>
+                <tr><td>5</td><td>11</td><td>$11 \ge 5$</td><td>Satisfied</td></tr>
+                <tr><td>6</td><td>8</td><td>$8 \ge 6$</td><td>Satisfied</td></tr>
+                <tr><td>7</td><td>7</td><td>$7 \ge 7$</td><td>Satisfied (boundary)</td></tr>
+                <tr><td>8</td><td>5</td><td>$5 \ge 8$</td><td>Violated ($5 < 8$)</td></tr>
+                <tr><td>9</td><td>2</td><td>$2 \ge 9$</td><td>Violated</td></tr>
+                <tr><td>10</td><td>1</td><td>$1 \ge 10$</td><td>Violated</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Step 2: Determine $h$-index:</strong></p>
+          <p>The largest rank $r$ for which $c_r \ge r$ is $r = 7$, since at rank 7, $c_7 = 7 \ge 7$, but at rank 8, $c_8 = 5 < 8$.</p>
+          <div class="formula-box">
+            $$\mathbf{h\text{-index} = 7}$$
+          </div>
+
+          <p><strong>Step 3: Determine $i10$-index:</strong></p>
+          <p>Count the number of papers with at least 10 citations ($c_r \ge 10$):</p>
+          <p>Papers with citations $\ge 10$ are: $P_1(42), P_2(28), P_3(17), P_4(14), P_5(11)$. That gives exactly 5 papers.</p>
+          <div class="formula-box">
+            $$\mathbf{i10\text{-index} = 5}$$
+          </div>
+        </div>
+
+        <!-- Problem 2: Journal Impact Factor -->
+        <div class="callout callout-example">
+          <span class="callout-label">Solved Problem 1.2: Computing 2-Year Journal Impact Factor (JIF)</span>
+          <p><strong>Problem Statement:</strong> A computing journal publishes research articles and reviews. The publication and citation records for the past three years are:</p>
+          <ul>
+            <li>Year 2022: Published 120 research articles and review papers.</li>
+            <li>Year 2023: Published 140 research articles and review papers.</li>
+            <li>During Year 2024:
+              <ul>
+                <li>Papers published in 2022 received 650 citations.</li>
+                <li>Papers published in 2023 received 780 citations.</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Calculate the official 2024 Journal Impact Factor (JIF) of the journal.</p>
+
+          <p><strong>Step 1: Identify total citable items published in 2022 and 2023 ($D$):</strong></p>
+          $$D = \text{Items}(2022) + \text{Items}(2023) = 120 + 140 = 260$$
+
+          <p><strong>Step 2: Identify total citations received in 2024 to items published in 2022 and 2023 ($N$):</strong></p>
+          $$N = \text{Citations in 2024 to 2022 items} + \text{Citations in 2024 to 2023 items} = 650 + 780 = 1430$$
+
+          <p><strong>Step 3: Apply the JIF formula:</strong></p>
+          $$\text{JIF}_{2024} = \frac{N}{D} = \frac{1430}{260}$$
+
+          <p>Carrying out the arithmetic division:</p>
+          $$\frac{1430}{260} = \frac{143}{26} = 5.500$$
+
+          <div class="formula-box">
+            $$\mathbf{\text{JIF}_{2024} = 5.500}$$
+          </div>
+          <p><strong>Interpretation:</strong> On average, each citable paper published in this journal during 2022 and 2023 was cited 5.5 times in 2024.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 11: REVISION SHEET -->
+      <section id="revision-sheet" class="content-section">
+        <h2 class="section-title">11. Quick Revision Sheet</h2>
+
+        <div class="table-container">
+          <table class="notes-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Core Formula / Principle</th>
+                <th>Exam Trap / Key Insight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Research Definition</strong></td>
+                <td>Systematic voyage from known to unknown via empirical testing.</td>
+                <td>Must cite <em>scientific method</em>, <em>replicability</em>, and <em>control</em>.</td>
+              </tr>
+              <tr>
+                <td><strong>Research Types</strong></td>
+                <td>Descriptive (what) vs Analytical (why); Basic (theory) vs Applied (practical).</td>
+                <td>Descriptive researcher has NO control over variables; ex post facto reporting.</td>
+              </tr>
+              <tr>
+                <td><strong>Research Misconduct</strong></td>
+                <td><strong>FFP</strong> = Fabrication (creating data) + Falsification (altering data) + Plagiarism (theft without credit).</td>
+                <td>Salami slicing = fragmenting one study into multiple small papers.</td>
+              </tr>
+              <tr>
+                <td><strong>$h$-Index</strong></td>
+                <td>$\max \{ r \mid c_r \ge r \}$ when sorted descending.</td>
+                <td>Ranks must be checked sequentially; once $c_r < r$, the previous rank is $h$.</td>
+              </tr>
+              <tr>
+                <td><strong>JIF (Impact Factor)</strong></td>
+                <td>$\text{JIF}_t = \frac{\text{Citations in year } t \text{ to items from } (t-1) + (t-2)}{\text{Total citable items published in } (t-1) + (t-2)}$</td>
+                <td>Denominator contains ONLY citable items (articles &amp; reviews), not letters or editorials.</td>
+              </tr>
+              <tr>
+                <td><strong>Databases</strong></td>
+                <td>WoS (Clarivate, JCR JIF) vs. Scopus (Elsevier, CiteScore).</td>
+                <td>Google Scholar is uncurated and includes non-peer-reviewed preprints.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 12: EXAM QUESTIONS -->
+      <section id="exam-questions" class="content-section">
+        <h2 class="section-title">12. Important Exam Questions &amp; Practice</h2>
+
+        <h3 class="subsection-title">2-Mark Questions (Short Answers)</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">1. Define the term 'Research' according to C.R. Kothari.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>Research refers to a systematic and scientific search for pertinent information on a specific topic. It comprises defining and redefining problems, formulating hypotheses, collecting and evaluating data, making deductions, and testing conclusions against formulated hypotheses.</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">2. Distinguish between Fabrication and Falsification with one example each.</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Fabrication</strong> is the invention of completely fictitious data or results that were never gathered (e.g. typing made-up battery sensor logs). <strong>Falsification</strong> is manipulating real experimental processes or altering/omitting data points to misrepresent findings (e.g. selectively deleting high latency spikes to falsely claim real-time performance).</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">3. What is an $i10$-index of an author?</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>The $i10$-index is a bibliometric metric introduced by Google Scholar that counts the total number of academic publications by a researcher that have accumulated at least 10 citations each.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">4. Describe the necessary steps involved in the scientific research process with a neat flowchart. (SEE Feb/Mar 2025, 6 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>The research process consists of 8 sequential, iterative phases:</p>
+            <ol>
+              <li><strong>Formulating the Research Problem:</strong> Defining the core question and objective boundaries.</li>
+              <li><strong>Extensive Literature Survey:</strong> Reviewing existing knowledge, books, and peer-reviewed journals.</li>
+              <li><strong>Formulating Working Hypotheses ($H_0, H_1$):</strong> Postulating tentative causal assumptions.</li>
+              <li><strong>Preparing the Research Design:</strong> Planning sampling, controls, and experimental setup.</li>
+              <li><strong>Determining Sample Design &amp; Collecting Data:</strong> Gathering primary or secondary observations.</li>
+              <li><strong>Execution of the Project &amp; Data Analysis:</strong> Tabulating, coding, and running statistical tests.</li>
+              <li><strong>Hypothesis Testing:</strong> Assessing whether empirical evidence supports or refutes the null hypothesis.</li>
+              <li><strong>Generalization, Interpretation &amp; Report Preparation:</strong> Drawing conclusions and formally publishing findings.</li>
+            </ol>
+            <p><em>(Refer to Figure 1.1 for the complete flowchart diagram).</em></p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">5. Distinguish between Descriptive and Analytical Research with suitable examples. (SEE Feb/Mar 2025, 6 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Descriptive Research:</strong> Focuses on portraying the current status of affairs (ex post facto). The researcher has zero control over variables and can only report what has occurred or what is occurring (e.g. measuring the percentage of engineering undergraduates who utilize generative AI coding assistants).</p>
+            <p><strong>Analytical Research:</strong> Uses facts, existing data, or experimental control to critically evaluate and analyze causal relationships (e.g. conducting a controlled A/B experiment to determine whether using generative AI coding assistants reduces software defect density in a 1,000-line codebase).</p>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">6. What are the key features of the bibliographic database Web of Science (WoS)? (SEE Feb/Mar 2025, 8 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Web of Science (WoS)</strong> features:</p>
+            <ul>
+              <li><strong>Rigorous Curation:</strong> Founded on Eugene Garfield's Science Citation Index, indexing only thoroughly vetted, high-quality journals.</li>
+              <li><strong>Core Collection Indices:</strong> Includes Science Citation Index Expanded (SCIE), Social Sciences Citation Index (SSCI), Arts &amp; Humanities Citation Index (A&amp;HCI), and Emerging Sources Citation Index (ESCI).</li>
+              <li><strong>Citation Tracking:</strong> Enables bidirectional citation analysis (tracking forward citations to new papers and backward references to historical foundations).</li>
+              <li><strong>Journal Citation Reports (JCR):</strong> Produces the official, authoritative Journal Impact Factor (JIF).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">7. How does knowledge flow happen through citations? Explain with a diagram. (Makeup April 2025, 8 Marks)</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p>Knowledge flows across academic and industrial networks through citations as a directed knowledge dissemination mechanism:</p>
+            <ul>
+              <li><strong>Foundational Roots:</strong> Early fundamental papers introduce theoretical concepts or novel algorithms.</li>
+              <li><strong>Derivative Expansion:</strong> Later papers cite foundational work to adapt algorithms to specific applications or improve execution efficiency.</li>
+              <li><strong>Industrial Translation:</strong> Applied papers and corporate patents cite applied academic literature, transforming theoretical insights into commercialized hardware, software, and public infrastructure.</li>
+            </ul>
+            <p><em>(Refer to Figure 1.4 for the knowledge flow network diagram).</em></p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Practice Problems with Answers</h3>
+        <div class="qa-card">
+          <button class="qa-toggle" aria-expanded="false">
+            <span class="qa-title">Practice Problem 1: $h$-Index Calculation for 12 Publications</span>
+            <span class="qa-icon">▾</span>
+          </button>
+          <div class="qa-answer">
+            <p><strong>Problem:</strong> A senior researcher has published 12 papers with citation counts: <code>[55, 34, 25, 20, 16, 12, 10, 8, 6, 4, 3, 0]</code>. Find their $h$-index and $i10$-index.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+              <li>Rank 1: 55 ($\ge 1$)</li>
+              <li>Rank 2: 34 ($\ge 2$)</li>
+              <li>Rank 3: 25 ($\ge 3$)</li>
+              <li>Rank 4: 20 ($\ge 4$)</li>
+              <li>Rank 5: 16 ($\ge 5$)</li>
+              <li>Rank 6: 12 ($\ge 6$)</li>
+              <li>Rank 7: 10 ($\ge 7$)</li>
+              <li>Rank 8: 8 ($\ge 8$) &rarr; Satisfied</li>
+              <li>Rank 9: 6 ($< 9$) &rarr; Violated</li>
+            </ul>
+            <p>Hence, <strong>$h$-index = 8</strong>. Papers with citations $\ge 10$ are ranks 1 through 7, so <strong>$i10$-index = 7</strong>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 13: REFERENCES -->
+      <section id="sec-references" class="content-section">
+        <h2 class="section-title">13. Prescribed References</h2>
+        <div class="callout callout-note">
+          <span class="callout-label">Official Course Textbooks</span>
+          <ol>
+            <li><strong>C.R. Kothari and Gourav Garg</strong>, <em>Research Methodology: Methods and Techniques</em>, 4th Edition, New Age International Publishers. (Chapters 1 &amp; 2).</li>
+            <li><strong>David V. Thiel</strong>, <em>Research Methods for Engineers</em>, Cambridge University Press, ISBN 978-1-107-03488-4. (Chapters 1, 2 &amp; 3).</li>
+            <li><strong>Dipankar Deb, Rajeeb Dey, Valentina E. Balas</strong>, <em>Engineering Research Methodology</em>, Springer Intelligent Systems Reference Library, ISBN 978-981-13-2946-3.</li>
+          </ol>
+          <p class="exam-disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+      </section>
+
+      <!-- Unit Footer Navigation -->
+      <nav class="unit-navigation" aria-label="Unit Navigation">
+        <a href="../../se/unit3/unit-3-notes.html" class="nav-btn prev-btn">
+          <span class="nav-arrow">←</span>
+          <span class="nav-meta">Previous Subject</span>
+          <span class="nav-title">SE Unit 3</span>
+        </a>
+        <a href="../unit2/unit-2-notes.html" class="nav-btn next-btn">
+          <span class="nav-meta">Next Unit</span>
+          <span class="nav-title">Unit 2: Research Design &amp; Sampling</span>
+          <span class="nav-arrow">→</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
