@@ -15,6 +15,7 @@
 
   const state = {
     data: window.SEM5_DATA || { subjects: [], meta: {} },
+    notesIndex: window.SEM5_NOTES_INDEX || [],
     theme: localStorage.getItem(STORAGE_KEYS.THEME) || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'),
     progress: JSON.parse(localStorage.getItem(STORAGE_KEYS.PROGRESS) || '{}'),
     pinned: JSON.parse(localStorage.getItem(STORAGE_KEYS.PINNED) || '[]'),
@@ -80,6 +81,18 @@
     setupEventListeners();
     setupRouting();
     renderSubjectsGrid();
+
+    // Load search index if not already present
+    if (!state.notesIndex || state.notesIndex.length === 0) {
+      if (window.SEM5_NOTES_INDEX) {
+        state.notesIndex = window.SEM5_NOTES_INDEX;
+      } else {
+        fetch('data/notes-index.json')
+          .then(res => res.ok ? res.json() : [])
+          .then(data => { state.notesIndex = data; })
+          .catch(() => {});
+      }
+    }
     
     // Platform-specific keyboard shortcut hint (Cmd K on Apple, Ctrl K elsewhere)
     const isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent || navigator.platform || '');
@@ -323,7 +336,10 @@
 
       // Dynamic Hashtag chips based on actual contents
       const chips = [];
-      if (subject.status === 'full_notes') {
+      const hasInteractiveNotes = subject.units.some(u => u.files && u.files.some(f => f.type === 'notes'));
+      if (hasInteractiveNotes) {
+        chips.push('# Interactive notes');
+      } else if (subject.status === 'full_notes') {
         chips.push('# Notes');
       } else {
         chips.push('# Syllabus only');
@@ -584,6 +600,7 @@
 
   function renderFileRow(file, subject) {
     const isDone = !!state.progress[file.id];
+    const isNotes = file.type === 'notes' || (file.path && file.path.endsWith('.html'));
     const isLarge = file.sizeBytes && file.sizeBytes > 20000000;
     const largeNote = isLarge ? `(~${Math.round(file.sizeBytes / 1048576)} MB)` : '';
 
@@ -594,17 +611,18 @@
             <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${file.id}')" aria-label="Mark ${escapeHtml(file.title)} as studied" />
           </label>
 
-          <span class="file-type-pill">${file.type.toUpperCase()}</span>
+          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''}">${isNotes ? 'NOTES' : file.type.toUpperCase()}</span>
 
           <div class="file-details-col">
             <div class="file-title-wrap">
               <span class="file-title">${escapeHtml(file.title)}</span>
+              ${file.tag ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
               ${file.isAlternate ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">Condensed</span>` : ''}
               ${file.isConverted ? `<span class="file-tag-converted">(Converted for preview)</span>` : ''}
               ${isLarge ? `<span class="kbd-shortcut" title="Consider alternate notes on mobile data">${largeNote}</span>` : ''}
             </div>
             <div class="file-submeta">
-              <span class="code-mono">${file.size}</span>
+              <span class="code-mono">${file.readingTime || file.size}</span>
               <span>·</span>
               <span title="Original file name">${escapeHtml(file.originalName)}</span>
             </div>
@@ -612,19 +630,26 @@
         </div>
 
         <div class="file-actions-group">
-          <button class="pill-btn-green pill-btn-sm view-btn" onclick="window.SEM5_APP.openViewer('${file.id}')" title="Read in built-in PDF viewer">
-            ${ICONS.eye} <span>VIEW</span>
-          </button>
-          
-          <a href="${file.path}" download class="pill-btn-outline pill-btn-sm" title="Download PDF copy">
-            ${ICONS.download} <span>DOWNLOAD</span>
-          </a>
-
-          ${file.originalPath ? `
-            <a href="${file.originalPath}" download class="pill-btn-outline pill-btn-sm" title="Download original format (${file.type.toUpperCase()})">
-              ${ICONS.download} <span>${file.originalPath.split('.').pop().toUpperCase()}</span>
+          ${isNotes ? `
+            <a href="${file.path}" class="pill-btn-green pill-btn-sm view-btn" title="Read Interactive Study Notes">
+              ${ICONS.eye} <span>READ</span>
             </a>
-          ` : ''}
+            <a href="${file.path}" target="_blank" rel="noopener" class="pill-btn-outline pill-btn-sm" title="Open notes in new browser tab">
+              ${ICONS.externalLink} <span>NEW TAB</span>
+            </a>
+          ` : `
+            <button class="pill-btn-green pill-btn-sm view-btn" onclick="window.SEM5_APP.openViewer('${file.id}')" title="Read in built-in PDF viewer">
+              ${ICONS.eye} <span>VIEW</span>
+            </button>
+            <a href="${file.path}" download class="pill-btn-outline pill-btn-sm" title="Download PDF copy">
+              ${ICONS.download} <span>DOWNLOAD</span>
+            </a>
+            ${file.originalPath ? `
+              <a href="${file.originalPath}" download class="pill-btn-outline pill-btn-sm" title="Download original format (${file.type.toUpperCase()})">
+                ${ICONS.download} <span>${file.originalPath.split('.').pop().toUpperCase()}</span>
+              </a>
+            ` : ''}
+          `}
         </div>
       </div>
     `;
@@ -1012,6 +1037,12 @@
 
     if (!targetFile) return;
 
+    // Interactive HTML notes open directly in the same tab with back link
+    if (targetFile.type === 'notes' || (targetFile.path && targetFile.path.endsWith('.html'))) {
+      window.location.href = targetFile.path;
+      return;
+    }
+
     // Responsive Mobile check: on mobile screens, opening in native browser viewer
     const isMobile = window.innerWidth < 768;
     if (isMobile) {
@@ -1245,6 +1276,35 @@
       }
     });
 
+    // Match Interactive Notes Sections & Key Terms
+    if (state.notesIndex && state.notesIndex.length > 0) {
+      const q = state.searchQuery;
+      let noteSectionMatches = 0;
+      state.notesIndex.forEach(entry => {
+        if (noteSectionMatches >= 30) return; // Cap notes matches to prevent overwhelming list
+        const titleMatch = entry.title && entry.title.toLowerCase().includes(q);
+        const subMatch = entry.subsections && entry.subsections.some(s => s.toLowerCase().includes(q));
+        const keyMatch = entry.keywords && entry.keywords.some(k => k.toLowerCase().includes(q));
+        const unitMatch = entry.unitTitle && entry.unitTitle.toLowerCase().includes(q);
+        const subIdMatch = entry.subject && entry.subject.toLowerCase() === q;
+
+        if (titleMatch || subMatch || keyMatch || unitMatch || subIdMatch) {
+          noteSectionMatches++;
+          const subCode = (entry.subject || 'notes').toUpperCase();
+          results.push({
+            type: 'note-section',
+            title: entry.title,
+            subtitle: `${subCode} · Unit ${entry.unit}: ${entry.unitTitle} §${entry.sectionId}`,
+            badge: 'Interactive notes',
+            action: () => {
+              closeSearch();
+              window.location.href = entry.path;
+            }
+          });
+        }
+      });
+    }
+
     state.searchResults = results;
 
     if (results.length === 0) {
@@ -1259,7 +1319,10 @@
     elements.searchResultsBox.innerHTML = results.map((res, index) => `
       <div class="search-result-item ${index === 0 ? 'selected' : ''}" data-idx="${index}" onclick="window.SEM5_APP.triggerSearchResult(${index})">
         <div class="search-res-info">
-          <span class="search-res-title">${highlightMatch(res.title, state.searchQuery)}</span>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+            <span class="search-res-title">${highlightMatch(res.title, state.searchQuery)}</span>
+            ${res.badge ? `<span class="pill-tag-green" style="font-size:10px;padding:1px 6px;">${escapeHtml(res.badge)}</span>` : ''}
+          </div>
           <span class="search-res-breadcrumbs">${escapeHtml(res.subtitle)}</span>
         </div>
         <span class="kbd-shortcut">↵ Open</span>

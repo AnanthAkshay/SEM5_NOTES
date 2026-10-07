@@ -1359,6 +1359,12 @@ a {
   line-height: 1;
 }
 
+.file-type-pill.file-type-notes {
+  background-color: var(--green-tint);
+  color: var(--green-tint-ink);
+  border-color: var(--green);
+}
+
 .file-details-col {
   flex: 1;
   min-width: 0;
