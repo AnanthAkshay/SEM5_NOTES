@@ -31,6 +31,7 @@
     initPrintButton();
     initMathRendering();
     initMobileTOCToggle();
+    initQACards();
   });
 
   // --- 1. Theme Synchronization ---
@@ -201,6 +202,11 @@
       printBtn.addEventListener('click', () => {
         // Expand all collapsible answers before printing
         document.querySelectorAll('details.model-answer').forEach(d => d.setAttribute('open', 'true'));
+        document.querySelectorAll('.qa-card').forEach(c => {
+          c.classList.add('open');
+          const btn = c.querySelector('.qa-toggle');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+        });
         window.print();
       });
     }
@@ -241,5 +247,18 @@
         });
       });
     }
+  }
+
+  // --- 9. QA Card Collapsible Answer Toggles ---
+  function initQACards() {
+    document.querySelectorAll('.qa-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.qa-card');
+        if (card) {
+          const isOpen = card.classList.toggle('open');
+          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+      });
+    });
   }
 })();

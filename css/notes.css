@@ -924,6 +924,49 @@ details.model-answer[open] summary::after {
   line-height: 1.65;
 }
 
+/* QA Card & Practice Items */
+.qa-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card-sm);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.qa-card.open {
+  border-color: var(--border-strong);
+}
+.qa-toggle {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+.qa-toggle:hover {
+  background-color: var(--bg-soft);
+}
+.qa-answer {
+  display: none;
+  padding: 1.25rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--surface-alt);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.qa-card.open .qa-answer {
+  display: block;
+}
+
 /* --- 14. END-OF-UNIT SECTIONS --- */
 .revision-sheet {
   background-color: var(--surface);
