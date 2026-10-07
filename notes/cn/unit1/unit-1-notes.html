@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 1: Data Communication Fundamentals & Physical Layer | CN Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Computer Networks (IS53) Unit 1: Network Criteria, Topologies, OSI 7-Layer vs TCP/IP Model, Signals, Transmission Impairments, Nyquist & Shannon Limits, and Line Coding Waveforms.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  
+  <!-- Shared Notes Theme -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main notes</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/cn" class="back-btn" title="Return to Computer Networks Subject Page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>CN Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/cn">Computer Networks (IS53)</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Unit 1</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="cn-u1-notes" title="Mark this unit notes as studied">
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile On-this-page Drawer Button -->
+  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span>On This Page</span>
+  </button>
+
+  <div class="notes-layout">
+    <!-- Sticky Desktop Sidebar TOC -->
+    <aside class="notes-sidebar" aria-label="Table of Contents">
+      <div class="sidebar-header">
+        <span class="sidebar-label">UNIT 1 CONTENTS</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
+        <a href="#sec-1" class="toc-link">§ 1 Data Comm & Network Topologies</a>
+        <a href="#sec-2" class="toc-link">§ 2 OSI 7-Layer vs TCP/IP Architecture</a>
+        <a href="#sec-3" class="toc-link">§ 3 Data & Signals (Time vs Frequency)</a>
+        <a href="#sec-4" class="toc-link">§ 4 Transmission Impairments & SNR</a>
+        <a href="#sec-5" class="toc-link">§ 5 Data Rate Limits (Nyquist & Shannon)</a>
+        <a href="#sec-6" class="toc-link">§ 6 Line Coding Schemes & Waveforms</a>
+        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
+        <a href="#important-questions" class="toc-link">Important Questions</a>
+        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
+        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-main" id="main-content">
+      <!-- Hero Banner -->
+      <header class="unit-hero" id="hero">
+        <div class="unit-hero-tags">
+          <span class="unit-tag">CN &bull; IS53</span>
+          <span class="unit-tag">UNIT 1</span>
+          <span class="unit-tag read-time">~35 MIN READ</span>
+        </div>
+        <h1 class="unit-title">Data Communication Fundamentals & Physical Layer</h1>
+        <p class="unit-subtitle">Comprehensive mastery of network models, physical topologies, complete OSI 7-layer duties vs TCP/IP suite, analog and digital signals, Fourier analysis, transmission impairments, decibel calculations, Nyquist and Shannon limits, and digital line coding schemes.</p>
+        
+        <div class="syllabus-box">
+          <div class="syllabus-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li><strong>Data Communication:</strong> 5 components, data representation, directional data flow (Simplex, Half-Duplex, Full-Duplex).</li>
+            <li><strong>Networks & Topologies:</strong> Network criteria (Performance, Reliability, Security), Mesh, Star, Bus, Ring, Hybrid. Formulas for links and I/O ports.</li>
+            <li><strong>Network Categories:</strong> LAN, MAN, WAN, Internetwork architecture.</li>
+            <li><strong>Protocol Layering & Reference Models:</strong> OSI 7-layer model (duties of each layer, encapsulation/decapsulation) vs TCP/IP 5-layer suite.</li>
+            <li><strong>Data & Signals:</strong> Analog vs Digital, Sine wave characteristics (Amplitude, Frequency, Period, Phase, Wavelength), Time vs Frequency domains.</li>
+            <li><strong>Transmission Impairments:</strong> Attenuation (dB calculations), Distortion, Noise (Thermal, Induced, Crosstalk, Impulse), SNR and $SNR_{dB}$.</li>
+            <li><strong>Data Rate Limits:</strong> Nyquist Bit Rate for noiseless channels and Shannon Capacity for noisy channels with combined problems.</li>
+            <li><strong>Line Coding Schemes:</strong> Unipolar (NRZ), Polar (NRZ-L, NRZ-I, RZ, Manchester, Differential Manchester), Bipolar (AMI, Pseudoternary).</li>
+          </ul>
+        </div>
+
+        <div class="source-links-box">
+          <span class="source-label">Reference Material:</span>
+          <a href="../unit1/is53-cn-unit1.pdf" class="source-link" target="_blank" rel="noopener">Faculty Slides / Unit 1 PDF</a>
+          <a href="../unit1/is53-cn-unit1.pptx" class="source-link" target="_blank" rel="noopener">Original PPTX Source</a>
+          <a href="../../../index.html#subject/cn" class="source-link">Subject Syllabus</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <section id="sec-1" class="note-section">
+        <div class="section-badge">&sect; 1</div>
+        <h2 class="section-title">Data Communication Fundamentals & Network Topologies</h2>
+
+        <p class="section-lead"><strong>Data communication</strong> is the exchange of data between two devices via some form of transmission medium (such as a wire cable or wireless radio link). For data communication to be effective, it depends on four fundamental characteristics: <em>delivery</em>, <em>accuracy</em>, <em>timeliness</em>, and <em>jitter</em>.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">5 FIVE COMPONENTS OF DATA COMMUNICATION</span>
+          <ol>
+            <li><strong>Message:</strong> The information (data) communicated (text, numbers, pictures, audio, video).</li>
+            <li><strong>Sender:</strong> The device that creates and transmits the data message (workstation, server, phone, video camera).</li>
+            <li><strong>Receiver:</strong> The device that receives the transmitted message (workstation, printer, TV monitor).</li>
+            <li><strong>Transmission Medium:</strong> The physical physical conduit over which the message travels from sender to receiver (twisted-pair wire, coaxial cable, fiber-optic cable, or radio waves).</li>
+            <li><strong>Protocol:</strong> A set of formal rules that govern data communication. It represents an agreement between communicating devices without which two devices may be physically connected but unable to communicate.</li>
+          </ol>
+        </div>
+
+        <h3>Data Flow Modes</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Flow Mode</th>
+                <th>Directionality</th>
+                <th>Channel Capacity Utilization</th>
+                <th>Real-world Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Simplex</strong></td>
+                <td>Strictly unidirectional. Only one device transmits; the other only receives.</td>
+                <td>100% of bandwidth dedicated to one direction.</td>
+                <td>Keyboard to CPU, traditional broadcast television, FM radio.</td>
+              </tr>
+              <tr>
+                <td><strong>Half-Duplex</strong></td>
+                <td>Bidirectional, but <strong>not at the same time</strong>. Each station can transmit and receive, but sequentially.</td>
+                <td>Entire capacity shared alternately.</td>
+                <td>Walkie-talkies, CB radio, classic Ethernet collision domain.</td>
+              </tr>
+              <tr>
+                <td><strong>Full-Duplex</strong></td>
+                <td>Simultaneously bidirectional. Both stations can transmit and receive concurrently.</td>
+                <td>Capacity divided between directions or carried over separate physical circuits.</td>
+                <td>Telephone network, modern switched full-duplex Ethernet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Physical Topologies & Structural Formulas</h3>
+        <p>The <strong>topology</strong> of a network defines how nodes are connected geometrically to one another. Two or more devices connect to a link; two or more links form a topology.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Topology</th>
+                <th>Physical Links Formula</th>
+                <th>I/O Ports per Node</th>
+                <th>Advantages</th>
+                <th>Disadvantages</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Mesh</strong> (Fully Connected)</td>
+                <td>$$\frac{n(n-1)}{2}$$</td>
+                <td>$$n - 1$$</td>
+                <td>Dedicated links (no traffic congestion), robust (failure of one link affects only that link), privacy/security, easy fault isolation.</td>
+                <td>Massive cabling requirement, high cost of hardware and I/O ports, difficult installation.</td>
+              </tr>
+              <tr>
+                <td><strong>Star</strong></td>
+                <td>$$n$$ (to central hub/switch)</td>
+                <td>$$1$$</td>
+                <td>Inexpensive, easy to install and reconfigure, robust (if one link fails, only that node goes down; other links stay active).</td>
+                <td><strong>Single Point of Failure:</strong> If the central hub/switch crashes, the entire network is disabled.</td>
+              </tr>
+              <tr>
+                <td><strong>Bus</strong></td>
+                <td>$$1$$ long backbone cable + $n$ drop lines</td>
+                <td>$$1$$ (tap)</td>
+                <td>Minimal cabling, easy to install for small footprints.</td>
+                <td>Difficult fault isolation, signal reflection at ends requires terminators, degradation as nodes are added; break in backbone halts whole net.</td>
+              </tr>
+              <tr>
+                <td><strong>Ring</strong></td>
+                <td>$$n$$ point-to-point links</td>
+                <td>$$2$$ (repeater in / out)</td>
+                <td>Deterministic access, easy to install, each repeater regenerates weak signals.</td>
+                <td>Unidirectional ring failure breaks entire network (unless dual counter-rotating ring like FDDI is used).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SVG TOPOLOGY DIAGRAM -->
+        <div class="svg-card">
+          <div class="svg-title">Comparison of Physical Network Topologies</div>
+          <svg viewBox="0 0 780 260" width="100%" height="auto" role="img" aria-label="Physical Topologies diagram showing Mesh, Star, and Bus">
+            <title>Network Topologies</title>
+            <desc>SVG diagram illustrating Mesh with point-to-point links, Star with central hub, and Bus with backbone cable and drop lines</desc>
+
+            <!-- 1. Mesh Topology -->
+            <g transform="translate(30, 20)">
+              <text x="90" y="20" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)" text-anchor="middle">Fully Connected Mesh (n=4)</text>
+              <!-- 4 Nodes -->
+              <circle cx="40" cy="70" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="40" y="74" font-family="Inter" font-size="11" text-anchor="middle">A</text>
+              <circle cx="140" cy="70" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="140" y="74" font-family="Inter" font-size="11" text-anchor="middle">B</text>
+              <circle cx="140" cy="170" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="140" y="174" font-family="Inter" font-size="11" text-anchor="middle">C</text>
+              <circle cx="40" cy="170" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="40" y="174" font-family="Inter" font-size="11" text-anchor="middle">D</text>
+              <!-- Links -->
+              <line x1="54" y1="70" x2="126" y2="70" stroke="var(--green)" stroke-width="1.8" />
+              <line x1="140" y1="84" x2="140" y2="156" stroke="var(--green)" stroke-width="1.8" />
+              <line x1="126" y1="170" x2="54" y2="170" stroke="var(--green)" stroke-width="1.8" />
+              <line x1="40" y1="156" x2="40" y2="84" stroke="var(--green)" stroke-width="1.8" />
+              <line x1="50" y1="80" x2="130" y2="160" stroke="var(--green)" stroke-width="1.8" />
+              <line x1="130" y1="80" x2="50" y2="160" stroke="var(--green)" stroke-width="1.8" />
+              <text x="90" y="215" font-family="Inter" font-size="11" font-weight="600" fill="var(--text-muted)" text-anchor="middle">Links = 4(3)/2 = 6 links</text>
+            </g>
+
+            <!-- 2. Star Topology -->
+            <g transform="translate(290, 20)">
+              <text x="100" y="20" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)" text-anchor="middle">Star Topology</text>
+              <!-- Central Hub -->
+              <rect x="75" y="100" width="50" height="40" rx="8" fill="var(--surface)" stroke="var(--green)" stroke-width="2.2" />
+              <text x="100" y="124" font-family="Inter" font-weight="700" font-size="12" text-anchor="middle" fill="var(--green)">HUB</text>
+              <!-- Peripheral nodes -->
+              <circle cx="30" cy="70" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="30" y="74" font-family="Inter" font-size="11" text-anchor="middle">A</text>
+              <line x1="42" y1="78" x2="75" y2="105" stroke="var(--stroke)" stroke-width="1.8" />
+
+              <circle cx="170" cy="70" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="170" y="74" font-family="Inter" font-size="11" text-anchor="middle">B</text>
+              <line x1="158" y1="78" x2="125" y2="105" stroke="var(--stroke)" stroke-width="1.8" />
+
+              <circle cx="30" cy="170" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="30" y="174" font-family="Inter" font-size="11" text-anchor="middle">C</text>
+              <line x1="42" y1="162" x2="75" y2="135" stroke="var(--stroke)" stroke-width="1.8" />
+
+              <circle cx="170" cy="170" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="170" y="174" font-family="Inter" font-size="11" text-anchor="middle">D</text>
+              <line x1="158" y1="162" x2="125" y2="135" stroke="var(--stroke)" stroke-width="1.8" />
+
+              <text x="100" y="215" font-family="Inter" font-size="11" font-weight="600" fill="var(--text-muted)" text-anchor="middle">Dedicated point-to-point to HUB</text>
+            </g>
+
+            <!-- 3. Bus Topology -->
+            <g transform="translate(540, 20)">
+              <text x="100" y="20" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)" text-anchor="middle">Bus Topology</text>
+              <!-- Backbone cable -->
+              <line x1="10" y1="120" x2="190" y2="120" stroke="var(--text-main)" stroke-width="4" />
+              <!-- Terminators -->
+              <rect x="4" y="112" width="6" height="16" fill="var(--text-muted)" />
+              <rect x="190" y="112" width="6" height="16" fill="var(--text-muted)" />
+              <!-- Drop lines and nodes -->
+              <circle cx="40" cy="65" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="40" y="69" font-family="Inter" font-size="11" text-anchor="middle">A</text>
+              <line x1="40" y1="79" x2="40" y2="120" stroke="var(--stroke)" stroke-width="1.8" />
+
+              <circle cx="100" cy="175" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="100" y="179" font-family="Inter" font-size="11" text-anchor="middle">B</text>
+              <line x1="100" y1="120" x2="100" y2="161" stroke="var(--stroke)" stroke-width="1.8" />
+
+              <circle cx="160" cy="65" r="14" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="160" y="69" font-family="Inter" font-size="11" text-anchor="middle">C</text>
+              <line x1="160" y1="79" x2="160" y2="120" stroke="var(--stroke)" stroke-width="1.8" />
+
+              <text x="100" y="215" font-family="Inter" font-size="11" font-weight="600" fill="var(--text-muted)" text-anchor="middle">Single shared backbone cable</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>5 Components: Message, Sender, Receiver, Medium, Protocol.</li>
+            <li>Mesh requires $\frac{n(n-1)}{2}$ links and $n-1$ ports per node. Star requires $n$ links to a central hub.</li>
+            <li>Simplex = 1-way; Half-Duplex = 2-way alternate; Full-Duplex = 2-way concurrent.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec-2" class="note-section">
+        <div class="section-badge">&sect; 2</div>
+        <h2 class="section-title">The OSI 7-Layer Model vs TCP/IP Protocol Suite</h2>
+
+        <p class="section-lead">The <strong>Open Systems Interconnection (OSI)</strong> model, developed by the ISO in 1984, is a 7-layer theoretical reference framework. In contrast, the <strong>TCP/IP Protocol Suite</strong> is the pragmatic, 5-layer hierarchical protocol suite upon which the global Internet is built.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Layer #</th>
+                <th>Layer Name</th>
+                <th>Data Unit (PDU)</th>
+                <th>Core Responsibilities & Duties</th>
+                <th>Primary Protocols</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Layer 7</strong></td>
+                <td><strong>Application</strong></td>
+                <td>Message</td>
+                <td>Provides user interface and network services to applications. File transfers, directory services, web browsing, email access.</td>
+                <td>HTTP/HTTPS, DNS, SMTP, FTP, SSH</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 6</strong></td>
+                <td><strong>Presentation</strong></td>
+                <td>Data</td>
+                <td>Translation (ASCII/EBCDIC), <strong>Encryption/Decryption</strong> (cryptographic security), and <strong>Compression</strong> (lossless/lossy).</td>
+                <td>SSL/TLS, JPEG, MPEG</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 5</strong></td>
+                <td><strong>Session</strong></td>
+                <td>Data</td>
+                <td><strong>Dialog control</strong> (half/full duplex), <strong>Synchronization</strong> (inserting checkpoints into data streams for recovery).</td>
+                <td>NetBIOS, RPC, PPTP</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 4</strong></td>
+                <td><strong>Transport</strong></td>
+                <td>Segment / Datagram</td>
+                <td><strong>Process-to-process delivery</strong> via port addressing, segmentation & reassembly, connection control, flow control, error control.</td>
+                <td>TCP, UDP, SCTP</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 3</strong></td>
+                <td><strong>Network</strong></td>
+                <td>Packet / Datagram</td>
+                <td><strong>Source-to-destination (host-to-host) delivery</strong>, logical IP addressing, routing (path selection), datagram fragmentation.</td>
+                <td>IPv4, IPv6, ICMP, OSPF, BGP</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 2</strong></td>
+                <td><strong>Data Link</strong></td>
+                <td>Frame</td>
+                <td><strong>Hop-to-hop (node-to-node) framing</strong>, physical MAC addressing, flow control (feedback), error detection (CRC) and correction.</td>
+                <td>Ethernet (802.3), Wi-Fi (802.11), PPP, ARP</td>
+              </tr>
+              <tr>
+                <td><strong>Layer 1</strong></td>
+                <td><strong>Physical</strong></td>
+                <td>Bits</td>
+                <td>Transmission of raw unstructured bits over physical medium. Mechanical/electrical specifications, line coding, data rates, bit synchronization.</td>
+                <td>RJ-45, V.35, Cat6, Fiber optics</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-def">
+          <span class="callout-label">MNEMONIC FOR THE 7 LAYERS</span>
+          <p>Top-down (Layer 7 &rarr; 1): <strong>"All People Seem To Need Data Processing"</strong></p>
+          <p>Bottom-up (Layer 1 &rarr; 7): <strong>"Please Do Not Throw Sausage Pizza Away"</strong></p>
+        </div>
+
+        <h3>OSI vs TCP/IP Comparison</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Feature / Dimension</th>
+                <th>OSI 7-Layer Reference Model</th>
+                <th>TCP/IP Protocol Suite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Number of Layers</strong></td>
+                <td>7 Layers (Application, Presentation, Session, Transport, Network, Data Link, Physical)</td>
+                <td>4 or 5 Layers (Application [merges 7,6,5], Transport, Network/Internet, Data Link, Physical)</td>
+              </tr>
+              <tr>
+                <td><strong>Development Approach</strong></td>
+                <td>Theoretical concept first; protocols designed later to fit the layers.</td>
+                <td>Protocols developed first (TCP, IP); model was a description of existing protocols.</td>
+              </tr>
+              <tr>
+                <td><strong>Transport Delivery</strong></td>
+                <td>Strictly connection-oriented service at transport layer.</td>
+                <td>Both connection-oriented (TCP) and connectionless (UDP) services.</td>
+              </tr>
+              <tr>
+                <td><strong>Network Layer Delivery</strong></td>
+                <td>Supports both connectionless and connection-oriented network services.</td>
+                <td>Strictly <strong>connectionless datagram service</strong> at Internet layer (IP).</td>
+              </tr>
+              <tr>
+                <td><strong>Commercial Dominance</strong></td>
+                <td>Never widely deployed commercially; used primarily as a teaching reference.</td>
+                <td>The de-facto architecture and foundation of the worldwide Internet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Physical = bits (raw signals); Data Link = frames (hop-to-hop / MAC); Network = packets (host-to-host / IP).</li>
+            <li>Transport = segments (process-to-process / port); Application = user network access.</li>
+            <li>Presentation handles Translation, Compression, Encryption; Session handles Dialog Control & Checkpoints.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec-3" class="note-section">
+        <div class="section-badge">&sect; 3</div>
+        <h2 class="section-title">Data and Signals (Time vs Frequency Domain)</h2>
+
+        <p class="section-lead">Information must be transformed into electromagnetic signals before transmission across a physical medium. Signals can be continuous (analog) or discrete (digital).</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">CHARACTERISTICS OF A PERIODIC SINE WAVE</span>
+          <p>A periodic analog sine wave is mathematically represented as:</p>
+          $$s(t) = A \sin(2\pi f t + \phi)$$
+          <ul>
+            <li><strong>Peak Amplitude ($A$):</strong> The absolute value of its highest intensity, proportional to the energy carried by the signal (measured in Volts, Amperes, or Watts).</li>
+            <li><strong>Period ($T$) and Frequency ($f$):</strong> Period is the time taken to complete one full cycle (seconds). Frequency is the number of cycles per second (Hertz, $\text{Hz}$). They are inverse:
+              $$f = \frac{1}{T}, \quad T = \frac{1}{f}$$
+            </li>
+            <li><strong>Phase ($\phi$):</strong> The fractional position of the waveform relative to time zero (measured in degrees or radians).</li>
+            <li><strong>Wavelength ($\lambda$):</strong> The physical distance a signal propagates in one period through a medium with propagation speed $c$:
+              $$\lambda = \frac{c}{f} = c \times T$$
+            </li>
+          </ul>
+        </div>
+
+        <h3>Time Domain vs Frequency Domain (Fourier Analysis)</h3>
+        <p><strong>Fourier Analysis</strong> proves that any composite periodic signal can be decomposed into an infinite series of simple sinusoidal waves with distinct amplitudes, frequencies, and phases:</p>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Domain Representation</th>
+                <th>Horizontal Axis</th>
+                <th>Vertical Axis</th>
+                <th>Information Displayed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Time Domain Plot</strong></td>
+                <td>Time ($t$)</td>
+                <td>Instantaneous Amplitude ($v$)</td>
+                <td>Shows signal voltage value at each instant of time (oscilloscope view).</td>
+              </tr>
+              <tr>
+                <td><strong>Frequency Domain Plot</strong></td>
+                <td>Frequency ($f$)</td>
+                <td>Peak Amplitude ($A$)</td>
+                <td>Shows only the frequency components and their peak intensities (spectrum analyzer view).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">SIGNAL BANDWIDTH</span>
+          <p>The <strong>bandwidth</strong> of a composite signal is the difference between the highest and lowest frequencies contained in that signal:</p>
+          $$B = f_{high} - f_{low}$$
+          <p><em>Example:</em> If a composite periodic signal contains frequencies from $1000\text{ Hz}$ to $5000\text{ Hz}$, its bandwidth is $B = 5000 - 1000 = 4000\text{ Hz} = 4\text{ kHz}$.</p>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>$f = 1/T$, $\lambda = c/f$. Phase $\phi$ is the angular offset at $t=0$.</li>
+            <li>Time-domain shows amplitude vs time; Frequency-domain shows peak amplitude vs frequency.</li>
+            <li>Bandwidth $B = f_{high} - f_{low}$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="sec-4" class="note-section">
+        <div class="section-badge">&sect; 4</div>
+        <h2 class="section-title">Transmission Impairments & Decibel Calculations</h2>
+
+        <p class="section-lead">As a signal travels through a physical transmission medium, it undergoes degradation caused by physical imperfections of the channel. The three primary transmission impairments are <strong>attenuation</strong>, <strong>distortion</strong>, and <strong>noise</strong>.</p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Attenuation (Loss of Energy):</strong> Signal power dissipates as heat due to the electrical resistance of the conductor. Over long distances, amplifiers or repeaters must regenerate the signal. Quantified using <strong>Decibels ($dB$)</strong>.
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Distortion (Alteration of Shape):</strong> In composite signals, different frequency components travel at different propagation speeds through the medium (delay distortion) and experience different attenuation levels. They arrive at the receiver with shifted phases, altering the composite shape.
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Noise (Extraneous Interference):</strong> Unwanted external energy coupled into the channel:
+              <ul>
+                <li><em>Thermal noise:</em> Random kinetic motion of electrons in conductors (white noise, Johnson-Nyquist noise).</li>
+                <li><em>Induced noise:</em> Electromagnetic interference (EMI) from motors, transformers, and appliances.</li>
+                <li><em>Crosstalk:</em> Inductive coupling between adjacent wire pairs.</li>
+                <li><em>Impulse noise:</em> Sudden voltage spikes from lightning or power surges.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3>Decibel ($dB$) Formulas</h3>
+        <div class="callout callout-formula">
+          <span class="callout-label">DECIBEL EQUATIONS</span>
+          <p>For power levels $P_1$ (input) and $P_2$ (output):</p>
+          $$dB = 10 \log_{10}\left(\frac{P_2}{P_1}\right)$$
+          <ul>
+            <li>If $P_2 &lt; P_1$, $dB$ is negative (attenuation / loss).</li>
+            <li>If $P_2 &gt; P_1$, $dB$ is positive (amplification / gain).</li>
+            <li>When power is halved ($P_2 / P_1 = 0.5$): $dB = 10 \log_{10}(0.5) \approx -3.010\text{ dB}$.</li>
+          </ul>
+          <p>For voltages $V_1$ and $V_2$ across equal impedances:</p>
+          $$dB = 20 \log_{10}\left(\frac{V_2}{V_1}\right)$$
+        </div>
+
+        <h3>Signal-to-Noise Ratio (SNR)</h3>
+        <p>The <strong>Signal-to-Noise Ratio</strong> is the ratio of average signal power to average noise power:</p>
+        $$\text{SNR} = \frac{P_{signal}}{P_{noise}}$$
+        $$\text{SNR}_{dB} = 10 \log_{10}(\text{SNR})$$
+
+        <!-- SOLVED WORKED NUMERICAL: CASCADED TRANSMISSION -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL &bull; VERIFIED SCRIPT PASS</span>
+            <span class="problem-points">[5 MARKS &bull; EXAM FAVOURITE]</span>
+          </div>
+          <h4 class="problem-title">Signal Power through Cascaded Transmission Stages</h4>
+          <p>A signal with an input power of $P_{in} = 10\text{ mW}$ passes through three cascaded transmission segments:</p>
+          <ul>
+            <li>Segment 1: Transmission cable with an attenuation of $-3\text{ dB}$</li>
+            <li>Segment 2: In-line amplifier with a gain of $+7\text{ dB}$</li>
+            <li>Segment 3: Secondary cable section with an attenuation of $-3\text{ dB}$</li>
+          </ul>
+          <p>Compute: (a) The net decibel rating of the link, and (b) The final output power $P_{out}$.</p>
+
+          <p><strong>Solution:</strong></p>
+          <p><strong>Part (a): Net decibel rating:</strong></p>
+          <p>Decibels are additive across cascaded stages:</p>
+          $$dB_{total} = dB_1 + dB_2 + dB_3 = (-3) + (+7) + (-3) = +1\text{ dB}$$
+
+          <p><strong>Part (b): Output power $P_{out}$:</strong></p>
+          $$dB_{total} = 10 \log_{10}\left(\frac{P_{out}}{P_{in}}\right) \implies 1 = 10 \log_{10}\left(\frac{P_{out}}{10}\right)$$
+          $$\log_{10}\left(\frac{P_{out}}{10}\right) = \frac{1}{10} = 0.1$$
+          $$\frac{P_{out}}{10} = 10^{0.1} \approx 1.2589$$
+          <div class="result-box">
+            $$P_{out} = 10 \times 1.2589 = \mathbf{12.589\text{ mW}}$$
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Impairments: Attenuation (loss), Distortion (phase shift/delay), Noise (external interference).</li>
+            <li>$dB = 10 \log_{10}(P_2 / P_1)$. Halving power = $-3\text{ dB}$; doubling power = $+3\text{ dB}$.</li>
+            <li>$\text{SNR}_{dB} = 10 \log_{10}(\text{SNR})$. Linear $\text{SNR} = 10^{(\text{SNR}_{dB}/10)}$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="sec-5" class="note-section">
+        <div class="section-badge">&sect; 5</div>
+        <h2 class="section-title">Data Rate Limits: Nyquist Bit Rate & Shannon Capacity</h2>
+
+        <p class="section-lead">A central problem in data communications is determining the maximum theoretical data rate (in bits per second) that can be reliably transmitted over a transmission channel of bandwidth $B$. Two fundamental physical laws dictate these limits: <strong>Nyquist's theorem</strong> for noiseless channels and <strong>Shannon's theorem</strong> for noisy channels.</p>
+
+        <h3>1. Nyquist Bit Rate (Noiseless Channel)</h3>
+        <p>In 1928, Harry Nyquist showed that for an ideal, noiseless channel of bandwidth $B$, the maximum transmission rate depends on the number of discrete signal voltage levels $L$:</p>
+        <div class="callout callout-formula">
+          <span class="callout-label">NYQUIST BIT RATE FORMULA</span>
+          $$\mathbf{C_{Nyquist} = 2 \times B \times \log_2(L)} \quad \text{[bps]}$$
+          <p>Where:</p>
+          <ul>
+            <li>$B$: Bandwidth of the channel in Hertz ($\text{Hz}$).</li>
+            <li>$L$: Number of discrete signal levels used to represent data ($L \ge 2$).</li>
+            <li>$\log_2(L)$: Number of bits carried per signal element ($r = \log_2 L$).</li>
+          </ul>
+        </div>
+
+        <h3>2. Shannon Capacity (Noisy Channel)</h3>
+        <p>In 1948, Claude Shannon extended this to realistic channels subject to random thermal noise. The Shannon capacity represents the absolute theoretical upper bound for error-free communication:</p>
+        <div class="callout callout-formula">
+          <span class="callout-label">SHANNON CHANNEL CAPACITY FORMULA</span>
+          $$\mathbf{C_{Shannon} = B \times \log_2(1 + \text{SNR})} \quad \text{[bps]}$$
+          <p>Where:</p>
+          <ul>
+            <li>$B$: Channel bandwidth in Hertz ($\text{Hz}$).</li>
+            <li>$\text{SNR}$: <strong>Linear</strong> Signal-to-Noise Ratio (NOT in decibels!).</li>
+            <li>Note: As $\text{SNR} \to 0$ (extreme noise), $C \to 0$. Capacity cannot be increased by adding signal levels alone if constrained by noise.</li>
+          </ul>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL 1: SHANNON CAPACITY -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL 1 &bull; STANDARD EXAM PROBLEM</span>
+            <span class="problem-points">[5 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Shannon Capacity of a Noisy Telephone Channel</h4>
+          <p>A standard analog telephone line has a bandwidth of $B = 3000\text{ Hz}$ ($3\text{ kHz}$) and a Signal-to-Noise Ratio of $\text{SNR}_{dB} = 30\text{ dB}$. Compute the theoretical channel capacity.</p>
+
+          <p><strong>Step 1: Convert $\text{SNR}_{dB}$ to linear $\text{SNR}$:</strong></p>
+          $$\text{SNR}_{dB} = 10 \log_{10}(\text{SNR}) \implies 30 = 10 \log_{10}(\text{SNR}) \implies \log_{10}(\text{SNR}) = 3$$
+          $$\text{SNR} = 10^3 = 1000$$
+
+          <p><strong>Step 2: Apply Shannon Capacity Formula:</strong></p>
+          $$C = B \log_2(1 + \text{SNR}) = 3000 \times \log_2(1 + 1000) = 3000 \times \log_2(1001)$$
+          <p>Since $\log_2(x) = \frac{\log_{10}(x)}{\log_{10}(2)} = \frac{3.000434}{0.30103} \approx 9.9672$:</p>
+          <div class="result-box">
+            $$C = 3000 \times 9.9672 = \mathbf{29,901.68\text{ bps}} \approx \mathbf{29.902\text{ kbps}}$$
+          </div>
+          <p><em>Conclusion:</em> Regardless of how many voltage levels modem designers utilize, this line can never reliably exceed ~30 kbps unless the bandwidth or signal-to-noise ratio improves.</p>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL 2: COMBINED NYQUIST & SHANNON -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">WORKED NUMERICAL 2 &bull; COMBINED DESIGN PROBLEM</span>
+            <span class="problem-points">[8 MARKS &bull; HIGH OCCURRENCE]</span>
+          </div>
+          <h4 class="problem-title">Signal Levels Required to Attain Shannon Limit</h4>
+          <p>A channel has a bandwidth of $B = 1\text{ MHz}$ and a linear $\text{SNR} = 63$.</p>
+          <ol>
+            <li>Find the Shannon capacity of the channel.</li>
+            <li>How many signal levels $L$ must be engineered into the transmitter to achieve this data rate under Nyquist's formula?</li>
+          </ol>
+
+          <p><strong>Part 1: Shannon Capacity:</strong></p>
+          $$C = B \log_2(1 + \text{SNR}) = 10^6 \times \log_2(1 + 63) = 10^6 \times \log_2(64)$$
+          <p>Since $64 = 2^6$, $\log_2(64) = 6$:</p>
+          <div class="result-box">
+            $$C = 10^6 \times 6 = \mathbf{6\text{ Mbps}}$$
+          </div>
+
+          <p><strong>Part 2: Finding Required Signal Levels $L$:</strong></p>
+          <p>Equate the Nyquist formula to the Shannon limit:</p>
+          $$C_{Nyquist} = 2 B \log_2(L) \implies 6 \times 10^6 = 2 \times 10^6 \times \log_2(L)$$
+          $$\log_2(L) = \frac{6 \times 10^6}{2 \times 10^6} = 3 \implies L = 2^3 = \mathbf{8\text{ levels}}$$
+          <div class="result-box">
+            The transmitter must support $\mathbf{L = 8\text{ discrete signal levels}}$ (transmitting 3 bits per signal element) to achieve the 6 Mbps channel capacity.
+          </div>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Nyquist (noiseless): $C = 2B \log_2(L)$ bps.</li>
+            <li>Shannon (noisy): $C = B \log_2(1 + \text{SNR})$ bps. Always convert $\text{SNR}_{dB}$ to linear first!</li>
+            <li>Shannon gives the upper theoretical ceiling; Nyquist tells how many levels $L$ are required.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="sec-6" class="note-section">
+        <div class="section-badge">&sect; 6</div>
+        <h2 class="section-title">Digital Line Coding Schemes & Waveforms</h2>
+
+        <p class="section-lead"><strong>Line coding</strong> is the process of converting a digital sequence of binary 1s and 0s into a continuous digital signal for physical transmission. A well-designed line coding scheme must prevent <em>DC components</em>, avoid <em>baseline wandering</em>, and support <em>self-synchronization</em>.</p>
+
+        <h3>Core Properties of Line Coding</h3>
+        <ul>
+          <li><strong>DC Component:</strong> When voltage levels remain constant over time, a direct current (DC) component is created. DC components cannot pass through transformers or AC-coupled circuits and generate heat. A good line coding scheme should have zero DC component.</li>
+          <li><strong>Baseline Wandering:</strong> The receiver averages the received signal power to establish a threshold (baseline) for distinguishing 1s from 0s. Long strings of 0s or 1s shift this baseline, causing decoding errors.</li>
+          <li><strong>Self-Synchronization:</strong> Receiver and sender clocks must tick at the same rate. Transitions in the middle of bit intervals provide clock synchronization edges.</li>
+        </ul>
+
+        <h3>Taxonomy of Line Coding Schemes</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Coding Family</th>
+                <th>Scheme Name</th>
+                <th>Encoding Rule</th>
+                <th>Self-Sync & DC Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Unipolar</strong></td>
+                <td><strong>NRZ (Non-Return-to-Zero)</strong></td>
+                <td>Positive voltage for binary 1; Zero voltage for binary 0.</td>
+                <td>Poor sync; large DC component; baseline wander.</td>
+              </tr>
+              <tr>
+                <td rowspan="4"><strong>Polar</strong></td>
+                <td><strong>NRZ-L (Level)</strong></td>
+                <td>Positive voltage represents binary 0; Negative voltage represents binary 1 (or vice versa).</td>
+                <td>No self-sync on consecutive identical bits; DC component present.</td>
+              </tr>
+              <tr>
+                <td><strong>NRZ-I (Invert)</strong></td>
+                <td>Transition at the beginning of the bit interval represents binary 1; <strong>No transition</strong> represents binary 0.</td>
+                <td>Sync on 1s, but fails on consecutive 0s. Baseline wander on long 0s.</td>
+              </tr>
+              <tr>
+                <td><strong>Manchester</strong></td>
+                <td>Transition at the <strong>center</strong> of every bit interval: High-to-Low represents binary 1; Low-to-High represents binary 0 (IEEE 802.3 standard).</td>
+                <td><strong>Perfect self-sync</strong> on every bit; <strong>Zero DC component</strong>; requires $2\times$ bandwidth.</td>
+              </tr>
+              <tr>
+                <td><strong>Differential Manchester</strong></td>
+                <td>Transition at center always occurs (clocking). <strong>Transition at beginning</strong> represents binary 0; <strong>No transition at beginning</strong> represents binary 1.</td>
+                <td>Perfect self-sync; noise-immune; widely used in Token Ring (802.5).</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>Bipolar</strong></td>
+                <td><strong>AMI (Alternate Mark Inversion)</strong></td>
+                <td>Zero voltage represents binary 0. Binary 1s alternate between $+V$ and $-V$.</td>
+                <td><strong>Zero DC component</strong>; but loses sync on long runs of 0s.</td>
+              </tr>
+              <tr>
+                <td><strong>Pseudoternary</strong></td>
+                <td>Inverse of AMI: Zero voltage represents binary 1; binary 0s alternate between $+V$ and $-V$.</td>
+                <td>Zero DC component; loses sync on long runs of 1s.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SVG LINE CODING WAVEFORMS DIAGRAM -->
+        <div class="svg-card">
+          <div class="svg-title">Line Coding Waveforms for Bit Stream: 0 1 0 0 1 1 0</div>
+          <svg viewBox="0 0 780 400" width="100%" height="auto" role="img" aria-label="Line Coding Waveforms comparison for bit sequence 0 1 0 0 1 1 0">
+            <title>Line Coding Waveforms</title>
+            <desc>SVG diagram illustrating NRZ-L, NRZ-I, Manchester, Differential Manchester, and AMI waveforms for bit sequence 0 1 0 0 1 1 0</desc>
+
+            <!-- Bit Grid Headers (7 bits: 0, 1, 0, 0, 1, 1, 0) -->
+            <!-- Each bit width = 90 px, starting x = 120 -->
+            <g font-family="JetBrains Mono" font-size="14" font-weight="700" text-anchor="middle" fill="var(--green)">
+              <text x="165" y="30">0</text>
+              <text x="255" y="30">1</text>
+              <text x="345" y="30">0</text>
+              <text x="435" y="30">0</text>
+              <text x="525" y="30">1</text>
+              <text x="615" y="30">1</text>
+              <text x="705" y="30">0</text>
+            </g>
+
+            <!-- Vertical grid lines -->
+            <g stroke="var(--stroke)" stroke-width="1" stroke-dasharray="3">
+              <line x1="120" y1="40" x2="120" y2="380" />
+              <line x1="210" y1="40" x2="210" y2="380" />
+              <line x1="300" y1="40" x2="300" y2="380" />
+              <line x1="390" y1="40" x2="390" y2="380" />
+              <line x1="480" y1="40" x2="480" y2="380" />
+              <line x1="570" y1="40" x2="570" y2="380" />
+              <line x1="660" y1="40" x2="660" y2="380" />
+              <line x1="750" y1="40" x2="750" y2="380" />
+            </g>
+
+            <!-- 1. NRZ-L: 0 = +V, 1 = -V -->
+            <g transform="translate(0, 70)">
+              <text x="10" y="0" font-family="Inter" font-weight="700" font-size="12" fill="var(--text-main)">NRZ-L</text>
+              <!-- Baselines: High = -15, Low = +15 -->
+              <path d="M 120 -15 L 210 -15 L 210 15 L 300 15 L 300 -15 L 480 -15 L 480 15 L 660 15 L 660 -15 L 750 -15" fill="none" stroke="var(--green)" stroke-width="2.5" />
+            </g>
+
+            <!-- 2. NRZ-I: Transition on 1, No transition on 0 (assume initial High) -->
+            <!-- Bit 0: stay High. Bit 1: invert to Low. Bit 0: stay Low. Bit 0: stay Low. Bit 1: invert to High. Bit 1: invert to Low. Bit 0: stay Low -->
+            <g transform="translate(0, 140)">
+              <text x="10" y="0" font-family="Inter" font-weight="700" font-size="12" fill="var(--text-main)">NRZ-I</text>
+              <path d="M 120 -15 L 210 -15 L 210 15 L 480 15 L 480 -15 L 570 -15 L 570 15 L 750 15" fill="none" stroke="var(--green)" stroke-width="2.5" />
+            </g>
+
+            <!-- 3. Manchester (IEEE): 0 = Low-to-High, 1 = High-to-Low -->
+            <g transform="translate(0, 210)">
+              <text x="10" y="0" font-family="Inter" font-weight="700" font-size="12" fill="var(--text-main)">Manchester</text>
+              <!-- 0: Low(15) -> High(-15). 1: High(-15) -> Low(15). 0: Low -> High. 0: Low -> High. 1: High -> Low. 1: High -> Low. 0: Low -> High -->
+              <path d="M 120 15 L 165 15 L 165 -15 L 210 -15 L 210 -15 L 255 -15 L 255 15 L 300 15 L 300 15 L 345 15 L 345 -15 L 390 -15 L 390 15 L 435 15 L 435 -15 L 480 -15 L 480 -15 L 525 -15 L 525 15 L 570 15 L 570 -15 L 615 -15 L 615 15 L 660 15 L 660 15 L 705 15 L 705 -15 L 750 -15" fill="none" stroke="var(--green)" stroke-width="2.2" />
+            </g>
+
+            <!-- 4. Differential Manchester: transition at center always. 0 = transition at start. 1 = no transition at start -->
+            <g transform="translate(0, 280)">
+              <text x="10" y="0" font-family="Inter" font-weight="700" font-size="12" fill="var(--text-main)">Diff Manch</text>
+              <path d="M 120 15 L 165 15 L 165 -15 L 210 -15 L 210 15 L 255 15 L 255 -15 L 300 -15 L 300 -15 L 345 -15 L 345 15 L 390 15 L 390 -15 L 435 -15 L 435 15 L 480 15 L 480 15 L 525 15 L 525 -15 L 570 -15 L 570 -15 L 615 -15 L 615 15 L 660 15 L 660 -15 L 705 -15 L 705 15 L 750 15" fill="none" stroke="var(--green)" stroke-width="2.2" />
+            </g>
+
+            <!-- 5. AMI (Alternate Mark Inversion): 0 = 0V, 1 = alternating +V / -V -->
+            <g transform="translate(0, 350)">
+              <text x="10" y="0" font-family="Inter" font-weight="700" font-size="12" fill="var(--text-main)">Bipolar AMI</text>
+              <!-- 0: 0V, 1: +V, 0: 0V, 0: 0V, 1: -V, 1: +V, 0: 0V -->
+              <path d="M 120 0 L 210 0 L 210 -15 L 300 -15 L 300 0 L 480 0 L 480 15 L 570 15 L 570 -15 L 660 -15 L 660 0 L 750 0" fill="none" stroke="var(--green)" stroke-width="2.5" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="quick-recall-box">
+          <span class="quick-recall-label">QUICK RECALL</span>
+          <ul>
+            <li>Manchester: Mid-bit transition on every bit. 0 = Low-to-High; 1 = High-to-Low. Zero DC.</li>
+            <li>Differential Manchester: Center transition always occurs. 0 = transition at start; 1 = no transition at start.</li>
+            <li>AMI: 0 = Zero volts; 1s alternate between $+V$ and $-V$. Eliminates DC component.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REVISION SHEET -->
+      <section id="revision-sheet" class="note-section revision-sheet">
+        <div class="section-badge">&starf; REVISION</div>
+        <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
+        
+        <div class="revision-grid">
+          <div class="revision-card">
+            <h4>Topologies & Formulas</h4>
+            <ul>
+              <li>Mesh: $\frac{n(n-1)}{2}$ links, $n-1$ ports per node.</li>
+              <li>Star: $n$ links to central hub. Hub is single point of failure.</li>
+              <li>Bus: 1 shared backbone cable + terminators.</li>
+              <li>Ring: $n$ repeaters; token passing.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>OSI 7-Layer Summary</h4>
+            <ul>
+              <li>Physical: raw bits, line coding, electrical specs.</li>
+              <li>Data Link: frames, hop-to-hop delivery, MAC, CRC.</li>
+              <li>Network: packets, host-to-host delivery, IP, routing.</li>
+              <li>Transport: segments, process-to-process, ports, flow/error.</li>
+              <li>Session/Pres/App: Dialog, Encryption/Compression, User services.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Impairments & Decibels</h4>
+            <ul>
+              <li>Attenuation: energy loss in decibels.</li>
+              <li>$dB = 10 \log_{10}(P_2 / P_1)$. Halving power = $-3\text{ dB}$.</li>
+              <li>Decibels are additive in cascaded stages ($dB_{tot} = \sum dB_i$).</li>
+              <li>$\text{SNR}_{dB} = 10 \log_{10}(\text{SNR})$.</li>
+            </ul>
+          </div>
+
+          <div class="revision-card">
+            <h4>Nyquist vs Shannon</h4>
+            <ul>
+              <li>Nyquist: $C = 2 B \log_2(L)$ bps (noiseless channel).</li>
+              <li>Shannon: $C = B \log_2(1 + \text{SNR})$ bps (noisy channel).</li>
+              <li>Line Coding: Manchester has zero DC and mid-bit clock transition. AMI alternates $+V/-V$ for 1s.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPORTANT QUESTIONS -->
+      <section id="important-questions" class="note-section">
+        <div class="section-badge">&quest; QUESTIONS</div>
+        <h2 class="section-title">Important Examination Questions</h2>
+
+        <div class="q-group">
+          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
+          
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> State the Nyquist bit rate formula and define all symbols.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> $C = 2 B \log_2(L)$ bps, where $B$ is channel bandwidth in Hertz, $L$ is the number of discrete signal voltage levels, and $\log_2 L$ is the number of bits carried per signal element.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> What is the significance of the mid-bit transition in Manchester encoding?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> The mid-bit transition serves two crucial purposes: (1) It guarantees self-synchronization by providing a clocking edge on every single bit, and (2) It ensures equal positive and negative voltage areas, achieving a zero DC component.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">2M</span> Calculate the attenuation in dB when signal power is reduced to one-half.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> $dB = 10 \log_{10}(P_2 / P_1) = 10 \log_{10}(0.5) = 10 \times (-0.30103) = -3.010\text{ dB}$. (Power loss of ~3 dB).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Compare the OSI 7-layer reference model with the TCP/IP protocol suite.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ul>
+                  <li><strong>Layer count:</strong> OSI has 7 layers; TCP/IP has 4 or 5 layers (combining Application, Presentation, and Session into one Application layer).</li>
+                  <li><strong>Design:</strong> OSI was theoretical with protocols defined later; TCP/IP protocols were implemented first and model described them.</li>
+                  <li><strong>Network layer:</strong> OSI supports both connectionless and connection-oriented services; TCP/IP provides strictly connectionless IP datagrams.</li>
+                  <li><strong>Transport layer:</strong> OSI is strictly connection-oriented; TCP/IP supports both TCP (connection-oriented) and UDP (connectionless).</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">5M</span> Explain the three major transmission impairments that degrade signals.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ol>
+                  <li><strong>Attenuation:</strong> Loss of energy as signal propagates through resistance of the medium, measured in decibels ($dB$). Compensated with amplifiers.</li>
+                  <li><strong>Distortion:</strong> Change in waveform shape caused by different frequency components propagating at different speeds and suffering different attenuation.</li>
+                  <li><strong>Noise:</strong> Unwanted external energy induced onto the transmission line (thermal noise, induced noise from motors, crosstalk between wire pairs, impulse noise spikes).</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
+
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">10M</span> Describe the responsibilities and services of each layer of the OSI 7-layer reference model.</summary>
+              <div class="qa-answer">
+                <p><strong>Answer Summary:</strong></p>
+                <p>Detail all 7 layers in top-down or bottom-up order as presented in Section 2:</p>
+                <ol>
+                  <li><strong>Physical Layer:</strong> Transmission of raw bits, electrical/mechanical specifications, line coding.</li>
+                  <li><strong>Data Link Layer:</strong> Hop-to-hop framing, MAC addressing, flow control, CRC error control.</li>
+                  <li><strong>Network Layer:</strong> Source-to-destination routing, logical IP addressing, packetizing, fragmentation.</li>
+                  <li><strong>Transport Layer:</strong> Process-to-process delivery, port addressing, segmentation, end-to-end flow and error control.</li>
+                  <li><strong>Session Layer:</strong> Dialog control (half/full duplex), session synchronization and checkpointing.</li>
+                  <li><strong>Presentation Layer:</strong> Syntax translation, encryption/decryption, data compression.</li>
+                  <li><strong>Application Layer:</strong> User network interface (HTTP, DNS, FTP, email protocols).</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTIONS ASKED BEFORE -->
+      <section id="questions-asked-before" class="note-section exam-archive">
+        <div class="section-badge">&block; ARCHIVE</div>
+        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
+        <p class="section-lead">The following questions have been extracted from past CIE-1 and model papers in <code>notes/cn/practice/</code>:</p>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Computer Networks (IS53)</span>
+            <span class="archive-marks">[10 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain the OSI reference model with a neat sketch and list the functions of each layer."</p>
+          <p class="archive-note"><em>Study Note:</em> Full table and duty breakdown provided in Section 2.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">CIE-1 &bull; Computer Networks Question Bank</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Draw the digital signal waveforms for the bit sequence 0 1 0 0 1 1 0 using NRZ-L, NRZ-I, Manchester, Differential Manchester, and AMI."</p>
+          <p class="archive-note"><em>Study Note:</em> Exact waveform drawing diagram included in Section 6.</p>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">SEE Model Question Paper</span>
+            <span class="archive-marks">[8 Marks]</span>
+          </div>
+          <p class="archive-q">"Distinguish between Nyquist bit rate and Shannon capacity formula. A channel has a bandwidth of 1 MHz and SNR of 63. Calculate maximum data rate and required signal levels."</p>
+          <p class="archive-note"><em>Study Note:</em> Fully verified numerical solved step-by-step in Section 5.</p>
+        </div>
+      </section>
+
+      <!-- PRACTICE PROBLEMS -->
+      <section id="practice-problems" class="note-section">
+        <div class="section-badge">&nabla; PRACTICE</div>
+        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 &bull; NYQUIST DATA RATE</span>
+          </div>
+          <h4 class="problem-title">Calculate the Nyquist maximum bit rate for a noiseless channel with bandwidth $B = 4\text{ kHz}$ using $L = 4$ signal levels.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>Formula: $C = 2 B \log_2(L)$</p>
+              $$C = 2 \times 4000 \times \log_2(4) = 8000 \times 2 = \mathbf{16,000\text{ bps}} = \mathbf{16\text{ kbps}}$$
+            </div>
+          </details>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 &bull; MESH TOPOLOGY LINKS</span>
+          </div>
+          <h4 class="problem-title">In a fully connected mesh network of 10 computers, how many physical cables and I/O ports per device are required?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ul>
+                <li>Number of links: $\frac{n(n-1)}{2} = \frac{10 \times 9}{2} = \mathbf{45\text{ physical links}}$.</li>
+                <li>I/O ports per computer: $n - 1 = 10 - 1 = \mathbf{9\text{ ports}}$.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- REFERENCES -->
+      <footer class="notes-footer">
+        <div class="references-box">
+          <h3>Prescribed Textbooks & References</h3>
+          <ul>
+            <li><strong>Behrouz A. Forouzan</strong> &mdash; <em>Data Communications and Networking</em>, 5th Edition, McGraw Hill, Chapters 1, 2, 3, & 4.</li>
+            <li><strong>Andrew S. Tanenbaum, David J. Wetherall</strong> &mdash; <em>Computer Networks</em>, 5th Edition, Pearson, Chapters 1 & 2.</li>
+            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 1 (Course Code IS53).</li>
+          </ul>
+          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
+        </div>
+
+        <!-- Previous / Next Unit Navigation -->
+        <nav class="unit-pagination" aria-label="Unit pagination">
+          <a href="../../../notes/toc/unit3/unit-3-notes.html" class="pag-btn prev">
+            <span class="pag-arrow">&larr;</span>
+            <div class="pag-text">
+              <span class="pag-sub">PREVIOUS SUBJECT &bull; UNIT 3</span>
+              <span class="pag-title">TOC (IS54): CFG & Pushdown Automata</span>
+            </div>
+          </a>
+          <a href="../unit2/unit-2-notes.html" class="pag-btn next">
+            <div class="pag-text">
+              <span class="pag-sub">NEXT UNIT</span>
+              <span class="pag-title">Unit 2: Data Link Layer, Error Control & MAC</span>
+            </div>
+            <span class="pag-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Shared Notes Client Script -->
+  <script src="../../../js/notes.js"></script>
+</body>
+</html>
