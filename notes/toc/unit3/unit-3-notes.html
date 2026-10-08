@@ -1,55 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unit 3: CFG & Pushdown Automata | TOC Notes | SEM 5 ISE</title>
   <meta name="description" content="Exam-focused interactive study notes for Theory of Computation (IS54) Unit 3: Context-Free Grammars, Derivations, Parse Trees, Ambiguity, CFG Simplification, Chomsky Normal Form (CNF), and Pushdown Automata (PDA).">
-  
-  <!-- Fonts -->
+
+  <!-- Prevent Theme Flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('sem5_theme_v1');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Google Fonts Preconnect & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Self-Hosted KaTeX Math Styles -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
-  
-  <!-- Shared Notes Theme -->
+
+  <!-- Single Shared Notes Stylesheet -->
   <link rel="stylesheet" href="../../../css/notes.css">
 </head>
 <body>
   <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main notes</a>
 
-  <!-- Reading Progress Bar -->
+  <!-- Top Reading Progress Bar -->
   <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
   <!-- Sticky Topbar Navigation -->
   <header class="notes-topbar">
     <div class="notes-topbar-inner">
       <div class="topbar-left">
-        <a href="../../../index.html#subject/toc" class="back-btn" title="Return to Theory of Computation Subject Page">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>TOC Overview</span>
+        <a href="../../../index.html#subject/toc" class="back-btn" title="Return to Theory of Computation Page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>← IS54 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
           <a href="../../../index.html">Semester V</a>
           <span class="breadcrumb-sep">/</span>
-          <a href="../../../index.html#subject/toc">Theory of Computation (IS54)</a>
+          <a href="../../../index.html#subject/toc">Theory of Computation</a>
           <span class="breadcrumb-sep">/</span>
           <span class="breadcrumb-current">Unit 3</span>
         </nav>
       </div>
 
       <div class="topbar-right">
-        <button id="mark-done-btn" class="pill-action-btn" data-file-id="toc-u3-notes" title="Mark this unit notes as studied">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="toc-u3-notes" title="Mark this unit as studied">
+          <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           <span>MARK AS DONE</span>
         </button>
 
-        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-          <span>PRINT</span>
+        <button id="print-btn" class="pill-action-btn" title="Print notes or save as PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span class="btn-label-desktop">PRINT</span>
         </button>
 
         <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
@@ -59,50 +69,54 @@
     </div>
   </header>
 
-  <!-- Mobile On-this-page Drawer Button -->
-  <button id="mobile-toc-btn" class="mobile-toc-fab" aria-label="Open Table of Contents">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    <span>On This Page</span>
-  </button>
+  <!-- Mobile 'On this page' Trigger Pill (under 1024px only) -->
+  <div class="mobile-toc-bar">
+    <button id="mobile-toc-btn" class="mobile-toc-pill" aria-expanded="false" aria-controls="notes-sidebar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <span>On this page</span>
+      <span class="toc-badge">Unit 3</span>
+    </button>
+  </div>
 
-  <div class="notes-layout">
-    <!-- Sticky Desktop Sidebar TOC -->
-    <aside class="notes-sidebar" aria-label="Table of Contents">
+  <!-- Page Layout Container (max-width 1200px, 2 columns on desktop) -->
+  <div class="notes-container">
+    <!-- Desktop Sticky Sidebar / Mobile Sheet Modal -->
+    <aside class="notes-sidebar" id="notes-sidebar" aria-label="Table of Contents">
       <div class="sidebar-header">
-        <span class="sidebar-label">UNIT 3 CONTENTS</span>
-        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">&times;</button>
+        <span class="sidebar-label">Unit 3 contents</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
       <nav class="toc-nav" id="toc-nav">
-        <a href="#hero" class="toc-link active">Overview & Syllabus</a>
-        <a href="#sec-1" class="toc-link">§ 1 Context-Free Grammars (CFG)</a>
-        <a href="#sec-2" class="toc-link">§ 2 Derivations & Parse Trees</a>
-        <a href="#sec-3" class="toc-link">§ 3 Ambiguity & Disambiguation</a>
-        <a href="#sec-4" class="toc-link">§ 4 Simplification of CFGs</a>
-        <a href="#sec-5" class="toc-link">§ 5 Chomsky Normal Form (CNF)</a>
-        <a href="#sec-6" class="toc-link">§ 6 Pushdown Automata (PDA)</a>
-        <a href="#sec-7" class="toc-link">§ 7 DPDA vs NPDA & Worked Designs</a>
-        <a href="#revision-sheet" class="toc-link">Revision Sheet</a>
-        <a href="#important-questions" class="toc-link">Important Questions</a>
-        <a href="#questions-asked-before" class="toc-link">Exam Archive</a>
-        <a href="#practice-problems" class="toc-link">Practice Problems</a>
+        <ol class="toc-list">
+          <li class="toc-item"><a href="#sec-1" class="toc-link">§ 1 Context-Free Grammars (CFG)</a></li>
+          <li class="toc-item"><a href="#sec-2" class="toc-link">§ 2 Derivations & Parse Trees</a></li>
+          <li class="toc-item"><a href="#sec-3" class="toc-link">§ 3 Ambiguity & Disambiguation</a></li>
+          <li class="toc-item"><a href="#sec-4" class="toc-link">§ 4 Simplification of CFGs</a></li>
+          <li class="toc-item"><a href="#sec-5" class="toc-link">§ 5 Chomsky Normal Form (CNF)</a></li>
+          <li class="toc-item"><a href="#sec-6" class="toc-link">§ 6 Pushdown Automata (PDA)</a></li>
+          <li class="toc-item"><a href="#sec-7" class="toc-link">§ 7 DPDA vs NPDA & Worked Designs</a></li>
+          <li class="toc-item"><a href="#revision-sheet" class="toc-link">Revision Sheet</a></li>
+          <li class="toc-item"><a href="#important-questions" class="toc-link">Important Questions</a></li>
+          <li class="toc-item"><a href="#questions-asked-before" class="toc-link">Exam Archive</a></li>
+          <li class="toc-item"><a href="#practice-problems" class="toc-link">Practice Problems</a></li>
+        </ol>
       </nav>
     </aside>
+    <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
 
-    <!-- Main Content Area -->
+    <!-- Main Content Column (max-width 760px, 72ch line length) -->
     <main class="notes-main" id="main-content">
-      <!-- Hero Banner -->
-      <header class="unit-hero" id="hero">
-        <div class="unit-hero-tags">
-          <span class="unit-tag">TOC &bull; IS54</span>
-          <span class="unit-tag">UNIT 3</span>
-          <span class="unit-tag read-time">~34 MIN READ</span>
-        </div>
-        <h1 class="unit-title">Context-Free Grammars & Pushdown Automata</h1>
-        <p class="unit-subtitle">Comprehensive theory, rigorous algorithms, and exam numericals for Context-Free Grammars, leftmost and rightmost derivations, parse trees, ambiguity resolution, three-phase grammar simplification, Chomsky Normal Form (CNF), and Pushdown Automata (PDA) design with instantaneous descriptions.</p>
-        
-        <div class="syllabus-box">
-          <div class="syllabus-header">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+      <!-- Unit Header Hero Card -->
+      <header class="notes-header-card" id="hero">
+        <div class="header-mono-label">IS54 · UNIT 3 · ~42 min read</div>
+        <h1 class="notes-headline">Context-Free Grammars & Pushdown Automata</h1>
+        <p class="notes-subheadline">Comprehensive theory, rigorous algorithms, and exam numericals for Context-Free Grammars, leftmost and rightmost derivations, parse trees, ambiguity resolution, three-phase grammar simplification, Chomsky Normal Form (CNF), and Pushdown Automata (PDA) design with instantaneous descriptions.</p>
+
+        <div class="syllabus-card">
+          <div class="syllabus-header-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
             <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
           </div>
           <ul class="syllabus-list">
@@ -115,8 +129,7 @@
             <li><strong>DPDA vs NPDA:</strong> Determinism criteria, closure differences, and worked design problems ($a^n b^n$, $w c w^R$).</li>
           </ul>
         </div>
-
-        <div class="source-links-box">
+        <div class="source-links-card">
           <span class="source-label">Reference Material:</span>
           <a href="../unit3/unit-3.pdf" class="source-link" target="_blank" rel="noopener">Faculty Slides / Unit 3 PDF</a>
           <a href="../unit3/toc-unit3-alternate.pdf" class="source-link" target="_blank" rel="noopener">Alternate Notes PDF</a>
@@ -124,7 +137,7 @@
         </div>
       </header>
 
-      <!-- SECTION 1 -->
+      <!-- Exact Article Content Sections (preserved byte-for-byte) -->
       <section id="sec-1" class="note-section">
         <div class="section-badge">&sect; 1</div>
         <h2 class="section-title">Context-Free Grammars (CFG)</h2>
@@ -167,7 +180,6 @@
         </div>
       </section>
 
-      <!-- SECTION 2 -->
       <section id="sec-2" class="note-section">
         <div class="section-badge">&sect; 2</div>
         <h2 class="section-title">Derivations (LMD & RMD) and Parse Trees</h2>
@@ -292,7 +304,6 @@
         </div>
       </section>
 
-      <!-- SECTION 3 -->
       <section id="sec-3" class="note-section">
         <div class="section-badge">&sect; 3</div>
         <h2 class="section-title">Ambiguity in Grammars and Languages</h2>
@@ -370,7 +381,6 @@
         </div>
       </section>
 
-      <!-- SECTION 4 -->
       <section id="sec-4" class="note-section">
         <div class="section-badge">&sect; 4</div>
         <h2 class="section-title">Simplification of Context-Free Grammars</h2>
@@ -470,7 +480,6 @@
         </div>
       </section>
 
-      <!-- SECTION 5 -->
       <section id="sec-5" class="note-section">
         <div class="section-badge">&sect; 5</div>
         <h2 class="section-title">Chomsky Normal Form (CNF)</h2>
@@ -565,7 +574,6 @@
         </div>
       </section>
 
-      <!-- SECTION 6 -->
       <section id="sec-6" class="note-section">
         <div class="section-badge">&sect; 6</div>
         <h2 class="section-title">Pushdown Automata (PDA)</h2>
@@ -708,7 +716,6 @@
         </div>
       </section>
 
-      <!-- SECTION 7 -->
       <section id="sec-7" class="note-section">
         <div class="section-badge">&sect; 7</div>
         <h2 class="section-title">DPDA vs NPDA & Worked PDA Designs</h2>
@@ -873,7 +880,6 @@
         </div>
       </section>
 
-      <!-- REVISION SHEET -->
       <section id="revision-sheet" class="note-section revision-sheet">
         <div class="section-badge">&starf; REVISION</div>
         <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
@@ -920,7 +926,6 @@
         </div>
       </section>
 
-      <!-- IMPORTANT QUESTIONS -->
       <section id="important-questions" class="note-section">
         <div class="section-badge">&quest; QUESTIONS</div>
         <h2 class="section-title">Important Examination Questions</h2>
@@ -1006,7 +1011,6 @@
         </div>
       </section>
 
-      <!-- QUESTIONS ASKED BEFORE -->
       <section id="questions-asked-before" class="note-section exam-archive">
         <div class="section-badge">&block; ARCHIVE</div>
         <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
@@ -1040,7 +1044,6 @@
         </div>
       </section>
 
-      <!-- PRACTICE PROBLEMS -->
       <section id="practice-problems" class="note-section">
         <div class="section-badge">&nabla; PRACTICE</div>
         <h2 class="section-title">Practice Problems with Hidden Answers</h2>
@@ -1081,40 +1084,29 @@
         </div>
       </section>
 
-      <!-- REFERENCES -->
-      <footer class="notes-footer">
-        <div class="references-box">
-          <h3>Prescribed Textbooks & References</h3>
-          <ul>
-            <li><strong>John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman</strong> &mdash; <em>Introduction to Automata Theory, Languages, and Computation</em>, 3rd Edition, Pearson, Chapters 5, 6, & 7.</li>
-            <li><strong>Peter Linz</strong> &mdash; <em>An Introduction to Formal Languages and Automata</em>, 6th Edition, Jones & Bartlett, Chapters 5, 6, 7 & 8.</li>
-            <li><strong>Faculty Notes & Slides:</strong> Department of ISE, Semester V, Unit 3 (Course Code IS54).</li>
-          </ul>
-          <p class="disclaimer"><em>AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.</em></p>
-        </div>
-
-        <!-- Previous / Next Unit Navigation -->
-        <nav class="unit-pagination" aria-label="Unit pagination">
-          <a href="../unit2/unit-2-notes.html" class="pag-btn prev">
-            <span class="pag-arrow">&larr;</span>
-            <div class="pag-text">
-              <span class="pag-sub">PREVIOUS UNIT</span>
-              <span class="pag-title">Unit 2: Regular Languages & Minimization</span>
-            </div>
-          </a>
-          <a href="../../../notes/cn/unit1/unit-1-notes.html" class="pag-btn next">
-            <div class="pag-text">
-              <span class="pag-sub">NEXT SUBJECT &bull; UNIT 1</span>
-              <span class="pag-title">Computer Networks (IS53): Physical Layer</span>
-            </div>
-            <span class="pag-arrow">&rarr;</span>
-          </a>
-        </nav>
+      <!-- Unit Navigation Footer -->
+      <footer class="unit-nav-footer">
+        <a href="../unit2/unit-2-notes.html" class="nav-arrow-btn">
+          <span class="nav-arrow-sub">← Previous</span>
+          <span class="nav-arrow-title">Unit 2 Notes</span>
+        </a>
+        <a href="../../../index.html#subject/toc" class="nav-arrow-btn nav-back-center" style="text-align: center;">
+          <span class="nav-arrow-sub">Course Portal</span>
+          <span class="nav-arrow-title">IS54 Overview</span>
+        </a>
+        
       </footer>
+
+      <!-- Prescribed Syllabus Disclaimer -->
+      <p class="reference-disclaimer">
+        AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.
+      </p>
     </main>
   </div>
 
-  <!-- Shared Notes Client Script -->
+  <!-- Shared Scripts: KaTeX Auto-Render & Notes Client Engine -->
+  <script src="../../../assets/katex/katex.min.js"></script>
+  <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
   <script src="../../../js/notes.js"></script>
 </body>
 </html>

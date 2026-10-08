@@ -1,55 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unit 2: Understanding Data – 2 & Basic Learning Theory | ML Notes | SEM 5 ISE</title>
   <meta name="description" content="Exam-oriented interactive study notes for Machine Learning (IS51) Unit 2: Multivariate Mathematics, Feature Engineering, PCA, Design of Learning Systems, Find-S, Candidate Elimination, Inductive Bias, and PAC Learning.">
-  
-  <!-- Fonts -->
+
+  <!-- Prevent Theme Flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('sem5_theme_v1');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Google Fonts Preconnect & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Self-Hosted KaTeX Math Styles -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
-  
-  <!-- Shared Notes Theme -->
+
+  <!-- Single Shared Notes Stylesheet -->
   <link rel="stylesheet" href="../../../css/notes.css">
 </head>
 <body>
   <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main notes</a>
 
-  <!-- Reading Progress Bar -->
+  <!-- Top Reading Progress Bar -->
   <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
   <!-- Sticky Topbar Navigation -->
   <header class="notes-topbar">
     <div class="notes-topbar-inner">
       <div class="topbar-left">
-        <a href="../../../index.html#subject/ml" class="back-btn" title="Return to Machine Learning Subject Page">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>ML Overview</span>
+        <a href="../../../index.html#subject/ml" class="back-btn" title="Return to Machine Learning Page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>← IS51 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
           <a href="../../../index.html">Semester V</a>
           <span class="breadcrumb-sep">/</span>
-          <a href="../../../index.html#subject/ml">Machine Learning (IS51)</a>
+          <a href="../../../index.html#subject/ml">Machine Learning</a>
           <span class="breadcrumb-sep">/</span>
           <span class="breadcrumb-current">Unit 2</span>
         </nav>
       </div>
 
       <div class="topbar-right">
-        <button id="mark-done-btn" class="pill-action-btn" data-file-id="ml-u2-notes" title="Mark this unit notes as studied">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="ml-u2-notes" title="Mark this unit as studied">
+          <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           <span>MARK AS DONE</span>
         </button>
 
-        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-          <span>PRINT</span>
+        <button id="print-btn" class="pill-action-btn" title="Print notes or save as PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span class="btn-label-desktop">PRINT</span>
         </button>
 
         <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
@@ -59,82 +69,66 @@
     </div>
   </header>
 
-  <!-- Main Layout Grid -->
+  <!-- Mobile 'On this page' Trigger Pill (under 1024px only) -->
+  <div class="mobile-toc-bar">
+    <button id="mobile-toc-btn" class="mobile-toc-pill" aria-expanded="false" aria-controls="notes-sidebar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <span>On this page</span>
+      <span class="toc-badge">Unit 2</span>
+    </button>
+  </div>
+
+  <!-- Page Layout Container (max-width 1200px, 2 columns on desktop) -->
   <div class="notes-container">
-    <!-- Sticky Desktop Sidebar / TOC -->
+    <!-- Desktop Sticky Sidebar / Mobile Sheet Modal -->
     <aside class="notes-sidebar" id="notes-sidebar" aria-label="Table of Contents">
-      <div class="sidebar-title">
-        <span>ON THIS PAGE</span>
-        <span class="pill-tag pill-tag-outline" style="font-size:10px;">UNIT 2</span>
+      <div class="sidebar-header">
+        <span class="sidebar-label">Unit 2 contents</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
-      <nav class="toc-nav">
-        <ol>
-          <li class="toc-item"><a href="#sec-multivariate-math">§ 1. Multivariate Mathematics</a></li>
-          <li class="toc-item"><a href="#sec-feature-engineering">§ 2. Feature Engineering</a></li>
-          <li class="toc-item"><a href="#sec-dim-reduction">§ 3. Dimensionality Reduction (PCA)</a></li>
-          <li class="toc-item"><a href="#sec-design-learning-sys">§ 4. Design of a Learning System</a></li>
-          <li class="toc-item"><a href="#sec-concept-learning">§ 5. Concept Learning & Ordering</a></li>
-          <li class="toc-item"><a href="#sec-find-s">§ 6. Find-S Algorithm</a></li>
-          <li class="toc-item"><a href="#sec-candidate-elimination">§ 7. Candidate Elimination</a></li>
-          <li class="toc-item"><a href="#sec-inductive-bias">§ 8. Inductive Bias & Learner Fallacy</a></li>
-          <li class="toc-item"><a href="#sec-modelling-ml">§ 9. Modelling in Machine Learning</a></li>
-          <li class="toc-item"><a href="#sec-learning-frameworks">§ 10. Learning Frameworks (PAC & VC)</a></li>
-          <li class="toc-item"><a href="#sec-revision-sheet">Revision Sheet</a></li>
-          <li class="toc-item"><a href="#sec-important-questions">Important Exam Questions</a></li>
-          <li class="toc-item"><a href="#sec-questions-asked-before">Questions Asked Before</a></li>
-          <li class="toc-item"><a href="#sec-practice-problems">Practice Problems</a></li>
+      <nav class="toc-nav" id="toc-nav">
+        <ol class="toc-list">
+          <li class="toc-item"><a href="#sec-multivariate-math" class="toc-link">§ 1. Multivariate Mathematics</a></li>
+          <li class="toc-item"><a href="#sec-feature-engineering" class="toc-link">§ 2. Feature Engineering</a></li>
+          <li class="toc-item"><a href="#sec-dim-reduction" class="toc-link">§ 3. Dimensionality Reduction (PCA)</a></li>
+          <li class="toc-item"><a href="#sec-design-learning-sys" class="toc-link">§ 4. Design of a Learning System</a></li>
+          <li class="toc-item"><a href="#sec-concept-learning" class="toc-link">§ 5. Concept Learning & Ordering</a></li>
+          <li class="toc-item"><a href="#sec-find-s" class="toc-link">§ 6. Find-S Algorithm</a></li>
+          <li class="toc-item"><a href="#sec-candidate-elimination" class="toc-link">§ 7. Candidate Elimination</a></li>
+          <li class="toc-item"><a href="#sec-inductive-bias" class="toc-link">§ 8. Inductive Bias & Learner Fallacy</a></li>
+          <li class="toc-item"><a href="#sec-modelling-ml" class="toc-link">§ 9. Modelling in Machine Learning</a></li>
+          <li class="toc-item"><a href="#sec-learning-frameworks" class="toc-link">§ 10. Learning Frameworks (PAC & VC)</a></li>
+          <li class="toc-item"><a href="#sec-revision-sheet" class="toc-link">Revision Sheet</a></li>
+          <li class="toc-item"><a href="#sec-important-questions" class="toc-link">Important Exam Questions</a></li>
+          <li class="toc-item"><a href="#sec-questions-asked-before" class="toc-link">Questions Asked Before</a></li>
+          <li class="toc-item"><a href="#sec-practice-problems" class="toc-link">Practice Problems</a></li>
         </ol>
       </nav>
     </aside>
+    <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
 
-    <!-- Main Content Area -->
+    <!-- Main Content Column (max-width 760px, 72ch line length) -->
     <main class="notes-main" id="main-content">
-      <!-- Mobile TOC Accordion Button -->
-      <div class="mobile-toc-toggle-wrap">
-        <button class="mobile-toc-btn" id="mobile-toc-btn" aria-expanded="false" aria-controls="notes-sidebar">
-          <span>Table of Contents · Unit 2</span>
-          <span aria-hidden="true">▾</span>
-        </button>
-      </div>
-
       <!-- Unit Header Hero Card -->
-      <header class="notes-header-card">
-        <div class="header-badge-row">
-          <span class="pill-tag pill-tag-green">Course Code: IS51</span>
-          <span class="pill-tag pill-tag-outline">Credits: 3:0:0:3</span>
-          <span class="pill-tag pill-tag-outline">PCC Core</span>
-          <span class="pill-tag pill-tag-outline">Est. Reading: 40 min</span>
-        </div>
-
+      <header class="notes-header-card" id="hero">
+        <div class="header-mono-label">IS51 · UNIT 2 · ~38 min read</div>
         <h1 class="notes-headline">Unit 2: Understanding Data – 2 & Basic Learning Theory</h1>
-        <p class="notes-subheadline">
-          Comprehensive, exam-focused study notes covering multivariate linear algebra, feature selection taxonomy, Principal Component Analysis (PCA), Mitchell's four design stages of learning systems, general-to-specific concept learning, Find-S, Candidate Elimination version spaces, inductive bias, and PAC learnability.
-        </p>
+        <p class="notes-subheadline">Comprehensive, exam-focused study notes covering multivariate linear algebra, feature selection taxonomy, Principal Component Analysis (PCA), Mitchell's four design stages of learning systems, general-to-specific concept learning, Find-S, Candidate Elimination version spaces, inductive bias, and PAC learnability.</p>
 
-        <div class="syllabus-box">
-          <div class="syllabus-box-label">Official Syllabus Coverage</div>
-          <p>
-            <strong>Understanding Data – 2:</strong> Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques.<br>
-            <strong>Basic Learning Theory:</strong> Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, Learning Frameworks.
-          </p>
-        </div>
-
-        <div class="header-links-row">
-          <span>Original Course Materials:</span>
-          <a href="../unit2/unit-2.pdf" target="_blank" rel="noopener" class="resource-link-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-            Unit 2 Slides PDF (104 Pages)
-          </a>
-          <a href="../practice/unit-1-qb.pdf" target="_blank" rel="noopener" class="resource-link-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            Department Question Bank
-          </a>
+        <div class="syllabus-card">
+          <div class="syllabus-header-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+          </div>
+          <ul class="syllabus-list">
+            <li>Complete unit syllabus topics.</li>
+          </ul>
         </div>
       </header>
 
-      <!-- ===================================================================
-           SECTION 1: MATHEMATICS FOR MULTIVARIATE DATA
-           =================================================================== -->
+      <!-- Exact Article Content Sections (preserved byte-for-byte) -->
       <section class="notes-section" id="sec-multivariate-math">
         <span class="section-number">§ 1</span>
         <h2 class="section-title">Mathematics for Multivariate Data</h2>
@@ -175,9 +169,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 2: FEATURE ENGINEERING
-           =================================================================== -->
       <section class="notes-section" id="sec-feature-engineering">
         <span class="section-number">§ 2</span>
         <h2 class="section-title">Feature Engineering & Feature Selection</h2>
@@ -266,9 +257,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 3: DIMENSIONALITY REDUCTION (PCA)
-           =================================================================== -->
       <section class="notes-section" id="sec-dim-reduction">
         <span class="section-number">§ 3</span>
         <h2 class="section-title">Dimensionality Reduction Techniques: Principal Component Analysis (PCA)</h2>
@@ -409,9 +397,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 4: DESIGN OF A LEARNING SYSTEM
-           =================================================================== -->
       <section class="notes-section" id="sec-design-learning-sys">
         <span class="section-number">§ 4</span>
         <h2 class="section-title">Design of a Learning System</h2>
@@ -498,9 +483,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 5: INTRODUCTION TO CONCEPT LEARNING
-           =================================================================== -->
       <section class="notes-section" id="sec-concept-learning">
         <span class="section-number">§ 5</span>
         <h2 class="section-title">Introduction to Concept Learning</h2>
@@ -556,9 +538,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 6: FIND-S ALGORITHM
-           =================================================================== -->
       <section class="notes-section" id="sec-find-s">
         <span class="section-number">§ 6</span>
         <h2 class="section-title">The Find-S Algorithm</h2>
@@ -670,9 +649,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 7: CANDIDATE ELIMINATION & VERSION SPACES
-           =================================================================== -->
       <section class="notes-section" id="sec-candidate-elimination">
         <span class="section-number">§ 7</span>
         <h2 class="section-title">Candidate Elimination Algorithm & Version Spaces</h2>
@@ -794,9 +770,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 8: INDUCTIVE BIAS & LEARNER FALLACY
-           =================================================================== -->
       <section class="notes-section" id="sec-inductive-bias">
         <span class="section-number">§ 8</span>
         <h2 class="section-title">Inductive Bias & The Unbiased Learner Fallacy</h2>
@@ -839,9 +812,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 9: MODELLING IN MACHINE LEARNING
-           =================================================================== -->
       <section class="notes-section" id="sec-modelling-ml">
         <span class="section-number">§ 9</span>
         <h2 class="section-title">Modelling in Machine Learning</h2>
@@ -872,9 +842,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           SECTION 10: LEARNING FRAMEWORKS (PAC & VC DIMENSION)
-           =================================================================== -->
       <section class="notes-section" id="sec-learning-frameworks">
         <span class="section-number">§ 10</span>
         <h2 class="section-title">Learning Frameworks: PAC Learning & VC Dimension</h2>
@@ -964,9 +931,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           REVISION SHEET
-           =================================================================== -->
       <section class="revision-sheet" id="sec-revision-sheet">
         <h2 class="section-title">Unit 2 Quick Revision Sheet</h2>
         <p>Essential formulas, design stages, and algorithmic rules for rapid recall.</p>
@@ -1004,9 +968,6 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           IMPORTANT EXAM QUESTIONS
-           =================================================================== -->
       <section class="questions-section" id="sec-important-questions">
         <h2 class="section-title">Important Exam Questions</h2>
         <p>Curated questions aligned with semester examination patterns (2, 5, and 10 marks).</p>
@@ -1078,9 +1039,6 @@
         </details>
       </section>
 
-      <!-- ===================================================================
-           QUESTIONS ASKED BEFORE
-           =================================================================== -->
       <section class="questions-section" id="sec-questions-asked-before">
         <h2 class="section-title">Questions Asked in Department Assessments</h2>
         <p>Cited directly from official question banks in <code>notes/ml/practice/unit-1-qb.pdf</code>.</p>
@@ -1101,9 +1059,6 @@
         </details>
       </section>
 
-      <!-- ===================================================================
-           PRACTICE PROBLEMS
-           =================================================================== -->
       <section class="questions-section" id="sec-practice-problems">
         <h2 class="section-title">Practice Problems</h2>
         <p>Unsolved problems to verify your understanding before the examination.</p>
@@ -1137,35 +1092,30 @@
         </div>
       </section>
 
-      <!-- ===================================================================
-           REFERENCES & DISCLAIMER
-           =================================================================== -->
-      <footer class="references-card">
-        <h4>Prescribed Academic Textbooks & References</h4>
-        <ol>
-          <li>Tom M. Mitchell, <em>Machine Learning</em>, McGraw Hill, 1997 (Chapter 1: Introduction; Chapter 2: Concept Learning and the General-to-Specific Ordering; Chapter 7: Computational Learning Theory).</li>
-          <li>S. Sridhar, M. Vijayalakshmi, <em>Machine Learning</em>, Oxford University Press, 2021, First Edition (Chapter 2: Understanding Data; Chapter 3: Feature Engineering).</li>
-        </ol>
-        <p style="margin-top:0.75rem; font-size:12.5px;">
-          <em>Academic Note:</em> Structure aligned with official RIT Department of Information Science & Engineering curriculum. Verify specific classroom guidelines and problem sets before university exams.
-        </p>
-      </footer>
-
-      <!-- Navigation Arrows Footer -->
-      <nav class="unit-nav-footer" aria-label="Unit Navigation">
+      <!-- Unit Navigation Footer -->
+      <footer class="unit-nav-footer">
         <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn">
-          <span class="nav-arrow-sub">← Previous Unit</span>
-          <span class="nav-arrow-title">Unit 1: Introduction & Data – 1</span>
+          <span class="nav-arrow-sub">← Previous</span>
+          <span class="nav-arrow-title">Unit 1 Notes</span>
+        </a>
+        <a href="../../../index.html#subject/ml" class="nav-arrow-btn nav-back-center" style="text-align: center;">
+          <span class="nav-arrow-sub">Course Portal</span>
+          <span class="nav-arrow-title">IS51 Overview</span>
         </a>
         <a href="../unit3/unit-3-notes.html" class="nav-arrow-btn" style="text-align: right;">
-          <span class="nav-arrow-sub">Next Unit →</span>
-          <span class="nav-arrow-title">Unit 3: Similarity, Regression & Decision Trees</span>
+          <span class="nav-arrow-sub">Next →</span>
+          <span class="nav-arrow-title">Unit 3 Notes</span>
         </a>
-      </nav>
+      </footer>
+
+      <!-- Prescribed Syllabus Disclaimer -->
+      <p class="reference-disclaimer">
+        AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.
+      </p>
     </main>
   </div>
 
-  <!-- Shared Scripts & Self-Hosted KaTeX Math Rendering -->
+  <!-- Shared Scripts: KaTeX Auto-Render & Notes Client Engine -->
   <script src="../../../assets/katex/katex.min.js"></script>
   <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
   <script src="../../../js/notes.js"></script>
