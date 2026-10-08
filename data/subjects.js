@@ -788,7 +788,18 @@ window.SEM5_DATA = {
               size: "0.40 MB",
               sizeBytes: 416031,
               isConverted: true
-            }
+            },
+            {
+              id: "se-u2-system-modeling-pdf",
+              title: "SE Unit 2: System Modeling (Context, Interaction & Structural Models)",
+              originalName: "se_ppt _unit 2.pptx",
+              path: "notes/se/unit2/unit-2-system-modeling.pdf",
+              originalPath: "notes/se/unit2/unit-2-system-modeling.pptx",
+              type: "pdf",
+              size: "1.22 MB",
+              sizeBytes: 1218536,
+              isConverted: true
+            },
           ]
         },
                 {
@@ -1601,6 +1612,41 @@ window.SEM5_DATA = {
               size: "Interactive Notes",
               isConverted: false
             },
+            {
+              id: "ai-u1-intro-agents-pdf",
+              title: "AI Unit 1: Introduction to AI & Intelligent Agents Lecture Slides",
+              originalName: "AI-2.pdf",
+              path: "notes/ai/unit1/ai-intro-intelligent-agents.pdf",
+              originalPath: null,
+              type: "pdf",
+              size: "1.62 MB",
+              sizeBytes: 1701680,
+              isConverted: false
+            },
+            {
+              id: "ai-u1-ps-agents-pdf",
+              title: "AI Unit 1: Problem-Solving Agents & State-Space Formulation",
+              originalName: "AI-Intelligent_Agents.pdf",
+              path: "notes/ai/unit1/ai-problem-solving-agents.pdf",
+              originalPath: null,
+              type: "pdf",
+              size: "0.40 MB",
+              sizeBytes: 418510,
+              isConverted: false
+            },
+            {
+              id: "ai-u1-ps-agents-alt-pdf",
+              title: "AI Unit 1: Problem-Solving Agents (Alternate Deck)",
+              originalName: "AI-Intelligent_Agents-PS.pdf",
+              path: "notes/ai/unit1/ai-problem-solving-agents-alt.pdf",
+              originalPath: null,
+              type: "pdf",
+              tag: "Alternate deck",
+              isAlternate: true,
+              size: "0.40 MB",
+              sizeBytes: 419163,
+              isConverted: false
+            },
           ]
         },
         {
@@ -1622,6 +1668,39 @@ window.SEM5_DATA = {
               size: "Interactive Notes",
               isConverted: false
             },
+            {
+              id: "ai-u2-uninformed-pdf",
+              title: "AI Unit 2: Uninformed Search Strategies (BFS, DFS, UCS, IDS)",
+              originalName: "AI-AGENTS-Uninformed_Search.pdf",
+              path: "notes/ai/unit2/ai-uninformed-search.pdf",
+              originalPath: null,
+              type: "pdf",
+              size: "0.17 MB",
+              sizeBytes: 174456,
+              isConverted: false
+            },
+            {
+              id: "ai-u2-informed-pdf",
+              title: "AI Unit 2: Informed (Heuristic) Search & A* Algorithm",
+              originalName: "AI-Informed_Search.pdf",
+              path: "notes/ai/unit2/ai-informed-search.pdf",
+              originalPath: null,
+              type: "pdf",
+              size: "0.17 MB",
+              sizeBytes: 177846,
+              isConverted: false
+            },
+            {
+              id: "ai-u2-local-pdf",
+              title: "AI Unit 2: Local Search & Optimization (Hill Climbing, Annealing)",
+              originalName: "AI-Local_Search.pdf",
+              path: "notes/ai/unit2/ai-local-search.pdf",
+              originalPath: null,
+              type: "pdf",
+              size: "0.17 MB",
+              sizeBytes: 174371,
+              isConverted: false
+            },
           ]
         },
         {
@@ -1641,6 +1720,17 @@ window.SEM5_DATA = {
               tag: "Interactive notes",
               readingTime: "42 min read",
               size: "Interactive Notes",
+              isConverted: false
+            },
+            {
+              id: "ai-u3-adversarial-pdf",
+              title: "AI Unit 3: Adversarial Search (Games, Minimax & Alpha-Beta Pruning)",
+              originalName: "AI-Adversarial_Search.pdf",
+              path: "notes/ai/unit3/ai-adversarial-search.pdf",
+              originalPath: null,
+              type: "pdf",
+              size: "0.19 MB",
+              sizeBytes: 194418,
               isConverted: false
             },
           ]
@@ -2069,6 +2159,17 @@ window.SEM5_DATA = {
               readingTime: "38 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "reactjs-u1-slides-pdf",
+              title: "ReactJS Unit 1: Foundations of React, Virtual DOM & JSX Slides",
+              originalName: "UNIT-1 ReactJS.pptx",
+              path: "notes/reactjs/unit1/reactjs-unit1.pdf",
+              originalPath: "notes/reactjs/unit1/reactjs-unit1.pptx",
+              type: "pdf",
+              size: "1.97 MB",
+              sizeBytes: 1968713,
+              isConverted: true
             },
           ]
         },

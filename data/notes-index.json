@@ -5,23 +5,26 @@
     "unitTitle": "Regular Languages, Properties & Minimization",
     "sectionId": "sec-1",
     "title": "Regular Expressions (RE) & Algebraic Laws",
-    "subsections": [],
+    "subsections": [
+      "Operator Precedence",
+      "Important Algebraic Identities"
+    ],
     "keywords": [
-      "Annihilator",
-      "Associativity of $\\cdot$",
-      "Closure Properties",
-      "Union (Alternate):",
-      "Concatenation is NOT commutative:",
-      "Shifting Identity",
-      "Lowest: Union ($+$ or $\\mid$)",
       "Identity Elements",
-      "Kleene Star (Closure):",
-      "Basis Clauses:",
-      "Commutativity of $+$",
-      "Middle: Concatenation ($\\cdot$)",
+      "Associativity of $\\cdot$",
+      "Lowest: Union ($+$ or $\\mid$)",
+      "Concatenation is NOT commutative:",
+      "Distributivity",
+      "Associativity of $+$",
+      "Idempotence of $+$",
+      "regular expression",
+      "Inductive Clauses:",
+      "Shifting Identity",
       "Concatenation:",
-      "Highest: Kleene Star ($*$)",
-      "Idempotence of $+$"
+      "Union (Alternate):",
+      "Annihilator",
+      "Kleene Star (Closure):",
+      "Highest: Kleene Star ($*$)"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#sec-1"
   },
@@ -31,11 +34,13 @@
     "unitTitle": "Regular Languages, Properties & Minimization",
     "sectionId": "sec-2",
     "title": "Equivalence: RE to Finite Automata (Thompson's Construction)",
-    "subsections": [],
+    "subsections": [
+      "Structural Construction Gadgets"
+    ],
     "keywords": [
-      "one final state",
+      "Kleene's Theorem",
       "one start state",
-      "Kleene's Theorem"
+      "one final state"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#sec-2"
   },
@@ -45,14 +50,17 @@
     "unitTitle": "Regular Languages, Properties & Minimization",
     "sectionId": "sec-3",
     "title": "Converting Finite Automata to Regular Expressions",
-    "subsections": [],
+    "subsections": [
+      "Method A: State Elimination Method",
+      "Method B: Arden's Theorem"
+    ],
     "keywords": [
-      "Eliminate Intermediate State $k$:",
+      "unique solution",
+      "Arden's Theorem",
       "Collapse parallel edges:",
       "State Elimination Method",
       "Standardize Start and Final States:",
-      "unique solution",
-      "Arden's Theorem"
+      "Eliminate Intermediate State $k$:"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#sec-3"
   },
@@ -62,23 +70,26 @@
     "unitTitle": "Regular Languages, Properties & Minimization",
     "sectionId": "sec-4",
     "title": "The Pumping Lemma for Regular Languages",
-    "subsections": [],
+    "subsections": [
+      "Intuition & Proof Idea",
+      "Adversarial Game Framework"
+    ],
     "keywords": [
-      "Step 2: Choose String $w$:",
       "Contradiction:",
-      "Step 1:",
-      "Pumping Lemma",
-      "pumping length",
-      "Non-empty pump:",
-      "Step 3:",
-      "NOT regular",
-      "String Selection:",
       "Step 4: Pump with $i = 2$:",
-      "is NOT regular",
+      "Step 1:",
+      "Non-empty pump:",
       "Pumping condition:",
+      "NOT regular",
+      "Assumption:",
+      "is NOT regular",
       "Division:",
-      "Step 1: Assumption:",
-      "Length bound on head:"
+      "String Selection:",
+      "Step 2: Choose String $w$:",
+      "Step 3:",
+      "Pigeonhole Principle",
+      "IS regular",
+      "Step 2:"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#sec-4"
   },
@@ -90,18 +101,18 @@
     "title": "Closure Properties of Regular Languages",
     "subsections": [],
     "keywords": [
-      "Union",
-      "Inverse Homomorphism",
-      "Complement",
-      "complete DFA",
-      "Intersection",
       "closed",
-      "Homomorphism",
-      "cannot",
-      "Concatenation",
-      "Reversal",
+      "Difference",
       "Kleene Closure",
-      "Difference"
+      "complete DFA",
+      "Inverse Homomorphism",
+      "Union",
+      "Reversal",
+      "Homomorphism",
+      "Concatenation",
+      "Intersection",
+      "cannot",
+      "Complement"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#sec-5"
   },
@@ -113,17 +124,17 @@
     "title": "Decision Properties of Regular Languages",
     "subsections": [],
     "keywords": [
-      "Complexity:",
-      "Method 1: Symmetric Difference:",
-      "decidable",
-      "Finiteness Problem",
       "Membership Problem",
-      "Equivalence Problem",
-      "Method 1: Cycle Detection:",
-      "Method 2: Minimization:",
-      "Emptiness Problem",
+      "Finiteness Problem",
       "Method 2: Length Bounds:",
-      "Subset / Containment"
+      "Method 1: Cycle Detection:",
+      "Complexity:",
+      "Subset / Containment",
+      "decidable",
+      "Equivalence Problem",
+      "Emptiness Problem",
+      "Method 1: Symmetric Difference:",
+      "Method 2: Minimization:"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#sec-6"
   },
@@ -133,23 +144,25 @@
     "unitTitle": "Regular Languages, Properties & Minimization",
     "sectionId": "sec-7",
     "title": "Minimization of DFA (The Table-Filling Algorithm)",
-    "subsections": [],
+    "subsections": [
+      "Before and After DFA State Diagrams"
+    ],
     "keywords": [
-      "Mark $(B, E)$ with X.",
-      "Pair $(A, E)$:",
-      "Pair $(B, E)$:",
-      "Pair $(A, C)$:",
-      "Pair $(B, C)$:",
-      "unique minimum-state DFA",
-      "Step 5: Construct Minimized DFA:",
-      "equivalent",
-      "&rarr; A",
-      "distinguishable",
+      "Resulting Table Matrix:",
+      "Step 4: Iteration 2:",
+      "Pair $(A, B)$:",
       "Mark $(B, C)$ with X.",
+      "Step 0: Remove Unreachable States:",
+      "* D (Final)",
       "Step 1: Check Reachability:",
-      "Step 3: Iterative Propagation:",
-      "Pair $(C, E)$:",
-      "Pair $(A, B)$:"
+      "Mark $(A, B)$ with X.",
+      "distinguishable",
+      "Mark $(B, E)$ with X.",
+      "Myhill-Nerode Theorem",
+      "Pair $(A, C)$:",
+      "unique minimum-state DFA",
+      "Pair $(B, E)$:",
+      "Pair $(C, E)$:"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#sec-7"
   },
@@ -172,13 +185,17 @@
     "unitTitle": "Regular Languages, Properties & Minimization",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
+      "Answer:",
+      "finite",
       "Answer Summary:",
       "infinite",
-      "finite",
-      "1. Statement & Proof:",
-      "Answer:"
+      "1. Statement & Proof:"
     ],
     "path": "notes/toc/unit2/unit-2-notes.html#important-questions"
   },
@@ -208,19 +225,21 @@
     "unitTitle": "Context-Free Grammars & Pushdown Automata",
     "sectionId": "sec-1",
     "title": "Context-Free Grammars (CFG)",
-    "subsections": [],
+    "subsections": [
+      "Derivation Relations & Language Generated"
+    ],
     "keywords": [
       "start symbol",
-      "production rules",
       "Context-Free Grammar",
       "directly derives",
-      "language generated by CFG $G$",
-      "Context-Free Grammars (CFGs)",
-      "variables",
-      "sentential form",
-      "exactly one single variable",
       "terminals",
-      "sentence"
+      "production rules",
+      "variables",
+      "exactly one single variable",
+      "Context-Free Grammars (CFGs)",
+      "sentence",
+      "sentential form",
+      "language generated by CFG $G$"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#sec-1"
   },
@@ -230,16 +249,19 @@
     "unitTitle": "Context-Free Grammars & Pushdown Automata",
     "sectionId": "sec-2",
     "title": "Derivations (LMD & RMD) and Parse Trees",
-    "subsections": [],
+    "subsections": [
+      "Leftmost vs Rightmost Derivations",
+      "Parse Trees (Derivation Trees)"
+    ],
     "keywords": [
       "Root Node:",
-      "Yield:",
       "Leftmost Derivation (LMD)",
       "Interior Nodes:",
+      "Rightmost Derivation (RMD)",
+      "Yield:",
       "Leaf Nodes:",
-      "Child Nodes:",
       "parse tree",
-      "Rightmost Derivation (RMD)"
+      "Child Nodes:"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#sec-2"
   },
@@ -249,19 +271,21 @@
     "unitTitle": "Context-Free Grammars & Pushdown Automata",
     "sectionId": "sec-3",
     "title": "Ambiguity in Grammars and Languages",
-    "subsections": [],
+    "subsections": [
+      "Disambiguation Techniques"
+    ],
     "keywords": [
+      "Witness String:",
       "Precedence Stratification:",
-      "leftmost derivations (LMDs)",
-      "rightmost derivations (RMDs)",
-      "left-associative",
-      "parse trees",
-      "ambiguous",
       "right-associative",
       "inherently ambiguous",
       "Associativity (Recursion direction):",
+      "ambiguous",
+      "left-associative",
+      "leftmost derivations (LMDs)",
+      "rightmost derivations (RMDs)",
       "one single string",
-      "Witness String:"
+      "parse trees"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#sec-3"
   },
@@ -271,20 +295,24 @@
     "unitTitle": "Context-Free Grammars & Pushdown Automata",
     "sectionId": "sec-4",
     "title": "Simplification of Context-Free Grammars",
-    "subsections": [],
+    "subsections": [
+      "Phase 1: Elimination of Null Productions ($A \\to \\epsilon$)",
+      "Phase 2: Elimination of Unit Productions ($A \\to B$)",
+      "Phase 3: Elimination of Useless Symbols"
+    ],
     "keywords": [
-      "2. Reachable Symbols",
-      "Generating first, then Reachable",
-      "useful",
-      "1. Generating Symbols",
-      "Find all Unit Pairs:",
-      "Construct new productions:",
-      "unit production",
-      "Find all nullable variables:",
-      "Construct new production set $P'$:",
-      "Eliminate Useless Symbols:",
+      "nullable",
       "Eliminate Unit Productions:",
-      "nullable"
+      "Construct new productions:",
+      "useful",
+      "Find all nullable variables:",
+      "unit production",
+      "2. Reachable Symbols",
+      "Construct new production set $P'$:",
+      "1. Generating Symbols",
+      "Generating first, then Reachable",
+      "Find all Unit Pairs:",
+      "Eliminate Useless Symbols:"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#sec-4"
   },
@@ -297,9 +325,9 @@
     "subsections": [],
     "keywords": [
       "Step 3: Cascade Long Variable Bodies:",
+      "Step 1: Check Simplification:",
       "Chomsky Normal Form (CNF)",
-      "Step 1: Simplify Grammar:",
-      "Step 1: Check Simplification:"
+      "Step 1: Simplify Grammar:"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#sec-5"
   },
@@ -309,16 +337,20 @@
     "unitTitle": "Context-Free Grammars & Pushdown Automata",
     "sectionId": "sec-6",
     "title": "Pushdown Automata (PDA)",
-    "subsections": [],
+    "subsections": [
+      "Stack Operations via $\\alpha \\in \\Gamma^*$",
+      "Instantaneous Descriptions (IDs)",
+      "Two Acceptance Mechanisms"
+    ],
     "keywords": [
-      "Instantaneous Description (ID)",
       "Pop operation:",
-      "Pushdown Automaton (PDA)",
+      "Push operation:",
       "stack memory",
-      "2. By Empty Stack: $N(M)$",
       "No-change (Read-only):",
-      "1. By Final State: $L(M)$",
-      "Push operation:"
+      "2. By Empty Stack: $N(M)$",
+      "Instantaneous Description (ID)",
+      "Pushdown Automaton (PDA)",
+      "1. By Final State: $L(M)$"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#sec-6"
   },
@@ -331,16 +363,16 @@
     "subsections": [],
     "keywords": [
       "Phase 4: Accept",
+      "Idea:",
+      "Hierarchy of Language Classes:",
+      "Phase 1: Push $w$",
       "Specification:",
+      "Phase 2: Center Marker $c$",
+      "NPDA",
+      "deterministic",
       "Deterministic Pushdown Automata (DPDA)",
       "Transition Function $\\delta$:",
-      "NPDA",
-      "Idea:",
-      "Phase 2: Center Marker $c$",
       "Phase 3: Match $w^R$",
-      "Hierarchy of Language Classes:",
-      "deterministic",
-      "Phase 1: Push $w$",
       "DPDA"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#sec-7"
@@ -361,13 +393,17 @@
     "unitTitle": "Context-Free Grammars & Pushdown Automata",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
+      "Answer:",
       "Final State $L(M)$:",
       "Answer Summary:",
-      "Empty Stack $N(M)$:",
       "nondeterminism",
-      "Answer:"
+      "Empty Stack $N(M)$:"
     ],
     "path": "notes/toc/unit3/unit-3-notes.html#important-questions"
   },
@@ -389,8 +425,8 @@
     "title": "Practice Problems with Hidden Answers",
     "subsections": [],
     "keywords": [
-      "No.",
       "NPDA is strictly required",
+      "No.",
       "Reachable symbols:",
       "Generating symbols:"
     ],
@@ -402,23 +438,26 @@
     "unitTitle": "Data Communication Fundamentals & Physical Layer",
     "sectionId": "sec-1",
     "title": "Data Communication Fundamentals & Network Topologies",
-    "subsections": [],
+    "subsections": [
+      "Data Flow Modes",
+      "Physical Topologies & Structural Formulas"
+    ],
     "keywords": [
-      "not at the same time",
-      "Ring",
-      "Half-Duplex",
-      "Transmission Medium:",
-      "Star",
-      "Full-Duplex",
-      "Mesh",
-      "Bus",
-      "topology",
-      "Message:",
-      "Sender:",
       "Receiver:",
-      "Simplex",
+      "Star",
+      "Mesh",
+      "Data communication",
+      "Bus",
+      "Transmission Medium:",
       "Single Point of Failure:",
-      "Data communication"
+      "Sender:",
+      "Protocol:",
+      "Message:",
+      "Half-Duplex",
+      "Full-Duplex",
+      "Ring",
+      "not at the same time",
+      "Simplex"
     ],
     "path": "notes/cn/unit1/unit-1-notes.html#sec-1"
   },
@@ -428,23 +467,25 @@
     "unitTitle": "Data Communication Fundamentals & Physical Layer",
     "sectionId": "sec-2",
     "title": "The OSI 7-Layer Model vs TCP/IP Protocol Suite",
-    "subsections": [],
+    "subsections": [
+      "OSI vs TCP/IP Comparison"
+    ],
     "keywords": [
-      "Presentation",
-      "Dialog control",
-      "Layer 7",
-      "Layer 2",
-      "Hop-to-hop (node-to-node) framing",
-      "Data Link",
-      "Layer 1",
+      "Transport Delivery",
       "Application",
-      "Number of Layers",
-      "connectionless datagram service",
-      "Commercial Dominance",
+      "Synchronization",
+      "Layer 2",
+      "Process-to-process delivery",
+      "Open Systems Interconnection (OSI)",
       "Network Layer Delivery",
       "Session",
-      "Network",
-      "Development Approach"
+      "Compression",
+      "Layer 7",
+      "TCP/IP Protocol Suite",
+      "Layer 4",
+      "Layer 6",
+      "Data Link",
+      "Layer 5"
     ],
     "path": "notes/cn/unit1/unit-1-notes.html#sec-2"
   },
@@ -454,16 +495,18 @@
     "unitTitle": "Data Communication Fundamentals & Physical Layer",
     "sectionId": "sec-3",
     "title": "Data and Signals (Time vs Frequency Domain)",
-    "subsections": [],
+    "subsections": [
+      "Time Domain vs Frequency Domain (Fourier Analysis)"
+    ],
     "keywords": [
-      "Wavelength ($\\lambda$):",
       "Fourier Analysis",
       "Period ($T$) and Frequency ($f$):",
-      "bandwidth",
-      "Frequency Domain Plot",
       "Phase ($\\phi$):",
+      "Wavelength ($\\lambda$):",
+      "Peak Amplitude ($A$):",
+      "bandwidth",
       "Time Domain Plot",
-      "Peak Amplitude ($A$):"
+      "Frequency Domain Plot"
     ],
     "path": "notes/cn/unit1/unit-1-notes.html#sec-3"
   },
@@ -473,19 +516,22 @@
     "unitTitle": "Data Communication Fundamentals & Physical Layer",
     "sectionId": "sec-4",
     "title": "Transmission Impairments & Decibel Calculations",
-    "subsections": [],
+    "subsections": [
+      "Decibel ($dB$) Formulas",
+      "Signal-to-Noise Ratio (SNR)"
+    ],
     "keywords": [
-      "Distortion (Alteration of Shape):",
-      "distortion",
-      "Part (b): Output power $P_{out}$:",
-      "Solution:",
-      "Part (a): Net decibel rating:",
       "Attenuation (Loss of Energy):",
-      "attenuation",
-      "Decibels ($dB$)",
-      "Signal-to-Noise Ratio",
       "noise",
-      "Noise (Extraneous Interference):"
+      "Decibels ($dB$)",
+      "Part (b): Output power $P_{out}$:",
+      "Part (a): Net decibel rating:",
+      "Signal-to-Noise Ratio",
+      "distortion",
+      "Distortion (Alteration of Shape):",
+      "Noise (Extraneous Interference):",
+      "attenuation",
+      "Solution:"
     ],
     "path": "notes/cn/unit1/unit-1-notes.html#sec-4"
   },
@@ -495,11 +541,14 @@
     "unitTitle": "Data Communication Fundamentals & Physical Layer",
     "sectionId": "sec-5",
     "title": "Data Rate Limits: Nyquist Bit Rate & Shannon Capacity",
-    "subsections": [],
+    "subsections": [
+      "1. Nyquist Bit Rate (Noiseless Channel)",
+      "2. Shannon Capacity (Noisy Channel)"
+    ],
     "keywords": [
       "Linear",
-      "Part 1: Shannon Capacity:",
       "Step 2: Apply Shannon Capacity Formula:",
+      "Part 1: Shannon Capacity:",
       "Shannon's theorem",
       "Nyquist's theorem"
     ],
@@ -511,23 +560,26 @@
     "unitTitle": "Data Communication Fundamentals & Physical Layer",
     "sectionId": "sec-6",
     "title": "Digital Line Coding Schemes & Waveforms",
-    "subsections": [],
+    "subsections": [
+      "Core Properties of Line Coding",
+      "Taxonomy of Line Coding Schemes"
+    ],
     "keywords": [
-      "NRZ-I (Invert)",
-      "No transition",
-      "Polar",
-      "No transition at beginning",
-      "DC Component:",
       "Transition at beginning",
-      "Self-Synchronization:",
-      "Pseudoternary",
+      "Bipolar",
       "Manchester",
-      "Line coding",
-      "Baseline Wandering:",
-      "center",
+      "Self-Synchronization:",
+      "Polar",
+      "DC Component:",
+      "NRZ (Non-Return-to-Zero)",
+      "Perfect self-sync",
+      "Differential Manchester",
+      "NRZ-I (Invert)",
       "AMI (Alternate Mark Inversion)",
-      "Unipolar",
-      "NRZ-L (Level)"
+      "No transition at beginning",
+      "center",
+      "No transition",
+      "Line coding"
     ],
     "path": "notes/cn/unit1/unit-1-notes.html#sec-6"
   },
@@ -547,23 +599,27 @@
     "unitTitle": "Data Communication Fundamentals & Physical Layer",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
+      "Answer:",
+      "Data Link Layer:",
+      "Answer Summary:",
+      "Application Layer:",
+      "Transport layer:",
+      "Noise:",
+      "Physical Layer:",
+      "Attenuation:",
+      "Layer count:",
+      "Presentation Layer:",
+      "Network layer:",
       "Network Layer:",
       "Transport Layer:",
-      "Presentation Layer:",
-      "Physical Layer:",
-      "Answer Summary:",
-      "Distortion:",
-      "Layer count:",
       "Session Layer:",
-      "Transport layer:",
-      "Attenuation:",
-      "Network layer:",
-      "Data Link Layer:",
-      "Design:",
-      "Noise:",
-      "Application Layer:"
+      "Distortion:"
     ],
     "path": "notes/cn/unit1/unit-1-notes.html#important-questions"
   },
@@ -593,23 +649,25 @@
     "unitTitle": "Data Link Layer, Error Control & Multiple Access",
     "sectionId": "sec-1",
     "title": "Data Link Layer Duties & Framing Methods",
-    "subsections": [],
+    "subsections": [
+      "Framing Techniques: Character Count vs Stuffing"
+    ],
     "keywords": [
-      "Framing:",
+      "Input Bit Stream:",
+      "Byte Stuffing",
       "Step 2: Receiver Unstuffing:",
       "five consecutive 1s",
+      "Flow Control:",
       "Data Link Layer (DLL)",
+      "frames",
       "Access Control:",
-      "Error Control:",
-      "Bit Stuffing",
       "Fatal flaw:",
       "Rule:",
-      "Flow Control:",
-      "Character Count",
-      "Physical Addressing:",
-      "Byte Stuffing",
       "Stuffed Stream Transmitted:",
-      "Input Bit Stream:"
+      "Framing:",
+      "Bit Stuffing",
+      "Character Count",
+      "Error Control:"
     ],
     "path": "notes/cn/unit2/unit-2-notes.html#sec-1"
   },
@@ -619,18 +677,20 @@
     "unitTitle": "Data Link Layer, Error Control & Multiple Access",
     "sectionId": "sec-2",
     "title": "Address Resolution Protocol (ARP)",
-    "subsections": [],
+    "subsections": [
+      "ARP Packet Fields (28-Byte Payload)"
+    ],
     "keywords": [
-      "Hardware Length (HLEN)",
-      "Sender Hardware / IP",
-      "Operation Code (OPER)",
       "Broadcast",
+      "Protocol Type (PTYPE)",
+      "Target Hardware / IP",
+      "Hardware Length (HLEN)",
+      "Protocol Length (PLEN)",
       "Address Resolution Protocol (ARP)",
       "Unicast",
-      "Protocol Type (PTYPE)",
+      "Operation Code (OPER)",
       "Hardware Type (HTYPE)",
-      "Target Hardware / IP",
-      "Protocol Length (PLEN)"
+      "Sender Hardware / IP"
     ],
     "path": "notes/cn/unit2/unit-2-notes.html#sec-2"
   },
@@ -640,14 +700,17 @@
     "unitTitle": "Data Link Layer, Error Control & Multiple Access",
     "sectionId": "sec-3",
     "title": "Error Detection, Correction & Block Coding",
-    "subsections": [],
+    "subsections": [
+      "Hamming Distance",
+      "Mathematical Criteria for Detection and Correction"
+    ],
     "keywords": [
-      "Hamming distance",
       "single-bit errors",
+      "minimum Hamming distance",
       "To detect up to $s$ errors:",
       "To correct up to $t$ errors:",
-      "burst errors",
-      "minimum Hamming distance"
+      "Hamming distance",
+      "burst errors"
     ],
     "path": "notes/cn/unit2/unit-2-notes.html#sec-3"
   },
@@ -659,18 +722,18 @@
     "title": "Cyclic Redundancy Check (CRC)",
     "subsections": [],
     "keywords": [
-      "Sender Step 2:",
       "modulo-2 binary division",
+      "Sender Step 4:",
+      "Sender Step 2:",
       "Receiver Step:",
       "strictly all zeros",
-      "Step 4: Transmitted Codeword:",
-      "Sender Step 1:",
-      "Sender Step 4:",
-      "modulo-2 polynomial division",
-      "CRC",
       "Step 5: Receiver Verification:",
+      "modulo-2 polynomial division",
+      "Cyclic Redundancy Check (CRC)",
+      "Step 4: Transmitted Codeword:",
       "Sender Step 3:",
-      "Cyclic Redundancy Check (CRC)"
+      "CRC",
+      "Sender Step 1:"
     ],
     "path": "notes/cn/unit2/unit-2-notes.html#sec-4"
   },
@@ -683,11 +746,11 @@
     "subsections": [],
     "keywords": [
       "At Receiver:",
-      "Step 3: Receiver Verification:",
-      "At Sender:",
-      "Checksum",
       "one's complement arithmetic",
-      "Internet Checksum"
+      "At Sender:",
+      "Internet Checksum",
+      "Checksum",
+      "Step 3: Receiver Verification:"
     ],
     "path": "notes/cn/unit2/unit-2-notes.html#sec-5"
   },
@@ -697,14 +760,18 @@
     "unitTitle": "Data Link Layer, Error Control & Multiple Access",
     "sectionId": "sec-6",
     "title": "Random Access Protocols: ALOHA & CSMA/CD",
-    "subsections": [],
+    "subsections": [
+      "1. Pure ALOHA vs Slotted ALOHA Throughput Analysis",
+      "2. Carrier Sense Multiple Access (CSMA)",
+      "3. CSMA with Collision Detection (CSMA/CD)"
+    ],
     "keywords": [
+      "Pure ALOHA",
       "Random Access (Contention) Protocols",
       "Binary Exponential Backoff",
       "p-Persistent CSMA:",
-      "Pure ALOHA",
-      "Slotted ALOHA",
       "Non-Persistent CSMA:",
+      "Slotted ALOHA",
       "jamming signal",
       "1-Persistent CSMA:"
     ],
@@ -716,18 +783,21 @@
     "unitTitle": "Data Link Layer, Error Control & Multiple Access",
     "sectionId": "sec-7",
     "title": "Controlled Access & Channelization Protocols",
-    "subsections": [],
+    "subsections": [
+      "1. Controlled Access Protocols",
+      "2. Channelization Protocols (FDMA, TDMA, CDMA)"
+    ],
     "keywords": [
-      "Token",
-      "Channelization",
-      "Controlled Access",
-      "TDMA (Time-Division Multiple Access):",
-      "Token Passing",
       "Reservation",
-      "Select",
-      "CDMA (Code-Division Multiple Access):",
+      "Poll",
       "Polling",
-      "Poll"
+      "Token Passing",
+      "Token",
+      "Controlled Access",
+      "Channelization",
+      "CDMA (Code-Division Multiple Access):",
+      "Select",
+      "TDMA (Time-Division Multiple Access):"
     ],
     "path": "notes/cn/unit2/unit-2-notes.html#sec-7"
   },
@@ -747,10 +817,14 @@
     "unitTitle": "Data Link Layer, Error Control & Multiple Access",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
-      "Answer Summary:",
-      "Answer:"
+      "Answer:",
+      "Answer Summary:"
     ],
     "path": "notes/cn/unit2/unit-2-notes.html#important-questions"
   },
@@ -780,21 +854,23 @@
     "unitTitle": "Network Layer Services, IPv4 & Routing",
     "sectionId": "sec-1",
     "title": "Network Layer Services & Switching Models",
-    "subsections": [],
+    "subsections": [
+      "Datagram (Connectionless) vs Virtual-Circuit (Connection-Oriented) Networks"
+    ],
     "keywords": [
-      "Packetizing:",
-      "Routing Path",
+      "Network Layer",
+      "datagrams",
+      "Routing:",
       "Virtual Circuit Identifier (VCI)",
       "no per-connection state",
-      "Routing:",
-      "Packet Ordering",
-      "Router State & Robustness",
-      "datagrams",
-      "Packet Header",
       "Datagram model",
-      "Network Layer",
       "Setup Phase",
-      "Forwarding:"
+      "Packetizing:",
+      "Routing Path",
+      "Forwarding:",
+      "Router State & Robustness",
+      "Packet Ordering",
+      "Packet Header"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#sec-1"
   },
@@ -804,14 +880,16 @@
     "unitTitle": "Network Layer Services, IPv4 & Routing",
     "sectionId": "sec-2",
     "title": "Network Performance & Delay Modeling",
-    "subsections": [],
+    "subsections": [
+      "Bandwidth-Delay Product (BDP)"
+    ],
     "keywords": [
-      "Transmission Delay ($d_{trans}$):",
-      "Processing Delay ($d_{proc}$):",
       "Propagation delay ($d/v$)",
-      "Transmission delay ($L/R$)",
       "Bandwidth-Delay Product",
       "Queuing Delay ($d_{queue}$):",
+      "Processing Delay ($d_{proc}$):",
+      "Transmission delay ($L/R$)",
+      "Transmission Delay ($d_{trans}$):",
       "Propagation Delay ($d_{prop}$):"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#sec-2"
@@ -822,23 +900,26 @@
     "unitTitle": "Network Layer Services, IPv4 & Routing",
     "sectionId": "sec-3",
     "title": "IPv4 Addressing & CIDR Subnetting",
-    "subsections": [],
+    "subsections": [
+      "1. Historic Classful Addressing Architecture",
+      "2. Classless Inter-Domain Routing (CIDR)"
+    ],
     "keywords": [
       "Class E",
-      "Multicast",
-      "Step 1: Subnet Mask:",
-      "Total IP addresses in block ($N$):",
-      "Class B",
-      "IPv4 address",
-      "CIDR (Classless Inter-Domain Routing)",
-      "Last Usable Host IP:",
-      "Step 3: Directed Broadcast Address:",
-      "Prefix length ($n$):",
-      "dotted-decimal notation",
-      "Class C",
-      "Network Address:",
       "slash notation (`/n`)",
-      "Experimental"
+      "dotted-decimal notation",
+      "First Usable Host IP:",
+      "IPv4 address",
+      "Step 3: Directed Broadcast Address:",
+      "Directed Broadcast Address:",
+      "Host bits ($h$):",
+      "Class A",
+      "Class B",
+      "Multicast",
+      "CIDR (Classless Inter-Domain Routing)",
+      "Class D",
+      "Prefix length ($n$):",
+      "Class C"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#sec-3"
   },
@@ -848,18 +929,20 @@
     "unitTitle": "Network Layer Services, IPv4 & Routing",
     "sectionId": "sec-4",
     "title": "VLSM Hierarchical Design & NAT Architecture",
-    "subsections": [],
+    "subsections": [
+      "Network Address Translation (NAT)"
+    ],
     "keywords": [
-      "Variable Length Subnet Masking (VLSM)",
       "Dept B",
-      "Dept A",
-      "Dept D",
       "172.16.0.0/12:",
-      "NAT",
+      "Dept D",
       "Golden Rule of VLSM:",
-      "192.168.0.0/16:",
+      "Dept A",
+      "NAT",
       "Dept C",
-      "10.0.0.0/8:"
+      "10.0.0.0/8:",
+      "192.168.0.0/16:",
+      "Variable Length Subnet Masking (VLSM)"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#sec-4"
   },
@@ -869,23 +952,25 @@
     "unitTitle": "Network Layer Services, IPv4 & Routing",
     "sectionId": "sec-5",
     "title": "The IPv4 Datagram Header & Fragmentation",
-    "subsections": [],
+    "subsections": [
+      "Key Header Fields & Explanations"
+    ],
     "keywords": [
       "Flags (3 bits):",
-      "Maximum Transmission Units (MTUs)",
-      "Fragment 2",
-      "MF (More Fragments)",
-      "Fragment 3",
       "Protocol (8 bits):",
-      "8-byte blocks",
-      "Fragment 1",
+      "VER (4 bits):",
       "Total Length (16 bits):",
       "Time to Live (TTL, 8 bits):",
+      "MF (More Fragments)",
+      "Fragment Offset (13 bits):",
+      "8-byte blocks",
+      "IHL (4 bits):",
+      "Fragment 2",
+      "IPv4 Datagram Header",
+      "Maximum Transmission Units (MTUs)",
       "DF (Don't Fragment)",
       "measured in 8-byte (64-bit) units",
-      "IPv4 Datagram Header",
-      "Fragment Offset (13 bits):",
-      "IHL (4 bits):"
+      "Fragment 1"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#sec-5"
   },
@@ -897,15 +982,15 @@
     "title": "Internet Control Message Protocol (ICMPv4)",
     "subsections": [],
     "keywords": [
-      "Type 3",
-      "Type 5",
       "TTL reaches 0",
-      "Type 12",
-      "Type 8 / 0",
-      "ICMPv4",
-      "Error-Reporting Messages",
-      "Type 11",
       "Query Messages",
+      "Type 8 / 0",
+      "Type 3",
+      "Type 12",
+      "Type 11",
+      "Error-Reporting Messages",
+      "ICMPv4",
+      "Type 5",
       "Type 13 / 14"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#sec-6"
@@ -916,21 +1001,24 @@
     "unitTitle": "Network Layer Services, IPv4 & Routing",
     "sectionId": "sec-7",
     "title": "Routing Algorithms: Distance Vector & Dijkstra's Link State",
-    "subsections": [],
+    "subsections": [
+      "1. Distance Vector Routing (Bellman-Ford Algorithm)",
+      "2. Link State Routing (Dijkstra's Algorithm)"
+    ],
     "keywords": [
       "Poison Reverse:",
       "Link State Advertisement (LSA)",
-      "Remedies:",
-      "Distance Vector Routing (Bellman-Ford)",
-      "floods",
-      "2, A",
-      "Step-by-Step Execution Trace Table:",
-      "immediate neighbors",
-      "Split Horizon:",
+      "Init",
       "Link State Routing (Dijkstra)",
-      "Dijkstra's Shortest Path First (SPF)",
+      "2, A",
+      "immediate neighbors",
+      "Remedies:",
       "Hold-down Timers:",
-      "Init"
+      "Dijkstra's Shortest Path First (SPF)",
+      "floods",
+      "Distance Vector Routing (Bellman-Ford)",
+      "Split Horizon:",
+      "Step-by-Step Execution Trace Table:"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#sec-7"
   },
@@ -952,13 +1040,17 @@
     "unitTitle": "Network Layer Services, IPv4 & Routing",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
-      "Information shared:",
+      "Answer:",
       "Answer Summary:",
-      "Convergence:",
       "Computational complexity:",
-      "Answer:"
+      "Information shared:",
+      "Convergence:"
     ],
     "path": "notes/cn/unit3/unit-3-notes.html#important-questions"
   },
@@ -990,11 +1082,11 @@
     "title": "What is AI? The Four Historical Approaches",
     "subsections": [],
     "keywords": [
-      "Acting (Behavior / Output)",
       "Thinking (Mind / Reasoning)",
-      "3. Acting Humanly (The Turing Test)",
       "Artificial Intelligence",
       "Acting Rationally",
+      "3. Acting Humanly (The Turing Test)",
+      "Acting (Behavior / Output)",
       "rational agent"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-1"
@@ -1007,14 +1099,14 @@
     "title": "Intelligent Agents and Environments",
     "subsections": [],
     "keywords": [
+      "Percept:",
+      "actuators",
+      "agent",
       "environment",
+      "sensors",
       "Agent Program:",
       "Percept Sequence:",
-      "agent",
-      "Percept:",
-      "sensors",
-      "Agent Function:",
-      "actuators"
+      "Agent Function:"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-2"
   },
@@ -1024,19 +1116,21 @@
     "unitTitle": "Introduction to AI, Intelligent Agents & Problem Solving",
     "sectionId": "sec-3",
     "title": "The Concept of Rationality and Autonomy",
-    "subsections": [],
+    "subsections": [
+      "Critical Distinctions in Rationality"
+    ],
     "keywords": [
-      "Autonomy",
+      "performance measure",
+      "prior knowledge",
       "actions",
       "autonomous",
-      "omniscient agent",
-      "performance measure",
-      "percept sequence",
-      "expected performance",
-      "Information Gathering & Exploration",
       "Omniscience vs Rationality",
-      "prior knowledge",
-      "maximize its performance measure"
+      "omniscient agent",
+      "Information Gathering & Exploration",
+      "Autonomy",
+      "maximize its performance measure",
+      "expected performance",
+      "percept sequence"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-3"
   },
@@ -1048,12 +1142,12 @@
     "title": "The PEAS Specification Framework",
     "subsections": [],
     "keywords": [
-      "Interactive AI Language Tutor",
-      "Medical Diagnosis System",
       "PEAS",
-      "task environment",
+      "Part-Picking Robot",
+      "Medical Diagnosis System",
       "Automated Taxi Driver",
-      "Part-Picking Robot"
+      "task environment",
+      "Interactive AI Language Tutor"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-4"
   },
@@ -1065,21 +1159,21 @@
     "title": "Environment Classifications & Dimensions",
     "subsections": [],
     "keywords": [
-      "Stochastic:",
-      "Episodic vs Sequential",
-      "Competitive",
-      "Discrete:",
-      "Static vs Dynamic",
+      "Known vs Unknown",
       "Continuous:",
-      "Determinism",
-      "Multi-Agent:",
-      "Deterministic:",
+      "Single-Agent:",
+      "Competitive",
+      "Observability",
       "Unknown:",
-      "Known:",
-      "Static:",
-      "Fully Observable:",
       "Partially Observable:",
-      "Single-Agent:"
+      "Dynamic:",
+      "Determinism",
+      "Stochastic:",
+      "Multi-Agent:",
+      "Fully Observable:",
+      "Static:",
+      "Episodic:",
+      "Static vs Dynamic"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-5"
   },
@@ -1089,23 +1183,25 @@
     "unitTitle": "Introduction to AI, Intelligent Agents & Problem Solving",
     "sectionId": "sec-6",
     "title": "Internal Agent Architectures",
-    "subsections": [],
+    "subsections": [
+      "The Four Components of a Learning Agent"
+    ],
     "keywords": [
-      "Problem Generator:",
-      "Model-Based Reflex",
-      "internal state",
-      "Learning Agents",
-      "Utility-Based",
       "4. Utility-Based Agent",
       "Critic:",
-      "Utility function",
-      "Learning Element:",
-      "Performance Element:",
-      "3. Goal-Based Agent",
+      "Learning Agents",
+      "Goal-Based",
+      "Model-Based Reflex",
+      "1. Simple Reflex Agent",
       "5. Learning Agent",
-      "Goal information",
-      "2. Model-Based Reflex Agent",
-      "Goal-Based"
+      "Utility-Based",
+      "Utility function",
+      "Simple Reflex",
+      "Performance Element:",
+      "Problem Generator:",
+      "internal state",
+      "Search and Planning",
+      "Goal information"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-6"
   },
@@ -1117,14 +1213,14 @@
     "title": "Problem Solving by Search & The 5 Components",
     "subsections": [],
     "keywords": [
-      "Actions ($Actions(s)$):",
-      "Path Cost ($c(s, a, s')$):",
-      "Initial State ($s_0$):",
-      "problem-solving agent",
       "Transition Model ($Result(s, a)$):",
+      "Actions ($Actions(s)$):",
+      "Initial State ($s_0$):",
+      "Path Cost ($c(s, a, s')$):",
+      "problem-solving agent",
+      "solution",
       "Goal Test ($IsGoal(s)$):",
-      "optimal solution",
-      "solution"
+      "optimal solution"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-7"
   },
@@ -1136,19 +1232,19 @@
     "title": "State Space Formulations for Toy & Real-World Problems",
     "subsections": [],
     "keywords": [
-      "Complete-State Formulation",
-      "Actions:",
-      "1. Formal 5-Component Specification:",
-      "Transition Model:",
       "Goal Test:",
-      "Naive Incremental",
-      "3. Branching Factor:",
-      "Path Cost:",
-      "Clever Incremental",
-      "States:",
       "Initial State:",
+      "Naive Incremental",
+      "States:",
+      "Complete-State Formulation",
+      "Path Cost:",
       "state space",
-      "Inversion Parity Theorem:"
+      "3. Branching Factor:",
+      "Actions:",
+      "Transition Model:",
+      "1. Formal 5-Component Specification:",
+      "Inversion Parity Theorem:",
+      "Clever Incremental"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-8"
   },
@@ -1170,14 +1266,18 @@
     "unitTitle": "Introduction to AI, Intelligent Agents & Problem Solving",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
-      "A (Actuators):",
+      "Answer:",
       "Answer Summary:",
-      "S (Sensors):",
       "E (Environment):",
+      "S (Sensors):",
       "P (Performance):",
-      "Answer:"
+      "A (Actuators):"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#important-questions"
   },
@@ -1200,13 +1300,13 @@
     "subsections": [],
     "keywords": [
       "Static/Dynamic:",
-      "Determinism:",
-      "Agents:",
-      "Episodic/Sequential:",
-      "Observability:",
       "Known/Unknown:",
       "Answer: Impossible!",
+      "Agents:",
       "Discrete/Continuous:",
+      "Episodic/Sequential:",
+      "Determinism:",
+      "Observability:",
       "never"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#practice-problems"
@@ -1217,23 +1317,28 @@
     "unitTitle": "Uninformed, Informed & Local Search Strategies",
     "sectionId": "sec-1",
     "title": "Uninformed (Blind) Search Strategies",
-    "subsections": [],
+    "subsections": [
+      "1. Breadth-First Search (BFS)",
+      "2. Uniform-Cost Search (UCS / Dijkstra on Trees)",
+      "3. Depth-First Search (DFS)",
+      "4. Iterative Deepening Depth-First Search (IDDFS)"
+    ],
     "keywords": [
-      "Time Complexity:",
-      "Depth-Limited Search (DLS)",
-      "First-In First-Out (FIFO) queue",
       "Priority Queue",
-      "Space Complexity:",
-      "Completeness:",
-      "Uninformed search",
-      "Goal Test Timing:",
       "Memory is the fatal bottleneck of BFS!",
       "completeness and optimality of BFS",
+      "Goal Test Timing:",
+      "Depth-Limited Search (DLS)",
+      "Completeness:",
+      "Space Complexity:",
       "Optimality:",
-      "Linear memory advantage!",
-      "NOT",
       "Last-In First-Out (LIFO) stack",
-      "Time & Space Complexity:"
+      "NOT",
+      "Linear memory advantage!",
+      "Time Complexity:",
+      "Time & Space Complexity:",
+      "First-In First-Out (FIFO) queue",
+      "Uninformed search"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#sec-1"
   },
@@ -1245,16 +1350,16 @@
     "title": "Comparative Evaluation Matrix of Search Strategies",
     "subsections": [],
     "keywords": [
-      "Time Complexity",
-      "Yes",
-      "Frontier Data Structure",
-      "Completeness",
       "$O(b^d)$",
-      "Optimality",
-      "Complete?",
       "$O(bd)$ [Linear!]",
+      "Completeness",
+      "Yes",
+      "Space Complexity",
+      "Time Complexity",
       "Optimal?",
-      "Space Complexity"
+      "Frontier Data Structure",
+      "Optimality",
+      "Complete?"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#sec-2"
   },
@@ -1264,15 +1369,17 @@
     "unitTitle": "Uninformed, Informed & Local Search Strategies",
     "sectionId": "sec-3",
     "title": "Informed Search & Heuristic Functions",
-    "subsections": [],
+    "subsections": [
+      "Greedy Best-First Search vs $A^*$ Search"
+    ],
     "keywords": [
-      "Property:",
-      "Complete and Optimal",
-      "Non-optimal",
-      "Informed search",
       "Greedy Best-First Search",
-      "$A^*$ Search",
-      "heuristic function"
+      "Informed search",
+      "heuristic function",
+      "Complete and Optimal",
+      "Property:",
+      "Non-optimal",
+      "$A^*$ Search"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#sec-3"
   },
@@ -1285,14 +1392,14 @@
     "subsections": [],
     "keywords": [
       "guaranteed to be optimal",
-      "consistent",
-      "never overestimates",
-      "Step-by-Step Expansion Trace Table:",
       "Goal reached on pop! Search halts.",
-      "popped",
       "Triangle Inequality",
-      "Optimal Solution Found by $A^*$:",
-      "Init"
+      "consistent",
+      "Step-by-Step Expansion Trace Table:",
+      "never overestimates",
+      "popped",
+      "Init",
+      "Optimal Solution Found by $A^*$:"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#sec-4"
   },
@@ -1302,10 +1409,12 @@
     "unitTitle": "Uninformed, Informed & Local Search Strategies",
     "sectionId": "sec-5",
     "title": "Heuristics for the 8-Puzzle & Heuristic Dominance",
-    "subsections": [],
+    "subsections": [
+      "Two Classical 8-Puzzle Heuristics"
+    ],
     "keywords": [
-      "$h_2$ dominates $h_1$",
       "relaxed problem",
+      "$h_2$ dominates $h_1$",
       "Consequence:"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#sec-5"
@@ -1316,13 +1425,15 @@
     "unitTitle": "Uninformed, Informed & Local Search Strategies",
     "sectionId": "sec-6",
     "title": "Local Search Algorithms & Optimization",
-    "subsections": [],
+    "subsections": [
+      "Hill-Climbing Search (Greedy Local Search)"
+    ],
     "keywords": [
+      "Ridges:",
       "final goal state itself matters",
-      "Local search algorithms",
-      "Plateaux:",
       "Local Maxima:",
-      "Ridges:"
+      "Local search algorithms",
+      "Plateaux:"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#sec-6"
   },
@@ -1332,18 +1443,21 @@
     "unitTitle": "Uninformed, Informed & Local Search Strategies",
     "sectionId": "sec-7",
     "title": "Simulated Annealing & Genetic Algorithms",
-    "subsections": [],
+    "subsections": [
+      "1. Simulated Annealing",
+      "2. Genetic Algorithms (GAs)"
+    ],
     "keywords": [
-      "always accept the move",
-      "Representation:",
-      "Temperature",
-      "Genetic Algorithms",
       "downhill moves",
-      "Mutation:",
-      "Simulated Annealing",
       "Selection:",
+      "Genetic Algorithms",
+      "Representation:",
+      "Simulated Annealing",
+      "always accept the move",
+      "Temperature",
       "Crossover:",
-      "Fitness Function:"
+      "Fitness Function:",
+      "Mutation:"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#sec-7"
   },
@@ -1363,13 +1477,17 @@
     "unitTitle": "Uninformed, Informed & Local Search Strategies",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
+      "Answer:",
       "Answer Summary:",
-      "Plateaux:",
-      "Local Maxima:",
       "Ridges:",
-      "Answer:"
+      "Local Maxima:",
+      "Plateaux:"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html#important-questions"
   },
@@ -1401,16 +1519,16 @@
     "title": "Games as Adversarial Search Problems",
     "subsections": [],
     "keywords": [
-      "Zero-Sum Games:",
-      "Initial State ($s_0$):",
-      "games",
-      "Transition Model $Result(s, a)$:",
+      "adversarial search problems",
       "$Player(s)$ Returns:",
       "Terminal Test $TerminalTest(s)$:",
       "terminal states",
-      "adversarial search problems",
+      "Initial State ($s_0$):",
+      "$Actions(s)$ Returns:",
+      "games",
       "Utility Function $Utility(s, p)$:",
-      "$Actions(s)$ Returns:"
+      "Transition Model $Result(s, a)$:",
+      "Zero-Sum Games:"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#sec-1"
   },
@@ -1420,14 +1538,16 @@
     "unitTitle": "Adversarial Search & Constraint Satisfaction Problems",
     "sectionId": "sec-2",
     "title": "The Minimax Algorithm",
-    "subsections": [],
+    "subsections": [
+      "Properties of the Minimax Algorithm"
+    ],
     "keywords": [
-      "Time Complexity:",
-      "Minimax algorithm",
       "perfectly",
+      "Minimax algorithm",
       "Completeness:",
-      "Space Complexity:",
       "Optimality:",
+      "Space Complexity:",
+      "Time Complexity:",
       "Alpha-Beta Pruning"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#sec-2"
@@ -1438,23 +1558,25 @@
     "unitTitle": "Adversarial Search & Constraint Satisfaction Problems",
     "sectionId": "sec-3",
     "title": "Alpha-Beta Pruning",
-    "subsections": [],
+    "subsections": [
+      "Effectiveness of Alpha-Beta Pruning"
+    ],
     "keywords": [
-      "$\\alpha$ (Alpha):",
-      "Leaves 4 and 6 under Node C",
-      "$\\beta$ (Beta):",
-      "PRUNE leaves 4 and 6 of Node C!",
-      "Results:",
-      "pruned immediately",
       "Branch B",
-      "Random Move Ordering",
-      "move ordering",
+      "pruned immediately",
       "Doubles the search horizon!",
+      "Random Move Ordering",
+      "$\\alpha$ (Alpha):",
+      "Test Pruning Condition at Node C:",
       "MIN",
       "Step 4: Final Decision at Root (MAX):",
+      "move ordering",
       "Alpha-Beta pruning",
+      "Results:",
+      "Leaves 4 and 6 under Node C",
       "MAX",
-      "Test Pruning Condition at Node C:"
+      "PRUNE leaves 4 and 6 of Node C!",
+      "$\\beta$ (Beta):"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#sec-3"
   },
@@ -1464,16 +1586,18 @@
     "unitTitle": "Adversarial Search & Constraint Satisfaction Problems",
     "sectionId": "sec-4",
     "title": "Constraint Satisfaction Problems (CSP)",
-    "subsections": [],
+    "subsections": [
+      "Constraint Taxonomy"
+    ],
     "keywords": [
+      "Binary Constraint:",
+      "Unary Constraint:",
       "constraints",
+      "Constraint Graph",
       "variables",
       "Higher-Order / Global Constraints:",
-      "domains",
-      "Binary Constraint:",
       "Constraint Satisfaction Problem (CSP)",
-      "Constraint Graph",
-      "Unary Constraint:"
+      "domains"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#sec-4"
   },
@@ -1485,16 +1609,16 @@
     "title": "Constraint Propagation & The AC-3 Arc Consistency Algorithm",
     "subsections": [],
     "keywords": [
-      "False",
-      "Step 3: Check Arc $(NT, SA)$:",
       "arc-consistent",
-      "Step 2: Check Arc $(SA, WA)$:",
-      "Remove $Red$ from $D_{SA}$!",
-      "True",
-      "Reduced Domains after AC-3:",
-      "constraint propagation",
+      "False",
       "Step 1: Check Arc $(NT, WA)$:",
-      "Remove $Red$ from $D_{NT}$!"
+      "Remove $Red$ from $D_{SA}$!",
+      "Reduced Domains after AC-3:",
+      "True",
+      "Remove $Red$ from $D_{NT}$!",
+      "Step 2: Check Arc $(SA, WA)$:",
+      "Step 3: Check Arc $(NT, SA)$:",
+      "constraint propagation"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#sec-5"
   },
@@ -1504,14 +1628,16 @@
     "unitTitle": "Adversarial Search & Constraint Satisfaction Problems",
     "sectionId": "sec-6",
     "title": "Backtracking Search & Intelligent Heuristics",
-    "subsections": [],
+    "subsections": [
+      "Three Intelligent Heuristics for CSP Search"
+    ],
     "keywords": [
-      "2. Degree Heuristic",
-      "value",
       "fewest remaining legal values",
-      "3. Least Constraining Value (LCV)",
-      "Backtracking search",
       "variable",
+      "2. Degree Heuristic",
+      "Backtracking search",
+      "3. Least Constraining Value (LCV)",
+      "value",
       "1. Minimum Remaining Values (MRV)"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#sec-6"
@@ -1522,11 +1648,14 @@
     "unitTitle": "Adversarial Search & Constraint Satisfaction Problems",
     "sectionId": "sec-7",
     "title": "Forward Checking & Maintaining Arc Consistency (MAC)",
-    "subsections": [],
-    "keywords": [
-      "two unassigned neighbors",
+    "subsections": [
       "Forward Checking",
-      "MAC"
+      "Maintaining Arc Consistency (MAC)"
+    ],
+    "keywords": [
+      "MAC",
+      "Forward Checking",
+      "two unassigned neighbors"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#sec-7"
   },
@@ -1546,10 +1675,14 @@
     "unitTitle": "Adversarial Search & Constraint Satisfaction Problems",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
-      "Answer Summary:",
-      "Answer:"
+      "Answer:",
+      "Answer Summary:"
     ],
     "path": "notes/ai/unit3/unit-3-notes.html#important-questions"
   },
@@ -1579,15 +1712,17 @@
     "unitTitle": "Professional Software Development, Processes & Agile",
     "sectionId": "sec-1",
     "title": "Professional Software Development & Essential Attributes",
-    "subsections": [],
+    "subsections": [
+      "The Four Essential Attributes of Good Software"
+    ],
     "keywords": [
-      "4. Acceptability",
-      "3. Efficiency",
-      "Computer Science:",
-      "2. Dependability & Security",
-      "Software Engineering",
       "1. Maintainability",
-      "Software Engineering:"
+      "2. Dependability & Security",
+      "Computer Science:",
+      "3. Efficiency",
+      "Software Engineering",
+      "Software Engineering:",
+      "4. Acceptability"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-1"
   },
@@ -1599,14 +1734,14 @@
     "title": "Software Engineering Ethics (ACM/IEEE Code)",
     "subsections": [],
     "keywords": [
-      "PUBLIC",
-      "PROFESSION",
-      "JUDGMENT",
-      "COLLEAGUES",
-      "SELF",
-      "CLIENT & EMPLOYER",
       "ACM/IEEE-CS Code of Ethics",
+      "SELF",
+      "COLLEAGUES",
+      "JUDGMENT",
+      "PUBLIC",
+      "CLIENT & EMPLOYER",
       "MANAGEMENT",
+      "PROFESSION",
       "PRODUCT"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-2"
@@ -1619,11 +1754,11 @@
     "title": "Three Landmark Case Studies (Sommerville)",
     "subsections": [],
     "keywords": [
+      "3. Wilderness Weather Station",
+      "2. Mentcare Mental Health System",
       "1. Insulin Pump Control System",
       "Zero margin for error:",
-      "3. Wilderness Weather Station",
-      "Primary challenge:",
-      "2. Mentcare Mental Health System"
+      "Primary challenge:"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-3"
   },
@@ -1633,19 +1768,23 @@
     "unitTitle": "Professional Software Development, Processes & Agile",
     "sectionId": "sec-4",
     "title": "Software Process Models",
-    "subsections": [],
+    "subsections": [
+      "1. The Waterfall Model (Classic SDLC)",
+      "2. Incremental Development",
+      "3. Reuse-Oriented Software Engineering (Integration & Configuration)"
+    ],
     "keywords": [
-      "Requirements Analysis & Definition:",
       "software process",
-      "Advantages:",
-      "System & Software Design:",
-      "Implementation & Unit Testing:",
-      "Specification",
-      "Evolution",
-      "Development",
-      "Integration & System Testing:",
       "Operation & Maintenance:",
+      "Implementation & Unit Testing:",
+      "Evolution",
+      "Requirements Analysis & Definition:",
+      "Advantages:",
+      "Integration & System Testing:",
       "Disadvantages:",
+      "Specification",
+      "Development",
+      "System & Software Design:",
       "Validation"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-4"
@@ -1656,22 +1795,24 @@
     "unitTitle": "Professional Software Development, Processes & Agile",
     "sectionId": "sec-5",
     "title": "Coping with Change & Boehm's Spiral Model",
-    "subsections": [],
+    "subsections": [
+      "Boehm's Spiral Model (Risk-Driven Process)"
+    ],
     "keywords": [
-      "risk-driven",
-      "Determine Objectives & Constraints",
-      "Identify & Resolve Risks",
-      "Quadrant 3",
-      "Development & Testing",
-      "Evolutionary Prototyping:",
       "Boehm's Spiral Model",
       "Quadrant 1",
-      "System Prototyping",
-      "Quadrant 4",
-      "Throwaway Prototyping:",
+      "Quadrant 2",
+      "Development & Testing",
       "four distinct sectors",
+      "Throwaway Prototyping:",
+      "risk-driven",
+      "Identify & Resolve Risks",
+      "Determine Objectives & Constraints",
+      "Quadrant 3",
+      "System Prototyping",
       "Plan the Next Phase",
-      "Quadrant 2"
+      "Evolutionary Prototyping:",
+      "Quadrant 4"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-5"
   },
@@ -1683,16 +1824,16 @@
     "title": "Process Improvement & The CMMI Framework",
     "subsections": [],
     "keywords": [
+      "Level 5",
+      "Optimizing",
+      "Level 3",
+      "Level 4",
       "Initial (Ad-hoc)",
       "Level 1",
-      "Managed (Repeatable)",
-      "Quantitatively Managed",
-      "Defined",
-      "Optimizing",
       "Level 2",
-      "Level 4",
-      "Level 5",
-      "Level 3"
+      "Managed (Repeatable)",
+      "Defined",
+      "Quantitatively Managed"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-6"
   },
@@ -1702,18 +1843,20 @@
     "unitTitle": "Professional Software Development, Processes & Agile",
     "sectionId": "sec-7",
     "title": "Agile Software Development & Extreme Programming (XP)",
-    "subsections": [],
+    "subsections": [
+      "Extreme Programming (XP) Key Practices"
+    ],
     "keywords": [
-      "Customer collaboration",
-      "Pair Programming:",
-      "Refactoring:",
-      "Working software",
-      "Responding to change",
-      "Individuals and interactions",
-      "Test-First Development (TDD):",
+      "Continuous Integration:",
       "Small Releases:",
       "Agile Manifesto",
-      "Continuous Integration:"
+      "Working software",
+      "Pair Programming:",
+      "Responding to change",
+      "Individuals and interactions",
+      "Refactoring:",
+      "Test-First Development (TDD):",
+      "Customer collaboration"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-7"
   },
@@ -1723,23 +1866,25 @@
     "unitTitle": "Professional Software Development, Processes & Agile",
     "sectionId": "sec-8",
     "title": "The Scrum Framework, Sprint Velocity & Burndown",
-    "subsections": [],
+    "subsections": [
+      "Scrum Roles, Events, and Artifacts"
+    ],
     "keywords": [
-      "Daily Scrum",
-      "Sprint Backlog",
-      "Scrum",
-      "Scrum Master",
-      "Product Owner",
       "Increment",
-      "Product Backlog",
-      "Sprint Review",
       "Step 1: Total Completed Points:",
       "Sprint",
-      "Step 4: Estimated Additional Sprints:",
-      "Sprint Planning",
-      "Artifacts",
+      "Sprint Review",
+      "Roles",
+      "Product Backlog",
       "Development Team",
-      "Sprint Retrospective"
+      "Daily Scrum",
+      "Step 4: Estimated Additional Sprints:",
+      "Step 3: Remaining Backlog:",
+      "Sprint Retrospective",
+      "Step 2: Team Average Velocity:",
+      "Artifacts",
+      "Product Owner",
+      "Scrum"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#sec-8"
   },
@@ -1759,10 +1904,14 @@
     "unitTitle": "Professional Software Development, Processes & Agile",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
-      "Answer Summary:",
-      "Answer:"
+      "Answer:",
+      "Answer Summary:"
     ],
     "path": "notes/se/unit1/unit-1-notes.html#important-questions"
   },
@@ -1792,23 +1941,27 @@
     "unitTitle": "Requirements Engineering & System Modeling",
     "sectionId": "sec-1",
     "title": "Functional vs Non-Functional Requirements",
-    "subsections": [],
+    "subsections": [
+      "1. Functional Requirements",
+      "2. Non-Functional Requirements (NFRs)",
+      "Quantifying Non-Functional Requirements with Metrics"
+    ],
     "keywords": [
-      "software requirement",
-      "Ethical / Legal",
-      "measurable, quantifiable metrics",
-      "Portability",
-      "Security & Usability",
-      "Regulatory / Privacy",
-      "Robustness",
-      "Performance / Speed",
-      "Organizational Requirements",
       "External Requirements",
-      "Product Requirements",
-      "Speed",
-      "Size",
       "Reliability",
-      "Ease of Use"
+      "Regulatory / Privacy",
+      "Size",
+      "Robustness",
+      "Portability",
+      "Performance / Speed",
+      "Delivery & Operational",
+      "Development Standards",
+      "software requirement",
+      "Ease of Use",
+      "measurable, quantifiable metrics",
+      "Security & Usability",
+      "Reliability & Availability",
+      "Ethical / Legal"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#sec-1"
   },
@@ -1818,19 +1971,21 @@
     "unitTitle": "Requirements Engineering & System Modeling",
     "sectionId": "sec-2",
     "title": "The Software Requirements Specification (SRS) & IEEE 830",
-    "subsections": [],
+    "subsections": [
+      "Attributes of a High-Quality SRS"
+    ],
     "keywords": [
-      "Unambiguous:",
-      "Modifiable:",
-      "3. Specific Requirements",
-      "Complete:",
-      "Traceable:",
-      "1. Introduction",
-      "4. Appendices & Index",
-      "Consistent:",
       "Verifiable (Testable):",
+      "3. Specific Requirements",
+      "Unambiguous:",
+      "Traceable:",
+      "Modifiable:",
+      "Consistent:",
+      "Complete:",
+      "4. Appendices & Index",
+      "Correct:",
       "2. General Description",
-      "Correct:"
+      "1. Introduction"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#sec-2"
   },
@@ -1840,21 +1995,23 @@
     "unitTitle": "Requirements Engineering & System Modeling",
     "sectionId": "sec-3",
     "title": "Requirements Engineering Processes & Traceability (RTM)",
-    "subsections": [],
+    "subsections": [
+      "Requirements Traceability Matrix (RTM)"
+    ],
     "keywords": [
       "REQ-05",
-      "REQ-06",
-      "REQ-02",
-      "REQ-03",
-      "Elicitation & analysis",
-      "Specification",
-      "REQ-01",
       "Requirements Elicitation & Analysis:",
       "Requirements Validation:",
       "REQ-04",
+      "Elicitation & analysis",
+      "Feasibility study",
+      "Specification",
       "Requirements Traceability Matrix (RTM)",
+      "REQ-03",
+      "REQ-01",
+      "REQ-02",
       "Validation",
-      "Feasibility study"
+      "REQ-06"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#sec-3"
   },
@@ -1864,12 +2021,14 @@
     "unitTitle": "Requirements Engineering & System Modeling",
     "sectionId": "sec-4",
     "title": "Context & Interaction Models: Use Case Diagrams",
-    "subsections": [],
+    "subsections": [
+      "Use Case Modeling"
+    ],
     "keywords": [
-      "&lt;&lt;include&gt;&gt;:",
-      "System modeling",
       "&lt;&lt;extend&gt;&gt;:",
-      "Use Case"
+      "Use Case",
+      "&lt;&lt;include&gt;&gt;:",
+      "System modeling"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#sec-4"
   },
@@ -1894,15 +2053,15 @@
     "title": "Structural Models: UML Class Diagrams",
     "subsections": [],
     "keywords": [
-      "Aggregation",
       "Association",
+      "Aggregation",
       "Filled black diamond",
       "Structural models",
-      "Weak ownership:",
-      "Composition",
+      "Strong ownership:",
       "Generalization (Inheritance)",
+      "Composition",
       "Class Diagram",
-      "Strong ownership:"
+      "Weak ownership:"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#sec-6"
   },
@@ -1912,17 +2071,20 @@
     "unitTitle": "Requirements Engineering & System Modeling",
     "sectionId": "sec-7",
     "title": "Behavioral Models: Activity & State Machine Diagrams",
-    "subsections": [],
+    "subsections": [
+      "1. Activity Diagrams",
+      "2. State Machine Diagrams (Statecharts)"
+    ],
     "keywords": [
-      "Action State:",
       "Decision Node:",
-      "events",
-      "Initial Node:",
       "Behavioral models",
-      "concurrent parallel threads",
+      "events",
       "states",
       "Forks and Joins:",
-      "Swimlanes:"
+      "Initial Node:",
+      "concurrent parallel threads",
+      "Swimlanes:",
+      "Action State:"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#sec-7"
   },
@@ -1934,13 +2096,13 @@
     "title": "Model-Driven Engineering (MDE & MDA)",
     "subsections": [],
     "keywords": [
-      "Computation Independent Model (CIM)",
       "CIM &rarr; PIM &rarr; PSM",
-      "Model-Driven Engineering (MDE)",
       "Platform Specific Model (PSM)",
+      "Layer 2 (Middle)",
       "Platform Independent Model (PIM)",
       "Layer 3 (Bottom)",
-      "Layer 2 (Middle)",
+      "Model-Driven Engineering (MDE)",
+      "Computation Independent Model (CIM)",
       "Layer 1 (Top)"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#sec-8"
@@ -1961,12 +2123,16 @@
     "unitTitle": "Requirements Engineering & System Modeling",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
-      "Answer Summary:",
+      "Answer:",
       "Aggregation (hollow diamond):",
       "Composition (filled black diamond):",
-      "Answer:"
+      "Answer Summary:"
     ],
     "path": "notes/se/unit2/unit-2-notes.html#important-questions"
   },
@@ -1996,19 +2162,21 @@
     "unitTitle": "Architectural Design & Object-Oriented Implementation",
     "sectionId": "sec-1",
     "title": "Architectural Design Decisions & Non-Functional Influences",
-    "subsections": [],
+    "subsections": [
+      "Non-Functional Quality Attributes Influencing Architecture"
+    ],
     "keywords": [
-      "Large-Scale Reuse:",
-      "Safety",
-      "Availability",
       "Software Architecture",
       "Performance",
-      "Security",
       "Maintainability",
-      "Non-Functional Requirements",
-      "Stakeholder Communication:",
+      "System Analysis:",
       "layered architecture",
-      "System Analysis:"
+      "Safety",
+      "Availability",
+      "Security",
+      "Stakeholder Communication:",
+      "Non-Functional Requirements",
+      "Large-Scale Reuse:"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-1"
   },
@@ -2020,14 +2188,14 @@
     "title": "Kruchten's 4+1 View Model of Architecture",
     "subsections": [],
     "keywords": [
-      "1. Logical View",
-      "4+1 View Model",
-      "+1 Scenarios (Use Cases)",
       "2. Process View",
-      "Logical, Process, Development, Physical",
       "3. Development View",
       "Scenarios (+1)",
-      "4. Physical View"
+      "1. Logical View",
+      "4+1 View Model",
+      "4. Physical View",
+      "+1 Scenarios (Use Cases)",
+      "Logical, Process, Development, Physical"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-2"
   },
@@ -2037,18 +2205,21 @@
     "unitTitle": "Architectural Design & Object-Oriented Implementation",
     "sectionId": "sec-3",
     "title": "Architectural Patterns: MVC & Layered Architecture",
-    "subsections": [],
+    "subsections": [
+      "1. The Model-View-Controller (MVC) Pattern",
+      "2. Layered Architecture Pattern"
+    ],
     "keywords": [
-      "View:",
-      "Weaknesses:",
-      "Controller:",
-      "System Software Layer:",
       "Model:",
-      "User Interface Layer:",
-      "Application / Business Logic Layer:",
+      "System Software Layer:",
+      "Controller:",
       "Core Domain / Database Access Layer:",
-      "architectural pattern",
-      "Strengths:"
+      "View:",
+      "User Interface Layer:",
+      "Strengths:",
+      "Application / Business Logic Layer:",
+      "Weaknesses:",
+      "architectural pattern"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-3"
   },
@@ -2060,12 +2231,12 @@
     "title": "Repository, Client-Server & Pipe-and-Filter Patterns",
     "subsections": [],
     "keywords": [
-      "Pipe-and-Filter Pattern",
       "Repository Pattern",
-      "Single point of failure:",
       "Repository",
       "Client-Server Pattern",
+      "Single point of failure:",
       "Pipe-and-Filter",
+      "Pipe-and-Filter Pattern",
       "Client-Server"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-4"
@@ -2076,16 +2247,19 @@
     "unitTitle": "Architectural Design & Object-Oriented Implementation",
     "sectionId": "sec-5",
     "title": "Application Architectures",
-    "subsections": [],
+    "subsections": [
+      "1. Transaction Processing Systems (TPS)",
+      "2. Language Processing Systems (LPS)"
+    ],
     "keywords": [
-      "Application architectures",
-      "Language Processing Systems",
+      "Code Generator:",
       "Lexical Analyzer (Lexer):",
       "Transaction Processing Systems",
-      "Code Generator:",
       "ACID",
-      "Semantic Analyzer:",
+      "Application architectures",
       "Pipe-and-Filter",
+      "Semantic Analyzer:",
+      "Language Processing Systems",
       "Syntax Analyzer (Parser):"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-5"
@@ -2099,8 +2273,8 @@
     "subsections": [],
     "keywords": [
       "Design the System Architecture:",
-      "Specify Object Interfaces:",
       "Develop Design Models:",
+      "Specify Object Interfaces:",
       "Identify Principal System Objects:"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-6"
@@ -2113,15 +2287,15 @@
     "title": "Gang of Four (GoF) Design Patterns",
     "subsections": [],
     "keywords": [
-      "Creational",
-      "Behavioral",
       "Singleton Pattern",
-      "notified and updated automatically",
-      "Factory Method",
-      "only one single instance",
+      "Creational",
       "Observer Pattern",
-      "Structural",
-      "Adapter Pattern"
+      "only one single instance",
+      "Adapter Pattern",
+      "notified and updated automatically",
+      "Behavioral",
+      "Factory Method",
+      "Structural"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-7"
   },
@@ -2133,12 +2307,12 @@
     "title": "Open Source Software Licensing Models",
     "subsections": [],
     "keywords": [
-      "Strict Copyleft (Viral)",
-      "GNU LGPL (Lesser GPL), MPL (Mozilla)",
-      "GNU GPL (General Public License v2/v3)",
-      "Permissive Licenses",
       "Weak Copyleft",
-      "MIT, BSD, Apache 2.0"
+      "Permissive Licenses",
+      "GNU GPL (General Public License v2/v3)",
+      "MIT, BSD, Apache 2.0",
+      "GNU LGPL (Lesser GPL), MPL (Mozilla)",
+      "Strict Copyleft (Viral)"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#sec-8"
   },
@@ -2158,10 +2332,14 @@
     "unitTitle": "Architectural Design & Object-Oriented Implementation",
     "sectionId": "important-questions",
     "title": "Important Examination Questions",
-    "subsections": [],
+    "subsections": [
+      "2-Mark Questions (Short Answer)",
+      "5-Mark Questions (Medium Length)",
+      "10-Mark Questions (Long Answer / Comprehensive)"
+    ],
     "keywords": [
-      "Answer Summary:",
-      "Answer:"
+      "Answer:",
+      "Answer Summary:"
     ],
     "path": "notes/se/unit3/unit-3-notes.html#important-questions"
   },
@@ -2198,13 +2376,13 @@
       "1.1 Research vs. Random Exploration"
     ],
     "keywords": [
-      "Reproducibility (Replicability):",
-      "Research",
+      "\"Search\"",
+      "\"Re\"",
       "Controlled Conditions:",
       "Empirical Evidence:",
-      "\"Re\"",
-      "\"Search\"",
-      "Systematization:"
+      "Research",
+      "Systematization:",
+      "Reproducibility (Replicability):"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-meaning-research"
   },
@@ -2219,14 +2397,14 @@
       "2.2 What Motivates People to Undertake Research?"
     ],
     "keywords": [
-      "Diagnostic:",
-      "Intellectual Curiosity:",
-      "Solving Practical Challenges:",
-      "Academic &amp; Professional Growth:",
-      "Descriptive:",
       "Exploratory / Formulative:",
+      "Social Responsibility &amp; Utility:",
+      "Academic &amp; Professional Growth:",
       "Hypothesis-Testing (Causal):",
-      "Social Responsibility &amp; Utility:"
+      "Solving Practical Challenges:",
+      "Descriptive:",
+      "Intellectual Curiosity:",
+      "Diagnostic:"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-objectives-motivation"
   },
@@ -2238,21 +2416,21 @@
     "title": "3. Types of Research",
     "subsections": [],
     "keywords": [
-      "Cross-Sectional / One-Time",
-      "Utility &amp; Scope",
-      "Longitudinal Research",
-      "Descriptive Research",
       "Inquiry Purpose",
       "Fundamental / Basic / Pure",
-      "Qualitative Research",
-      "Analytical Research",
-      "Quantitative Research",
-      "Empirical Research",
-      "Time Horizon",
       "Applied Research",
-      "Data Modality",
       "Conceptual Research",
-      "Methodological Basis"
+      "Qualitative Research",
+      "Longitudinal Research",
+      "Empirical Research",
+      "Utility &amp; Scope",
+      "Analytical Research",
+      "Descriptive Research",
+      "Data Modality",
+      "Methodological Basis",
+      "Cross-Sectional / One-Time",
+      "Quantitative Research",
+      "Time Horizon"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-types-research"
   },
@@ -2266,14 +2444,14 @@
       "4.1 Foundational Ethical Principles"
     ],
     "keywords": [
-      "Openness:",
-      "Integrity:",
       "Confidentiality:",
-      "Honesty:",
       "Objectivity:",
-      "Carefulness:",
+      "Social Responsibility:",
       "Respect for Intellectual Property:",
-      "Social Responsibility:"
+      "Honesty:",
+      "Integrity:",
+      "Openness:",
+      "Carefulness:"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-ethics-research"
   },
@@ -2287,13 +2465,13 @@
       "5.2 Secondary Forms of Ethical Malpractice"
     ],
     "keywords": [
-      "Predatory Publishing:",
-      "Salami Slicing (Data Fragmentation):",
+      "Falsification",
       "Plagiarism",
-      "Ghost Authorship:",
       "Gift / Honorary Authorship:",
+      "Predatory Publishing:",
+      "Ghost Authorship:",
       "Fabrication",
-      "Falsification"
+      "Salami Slicing (Data Fragmentation):"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-misconduct"
   },
@@ -2307,10 +2485,10 @@
       "6.1 Interplay of New and Existing Knowledge"
     ],
     "keywords": [
-      "Grounding:",
       "Synthesizing:",
-      "De-duplication:",
-      "Gap Identification:"
+      "Grounding:",
+      "Gap Identification:",
+      "De-duplication:"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-lit-review"
   },
@@ -2322,11 +2500,11 @@
     "title": "7. Critical and Creative Reading in Research",
     "subsections": [],
     "keywords": [
-      "Focus Areas",
-      "Guiding Questions",
-      "Outcome",
-      "creatively",
       "critically",
+      "Guiding Questions",
+      "Focus Areas",
+      "creatively",
+      "Outcome",
       "Primary Mindset"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-reading-conceptualizing"
@@ -2342,10 +2520,10 @@
       "8.2 Quantitative Bibliometrics: Definitions & Formulas"
     ],
     "keywords": [
-      "Google Scholar:",
       "IEEE Xplore:",
-      "Web of Science (WoS):",
-      "Scopus:"
+      "Scopus:",
+      "Google Scholar:",
+      "Web of Science (WoS):"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-databases-bibliometrics"
   },
@@ -2362,15 +2540,15 @@
       "9.4 Major Citation Styles: IEEE vs. APA"
     ],
     "keywords": [
-      "Keywords Optimization:",
+      "Defensive Intellectual Property:",
+      "Intellectual Property &amp; Priority:",
+      "Journal Article Entry",
       "Verification &amp; Evidence:",
+      "In-text Citation",
+      "Keywords Optimization:",
+      "Accessibility Factor:",
       "Primary Field",
       "Navigational Roadmap:",
-      "In-text Citation",
-      "Defensive Intellectual Property:",
-      "Accessibility Factor:",
-      "Journal Article Entry",
-      "Intellectual Property &amp; Priority:",
       "Title Specificity:"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-citations-flow"
@@ -2383,11 +2561,11 @@
     "title": "10. Solved Problems & Bibliometric Calculations",
     "subsections": [],
     "keywords": [
-      "Problem Statement:",
-      "Step 2: Determine $h$-index:",
       "Step 3: Determine $i10$-index:",
+      "Step 3: Apply the JIF formula:",
+      "Problem Statement:",
       "Interpretation:",
-      "Step 3: Apply the JIF formula:"
+      "Step 2: Determine $h$-index:"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-numericals"
   },
@@ -2399,13 +2577,13 @@
     "title": "11. Quick Revision Sheet",
     "subsections": [],
     "keywords": [
-      "JIF (Impact Factor)",
-      "Databases",
-      "FFP",
-      "Research Misconduct",
       "Research Types",
+      "Research Definition",
+      "JIF (Impact Factor)",
+      "Research Misconduct",
+      "FFP",
       "$h$-Index",
-      "Research Definition"
+      "Databases"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#revision-sheet"
   },
@@ -2421,21 +2599,21 @@
       "Practice Problems with Answers"
     ],
     "keywords": [
-      "Industrial Translation:",
-      "Core Collection Indices:",
-      "Extensive Literature Survey:",
-      "$h$-index = 8",
-      "Rigorous Curation:",
-      "Derivative Expansion:",
-      "Journal Citation Reports (JCR):",
-      "Web of Science (WoS)",
-      "Analytical Research:",
-      "Fabrication",
-      "Descriptive Research:",
-      "Foundational Roots:",
-      "Formulating the Research Problem:",
       "Problem:",
-      "$i10$-index = 7"
+      "Formulating the Research Problem:",
+      "Journal Citation Reports (JCR):",
+      "Rigorous Curation:",
+      "Solution:",
+      "Falsification",
+      "Citation Tracking:",
+      "Hypothesis Testing:",
+      "Foundational Roots:",
+      "$i10$-index = 7",
+      "Descriptive Research:",
+      "$h$-index = 8",
+      "Fabrication",
+      "Derivative Expansion:",
+      "Extensive Literature Survey:"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#exam-questions"
   },
@@ -2447,8 +2625,8 @@
     "title": "13. Prescribed References",
     "subsections": [],
     "keywords": [
-      "David V. Thiel",
-      "C.R. Kothari and Gourav Garg"
+      "C.R. Kothari and Gourav Garg",
+      "David V. Thiel"
     ],
     "path": "notes/rmipr/unit1/unit-1-notes.html#sec-references"
   },
@@ -2463,15 +2641,15 @@
       "1.2 Features of a Good Research Design"
     ],
     "keywords": [
-      "Reliable Causal Inference:",
-      "Research Design",
-      "Flaw Detection:",
-      "Economy &amp; Flexibility:",
       "Resource Optimization:",
       "Objectivity:",
+      "Economy &amp; Flexibility:",
       "Operational Guidance:",
+      "Internal and External Validity:",
+      "Flaw Detection:",
       "Reliability:",
-      "Internal and External Validity:"
+      "Reliable Causal Inference:",
+      "Research Design"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-need-design"
   },
@@ -2483,13 +2661,13 @@
     "title": "2. Variables, Controls & Confounded Relationships",
     "subsections": [],
     "keywords": [
-      "Dependent Variable (DV)",
-      "blocking",
-      "Independent Variable (IV)",
-      "Treatments",
-      "Extraneous Variable",
       "Confounded Relationship",
-      "Experimental &amp; Control Groups"
+      "Experimental &amp; Control Groups",
+      "Independent Variable (IV)",
+      "Extraneous Variable",
+      "Dependent Variable (DV)",
+      "Treatments",
+      "blocking"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-core-concepts"
   },
@@ -2501,9 +2679,9 @@
     "title": "3. Principles of Experimental Design",
     "subsections": [],
     "keywords": [
-      "Principle of Replication:",
+      "Principle of Randomization:",
       "Principle of Local Control (Blocking):",
-      "Principle of Randomization:"
+      "Principle of Replication:"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-principles-experiment"
   },
@@ -2518,12 +2696,12 @@
       "4.2 Advantages and Disadvantages of CRD"
     ],
     "keywords": [
+      "Between Treatments",
+      "Completely Randomized Design (CRD)",
       "Advantages:",
       "Experimental Error",
-      "Between Treatments",
-      "Total",
       "Disadvantages:",
-      "Completely Randomized Design (CRD)"
+      "Total"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-crd"
   },
@@ -2538,14 +2716,14 @@
       "5.2 Advantages and Disadvantages of RBD"
     ],
     "keywords": [
-      "Residual Error",
-      "Advantages:",
-      "one",
-      "Randomized Block Design (RBD)",
       "Between Treatments",
-      "Total",
+      "Residual Error",
+      "Randomized Block Design (RBD)",
+      "Between Blocks",
+      "Advantages:",
       "Disadvantages:",
-      "Between Blocks"
+      "one",
+      "Total"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-rbd"
   },
@@ -2561,14 +2739,14 @@
     ],
     "keywords": [
       "Residual Error",
-      "Advantages:",
-      "Latin Square Design (LSD)",
-      "two",
-      "Treatments",
-      "Total",
+      "Rows (Nuisance Factor 1)",
       "Columns (Nuisance Factor 2)",
+      "Advantages:",
+      "two",
+      "Total",
       "Disadvantages:",
-      "Rows (Nuisance Factor 1)"
+      "Treatments",
+      "Latin Square Design (LSD)"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-lsd"
   },
@@ -2582,10 +2760,10 @@
       "7.1 Main Effects vs. Interaction Effects"
     ],
     "keywords": [
-      "Factorial Design",
       "interactions",
+      "Main Effect of Factor $A$:",
       "Interaction Effect ($A \\times B$):",
-      "Main Effect of Factor $A$:"
+      "Factorial Design"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-factorial"
   },
@@ -2607,13 +2785,13 @@
     "title": "9. Solved Problems & ANOVA Layouts",
     "subsections": [],
     "keywords": [
-      "Step 1: Parameter Identification:",
       "Step 3: Compute intermediate values:",
-      "Problem Statement:",
       "Step 2: Substitute into formula:",
+      "Problem Statement:",
+      "Step 1: Parameter Identification:",
       "Step 2: Apply the sample size formula:",
-      "Step 1: Identify given parameters:",
-      "Step 3: Simplify arithmetically:"
+      "Step 3: Simplify arithmetically:",
+      "Step 1: Identify given parameters:"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-numericals"
   },
@@ -2625,10 +2803,10 @@
     "title": "10. Quick Revision Sheet",
     "subsections": [],
     "keywords": [
-      "Factorial ($2^k$)",
+      "CRD",
       "LSD",
-      "RBD",
-      "CRD"
+      "Factorial ($2^k$)",
+      "RBD"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#revision-sheet"
   },
@@ -2644,20 +2822,20 @@
       "Practice Problems with Answers"
     ],
     "keywords": [
-      "Advantages:",
+      "Problem:",
       "Principle of Local Control",
-      "Principle of Replication",
-      "ANOVA Table:",
-      "Example:",
-      "Solution:",
-      "Features of a Good Design:",
-      "Disadvantages:",
-      "Concept:",
-      "Latin Square Design",
+      "Need for Research Design:",
       "Principle of Randomization",
       "Definition:",
-      "Need for Research Design:",
-      "Problem:"
+      "Concept:",
+      "Advantages:",
+      "Disadvantages:",
+      "Features of a Good Design:",
+      "ANOVA Table:",
+      "Example:",
+      "Principle of Replication",
+      "Solution:",
+      "Latin Square Design"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#exam-questions"
   },
@@ -2669,8 +2847,8 @@
     "title": "12. Prescribed References",
     "subsections": [],
     "keywords": [
-      "David V. Thiel",
-      "C.R. Kothari and Gourav Garg"
+      "C.R. Kothari and Gourav Garg",
+      "David V. Thiel"
     ],
     "path": "notes/rmipr/unit2/unit-2-notes.html#sec-references"
   },
@@ -2684,15 +2862,15 @@
       "1.1 Primary Data Collection Methods"
     ],
     "keywords": [
-      "Non-Response Rate",
-      "Literacy Dependency",
-      "Secondary Data",
-      "Primary Data",
       "Administration",
       "Cost &amp; Coverage",
-      "Interview Method:",
+      "Questionnaires vs. Schedules:",
       "Observation Method:",
-      "Questionnaires vs. Schedules:"
+      "Non-Response Rate",
+      "Primary Data",
+      "Secondary Data",
+      "Interview Method:",
+      "Literacy Dependency"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-data-collection"
   },
@@ -2706,12 +2884,12 @@
       "2.1 Tests of Sound Measurement"
     ],
     "keywords": [
-      "1. Nominal",
-      "3. Interval",
       "4. Ratio",
       "2. Ordinal",
       "Absolute True Zero",
       "Reliability:",
+      "1. Nominal",
+      "3. Interval",
       "Validity:"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-measurement-scales"
@@ -2726,18 +2904,18 @@
       "3.1 Probability Sampling vs. Non-Probability Sampling"
     ],
     "keywords": [
-      "Simple Random Sampling (SRS)",
-      "Probability Sampling",
-      "Purposive / Judgment Sampling",
-      "Cluster Sampling",
-      "Non-Probability Sampling",
       "Snowball Sampling",
       "Quota Sampling",
-      "Stratified Random Sampling",
+      "Non-Probability Sampling",
       "Sample",
+      "Simple Random Sampling (SRS)",
+      "Cluster Sampling",
+      "Purposive / Judgment Sampling",
+      "Convenience Sampling",
       "Sampling Design",
+      "Stratified Random Sampling",
       "Systematic Sampling",
-      "Convenience Sampling"
+      "Probability Sampling"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-sampling-design"
   },
@@ -2754,8 +2932,8 @@
     "keywords": [
       "$H_0$ is Actually True",
       "Statistical Hypothesis",
-      "$H_0$ is Actually False",
-      "Null Hypothesis ($H_0$):"
+      "Null Hypothesis ($H_0$):",
+      "$H_0$ is Actually False"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-hypothesis-concepts"
   },
@@ -2768,8 +2946,8 @@
     "subsections": [],
     "keywords": [
       "Step 1: State the Hypotheses:",
-      "Reject $H_0$",
-      "Fail to reject $H_0$"
+      "Fail to reject $H_0$",
+      "Reject $H_0$"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-testing-procedure"
   },
@@ -2810,8 +2988,8 @@
       "8.2 Analysis of Covariance (ANOCOVA)"
     ],
     "keywords": [
-      "ANOCOVA",
-      "ANOVA"
+      "ANOVA",
+      "ANOCOVA"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-anova-anocova"
   },
@@ -2823,18 +3001,18 @@
     "title": "9. Solved University Exam Numericals",
     "subsections": [],
     "keywords": [
-      "Conclusion:",
-      "Problem Statement:",
-      "Step 1: Formulate Hypotheses:",
-      "Step 4: Critical Value and Decision:",
       "Step 1: State Hypotheses:",
-      "Step 3: Compute $Z_{\\text{cal}}$:",
-      "Step 4: Decision:",
+      "Conclusion:",
       "Step 4: Compute Test Statistic:",
-      "100",
-      "Total",
+      "Step 3: Compute $Z_{\\text{cal}}$:",
+      "Step 4: Critical Value and Decision:",
+      "Problem Statement:",
+      "Finite Population Correction (FPC)",
       "Step 5: Decision &amp; Conclusion:",
-      "Finite Population Correction (FPC)"
+      "Step 4: Decision:",
+      "Step 1: Formulate Hypotheses:",
+      "100",
+      "Total"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-numericals"
   },
@@ -2847,10 +3025,10 @@
     "subsections": [],
     "keywords": [
       "$Z$-Test (Proportion)",
-      "Chi-Square ($\\chi^2$)",
       "ANOVA ($F$-Test)",
-      "$Z$-Test (Mean)",
-      "Student's $t$-Test"
+      "Student's $t$-Test",
+      "Chi-Square ($\\chi^2$)",
+      "$Z$-Test (Mean)"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#revision-sheet"
   },
@@ -2866,19 +3044,19 @@
       "Practice Problems with Answers"
     ],
     "keywords": [
-      "Ratio Scale:",
-      "Interviews:",
-      "Solution:",
-      "Confidence Level ($1 - \\alpha$):",
-      "Questionnaires:",
-      "Nominal Scale:",
-      "Type II Error ($\\beta$):",
+      "Significance Level ($\\alpha$):",
       "Ordinal Scale:",
+      "Problem:",
+      "Type II Error ($\\beta$):",
+      "Confidence Level ($1 - \\alpha$):",
+      "Ratio Scale:",
       "Fail to reject $H_0$",
       "Interval Scale:",
-      "Significance Level ($\\alpha$):",
+      "Solution:",
       "Type I Error ($\\alpha$):",
-      "Problem:"
+      "Interviews:",
+      "Nominal Scale:",
+      "Questionnaires:"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#exam-questions"
   },
@@ -2890,8 +3068,8 @@
     "title": "12. Prescribed References",
     "subsections": [],
     "keywords": [
-      "David V. Thiel",
-      "C.R. Kothari and Gourav Garg"
+      "C.R. Kothari and Gourav Garg",
+      "David V. Thiel"
     ],
     "path": "notes/rmipr/unit3/unit-3-notes.html#sec-references"
   },
@@ -2906,11 +3084,11 @@
       "1.2 Multidisciplinary Scope & Need for Public Awareness"
     ],
     "keywords": [
+      "Environment",
       "1. Atmosphere:",
-      "3. Lithosphere:",
-      "4. Biosphere:",
       "2. Hydrosphere:",
-      "Environment"
+      "3. Lithosphere:",
+      "4. Biosphere:"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-env-scope"
   },
@@ -2924,15 +3102,15 @@
       "2.1 Structural Components of an Ecosystem"
     ],
     "keywords": [
-      "Ecosystem",
       "Abiotic Components",
-      "Producers (Autotrophs)",
-      "Consumers (Heterotrophs)",
-      "Decomposers (Saprotrophs / Reducers)",
-      "Edaphic Factors",
+      "Climatic Factors",
       "Biotic Components",
+      "Ecosystem",
       "Chemical Compounds",
-      "Climatic Factors"
+      "Decomposers (Saprotrophs / Reducers)",
+      "Producers (Autotrophs)",
+      "Edaphic Factors",
+      "Consumers (Heterotrophs)"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-ecosystem-structure"
   },
@@ -2961,12 +3139,12 @@
       "4.1 Grazing vs. Detritus Food Chains"
     ],
     "keywords": [
-      "Typical Sequence",
-      "First Trophic Level ($T_1$)",
       "Food Chain",
+      "Primary Energy Source",
+      "First Trophic Level ($T_1$)",
       "Dominance in Nature",
       "Food Web",
-      "Primary Energy Source"
+      "Typical Sequence"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-food-chains-webs"
   },
@@ -2978,16 +3156,16 @@
     "title": "5. Ecological Pyramids",
     "subsections": [],
     "keywords": [
-      "Pyramid of Biomass",
-      "always upright",
-      "Pyramid of Numbers",
-      "Marine Aquatic Ecosystems:",
-      "Terrestrial Forests &amp; Grasslands:",
-      "NEVER INVERTED.",
       "Grassland / Pond:",
+      "always upright",
+      "NEVER INVERTED.",
+      "UNIVERSALLY UPRIGHT in all ecosystems.",
+      "Terrestrial Forests &amp; Grasslands:",
+      "Marine Aquatic Ecosystems:",
       "Parasitic Tree Ecosystem:",
+      "Pyramid of Numbers",
       "Pyramid of Energy",
-      "UNIVERSALLY UPRIGHT in all ecosystems."
+      "Pyramid of Biomass"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-ecological-pyramids"
   },
@@ -2999,12 +3177,12 @@
     "title": "6. Major Ecosystem Types",
     "subsections": [],
     "keywords": [
-      "Desert Ecosystems:",
-      "Aquatic Ecosystems:",
-      "Lotic",
       "Grassland Ecosystems:",
       "Forest Ecosystems:",
-      "Lentic"
+      "Desert Ecosystems:",
+      "Lotic",
+      "Lentic",
+      "Aquatic Ecosystems:"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-major-ecosystems"
   },
@@ -3020,19 +3198,19 @@
       "7.3 Hydrosere vs. Xerosere"
     ],
     "keywords": [
-      "Primary Succession:",
-      "3. Ecesis (Establishment):",
-      "Ecological Succession",
-      "6. Reaction:",
       "Xerosere (Xerarch Succession):",
-      "5. Competition:",
-      "climax community",
-      "Hydrosere (Hydrarch Succession):",
+      "6. Reaction:",
       "1. Nudation:",
-      "Secondary Succession:",
-      "4. Aggregation:",
+      "3. Ecesis (Establishment):",
       "2. Invasion (Migration):",
-      "7. Stabilization (Climax):"
+      "4. Aggregation:",
+      "Ecological Succession",
+      "Primary Succession:",
+      "Hydrosere (Hydrarch Succession):",
+      "5. Competition:",
+      "Secondary Succession:",
+      "7. Stabilization (Climax):",
+      "climax community"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-succession"
   },
@@ -3046,11 +3224,11 @@
       "8.1 The Nitrogen Cycle: Key Biological Stages"
     ],
     "keywords": [
-      "4. Ammonification:",
-      "1. Nitrogen Fixation:",
-      "2. Nitrification:",
       "5. Denitrification:",
-      "3. Assimilation:"
+      "2. Nitrification:",
+      "1. Nitrogen Fixation:",
+      "3. Assimilation:",
+      "4. Ammonification:"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-biogeochemical"
   },
@@ -3062,11 +3240,11 @@
     "title": "9. Solved Environmental Numericals",
     "subsections": [],
     "keywords": [
-      "Problem Statement:",
       "Insight:",
       "Calculation:",
       "Formula:",
-      "Step 1: Producer level ($T_1$):"
+      "Step 1: Producer level ($T_1$):",
+      "Problem Statement:"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-numericals"
   },
@@ -3079,11 +3257,11 @@
     "subsections": [],
     "keywords": [
       "Succession Stages",
-      "Lindeman's 10% Law",
-      "Food Chains",
       "Ecological Pyramids",
-      "Four Domains",
-      "Nitrogen Cycle"
+      "Food Chains",
+      "Nitrogen Cycle",
+      "Lindeman's 10% Law",
+      "Four Domains"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#revision-sheet"
   },
@@ -3098,17 +3276,17 @@
       "5-Mark Subjective Questions (From CIE 1 2024 Paper)"
     ],
     "keywords": [
-      "Hydrosphere:",
-      "Lithosphere:",
       "Biosphere:",
-      "Answer: (a) Natural ecosystem.",
       "Answer: (b) Food chain.",
-      "Material (Nutrient) Cycling:",
-      "Elements / Domains:",
-      "Atmosphere:",
-      "Answer: (b) Nitrates.",
+      "Definition:",
+      "Hydrosphere:",
       "Energy Flow:",
-      "Definition:"
+      "Answer: (b) Nitrates.",
+      "Lithosphere:",
+      "Atmosphere:",
+      "Answer: (a) Natural ecosystem.",
+      "Elements / Domains:",
+      "Material (Nutrient) Cycling:"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#exam-questions"
   },
@@ -3120,9 +3298,9 @@
     "title": "12. Prescribed References",
     "subsections": [],
     "keywords": [
-      "Benny Joseph",
       "R. Rajagopalan",
-      "Erach Bharucha"
+      "Erach Bharucha",
+      "Benny Joseph"
     ],
     "path": "notes/evs/unit1/unit-1-notes.html#sec-references"
   },
@@ -3134,8 +3312,8 @@
     "title": "1. Natural Resources & Sustainability",
     "subsections": [],
     "keywords": [
-      "Non-Renewable Resources (Exhaustible)",
-      "Natural Resource"
+      "Natural Resource",
+      "Non-Renewable Resources (Exhaustible)"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-resource-foundations"
   },
@@ -3150,9 +3328,9 @@
       "2.2 Dams & Forest Conservation Movements"
     ],
     "keywords": [
+      "Consequences:",
       "Principal Causes:",
-      "Dams &amp; Tribal Displacement:",
-      "Consequences:"
+      "Dams &amp; Tribal Displacement:"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-forest-resources"
   },
@@ -3167,10 +3345,10 @@
       "3.2 Rainwater Harvesting (RWH)"
     ],
     "keywords": [
-      "Cauvery River Dispute",
-      "Inter-State River Conflicts:",
       "Over-pumping:",
+      "Inter-State River Conflicts:",
       "Krishna Water Dispute",
+      "Cauvery River Dispute",
       "Land Subsidence &amp; Contamination:"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-water-resources"
@@ -3201,12 +3379,12 @@
     "title": "5. Food Resources & Modern Agriculture",
     "subsections": [],
     "keywords": [
-      "Salinization",
       "Biomagnification",
-      "Blue Baby Syndrome",
-      "Eutrophication",
       "Intensive Canal Flood Irrigation",
-      "Waterlogging"
+      "Eutrophication",
+      "Waterlogging",
+      "Blue Baby Syndrome",
+      "Salinization"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-food-resources"
   },
@@ -3221,13 +3399,13 @@
       "6.2 Soil Conservation Measures"
     ],
     "keywords": [
-      "Gully Erosion:",
-      "Mulching &amp; Cover Cropping:",
-      "B. Water Erosion:",
-      "Rill Erosion:",
       "Sheet Erosion:",
-      "Afforestation &amp; Shelterbelts:",
-      "Contour Bunding &amp; Terracing:"
+      "Mulching &amp; Cover Cropping:",
+      "Gully Erosion:",
+      "Rill Erosion:",
+      "B. Water Erosion:",
+      "Contour Bunding &amp; Terracing:",
+      "Afforestation &amp; Shelterbelts:"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-land-resources"
   },
@@ -3242,15 +3420,15 @@
       "7.2 Renewable Energy Alternatives"
     ],
     "keywords": [
-      "Hydroelectric &amp; Geothermal:",
-      "Wind Energy:",
-      "Solar Energy:",
       "Acid Rain",
-      "Biomass &amp; Biogas:",
-      "Petroleum / Transportation:",
-      "Nuclear Power:",
       "Coal Combustion:",
-      "Biogas"
+      "Petroleum / Transportation:",
+      "Biogas",
+      "Solar Energy:",
+      "Nuclear Power:",
+      "Biomass &amp; Biogas:",
+      "Wind Energy:",
+      "Hydroelectric &amp; Geothermal:"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-energy-resources"
   },
@@ -3262,10 +3440,10 @@
     "title": "8. Solved Environmental Calculations",
     "subsections": [],
     "keywords": [
-      "Problem Statement:",
-      "Impact:",
+      "Step 1: Annual Electricity Generation:",
       "Step 2: Annual Carbon Dioxide Offset:",
-      "Step 1: Annual Electricity Generation:"
+      "Problem Statement:",
+      "Impact:"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-numericals"
   },
@@ -3277,11 +3455,11 @@
     "title": "9. Quick Revision Sheet",
     "subsections": [],
     "keywords": [
-      "Forests",
+      "Food &amp; Soil",
       "Water",
-      "Energy",
+      "Forests",
       "Minerals",
-      "Food &amp; Soil"
+      "Energy"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#revision-sheet"
   },
@@ -3296,16 +3474,16 @@
       "5-Mark Questions (From CIE 1 2024 Paper)"
     ],
     "keywords": [
-      "Thermal &amp; Land Degradation:",
-      "Answer: (a) Wind.",
       "Global Warming &amp; Climate Change:",
-      "Acid Rain:",
-      "Inter-State Disputes:",
-      "Water Table Depletion:",
-      "Waterlogging &amp; Salinization:",
+      "Urban Smog &amp; Air Pollution:",
       "Answer: (c) Organic farming.",
+      "Waterlogging &amp; Salinization:",
+      "Thermal &amp; Land Degradation:",
+      "Acid Rain:",
+      "Answer: (a) Wind.",
+      "Inter-State Disputes:",
       "Answer: (a) Afforestation.",
-      "Urban Smog &amp; Air Pollution:"
+      "Water Table Depletion:"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#exam-questions"
   },
@@ -3317,9 +3495,9 @@
     "title": "11. Prescribed References",
     "subsections": [],
     "keywords": [
-      "Benny Joseph",
       "R. Rajagopalan",
-      "Erach Bharucha"
+      "Erach Bharucha",
+      "Benny Joseph"
     ],
     "path": "notes/evs/unit2/unit-2-notes.html#sec-references"
   },
@@ -3333,13 +3511,13 @@
       "1.1 The Three Hierarchical Levels of Biodiversity"
     ],
     "keywords": [
-      "Biological Diversity (Biodiversity)",
-      "Beta ($\\beta$) Diversity:",
+      "Alpha ($\\alpha$) Diversity:",
+      "3. Ecosystem / Community Diversity:",
+      "Gamma ($\\gamma$) Diversity:",
       "2. Species Diversity:",
       "1. Genetic Diversity:",
-      "3. Ecosystem / Community Diversity:",
-      "Alpha ($\\alpha$) Diversity:",
-      "Gamma ($\\gamma$) Diversity:"
+      "Biological Diversity (Biodiversity)",
+      "Beta ($\\beta$) Diversity:"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-levels-biodiversity"
   },
@@ -3351,16 +3529,16 @@
     "title": "2. Biogeographical Classification of India",
     "subsections": [],
     "keywords": [
-      "4. Semi-Arid",
-      "1. Trans-Himalaya",
-      "8. Coasts",
-      "6. Deccan Peninsula",
       "9. North-East",
-      "3. Desert",
-      "7. Gangetic Plain",
-      "10. Islands",
-      "10 Biogeographic Zones",
+      "4. Semi-Arid",
       "2. Himalaya",
+      "10 Biogeographic Zones",
+      "6. Deccan Peninsula",
+      "1. Trans-Himalaya",
+      "7. Gangetic Plain",
+      "8. Coasts",
+      "3. Desert",
+      "10. Islands",
       "5. Western Ghats"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-biogeographic-zones"
@@ -3373,14 +3551,14 @@
     "title": "3. Values of Biodiversity",
     "subsections": [],
     "keywords": [
+      "Vincristine",
+      "2. Productive Use Value:",
       "4. Aesthetic &amp; Ecotourism Value:",
       "Quinine",
-      "2. Productive Use Value:",
-      "Taxol",
+      "1. Consumptive Use Value:",
       "5. Ecosystem Service Value:",
-      "Vincristine",
-      "3. Social &amp; Ethical Value:",
-      "1. Consumptive Use Value:"
+      "Taxol",
+      "3. Social &amp; Ethical Value:"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-values-biodiversity"
   },
@@ -3392,12 +3570,12 @@
     "title": "4. India as a Mega-Diversity Nation",
     "subsections": [],
     "keywords": [
-      "Agrobiodiversity:",
-      "Floral Wealth:",
-      "$7 - 8\\%$",
-      "Faunal Wealth:",
       "17 Mega-Diversity Nations",
-      "$2.4\\%$"
+      "$2.4\\%$",
+      "Floral Wealth:",
+      "Faunal Wealth:",
+      "Agrobiodiversity:",
+      "$7 - 8\\%$"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-megadiversity"
   },
@@ -3412,13 +3590,13 @@
       "5.2 The 4 Biodiversity Hotspots Covering India"
     ],
     "keywords": [
-      "2. High Degree of Threat:",
       "1. Western Ghats &amp; Sri Lanka:",
-      "Biodiversity Hotspot",
       "3. Indo-Burma:",
+      "Biodiversity Hotspot",
       "4. Sundaland:",
+      "2. Eastern Himalayas:",
       "1. Exceptional Endemism:",
-      "2. Eastern Himalayas:"
+      "2. High Degree of Threat:"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-hotspots"
   },
@@ -3446,11 +3624,11 @@
       "7.2 Flagship Endemic Species of India"
     ],
     "keywords": [
-      "Vulnerable (VU):",
-      "Extinct (EX):",
-      "Sangai (Brow-Antlered Deer):",
       "Endangered (EN):",
-      "Critically Endangered (CR):"
+      "Sangai (Brow-Antlered Deer):",
+      "Critically Endangered (CR):",
+      "Vulnerable (VU):",
+      "Extinct (EX):"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-endangered-endemic"
   },
@@ -3462,15 +3640,15 @@
     "title": "8. In-Situ vs. Ex-Situ Conservation Strategies",
     "subsections": [],
     "keywords": [
-      "Wildlife Sanctuaries (IUCN Cat IV):",
-      "Cryopreservation:",
-      "$-196^\\circ\\text{C}$",
-      "Biosphere Reserves (UNESCO MAB):",
-      "Seed Banks &amp; Gene Banks:",
       "Sacred Groves:",
-      "In-Vitro Tissue Culture:",
+      "Flagship Projects:",
       "National Parks (IUCN Cat II):",
-      "Flagship Projects:"
+      "Biosphere Reserves (UNESCO MAB):",
+      "In-Vitro Tissue Culture:",
+      "Wildlife Sanctuaries (IUCN Cat IV):",
+      "Seed Banks &amp; Gene Banks:",
+      "Cryopreservation:",
+      "$-196^\\circ\\text{C}$"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-conservation-strategies"
   },
@@ -3482,15 +3660,15 @@
     "title": "9. Solved Diversity Index Calculations",
     "subsections": [],
     "keywords": [
-      "Problem Statement:",
-      "-1.4541",
-      "100",
-      "Step 3: Compute Simpson's Index ($D$):",
-      "Step 2: Calculate $H'$:",
-      "Ecological Interpretation:",
+      "1.00",
       "Formula:",
+      "Ecological Interpretation:",
+      "-1.4541",
+      "Step 2: Calculate $H'$:",
       "Sum",
-      "1.00"
+      "100",
+      "Problem Statement:",
+      "Step 3: Compute Simpson's Index ($D$):"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-numericals"
   },
@@ -3502,12 +3680,12 @@
     "title": "10. Quick Revision Sheet",
     "subsections": [],
     "keywords": [
-      "The Evil Quartet",
-      "Biodiversity Hotspots",
-      "Levels of Biodiversity",
-      "Shannon-Wiener Index",
+      "Simpson's Diversity",
       "In-Situ vs Ex-Situ",
-      "Simpson's Diversity"
+      "The Evil Quartet",
+      "Shannon-Wiener Index",
+      "Biodiversity Hotspots",
+      "Levels of Biodiversity"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#revision-sheet"
   },
@@ -3522,12 +3700,12 @@
       "5-Mark & 10-Mark Model Questions"
     ],
     "keywords": [
-      "Over-Exploitation:",
       "Habitat Destruction and Fragmentation:",
-      "In-Situ Conservation (On-Site):",
-      "Ex-Situ Conservation (Off-Site):",
+      "Alien Invasive Species:",
       "Co-Extinctions:",
-      "Alien Invasive Species:"
+      "Ex-Situ Conservation (Off-Site):",
+      "In-Situ Conservation (On-Site):",
+      "Over-Exploitation:"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#exam-questions"
   },
@@ -3539,9 +3717,9 @@
     "title": "12. Prescribed References",
     "subsections": [],
     "keywords": [
-      "Benny Joseph",
       "R. Rajagopalan",
-      "Erach Bharucha"
+      "Erach Bharucha",
+      "Benny Joseph"
     ],
     "path": "notes/evs/unit3/unit-3-notes.html#sec-references"
   },
@@ -3557,9 +3735,9 @@
     "keywords": [
       "3. One-Way (Unidirectional) Data Flow:",
       "2. Component-Based Architecture:",
+      "props",
       "components",
-      "React",
-      "props"
+      "React"
     ],
     "path": "notes/reactjs/unit1/unit-1-notes.html#sec-react-philosophy"
   },
@@ -3575,12 +3753,12 @@
       "2.3 The Reconciliation Algorithm & Fiber Architecture"
     ],
     "keywords": [
-      "Repaint:",
-      "Different Element Types:",
-      "Reflow (Layout calculation):",
       "$O(n)$",
+      "Keys for List Elements:",
+      "Reflow (Layout calculation):",
       "Virtual DOM (VDOM)",
-      "Keys for List Elements:"
+      "Repaint:",
+      "Different Element Types:"
     ],
     "path": "notes/reactjs/unit1/unit-1-notes.html#sec-virtual-dom"
   },
@@ -3592,16 +3770,16 @@
     "title": "3. React vs. Other Front-End Frameworks (Angular & Vue)",
     "subsections": [],
     "keywords": [
+      "DOM Mechanism",
+      "Learning Curve",
       "Two-way",
+      "Classification",
+      "Progressive Framework",
       "JSX",
       "Full-fledged Framework",
-      "Classification",
       "UI Library",
       "One-way",
-      "Learning Curve",
       "Data Binding",
-      "Progressive Framework",
-      "DOM Mechanism",
       "Language &amp; Templates"
     ],
     "path": "notes/reactjs/unit1/unit-1-notes.html#sec-framework-comparison"
@@ -3647,9 +3825,9 @@
     ],
     "keywords": [
       "React Fragment",
+      "1. Return a Single Root Element:",
       "3. camelCase Most HTML Attributes:",
       "2. Close All Tags:",
-      "1. Return a Single Root Element:",
       "JSX (JavaScript XML)"
     ],
     "path": "notes/reactjs/unit1/unit-1-notes.html#sec-jsx-fundamentals"
@@ -3663,8 +3841,8 @@
     "subsections": [],
     "keywords": [
       "statements",
-      "expressions",
-      "expression"
+      "expression",
+      "expressions"
     ],
     "path": "notes/reactjs/unit1/unit-1-notes.html#sec-jsx-expressions"
   },
@@ -3714,11 +3892,11 @@
     "subsections": [],
     "keywords": [
       "List Keys",
-      "JSX Syntax Rules",
       "React Definition",
+      "JSX Syntax Rules",
+      "Vite Advantages",
       "Embedding Expressions",
-      "Virtual DOM",
-      "Vite Advantages"
+      "Virtual DOM"
     ],
     "path": "notes/reactjs/unit1/unit-1-notes.html#revision-sheet"
   },
@@ -3733,12 +3911,12 @@
       "5-Mark & 10-Mark Model Questions"
     ],
     "keywords": [
-      "Different Element Types:",
+      "Data Flow:",
       "Classification:",
       "Template Language:",
-      "Data Flow:",
-      "Keys for List Identification:",
-      "DOM Implementation:"
+      "DOM Implementation:",
+      "Different Element Types:",
+      "Keys for List Identification:"
     ],
     "path": "notes/reactjs/unit1/unit-1-notes.html#exam-questions"
   },
@@ -3766,13 +3944,13 @@
       "1.2 Class Components (Overview & Legacy Codebases)"
     ],
     "keywords": [
-      "React Component",
-      "Code Conciseness",
-      "this Keyword Binding",
-      "None",
       "Syntax",
+      "None",
+      "Code Conciseness",
       "State Management",
-      "Props Access"
+      "React Component",
+      "Props Access",
+      "this Keyword Binding"
     ],
     "path": "notes/reactjs/unit2/unit-2-notes.html#sec-components-intro"
   },
@@ -3799,13 +3977,13 @@
     "title": "3. Props vs. State (Comparative Analysis)",
     "subsections": [],
     "keywords": [
-      "Immutable (Read-Only)",
-      "Mutable",
-      "Re-render Trigger",
-      "Purpose",
-      "Mutability",
       "Analogy",
-      "Origin &amp; Ownership"
+      "Origin &amp; Ownership",
+      "Mutable",
+      "Purpose",
+      "Re-render Trigger",
+      "Immutable (Read-Only)",
+      "Mutability"
     ],
     "path": "notes/reactjs/unit2/unit-2-notes.html#sec-props-vs-state"
   },
@@ -3864,11 +4042,11 @@
       "7.2 Updating Arrays Immutably"
     ],
     "keywords": [
-      "strictly read-only",
       "Update Item",
-      "Sort / Reverse",
       "Remove Item",
-      "Add Item"
+      "strictly read-only",
+      "Add Item",
+      "Sort / Reverse"
     ],
     "path": "notes/reactjs/unit2/unit-2-notes.html#sec-state-immutability"
   },
@@ -3894,10 +4072,10 @@
     "keywords": [
       "Props",
       "Fragments",
-      "State",
-      "props.children",
+      "Object State Update",
       "Functional Component",
-      "Object State Update"
+      "props.children",
+      "State"
     ],
     "path": "notes/reactjs/unit2/unit-2-notes.html#revision-sheet"
   },
@@ -3914,8 +4092,8 @@
     "keywords": [
       "Props",
       "Objects:",
-      "State",
-      "Arrays:"
+      "Arrays:",
+      "State"
     ],
     "path": "notes/reactjs/unit2/unit-2-notes.html#exam-questions"
   },
@@ -3969,14 +4147,14 @@
     "title": "3. Controlled vs. Uncontrolled Components",
     "subsections": [],
     "keywords": [
-      "Single Source of Truth",
-      "Default Values",
-      "Instant Validation",
-      "React State",
       "Data Flow",
+      "React State",
       "The Browser DOM",
+      "Instant Validation",
+      "Best Use Case",
       "Source of Truth",
-      "Best Use Case"
+      "Default Values",
+      "Single Source of Truth"
     ],
     "path": "notes/reactjs/unit3/unit-3-notes.html#sec-controlled-vs-uncontrolled"
   },
@@ -3990,10 +4168,10 @@
       "4.1 The Standardized React Form Elements"
     ],
     "keywords": [
-      "Textarea:",
       "Text Input:",
-      "Select Dropdown:",
-      "Checkbox:"
+      "Textarea:",
+      "Checkbox:",
+      "Select Dropdown:"
     ],
     "path": "notes/reactjs/unit3/unit-3-notes.html#sec-form-elements"
   },
@@ -4006,8 +4184,8 @@
     "subsections": [],
     "keywords": [
       "single state object",
-      "single generic handler",
-      "Computed Property Names"
+      "Computed Property Names",
+      "single generic handler"
     ],
     "path": "notes/reactjs/unit3/unit-3-notes.html#sec-multi-field-forms"
   },
@@ -4044,12 +4222,12 @@
     "title": "8. Quick Revision Sheet",
     "subsections": [],
     "keywords": [
+      "Controlled Component",
+      "Lifting State Up",
       "Handler Passing",
       "SyntheticEvent",
-      "Multi-Field Handler",
-      "Controlled Component",
       "Uncontrolled Component",
-      "Lifting State Up"
+      "Multi-Field Handler"
     ],
     "path": "notes/reactjs/unit3/unit-3-notes.html#revision-sheet"
   },
@@ -4064,10 +4242,10 @@
       "5-Mark & 10-Mark Model Questions"
     ],
     "keywords": [
-      "controlled component",
+      "uncontrolled component",
       "Concept:",
-      "Mechanics:",
-      "uncontrolled component"
+      "controlled component",
+      "Mechanics:"
     ],
     "path": "notes/reactjs/unit3/unit-3-notes.html#exam-questions"
   },
