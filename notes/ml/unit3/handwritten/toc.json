@@ -1,0 +1,72 @@
+[
+  {
+    "id": "sec-knn",
+    "title": "Nearest-Neighbor Learning (KKK-NN)",
+    "page": 2
+  },
+  {
+    "id": "sec-weighted-knn",
+    "title": "Weighted KKK-Nearest-Neighbor Algorithm",
+    "page": 3
+  },
+  {
+    "id": "sec-nearest-centroid",
+    "title": "Nearest Centroid Classifier (Rocchio)",
+    "page": 7
+  },
+  {
+    "id": "sec-lwr",
+    "title": "Locally Weighted Regression (LWR)",
+    "page": 7
+  },
+  {
+    "id": "sec-intro-regression",
+    "title": "Introduction to Regression Analysis",
+    "page": 8
+  },
+  {
+    "id": "sec-linear-regression",
+    "title": "Linear Regression: Ordinary Least Squares (OLS)",
+    "page": 9
+  },
+  {
+    "id": "sec-polynomial-regression",
+    "title": "Polynomial Regression & Bias-Variance Tradeoff",
+    "page": 12
+  },
+  {
+    "id": "sec-logistic-regression",
+    "title": "Logistic Regression",
+    "page": 13
+  },
+  {
+    "id": "sec-dt-model",
+    "title": "Decision Tree Learning Model",
+    "page": 15
+  },
+  {
+    "id": "sec-dt-algorithms",
+    "title": "Decision Tree Induction Algorithms: ID3, C4.5 & CART",
+    "page": 16
+  },
+  {
+    "id": "sec-revision-sheet",
+    "title": "Unit 3 Quick Revision Sheet",
+    "page": 21
+  },
+  {
+    "id": "sec-important-questions",
+    "title": "Important Exam Questions",
+    "page": 22
+  },
+  {
+    "id": "sec-questions-asked-before",
+    "title": "Solved Questions from Past Department Examinations",
+    "page": 25
+  },
+  {
+    "id": "sec-practice-problems",
+    "title": "Practice Problems (Step-by-Step Verified Solutions)",
+    "page": 31
+  }
+]

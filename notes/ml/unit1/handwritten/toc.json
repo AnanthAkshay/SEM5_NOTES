@@ -1,0 +1,82 @@
+[
+  {
+    "id": "sec-need-for-ml",
+    "title": "Need for Machine Learning",
+    "page": 2
+  },
+  {
+    "id": "sec-ml-explained",
+    "title": "Machine Learning Explained: Formal Definition",
+    "page": 3
+  },
+  {
+    "id": "sec-ml-relations",
+    "title": "Machine Learning in Relation to Other Fields",
+    "page": 4
+  },
+  {
+    "id": "sec-ml-types",
+    "title": "Types of Machine Learning Paradigms",
+    "page": 5
+  },
+  {
+    "id": "sec-ml-challenges",
+    "title": "Challenges of Machine Learning",
+    "page": 7
+  },
+  {
+    "id": "sec-ml-process",
+    "title": "The Machine Learning Process Lifecycle",
+    "page": 8
+  },
+  {
+    "id": "sec-ml-applications",
+    "title": "Real-World Applications of Machine Learning",
+    "page": 10
+  },
+  {
+    "id": "sec-big-data-framework",
+    "title": "Understanding Data: Big Data Analysis Framework",
+    "page": 11
+  },
+  {
+    "id": "sec-descriptive-stats",
+    "title": "Descriptive Statistics",
+    "page": 12
+  },
+  {
+    "id": "sec-univariate-analysis",
+    "title": "Univariate Data Analysis and Visualization",
+    "page": 17
+  },
+  {
+    "id": "sec-bivariate-multivariate",
+    "title": "Bivariate & Multivariate Data Analysis",
+    "page": 18
+  },
+  {
+    "id": "sec-multivariate-stats",
+    "title": "Multivariate Statistics & Feature Scaling",
+    "page": 19
+  },
+  {
+    "id": "sec-revision-sheet",
+    "title": "Unit 1 Quick Revision Sheet",
+    "page": 27
+  },
+  {
+    "id": "sec-important-questions",
+    "title": "Important Exam Questions",
+    "page": 27
+  },
+  {
+    "id": "sec-questions-asked-before",
+    "title": "Solved Questions from Past Department Examinations",
+    "page": 31
+  },
+  {
+    "id": "sec-practice-problems",
+    "title": "Practice Problems (Step-by-Step Verified Solutions)",
+    "page": 38
+  }
+]

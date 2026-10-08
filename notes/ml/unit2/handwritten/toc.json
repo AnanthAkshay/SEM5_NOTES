@@ -1,0 +1,72 @@
+[
+  {
+    "id": "sec-multivariate-math",
+    "title": "Mathematics for Multivariate Data",
+    "page": 2
+  },
+  {
+    "id": "sec-feature-engineering",
+    "title": "Feature Engineering & Feature Selection",
+    "page": 2
+  },
+  {
+    "id": "sec-dim-reduction",
+    "title": "Dimensionality Reduction Techniques: Principal Component Analysis (PCA)",
+    "page": 4
+  },
+  {
+    "id": "sec-design-learning-sys",
+    "title": "Design of a Learning System",
+    "page": 8
+  },
+  {
+    "id": "sec-concept-learning",
+    "title": "Introduction to Concept Learning",
+    "page": 11
+  },
+  {
+    "id": "sec-find-s",
+    "title": "The Find-S Algorithm",
+    "page": 12
+  },
+  {
+    "id": "sec-candidate-elimination",
+    "title": "Candidate Elimination Algorithm & Version Spaces",
+    "page": 14
+  },
+  {
+    "id": "sec-inductive-bias",
+    "title": "Inductive Bias & The Unbiased Learner Fallacy",
+    "page": 18
+  },
+  {
+    "id": "sec-modelling-ml",
+    "title": "Modelling in Machine Learning",
+    "page": 19
+  },
+  {
+    "id": "sec-learning-frameworks",
+    "title": "Learning Frameworks: PAC Learning & VC Dimension",
+    "page": 20
+  },
+  {
+    "id": "sec-revision-sheet",
+    "title": "Unit 2 Quick Revision Sheet",
+    "page": 22
+  },
+  {
+    "id": "sec-important-questions",
+    "title": "Important Exam Questions",
+    "page": 23
+  },
+  {
+    "id": "sec-questions-asked-before",
+    "title": "Solved Questions from Past Department Examinations",
+    "page": 26
+  },
+  {
+    "id": "sec-practice-problems",
+    "title": "Practice Problems (Step-by-Step Verified Solutions)",
+    "page": 33
+  }
+]
