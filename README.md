@@ -23,6 +23,10 @@
 - [How to Add or Edit Content](#-how-to-add-or-edit-content)
   - [1. Adding a New Unit Note](#1-adding-a-new-unit-note)
   - [2. Adding Practice Papers or Question Banks](#2-adding-practice-papers-or-question-banks)
+- [Interactive Notes Template & Tooling](#-interactive-notes-template--tooling)
+  - [Canonical Template Structure](#canonical-template-structure)
+  - [Re-Applying Template Shell (`scripts/apply_notes_template.py`)](#re-applying-template-shell-scriptsapply_notes_templatepy)
+  - [Automated Style & Content Regression Testing (`scripts/check_notes_style.js`)](#automated-style--content-regression-testing-scriptscheck_notes_stylejs)
 - [Local Development](#-local-development)
 - [GitHub Pages Deployment](#-github-pages-deployment)
 - [Browser Compatibility & Accessibility](#-browser-compatibility--accessibility)
@@ -294,6 +298,57 @@ Add a unit with `isPractice: true`:
    python audit/generate_notes_index.py
    python -c "with open('data/notes-index.json','r',encoding='utf-8') as f: r=f.read(); open('data/notes-index.js','w',encoding='utf-8').write('window.SEM5_NOTES_INDEX = ' + r + ';\n')"
    ```
+
+---
+
+## 📐 Interactive Notes Template & Tooling
+
+All 24 interactive HTML study notes (`notes/<subject>/unit<N>/unit-<N>-notes.html`) share an identical, robust, self-sufficient "Hope Rise" presentation layer designed for maximum legibility, zero layout shift, and instant loading.
+
+### Canonical Template Structure
+
+- **Self-Sufficient Design System (`css/notes.css`)**:
+  - Independent CSS reset and Hope Rise tokens (`--bg`, `--surface`, `--border`, `--ink`, `--green`).
+  - Strict AA contrast across both light (cream `#F6E9CF`) and dark (warm near-black `#16140F`) themes.
+  - Sticky two-column layout on desktop (centered `1200px` container, `260px` sticky independent TOC sidebar, max `760px` reading column).
+  - Responsive collapse: below `1024px`, the desktop sidebar transitions to a mobile floating/sticky "On this page" pill button with an accessible modal drawer sheet (Esc dismissal, focus trap, no wide-screen leaks).
+  - Defensive scroll safety: all tables, pre blocks, and KaTeX math formulas are contained in horizontally scrollable surfaces without viewport blowouts at viewports down to 320px.
+- **Shared Interactive Engine (`js/notes.js`)**:
+  - Zero-dependency client script handling theme sync before paint, reading progress bar, scrollspy table-of-contents tracking, study progress persistence (`sem5_progress_v1`), code copy buttons, KaTeX auto-rendering, and print view expansion.
+
+### Re-Applying Template Shell (`scripts/apply_notes_template.py`)
+
+To ensure absolute consistency across all current and future note pages, the wrapper shell (HTML head, top bar, TOC sidebar, breadcrumbs, and footer) can be regenerated while preserving the article body content byte-for-byte:
+
+```bash
+python scripts/apply_notes_template.py
+```
+
+This script:
+1. Parses each note page and extracts all `<section>` elements verbatim.
+2. Validates section counts and SHA-256 hashes against recorded baselines.
+3. Wraps the exact, untampered content inside the canonical Hope Rise template with verified relative paths.
+
+### Automated Style & Content Regression Testing (`scripts/check_notes_style.js`)
+
+An automated Playwright test suite verifies visual and functional fidelity across all 24 pages:
+
+```bash
+# 1. Start the local server under /SEM5_NOTES/ subpath:
+python audit/serve_subpath.py
+
+# 2. Run the automated Playwright regression suite:
+node scripts/check_notes_style.js
+```
+
+The test runner asserts for every page:
+- **Asset Integrity**: 100% of linked CSS, JS, fonts, and KaTeX assets return HTTP 200 with zero browser console errors.
+- **Computed Styles**: Body font (Inter), centered `1200px` container, un-underlined TOC links, H1 line-height $\le 1.2$, and styled callout boxes.
+- **Responsive Layout**: Zero horizontal overflow at `1280px`, `768px`, `390px`, and `320px` viewports.
+- **TOC Modes**: Sticky sidebar visible at `1280px` (mobile button hidden); drawer button visible and closed by default at `390px`.
+- **Theme Accessibility**: WCAG AA color contrast verified in both light and dark modes.
+- **Content Immutability**: Real-time SHA-256 hash comparison proving note content is 100% unaltered.
+- **Contact Sheet**: Captures light and dark screenshots at `1280px` and `390px` for all 24 pages, compiling `audit/screens/index.html` for instant visual inspection.
 
 ---
 
