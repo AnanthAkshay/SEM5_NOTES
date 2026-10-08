@@ -31,4 +31,9 @@ audit/
 /SE/
 /TOC/
 
+# Local Reference Textbooks (Copyrighted - strictly never published or served)
+textbooks/
+*[Ff]orouzan*.pdf
+*[Tt]extbook*.pdf
+
 node_modules/
