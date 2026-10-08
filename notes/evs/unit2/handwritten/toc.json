@@ -1,0 +1,57 @@
+[
+  {
+    "id": "sec-resource-foundations",
+    "title": "1. Natural Resources & Sustainability",
+    "page": 2
+  },
+  {
+    "id": "sec-forest-resources",
+    "title": "2. Forest Resources & Deforestation",
+    "page": 2
+  },
+  {
+    "id": "sec-water-resources",
+    "title": "3. Water Resources & Rainwater Harvesting",
+    "page": 3
+  },
+  {
+    "id": "sec-mineral-resources",
+    "title": "4. Mineral Resources & Mining Impacts",
+    "page": 4
+  },
+  {
+    "id": "sec-food-resources",
+    "title": "5. Food Resources & Modern Agriculture",
+    "page": 5
+  },
+  {
+    "id": "sec-land-resources",
+    "title": "6. Land Resources & Soil Erosion",
+    "page": 6
+  },
+  {
+    "id": "sec-energy-resources",
+    "title": "7. Energy Resources (Fossil Fuels vs. Renewable Alternatives)",
+    "page": 7
+  },
+  {
+    "id": "sec-numericals",
+    "title": "8. Solved Environmental Calculations",
+    "page": 8
+  },
+  {
+    "id": "revision-sheet",
+    "title": "9. Quick Revision Sheet",
+    "page": 11
+  },
+  {
+    "id": "exam-questions",
+    "title": "10. Authentic Exam Archive & Model Solutions",
+    "page": 12
+  },
+  {
+    "id": "sec-references",
+    "title": "11. Prescribed References",
+    "page": 24
+  }
+]
