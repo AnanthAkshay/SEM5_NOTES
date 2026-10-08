@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sec-data-collection",
+    "title": "1. Methods of Data Collection",
+    "page": 2
+  },
+  {
+    "id": "sec-measurement-scales",
+    "title": "2. Measurement & Scaling Techniques",
+    "page": 3
+  },
+  {
+    "id": "sec-sampling-design",
+    "title": "3. Sampling Fundamentals & Types of Sample Design",
+    "page": 4
+  },
+  {
+    "id": "sec-hypothesis-concepts",
+    "title": "4. Foundations of Hypothesis Testing",
+    "page": 5
+  },
+  {
+    "id": "sec-testing-procedure",
+    "title": "5. The Universal 5-Step Hypothesis Testing Protocol",
+    "page": 7
+  },
+  {
+    "id": "sec-parametric-tests",
+    "title": "6. Parametric Tests (ZZZ-Test & Student's ttt-Test)",
+    "page": 8
+  },
+  {
+    "id": "sec-chi-square",
+    "title": "7. Chi-Square (χ2\\chi^2χ2) Test of Independence",
+    "page": 9
+  },
+  {
+    "id": "sec-anova-anocova",
+    "title": "8. Analysis of Variance (ANOVA) & Covariance (ANOCOVA)",
+    "page": 10
+  },
+  {
+    "id": "sec-numericals",
+    "title": "9. Solved University Exam Numericals",
+    "page": 11
+  },
+  {
+    "id": "revision-sheet",
+    "title": "10. Quick Revision Sheet",
+    "page": 16
+  },
+  {
+    "id": "exam-questions",
+    "title": "Authentic Exam Archive & Model Solutions",
+    "page": 17
+  },
+  {
+    "id": "sec-references",
+    "title": "12. Prescribed References",
+    "page": 24
+  }
+]

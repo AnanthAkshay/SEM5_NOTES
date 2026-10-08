@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sec-need-design",
+    "title": "1. Need & Features of Research Design",
+    "page": 2
+  },
+  {
+    "id": "sec-core-concepts",
+    "title": "2. Variables, Controls & Confounded Relationships",
+    "page": 3
+  },
+  {
+    "id": "sec-principles-experiment",
+    "title": "3. Principles of Experimental Design",
+    "page": 4
+  },
+  {
+    "id": "sec-crd",
+    "title": "4. Completely Randomized Design (CRD)",
+    "page": 5
+  },
+  {
+    "id": "sec-rbd",
+    "title": "5. Randomized Block Design (RBD)",
+    "page": 6
+  },
+  {
+    "id": "sec-lsd",
+    "title": "6. Latin Square Design (LSD)",
+    "page": 7
+  },
+  {
+    "id": "sec-factorial",
+    "title": "7. Factorial Designs (2k2^k2k)",
+    "page": 9
+  },
+  {
+    "id": "sec-sample-size",
+    "title": "8. Sample Size Determination",
+    "page": 10
+  },
+  {
+    "id": "sec-numericals",
+    "title": "9. Solved Problems & ANOVA Layouts",
+    "page": 11
+  },
+  {
+    "id": "revision-sheet",
+    "title": "10. Quick Revision Sheet",
+    "page": 15
+  },
+  {
+    "id": "exam-questions",
+    "title": "Authentic Exam Archive & Model Solutions",
+    "page": 16
+  },
+  {
+    "id": "sec-references",
+    "title": "12. Prescribed References",
+    "page": 24
+  }
+]
