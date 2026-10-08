@@ -135,6 +135,15 @@
           <a href="../unit1/is53-cn-unit1.pptx" class="source-link" target="_blank" rel="noopener">Original PPTX Source</a>
           <a href="../../../index.html#subject/cn" class="source-link">Subject Syllabus</a>
         </div>
+        <div class="verification-box">
+          <div class="verif-header">
+            <span class="verif-badge">ACADEMIC AUDIT &amp; SOURCES</span>
+            <span class="verif-date">Audited: October 2026</span>
+          </div>
+          <p class="verif-text"><strong>Prescribed Textbook:</strong> Behrouz A. Forouzan &amp; Sophia Chung Fegan, <em>Data Communications and Networking</em>, McGraw-Hill (Chapters 1.1–1.5, 2.1–2.5, 3.1–3.6).</p>
+          <p class="verif-text"><strong>Verification Sources:</strong> Behrouz A. Forouzan 4th Edition (2007) local reference text, faculty lecture deck <code>is53-cn-unit1.pdf</code>, RFC 1122 (Internet Host Requirements), and ITU-T V.90/V.92 recommendations. All numerical values and formulas recomputed and verified via automated test suite (<code>audit/verify/cn/verify_cn_u1.py</code>).</p>
+          <p class="verif-note"><em>Note:</em> The local textbook copy is the 4th Edition (2007). While syllabus mentions 5th Edition, core mathematical theorems (Fourier analysis, decibels, Nyquist, Shannon) and OSI/TCP-IP models are identical. Always verify specific schemes with your faculty before exams.</p>
+        </div>
       </header>
 
       <!-- Exact Article Content Sections (preserved byte-for-byte) -->
@@ -239,7 +248,7 @@
         <!-- SVG TOPOLOGY DIAGRAM -->
         <div class="svg-card">
           <div class="svg-title">Comparison of Physical Network Topologies</div>
-          <svg viewBox="0 0 780 260" width="100%" height="auto" role="img" aria-label="Physical Topologies diagram showing Mesh, Star, and Bus">
+          <svg viewBox="0 0 780 260" width="100%" role="img" aria-label="Physical Topologies diagram showing Mesh, Star, and Bus">
             <title>Network Topologies</title>
             <desc>SVG diagram illustrating Mesh with point-to-point links, Star with central hub, and Bus with backbone cable and drop lines</desc>
 
@@ -316,6 +325,100 @@
             </g>
           </svg>
         </div>
+
+        <!-- FIGURE 1.2: HYBRID TOPOLOGY (CIE-1 QUESTION) -->
+        <figure class="diagram-card" id="fig-hybrid-topology">
+          <svg viewBox="0 0 720 280" width="100%" height="280" role="img" aria-label="Hybrid Network Topology: Star Backbone with 3 Bus Networks">
+  <title>Hybrid Topology: Star Backbone with 3 Bus Networks (CIE-1 Question)</title>
+  <rect width="100%" height="100%" fill="var(--surface)" rx="12" />
+
+  <text x="360" y="28" fill="var(--ink)" font-family="var(--font-display)" font-size="14" font-weight="700" text-anchor="middle">Hybrid Topology: Central Star Backbone with Three Bus Branches</text>
+
+  <!-- Central Star Hub / Switch -->
+  <g transform="translate(360, 85)">
+    <circle cx="0" cy="0" r="32" fill="var(--surface-alt)" stroke="var(--green)" stroke-width="2.5" />
+    <text x="0" y="-4" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">Central</text>
+    <text x="0" y="12" fill="var(--green)" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">Switch/Hub</text>
+  </g>
+
+  <!-- Branch 1: Bus Network 1 (Left) -->
+  <g transform="translate(40, 160)">
+    <!-- Backbone line from switch -->
+    <path d="M 290 -75 L 120 0" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4,3" />
+    <!-- Bus backbone -->
+    <line x1="20" y1="20" x2="220" y2="20" stroke="var(--ink)" stroke-width="3" />
+    <!-- Terminators -->
+    <rect x="15" y="14" width="6" height="12" fill="#B91C1C" />
+    <rect x="219" y="14" width="6" height="12" fill="#B91C1C" />
+    <text x="120" y="12" fill="var(--ink-muted)" font-family="var(--font-display)" font-size="10" font-weight="700" text-anchor="middle">Bus 1 (Finance)</text>
+    <!-- Tap lines & PCs -->
+    <line x1="50" y1="20" x2="50" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="35" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="50" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 1</text>
+
+    <line x1="120" y1="20" x2="120" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="105" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="120" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 2</text>
+
+    <line x1="190" y1="20" x2="190" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="175" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="190" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 3</text>
+  </g>
+
+  <!-- Branch 2: Bus Network 2 (Center Bottom) -->
+  <g transform="translate(260, 160)">
+    <!-- Backbone link from central switch -->
+    <line x1="100" y1="-43" x2="100" y2="20" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4,3" />
+    <!-- Bus backbone -->
+    <line x1="10" y1="20" x2="190" y2="20" stroke="var(--ink)" stroke-width="3" />
+    <!-- Terminators -->
+    <rect x="5" y="14" width="6" height="12" fill="#B91C1C" />
+    <rect x="189" y="14" width="6" height="12" fill="#B91C1C" />
+    <text x="100" y="12" fill="var(--ink-muted)" font-family="var(--font-display)" font-size="10" font-weight="700" text-anchor="middle">Bus 2 (Engineering)</text>
+    <!-- Tap lines & PCs -->
+    <line x1="40" y1="20" x2="40" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="25" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="40" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 4</text>
+
+    <line x1="100" y1="20" x2="100" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="85" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="100" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 5</text>
+
+    <line x1="160" y1="20" x2="160" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="145" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="160" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 6</text>
+  </g>
+
+  <!-- Branch 3: Bus Network 3 (Right) -->
+  <g transform="translate(480, 160)">
+    <!-- Backbone line from switch -->
+    <path d="M -90 -75 L 80 0" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4,3" />
+    <!-- Bus backbone -->
+    <line x1="10" y1="20" x2="210" y2="20" stroke="var(--ink)" stroke-width="3" />
+    <!-- Terminators -->
+    <rect x="5" y="14" width="6" height="12" fill="#B91C1C" />
+    <rect x="209" y="14" width="6" height="12" fill="#B91C1C" />
+    <text x="110" y="12" fill="var(--ink-muted)" font-family="var(--font-display)" font-size="10" font-weight="700" text-anchor="middle">Bus 3 (Admin)</text>
+    <!-- Tap lines & PCs -->
+    <line x1="40" y1="20" x2="40" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="25" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="40" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 7</text>
+
+    <line x1="110" y1="20" x2="110" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="95" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="110" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 8</text>
+
+    <line x1="180" y1="20" x2="180" y2="55" stroke="var(--ink)" stroke-width="1.5" />
+    <rect x="165" y="55" width="30" height="22" rx="4" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="180" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PC 9</text>
+  </g>
+
+  <!-- Legend -->
+  <text x="360" y="265" fill="var(--ink-muted)" font-family="var(--font-mono)" font-size="10" text-anchor="middle">Star links (dashed) connect central switch to drop taps; thick solid lines are terminated coaxial/twisted bus backbones.</text>
+</svg>
+          <figcaption class="diagram-title">Figure 1.2: Hybrid Topology — Central Star Backbone with Three Bus Branches</figcaption>
+          <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">As requested in Ramaiah CIE-1 Exam: combines star resilience with bus cabling efficiency for departmental workgroups.</p>
+        </figure>
 
         <div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
@@ -574,32 +677,167 @@
         $$\text{SNR} = \frac{P_{signal}}{P_{noise}}$$
         $$\text{SNR}_{dB} = 10 \log_{10}(\text{SNR})$$
 
-        <!-- SOLVED WORKED NUMERICAL: CASCADED TRANSMISSION -->
+        
+        <!-- FIGURE 1.3: CASCADED DECIBEL TRANSMISSION -->
+        <figure class="diagram-card" id="fig-cascaded-db">
+          <svg viewBox="0 0 720 180" width="100%" height="180" role="img" aria-label="Cascaded Decibel Stages Transmission Diagram">
+  <title>Cascaded Decibel Stages Diagram</title>
+  <rect width="100%" height="100%" fill="var(--surface)" rx="12" />
+  
+  <!-- Stage 1: Input -->
+  <g transform="translate(30, 45)">
+    <circle cx="25" cy="40" r="18" fill="var(--surface-alt)" stroke="var(--ink)" stroke-width="1.8" />
+    <text x="25" y="44" fill="var(--ink)" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">TX</text>
+    <text x="25" y="75" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">P_in</text>
+    <text x="25" y="90" fill="var(--ink-muted)" font-family="var(--font-mono)" font-size="11" text-anchor="middle">10.0 mW</text>
+  </g>
+
+  <!-- Arrow 1 to Cable 1 -->
+  <line x1="85" y1="85" x2="130" y2="85" stroke="var(--ink)" stroke-width="2" />
+  <polygon points="128,81 136,85 128,89" fill="var(--ink)" />
+
+  <!-- Stage 2: Cable Segment 1 (-3 dB) -->
+  <g transform="translate(140, 50)">
+    <rect x="0" y="0" width="120" height="70" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" rx="8" />
+    <text x="60" y="24" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">Cable Segment 1</text>
+    <text x="60" y="44" fill="#B91C1C" font-family="var(--font-mono)" font-size="13" font-weight="700" text-anchor="middle">-3 dB Loss</text>
+    <text x="60" y="60" fill="var(--ink-muted)" font-family="var(--font-mono)" font-size="10" text-anchor="middle">P = 5.0 mW</text>
+  </g>
+
+  <!-- Arrow 2 to Amplifier -->
+  <line x1="265" y1="85" x2="310" y2="85" stroke="var(--ink)" stroke-width="2" />
+  <polygon points="308,81 316,85 308,89" fill="var(--ink)" />
+
+  <!-- Stage 3: Amplifier (+7 dB) -->
+  <g transform="translate(320, 45)">
+    <!-- Amplifier triangle -->
+    <polygon points="10,5 95,40 10,75" fill="rgba(46,195,107,0.15)" stroke="var(--green)" stroke-width="2" />
+    <text x="45" y="38" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">In-Line Amp</text>
+    <text x="45" y="54" fill="var(--green)" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle">+7 dB Gain</text>
+    <text x="105" y="30" fill="var(--ink-muted)" font-family="var(--font-mono)" font-size="10">P = 25.1 mW</text>
+  </g>
+
+  <!-- Arrow 3 to Cable 2 -->
+  <line x1="440" y1="85" x2="480" y2="85" stroke="var(--ink)" stroke-width="2" />
+  <polygon points="478,81 486,85 478,89" fill="var(--ink)" />
+
+  <!-- Stage 4: Cable Segment 2 (-3 dB) -->
+  <g transform="translate(490, 50)">
+    <rect x="0" y="0" width="120" height="70" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" rx="8" />
+    <text x="60" y="24" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">Cable Segment 2</text>
+    <text x="60" y="44" fill="#B91C1C" font-family="var(--font-mono)" font-size="13" font-weight="700" text-anchor="middle">-3 dB Loss</text>
+    <text x="60" y="60" fill="var(--ink-muted)" font-family="var(--font-mono)" font-size="10" text-anchor="middle">Net: +1 dB</text>
+  </g>
+
+  <!-- Arrow 4 to Output -->
+  <line x1="615" y1="85" x2="650" y2="85" stroke="var(--ink)" stroke-width="2" />
+  <polygon points="648,81 656,85 648,89" fill="var(--ink)" />
+
+  <!-- Stage 5: Output -->
+  <g transform="translate(645, 45)">
+    <circle cx="35" cy="40" r="18" fill="rgba(46,195,107,0.2)" stroke="var(--green)" stroke-width="2" />
+    <text x="35" y="44" fill="var(--ink)" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">RX</text>
+    <text x="35" y="75" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">P_out</text>
+    <text x="35" y="90" fill="var(--green)" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">12.589 mW</text>
+  </g>
+
+  <!-- Summary Footnote -->
+  <text x="360" y="160" fill="var(--ink-muted)" font-family="var(--font-mono)" font-size="11" text-anchor="middle">Total Link dB = (-3 dB) + (+7 dB) + (-3 dB) = +1 dB &bull; P_out = 10 mW &times; 10^(1/10) = 12.589 mW</text>
+</svg>
+          <figcaption class="diagram-title">Figure 1.3: Signal Power Evolution across Cascaded Cable &amp; Amplifier Stages</figcaption>
+          <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Net decibels are additive: -3 dB + 7 dB - 3 dB = +1 dB. Input 10 mW yields 12.589 mW output.</p>
+        </figure>
+
+        <!-- SOLVED WORKED NUMERICAL 4.1: HALVED & DOUBLED POWER -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">WORKED NUMERICAL &bull; VERIFIED SCRIPT PASS</span>
-            <span class="problem-points">[5 MARKS &bull; EXAM FAVOURITE]</span>
+            <span class="problem-badge easy">WORKED NUMERICAL 4.1 &bull; EASY / FOUNDATION</span>
+            <span class="problem-points">[3 MARKS]</span>
           </div>
-          <h4 class="problem-title">Signal Power through Cascaded Transmission Stages</h4>
-          <p>A signal with an input power of $P_{in} = 10\text{ mW}$ passes through three cascaded transmission segments:</p>
-          <ul>
-            <li>Segment 1: Transmission cable with an attenuation of $-3\text{ dB}$</li>
-            <li>Segment 2: In-line amplifier with a gain of $+7\text{ dB}$</li>
-            <li>Segment 3: Secondary cable section with an attenuation of $-3\text{ dB}$</li>
-          </ul>
-          <p>Compute: (a) The net decibel rating of the link, and (b) The final output power $P_{out}$.</p>
+          <div class="problem-statement">
+            <h4 class="problem-title">Decibel Rating for Halved and Doubled Signal Power</h4>
+            <p>Compute the decibel ($dB$) rating of a transmission link when:</p>
+            <ol>
+              <li>The signal power drops to exactly half of its initial value ($P_2 / P_1 = 0.5$).</li>
+              <li>The signal power is doubled by an active repeater ($P_2 / P_1 = 2.0$).</li>
+            </ol>
+            <p><strong>Solution:</strong></p>
+            <p><strong>Case 1: Power Halved:</strong></p>
+            $$dB = 10 \log_{10}\left(\frac{P_2}{P_1}\right) = 10 \log_{10}(0.5) = 10 \times (-0.30103) \approx -3.010\text{ dB}$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Result:</span>
+              <span class="final-answer-value">A 3 dB loss (-3.01 dB) represents a 50% drop in signal power</span>
+            </div>
 
-          <p><strong>Solution:</strong></p>
-          <p><strong>Part (a): Net decibel rating:</strong></p>
-          <p>Decibels are additive across cascaded stages:</p>
-          $$dB_{total} = dB_1 + dB_2 + dB_3 = (-3) + (+7) + (-3) = +1\text{ dB}$$
+            <p style="margin-top:1rem;"><strong>Case 2: Power Doubled:</strong></p>
+            $$dB = 10 \log_{10}(2.0) = 10 \times (+0.30103) \approx +3.010\text{ dB}$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Result:</span>
+              <span class="final-answer-value">A 3 dB gain (+3.01 dB) doubles the signal power</span>
+            </div>
+          </div>
+        </div>
 
-          <p><strong>Part (b): Output power $P_{out}$:</strong></p>
-          $$dB_{total} = 10 \log_{10}\left(\frac{P_{out}}{P_{in}}\right) \implies 1 = 10 \log_{10}\left(\frac{P_{out}}{10}\right)$$
-          $$\log_{10}\left(\frac{P_{out}}{10}\right) = \frac{1}{10} = 0.1$$
-          $$\frac{P_{out}}{10} = 10^{0.1} \approx 1.2589$$
-          <div class="result-box">
-            $$P_{out} = 10 \times 1.2589 = \mathbf{12.589\text{ mW}}$$
+        <!-- SOLVED WORKED NUMERICAL 4.2: CASCADED TRANSMISSION -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">WORKED NUMERICAL 4.2 &bull; MEDIUM / EXAM STANDARD</span>
+            <span class="problem-points">[5 MARKS]</span>
+          </div>
+          <div class="problem-statement">
+            <h4 class="problem-title">Signal Power through Cascaded Transmission Stages</h4>
+            <p>A signal with an input power of $P_{in} = 10\text{ mW}$ passes through three cascaded transmission segments:</p>
+            <ul>
+              <li>Segment 1: Transmission cable with an attenuation of $-3\text{ dB}$</li>
+              <li>Segment 2: In-line amplifier with a gain of $+7\text{ dB}$</li>
+              <li>Segment 3: Secondary cable section with an attenuation of $-3\text{ dB}$</li>
+            </ul>
+            <p>Compute: (a) The net decibel rating of the link, and (b) The final output power $P_{out}$.</p>
+
+            <p><strong>Part (a): Net decibel rating:</strong></p>
+            <p>Decibels are additive across cascaded stages:</p>
+            $$dB_{total} = dB_1 + dB_2 + dB_3 = (-3) + (+7) + (-3) = +1\text{ dB}$$
+
+            <p><strong>Part (b): Output power $P_{out}$:</strong></p>
+            $$dB_{total} = 10 \log_{10}\left(\frac{P_{out}}{P_{in}}\right) \implies 1 = 10 \log_{10}\left(\frac{P_{out}}{10}\right)$$
+            $$\log_{10}\left(\frac{P_{out}}{10}\right) = \frac{1}{10} = 0.1 \implies \frac{P_{out}}{10} = 10^{0.1} \approx 1.2589$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Final Output Power:</span>
+              <span class="final-answer-value">P_out = 10 &times; 1.2589 = 12.589 mW (+1 dB net gain)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL 4.3: CABLE LOSS OVER DISTANCE & REPEATERS -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">WORKED NUMERICAL 4.3 &bull; EXAM-LEVEL / SYSTEM DESIGN</span>
+            <span class="problem-points">[6 MARKS]</span>
+          </div>
+          <div class="problem-statement">
+            <h4 class="problem-title">Cable Loss over Distance and Repeater Spacing</h4>
+            <p>A coaxial cable exhibits an attenuation rate of $0.3\text{ dB/km}$. An input signal with power $P_{in} = 200\text{ mW}$ is injected at the transmitter.</p>
+            <ol>
+              <li>Calculate the signal power at a distance of $10\text{ km}$.</li>
+              <li>If the link extends to $100\text{ km}$ and repeaters offering $15\text{ dB}$ gain each are inserted, calculate the minimum number of repeaters required to fully compensate for cable attenuation.</li>
+            </ol>
+
+            <p><strong>Part 1: Signal power at 10 km:</strong></p>
+            $$\text{Total loss} = 10\text{ km} \times 0.3\text{ dB/km} = 3.0\text{ dB}$$
+            $$dB = -3.0 = 10 \log_{10}\left(\frac{P_{out}}{200}\right) \implies \log_{10}\left(\frac{P_{out}}{200}\right) = -0.30$$
+            $$\frac{P_{out}}{200} = 10^{-0.30} \approx 0.50119$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Power at 10 km:</span>
+              <span class="final-answer-value">P_out = 200 &times; 0.50119 = 100.24 mW</span>
+            </div>
+
+            <p style="margin-top:1rem;"><strong>Part 2: Repeaters required over 100 km:</strong></p>
+            $$\text{Total link loss over 100 km} = 100\text{ km} \times 0.3\text{ dB/km} = 30.0\text{ dB}$$
+            $$\text{Number of 15 dB repeaters} = \frac{\text{Total Loss}}{\text{Gain per Repeater}} = \frac{30.0\text{ dB}}{15.0\text{ dB}} = 2$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Repeaters Required:</span>
+              <span class="final-answer-value">Exactly 2 in-line amplifiers (spaced at 33.3 km and 66.7 km)</span>
+            </div>
           </div>
         </div>
 
@@ -645,56 +883,385 @@
           </ul>
         </div>
 
-        <!-- SOLVED WORKED NUMERICAL 1: SHANNON CAPACITY -->
+        
+        <!-- SOLVED WORKED NUMERICAL 5.1: SHANNON CAPACITY -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">WORKED NUMERICAL 1 &bull; STANDARD EXAM PROBLEM</span>
+            <span class="problem-badge easy">WORKED NUMERICAL 5.1 &bull; STANDARD EXAM PROBLEM</span>
             <span class="problem-points">[5 MARKS]</span>
           </div>
-          <h4 class="problem-title">Shannon Capacity of a Noisy Telephone Channel</h4>
-          <p>A standard analog telephone line has a bandwidth of $B = 3000\text{ Hz}$ ($3\text{ kHz}$) and a Signal-to-Noise Ratio of $\text{SNR}_{dB} = 30\text{ dB}$. Compute the theoretical channel capacity.</p>
+          <div class="problem-statement">
+            <h4 class="problem-title">Shannon Capacity of a Noisy Telephone Channel</h4>
+            <p>A standard analog telephone line has a bandwidth of $B = 3000\text{ Hz}$ ($3\text{ kHz}$) and a Signal-to-Noise Ratio of $\text{SNR}_{dB} = 35\text{ dB}$. Compute the theoretical channel capacity.</p>
 
-          <p><strong>Step 1: Convert $\text{SNR}_{dB}$ to linear $\text{SNR}$:</strong></p>
-          $$\text{SNR}_{dB} = 10 \log_{10}(\text{SNR}) \implies 30 = 10 \log_{10}(\text{SNR}) \implies \log_{10}(\text{SNR}) = 3$$
-          $$\text{SNR} = 10^3 = 1000$$
+            <p><strong>Step 1: Convert $\text{SNR}_{dB}$ to linear $\text{SNR}$:</strong></p>
+            $$\text{SNR}_{dB} = 10 \log_{10}(\text{SNR}) \implies 35 = 10 \log_{10}(\text{SNR}) \implies \log_{10}(\text{SNR}) = 3.5$$
+            $$\text{SNR} = 10^{3.5} \approx 3162.28$$
 
-          <p><strong>Step 2: Apply Shannon Capacity Formula:</strong></p>
-          $$C = B \log_2(1 + \text{SNR}) = 3000 \times \log_2(1 + 1000) = 3000 \times \log_2(1001)$$
-          <p>Since $\log_2(x) = \frac{\log_{10}(x)}{\log_{10}(2)} = \frac{3.000434}{0.30103} \approx 9.9672$:</p>
-          <div class="result-box">
-            $$C = 3000 \times 9.9672 = \mathbf{29,901.68\text{ bps}} \approx \mathbf{29.902\text{ kbps}}$$
+            <p><strong>Step 2: Apply Shannon Capacity Formula:</strong></p>
+            $$C = B \log_2(1 + \text{SNR}) = 3000 \times \log_2(1 + 3162.28) = 3000 \times \log_2(3163.28)$$
+            $$\log_2(3163.28) = \frac{\ln(3163.28)}{\ln(2)} \approx 11.6272$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Shannon Capacity:</span>
+              <span class="final-answer-value">C = 3000 &times; 11.6272 = 34,881.6 bps &approx; 34.88 kbps</span>
+            </div>
+            <p style="margin-top:0.75rem; font-size:14px; color:var(--ink-muted);"><em>Exam Comparison:</em> At $\text{SNR}_{dB} = 30\text{ dB}$ ($\text{SNR} = 1000$), $C = 3000 \times \log_2(1001) = 29.902\text{ kbps}$. The $35\text{ dB}$ rating yields $34.88\text{ kbps}$.</p>
           </div>
-          <p><em>Conclusion:</em> Regardless of how many voltage levels modem designers utilize, this line can never reliably exceed ~30 kbps unless the bandwidth or signal-to-noise ratio improves.</p>
         </div>
 
-        <!-- SOLVED WORKED NUMERICAL 2: COMBINED NYQUIST & SHANNON -->
+        <!-- SOLVED WORKED NUMERICAL 5.2: COMBINED NYQUIST & SHANNON -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">WORKED NUMERICAL 2 &bull; COMBINED DESIGN PROBLEM</span>
+            <span class="problem-badge exam">WORKED NUMERICAL 5.2 &bull; COMBINED DESIGN PROBLEM</span>
             <span class="problem-points">[8 MARKS &bull; HIGH OCCURRENCE]</span>
           </div>
-          <h4 class="problem-title">Signal Levels Required to Attain Shannon Limit</h4>
-          <p>A channel has a bandwidth of $B = 1\text{ MHz}$ and a linear $\text{SNR} = 63$.</p>
-          <ol>
-            <li>Find the Shannon capacity of the channel.</li>
-            <li>How many signal levels $L$ must be engineered into the transmitter to achieve this data rate under Nyquist's formula?</li>
-          </ol>
+          <div class="problem-statement">
+            <h4 class="problem-title">Signal Levels Required to Attain Shannon Limit</h4>
+            <p>A channel has a bandwidth of $B = 1\text{ MHz}$ and a linear $\text{SNR} = 63$.</p>
+            <ol>
+              <li>Find the Shannon theoretical capacity of the channel.</li>
+              <li>How many discrete signal voltage levels $L$ must the transmitter employ to achieve this data rate under Nyquist's theorem?</li>
+            </ol>
 
-          <p><strong>Part 1: Shannon Capacity:</strong></p>
-          $$C = B \log_2(1 + \text{SNR}) = 10^6 \times \log_2(1 + 63) = 10^6 \times \log_2(64)$$
-          <p>Since $64 = 2^6$, $\log_2(64) = 6$:</p>
-          <div class="result-box">
-            $$C = 10^6 \times 6 = \mathbf{6\text{ Mbps}}$$
-          </div>
+            <p><strong>Part 1: Shannon Capacity:</strong></p>
+            $$C = B \log_2(1 + \text{SNR}) = 10^6 \times \log_2(1 + 63) = 10^6 \times \log_2(64)$$
+            <p>Since $64 = 2^6$, $\log_2(64) = 6$:</p>
+            <div class="final-answer-box">
+              <span class="final-answer-label">Shannon Capacity:</span>
+              <span class="final-answer-value">C = 10^6 &times; 6 = 6.000 Mbps</span>
+            </div>
 
-          <p><strong>Part 2: Finding Required Signal Levels $L$:</strong></p>
-          <p>Equate the Nyquist formula to the Shannon limit:</p>
-          $$C_{Nyquist} = 2 B \log_2(L) \implies 6 \times 10^6 = 2 \times 10^6 \times \log_2(L)$$
-          $$\log_2(L) = \frac{6 \times 10^6}{2 \times 10^6} = 3 \implies L = 2^3 = \mathbf{8\text{ levels}}$$
-          <div class="result-box">
-            The transmitter must support $\mathbf{L = 8\text{ discrete signal levels}}$ (transmitting 3 bits per signal element) to achieve the 6 Mbps channel capacity.
+            <p style="margin-top:1rem;"><strong>Part 2: Finding Required Signal Levels $L$:</strong></p>
+            <p>Equate the Nyquist formula to the Shannon limit:</p>
+            $$C_{Nyquist} = 2 B \log_2(L) \implies 6 \times 10^6 = 2 \times (10^6) \times \log_2(L)$$
+            $$\log_2(L) = \frac{6 \times 10^6}{2 \times 10^6} = 3 \implies L = 2^3 = 8\text{ levels}$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Signal Levels:</span>
+              <span class="final-answer-value">L = 8 discrete voltage levels (3 bits/signal element)</span>
+            </div>
           </div>
         </div>
+
+        <!-- SOLVED WORKED NUMERICAL 5.3: CIE-1 PAST PAPER QUESTION -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">WORKED NUMERICAL 5.3 &bull; RAMAIAH CIE-1 (2025) SOLVED</span>
+            <span class="problem-points">[4 MARKS &bull; QUESTION 1(a)]</span>
+          </div>
+          <div class="problem-statement">
+            <h4 class="problem-title">Channel with Reduced Bit Rate below Shannon Limit</h4>
+            <p><em>(Past Paper Question 1.a):</em> "We have a channel with a $2\text{-MHz}$ bandwidth. The SNR for this channel is $63$. What are the appropriate bit rate and signal level? (To calculate signal level, consider the bit rate to be $4\text{ Mbps}$ less than the upper limit)."</p>
+
+            <p><strong>Step 1: Compute the Shannon Upper Limit:</strong></p>
+            $$B = 2\text{ MHz} = 2 \times 10^6\text{ Hz}, \quad \text{SNR} = 63$$
+            $$C_{upper} = B \log_2(1 + \text{SNR}) = 2 \times 10^6 \times \log_2(1 + 63) = 2 \times 10^6 \times \log_2(64) = 2 \times 10^6 \times 6 = 12\text{ Mbps}$$
+
+            <p><strong>Step 2: Determine Specified Operating Bit Rate:</strong></p>
+            $$R = C_{upper} - 4\text{ Mbps} = 12\text{ Mbps} - 4\text{ Mbps} = \mathbf{8\text{ Mbps}}$$
+
+            <p><strong>Step 3: Determine Signal Level $L$ using Nyquist formula:</strong></p>
+            $$R = 2 B \log_2(L) \implies 8 \times 10^6 = 2 \times (2 \times 10^6) \times \log_2(L) = 4 \times 10^6 \times \log_2(L)$$
+            $$\log_2(L) = \frac{8 \times 10^6}{4 \times 10^6} = 2 \implies L = 2^2 = \mathbf{4\text{ levels}}$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">CIE-1 Solution:</span>
+              <span class="final-answer-value">Bit Rate R = 8 Mbps &bull; Signal Level L = 4 levels</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>3. Network Performance: Latency &amp; Bandwidth-Delay Product (BDP)</h3>
+        <p>In addition to data rate limits, two metrics govern network performance: <strong>latency (delay)</strong> and the <strong>Bandwidth-Delay Product</strong>.</p>
+
+        <div class="callout callout-formula">
+          <span class="callout-label">LATENCY COMPONENTS</span>
+          <p>The total latency (one-way delay) for a packet traversing a transmission link is the sum of four distinct delays:</p>
+          $$\text{Total Latency} = T_{trans} + T_{prop} + T_{queue} + T_{proc}$$
+          <ul>
+            <li><strong>Transmission Delay ($T_{trans}$):</strong> Time needed to push all packet bits onto the wire:
+              $$T_{trans} = \frac{\text{Packet Length } (L) \text{ [bits]}}{\text{Transmission Rate } (R) \text{ [bps]}}$$
+            </li>
+            <li><strong>Propagation Delay ($T_{prop}$):</strong> Time for a single bit to travel from sender to receiver:
+              $$T_{prop} = \frac{\text{Distance } (d) \text{ [m]}}{\text{Propagation Speed } (v) \text{ [m/s]}}$$
+              <em>Typical speeds:</em> $v \approx 2 \times 10^8\text{ m/s}$ in copper/fiber; $v \approx 3 \times 10^8\text{ m/s}$ in air/vacuum.
+            </li>
+            <li><strong>Queuing Delay ($T_{queue}$):</strong> Time the packet waits in intermediate router buffers before transmission.</li>
+            <li><strong>Processing Delay ($T_{proc}$):</strong> Time required for routers to examine packet headers, verify checksums, and determine outgoing interface.</li>
+          </ul>
+        </div>
+
+        <!-- FIGURE 1.4: LATENCY COMPONENT BREAKDOWN -->
+        <figure class="diagram-card" id="fig-latency-breakdown">
+          <svg viewBox="0 0 720 240" width="100%" height="240" role="img" aria-label="Packet Latency Component Breakdown (1000 km Fiber Link)">
+  <title>Packet Latency Component Breakdown (1000 km Fiber Link)</title>
+  <rect width="100%" height="100%" fill="var(--surface)" rx="12" />
+  <text x="360.0" y="32" fill="var(--ink)" font-family="var(--font-display)" font-size="14" font-weight="700" text-anchor="middle">Packet Latency Component Breakdown (1000 km Fiber Link)</text>
+  <rect x="40.0" y="65" width="0.8" height="42" fill="var(--green)" stroke="var(--border)" stroke-width="1" />
+  <rect x="40.8" y="65" width="490.2" height="42" fill="#2563EB" stroke="var(--border)" stroke-width="1" />
+  <text x="285.9" y="91.0" fill="#FFFFFF" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">5.0ms</text>
+  <rect x="531.0" y="65" width="147.1" height="42" fill="#D97706" stroke="var(--border)" stroke-width="1" />
+  <text x="604.5" y="91.0" fill="#FFFFFF" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">1.5ms</text>
+  <rect x="678.0" y="65" width="2.0" height="42" fill="#7C3AED" stroke="var(--border)" stroke-width="1" />
+  <g transform="translate(40,122)">
+  <rect width="12" height="12" fill="var(--green)" rx="3" />
+  <text x="20" y="10" fill="var(--ink)" font-family="var(--font-display)" font-size="11" font-weight="600">Transmission Delay: <tspan fill="var(--ink-muted)" font-family="var(--font-mono)" font-weight="normal">0.008 ms (0.1%) – Time to push 1000B packet onto 1 Gbps link (L/R)</tspan></text>
+</g>
+  <g transform="translate(40,144)">
+  <rect width="12" height="12" fill="#2563EB" rx="3" />
+  <text x="20" y="10" fill="var(--ink)" font-family="var(--font-display)" font-size="11" font-weight="600">Propagation Delay: <tspan fill="var(--ink-muted)" font-family="var(--font-mono)" font-weight="normal">5.0 ms (76.6%) – Time for bit to traverse 1000 km fiber link (d/v)</tspan></text>
+</g>
+  <g transform="translate(40,166)">
+  <rect width="12" height="12" fill="#D97706" rx="3" />
+  <text x="20" y="10" fill="var(--ink)" font-family="var(--font-display)" font-size="11" font-weight="600">Queuing Delay: <tspan fill="var(--ink-muted)" font-family="var(--font-mono)" font-weight="normal">1.5 ms (23.0%) – Average wait time in intermediate switch buffer queues</tspan></text>
+</g>
+  <g transform="translate(40,188)">
+  <rect width="12" height="12" fill="#7C3AED" rx="3" />
+  <text x="20" y="10" fill="var(--ink)" font-family="var(--font-display)" font-size="11" font-weight="600">Processing Delay: <tspan fill="var(--ink-muted)" font-family="var(--font-mono)" font-weight="normal">0.02 ms (0.3%) – Router header inspection & routing lookup time</tspan></text>
+</g>
+</svg>
+          <figcaption class="diagram-title">Figure 1.4: Packet Latency Component Breakdown for a 1000 km Optical Fiber Link</figcaption>
+          <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">On high-speed links, propagation delay (5 ms) and queuing dominate over packet transmission time (8 &mu;s).</p>
+        </figure>
+
+        <div class="callout callout-def">
+          <span class="callout-label">BANDWIDTH-DELAY PRODUCT (BDP)</span>
+          <p>The <strong>Bandwidth-Delay Product (BDP)</strong> defines the maximum number of bits that can fill the transmission link at any given instant ("bits in flight"):</p>
+          $$\mathbf{\text{BDP} = \text{Bandwidth } (R) \times \text{Propagation Delay } (T_{prop})}$$
+          <p>Conceptually, envision the link as an empty water pipe connecting sender and receiver. The cross-sectional area of the pipe is the bandwidth ($R$), and its length is the propagation delay ($T_{prop}$). The volume of the pipe represents the BDP.</p>
+        </div>
+
+        <!-- FIGURE 1.5: BDP PIPE DIAGRAM -->
+        <figure class="diagram-card" id="fig-bdp-pipe">
+          <svg viewBox="0 0 720 220" width="100%" height="220" role="img" aria-label="Bandwidth Delay Product Pipe Volume Conceptual Diagram">
+  <title>Bandwidth-Delay Product Pipe Representation</title>
+  <rect width="100%" height="100%" fill="var(--surface)" rx="12" />
+
+  <text x="360" y="28" fill="var(--ink)" font-family="var(--font-display)" font-size="14" font-weight="700" text-anchor="middle">Bandwidth-Delay Product (BDP) as a Transmission Pipe</text>
+
+  <!-- Pipe Body -->
+  <g transform="translate(60, 45)">
+    <!-- Background of cylinder -->
+    <rect x="50" y="20" width="500" height="90" fill="rgba(46,195,107,0.12)" stroke="none" />
+    
+    <!-- Top & bottom cylinder walls -->
+    <line x1="50" y1="20" x2="550" y2="20" stroke="var(--ink)" stroke-width="2" />
+    <line x1="50" y1="110" x2="550" y2="110" stroke="var(--ink)" stroke-width="2" />
+
+    <!-- Left opening (ellipse) -->
+    <ellipse cx="50" cy="65" rx="18" ry="45" fill="var(--surface-alt)" stroke="var(--ink)" stroke-width="2" />
+
+    <!-- Bits inside pipe (flowing circles) -->
+    <g fill="var(--green)" opacity="0.85">
+      <circle cx="100" cy="45" r="5" /><circle cx="120" cy="75" r="5" /><circle cx="150" cy="55" r="5" />
+      <circle cx="180" cy="85" r="5" /><circle cx="210" cy="45" r="5" /><circle cx="240" cy="65" r="5" />
+      <circle cx="270" cy="50" r="5" /><circle cx="300" cy="80" r="5" /><circle cx="330" cy="60" r="5" />
+      <circle cx="360" cy="40" r="5" /><circle cx="390" cy="70" r="5" /><circle cx="420" cy="55" r="5" />
+      <circle cx="450" cy="85" r="5" /><circle cx="480" cy="50" r="5" /><circle cx="510" cy="75" r="5" />
+    </g>
+
+    <!-- Right end (ellipse) -->
+    <ellipse cx="550" cy="65" rx="18" ry="45" fill="rgba(46,195,107,0.25)" stroke="var(--ink)" stroke-width="2" />
+
+    <!-- Cross section dimension (Bandwidth) -->
+    <line x1="15" y1="20" x2="15" y2="110" stroke="var(--ink)" stroke-width="1.5" />
+    <polygon points="12,23 15,16 18,23" fill="var(--ink)" />
+    <polygon points="12,107 15,114 18,107" fill="var(--ink)" />
+    <text x="8" y="70" fill="var(--ink)" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="end">Cross-Section = Bandwidth (B)</text>
+
+    <!-- Length dimension (Delay) -->
+    <line x1="50" y1="125" x2="550" y2="125" stroke="var(--ink)" stroke-width="1.5" />
+    <polygon points="53,122 46,125 53,128" fill="var(--ink)" />
+    <polygon points="547,122 554,125 547,128" fill="var(--ink)" />
+    <text x="300" y="142" fill="var(--ink)" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">Length = Propagation Delay (T_prop)</text>
+
+    <!-- Sender TX -->
+    <text x="50" y="5" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">Transmitter</text>
+    <!-- Receiver RX -->
+    <text x="550" y="5" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle">Receiver</text>
+  </g>
+
+  <!-- Central Volume formula -->
+  <text x="360" y="200" fill="var(--ink)" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle">Pipe Volume = Bandwidth &times; Delay = Total Maximum Bits "In Flight" on the Link</text>
+</svg>
+          <figcaption class="diagram-title">Figure 1.5: Conceptual Representation of Bandwidth-Delay Product as a Pipe</figcaption>
+          <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Volume of pipe = R &times; T_prop. Critical for sizing sliding window buffers in TCP and ARQ protocols.</p>
+        </figure>
+
+        <!-- SOLVED WORKED NUMERICAL 5.4: STORE AND FORWARD LATENCY -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">WORKED NUMERICAL 5.4 &bull; STORE-AND-FORWARD MULTI-HOP LATENCY</span>
+            <span class="problem-points">[5 MARKS]</span>
+          </div>
+          <div class="problem-statement">
+            <h4 class="problem-title">Store-and-Forward Packet Transmission across Multiple Routers</h4>
+            <p>A host transmits a $1000\text{-Byte}$ ($8000\text{-bit}$) packet to a destination host across $N = 3$ identical links separated by $2$ intermediate store-and-forward routers. Each link has a bandwidth of $R = 10\text{ Mbps}$, distance $d = 100\text{ km}$, and propagation speed $v = 2 \times 10^8\text{ m/s}$. Each router has a processing delay of $100\text{ }\mu\text{s}$. Queuing delay is negligible ($0$). Calculate total end-to-end latency.</p>
+
+            <p><strong>Step 1: Transmission delay per hop ($T_{trans}$):</strong></p>
+            $$T_{trans} = \frac{8000\text{ bits}}{10 \times 10^6\text{ bps}} = 0.0008\text{ s} = 0.800\text{ ms} = 800\text{ }\mu\text{s}$$
+
+            <p><strong>Step 2: Propagation delay per hop ($T_{prop}$):</strong></p>
+            $$T_{prop} = \frac{100 \times 10^3\text{ m}}{2 \times 10^8\text{ m/s}} = 0.0005\text{ s} = 0.500\text{ ms} = 500\text{ }\mu\text{s}$$
+
+            <p><strong>Step 3: Total End-to-End Latency:</strong></p>
+            <p>In store-and-forward switching, each router must completely receive the packet before forwarding it. Thus, the packet is transmitted $3$ times, propagates across $3$ links, and is processed at $2$ routers:</p>
+            $$T_{total} = 3 \times T_{trans} + 3 \times T_{prop} + 2 \times T_{proc}$$
+            $$T_{total} = 3 \times (0.8\text{ ms}) + 3 \times (0.5\text{ ms}) + 2 \times (0.1\text{ ms}) = 2.4 + 1.5 + 0.2 = \mathbf{4.100\text{ ms}}$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Total Multi-Hop Latency:</span>
+              <span class="final-answer-value">T_total = 4.100 ms (4100 &mu;s)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLVED WORKED NUMERICAL 5.5: GEO SATELLITE BDP & EFFICIENCY -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">WORKED NUMERICAL 5.5 &bull; GEO SATELLITE BDP &amp; PROTOCOL EFFICIENCY</span>
+            <span class="problem-points">[6 MARKS]</span>
+          </div>
+          <div class="problem-statement">
+            <h4 class="problem-title">Bandwidth-Delay Product and Efficiency of Satellite Link</h4>
+            <p>A geostationary earth orbit (GEO) satellite communication link operates at a data rate of $R = 10\text{ Mbps}$. The one-way propagation delay is $T_{prop} = 250\text{ ms}$ ($0.25\text{ s}$).</p>
+            <ol>
+              <li>Calculate the Bandwidth-Delay Product in bits and in Kilobytes.</li>
+              <li>If a Stop-and-Wait protocol is used with a frame size of $L = 1500\text{ Bytes}$ ($12,000\text{ bits}$) and negligible ACK transmission time, calculate the channel efficiency (utilization $\eta$).</li>
+            </ol>
+
+            <p><strong>Part 1: Bandwidth-Delay Product:</strong></p>
+            $$\text{BDP} = R \times T_{prop} = (10 \times 10^6\text{ bps}) \times 0.25\text{ s} = 2,500,000\text{ bits} = 2.5\text{ Mbits}$$
+            $$\text{BDP in Bytes} = \frac{2,500,000\text{ bits}}{8} = 312,500\text{ Bytes} \approx 312.5\text{ KB}$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Satellite BDP:</span>
+              <span class="final-answer-value">2,500,000 bits (312.5 KB in flight)</span>
+            </div>
+
+            <p style="margin-top:1rem;"><strong>Part 2: Stop-and-Wait Channel Efficiency:</strong></p>
+            $$T_{trans} = \frac{12,000\text{ bits}}{10 \times 10^6\text{ bps}} = 0.0012\text{ s} = 1.2\text{ ms}$$
+            $$\text{Round Trip Time (RTT)} = 2 \times T_{prop} = 2 \times 250\text{ ms} = 500\text{ ms}$$
+            $$\text{Total cycle time} = T_{trans} + \text{RTT} = 1.2\text{ ms} + 500\text{ ms} = 501.2\text{ ms}$$
+            $$\eta = \frac{T_{trans}}{T_{trans} + 2 T_{prop}} = \frac{1.2}{501.2} \approx 0.00239 = \mathbf{0.24\%}$$
+            <div class="final-answer-box">
+              <span class="final-answer-label">Channel Utilization:</span>
+              <span class="final-answer-value">&eta; = 0.24% (Extremely wasteful; explains why sliding windows are mandatory)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE LATENCY & BDP EXPLORER WIDGET -->
+        <div class="interactive-card" id="latency-explorer-widget">
+          <div class="interactive-header">
+            <div class="interactive-title">
+              <span>⚡</span> Interactive Latency &amp; Bandwidth-Delay Explorer
+            </div>
+            <span class="interactive-badge">LIVE JS SIMULATOR</span>
+          </div>
+
+          <p style="font-size:14.5px; color:var(--ink-muted); margin-bottom:1.25rem;">
+            Experiment with link distance, channel capacity, and packet size to observe propagation vs transmission delay tradeoffs and the resulting Bandwidth-Delay Product (pipe volume).
+          </p>
+
+          <div class="interactive-grid">
+            <div class="control-group">
+              <label for="slider-dist" class="control-label">
+                <span>Link Distance ($d$):</span>
+                <span id="val-dist" class="control-val">1000 km</span>
+              </label>
+              <input type="range" id="slider-dist" class="slider-input" min="10" max="36000" step="10" value="1000" aria-label="Distance in km">
+            </div>
+
+            <div class="control-group">
+              <label for="slider-rate" class="control-label">
+                <span>Bandwidth ($R$):</span>
+                <span id="val-rate" class="control-val">100 Mbps</span>
+              </label>
+              <input type="range" id="slider-rate" class="slider-input" min="1" max="10000" step="10" value="100" aria-label="Bandwidth in Mbps">
+            </div>
+
+            <div class="control-group">
+              <label for="slider-size" class="control-label">
+                <span>Packet Size ($L$):</span>
+                <span id="val-size" class="control-val">1500 Bytes</span>
+              </label>
+              <input type="range" id="slider-size" class="slider-input" min="64" max="65535" step="64" value="1500" aria-label="Packet Size in Bytes">
+            </div>
+
+            <div class="control-group">
+              <label for="slider-speed" class="control-label">
+                <span>Propagation Speed ($v$):</span>
+                <span id="val-speed" class="control-val">200,000 km/s (Fiber)</span>
+              </label>
+              <select id="slider-speed" class="slider-input" style="height:36px; padding:0 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--ink);" aria-label="Propagation speed">
+                <option value="200000" selected>200,000 km/s (Optical Fiber / Copper Cable)</option>
+                <option value="300000">300,000 km/s (Wireless Radio / Satellite)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="results-grid">
+            <div class="res-card">
+              <span class="res-label">Propagation Delay (T_prop)</span>
+              <span id="out-tprop" class="res-value">5.000 ms</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">Transmission Delay (T_trans)</span>
+              <span id="out-ttrans" class="res-value">0.120 ms</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">Round Trip Time (RTT)</span>
+              <span id="out-rtt" class="res-value">10.000 ms</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">Bandwidth-Delay Product (BDP)</span>
+              <span id="out-bdp" class="res-value" style="color:var(--green);">500,000 bits (62.5 KB)</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">Stop-and-Wait Efficiency (&eta;)</span>
+              <span id="out-eff" class="res-value">1.19 %</span>
+            </div>
+          </div>
+        </div>
+        <script>
+        (function() {
+          function updateCalc() {
+            var d = parseFloat(document.getElementById('slider-dist').value);
+            var r = parseFloat(document.getElementById('slider-rate').value);
+            var l = parseFloat(document.getElementById('slider-size').value);
+            var v = parseFloat(document.getElementById('slider-speed').value);
+
+            document.getElementById('val-dist').textContent = d >= 1000 ? (d/1000).toFixed(1) + 'k km' : d + ' km';
+            document.getElementById('val-rate').textContent = r >= 1000 ? (r/1000).toFixed(1) + ' Gbps' : r + ' Mbps';
+            document.getElementById('val-size').textContent = l >= 1000 ? (l/1000).toFixed(2) + ' KB' : l + ' B';
+
+            // Calculations
+            var t_prop_sec = d / v;
+            var t_prop_ms = t_prop_sec * 1000;
+            var t_trans_sec = (l * 8) / (r * 1e6);
+            var t_trans_ms = t_trans_sec * 1000;
+            var rtt_ms = 2 * t_prop_ms;
+
+            var bdp_bits = (r * 1e6) * t_prop_sec;
+            var bdp_bytes = bdp_bits / 8;
+            var bdp_str = bdp_bits >= 1e6 ? (bdp_bits/1e6).toFixed(2) + ' Mbits (' + (bdp_bytes/1024).toFixed(1) + ' KB)' : (bdp_bits/1e3).toFixed(1) + ' kbits (' + (bdp_bytes/1024).toFixed(1) + ' KB)';
+
+            var eff = (t_trans_ms / (t_trans_ms + 2 * t_prop_ms)) * 100;
+
+            document.getElementById('out-tprop').textContent = t_prop_ms >= 10 ? t_prop_ms.toFixed(1) + ' ms' : t_prop_ms.toFixed(3) + ' ms';
+            document.getElementById('out-ttrans').textContent = t_trans_ms < 0.01 ? (t_trans_ms*1000).toFixed(1) + ' μs' : t_trans_ms.toFixed(3) + ' ms';
+            document.getElementById('out-rtt').textContent = rtt_ms >= 10 ? rtt_ms.toFixed(1) + ' ms' : rtt_ms.toFixed(3) + ' ms';
+            document.getElementById('out-bdp').textContent = bdp_str;
+            document.getElementById('out-eff').textContent = eff.toFixed(2) + ' %';
+          }
+
+          ['slider-dist', 'slider-rate', 'slider-size', 'slider-speed'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) {
+              el.addEventListener('input', updateCalc);
+              el.addEventListener('change', updateCalc);
+            }
+          });
+          updateCalc();
+        })();
+        </script>
 
         <div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
@@ -776,7 +1343,7 @@
         <!-- SVG LINE CODING WAVEFORMS DIAGRAM -->
         <div class="svg-card">
           <div class="svg-title">Line Coding Waveforms for Bit Stream: 0 1 0 0 1 1 0</div>
-          <svg viewBox="0 0 780 400" width="100%" height="auto" role="img" aria-label="Line Coding Waveforms comparison for bit sequence 0 1 0 0 1 1 0">
+          <svg viewBox="0 0 780 400" width="100%" role="img" aria-label="Line Coding Waveforms comparison for bit sequence 0 1 0 0 1 1 0">
             <title>Line Coding Waveforms</title>
             <desc>SVG diagram illustrating NRZ-L, NRZ-I, Manchester, Differential Manchester, and AMI waveforms for bit sequence 0 1 0 0 1 1 0</desc>
 
@@ -989,69 +1556,204 @@
         </div>
       </section>
 
-      <section id="questions-asked-before" class="note-section exam-archive">
+            <section id="questions-asked-before" class="note-section exam-archive">
         <div class="section-badge">&block; ARCHIVE</div>
-        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
-        <p class="section-lead">The following questions have been extracted from past CIE-1 and model papers in <code>notes/cn/practice/</code>:</p>
+        <h2 class="section-title">Solved Questions from Past CIE &amp; Model Papers</h2>
+        <p class="section-lead">The following questions have been transcribed from the official Ramaiah CIE-1 test paper (Term 2025) and SEE archives in <code>notes/cn/practice/cn-cie-1-and-2.pdf</code>, solved with complete steps:</p>
 
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">CIE-1 &bull; Computer Networks (IS53)</span>
-            <span class="archive-marks">[10 Marks]</span>
+            <span class="archive-source">Ramaiah Internal Assessment - I (2025) &bull; Q 1(a)</span>
+            <span class="archive-marks">[4 Marks &bull; Blooms L3, CO1]</span>
           </div>
-          <p class="archive-q">"Explain the OSI reference model with a neat sketch and list the functions of each layer."</p>
-          <p class="archive-note"><em>Study Note:</em> Full table and duty breakdown provided in Section 2.</p>
+          <p class="archive-q">"We have a channel with a 2-MHz bandwidth. The SNR for this channel is 63. What are the appropriate bit rate and signal level? (To calculate signal level consider the bit rate to be 4Mbps less than the upper limit)."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p><strong>Step 1: Compute Shannon upper limit:</strong></p>
+            $$C = B \log_2(1 + 	ext{SNR}) = 2 	imes 10^6 	imes \log_2(1 + 63) = 2 	imes 10^6 	imes 6 = \mathbf{12	ext{ Mbps}}$$
+            <p><strong>Step 2: Operating bit rate:</strong></p>
+            $$R = 12	ext{ Mbps} - 4	ext{ Mbps} = \mathbf{8	ext{ Mbps}}$$
+            <p><strong>Step 3: Signal levels via Nyquist formula:</strong></p>
+            $$R = 2 B \log_2(L) \implies 8 	imes 10^6 = 2 	imes (2 	imes 10^6) 	imes \log_2(L) = 4 	imes 10^6 	imes \log_2(L)$$
+            $$\log_2(L) = 2 \implies L = 2^2 = \mathbf{4	ext{ discrete signal levels}}.$$
+          </div>
         </div>
 
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">CIE-1 &bull; Computer Networks Question Bank</span>
-            <span class="archive-marks">[8 Marks]</span>
+            <span class="archive-source">Ramaiah Internal Assessment - I (2025) &bull; Q 2(a)</span>
+            <span class="archive-marks">[4 Marks &bull; Blooms L4, CO1]</span>
           </div>
-          <p class="archive-q">"Draw the digital signal waveforms for the bit sequence 0 1 0 0 1 1 0 using NRZ-L, NRZ-I, Manchester, Differential Manchester, and AMI."</p>
-          <p class="archive-note"><em>Study Note:</em> Exact waveform drawing diagram included in Section 6.</p>
+          <p class="archive-q">"Compare mesh topology with star topology. Draw a hybrid topology with a star backbone and three bus networks."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <ul>
+              <li><strong>Mesh vs Star Comparison:</strong> Mesh requires $n(n-1)/2$ dedicated physical links and $n-1$ I/O ports per device, ensuring zero traffic congestion and maximum privacy, but at immense cabling expense. Star requires only $n$ links and $1$ port per host connected to a central hub/switch, offering simpler installation, but suffers from a single point of failure at the hub.</li>
+              <li><strong>Hybrid Topology Sketch:</strong> See <a href="#fig-hybrid-topology">Figure 1.2</a> above illustrating a central star switch linking three terminated bus segments (e.g. Finance, Engineering, Admin).</li>
+            </ul>
+          </div>
         </div>
 
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">SEE Model Question Paper</span>
-            <span class="archive-marks">[8 Marks]</span>
+            <span class="archive-source">Ramaiah Internal Assessment - I (2025) &bull; Q 2(b)</span>
+            <span class="archive-marks">[4 Marks &bull; Blooms L3, CO1]</span>
           </div>
-          <p class="archive-q">"Distinguish between Nyquist bit rate and Shannon capacity formula. A channel has a bandwidth of 1 MHz and SNR of 63. Calculate maximum data rate and required signal levels."</p>
-          <p class="archive-note"><em>Study Note:</em> Fully verified numerical solved step-by-step in Section 5.</p>
+          <p class="archive-q">"Convert the digital data 11001010 to digital signal by applying AMI and differential Manchester line coding schemes."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p><strong>Given Bit Sequence:</strong> <code>1  1  0  0  1  0  1  0</code></p>
+            <ul>
+              <li><strong>AMI (Alternate Mark Inversion):</strong> Binary <code>0</code> is represented by $0	ext{ V}$. Binary <code>1</code> alternates between $+V$ and $-V$:
+                <br><code>Bit 1: +V &bull; Bit 1: -V &bull; Bit 0: 0V &bull; Bit 0: 0V &bull; Bit 1: +V &bull; Bit 0: 0V &bull; Bit 1: -V &bull; Bit 0: 0V</code>
+              </li>
+              <li><strong>Differential Manchester:</strong> Always has a mid-bit transition for synchronization. Binary <code>0</code> causes an inversion at the start of the bit interval; binary <code>1</code> has no transition at the start.
+                <br><em>Bit trace:</em> Assuming initial high state: Bit 1 (no transition at start, mid-bit drop to low); Bit 1 (no start transition, mid-bit rise to high); Bit 0 (inversion at start to low, mid-bit rise to high); Bit 0 (inversion at start to low, mid-bit rise to high); Bit 1 (no start transition, mid-bit drop to low); Bit 0 (inversion at start to high, mid-bit drop to low); Bit 1 (no start transition, mid-bit rise to high); Bit 0 (inversion at start to low, mid-bit rise to high).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">Ramaiah Internal Assessment - I (2025) &bull; Q 3(c)</span>
+            <span class="archive-marks">[7 Marks &bull; Blooms L2, CO1]</span>
+          </div>
+          <p class="archive-q">"What is transmission impairment? Briefly explain its causes with necessary diagrams."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p>Transmission impairment occurs when an analog or digital signal travels across an imperfect physical transmission medium, causing the received signal at the destination to differ from the injected signal at the source. The three primary causes are:</p>
+            <ol>
+              <li><strong>Attenuation:</strong> Loss of signal energy as heat due to conductor resistance; compensated via amplifiers (<a href="#fig-cascaded-db">Figure 1.3</a>).</li>
+              <li><strong>Distortion:</strong> Occurs in composite signals because different frequency components propagate at different velocities (delay distortion), shifting arrival phases and altering waveform shape.</li>
+              <li><strong>Noise:</strong> Spurious external electrical energy added to the signal (thermal noise, induced noise, crosstalk between adjacent wires, and impulse spikes).</li>
+            </ol>
+          </div>
         </div>
       </section>
 
-      <section id="practice-problems" class="note-section">
+            <section id="practice-problems" class="note-section">
         <div class="section-badge">&nabla; PRACTICE</div>
-        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+        <h2 class="section-title">Verified Practice Problems with Hidden Answers</h2>
+        <p class="section-lead">Test your problem-solving speed on these 6 exam-pattern numericals. Click each card to reveal the complete step-by-step verified solution:</p>
 
+        <!-- PRACTICE 1 -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">PRACTICE 1 &bull; NYQUIST DATA RATE</span>
+            <span class="problem-badge easy">PRACTICE 1 &bull; NYQUIST BIT RATE</span>
+            <span class="problem-points">[3 MARKS]</span>
           </div>
-          <h4 class="problem-title">Calculate the Nyquist maximum bit rate for a noiseless channel with bandwidth $B = 4\text{ kHz}$ using $L = 4$ signal levels.</h4>
-          <details>
+          <h4 class="problem-title">Calculate the Nyquist maximum bit rate for a noiseless channel with bandwidth $B = 4	ext{ kHz}$ using $L = 4$ signal levels.</h4>
+          <details class="model-answer">
             <summary class="reveal-btn">Show Step-by-Step Solution</summary>
-            <div class="qa-answer">
+            <div class="answer-body">
               <p>Formula: $C = 2 B \log_2(L)$</p>
-              $$C = 2 \times 4000 \times \log_2(4) = 8000 \times 2 = \mathbf{16,000\text{ bps}} = \mathbf{16\text{ kbps}}$$
+              $$C = 2 	imes 4000 	imes \log_2(4) = 8000 	imes 2 = \mathbf{16,000	ext{ bps}} = \mathbf{16	ext{ kbps}}$$
+              <div class="final-answer-box">
+                <span class="final-answer-label">Result:</span>
+                <span class="final-answer-value">C = 16 kbps</span>
+              </div>
             </div>
           </details>
         </div>
 
+        <!-- PRACTICE 2 -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">PRACTICE 2 &bull; MESH TOPOLOGY LINKS</span>
+            <span class="problem-badge easy">PRACTICE 2 &bull; MESH TOPOLOGY LINKS</span>
+            <span class="problem-points">[3 MARKS]</span>
           </div>
-          <h4 class="problem-title">In a fully connected mesh network of 10 computers, how many physical cables and I/O ports per device are required?</h4>
-          <details>
+          <h4 class="problem-title">In a fully connected mesh network of $10$ computers, how many physical cables and I/O ports per device are required?</h4>
+          <details class="model-answer">
             <summary class="reveal-btn">Show Step-by-Step Solution</summary>
-            <div class="qa-answer">
+            <div class="answer-body">
               <ul>
-                <li>Number of links: $\frac{n(n-1)}{2} = \frac{10 \times 9}{2} = \mathbf{45\text{ physical links}}$.</li>
-                <li>I/O ports per computer: $n - 1 = 10 - 1 = \mathbf{9\text{ ports}}$.</li>
+                <li>Number of duplex links: $rac{n(n-1)}{2} = rac{10 	imes 9}{2} = \mathbf{45	ext{ physical links}}$.</li>
+                <li>I/O ports per computer: $n - 1 = 10 - 1 = \mathbf{9	ext{ ports}}$.</li>
               </ul>
+              <div class="final-answer-box">
+                <span class="final-answer-label">Result:</span>
+                <span class="final-answer-value">45 Links &bull; 9 Ports per node</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- PRACTICE 3 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">PRACTICE 3 &bull; CASCADED AMPLIFIER & CABLE</span>
+            <span class="problem-points">[4 MARKS]</span>
+          </div>
+          <h4 class="problem-title">A signal with $P_{in} = 50	ext{ mW}$ enters a cable with $-6	ext{ dB}$ loss, followed by an amplifier with $+12	ext{ dB}$ gain. Find the final output power $P_{out}$.</h4>
+          <details class="model-answer">
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="answer-body">
+              <p>Net gain: $dB_{total} = -6	ext{ dB} + 12	ext{ dB} = +6	ext{ dB}$.</p>
+              $$6 = 10 \log_{10}\left(rac{P_{out}}{50}ight) \implies rac{P_{out}}{50} = 10^{0.6} pprox 3.98107$$
+              $$P_{out} = 50 	imes 3.98107 = \mathbf{199.05	ext{ mW}}$$
+              <div class="final-answer-box">
+                <span class="final-answer-label">Result:</span>
+                <span class="final-answer-value">P_out = 199.05 mW</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- PRACTICE 4 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">PRACTICE 4 &bull; SHANNON CHANNEL CAPACITY</span>
+            <span class="problem-points">[5 MARKS]</span>
+          </div>
+          <h4 class="problem-title">Find the Shannon capacity of a telephone line with bandwidth $B = 3.1	ext{ kHz}$ and $	ext{SNR}_{dB} = 35	ext{ dB}$.</h4>
+          <details class="model-answer">
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="answer-body">
+              <p>Linear $	ext{SNR} = 10^{3.5} pprox 3162.28$.</p>
+              $$C = 3100 	imes \log_2(1 + 3162.28) = 3100 	imes 11.6272 = \mathbf{36,044.4	ext{ bps}} pprox \mathbf{36.04	ext{ kbps}}$$
+              <div class="final-answer-box">
+                <span class="final-answer-label">Result:</span>
+                <span class="final-answer-value">C = 36.04 kbps</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- PRACTICE 5 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">PRACTICE 5 &bull; BANDWIDTH ENGINEERING</span>
+            <span class="problem-points">[5 MARKS]</span>
+          </div>
+          <h4 class="problem-title">What bandwidth $B$ is required to transmit $56	ext{ kbps}$ over a noiseless channel using 16-QAM ($L = 16$)?</h4>
+          <details class="model-answer">
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="answer-body">
+              <p>Bits per signal element: $r = \log_2(16) = 4	ext{ bits}$.</p>
+              $$C = 2 B \log_2(L) \implies 56,000 = 2 	imes B 	imes 4 = 8 B$$
+              $$B = rac{56,000}{8} = \mathbf{7000	ext{ Hz}} = \mathbf{7	ext{ kHz}}$$
+              <div class="final-answer-box">
+                <span class="final-answer-label">Result:</span>
+                <span class="final-answer-value">Required Bandwidth B = 7.000 kHz</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- PRACTICE 6 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-badge exam">PRACTICE 6 &bull; BANDWIDTH-DELAY PRODUCT</span>
+            <span class="problem-points">[5 MARKS]</span>
+          </div>
+          <h4 class="problem-title">A $100	ext{ Mbps}$ link connects two routers across a $2000	ext{ km}$ optical fiber link ($v = 2 	imes 10^8	ext{ m/s}$). Compute the Bandwidth-Delay Product in bits and in Kilobytes.</h4>
+          <details class="model-answer">
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="answer-body">
+              $$T_{prop} = rac{2000 	imes 10^3	ext{ m}}{2 	imes 10^8	ext{ m/s}} = 0.01	ext{ s} = 10	ext{ ms}$$
+              $$	ext{BDP} = (100 	imes 10^6	ext{ bps}) 	imes 0.01	ext{ s} = \mathbf{1,000,000	ext{ bits}} = \mathbf{1	ext{ Mbit}}$$
+              $$	ext{BDP in Bytes} = rac{1,000,000}{8} = \mathbf{125,000	ext{ Bytes}} = \mathbf{125	ext{ KB}}$$
+              <div class="final-answer-box">
+                <span class="final-answer-label">Result:</span>
+                <span class="final-answer-value">BDP = 1,000,000 bits (125 KB in flight)</span>
+              </div>
             </div>
           </details>
         </div>

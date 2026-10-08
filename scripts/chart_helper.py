@@ -198,12 +198,11 @@ def delay_breakdown_bar(components, width=700, height=220, title="Packet Delay C
         if w > 45:
             elements.append(f'<text x="{curr_x + w/2:.1f}" y="{bar_y + bar_h/2 + 5}" fill="#FFFFFF" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">{c["value"]}{c["unit"]}</text>')
         
-        # Legend item
-        leg_y = 135 + (i // 2) * 32
-        leg_x = pad_x + (i % 2) * (bar_w / 2 + 10)
-        legend_items.append(f'''<g transform="translate({leg_x},{leg_y})">
-  <rect width="14" height="14" fill="{color}" rx="3" />
-  <text x="22" y="11" fill="var(--ink)" font-family="var(--font-display)" font-size="12" font-weight="600">{c["name"]}: <tspan fill="var(--ink-muted)" font-family="var(--font-mono)" font-weight="normal">{c["value"]} {c["unit"]} ({pct*100:.1f}%) – {c["desc"]}</tspan></text>
+        # Legend item - single column clean list
+        leg_y = 122 + i * 22
+        legend_items.append(f'''<g transform="translate({pad_x},{leg_y})">
+  <rect width="12" height="12" fill="{color}" rx="3" />
+  <text x="20" y="10" fill="var(--ink)" font-family="var(--font-display)" font-size="11" font-weight="600">{c["name"]}: <tspan fill="var(--ink-muted)" font-family="var(--font-mono)" font-weight="normal">{c["value"]} {c["unit"]} ({pct*100:.1f}%) – {c["desc"]}</tspan></text>
 </g>''')
         curr_x += w
 
