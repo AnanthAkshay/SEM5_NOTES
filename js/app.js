@@ -167,8 +167,8 @@
     const hash = window.location.hash.slice(1);
     if (hash === 'scheme') {
       openSchemeView(false);
-    } else if (hash.startsWith('subject-')) {
-      const subjectId = hash.replace('subject-', '');
+    } else if (hash.startsWith('subject-') || hash.startsWith('subject/') || hash.startsWith('subject=')) {
+      const subjectId = hash.replace(/^subject[-/=]/, '');
       openSubject(subjectId, false);
     } else {
       closeSubjectView(false);
@@ -344,11 +344,15 @@
       } else {
         chips.push('# Syllabus only');
       }
+      const hasHandwritten = subject.units.some(u => u.files && u.files.some(f => f.type === 'handwritten'));
+      if (hasHandwritten) {
+        chips.push('# Handwritten notebooks');
+      }
       if (subject.units.some(u => u.isPractice)) {
         chips.push('# Practice');
       }
       if (subject.lab) {
-        chips.push('# Lab');
+        chips.push('# Lab (Syllabus only)');
       }
 
       return `
@@ -566,7 +570,9 @@
       </div>
 
       <div class="units-details-container">
-        ${units.map((unit, idx) => `
+        ${units.map((unit, idx) => {
+          const isSyllabusOnly = unit.isSyllabusOnly || unit.unitNumber === 4 || unit.unitNumber === 5 || !unit.files || unit.files.length === 0;
+          return `
           <details class="unit-pill-card" ${isOpen} ontoggle="window.SEM5_APP.syncToggleAllButton()">
             <summary class="unit-card-summary">
               <div class="unit-summary-info">
@@ -574,9 +580,12 @@
                   ${unit.isPractice ? 'Practice' : (typeof unit.unitNumber === 'number' ? `Unit ${unit.unitNumber}` : unit.unitNumber)}
                 </span>
                 <h3 class="unit-summary-title">${escapeHtml(unit.title)}</h3>
+                ${isSyllabusOnly ? `
+                  <span class="pill-tag-amber" style="font-size:11px;padding:2px 8px;margin-left:6px;background:rgba(245,158,11,0.15);color:#d97706;border:1px solid rgba(245,158,11,0.3);border-radius:999px;">Syllabus only</span>
+                ` : ''}
               </div>
               <div class="unit-summary-meta">
-                <span>${unit.files.length} ${unit.files.length === 1 ? 'file' : 'files'}</span>
+                <span>${unit.files ? unit.files.length : 0} ${unit.files && unit.files.length === 1 ? 'file' : 'files'}</span>
                 <span class="unit-chevron" aria-hidden="true">▾</span>
               </div>
             </summary>
@@ -589,21 +598,32 @@
               ` : ''}
 
               <div class="files-list">
-                ${unit.files.map(file => renderFileRow(file, subject)).join('')}
+                ${unit.files && unit.files.length > 0 ? unit.files.map(file => renderFileRow(file, subject)).join('') : `
+                  <div class="empty-unit-notice" style="padding: 12px 16px; color: var(--text-muted); font-size: 13px; font-style: italic; background: rgba(0,0,0,0.02); border-radius: 6px;">
+                    📋 Syllabus only — No HTML or handwritten study notes are uploaded for this unit.
+                  </div>
+                `}
               </div>
             </div>
           </details>
-        `).join('')}
+        `}).join('')}
       </div>
     `;
   }
 
   function renderFileRow(file, subject) {
     const isDone = !!state.progress[file.id];
-    const isNotes = file.type === 'notes' || (file.path && file.path.endsWith('.html'));
-    const isHandwritten = file.type === 'handwritten';
+    const isNotes = file.type === 'notes';
+    const isHandwrittenPdf = file.type === 'handwritten';
+    const isHandwrittenWeb = file.type === 'handwritten-web';
+    const isWebHtml = isNotes || isHandwrittenWeb || (file.path && file.path.endsWith('.html'));
     const isLarge = file.sizeBytes && file.sizeBytes > 20000000;
     const largeNote = isLarge ? `(~${Math.round(file.sizeBytes / 1048576)} MB)` : '';
+
+    let pillLabel = file.type.toUpperCase();
+    if (isNotes) pillLabel = 'NOTES';
+    else if (isHandwrittenPdf) pillLabel = 'NOTEBOOK (PDF)';
+    else if (isHandwrittenWeb) pillLabel = 'NOTEBOOK (WEB)';
 
     return `
       <div class="file-row ${isDone ? 'is-done' : ''}" id="file-row-${file.id}">
@@ -612,12 +632,12 @@
             <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${file.id}')" aria-label="Mark ${escapeHtml(file.title)} as studied" />
           </label>
 
-          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''} ${isHandwritten ? 'file-type-handwritten' : ''}">${isNotes ? 'NOTES' : (isHandwritten ? 'HANDWRITTEN' : file.type.toUpperCase())}</span>
+          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''} ${(isHandwrittenPdf || isHandwrittenWeb) ? 'file-type-handwritten' : ''}">${pillLabel}</span>
 
           <div class="file-details-col">
             <div class="file-title-wrap">
               <span class="file-title">${escapeHtml(file.title)}</span>
-              ${file.tag ? `<span class="${isHandwritten ? 'pill-tag-purple' : 'pill-tag-green'}" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
+              ${file.tag ? `<span class="${(isHandwrittenPdf || isHandwrittenWeb) ? 'pill-tag-purple' : 'pill-tag-green'}" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
               ${file.isAlternate ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">Condensed</span>` : ''}
               ${file.isConverted ? `<span class="file-tag-converted">(Converted for preview)</span>` : ''}
               ${isLarge ? `<span class="kbd-shortcut" title="Consider alternate notes on mobile data">${largeNote}</span>` : ''}
@@ -632,13 +652,18 @@
         </div>
 
         <div class="file-actions-group">
-          ${isNotes ? `
-            <a href="${file.path}" class="pill-btn-green pill-btn-sm view-btn" title="Read Interactive Study Notes">
+          ${isWebHtml ? `
+            <a href="${file.path}" class="pill-btn-green pill-btn-sm view-btn" title="Read interactive / web handwritten notebook">
               ${ICONS.eye} <span>READ</span>
             </a>
             <a href="${file.path}" target="_blank" rel="noopener" class="pill-btn-outline pill-btn-sm" title="Open notes in new browser tab">
               ${ICONS.externalLink} <span>NEW TAB</span>
             </a>
+            ${isHandwrittenWeb ? `
+              <a href="${file.path.replace('-handwritten.html', '-handwritten.pdf')}" download class="pill-btn-outline pill-btn-sm" title="Download handwritten PDF">
+                ${ICONS.download} <span>PDF</span>
+              </a>
+            ` : ''}
           ` : `
             <button class="pill-btn-green pill-btn-sm view-btn" onclick="window.SEM5_APP.openViewer('${file.id}')" title="Read in built-in PDF viewer">
               ${ICONS.eye} <span>VIEW</span>
@@ -793,6 +818,14 @@
 
     return `
       <div class="lab-container">
+        <div class="notice-card" style="margin-bottom: 1.25rem;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <span class="pill-tag-amber" style="font-size:11px;padding:2px 8px;background:rgba(245,158,11,0.15);color:#d97706;border:1px solid rgba(245,158,11,0.3);border-radius:999px;">Syllabus only</span>
+            <h4 class="notice-title" style="margin:0;">Laboratory Curriculum &amp; Experiment Specifications</h4>
+          </div>
+          <p class="notice-text">Official laboratory syllabus, experiment list, and rubrics. Laboratory code solutions, manual write-ups, and viva notes are not published; verify with your course faculty.</p>
+        </div>
+
         <div class="lab-info-banner">
           <div class="subject-view-meta-bar" style="margin-bottom: 0;">
             <span class="subject-code-tag">
@@ -1230,7 +1263,10 @@
         // Match Files
         unit.files.forEach(file => {
           const fileMatch = file.title.toLowerCase().includes(state.searchQuery) ||
-                            file.originalName.toLowerCase().includes(state.searchQuery);
+                            file.originalName.toLowerCase().includes(state.searchQuery) ||
+                            (file.tag && file.tag.toLowerCase().includes(state.searchQuery)) ||
+                            (file.type && file.type.toLowerCase().includes(state.searchQuery)) ||
+                            (state.searchQuery.includes('handwritten') && (file.type === 'handwritten' || file.type === 'handwritten-web'));
           if (fileMatch) {
             results.push({
               type: 'file',

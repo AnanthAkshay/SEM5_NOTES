@@ -385,10 +385,13 @@
             <p class="handwritten-card-desc">Prefer reading offline with lined paper aesthetics? Download the complete vector notebook PDF with authentic handwriting fonts, KaTeX math formulas, and interactive diagrams in blue ink.</p>
           </div>
           <div class="handwritten-card-actions">
-            <a href="${pdfPath}" target="_blank" rel="noopener" class="pill-action-btn">
+            <a href="handwritten/${subject}-unit${unit}-handwritten.html" class="pill-action-btn" title="Open responsive web notebook">
+              <span>WEB NOTEBOOK</span>
+            </a>
+            <a href="${pdfPath}" target="_blank" rel="noopener" class="pill-action-btn" title="Open PDF in new tab">
               <span>VIEW PDF</span>
             </a>
-            <a href="${pdfPath}" download="${pdfName}" class="pill-action-btn active-done">
+            <a href="${pdfPath}" download="${pdfName}" class="pill-action-btn active-done" title="Download PDF copy">
               <span>DOWNLOAD PDF</span>
             </a>
           </div>
