@@ -1,13 +1,14 @@
 /* ==========================================================================
    SEM 5 · ISE Notes - Handwritten-Style Notebook Theme
    A4 Portrait, Ruled Notebook Paper, Authentic Student Ink, Vector KaTeX & SVGs
+   All fonts licensed under SIL Open Font License (OFL 1.1)
    ========================================================================== */
 
 @import url('../fonts/fonts.css');
 @import url('../assets/katex/katex.min.css');
 
 :root {
-  /* Paper Dimensions */
+  /* Paper Dimensions (A4 Portrait) */
   --page-width: 210mm;
   --page-height: 297mm;
   --content-top: 20mm;
@@ -15,7 +16,7 @@
   --content-left: 28mm;
   --content-right: 14mm;
 
-  /* Ruled Line Grid */
+  /* Ruled Line Grid - 28px standard rule */
   --rule-height: 28px;
   --rule-color: rgba(180, 205, 230, 0.45);
   --paper-bg: #FCFBF7; /* Warm natural college paper */
@@ -39,13 +40,13 @@
   --green-tint-ink: #14532D;
   --brand: #2563EB;
 
-  /* Inks */
-  --ink-blue: #163660;       /* Rich blue fountain/ballpoint pen */
-  --ink-dark: #0f172a;       /* Black/dark header ink */
-  --ink-red: #b91c1c;        /* Red pen for exam tips & warnings */
-  --ink-green: #15803d;      /* Green pen for definitions */
-  --ink-purple: #6b21a8;     /* Purple pen for formulas/theorems */
-  --ink-muted: #4b5563;      /* Pencil/muted notes */
+  /* Restrained Student Pen System */
+  --ink-blue: #163660;       /* Rich blue ballpoint / fountain pen for body text */
+  --ink-dark: #0f172a;       /* Black pen for headings and primary labels */
+  --ink-red: #b91c1c;        /* Red pen for exam tips, warnings & common mistakes */
+  --ink-green: #15803d;      /* Green pen for definitions & accepted states */
+  --ink-purple: #6b21a8;     /* Purple pen for formulas, theorems & math keys */
+  --ink-accent: #b45309;     /* Warm amber/brown pen for examples */
 
   /* Highlighters */
   --hl-yellow: rgba(254, 240, 138, 0.5);
@@ -53,12 +54,23 @@
   --hl-pink: rgba(251, 207, 232, 0.5);
   --hl-blue: rgba(186, 230, 253, 0.45);
 
-  /* Fonts */
-  --font-heading: 'Patrick Hand', cursive, sans-serif;
-  --font-body: 'Caveat', cursive, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Patrick Hand', cursive, sans-serif;
-  --font-math: KaTeX_Main, KaTeX_Math, 'Times New Roman', serif;
+  /* Font Stacks - Strictly NO generic 'cursive', Arial, Times, or Consolas fallbacks */
+  --font-body: 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+  --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+  --font-kalam: 'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+  --font-mono: 'JetBrains Mono', 'KaTeX_Typewriter';
+}
+
+button, input, select, textarea, optgroup, option {
+  font-family: inherit !important;
+}
+
+code, pre, kbd, samp, tt {
+  font-family: var(--font-mono) !important;
+}
+
+svg text, text.st-txt, text.el-txt {
+  font-family: var(--font-heading), 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono' !important;
 }
 
 @page {
@@ -73,15 +85,70 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #e5e7eb; /* Viewer background */
+  background-color: #e2e8f0; /* Soft neutral desktop viewer background */
   font-family: var(--font-body);
   color: var(--ink-blue);
-  font-size: 16px;
+  font-size: 18px; /* Readable, comfortable handwriting scale */
   line-height: var(--rule-height);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Page Container */
+@media print {
+  .notebook-nav-bar {
+    display: none !important;
+  }
+}
+
+/* Responsive Top Bar for Web View */
+.notebook-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.notebook-nav-bar a.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #f8fafc;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: all 0.2s ease;
+}
+
+.notebook-nav-bar a.nav-btn:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.notebook-nav-bar a.nav-btn-primary {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: #064e3b;
+}
+
+.notebook-nav-bar a.nav-btn-primary:hover {
+  background-color: #059669;
+}
+
+@media print {
+  .notebook-nav-bar {
+    display: none !important;
+  }
+}
+
+/* Page Container (A4 Dimensions) */
 .notebook-page {
   width: var(--page-width);
   height: var(--page-height);
@@ -89,20 +156,20 @@ html, body {
   max-height: var(--page-height);
   position: relative;
   overflow: hidden;
-  margin: 15px auto;
+  margin: 20px auto;
   background-color: var(--paper-bg);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   page-break-after: always;
   break-after: page;
 }
 
 @media print {
   body {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .notebook-page {
-    margin: 0;
-    box-shadow: none;
+    margin: 0 !important;
+    box-shadow: none !important;
   }
 }
 
@@ -143,7 +210,7 @@ html, body {
   pointer-events: none;
 }
 
-/* Punch Holes */
+/* 3 Standard Punch Holes */
 .punch-hole {
   position: absolute;
   left: 8mm;
@@ -169,15 +236,15 @@ html, body {
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-heading);
-  font-size: 13px;
-  color: var(--ink-muted);
-  border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
+  font-size: 15px;
+  color: var(--ink-dark);
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.7);
   padding-bottom: 1mm;
   z-index: 5;
 }
 
 .page-header .header-left {
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
@@ -186,7 +253,7 @@ html, body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 55%;
+  max-width: 60%;
 }
 
 .page-footer {
@@ -199,14 +266,14 @@ html, body {
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--ink-muted);
-  border-top: 1px dashed rgba(148, 163, 184, 0.6);
+  border-top: 1px dashed rgba(148, 163, 184, 0.7);
   padding-top: 1mm;
   z-index: 5;
 }
 
-/* Page Content Body */
+/* Page Content Body (Fixed 34 Ruled Lines = 952px) */
 .page-content {
   position: absolute;
   top: var(--content-top);
@@ -217,68 +284,75 @@ html, body {
   display: flex;
   flex-direction: column;
   z-index: 4;
+  padding-top: 1px; /* Align text baseline directly onto the ruled lines */
 }
 
-/* Typography Inside Notebook */
+/* Typography Locked to 28px Grid Multiples */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   color: var(--ink-dark);
   margin: 0;
   padding: 0;
-  line-height: var(--rule-height);
 }
 
 h1 {
-  font-size: 26px;
-  line-height: calc(var(--rule-height) * 1.5);
-  margin-bottom: 8px;
+  font-size: 32px;
+  line-height: calc(var(--rule-height) * 2); /* 56px = 2 ruled lines */
+  margin-bottom: var(--rule-height);
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 21px;
-  line-height: calc(var(--rule-height) * 1.25);
-  margin-top: 6px;
-  margin-bottom: 6px;
-  border-bottom: 2px solid rgba(22, 54, 96, 0.4);
+  font-size: 26px;
+  line-height: calc(var(--rule-height) * 2); /* 56px = 2 ruled lines */
+  margin: 0;
+  color: var(--ink-dark);
+  font-weight: 700;
   display: inline-block;
-  padding-bottom: 2px;
+  border-bottom: 2px solid var(--ink-dark);
+  padding-bottom: 0;
 }
 
 h3 {
-  font-size: 18px;
-  line-height: var(--rule-height);
-  margin-top: 4px;
-  margin-bottom: 4px;
-  color: #1e293b;
+  font-size: 22px;
+  line-height: var(--rule-height); /* 28px = 1 ruled line */
+  margin: 0;
+  color: var(--ink-dark);
+  font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: rgba(220, 38, 38, 0.4);
+  text-decoration-color: var(--ink-red);
+  text-underline-offset: 3px;
 }
 
 h4 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 19px;
+  line-height: var(--rule-height);
+  font-weight: 700;
+  color: var(--ink-dark);
+  margin: 0;
 }
 
 p {
-  margin: 0 0 6px 0;
+  margin: 0;
   line-height: var(--rule-height);
 }
 
 ul, ol {
-  margin: 0 0 6px 0;
-  padding-left: 20px;
+  margin: 0;
+  padding-left: 24px;
   line-height: var(--rule-height);
 }
 
 li {
-  margin-bottom: 2px;
+  line-height: var(--rule-height);
+  margin: 0;
 }
 
-/* Handwriting Wobble & Human Variations */
-.wobble-1 { transform: rotate(-0.35deg) translateY(0.5px); }
-.wobble-2 { transform: rotate(0.4deg) translateY(-0.5px); }
-.wobble-3 { transform: rotate(-0.2deg); }
-.wobble-4 { transform: rotate(0.25deg) translateY(0.8px); }
+/* Human Variations */
+.wobble-1 { transform: rotate(-0.25deg); }
+.wobble-2 { transform: rotate(0.25deg); }
+.wobble-3 { transform: rotate(-0.15deg); }
+.wobble-4 { transform: rotate(0.2deg); }
 
 /* Inks & Highlights */
 .ink-red { color: var(--ink-red); }
@@ -287,257 +361,259 @@ li {
 .ink-dark { color: var(--ink-dark); }
 .ink-blue { color: var(--ink-blue); }
 
-.hl-box {
+.hl-box, .hl-yellow {
   background: var(--hl-yellow);
-  padding: 0 4px;
-  border-radius: 3px;
+  padding: 1px 4px;
+  border-radius: 2px;
 }
 .hl-green {
   background: var(--hl-green);
-  padding: 0 4px;
-  border-radius: 3px;
+  padding: 1px 4px;
+  border-radius: 2px;
 }
 .hl-pink {
   background: var(--hl-pink);
-  padding: 0 4px;
-  border-radius: 3px;
+  padding: 1px 4px;
+  border-radius: 2px;
 }
 .hl-blue {
   background: var(--hl-blue);
-  padding: 0 4px;
-  border-radius: 3px;
+  padding: 1px 4px;
+  border-radius: 2px;
 }
 
-/* Hand-drawn Boxes & Callouts */
+/* Authentic Student Callout Blocks */
 .hand-card {
-  border: 1.5px solid rgba(22, 54, 96, 0.5);
-  border-radius: 4px 14px 5px 12px;
-  padding: 8px 12px;
-  margin: 6px 0;
-  background-color: rgba(255, 255, 255, 0.65);
-  position: relative;
+  margin: 10px 0;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 3.5px solid var(--ink-blue);
+  border-radius: 2px;
 }
 
-.hand-badge {
-  display: inline-block;
+.hand-label {
   font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: bold;
-  padding: 1px 8px;
-  border-radius: 12px;
-  border: 1.2px solid currentColor;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 19px;
+  display: inline-block;
+  margin-bottom: 2px;
+  letter-spacing: 0.2px;
 }
 
 .card-def {
-  border-color: rgba(21, 128, 61, 0.6);
-  background-color: rgba(240, 253, 244, 0.6);
+  border-left-color: var(--ink-green);
+  background-color: rgba(240, 253, 244, 0.55);
 }
-.card-def .hand-badge {
+.card-def .hand-label {
   color: var(--ink-green);
-  background: rgba(187, 247, 208, 0.4);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-green);
 }
 
 .card-formula {
-  border-color: rgba(107, 33, 168, 0.6);
-  background-color: rgba(250, 245, 255, 0.6);
+  border-left-color: var(--ink-purple);
+  background-color: rgba(250, 245, 255, 0.55);
 }
-.card-formula .hand-badge {
+.card-formula .hand-label {
   color: var(--ink-purple);
-  background: rgba(233, 213, 255, 0.4);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-purple);
 }
 
 .card-example {
-  border-color: rgba(180, 83, 9, 0.6);
-  background-color: rgba(254, 243, 199, 0.4);
+  border-left-color: var(--ink-accent);
+  background-color: rgba(254, 243, 199, 0.45);
 }
-.card-example .hand-badge {
-  color: #b45309;
-  background: rgba(253, 230, 138, 0.4);
+.card-example .hand-label {
+  color: var(--ink-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-accent);
 }
 
 .card-tip {
-  border-color: rgba(185, 28, 28, 0.7);
-  background-color: rgba(254, 242, 242, 0.6);
+  border-left-color: var(--ink-red);
+  background-color: rgba(254, 242, 242, 0.55);
 }
-.card-tip .hand-badge {
+.card-tip .hand-label {
   color: var(--ink-red);
-  background: rgba(254, 202, 202, 0.4);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-red);
 }
 
 .card-warning {
-  border-color: rgba(194, 65, 12, 0.7);
-  background-color: rgba(255, 247, 237, 0.6);
+  border-left-color: #c2410c;
+  background-color: rgba(255, 247, 237, 0.55);
 }
-.card-warning .hand-badge {
+.card-warning .hand-label {
   color: #c2410c;
-  background: rgba(254, 215, 170, 0.4);
+  text-decoration: underline;
+  text-decoration-color: #c2410c;
 }
 
 .card-recall {
-  border-color: rgba(71, 85, 105, 0.6);
-  background-color: rgba(248, 250, 252, 0.6);
+  border-left-color: #475569;
+  background-color: rgba(248, 250, 252, 0.55);
 }
-.card-recall .hand-badge {
+.card-recall .hand-label {
   color: #475569;
-  background: rgba(226, 232, 240, 0.4);
+  text-decoration: underline;
+  text-decoration-color: #475569;
 }
 
-/* Solved Problems & Numerical Working */
-.problem-card {
-  border: 1.5px solid #2563eb;
-  border-radius: 6px 12px 6px 14px;
-  background-color: rgba(239, 246, 255, 0.5);
-  padding: 8px 12px;
-  margin: 6px 0;
+/* Practice Problem Cards */
+.practice-card, .problem-card {
+  margin: 10px 0;
+  padding: 6px 14px;
+  background-color: rgba(239, 246, 255, 0.45);
+  border-left: 3.5px solid #2563eb;
+  border-radius: 2px;
 }
 
-.problem-header {
+.practice-header {
   font-family: var(--font-heading);
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 700;
+  font-size: 19px;
   color: #1d4ed8;
-  margin-bottom: 4px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.step-label {
-  font-family: var(--font-heading);
-  font-weight: bold;
-  color: var(--ink-dark);
-  display: inline-block;
-  margin-top: 4px;
-}
-
-/* Practice Problem Cards (Expanded details) */
-.practice-card {
-  border: 1.5px dashed #475569;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.55);
-  padding: 8px 12px;
-  margin: 6px 0;
+  margin-bottom: 2px;
+  text-decoration: underline;
 }
 
 .practice-ans-box {
-  border: 1.2px solid #16a34a;
-  border-radius: 4px;
-  background-color: rgba(240, 253, 244, 0.7);
-  padding: 6px 10px;
-  margin-top: 6px;
+  border-top: 1px dashed #93c5fd;
+  padding-top: 4px;
+  margin-top: 4px;
 }
 
 .ans-badge {
-  display: inline-block;
-  background-color: #16a34a;
-  color: #fff;
   font-family: var(--font-heading);
-  font-weight: bold;
-  font-size: 12px;
-  padding: 0 6px;
-  border-radius: 3px;
+  font-weight: 700;
+  color: var(--ink-green);
+  text-decoration: underline;
   margin-right: 6px;
 }
 
-/* KaTeX Equations in Notebook */
+/* KaTeX Equations in Notebook (Royal Blue Ink) */
 .katex {
-  font-family: var(--font-math) !important;
-  color: #0f2942 !important;
+  color: #1a365d !important;
 }
 
 .katex-display {
   margin: 6px 0 !important;
-  overflow-x: visible !important;
+  overflow-x: auto !important;
 }
 
 .formula-highlight {
   display: inline-block;
-  border: 1.2px solid rgba(107, 33, 168, 0.5);
-  border-radius: 4px;
-  background-color: rgba(250, 245, 255, 0.7);
+  border: 1px solid rgba(107, 33, 168, 0.4);
+  border-radius: 2px;
+  background-color: rgba(250, 245, 255, 0.6);
   padding: 2px 10px;
   margin: 2px 0;
 }
 
-/* Hand-drawn Tables */
+/* Hand-ruled Student Tables */
 .hand-table-wrap {
-  margin: 6px 0;
+  margin: 10px 0;
   overflow-x: auto;
 }
 
 table.hand-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
-  line-height: 22px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1.8px solid #334155;
-  border-radius: 4px;
-}
-
-table.hand-table th, table.hand-table td {
-  border: 1.2px solid #64748b;
-  padding: 4px 8px;
-  text-align: left;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: var(--rule-height);
+  background-color: transparent;
+  border-top: 2px solid var(--ink-dark);
+  border-bottom: 2px solid var(--ink-dark);
+  border-left: none;
+  border-right: none;
 }
 
 table.hand-table th {
-  background-color: rgba(226, 232, 240, 0.6);
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 19px;
+  font-weight: 700;
   color: var(--ink-dark);
+  border-bottom: 1.5px solid var(--ink-dark);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 3px 8px;
+  background-color: rgba(254, 240, 138, 0.35); /* Subtle yellow highlighter header */
+  text-align: left;
 }
 
-/* Code Blocks */
+table.hand-table td {
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.7);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 3px 8px;
+  color: var(--ink-blue);
+}
+
+/* Monospace Code Blocks */
 .hand-code-box {
-  background-color: #f1f5f9;
-  border: 1.2px solid #cbd5e1;
+  background-color: rgba(241, 245, 249, 0.75);
+  border: 1px dashed #94a3b8;
   border-radius: 4px;
-  padding: 8px 12px;
-  margin: 6px 0;
+  padding: 6px 12px;
+  margin: 10px 0;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   color: #0f172a;
   white-space: pre-wrap;
 }
 
-/* Diagrams */
-.diagram-container {
-  margin: 8px 0;
+/* Diagrams & Flowcharts (Full Text Column Width, Centered, Never Clipped) */
+.diagram-wrapper, .diagram-card, .diagram-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 12px auto;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1.2px solid rgba(148, 163, 184, 0.6);
-  border-radius: 6px;
-  padding: 8px;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
-.diagram-caption {
+.diagram-wrapper svg, .diagram-card svg, .diagram-container svg, svg.svg-diagram {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.diagram-title, .diagram-caption {
   font-family: var(--font-heading);
-  font-size: 13px;
-  color: var(--ink-muted);
-  margin-top: 4px;
+  font-size: 16px;
+  color: var(--ink-dark);
+  margin: 4px auto;
   font-style: italic;
+  text-align: center;
+}
+
+/* SVG Text elements style */
+svg text {
+  font-family: var(--font-heading), var(--font-body), sans-serif !important;
+  fill: var(--ink-blue) !important;
 }
 
 /* Interactive Note Callout (for explorers) */
 .interactive-note {
-  border: 1.2px dashed #0284c7;
-  border-radius: 6px;
-  background-color: rgba(240, 249, 255, 0.7);
-  padding: 6px 12px;
+  border-left: 3px dashed #0284c7;
+  background-color: rgba(240, 249, 255, 0.6);
+  padding: 4px 12px;
   margin: 6px 0;
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 16px;
   color: #0369a1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-/* Cover Page */
+/* Cover Page (Page 1) */
 .cover-page {
   display: flex;
   flex-direction: column;
@@ -557,57 +633,58 @@ table.hand-table th {
 .cover-badge {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   color: #1e3a8a;
   border: 1.5px solid #1e3a8a;
-  border-radius: 20px;
-  padding: 2px 14px;
+  border-radius: 999px;
+  padding: 2px 16px;
   margin-bottom: 12px;
 }
 
 .cover-title {
   font-family: var(--font-heading);
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
   color: #0f172a;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .cover-subtitle {
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size: 22px;
   color: #2563eb;
   margin-bottom: 16px;
 }
 
 .cover-syllabus-card {
   border: 1.5px solid #64748b;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 10px 14px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 16px;
   text-align: left;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 24px;
   margin: 10px auto;
-  max-width: 90%;
+  max-width: 92%;
 }
 
 .cover-toc-card {
   border: 1.8px solid #1e3a8a;
-  border-radius: 8px;
-  background: rgba(248, 250, 252, 0.85);
-  padding: 12px 16px;
+  border-radius: 6px;
+  background: rgba(248, 250, 252, 0.9);
+  padding: 12px 18px;
   text-align: left;
   margin: 10px auto;
-  max-width: 90%;
-  width: 90%;
+  max-width: 92%;
+  width: 92%;
 }
 
 .cover-toc-title {
   font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
   color: #1e3a8a;
   border-bottom: 1.5px dashed #93c5fd;
   padding-bottom: 4px;
@@ -619,8 +696,8 @@ table.hand-table th {
   padding: 0;
   margin: 0;
   font-family: var(--font-heading);
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 26px;
 }
 
 .toc-item {
@@ -632,6 +709,33 @@ table.hand-table th {
 .cover-footer {
   margin-bottom: 5mm;
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-muted);
+}
+
+/* Mobile & Browser Responsive Rules */
+@media screen and (max-width: 840px) {
+  body {
+    background-color: #f1f5f9;
+  }
+  .notebook-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin: 12px 0 !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    page-break-after: unset !important;
+    break-after: unset !important;
+  }
+  .page-content {
+    position: static !important;
+    padding: 15px 14px 25px 28px !important;
+  }
+  .page-header, .page-footer {
+    position: static !important;
+    padding: 8px 14px !important;
+  }
+  .punch-hole { display: none !important; }
 }
