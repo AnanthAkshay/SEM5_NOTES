@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sec-1",
+    "title": "Professional Software Development & Essential Attributes",
+    "page": 2
+  },
+  {
+    "id": "sec-2",
+    "title": "Software Engineering Ethics (ACM/IEEE Code)",
+    "page": 3
+  },
+  {
+    "id": "sec-3",
+    "title": "Three Landmark Case Studies (Sommerville)",
+    "page": 3
+  },
+  {
+    "id": "sec-4",
+    "title": "Software Process Models",
+    "page": 4
+  },
+  {
+    "id": "sec-5",
+    "title": "Coping with Change & Boehm's Spiral Model",
+    "page": 7
+  },
+  {
+    "id": "sec-6",
+    "title": "Process Improvement & The CMMI Framework",
+    "page": 9
+  },
+  {
+    "id": "sec-7",
+    "title": "Agile Software Development & Extreme Programming (XP)",
+    "page": 9
+  },
+  {
+    "id": "sec-8",
+    "title": "The Scrum Framework, Sprint Velocity & Burndown",
+    "page": 10
+  },
+  {
+    "id": "revision-sheet",
+    "title": "One-Page Rapid Revision Sheet",
+    "page": 13
+  },
+  {
+    "id": "important-questions",
+    "title": "Important Examination Questions",
+    "page": 14
+  },
+  {
+    "id": "questions-asked-before",
+    "title": "Authentic Solved Questions from Past Ramaiah CIE & SEE Papers",
+    "page": 16
+  },
+  {
+    "id": "practice-problems",
+    "title": "Verified High-Yield Practice Problems",
+    "page": 23
+  }
+]

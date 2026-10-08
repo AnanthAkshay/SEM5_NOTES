@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IS52 Unit 2 - Handwritten Notes</title>
+  <link rel="stylesheet" href="../../../../fonts/fonts.css">
+  <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../../css/handwritten.css">
+  <style>
+    :root {
+      --font-body: 'Kalam', cursive, sans-serif;
+      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --ink-blue: #172554;
+      --ink-dark: #0f172a;
+    }
+    #staging-container {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      width: calc(210mm - 28mm - 14mm);
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+  <script src="../../../../assets/katex/katex.min.js"></script>
+  <script src="../../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script src="../../../../js/rough.js"></script>
+</head>
+<body>
+  <div id="staging-container">
+    
+      <div class="staging-section" data-sec-id="sec-1" data-sec-title="Functional vs Non-Functional Requirements" data-sec-index="0">
+        <h2 id="sec-1">Functional vs Non-Functional Requirements</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 1</div>
+        
+
+        <p class="section-lead">A <strong>software requirement</strong> is a condition or capability needed by a user to solve a problem or achieve an objective. Requirements range from high-level abstract statements of service to detailed formal mathematical specifications.</p>
+
+        <h3>1. Functional Requirements</h3>
+        <p>Statements of services the system should provide, how the system should react to particular inputs, and how the system should behave in particular situations. (In some cases, they also state what the system should <em>not</em> do).</p>
+        <p><em>Example:</em> "The system shall allow students to search for courses by department, course code, or instructor name."</p>
+
+        <h3>2. Non-Functional Requirements (NFRs)</h3>
+        <p>Constraints on the services or functions offered by the system. They include timing constraints, constraints on the development process, standards, security policies, and performance targets.</p>
+
+        <div class="table-container">
+          <table class="data-table hand-table">
+            <thead>
+              <tr>
+                <th>Classification</th>
+                <th>Sub-Category</th>
+                <th>Engineering Definition &amp; Concrete Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3"><strong>Product Requirements</strong><br>(Constrain runtime behavior)</td>
+                <td><strong>Performance / Speed</strong></td>
+                <td>The system shall render search query results in less than 0.5 seconds under a load of 1,000 concurrent queries.</td>
+              </tr>
+              <tr>
+                <td><strong>Reliability &amp; Availability</strong></td>
+                <td>The system shall maintain an uptime availability of <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>99.9</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">99.9\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord">99.9%</span></span></span></span></span>, with Mean Time Between Failures (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>MTBF</mtext></mrow><annotation encoding="application/x-tex">\text{MTBF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord text"><span class="mord">MTBF</span></span></span></span></span></span>) <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>720</mn><mtext>&nbsp;hours</mtext></mrow><annotation encoding="application/x-tex">\ge 720\text{ hours}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7719em; vertical-align: -0.136em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">720</span><span class="mord text"><span class="mord">&nbsp;hours</span></span></span></span></span></span>.</td>
+              </tr>
+              <tr>
+                <td><strong>Security &amp; Usability</strong></td>
+                <td>All stored passwords shall be hashed using bcrypt (cost 12); user interface shall comply with WCAG 2.1 AA accessibility guidelines.</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>Organizational Requirements</strong><br>(Constrain policies &amp; processes)</td>
+                <td><strong>Development Standards</strong></td>
+                <td>All backend services must be written in Java 17 and follow the Google Java Style Guide with 80% test coverage.</td>
+              </tr>
+              <tr>
+                <td><strong>Delivery &amp; Operational</strong></td>
+                <td>The system must be containerized using Docker and deployable onto Kubernetes clusters.</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>External Requirements</strong><br>(Arise from external factors)</td>
+                <td><strong>Regulatory / Privacy</strong></td>
+                <td>Patient medical data must comply with HIPAA regulations and GDPR data erasure guidelines.</td>
+              </tr>
+              <tr>
+                <td><strong>Ethical / Legal</strong></td>
+                <td>The system shall not collect geographic location data without explicit, opt-in consent from the user.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Quantifying Non-Functional Requirements with Metrics</h3>
+        <p>Requirements engineers must state non-functional constraints quantitatively so that verification can be objectively tested:</p>
+
+        <div class="table-container">
+          <table class="data-table hand-table">
+            <thead>
+              <tr>
+                <th>Quality Property</th>
+                <th>Quantitative Measure / Metric</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Speed / Latency</strong></td>
+                <td>Processed transactions/sec, response time to user event (milliseconds), screen refresh rate.</td>
+              </tr>
+              <tr>
+                <td><strong>Size / Footprint</strong></td>
+                <td>Megabytes of RAM consumed, storage disk footprint, binary executable footprint.</td>
+              </tr>
+              <tr>
+                <td><strong>Ease of Use</strong></td>
+                <td>Training time required for user proficiency, number of help frame consultations per task.</td>
+              </tr>
+              <tr>
+                <td><strong>Reliability</strong></td>
+                <td>Mean Time To Failure (MTTF), Probability of Failure on Demand (POFOD), Rate of Failure Occurrence (ROCOF).</td>
+              </tr>
+              <tr>
+                <td><strong>Robustness</strong></td>
+                <td>Time to restart after system crash, percentage of incidents causing data corruption.</td>
+              </tr>
+              <tr>
+                <td><strong>Portability</strong></td>
+                <td>Percentage of target-dependent statements, number of target systems supported.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-2" data-sec-title="The Software Requirements Specification (SRS) &amp; IEEE 830" data-sec-index="1">
+        <h2 id="sec-2">The Software Requirements Specification (SRS) &amp; IEEE 830</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 2</div>
+        
+
+        <p class="section-lead">The <strong>SRS</strong> is the official statement of what system developers must implement. It serves as a contract between system customers and software developers.</p>
+
+        <div class="table-container">
+          <table class="data-table hand-table">
+            <thead>
+              <tr>
+                <th>IEEE 830 Section</th>
+                <th>Standard Contents &amp; Engineering Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Introduction</strong></td>
+                <td>1.1 Purpose, 1.2 Scope of the product, 1.3 Definitions, acronyms, and abbreviations, 1.4 References, 1.5 Overview of document layout.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Overall Description</strong></td>
+                <td>2.1 Product perspective (relation to other systems), 2.2 Product functions summary, 2.3 User characteristics, 2.4 General constraints, 2.5 Assumptions and dependencies.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Specific Requirements</strong></td>
+                <td>External interfaces (UI, hardware, software, communications), Detailed Functional Requirements, Performance constraints, Design constraints, Security, Software system attributes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Attributes of a High-Quality SRS</h3>
+        <ul class="styled-list">
+          <li><strong>Correctness:</strong> Every requirement accurately reflects real stakeholder needs.</li>
+          <li><strong>Unambiguous:</strong> Each requirement has exactly one clear interpretation across all readers.</li>
+          <li><strong>Complete:</strong> All significant requirements (functional, quality, constraints) are fully stated.</li>
+          <li><strong>Consistent:</strong> No requirements conflict with one another.</li>
+          <li><strong>Verifiable:</strong> A cost-effective test or demonstration can prove the software satisfies the requirement.</li>
+          <li><strong>Modifiable:</strong> Structure allows changes to be made easily and consistently.</li>
+          <li><strong>Traceable:</strong> The origin of each requirement is clear, and forward references to design/tests exist.</li>
+        </ul>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-3" data-sec-title="Requirements Engineering Processes &amp; Traceability (RTM)" data-sec-index="2">
+        <h2 id="sec-3">Requirements Engineering Processes &amp; Traceability (RTM)</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 3</div>
+        
+
+        <p class="section-lead">Requirements engineering is an iterative, spiral process comprising four interdependent activities: Elicitation, Analysis, Specification, and Validation, under continuous Requirements Management.</p>
+
+        <!-- Figure 2.3: Requirements Engineering Process Flow -->
+        <div class="svg-card" style="margin: 1.5rem 0;">
+          <div class="svg-title">Figure 2.3: Requirements Engineering Process Flow &amp; RTM Governance (Sommerville Ch. 4)</div>
+<svg viewBox="0 0 780 320" width="100%" height="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Requirements Engineering Process Flow with Feedback Loops">
+  <defs>
+    <marker id="re-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)"></path>
+    </marker>
+    <marker id="re-arr-back" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink-muted)"></path>
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect x="5" y="5" width="770" height="310" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">THE REQUIREMENTS ENGINEERING SPIRAL PROCESS • SOMMERVILLE CH. 4</text>
+
+  <!-- Activity 1: Requirements Elicitation -->
+  <g transform="translate(30, 60)">
+    <rect width="165" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <rect width="165" height="26" rx="8" fill="var(--surface-alt)"></rect>
+    <text x="82" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">1. Elicitation &amp; Discovery</text>
+    <line x1="0" y1="26" x2="165" y2="26" stroke="var(--border)" stroke-width="1"></line>
+    <text x="12" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Stakeholder Interviews</text>
+    <text x="12" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Use Cases &amp; Scenarios</text>
+    <text x="12" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Ethnography / Observation</text>
+    <text x="12" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Domain Document Analysis</text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 195 110 L 220 110" fill="none" stroke="var(--brand)" stroke-width="2" marker-end="url(#re-arr)"></path>
+
+  <!-- Activity 2: Requirements Analysis & Negotiation -->
+  <g transform="translate(225, 60)">
+    <rect width="165" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <text x="82" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">2. Analysis &amp; Negotiation</text>
+    <line x1="0" y1="26" x2="165" y2="26" stroke="var(--border)" stroke-width="1"></line>
+    <text x="12" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Conflict Resolution</text>
+    <text x="12" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Feasibility Assessment</text>
+    <text x="12" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Prioritization (MoSCoW)</text>
+    <text x="12" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Boundary Clarification</text>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 390 110 L 415 110" fill="none" stroke="var(--brand)" stroke-width="2" marker-end="url(#re-arr)"></path>
+
+  <!-- Activity 3: Requirements Specification -->
+  <g transform="translate(420, 60)">
+    <rect width="165" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <text x="82" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">3. Specification (SRS)</text>
+    <line x1="0" y1="26" x2="165" y2="26" stroke="var(--border)" stroke-width="1"></line>
+    <text x="12" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• User Requirements (FR/NFR)</text>
+    <text x="12" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• System Architecture Specs</text>
+    <text x="12" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• IEEE 830 Standard Format</text>
+    <text x="12" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Mathematical Models / UML</text>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 585 110 L 610 110" fill="none" stroke="var(--brand)" stroke-width="2" marker-end="url(#re-arr)"></path>
+
+  <!-- Activity 4: Requirements Validation -->
+  <g transform="translate(615, 60)">
+    <rect width="140" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <text x="70" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">4. Validation</text>
+    <line x1="0" y1="26" x2="140" y2="26" stroke="var(--border)" stroke-width="1"></line>
+    <text x="10" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Formal Reviews</text>
+    <text x="10" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Prototyping</text>
+    <text x="10" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Test-Case Gen</text>
+    <text x="10" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">• Consistency Check</text>
+  </g>
+
+  <!-- Feedback loops from Validation back to Elicitation & Specification -->
+  <path d="M 685 160 L 685 190 L 112 190 L 112 165" fill="none" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#re-arr-back)"></path>
+  <rect x="330" y="182" width="160" height="16" rx="4" fill="var(--surface)"></rect>
+  <text x="410" y="194" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Feedback Loop • Defects Discovered</text>
+
+  <!-- Bottom Encompassing Layer: Requirements Management & RTM -->
+  <g transform="translate(30, 225)">
+    <rect width="725" height="70" rx="10" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.5"></rect>
+    <text x="20" y="26" font-family="var(--font-display)" font-size="11.5" font-weight="700" fill="var(--brand)">CROSS-CUTTING GOVERNANCE: REQUIREMENTS MANAGEMENT &amp; TRACEABILITY (RTM)</text>
+    <text x="20" y="46" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink)">1. Change Control Board (CCB) Impact Analysis • 2. Forward &amp; Backward Traceability Matrix • 3. Version Baselining</text>
+    <text x="20" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">Links initial user needs → SRS specification items → design modules → executable verification test cases.</text>
+  </g>
+</svg>
+        </div>
+
+        <h3>Requirements Traceability Matrix (RTM)</h3>
+        <p>An <strong>RTM</strong> is a grid that establishes forward and backward traceability between user needs, functional requirements, architectural components, and automated test cases.</p>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-4" data-sec-title="Context &amp; Interaction Models: Use Case Diagrams" data-sec-index="3">
+        <h2 id="sec-4">Context &amp; Interaction Models: Use Case Diagrams</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 4</div>
+        
+
+        <p class="section-lead"><strong>System modeling</strong> uses graphical notations (principally the Unified Modeling Language - UML) to represent different perspectives of a system: <em>External context</em>, <em>Interaction</em>, <em>Structural</em>, and <em>Behavioral</em>.</p>
+
+        <h3>Use Case Modeling</h3>
+        <p>A <strong>Use Case</strong> describes an interaction between the system and external actors (humans or external hardware/software systems). Actors are represented by stick figures, use cases by horizontal ellipses, and relationships by solid or dashed arrows.</p>
+
+        <!-- Figure 2.1: Library Management System Use Case Diagram -->
+        <div class="svg-card" style="margin: 1.5rem 0;">
+          <div class="svg-title">Figure 2.1: Library Management System Use Case Diagram (Ramaiah CIE-1 Oct 2025 Q3.b)</div>
+<svg viewBox="0 0 780 420" width="100%" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Use Case Diagram for Library Management System showing Member and Librarian actors">
+  <defs>
+    <marker id="uc-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)"></path>
+    </marker>
+    <marker id="uc-arr-dash" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink-muted)"></path>
+    </marker>
+  </defs>
+
+  <!-- Canvas Container -->
+  <rect x="5" y="5" width="770" height="410" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">LIBRARY MANAGEMENT SYSTEM • USE CASE DIAGRAM (RAMAIAH CIE-1 Q3.b)</text>
+
+  <!-- Left Actor: Library Member -->
+  <g transform="translate(60, 160)">
+    <!-- Stick Figure: Member -->
+    <circle cx="0" cy="-35" r="14" fill="none" stroke="var(--ink)" stroke-width="2.2"></circle>
+    <line x1="0" y1="-21" x2="0" y2="18" stroke="var(--ink)" stroke-width="2.2"></line>
+    <line x1="-22" y1="-5" x2="22" y2="-5" stroke="var(--ink)" stroke-width="2.2"></line>
+    <line x1="0" y1="18" x2="-18" y2="52" stroke="var(--ink)" stroke-width="2.2"></line>
+    <line x1="0" y1="18" x2="18" y2="52" stroke="var(--ink)" stroke-width="2.2"></line>
+    <rect x="-42" y="62" width="84" height="22" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1"></rect>
+    <text x="0" y="77" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">«Actor» Member</text>
+  </g>
+
+  <!-- Right Actor: Librarian -->
+  <g transform="translate(720, 160)">
+    <!-- Stick Figure: Librarian -->
+    <circle cx="0" cy="-35" r="14" fill="none" stroke="var(--brand)" stroke-width="2.2"></circle>
+    <line x1="0" y1="-21" x2="0" y2="18" stroke="var(--brand)" stroke-width="2.2"></line>
+    <line x1="-22" y1="-5" x2="22" y2="-5" stroke="var(--brand)" stroke-width="2.2"></line>
+    <line x1="0" y1="18" x2="-18" y2="52" stroke="var(--brand)" stroke-width="2.2"></line>
+    <line x1="0" y1="18" x2="18" y2="52" stroke="var(--brand)" stroke-width="2.2"></line>
+    <rect x="-45" y="62" width="90" height="22" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1"></rect>
+    <text x="0" y="77" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">«Actor» Librarian</text>
+  </g>
+
+  <!-- System Boundary Box -->
+  <rect x="145" y="48" width="490" height="350" rx="10" fill="none" stroke="var(--brand)" stroke-width="1.8" stroke-dasharray="6,4"></rect>
+  <rect x="155" y="55" width="220" height="20" rx="4" fill="var(--surface-alt)"></rect>
+  <text x="165" y="69" font-family="var(--font-mono)" font-size="10.5" font-weight="700" fill="var(--brand)">System: Library Management</text>
+
+  <!-- Use Case 1: Search Books -->
+  <g transform="translate(260, 105)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></ellipse>
+    <text x="0" y="4" font-family="var(--font-display)" font-size="11" font-weight="600" fill="var(--ink)" text-anchor="middle">Search &amp; Browse Catalog</text>
+  </g>
+
+  <!-- Use Case 2: Borrow Book -->
+  <g transform="translate(260, 175)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></ellipse>
+    <text x="0" y="4" font-family="var(--font-display)" font-size="11" font-weight="600" fill="var(--ink)" text-anchor="middle">Borrow Book</text>
+  </g>
+
+  <!-- Use Case 3: Return Book -->
+  <g transform="translate(260, 245)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></ellipse>
+    <text x="0" y="4" font-family="var(--font-display)" font-size="11" font-weight="600" fill="var(--ink)" text-anchor="middle">Return Book</text>
+  </g>
+
+  <!-- Use Case 4: Verify Member Eligibility (Included) -->
+  <g transform="translate(490, 140)">
+    <ellipse cx="0" cy="0" rx="95" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></ellipse>
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Validate Member Identity</text>
+  </g>
+
+  <!-- Use Case 5: Pay Overdue Fine (Extended) -->
+  <g transform="translate(490, 220)">
+    <ellipse cx="0" cy="0" rx="95" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></ellipse>
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Calculate &amp; Collect Fine</text>
+  </g>
+
+  <!-- Use Case 6: Manage Book Inventory (Librarian) -->
+  <g transform="translate(490, 310)">
+    <ellipse cx="0" cy="0" rx="95" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></ellipse>
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Manage Catalog &amp; Stock</text>
+  </g>
+
+  <!-- Use Case 7: Generate Circulation Reports -->
+  <g transform="translate(260, 340)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></ellipse>
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Generate Overdue Report</text>
+  </g>
+
+  <!-- Association Lines from Member -->
+  <line x1="75" y1="145" x2="170" y2="105" stroke="var(--ink)" stroke-width="1.5"></line>
+  <line x1="75" y1="160" x2="170" y2="175" stroke="var(--ink)" stroke-width="1.5"></line>
+  <line x1="75" y1="175" x2="170" y2="245" stroke="var(--ink)" stroke-width="1.5"></line>
+
+  <!-- Association Lines from Librarian -->
+  <line x1="705" y1="145" x2="585" y2="140" stroke="var(--brand)" stroke-width="1.5"></line>
+  <line x1="705" y1="160" x2="585" y2="220" stroke="var(--brand)" stroke-width="1.5"></line>
+  <line x1="705" y1="180" x2="585" y2="310" stroke="var(--brand)" stroke-width="1.5"></line>
+  <line x1="705" y1="195" x2="350" y2="340" stroke="var(--brand)" stroke-width="1.5"></line>
+
+  <!-- Relationship: Borrow Book <<include>> Validate Member Identity -->
+  <path d="M 345 162 L 400 148" fill="none" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#uc-arr-dash)"></path>
+  <rect x="340" y="138" width="60" height="14" rx="3" fill="var(--surface)"></rect>
+  <text x="370" y="148" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">«include»</text>
+
+  <!-- Relationship: Return Book <<extend>> Calculate & Collect Fine -->
+  <path d="M 400 228 L 348 238" fill="none" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#uc-arr-dash)"></path>
+  <rect x="350" y="222" width="60" height="14" rx="3" fill="var(--surface)"></rect>
+  <text x="380" y="232" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">«extend»</text>
+</svg>
+        </div>
+
+        <div class="callout callout-def hand-card card-def"><div class="hand-badge">INCLUDE VS EXTEND RELATIONSHIPS IN USE CASES</div>
+          
+          <ul>
+            <li><strong><code>&lt;&lt;include&gt;&gt;</code>:</strong> Mandatory behavior. The base use case <em>always</em> executes the included use case as an essential sub-step (e.g., <em>Borrow Book</em> <code>&lt;&lt;include&gt;&gt;</code> <em>Validate Member Identity</em>).</li>
+            <li><strong><code>&lt;&lt;extend&gt;&gt;</code>:</strong> Optional / Conditional behavior. The extension use case is executed <em>only under specific circumstances</em> governed by an extension point (e.g., <em>Return Book</em> <code>&lt;&lt;extend&gt;&gt;</code> <em>Calculate &amp; Collect Fine</em> when loan period &gt; 14 days).</li>
+          </ul>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-5" data-sec-title="Interaction Models: Sequence Diagrams" data-sec-index="4">
+        <h2 id="sec-5">Interaction Models: Sequence Diagrams</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 5</div>
+        
+
+        <p class="section-lead">A <strong>Sequence Diagram</strong> models the dynamic interaction between objects in a use case by depicting the chronological exchange of messages along vertical <strong>lifelines</strong>.</p>
+
+        <!-- Figure 2.2: Sequence Diagram for Book Borrowing -->
+        <div class="svg-card" style="margin: 1.5rem 0;">
+          <div class="svg-title">Figure 2.2: Sequence Diagram for Book Borrowing &amp; Checkout Interaction</div>
+<svg viewBox="0 0 780 390" width="100%" height="390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sequence Diagram for Book Borrowing interaction">
+  <defs>
+    <marker id="seq-sync" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)"></path>
+    </marker>
+    <marker id="seq-reply" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink-muted)"></path>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="5" y="5" width="770" height="380" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">SEQUENCE DIAGRAM • BOOK BORROWING &amp; CHECKOUT INTERACTION</text>
+
+  <!-- Lifeline 1: Member (Actor) -->
+  <g transform="translate(90, 52)">
+    <rect x="-55" y="0" width="110" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:Member</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  </g>
+
+  <!-- Lifeline 2: LibraryWebUI -->
+  <g transform="translate(280, 52)">
+    <rect x="-65" y="0" width="130" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:LibraryWebUI</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  </g>
+
+  <!-- Lifeline 3: BorrowController -->
+  <g transform="translate(480, 52)">
+    <rect x="-70" y="0" width="140" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:BorrowController</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  </g>
+
+  <!-- Lifeline 4: CatalogDB -->
+  <g transform="translate(670, 52)">
+    <rect x="-60" y="0" width="120" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:CatalogDB</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  </g>
+
+  <!-- Activation Bars -->
+  <rect x="84" y="100" width="12" height="225" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1"></rect>
+  <rect x="274" y="105" width="12" height="215" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1"></rect>
+  <rect x="474" y="125" width="12" height="185" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1"></rect>
+  <rect x="664" y="150" width="12" height="135" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1"></rect>
+
+  <!-- Message 1: Member -> UI -->
+  <line x1="96" y1="110" x2="272" y2="110" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)"></line>
+  <text x="180" y="104" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">1: submitBorrowRequest(isbn, id)</text>
+
+  <!-- Message 2: UI -> Controller -->
+  <line x1="286" y1="130" x2="472" y2="130" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)"></line>
+  <text x="380" y="124" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">2: validateBorrower(id)</text>
+
+  <!-- Message 3: Controller -> DB -->
+  <line x1="486" y1="155" x2="662" y2="155" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)"></line>
+  <text x="575" y="149" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">3: queryMemberStatus(id)</text>
+
+  <!-- Message 4: DB -> Controller (Return) -->
+  <line x1="664" y1="180" x2="488" y2="180" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)"></line>
+  <text x="575" y="174" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">4: return eligibility (0 fines, active)</text>
+
+  <!-- Message 5: Controller -> DB -->
+  <line x1="486" y1="210" x2="662" y2="210" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)"></line>
+  <text x="575" y="204" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">5: updateBookStatus(isbn, BORROWED)</text>
+
+  <!-- Message 6: DB -> Controller (Return) -->
+  <line x1="664" y1="235" x2="488" y2="235" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)"></line>
+  <text x="575" y="229" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">6: recordCreated(loanId, due: 14d)</text>
+
+  <!-- Message 7: Controller -> UI (Return) -->
+  <line x1="474" y1="265" x2="288" y2="265" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)"></line>
+  <text x="380" y="259" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">7: checkoutSuccess(loanId, dueDate)</text>
+
+  <!-- Message 8: UI -> Member (Return) -->
+  <line x1="274" y1="295" x2="98" y2="295" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)"></line>
+  <text x="180" y="289" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">8: displayCheckoutReceipt(loanId)</text>
+</svg>
+        </div>
+
+        <div class="callout callout-def hand-card card-def"><div class="hand-badge">KEY SEQUENCE DIAGRAM NOTATIONS</div>
+          
+          <ul>
+            <li><strong>Lifeline:</strong> Dashed vertical line representing the object's existence over time.</li>
+            <li><strong>Activation Bar:</strong> Vertical rectangle on the lifeline indicating when the object is actively executing an operation.</li>
+            <li><strong>Synchronous Call:</strong> Solid line with filled arrow (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.522em; vertical-align: -0.011em;"></span><span class="mrel">⟶</span></span></span></span></span>) blocking caller until return.</li>
+            <li><strong>Reply / Return:</strong> Dashed line with open arrow (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇢</mo></mrow><annotation encoding="application/x-tex">\dashrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.437em;"></span><span class="mrel amsrm">⇢</span></span></span></span></span>) conveying computed return values.</li>
+          </ul>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-6" data-sec-title="Structural Models: UML Class Diagrams" data-sec-index="5">
+        <h2 id="sec-6">Structural Models: UML Class Diagrams</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 6</div>
+        
+
+        <p class="section-lead"><strong>Structural models</strong> show the organization and architecture of a system in terms of the components that make up that system and their relationships.</p>
+
+        <div class="table-container">
+          <table class="data-table hand-table">
+            <thead>
+              <tr>
+                <th>Relationship</th>
+                <th>UML Notation</th>
+                <th>Semantics &amp; Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Association</strong></td>
+                <td>Solid line (optional navigability arrow)</td>
+                <td>General structural relationship. <em>Teacher</em> teaches <em>Student</em>.</td>
+              </tr>
+              <tr>
+                <td><strong>Aggregation</strong></td>
+                <td>Solid line with hollow diamond at container</td>
+                <td>Weak "has-a" relationship. Part can exist without whole. <em>Department</em> has <em>Professors</em>.</td>
+              </tr>
+              <tr>
+                <td><strong>Composition</strong></td>
+                <td>Solid line with filled diamond at container</td>
+                <td>Strong "has-a" relationship. Part lifetime tied to whole. <em>Building</em> has <em>Rooms</em>.</td>
+              </tr>
+              <tr>
+                <td><strong>Generalization</strong></td>
+                <td>Solid line with hollow triangular arrowhead</td>
+                <td>"Is-a" inheritance relationship. <em>CheckingAccount</em> is a <em>BankAccount</em>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-7" data-sec-title="Behavioral Models: Activity &amp; State Machine Diagrams" data-sec-index="6">
+        <h2 id="sec-7">Behavioral Models: Activity &amp; State Machine Diagrams</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 7</div>
+        
+
+        <p class="section-lead"><strong>Behavioral models</strong> capture what happens or what is supposed to happen when a system responds to a stimulus from its environment.</p>
+
+        <h3>1. Activity Diagrams</h3>
+        <p>Model the procedural flow of control from activity to activity. Swimlanes separate activities according to which subsystem or actor performs them.</p>
+
+        <h3>2. State Machine Diagrams (Statecharts)</h3>
+        <p>Show the system or object life cycle as a sequence of states triggered by external events. Standard notation: initial state (solid circle), states (rounded rectangles), transitions (arrows with <code>event [guard] / action</code>), final state (bullseye circle).</p>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-8" data-sec-title="Model-Driven Engineering (MDE &amp; MDA)" data-sec-index="7">
+        <h2 id="sec-8">Model-Driven Engineering (MDE &amp; MDA)</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">§ 8</div>
+        
+
+        <p class="section-lead"><strong>Model-Driven Engineering (MDE)</strong> is an approach to software development where models, rather than programs, are the principal outputs of the development process.</p>
+
+        <div class="table-container">
+          <table class="data-table hand-table">
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>Full Name</th>
+                <th>Role in Model-Driven Architecture (MDA)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CIM</strong></td>
+                <td>Computation Independent Model</td>
+                <td>Models domain abstractions without software system concepts (business domain model).</td>
+              </tr>
+              <tr>
+                <td><strong>PIM</strong></td>
+                <td>Platform Independent Model</td>
+                <td>Models system operation and structure without reference to implementation technology.</td>
+              </tr>
+              <tr>
+                <td><strong>PSM</strong></td>
+                <td>Platform Specific Model</td>
+                <td>Transforms PIM by adding implementation-specific rules (e.g. Java Spring, PostgreSQL).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="One-Page Rapid Revision Sheet" data-sec-index="8">
+        <h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">★ SUMMARY</div>
+        
+
+        <div class="table-container">
+          <table class="data-table hand-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Core Definition</th>
+                <th>Exam Key Point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Functional Req</strong></td>
+                <td>Services and functions the system must execute.</td>
+                <td>"Shall do X when Y occurs."</td>
+              </tr>
+              <tr>
+                <td><strong>Non-Functional Req</strong></td>
+                <td>Constraints on services (speed, reliability, security).</td>
+                <td>Must be quantitatively testable (MTBF, response ms).</td>
+              </tr>
+              <tr>
+                <td><strong>Availability Formula</strong></td>
+                <td><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mfrac><mtext>MTBF</mtext><mrow><mtext>MTBF</mtext><mo>+</mo><mtext>MTTR</mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">A = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1.2757em; vertical-align: -0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.8723em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">MTBF</span></span><span class="mbin mtight">+</span><span class="mord text mtight"><span class="mord mtight">MTTR</span></span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.394em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">MTBF</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.4033em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></td>
+                <td><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>T</mi><mi>B</mi><mi>F</mi><mo>=</mo><mn>500</mn><mtext>h</mtext><mo separator="true">,</mo><mi>M</mi><mi>T</mi><mi>T</mi><mi>R</mi><mo>=</mo><mn>2</mn><mtext>h</mtext>  <mo>⟹</mo>  <mi>A</mi><mo>=</mo><mn>99.60</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">MTBF=500\text{h}, MTTR=2\text{h} \implies A=99.60\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.109em;">M</span><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="mord mathnormal" style="margin-right: 0.0502em;">B</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord">500</span><span class="mord text"><span class="mord">h</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.109em;">M</span><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="mord mathnormal" style="margin-right: 0.0077em;">R</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7184em; vertical-align: -0.024em;"></span><span class="mord">2</span><span class="mord text"><span class="mord">h</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord">99.60%</span></span></span></span></span>.</td>
+              </tr>
+              <tr>
+                <td><strong>SRS IEEE 830</strong></td>
+                <td>Structured standard for requirements documentation.</td>
+                <td>Sections 1 (Intro), 2 (Description), 3 (Specific Reqs).</td>
+              </tr>
+              <tr>
+                <td><strong>Use Case Diagram</strong></td>
+                <td>Actor-system interaction boundary.</td>
+                <td><code>&lt;&lt;include&gt;&gt;</code> mandatory, <code>&lt;&lt;extend&gt;&gt;</code> optional.</td>
+              </tr>
+              <tr>
+                <td><strong>Sequence Diagram</strong></td>
+                <td>Time-ordered message trace across lifelines.</td>
+                <td>Lifelines, activation bars, sync calls, reply returns.</td>
+              </tr>
+              <tr>
+                <td><strong>Aggregation vs Comp</strong></td>
+                <td>Aggregation: hollow diamond (independent lifecycle).</td>
+                <td>Composition: filled diamond (cascaded lifecycle).</td>
+              </tr>
+              <tr>
+                <td><strong>MDA Hierarchy</strong></td>
+                <td>CIM → PIM → PSM → Executable Code.</td>
+                <td>Automated model transformation engines.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="questions-asked-before" data-sec-title="Questions Asked in Past CIE &amp; SEE Papers" data-sec-index="9">
+        <h2 id="questions-asked-before">Questions Asked in Past CIE &amp; SEE Papers</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">█ ARCHIVE</div>
+        
+        <p class="section-lead">The following authentic questions have been transcribed directly from official department examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code>:</p>
+
+        <!-- CIE-1 Q1.b -->
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q1.b</span>
+            <span class="archive-marks">[7 Marks]</span>
+          </div>
+          <p class="archive-q">"Differentiate between Functional and Non-Functional Requirements. Give two concrete examples of each in the context of an E-Commerce Web Application."</p>
+          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
+            <p><strong>Official Model Solution:</strong></p>
+            <ol>
+              <li>
+                <strong>Definitions:</strong>
+                <ul>
+                  <li><em>Functional Requirements (FRs):</em> Specify the functional services, business rules, inputs, data processing, and output transformations the software must deliver.</li>
+                  <li><em>Non-Functional Requirements (NFRs):</em> Define quality attributes, constraints, environmental conditions, and behavioral boundaries placed on the functional services.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>E-Commerce Examples:</strong>
+                <ul>
+                  <li><em>FR-1:</em> "The system shall allow registered customers to add items to a persistent cart and apply promotional coupon codes during checkout."</li>
+                  <li><em>FR-2:</em> "The system shall automatically generate and email a PDF invoice within 60 seconds of successful payment gateway confirmation."</li>
+                  <li><em>NFR-1 (Performance):</em> "The checkout page shall complete end-to-end processing in under 1.5 seconds under a concurrent traffic load of 5,000 active shoppers."</li>
+                  <li><em>NFR-2 (Security &amp; Compliance):</em> "All customer payment card credentials must be tokenized according to PCI-DSS Level 1 compliance; no raw CVV numbers shall be persisted to the database."</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- CIE-1 Q2.b -->
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q2.b</span>
+            <span class="archive-marks">[7 Marks]</span>
+          </div>
+          <p class="archive-q">"What are the common challenges faced during the requirements elicitation process? Discuss appropriate mitigation strategies for each."</p>
+          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
+            <p><strong>Official Model Solution:</strong></p>
+            <table class="data-table hand-table" style="font-size: 0.85rem; margin-top: 0.5rem;">
+              <thead>
+                <tr>
+                  <th>Elicitation Challenge</th>
+                  <th>Root Cause / Manifestation</th>
+                  <th>Engineering Mitigation Strategy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Scope Creep &amp; Boundary Confusion</strong></td>
+                  <td>Stakeholders request non-essential features, expanding system boundaries uncontrollably.</td>
+                  <td>Establish a clear Project Charter with a Change Control Board (CCB) and MoSCoW prioritization.</td>
+                </tr>
+                <tr>
+                  <td><strong>Tacit Knowledge / Articulation Gap</strong></td>
+                  <td>Users know how to do their daily tasks but cannot articulate exact procedural steps.</td>
+                  <td>Deploy Ethnography, on-site observation, and interactive user journey walkthroughs.</td>
+                </tr>
+                <tr>
+                  <td><strong>Conflicting Stakeholder Needs</strong></td>
+                  <td>Marketing, security, and finance departments place contradictory demands on system behavior.</td>
+                  <td>Conduct joint requirements negotiation sessions with weighted objective matrices.</td>
+                </tr>
+                <tr>
+                  <td><strong>Evolving / Volatile Requirements</strong></td>
+                  <td>Market conditions and regulatory standards shift during development cycles.</td>
+                  <td>Adopt Agile incremental sprints with short sprint review demos and living product backlogs.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CIE-1 Q3.b -->
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q3.b</span>
+            <span class="archive-marks">[5 Marks]</span>
+          </div>
+          <p class="archive-q">"Draw a neat Use Case Diagram for a Library Management System with Member and Librarian actors, including at least three use cases such as Search Books, Borrow Book, Return Book, Manage Catalog, and Fine Calculation."</p>
+          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
+            <p><strong>Official Model Solution:</strong></p>
+            <p>See <strong>Figure 2.1</strong> above for the verified complete UML Use Case Diagram:</p>
+            <ul>
+              <li><strong>Actors:</strong> <code>Member</code> (primary user on left) and <code>Librarian</code> (administrative staff on right).</li>
+              <li><strong>Core Use Cases:</strong> <em>Search &amp; Browse Catalog</em>, <em>Borrow Book</em>, <em>Return Book</em>, <em>Manage Catalog &amp; Stock</em>, <em>Generate Overdue Report</em>.</li>
+              <li><strong>Relationships:</strong>
+                <ul>
+                  <li><code>Borrow Book &lt;&lt;include&gt;&gt; Validate Member Identity</code> (mandatory authorization prerequisite).</li>
+                  <li><code>Return Book &lt;&lt;extend&gt;&gt; Calculate &amp; Collect Fine</code> (conditional execution triggered only when the return date exceeds the 14-day checkout limit).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CIE-1 Q3.c -->
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q3.c</span>
+            <span class="archive-marks">[4 Marks]</span>
+          </div>
+          <p class="archive-q">"Explain the requirements validation process. Outline three distinct techniques used to validate software requirements."</p>
+          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
+            <p><strong>Official Model Solution:</strong></p>
+            <p><strong>Requirements Validation</strong> is the process of checking that requirements accurately define the system the customer truly desires. Validation prevents costly downstream defects.</p>
+            <ol>
+              <li><strong>Requirements Reviews / Inspections:</strong> A multidisciplinary team of clients, architects, and testers systematically inspects the SRS line-by-line to verify completeness, consistency, realism, and lack of ambiguity.</li>
+              <li><strong>Prototyping:</strong> Developing throwaway or executable UI prototypes allowing stakeholders to experiment with proposed interfaces and detect missing requirements early.</li>
+              <li><strong>Test-Case Generation:</strong> If a requirement is realistic and testable, writing an automated acceptance test case for it must be straightforward. Inability to formulate a clear test case indicates the requirement is vague or unachievable.</li>
+            </ol>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="practice-problems" data-sec-title="Practice Problems with Hidden Answers" data-sec-index="10">
+        <h2 id="practice-problems">Practice Problems with Hidden Answers</h2>
+        <div class="staging-body">
+          
+        <div class="section-badge">∇ PRACTICE</div>
+        
+
+        <!-- Problem 1 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 • AVAILABILITY CALCULATION</span>
+          </div>
+          <h4 class="problem-title">A cloud server has an MTBF of 500 hours and an MTTR of 2 hours. Calculate its availability percentage and total expected annual downtime.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p>Formula for system availability:</p>
+              <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>=</mo><mfrac><mtext>MTBF</mtext><mrow><mtext>MTBF</mtext><mo>+</mo><mtext>MTTR</mtext></mrow></mfrac><mo>=</mo><mfrac><mn>500</mn><mrow><mn>500</mn><mo>+</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mn>500</mn><mn>502</mn></mfrac><mo>≈</mo><mn>0.996016</mn><mo>=</mo><mrow><mn mathvariant="bold">99.602</mn><mi mathvariant="bold">%</mi></mrow></mrow><annotation encoding="application/x-tex">A = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}} = \frac{500}{500 + 2} = \frac{500}{502} \approx 0.996016 = \mathbf{99.602\%}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.1297em; vertical-align: -0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3603em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord text"><span class="mord">MTBF</span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord text"><span class="mord">MTTR</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord text"><span class="mord">MTBF</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.7693em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.0908em; vertical-align: -0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">500</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord">2</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">500</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.7693em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">502</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">500</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">0.996016</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord"><span class="mord mathbf">99.602%</span></span></span></span></span></span></span>
+              <p>Annual downtime over a standard 365-day calendar year (8,760 hours):</p>
+              <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Annual&nbsp;Downtime</mtext><mo>=</mo><mn>8760</mn><mo>×</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>A</mi><mo stretchy="false">)</mo><mo>=</mo><mn>8760</mn><mo>×</mo><mrow><mo fence="true">(</mo><mn>1</mn><mo>−</mo><mfrac><mn>500</mn><mn>502</mn></mfrac><mo fence="true">)</mo></mrow><mo>=</mo><mn>8760</mn><mo>×</mo><mfrac><mn>2</mn><mn>502</mn></mfrac><mo>≈</mo><mrow><mn mathvariant="bold">34.87</mn><mtext>&nbsp;hours/year</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{Annual Downtime} = 8760 \times (1 - A) = 8760 \times \left(1 - \frac{500}{502}\right) = 8760 \times \frac{2}{502} \approx \mathbf{34.87\text{ hours/year}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord text"><span class="mord">Annual&nbsp;Downtime</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">8760</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">8760</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.4em; vertical-align: -0.95em;"></span><span class="minner"><span class="mopen delimcenter" style="top: 0em;"><span class="delimsizing size3">(</span></span><span class="mord">1</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">502</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">500</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top: 0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">8760</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">502</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathbf">34.87</span><span class="mord text"><span class="mord">&nbsp;hours/year</span></span></span></span></span></span></span></span>
+              <p><em>Verification:</em> Verified byte-for-byte in <code>audit/verify/se/verify_se_u2.py</code>.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 • NFR CLASSIFICATION</span>
+          </div>
+          <h4 class="problem-title">Classify the following requirement according to Sommerville's 3-tier taxonomy: "The system must conform to ISO 9001 quality audit documentation guidelines."</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p><strong>Classification: Organizational Requirement • Development Standards.</strong></p>
+              <p><strong>Rationale:</strong> It governs internal organizational engineering processes, documentation standards, and quality management protocols rather than the runtime computational behavior of the software product (Product Requirement) or external government statutes (External Requirement).</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 3 • REQUIREMENTS TRACEABILITY MATRIX (RTM)</span>
+          </div>
+          <h4 class="problem-title">In an audit of 6 system requirements, all 6 are successfully mapped to architectural modules and automated test cases. Calculate the Traceability Coverage and describe why backward traceability is vital.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Traceability&nbsp;Coverage</mtext><mo>=</mo><mfrac><msub><mi>N</mi><mtext>mapped</mtext></msub><msub><mi>N</mi><mtext>total</mtext></msub></mfrac><mo>×</mo><mn>100</mn><mi mathvariant="normal">%</mi><mo>=</mo><mfrac><mn>6</mn><mn>6</mn></mfrac><mo>×</mo><mn>100</mn><mi mathvariant="normal">%</mi><mo>=</mo><mrow><mn mathvariant="bold">100.0</mn><mi mathvariant="bold">%</mi></mrow></mrow><annotation encoding="application/x-tex">\text{Traceability Coverage} = \frac{N_{\text{mapped}}}{N_{\text{total}}} \times 100\% = \frac{6}{6} \times 100\% = \mathbf{100.0\%}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Traceability&nbsp;Coverage</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.1963em; vertical-align: -0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3603em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right: 0.109em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.109em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">total</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right: 0.109em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.109em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">mapped</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.836em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord">100%</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">6</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord">100%</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord"><span class="mord mathbf">100.0%</span></span></span></span></span></span></span>
+              <p><strong>Importance of Backward Traceability:</strong></p>
+              <ul>
+                <li>Ensures that every line of source code and design module traces back to an authentic, approved user requirement (preventing unauthorized feature bloat or "gold plating").</li>
+                <li>When a customer amends or deletes a requirement, backward traceability allows engineers to rapidly isolate and modify only the affected modules and tests without breaking unrelated subsystems.</li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 4 • USE CASE INCLUDE VS EXTEND CRITERIA</span>
+          </div>
+          <h4 class="problem-title">An airline reservation system has a "Book Flight" use case and an "Opt for Travel Insurance" use case. Should the relationship be <code>&lt;&lt;include&gt;&gt;</code> or <code>&lt;&lt;extend&gt;&gt;</code>? Justify your answer.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p><strong>Relationship:</strong> <code>&lt;&lt;extend&gt;&gt;</code> (Book Flight ← Opt for Travel Insurance with extension point: "During Payment Review").</p>
+              <p><strong>Justification:</strong></p>
+              <ul>
+                <li>Purchasing travel insurance is optional and conditional. A passenger can successfully complete a booking without purchasing insurance.</li>
+                <li><code>&lt;&lt;include&gt;&gt;</code> would mandate that insurance is bought on every single flight booking, which violates domain business logic.</li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 5 • SEQUENCE DIAGRAM ACTIVATION BAR DURATION</span>
+          </div>
+          <h4 class="problem-title">In a sequence diagram, object A sends a synchronous message to object B, which then queries object C. How should the activation bars on A, B, and C be drawn?</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <ol>
+                <li><strong>Object A:</strong> Its activation bar begins when it initiates the workflow and remains active (waiting in blocking state) until it receives the return message from B.</li>
+                <li><strong>Object B:</strong> Its activation bar begins upon receiving message 1 from A. It stays active throughout its execution, spanning the invocation of C and receipt of C's reply, until it returns control to A.</li>
+                <li><strong>Object C:</strong> Its activation bar begins when B calls it and terminates immediately once it sends its return data back to B.</li>
+              </ol>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 6 • MODEL-DRIVEN ARCHITECTURE (MDA)</span>
+          </div>
+          <h4 class="problem-title">Trace the transformation chain in Model-Driven Architecture (MDA) from initial requirements down to executable application code.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <ol>
+                <li><strong>CIM (Computation Independent Model):</strong> Domain and business process model capturing user concepts without software system structures.</li>
+                <li><strong>↓ [Domain Analysis Transformation] ↓</strong></li>
+                <li><strong>PIM (Platform Independent Model):</strong> Formal UML classes, state machines, and interactions specifying system behavior completely independently of target runtime platform.</li>
+                <li><strong>↓ [Platform Mapping Transformation Rules] ↓</strong></li>
+                <li><strong>PSM (Platform Specific Model):</strong> Detailed models customized for target hardware/middleware (e.g. Java Spring JPA entities, RESTful endpoints).</li>
+                <li><strong>↓ [Automated Code Synthesis] ↓</strong></li>
+                <li><strong>Executable Application Code:</strong> Generated source files and database DDL scripts ready for deployment.</li>
+              </ol>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      
+        </div>
+      </div>
+    
+  </div>
+  <div id="notebook-container"></div>
+</body>
+</html>

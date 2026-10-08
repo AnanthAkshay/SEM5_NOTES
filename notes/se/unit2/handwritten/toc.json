@@ -1,0 +1,57 @@
+[
+  {
+    "id": "sec-1",
+    "title": "Functional vs Non-Functional Requirements",
+    "page": 2
+  },
+  {
+    "id": "sec-2",
+    "title": "The Software Requirements Specification (SRS) & IEEE 830",
+    "page": 3
+  },
+  {
+    "id": "sec-3",
+    "title": "Requirements Engineering Processes & Traceability (RTM)",
+    "page": 4
+  },
+  {
+    "id": "sec-4",
+    "title": "Context & Interaction Models: Use Case Diagrams",
+    "page": 5
+  },
+  {
+    "id": "sec-5",
+    "title": "Interaction Models: Sequence Diagrams",
+    "page": 6
+  },
+  {
+    "id": "sec-6",
+    "title": "Structural Models: UML Class Diagrams",
+    "page": 7
+  },
+  {
+    "id": "sec-7",
+    "title": "Behavioral Models: Activity & State Machine Diagrams",
+    "page": 8
+  },
+  {
+    "id": "sec-8",
+    "title": "Model-Driven Engineering (MDE & MDA)",
+    "page": 8
+  },
+  {
+    "id": "revision-sheet",
+    "title": "One-Page Rapid Revision Sheet",
+    "page": 9
+  },
+  {
+    "id": "questions-asked-before",
+    "title": "Questions Asked in Past CIE & SEE Papers",
+    "page": 9
+  },
+  {
+    "id": "practice-problems",
+    "title": "Practice Problems with Hidden Answers",
+    "page": 13
+  }
+]
