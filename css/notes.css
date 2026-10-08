@@ -132,6 +132,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--topbar-h) + 24px);
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -144,6 +145,7 @@ body {
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 /* Skip link */
@@ -1109,10 +1111,20 @@ details.model-answer[open] summary::after,
 @media (max-width: 1023px) {
   .notes-container,
   .notes-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
     margin: 1.25rem auto;
     padding: 0 16px;
+  }
+
+  .notes-main,
+  .notes-content,
+  .note-content,
+  .notes-section,
+  .note-section,
+  .questions-section {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .mobile-toc-bar {
@@ -1406,3 +1418,35 @@ details.model-answer[open] summary::after,
   color: var(--ink);
   margin-top: 0.2rem;
 }
+
+/* Responsive Math & Data Tables */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 0.4rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+.katex-mathml {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+.katex-mathml math {
+  width: 1px !important;
+  overflow: hidden !important;
+}
+.table-container,
+.table-wrap,
+.table-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+}
+
