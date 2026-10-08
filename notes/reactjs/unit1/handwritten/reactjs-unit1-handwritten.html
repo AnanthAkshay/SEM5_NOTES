@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ISAEC594 Unit 1 - Handwritten Notes</title>
+  <link rel="stylesheet" href="../../../../fonts/fonts.css">
+  <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../../css/handwritten.css">
+  <style>
+    :root {
+      --font-body: 'Architects Daughter', cursive, sans-serif;
+      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --ink-blue: #1e293b;
+      --ink-dark: #0284c7;
+    }
+    #staging-container {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      width: calc(210mm - 28mm - 14mm);
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+  <script src="../../../../assets/katex/katex.min.js"></script>
+  <script src="../../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script src="../../../../js/rough.js"></script>
+</head>
+<body>
+  <div id="staging-container">
+    
+      <div class="staging-section" data-sec-id="sec-react-philosophy" data-sec-title="1. What is React? &amp; Core Philosophy" data-sec-index="0">
+        <h2 id="sec-react-philosophy">1. What is React? &amp; Core Philosophy</h2>
+        <div class="staging-body">
+          
+        
+        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+          
+          <p><strong>React</strong> is an open-source, component-based JavaScript library created by Jordan Walke at Facebook (Meta) in 2013 for building rich, interactive, and high-performance user interfaces for Single Page Applications (SPAs).</p>
+        </div>
+
+        <h3 class="subsection-title">1.1 The Three Pillars of React Philosophy</h3>
+        <ol>
+          <li><strong>1. Declarative UI (Declarative vs. Imperative Programming):</strong>
+            <ul>
+              <li><em>Imperative (Traditional DOM/jQuery):</em> You tell the browser step-by-step <em>how</em> to manipulate the DOM (e.g., <code>document.getElementById('btn').classList.add('active')</code>). This becomes notoriously bug-prone as application state grows complex.</li>
+              <li><em>Declarative (React):</em> You declare <em>what</em> the UI should look like for a given state (e.g., <code>&lt;button className={isActive ? 'active' : ''}&gt;</code>). React automatically handles the underlying DOM mutations when state transitions.</li>
+            </ul>
+          </li>
+          <li><strong>2. Component-Based Architecture:</strong> UIs are constructed as independent, reusable, self-contained bricks called <strong>components</strong>. Each component encapsulates its own structure, internal state, and rendering logic.</li>
+          <li><strong>3. One-Way (Unidirectional) Data Flow:</strong> Data strictly flows downward from parent components to child components via immutable <strong>props</strong>. This guarantees predictable state changes, eliminates cascading side-effects, and makes debugging straightforward.</li>
+        </ol>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>React is a declarative, component-driven UI library utilizing unidirectional data flow. You specify what the UI looks like for a state; React manages the DOM updates.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-virtual-dom" data-sec-title="2. The Virtual DOM &amp; Reconciliation" data-sec-index="1">
+        <h2 id="sec-virtual-dom">2. The Virtual DOM &amp; Reconciliation</h2>
+        <div class="staging-body">
+          
+        
+        <h3 class="subsection-title">2.1 Why the Real Browser DOM is Slow</h3>
+        <p>The native Browser Document Object Model (DOM) is a tree-like object structure representing HTML elements. Direct DOM manipulation is computationally expensive because altering a single node frequently forces the browser layout engine to trigger:</p>
+        <ul>
+          <li><strong>Reflow (Layout calculation):</strong> Recalculating the geometric coordinates and bounding boxes of all surrounding elements on the page.</li>
+          <li><strong>Repaint:</strong> Redrawing pixels on screen to reflect style and geometry shifts.</li>
+        </ul>
+
+        <h3 class="subsection-title">2.2 What is the Virtual DOM?</h3>
+        <p>The <strong>Virtual DOM (VDOM)</strong> is a lightweight, pure JavaScript object tree stored in memory that mirrors the actual DOM. It contains no browser-specific layout APIs, making in-memory operations instantaneous.</p>
+
+        <!-- SVG 1.1: Virtual DOM Reconciliation Workflow -->
+        <div class="diagram-wrapper">
+          <div class="diagram-title">Figure 1.1: The Virtual DOM Diffing and Reconciliation Process</div>
+          <svg viewBox="0 0 780 240" class="svg-diagram" aria-label="Workflow diagram showing State Change leading to Previous VDOM and New VDOM diffing, calculating minimal patch and updating Real DOM">
+            <title>Virtual DOM Reconciliation Architecture</title>
+            <!-- Step 1: State Change -->
+            <rect x="20" y="80" width="130" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+            <text x="85" y="110" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">State Change</text>
+            <text x="85" y="130" text-anchor="middle" fill="var(--text-secondary)" font-size="10">User Interaction</text>
+
+            <path d="M 150 115 L 180 115" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"></path>
+
+            <!-- Step 2: New VDOM Tree -->
+            <rect x="190" y="40" width="160" height="70" rx="10" fill="var(--surface)" stroke="var(--green)" stroke-width="2"></rect>
+            <text x="270" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">New VDOM Tree</text>
+            <text x="270" y="90" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Re-rendered in Memory</text>
+
+            <rect x="190" y="130" width="160" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+            <text x="270" y="160" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Previous VDOM Tree</text>
+            <text x="270" y="180" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Cached Snapshot</text>
+
+            <!-- Diffing Algorithm Box -->
+            <path d="M 350 75 L 390 100" stroke="var(--green)" stroke-width="2" fill="none"></path>
+            <path d="M 350 165 L 390 130" stroke="var(--green)" stroke-width="2" fill="none"></path>
+
+            <rect x="400" y="75" width="170" height="80" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
+            <text x="485" y="105" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="13">Diffing Algorithm</text>
+            <text x="485" y="125" text-anchor="middle" fill="var(--green)" font-weight="600" font-size="11"><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> Heuristic Diff</text>
+            <text x="485" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Computes Delta Patch</text>
+
+            <path d="M 570 115 L 610 115" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"></path>
+
+            <!-- Real DOM Batch Update -->
+            <rect x="620" y="75" width="140" height="80" rx="12" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5"></rect>
+            <text x="690" y="105" text-anchor="middle" font-weight="800" fill="var(--green)" font-size="13">Real Browser DOM</text>
+            <text x="690" y="125" text-anchor="middle" fill="var(--text-primary)" font-size="10">Targeted Patch</text>
+            <text x="690" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Minimal Reflow/Repaint</text>
+          </svg>
+          <div class="diagram-caption">Reconciliation compares the new VDOM against the previous VDOM snapshot using an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> heuristic diff, applying only minimal batched patches to the real DOM.</div>
+        </div>
+
+        <h3 class="subsection-title">2.3 The Reconciliation Algorithm &amp; Fiber Architecture</h3>
+        <p>A generic tree diffing algorithm operates in <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0641em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span> time complexity, which would be unusable for interfaces with thousands of elements. React achieves an optimal <strong><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span></strong> linear reconciliation via two core heuristics:</p>
+        <ol>
+          <li><strong>Different Element Types:</strong> Two elements of different HTML types (e.g. changing <code>&lt;div&gt;</code> to <code>&lt;span&gt;</code>) will tear down and completely reconstruct that entire subtree from scratch.</li>
+          <li><strong>Keys for List Elements:</strong> Developers supply a persistent <code>key</code> prop so React can identify which items were inserted, deleted, or reordered without re-rendering the whole collection.</li>
+        </ol>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>VDOM is a lightweight in-memory JS representation of the UI. Reconciliation compares the new VDOM to the old VDOM via an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> heuristic diff and batches minimal updates to the real DOM.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-framework-comparison" data-sec-title="3. React vs. Other Front-End Frameworks (Angular &amp; Vue)" data-sec-index="2">
+        <h2 id="sec-framework-comparison">3. React vs. Other Front-End Frameworks (Angular &amp; Vue)</h2>
+        <div class="staging-body">
+          
+        
+        <div class="table-container">
+          <table class="notes-table hand-table">
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>React (Meta)</th>
+                <th>Angular (Google)</th>
+                <th>Vue.js (Evan You)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Classification</strong></td>
+                <td><strong>UI Library</strong> (Unopinionated, flexible).</td>
+                <td><strong>Full-fledged Framework</strong> (Batteries included, highly opinionated).</td>
+                <td><strong>Progressive Framework</strong> (Incremental adoption).</td>
+              </tr>
+              <tr>
+                <td><strong>Language &amp; Templates</strong></td>
+                <td>JavaScript / TypeScript with <strong>JSX</strong>.</td>
+                <td>TypeScript with HTML template directives (<code>*ngIf</code>, <code>*ngFor</code>).</td>
+                <td>HTML templates (<code>v-if</code>, <code>v-for</code>) or JSX.</td>
+              </tr>
+              <tr>
+                <td><strong>Data Binding</strong></td>
+                <td><strong>One-way</strong> (Unidirectional binding).</td>
+                <td><strong>Two-way</strong> (<code>[(ngModel)]</code>) &amp; One-way.</td>
+                <td><strong>Two-way</strong> (<code>v-model</code>) &amp; One-way.</td>
+              </tr>
+              <tr>
+                <td><strong>DOM Mechanism</strong></td>
+                <td>Virtual DOM with Fiber Reconciliation.</td>
+                <td>Real DOM with Incremental DOM and zone-based change detection.</td>
+                <td>Virtual DOM with template compiler optimizations.</td>
+              </tr>
+              <tr>
+                <td><strong>Learning Curve</strong></td>
+                <td>Moderate (requires JS fluency and ecosystem curation).</td>
+                <td>Steep (TypeScript, RxJS observables, Dependency Injection).</td>
+                <td>Gentle (standard HTML/CSS/JS syntax).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>React is a flexible UI library using one-way data binding and JSX; Angular is an opinionated full framework with two-way binding; Vue is a progressive template framework.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-vite-setup" data-sec-title="4. Setting Up the React Environment with Vite" data-sec-index="3">
+        <h2 id="sec-vite-setup">4. Setting Up the React Environment with Vite</h2>
+        <div class="staging-body">
+          
+        
+        <h3 class="subsection-title">4.1 Why Vite Over Create React App (CRA)?</h3>
+        <p>The legacy <em>Create React App (CRA)</em> utility relied on Webpack, which bundles the entire application codebase in memory before serving, leading to sluggish server start times and slow rebuilds as projects grew. <strong>Vite</strong> revolutionizes frontend tooling:</p>
+        <ul>
+          <li><strong>Instant Server Start:</strong> Leverages native browser ES Modules (ESM) to serve source code on-demand without bundling beforehand.</li>
+          <li><strong>Lightning-Fast Pre-bundling:</strong> Uses <code>esbuild</code> (written in Go), pre-bundling dependencies <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>−</mo><mn>100</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">10-100\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">100</span><span class="mord">×</span></span></span></span></span> faster than JavaScript-based bundlers.</li>
+          <li><strong>Hot Module Replacement (HMR):</strong> Updates modified component files instantly in the browser without losing application state.</li>
+        </ul>
+
+        <h3 class="subsection-title">4.2 Bootstrapping a Modern Vite React Application</h3>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="btn-copy" data-target="code-vite-setup">Copy</button>
+          </div>
+          <pre id="code-vite-setup" class="hand-code-box"><code># 1. Initialize a new Vite project with the React template
+npm create vite@latest my-react-app -- --template react
+
+# 2. Navigate into the project folder
+cd my-react-app
+
+# 3. Install project dependencies
+npm install
+
+# 4. Launch the lightning-fast local development server
+npm run dev</code></pre>
+        </div>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>Vite serves source code over native ES Modules (ESM) and uses Go-based <code>esbuild</code> for dependencies, offering near-instant dev server boot and fast Hot Module Replacement.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-project-structure" data-sec-title="5. React Project Structure &amp; Execution Lifecycle" data-sec-index="4">
+        <h2 id="sec-project-structure">5. React Project Structure &amp; Execution Lifecycle</h2>
+        <div class="staging-body">
+          
+        
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">text</span>
+            <button class="btn-copy" data-target="code-dir-struct">Copy</button>
+          </div>
+          <pre id="code-dir-struct" class="hand-code-box"><code>my-react-app/
+├── index.html           # HTML entry point containing the &lt;div id="root"&gt;&lt;/div&gt; container
+├── package.json         # Project metadata, scripts (dev, build), and dependencies
+├── vite.config.js       # Vite configuration and React plugins
+├── public/              # Static assets served as-is (favicon, icons)
+└── src/
+    ├── main.jsx         # JavaScript entry point; creates root and mounts &lt;App /&gt;
+    ├── App.jsx          # Root component of your application tree
+    ├── App.css          # Styles scoped to App component
+    └── index.css        # Global CSS rules and CSS custom properties</code></pre>
+        </div>
+
+        <h3 class="subsection-title">5.1 The Entry Point: <code>main.jsx</code></h3>
+        <p>In modern React 18+, the application attaches to the HTML DOM using the <code>createRoot</code> API from <code>react-dom/client</code>:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-main-jsx">Copy</button>
+          </div>
+          <pre id="code-main-jsx" class="hand-code-box"><code>import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
+
+// Mount the root React component into the &lt;div id="root"&gt; in index.html
+ReactDOM.createRoot(document.getElementById('root')).render(
+  &lt;React.StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;
+);</code></pre>
+        </div>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>Execution starts in <code>index.html</code> with <code>&lt;div id="root"&gt;</code>, which loads <code>main.jsx</code>, where <code>createRoot(...).render(&lt;App /&gt;)</code> mounts the root component tree.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-jsx-fundamentals" data-sec-title="6. Introduction to JSX &amp; Syntax Rules" data-sec-index="5">
+        <h2 id="sec-jsx-fundamentals">6. Introduction to JSX &amp; Syntax Rules</h2>
+        <div class="staging-body">
+          
+        
+        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+          
+          <p><strong>JSX (JavaScript XML)</strong> is a syntax extension for JavaScript that allows developers to write HTML-like markup directly inside JavaScript files. It is not valid JavaScript natively; build tools transpile it into standard JavaScript function calls.</p>
+        </div>
+
+        <h3 class="subsection-title">6.1 The Three Essential Rules of JSX</h3>
+        <ol>
+          <li><strong>1. Return a Single Root Element:</strong> A component cannot return multiple adjacent top-level JSX tags. You must wrap them in a parent element or a <strong>React Fragment</strong> (<code>&lt;&gt;...&lt;/&gt;</code> or <code>&lt;React.Fragment&gt;</code>), because JavaScript functions cannot return multiple values without an enclosing container.</li>
+          <li><strong>2. Close All Tags:</strong> Every tag must be explicitly closed. Tags that are void in HTML (like <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>) must be self-closing in JSX: <code>&lt;img src="..." alt="..." /&gt;</code>.</li>
+          <li><strong>3. camelCase Most HTML Attributes:</strong> Because JSX compiles to JavaScript objects and words like <code>class</code> and <code>for</code> are reserved keywords in JavaScript:
+            <ul>
+              <li>Use <code>className</code> instead of <code>class</code>.</li>
+              <li>Use <code>htmlFor</code> instead of <code>for</code> (in <code>&lt;label&gt;</code>).</li>
+              <li>Event handlers use camelCase: <code>onClick</code>, <code>onChange</code>, <code>onSubmit</code>.</li>
+              <li>Inline styles use camelCase properties inside double curly braces: <code>style={{ backgroundColor: 'red', marginTop: '10px' }}</code>.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>JSX rules: 1. Single root element (or Fragment <code>&lt;&gt;&lt;/&gt;</code>); 2. All tags must close (e.g. <code>&lt;br /&gt;</code>); 3. camelCase attributes (<code>className</code>, <code>htmlFor</code>, <code>onClick</code>).</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-jsx-expressions" data-sec-title="7. Embedding Expressions &amp; Evaluation in JSX" data-sec-index="6">
+        <h2 id="sec-jsx-expressions">7. Embedding Expressions &amp; Evaluation in JSX</h2>
+        <div class="staging-body">
+          
+        
+        <p>You can embed any valid JavaScript <strong>expression</strong> inside JSX markup by enclosing it in curly braces <code>{ }</code>:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-expressions">Copy</button>
+          </div>
+          <pre id="code-expressions" class="hand-code-box"><code>function UserGreeting() {
+  const firstName = "Ananya";
+  const unreadCount = 4;
+  const user = { role: "admin", points: 150 };
+
+  return (
+    &lt;div className="profile-banner"&gt;
+      {/* 1. Variable interpolation */}
+      &lt;h1&gt;Welcome back, {firstName}!&lt;/h1&gt;
+
+      {/* 2. Arithmetic expression */}
+      &lt;p&gt;Bonus Points: {user.points * 2}&lt;/p&gt;
+
+      {/* 3. Function call evaluation */}
+      &lt;p&gt;Role: {user.role.toUpperCase()}&lt;/p&gt;
+
+      {/* 4. Dynamic attribute value (notice no quotes around the braces!) */}
+      &lt;span title={`User has ${unreadCount} messages`}&gt;
+        Notifications: {unreadCount}
+      &lt;/span&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="callout callout-warning hand-card card-warning"><div class="hand-badge">Important Limitation</div>
+          
+          <p>Only <strong>expressions</strong> (code that evaluates to a value) can be placed inside <code>{ }</code>. JavaScript <strong>statements</strong> (like <code>if (...)</code>, <code>for (...)</code>, <code>switch (...)</code>, or <code>function (...)</code> declarations) cannot be placed directly inside JSX curly braces!</p>
+        </div>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>Curly braces <code>{ }</code> open a window to JavaScript inside JSX. Only expressions (producing a value) are permitted; statements (<code>if</code>, <code>for</code>) cause syntax errors.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-conditional-lists" data-sec-title="8. Conditional &amp; List Rendering in JSX" data-sec-index="7">
+        <h2 id="sec-conditional-lists">8. Conditional &amp; List Rendering in JSX</h2>
+        <div class="staging-body">
+          
+        
+
+        <h3 class="subsection-title">8.1 Idiomatic Conditional Rendering Patterns</h3>
+        <ul>
+          <li><strong>1. Ternary Operator (<code>condition ? &lt;TrueView /&gt; : &lt;FalseView /&gt;</code>):</strong> Used when you want to render one element when true, and an alternate element when false.</li>
+          <li><strong>2. Logical AND Short-Circuit (<code>condition &amp;&amp; &lt;Component /&gt;</code>):</strong> Used when you want to render a component only if a condition is true, and nothing if false.
+            <div class="callout callout-warning hand-card card-warning" style="margin-top:8px;"><div class="hand-badge">The "Zero" Pitfall</div>
+              
+              <p>Be careful when the condition is a number! In JavaScript, <code>0 &amp;&amp; &lt;Span /&gt;</code> evaluates to the number <code>0</code>, which React renders as text "0" on screen. To prevent this, check boolean explicitly: <code>messages.length &gt; 0 &amp;&amp; &lt;Badge /&gt;</code>.</p>
+            </div>
+          </li>
+          <li><strong>3. Early Return with <code>if / else</code>:</strong> When an entire component's return value depends on an early check (e.g. returning a loading spinner while data fetches).</li>
+        </ul>
+
+        <h3 class="subsection-title">8.2 Rendering Lists with the <code>.map()</code> Method and <code>key</code> Prop</h3>
+        <p>In React, collections of data are transformed into arrays of JSX elements using standard JavaScript array <code>.map()</code>:</p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span class="code-lang">jsx</span>
+            <button class="btn-copy" data-target="code-list-render">Copy</button>
+          </div>
+          <pre id="code-list-render" class="hand-code-box"><code>function CourseList() {
+  const courses = [
+    { id: "cs101", title: "ReactJS Fundamentals", credits: 1 },
+    { id: "cs102", title: "Machine Learning", credits: 4 },
+    { id: "cs103", title: "Computer Networks", credits: 4 }
+  ];
+
+  return (
+    &lt;ul className="course-list"&gt;
+      {courses.map((course) =&gt; (
+        // KEY PROP: Must be unique among siblings!
+        &lt;li key={course.id} className="course-item"&gt;
+          &lt;strong&gt;{course.title}&lt;/strong&gt; - {course.credits} Credits
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="callout callout-warning hand-card card-warning"><div class="hand-badge">Why Array Indices Should Not Be Used as Keys</div>
+          
+          <p>Using <code>key={index}</code> works for static, never-changing lists, but fails catastrophically if items can be sorted, filtered, inserted, or deleted. The index of an item changes when preceding items are modified, causing React to mistakenly match different component instances, resulting in corrupted form state and broken animations!</p>
+        </div>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>Render lists using <code>array.map()</code>. Every item requires a unique, persistent <code>key</code> prop (use IDs, not indices) so the reconciliation algorithm can track element identity.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-jsx-compilation" data-sec-title="9. JSX Compilation Under the Hood" data-sec-index="8">
+        <h2 id="sec-jsx-compilation">9. JSX Compilation Under the Hood</h2>
+        <div class="staging-body">
+          
+        
+        <p>Browsers cannot execute JSX directly. Build tools like Babel or esbuild compile JSX into pure JavaScript before execution.</p>
+
+        <h3 class="subsection-title">9.1 Classic Transform vs. Modern React 17+ JSX Transform</h3>
+        <div class="table-container">
+          <table class="notes-table hand-table">
+            <thead>
+              <tr>
+                <th>Original JSX Code</th>
+                <th>Classic Transform (Legacy <code>React.createElement</code>)</th>
+                <th>Modern Transform (React 17+ <code>_jsx</code> runtime)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;h1 className="title"&gt;Hello World&lt;/h1&gt;</code></td>
+                <td>
+                  <code>React.createElement('h1', { className: 'title' }, 'Hello World')</code><br>
+                  <em>(Requires <code>import React from 'react'</code> in every file!)</em>
+                </td>
+                <td>
+                  <code>import { jsx as _jsx } from 'react/jsx-runtime';</code><br>
+                  <code>_jsx('h1', { className: 'title', children: 'Hello World' })</code><br>
+                  <em>(Automated import; no manual React import needed!)</em>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          
+          <p>JSX compiles to JavaScript function calls. Modern React 17+ automatically uses <code>react/jsx-runtime</code> (<code>_jsx</code>), eliminating the legacy requirement to import React in every JSX file.</p>
+        </div>
+      
+
+      <!-- Interactive JSX Compilation & Virtual DOM Diffing Studio -->
+      <div id="react-jsx-studio" class="interactive-widget-card" style="margin: 2.5rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--brand); font-weight: 700; letter-spacing: 0.05em;">Interactive Lab Explorer</div>
+            <h3 style="margin: 0.2rem 0 0 0; font-family: var(--font-display); font-size: 1.25rem; color: var(--ink);">JSX Compilation &amp; Virtual DOM Diffing Studio</h3>
+          </div>
+          <div style="display: flex; gap: 0.5rem;" id="studio-tab-controls" role="tablist">
+            <button id="tab-btn-transpile" class="pill-action-btn" role="tab" aria-selected="true" style="padding: 0.35rem 0.8rem; font-size: 0.8rem; border-color: var(--brand); color: var(--brand);">Tab 1: JSX &amp; VDOM AST</button>
+            <button id="tab-btn-rendering" class="pill-action-btn" role="tab" aria-selected="false" style="padding: 0.35rem 0.8rem; font-size: 0.8rem; opacity: 0.7;">Tab 2: Conditional &amp; List Sandbox</button>
+          </div>
+        </div>
+
+        <!-- Panel 1: JSX Transpiler & VDOM AST Inspector -->
+        <div id="panel-transpile" role="tabpanel" style="display: block;">
+          <p style="font-size: 0.9rem; color: var(--ink-muted); margin-top: 0;">
+            Select a JSX code pattern to inspect how the Babel compiler converts it into pure <code>React.createElement()</code> function calls, constructs the in-memory <strong>Virtual DOM Tree Object</strong>, and finally renders the real DOM nodes:
+          </p>
+
+          <!-- Preset selector buttons -->
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span style="font-size: 0.8rem; color: var(--ink-muted); align-self: center;">Code Presets:</span>
+            <button id="preset-card" class="pill-action-btn" style="padding: 0.25rem 0.6rem; font-size: 0.75rem; border-color: var(--brand); color: var(--brand);">1. User Profile Card</button>
+            <button id="preset-cart" class="pill-action-btn" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;">2. Conditional Cart Badge</button>
+            <button id="preset-list" class="pill-action-btn" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;">3. Course List Item with Key</button>
+          </div>
+
+          <!-- 3-Way Inspection Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+            <!-- Column 1: JSX Source -->
+            <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--brand); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">1. Author's JSX Source</div>
+              <pre style="margin: 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink); line-height: 1.45;" class="hand-code-box"><code id="view-jsx-source">&lt;div className="card"&gt;
+  &lt;h1&gt;Hello {user.name}&lt;/h1&gt;
+  &lt;p&gt;Active: {user.active ? "Yes" : "No"}&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <!-- Column 2: Compiled JavaScript -->
+            <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--brand); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">2. Babel Transpiled Output</div>
+              <pre style="margin: 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink); line-height: 1.45;" class="hand-code-box"><code id="view-babel-output">React.createElement("div", { className: "card" },
+  React.createElement("h1", null, "Hello " + user.name),
+  React.createElement("p", null, "Active: " + (user.active ? "Yes" : "No"))
+);</code></pre>
+            </div>
+          </div>
+
+          <!-- Bottom Grid: VDOM AST & Real DOM Live Preview -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <!-- VDOM Object -->
+            <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--brand); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">3. In-Memory Virtual DOM (AST Object)</div>
+              <pre style="margin: 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink); max-height: 180px;" class="hand-code-box"><code id="view-vdom-ast">{
+  "type": "div",
+  "props": {
+    "className": "card",
+    "children": [
+      { "type": "h1", "props": { "children": "Hello Ananya" } },
+      { "type": "p", "props": { "children": "Active: Yes" } }
+    ]
+  }
+}</code></pre>
+            </div>
+
+            <!-- Real DOM Live Preview -->
+            <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--brand); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">4. Browser DOM Output (Rendered Result)</div>
+              <div id="view-dom-preview" style="padding: 0.75rem; background: var(--surface); border: 1px dashed var(--brand); border-radius: 6px; min-height: 120px; display: flex; flex-direction: column; justify-content: center;">
+                <div style="font-weight: 700; font-size: 1.1rem; color: var(--ink);">Hello Ananya</div>
+                <div style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 0.25rem;">Active: <span style="color: var(--brand); font-weight: 600;">Yes</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Conditional & List Rendering Sandbox -->
+        <div id="panel-rendering" role="tabpanel" style="display: none;">
+          <p style="font-size: 0.9rem; color: var(--ink-muted); margin-top: 0;">
+            Adjust the application state below to see how JavaScript conditional expressions and array <code>.map()</code> transformations evaluate in real-time:
+          </p>
+
+          <!-- Interactive State Controls -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+            <div>
+              <label for="state-user-name" style="display: block; font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); margin-bottom: 0.35rem;">
+                User Name:
+              </label>
+              <input type="text" id="state-user-name" value="Ananya" style="width: 100%; padding: 0.45rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--ink); font-family: var(--font-mono); font-size: 0.88rem;">
+            </div>
+
+            <div>
+              <label style="display: block; font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); margin-bottom: 0.35rem;">
+                Authentication State:
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.45rem; cursor: pointer; font-size: 0.88rem; color: var(--ink);">
+                <input type="checkbox" id="state-is-logged-in" checked="" style="accent-color: var(--brand); width: 16px; height: 16px;">
+                <span><code>isLoggedIn = true</code></span>
+              </label>
+            </div>
+
+            <div>
+              <label for="state-unread-count" style="display: block; font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); margin-bottom: 0.35rem;">
+                Unread Messages: <span id="val-unread-count" style="font-weight: 700; color: var(--brand);">3</span>
+              </label>
+              <input type="range" id="state-unread-count" min="0" max="10" value="3" style="width: 100%; accent-color: var(--brand); margin-top: 0.35rem;">
+            </div>
+
+            <div>
+              <label for="state-course-filter" style="display: block; font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); margin-bottom: 0.35rem;">
+                Filter Courses:
+              </label>
+              <select id="state-course-filter" style="width: 100%; padding: 0.45rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--ink); font-family: var(--font-mono); font-size: 0.85rem;">
+                <option value="all">All Enrolled (3)</option>
+                <option value="high">High Credits (≥ 4 Credits)</option>
+                <option value="low">AEC Course (&lt; 4 Credits)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Evaluation Outputs -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <!-- Greeting Card -->
+            <div style="padding: 1.25rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase;">Conditional Status Output</div>
+              <div id="res-greeting-text" style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: var(--brand); margin: 0.5rem 0;">
+                Welcome Back! (3 new)
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-muted);">
+                Expression: <code>{isLoggedIn ? "Welcome Back!" : "Please Sign In"} {isLoggedIn &amp;&amp; unread &gt; 0 &amp;&amp; `(${unread} new)`}</code>
+              </div>
+            </div>
+
+            <!-- List Card -->
+            <div style="padding: 1.25rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase;">Mapped List Elements</span>
+                <span id="res-courses-count" style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--brand); font-weight: 700;">3 items rendered</span>
+              </div>
+              <ul id="res-course-ul" style="margin: 0; padding-left: 1.2rem; font-size: 0.85rem; color: var(--ink); line-height: 1.6;">
+                <li><span style="background: rgba(46,195,107,0.15); color: var(--brand); padding: 0.1rem 0.35rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; margin-right: 0.3rem;">key="c1"</span> <strong>ReactJS Fundamentals</strong> (1 Credits)</li>
+                <li><span style="background: rgba(46,195,107,0.15); color: var(--brand); padding: 0.1rem 0.35rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; margin-right: 0.3rem;">key="c2"</span> <strong>Machine Learning</strong> (4 Credits)</li>
+                <li><span style="background: rgba(46,195,107,0.15); color: var(--brand); padding: 0.1rem 0.35rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; margin-right: 0.3rem;">key="c3"</span> <strong>Computer Networks</strong> (4 Credits)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-code-demos" data-sec-title="10. Complete Tested Code Demonstrations" data-sec-index="9">
+        <h2 id="sec-code-demos">10. Complete Tested Code Demonstrations</h2>
+        <div class="staging-body">
+          
+        
+
+        <div class="callout callout-example hand-card card-example"><div class="hand-badge">Runnable Component: Student Dashboard Card with Expressions &amp; Conditions</div>
+          
+          <p>This complete, self-contained functional component demonstrates dynamic expressions, conditional status badges, and list mapping with unique keys:</p>
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">jsx</span>
+              <button class="btn-copy" data-target="code-student-card">Copy</button>
+            </div>
+            <pre id="code-student-card" class="hand-code-box"><code>// StudentProfile.jsx
+export default function StudentProfile() {
+  const student = {
+    name: "Aditya Kumar",
+    usn: "1MS22IS045",
+    gpa: 8.92,
+    enrolledCourses: [
+      { id: "is51", code: "IS51", name: "Machine Learning", credits: 4 },
+      { id: "is53", code: "IS53", name: "Computer Networks", credits: 4 },
+      { id: "isaec594", code: "ISAEC594", name: "ReactJS", credits: 1 }
+    ],
+    isEligibleForHonors: true
+  };
+
+  const totalCredits = student.enrolledCourses.reduce((sum, c) =&gt; sum + c.credits, 0);
+
+  return (
+    &lt;div className="student-card" style={{ padding: "20px", border: "1px solid #ccc", borderRadius: "12px" }}&gt;
+      &lt;h2&gt;{student.name} &lt;span style={{ fontSize: "14px", color: "#666" }}&gt;({student.usn})&lt;/span&gt;&lt;/h2&gt;
+      &lt;p&gt;Current GPA: &lt;strong&gt;{student.gpa.toFixed(2)}&lt;/strong&gt;&lt;/p&gt;
+      
+      {/* Conditional rendering using ternary operator */}
+      &lt;p&gt;
+        Academic Standing: {" "}
+        {student.gpa &gt;= 8.5 ? (
+          &lt;span style={{ color: "green", fontWeight: "bold" }}&gt;Dean's Merit List 🌟&lt;/span&gt;
+        ) : (
+          &lt;span style={{ color: "blue" }}&gt;Regular Standing&lt;/span&gt;
+        )}
+      &lt;/p&gt;
+
+      {/* Logical AND short-circuit rendering */}
+      {student.isEligibleForHonors &amp;&amp; (
+        &lt;div className="honors-badge" style={{ backgroundColor: "#e6f4ea", padding: "8px", borderRadius: "6px" }}&gt;
+          ✅ Eligible for B.E. Honors Degree Specialization
+        &lt;/div&gt;
+      )}
+
+      &lt;h3 style={{ marginTop: "16px" }}&gt;Enrolled Courses ({totalCredits} Credits Total):&lt;/h3&gt;
+      &lt;ul&gt;
+        {student.enrolledCourses.map((course) =&gt; (
+          &lt;li key={course.id}&gt;
+            &lt;strong&gt;{course.code}&lt;/strong&gt; - {course.name} ({course.credits} cr)
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+          </div>
+          <p><strong>Expected Output:</strong> Renders Aditya Kumar's card with GPA 8.92, green "Dean's Merit List" text, an active Honors badge, and 3 enrolled courses totaling 9 credits.</p>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="11. Quick Revision Sheet" data-sec-index="10">
+        <h2 id="revision-sheet">11. Quick Revision Sheet</h2>
+        <div class="staging-body">
+          
+        
+
+        <div class="table-container">
+          <table class="notes-table hand-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Syntax / Principle</th>
+                <th>Must-Know Exam Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>React Definition</strong></td>
+                <td>Declarative, component-based, unidirectional UI library.</td>
+                <td>Library, NOT a full framework like Angular.</td>
+              </tr>
+              <tr>
+                <td><strong>Virtual DOM</strong></td>
+                <td>Lightweight in-memory JS tree; <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> heuristic reconciliation.</td>
+                <td>Minimizes expensive real DOM reflow and repaint operations.</td>
+              </tr>
+              <tr>
+                <td><strong>Vite Advantages</strong></td>
+                <td>Native ES Modules (ESM) + Go-based <code>esbuild</code>.</td>
+                <td>Replaced Create React App (CRA) due to instant dev server boot.</td>
+              </tr>
+              <tr>
+                <td><strong>JSX Syntax Rules</strong></td>
+                <td>Single root, close all tags, camelCase attributes.</td>
+                <td><code>className</code> (not class), <code>htmlFor</code> (not for).</td>
+              </tr>
+              <tr>
+                <td><strong>Embedding Expressions</strong></td>
+                <td>Enclosed in curly braces: <code>{expression}</code>.</td>
+                <td>Expressions ONLY; statements (<code>if</code>, <code>for</code>) cause syntax errors.</td>
+              </tr>
+              <tr>
+                <td><strong>List Keys</strong></td>
+                <td><code>key={item.id}</code> on outermost mapped element.</td>
+                <td>Do NOT use array index for dynamic/reordered lists.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="exam-questions" data-sec-title="12. Important Exam Questions &amp; Practice" data-sec-index="11">
+        <h2 id="exam-questions">12. Important Exam Questions &amp; Practice</h2>
+        <div class="staging-body">
+          
+        
+        <p class="section-lead">The following conceptual questions and verified code tracing problems cover key university examination patterns for <strong>ISAEC594 (Front End Development using ReactJS)</strong>:</p>
+
+        <h3 class="subsection-title">2-Mark Conceptual Questions</h3>
+
+        <!-- Q1 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">2 MARKS</span>
+            <span class="q-title">1. What is the Virtual DOM and how does React reconciliation improve application performance?</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Answer:</strong></p>
+            <p>The <strong>Virtual DOM</strong> is a lightweight, tree-structured JavaScript object representation of the browser's actual DOM kept in memory.</p>
+            <ul>
+              <li>When application state transitions occur, React re-renders the Virtual DOM tree in memory and compares it against the previous snapshot using an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> heuristic diffing algorithm called <strong>reconciliation</strong>.</li>
+              <li>Rather than causing expensive global page reflows and repaints in the browser, React calculates the minimal set of real DOM mutations required and applies them in a single optimized batch update.</li>
+            </ul>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">2 MARKS</span>
+            <span class="q-title">2. State three fundamental syntax rules of JSX and explain why each is required.</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Answer:</strong></p>
+            <ol>
+              <li><strong>Single Root Element:</strong> Every component must return exactly one parent root element or a Fragment (<code>&lt;&gt;...&lt;/&gt;</code>). <em>Reason:</em> JSX compiles to a single function call (<code>React.createElement(...)</code>), which can only return a single JavaScript value.</li>
+              <li><strong>Explicit Closing of All Tags:</strong> All tags must be explicitly closed, including void/self-closing elements (e.g. <code>&lt;img /&gt;</code>, <code>&lt;input /&gt;</code>, <code>&lt;br /&gt;</code>). <em>Reason:</em> JSX follows XML/XHTML well-formed syntax strictly.</li>
+              <li><strong>camelCase Attribute Naming:</strong> HTML attributes must be written in camelCase (e.g. <code>className</code> instead of <code>class</code>, <code>htmlFor</code> instead of <code>for</code>, <code>tabIndex</code>). <em>Reason:</em> <code>class</code> and <code>for</code> are reserved keywords in JavaScript.</li>
+            </ol>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">2 MARKS</span>
+            <span class="q-title">3. Why should array indices not be used as the 'key' prop when rendering dynamic lists in React?</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Answer:</strong></p>
+            <p>Using array index (e.g., <code>key={index}</code>) ties element identity to its sequential array position rather than its actual data identity.</p>
+            <ul>
+              <li>If items in the list are reordered, inserted at the beginning, or filtered out, their numerical index changes.</li>
+              <li>React's reconciliation algorithm assumes the item at index 0 is the same node across renders, causing severe bugs such as uncontrolled component state retention (e.g., text remaining in swapped input fields), broken transitions, and performance degradation. Unique, persistent entity IDs (e.g., <code>key={item.id}</code>) must always be used.</li>
+            </ul>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">2 MARKS</span>
+            <span class="q-title">4. Distinguish between JavaScript expressions and statements in JSX. Give an example of an invalid JSX embedding.</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Expressions:</strong> Code constructs that evaluate to a single value (e.g., variable references, ternaries <code>a ? b : c</code>, function calls, arithmetic). Expressions can be embedded inside curly braces <code>{expression}</code> in JSX.</li>
+              <li><strong>Statements:</strong> Code constructs that perform an action or control flow but do not evaluate directly to a value (e.g., <code>if (...)</code>, <code>for (...)</code>, <code>while (...)</code>, <code>switch</code>).</li>
+              <li><strong>Invalid JSX Example:</strong> <code>&lt;div&gt;{if (user.active) { "Active" }}&lt;/div&gt;</code> results in a JavaScript syntax error because an <code>if</code> statement cannot be passed as an argument to <code>React.createElement()</code>. The valid alternative is ternary: <code>&lt;div&gt;{user.active ? "Active" : "Inactive"}&lt;/div&gt;</code>.</li>
+            </ul>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">2 MARKS</span>
+            <span class="q-title">5. What is meant by unidirectional (one-way) data flow, and why is it beneficial?</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Answer:</strong></p>
+            <p>In React, data strictly flows in one direction: from parent components down to child components via immutable <strong>props</strong>. Child components cannot directly modify the props they receive; they can only notify parents by invoking callback functions passed down as props.</p>
+            <p><strong>Benefits:</strong> Eliminates hidden side-effects, guarantees deterministic application state, simplifies debugging through predictable top-down data cascades, and prevents cyclical state dependency cascades.</p>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
+
+        <!-- Q6 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">10 MARKS</span>
+            <span class="q-title">6. Compare React with Angular and Vue.js across key architectural dimensions.</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Comprehensive Architectural Comparison:</strong></p>
+            <div class="table-container">
+              <table class="notes-table hand-table">
+                <thead>
+                  <tr>
+                    <th>Dimension</th>
+                    <th>React (Meta)</th>
+                    <th>Angular (Google)</th>
+                    <th>Vue.js (Evan You)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Classification</strong></td>
+                    <td>UI Library (unopinionated; routing and state managed by ecosystem)</td>
+                    <td>Complete Framework (batteries-included: CLI, forms, router, HTTP, DI)</td>
+                    <td>Progressive Framework (incrementally adoptable core + official ecosystem)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Syntax / Templates</strong></td>
+                    <td>JSX (JavaScript XML with pure JS logic)</td>
+                    <td>HTML enhanced with directives (<code>*ngIf</code>, <code>*ngFor</code>)</td>
+                    <td>SFC (Single File Components with <code>&lt;template&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code>)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Data Binding</strong></td>
+                    <td>Strictly Unidirectional (one-way data flow via props)</td>
+                    <td>Two-way data binding (<code>[(ngModel)]</code>) &amp; unidirectional</td>
+                    <td>Two-way model binding (<code>v-model</code>) on top of one-way props</td>
+                  </tr>
+                  <tr>
+                    <td><strong>DOM Abstraction</strong></td>
+                    <td>Virtual DOM with Fiber reconciler</td>
+                    <td>Incremental DOM (compiles templates into direct DOM instructions)</td>
+                    <td>Optimized Virtual DOM with compile-time flag optimizations</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Language Primary</strong></td>
+                    <td>JavaScript (ES6+) or TypeScript</td>
+                    <td>TypeScript (enforced by default)</td>
+                    <td>JavaScript or TypeScript</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">5 MARKS</span>
+            <span class="q-title">7. Explain the reconciliation algorithm in React. How does React achieve <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> time complexity?</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Answer:</strong></p>
+            <p>Theoretical minimum algorithms for comparing two arbitrary trees require <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0641em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span> operations (where <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span> is the total count of tree nodes). In a web application with 1,000 DOM nodes, an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0641em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span> algorithm would require one billion comparisons per render cycle, completely stalling the browser thread.</p>
+            <p>React implements an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> heuristic diffing algorithm based on two fundamental assumptions:</p>
+            <ol>
+              <li><strong>Elements of Different Types Produce Different Trees:</strong> Whenever the root element type changes (e.g. from <code>&lt;div&gt;</code> to <code>&lt;span&gt;</code>, or <code>&lt;Header&gt;</code> to <code>&lt;Nav&gt;</code>), React unmounts the entire old subtree and recreates the new DOM subtree from scratch without inspecting deeper children.</li>
+              <li><strong>Keys Identify Stable Children Across Renders:</strong> For children lists, React uses the unique <code>key</code> prop to match children in the original tree with children in the subsequent tree. This allows React to detect insertions, deletions, and moves in linear <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> time rather than checking all permutations.</li>
+            </ol>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge">5 MARKS</span>
+            <span class="q-title">8. Explain why modern React development replaced Create React App (CRA) with Vite. Contrast their architectural approaches.</span>
+          </div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+          
+          <div class="qa-answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Create React App (CRA / Webpack Architecture):</strong> CRA relies on Webpack, which bundles the entire application source code and all node_modules into monolithic bundles before starting the development server. As the codebase expands to hundreds of modules, server startup takes 30-90 seconds, and Hot Module Replacement (HMR) experiences perceptible multi-second lag.</li>
+              <li><strong>Vite Architecture (Native ESM + esbuild):</strong>
+                <ul>
+                  <li><strong>Instant Dev Server Startup:</strong> Vite serves source code over native browser ES Modules (<code>import</code> / <code>export</code>). The browser requests modules on-demand as they are needed, eliminating bundle wait time.</li>
+                  <li><strong>Fast Dependency Pre-bundling:</strong> Dependencies written in CommonJS or UMD are pre-bundled using <strong>esbuild</strong> (written in Go), which executes 10× to 100× faster than JS-based bundlers.</li>
+                  <li><strong>Instant Hot Module Replacement (HMR):</strong> When a file is edited, Vite invalidates and re-transpiles only that specific module over native ESM, keeping HMR speed constant regardless of total project size.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Verified Code Tracing &amp; Practice Problems</h3>
+
+        <!-- Practice 1 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 1 • VIRTUAL DOM TREE CONSTRUCTION</span>
+          </div>
+          <h4 class="problem-title">Write the exact JavaScript object (AST) generated by React for the following JSX: <code>&lt;div className="card"&gt;&lt;h1&gt;Hello Ananya&lt;/h1&gt;&lt;p&gt;Active: Yes&lt;/p&gt;&lt;/div&gt;</code>.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p>React compiles JSX into <code>React.createElement(type, props, ...children)</code> calls, which construct a plain JavaScript object tree:</p>
+              <pre style="margin: 0.5rem 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink);" class="hand-code-box"><code>{
+  type: "div",
+  props: {
+    className: "card",
+    children: [
+      {
+        type: "h1",
+        props: { children: "Hello Ananya" }
+      },
+      {
+        type: "p",
+        props: { children: "Active: Yes" }
+      }
+    ]
+  }
+}</code></pre>
+              <p><em>Verification:</em> Verified by automated test in <code>audit/verify/reactjs/verify_react_u1.js</code> (Asserts <code>vdom.type === "div"</code> and <code>vdom.props.className === "card"</code>).</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Practice 2 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 2 • CONDITIONAL GREETING &amp; BADGE TRACE</span>
+          </div>
+          <h4 class="problem-title">Trace the output of <code>renderStatus(isLoggedIn, unreadCount)</code> for (a) <code>isLoggedIn = true, unreadCount = 3</code> and (b) <code>isLoggedIn = false, unreadCount = 0</code>.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p>Consider the conditional rendering logic:</p>
+              <pre style="margin: 0.5rem 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink);" class="hand-code-box"><code>function renderStatus(isLoggedIn, unreadCount) {
+  const greeting = isLoggedIn ? "Welcome Back!" : "Please Sign In";
+  const badge = isLoggedIn &amp;&amp; unreadCount &gt; 0 ? `(${unreadCount} new)` : "";
+  return `${greeting} ${badge}`.trim();
+}</code></pre>
+              <ul>
+                <li><strong>Case (a):</strong> <code>greeting = "Welcome Back!"</code>; <code>badge = "(3 new)"</code>. Concatenated output: <code>"Welcome Back! (3 new)"</code>.</li>
+                <li><strong>Case (b):</strong> <code>greeting = "Please Sign In"</code>; <code>badge = ""</code>. Concatenated output: <code>"Please Sign In"</code>.</li>
+              </ul>
+              <p><em>Verification:</em> Verified by automated test in <code>audit/verify/reactjs/verify_react_u1.js</code>.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Practice 3 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 3 • LIST TRANSFORMATION WITH KEYS</span>
+          </div>
+          <h4 class="problem-title">Given array <code>courses = [{id: "c1", title: "ReactJS", credits: 1}, {id: "c2", title: "ML", credits: 4}, {id: "c3", title: "CN", credits: 4}]</code>, trace the mapped elements and confirm the key property.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p>Mapped JSX expression: <code>courses.map(c =&gt; &lt;li key={c.id}&gt;{c.title} ({c.credits} Credits)&lt;/li&gt;)</code></p>
+              <ul>
+                <li>Element 0: <code>&lt;li key="c1"&gt;ReactJS (1 Credits)&lt;/li&gt;</code> → <code>props.key = "c1"</code></li>
+                <li>Element 1: <code>&lt;li key="c2"&gt;ML (4 Credits)&lt;/li&gt;</code> → <code>props.key = "c2"</code></li>
+                <li>Element 2: <code>&lt;li key="c3"&gt;CN (4 Credits)&lt;/li&gt;</code> → <code>props.key = "c3"</code></li>
+              </ul>
+              <p><strong>Total elements produced:</strong> 3. Each child possesses a unique, stable, persistent identifier adhering to React reconciliation requirements.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Practice 4 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 4 • FALSY VALUE SHORT-CIRCUIT TRAP</span>
+          </div>
+          <h4 class="problem-title">What gets rendered in the browser DOM for <code>&lt;div&gt;{unreadCount &amp;&amp; &lt;span&gt;New Items&lt;/span&gt;}&lt;/div&gt;</code> when <code>unreadCount = 0</code>? Explain why this happens and provide the fix.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p><strong>Unexpected Output:</strong> The browser renders <code>&lt;div&gt;0&lt;/div&gt;</code>!</p>
+              <p><strong>Explanation:</strong> In JavaScript, the short-circuit operator <code>&amp;&amp;</code> evaluates the left-hand side. If it is falsy, it returns that falsy value immediately. Since <code>0</code> is falsy, the expression evaluates to the number <code>0</code>. While React does not render <code>false</code>, <code>null</code>, or <code>undefined</code>, it <strong>does render numbers</strong>, so the digit <code>0</code> is injected directly into the DOM.</p>
+              <p><strong>Recommended Fix:</strong> Coerce to boolean or compare explicitly:</p>
+              <pre style="margin: 0.5rem 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink);" class="hand-code-box"><code>{/* Fix 1: Explicit comparison */}
+{unreadCount &gt; 0 &amp;&amp; <span>New Items</span>}
+
+{/* Fix 2: Boolean conversion */}
+{Boolean(unreadCount) &amp;&amp; <span>New Items</span>}</code></pre>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Practice 5 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 5 • BABEL TRANSPILATION OF NESTED JSX</span>
+          </div>
+          <h4 class="problem-title">Show the transpiled JavaScript function calls for: <code>&lt;nav id="main"&gt;&lt;a href="/home" className="active"&gt;Home&lt;/a&gt;&lt;/nav&gt;</code>.</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <pre style="margin: 0.5rem 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink);" class="hand-code-box"><code>React.createElement(
+  "nav",
+  { id: "main" },
+  React.createElement(
+    "a",
+    { href: "/home", className: "active" },
+    "Home"
+  )
+);</code></pre>
+              <p>The outer element passes type <code>"nav"</code>, props <code>{ id: "main" }</code>, and the nested element call as its child parameter.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Practice 6 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 6 • FRAGMENTS WITH KEY PROPS</span>
+          </div>
+          <h4 class="problem-title">When is the empty fragment shorthand <code>&lt;&gt;...&lt;/&gt;</code> invalid in React, and what syntax must be used instead?</h4>
+          <div class="practice-card">
+          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
+            📝 Practice Problem:
+          </div>
+          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-ans-box">
+            <span class="ans-badge">Ans</span>
+            <div>
+            
+            <div class="qa-answer">
+              <p><strong>Scenario:</strong> When mapping a list of items where each iteration requires grouping multiple sibling elements without adding an extra wrapper DOM element (like a <code>&lt;div&gt;</code>), a <code>key</code> prop must be supplied to the container.</p>
+              <p>The shorthand syntax <code>&lt;&gt;...&lt;/&gt;</code> does not accept attributes or props, so <code>&lt; key={item.id}&gt;</code> is a syntax error.</p>
+              <p><strong>Required Syntax:</strong> Use the explicit <code>&lt;React.Fragment&gt;</code> component:</p>
+              <pre style="margin: 0.5rem 0; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink);" class="hand-code-box"><code>{items.map(item =&gt; (
+  <react.fragment key="{item.id}">
+    <dt>{item.term}</dt>
+    <dd>{item.description}</dd>
+  </react.fragment>
+))}</code></pre>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      
+        </div>
+      </div>
+    
+
+      <div class="staging-section" data-sec-id="sec-references" data-sec-title="13. Prescribed References" data-sec-index="12">
+        <h2 id="sec-references">13. Prescribed References</h2>
+        <div class="staging-body">
+          
+        
+        <div class="callout callout-note hand-card card-example"><div class="hand-badge">Course Reference Literature</div>
+          
+          <ol>
+            <li><strong>Chris Minnick</strong>, <em>Beginning ReactJS Foundations: Building User Interfaces with ReactJS - An Approachable Guide</em>, Wiley, 2022. (Chapters 1, 2 &amp; 3).</li>
+            <li><strong>Anthony Accomazzo, Ari Lerner, Nate Murray, Clay Allsopp, David Gutman, and Tyler McGinnis</strong>, <em>Fullstack React: The Complete Guide to ReactJS and Friends</em>, 2017.</li>
+            <li><strong>React Official Documentation</strong>: <a href="https://react.dev" target="_blank" rel="noopener">https://react.dev</a>.</li>
+          </ol>
+          <p class="exam-disclaimer"><em>AI-assisted study notes written from the official courseware. Verify against the prescribed textbook before the exam.</em></p>
+        </div>
+      
+        </div>
+      </div>
+    
+  </div>
+  <div id="notebook-container"></div>
+</body>
+</html>

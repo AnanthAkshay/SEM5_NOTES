@@ -1,0 +1,67 @@
+[
+  {
+    "id": "sec-react-philosophy",
+    "title": "1. What is React? & Core Philosophy",
+    "page": 2
+  },
+  {
+    "id": "sec-virtual-dom",
+    "title": "2. The Virtual DOM & Reconciliation",
+    "page": 2
+  },
+  {
+    "id": "sec-framework-comparison",
+    "title": "3. React vs. Other Front-End Frameworks (Angular & Vue)",
+    "page": 4
+  },
+  {
+    "id": "sec-vite-setup",
+    "title": "4. Setting Up the React Environment with Vite",
+    "page": 5
+  },
+  {
+    "id": "sec-project-structure",
+    "title": "5. React Project Structure & Execution Lifecycle",
+    "page": 6
+  },
+  {
+    "id": "sec-jsx-fundamentals",
+    "title": "6. Introduction to JSX & Syntax Rules",
+    "page": 7
+  },
+  {
+    "id": "sec-jsx-expressions",
+    "title": "7. Embedding Expressions & Evaluation in JSX",
+    "page": 7
+  },
+  {
+    "id": "sec-conditional-lists",
+    "title": "8. Conditional & List Rendering in JSX",
+    "page": 8
+  },
+  {
+    "id": "sec-jsx-compilation",
+    "title": "9. JSX Compilation Under the Hood",
+    "page": 10
+  },
+  {
+    "id": "sec-code-demos",
+    "title": "10. Complete Tested Code Demonstrations",
+    "page": 12
+  },
+  {
+    "id": "revision-sheet",
+    "title": "11. Quick Revision Sheet",
+    "page": 13
+  },
+  {
+    "id": "exam-questions",
+    "title": "12. Important Exam Questions & Practice",
+    "page": 14
+  },
+  {
+    "id": "sec-references",
+    "title": "13. Prescribed References",
+    "page": 26
+  }
+]
