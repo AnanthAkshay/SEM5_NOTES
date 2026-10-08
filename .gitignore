@@ -37,3 +37,5 @@ textbooks/
 *[Tt]extbook*.pdf
 
 node_modules/
+__pycache__/
+*.pyc
