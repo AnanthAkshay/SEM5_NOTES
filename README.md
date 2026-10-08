@@ -9,6 +9,13 @@
 > **Department of Information Science & Engineering (ISE) · Semester V**  
 > A bespoke, lightweight, and data-driven study portal crafted for 5th Semester ISE engineering students. Built with pure HTML5, modern CSS3 variables, and vanilla JavaScript—zero external build steps, 100% relative paths, and instant deployment on GitHub Pages.
 
+> [!IMPORTANT]
+> **AI-Assisted Study Notes & Verification Notice**:  
+> All unit notes and handwritten notebooks are AI-assisted study materials compiled from the autonomous syllabus. Students **must** verify proofs, equations, definitions, and problem solutions against the prescribed textbooks and their faculty's lecture notes before examinations.
+> 
+> **Syllabus Coverage**:  
+> Units 1–3 across all 8 subjects contain complete interactive notes and downloadable handwritten vector notebooks. Units 4 and 5, as well as laboratory sections, are provided as syllabus-only curriculum references.
+
 🌐 **Live Website**: [https://ananthakshay.github.io/SEM5_NOTES/](https://ananthakshay.github.io/SEM5_NOTES/)
 
 ---
@@ -369,7 +376,7 @@ For all 24 units across all 8 subjects, complete **handwritten-style notebook PD
 
 ### Rebuild Commands & Engine
 
-The build toolchain uses Headless Chromium (Playwright) to layout pages into exact A4 pages, followed by Python post-processing:
+The build toolchain uses Headless Chromium (Playwright) to layout pages into exact A4 notebook pages, followed by Python post-processing for bookmarks and metadata:
 
 ```bash
 # Build a single unit notebook:
@@ -378,27 +385,26 @@ node scripts/build_handwritten.js --subject cn --unit 1
 # Rebuild all 24 units across all 8 subjects:
 node scripts/build_handwritten.js --all
 
-# Run the strict coverage verification gate (asserts 100% heading and text coverage):
-python scripts/check_handwritten_coverage.py
+# Run the strict coverage & font allow-list verification gate (asserts 100% heading and font compliance):
+python scripts/check_handwritten_coverage.py --all
 
-# Post-process bookmarks, metadata, and outlines on an existing PDF:
+# Rebuild the global search index (284 sections across all 8 subjects):
+python scripts/build_notes_index.py
+
+# Post-process bookmarks, metadata, and outlines on a PDF:
 python scripts/postprocess_pdf.py --pdf notes/cn/unit1/handwritten/cn-unit1-handwritten.pdf --toc notes/cn/unit1/handwritten/toc.json
 ```
 
 ### Font Credits & Open Font Licenses (OFL)
 
-All handwritten fonts bundled locally under `fonts/` are distributed under the [SIL Open Font License (OFL 1.1)](https://openfontlicense.org/):
+All handwritten fonts bundled locally under `fonts/` are distributed under the [SIL Open Font License (OFL 1.1)](https://openfontlicense.org/). The build enforces zero external CDN font dependencies and a strict local font allow-list:
 
 | Font Family | Designer / Foundry | License | Purpose in Notebook |
 | :--- | :--- | :--- | :--- |
-| **Patrick Hand** | Patrick Wagesreiter | SIL OFL 1.1 | Body text and bullet points |
-| **Caveat** | Impallari Type | SIL OFL 1.1 | Unit title cover & main headings |
-| **Kalam** | Indian Type Foundry | SIL OFL 1.1 | Section headings (H2/H3) |
-| **Gaegu** | Jihun Choi | SIL OFL 1.1 | Callout titles & margin notes |
-| **Indie Flower** | Kimberly Geswein | SIL OFL 1.1 | Aside notes & memory tips |
-| **Architects Daughter** | Kimberly Geswein | SIL OFL 1.1 | Formulas, equations & tables |
-| **Shadows Into Light** | Kimberly Geswein | SIL OFL 1.1 | Key terms & highlights |
-| **JetBrains Mono** | JetBrains | SIL OFL 1.1 | Code blocks & syntax snippets |
+| **Patrick Hand** | Patrick Wagesreiter | SIL OFL 1.1 | Body text, bullet points & descriptions |
+| **Caveat** | Pablo Impallari | SIL OFL 1.1 | Unit cover title & primary unit headings |
+| **Kalam** | Indian Type Foundry | SIL OFL 1.1 | Section subheadings (H2/H3), callout badges |
+| **JetBrains Mono** | JetBrains | SIL OFL 1.1 | Code snippets, terminal blocks, algorithm matrices |
 
 ---
 
@@ -424,17 +430,16 @@ Open `http://localhost:3000` in your web browser.
 
 ## 🚀 GitHub Pages Deployment
 
-The repository is pre-configured with relative paths for GitHub Pages hosting:
+The repository is pre-configured with relative paths and `.nojekyll` for GitHub Pages hosting:
 
 1. **Push your code to GitHub**:
    ```bash
-   git remote add origin https://github.com/AnanthAkshay/SEM5_NOTES.git
    git branch -M main
    git push -u origin main
    ```
 
 2. **Enable GitHub Pages**:
-   - Go to your repository on GitHub.
+   - Go to your repository on GitHub (`https://github.com/AnanthAkshay/SEM5_NOTES`).
    - Click **Settings** ➔ **Pages** (under *Code and automation*).
    - Under **Build and deployment**:
      - **Source**: `Deploy from a branch`
@@ -442,8 +447,11 @@ The repository is pre-configured with relative paths for GitHub Pages hosting:
      - **Folder**: `/ (root)`
    - Click **Save**.
 
-3. Your website will be live in ~60 seconds at:  
-   `https://AnanthAkshay.github.io/SEM5_NOTES/`
+3. **Verify Live Deployment**:
+   Run the automated live site verification test suite against the deployed site:
+   ```bash
+   node scripts/check_live.js https://ananthakshay.github.io/SEM5_NOTES/
+   ```
 
 ---
 
@@ -455,6 +463,8 @@ The repository is pre-configured with relative paths for GitHub Pages hosting:
 
 ---
 
-## ⚖️ License
+## ⚖️ License & Attributions
 
-Created for the students of the **Department of Information Science & Engineering**, Semester V. Distributed for academic and personal reference under the MIT License.
+- **Study Notes & Notebooks**: Copyright &copy; 2024–2026 Akshay A. All rights reserved. Prepared for personal, non-commercial educational study only.
+- **Curriculum & Exam Papers**: Original syllabus outlines, lecture presentations, and examination question papers are the intellectual property of the respective course faculty and Ramaiah Institute of Technology (MSRIT) / VTU.
+- **Third-Party Libraries & Fonts**: Distributed under open-source licenses (KaTeX: MIT, Rough.js: MIT, Handwritten Fonts: SIL OFL 1.1). See [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md) for full license details.
