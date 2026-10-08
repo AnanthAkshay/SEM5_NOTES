@@ -601,6 +601,7 @@
   function renderFileRow(file, subject) {
     const isDone = !!state.progress[file.id];
     const isNotes = file.type === 'notes' || (file.path && file.path.endsWith('.html'));
+    const isHandwritten = file.type === 'handwritten';
     const isLarge = file.sizeBytes && file.sizeBytes > 20000000;
     const largeNote = isLarge ? `(~${Math.round(file.sizeBytes / 1048576)} MB)` : '';
 
@@ -611,20 +612,21 @@
             <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${file.id}')" aria-label="Mark ${escapeHtml(file.title)} as studied" />
           </label>
 
-          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''}">${isNotes ? 'NOTES' : file.type.toUpperCase()}</span>
+          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''} ${isHandwritten ? 'file-type-handwritten' : ''}">${isNotes ? 'NOTES' : (isHandwritten ? 'HANDWRITTEN' : file.type.toUpperCase())}</span>
 
           <div class="file-details-col">
             <div class="file-title-wrap">
               <span class="file-title">${escapeHtml(file.title)}</span>
-              ${file.tag ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
+              ${file.tag ? `<span class="${isHandwritten ? 'pill-tag-purple' : 'pill-tag-green'}" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
               ${file.isAlternate ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">Condensed</span>` : ''}
               ${file.isConverted ? `<span class="file-tag-converted">(Converted for preview)</span>` : ''}
               ${isLarge ? `<span class="kbd-shortcut" title="Consider alternate notes on mobile data">${largeNote}</span>` : ''}
             </div>
             <div class="file-submeta">
-              <span class="code-mono">${file.readingTime || file.size}</span>
+              <span class="code-mono">${file.pages ? `${file.pages} pages · ` : ''}${file.readingTime || file.size}</span>
               <span>·</span>
               <span title="Original file name">${escapeHtml(file.originalName)}</span>
+              ${file.generated ? `<span style="opacity:0.75; font-size: 11px;">· (generated from unit notes)</span>` : ''}
             </div>
           </div>
         </div>

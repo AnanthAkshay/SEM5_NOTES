@@ -352,6 +352,56 @@ The test runner asserts for every page:
 
 ---
 
+## ✍️ Handwritten-Style Study Notebooks (A4 Vector PDF)
+
+For all 24 units across all 8 subjects, complete **handwritten-style notebook PDFs** are provided alongside the interactive HTML notes.
+
+> **Honest Transparency**: Labeled as *"Handwritten-style notes (generated from the unit notes)"*. These are not condensed revision summaries; each notebook contains **100% of the syllabus content**, converted page-by-page into an authentic lined notebook aesthetic.
+
+### Aesthetic & Technical Features
+
+- **Genuine Notebook Aesthetics**: Rendered with subtle ruled paper lines (28px spacing), dual red left margin lines, 3 standard binder punch holes, and handwritten callouts with rough-edged borders.
+- **Crisp Vector Ink**: KaTeX mathematical formulas and Greek symbols rendered directly into vector curves in royal blue ink (`#1A365D`), preserving absolute sharpness at any zoom level.
+- **Styled Diagrams**: SVG architectural diagrams and state machines rendered with handwritten labels and rough sketching aesthetics.
+- **Searchable & Selectable**: Full selectable text layer and PDF outline bookmarks (matching all unit sections and subsections) generated via `pypdf`.
+- **Lightweight PDFs**: High optimization ensures all 24 notebooks are between **0.76 MB and 2.00 MB** (well under the 12 MB mobile threshold).
+- **WebP Previews**: A 400px WebP thumbnail preview generated for instant card loading.
+
+### Rebuild Commands & Engine
+
+The build toolchain uses Headless Chromium (Playwright) to layout pages into exact A4 pages, followed by Python post-processing:
+
+```bash
+# Build a single unit notebook:
+node scripts/build_handwritten.js --subject cn --unit 1
+
+# Rebuild all 24 units across all 8 subjects:
+node scripts/build_handwritten.js --all
+
+# Run the strict coverage verification gate (asserts 100% heading and text coverage):
+python scripts/check_handwritten_coverage.py
+
+# Post-process bookmarks, metadata, and outlines on an existing PDF:
+python scripts/postprocess_pdf.py --pdf notes/cn/unit1/handwritten/cn-unit1-handwritten.pdf --toc notes/cn/unit1/handwritten/toc.json
+```
+
+### Font Credits & Open Font Licenses (OFL)
+
+All handwritten fonts bundled locally under `fonts/` are distributed under the [SIL Open Font License (OFL 1.1)](https://openfontlicense.org/):
+
+| Font Family | Designer / Foundry | License | Purpose in Notebook |
+| :--- | :--- | :--- | :--- |
+| **Patrick Hand** | Patrick Wagesreiter | SIL OFL 1.1 | Body text and bullet points |
+| **Caveat** | Impallari Type | SIL OFL 1.1 | Unit title cover & main headings |
+| **Kalam** | Indian Type Foundry | SIL OFL 1.1 | Section headings (H2/H3) |
+| **Gaegu** | Jihun Choi | SIL OFL 1.1 | Callout titles & margin notes |
+| **Indie Flower** | Kimberly Geswein | SIL OFL 1.1 | Aside notes & memory tips |
+| **Architects Daughter** | Kimberly Geswein | SIL OFL 1.1 | Formulas, equations & tables |
+| **Shadows Into Light** | Kimberly Geswein | SIL OFL 1.1 | Key terms & highlights |
+| **JetBrains Mono** | JetBrains | SIL OFL 1.1 | Code blocks & syntax snippets |
+
+---
+
 ## 💻 Local Development
 
 Clone the repository and run any simple static server:

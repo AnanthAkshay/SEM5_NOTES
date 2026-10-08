@@ -31,6 +31,7 @@
     initMathRendering();
     initQACards();
     initTables();
+    initHandwrittenLink();
   });
 
   // --- 1. Theme Management ---
@@ -334,4 +335,67 @@
       }
     });
   }
+
+  // --- 11. Handwritten Notebook Link ---
+  function initHandwrittenLink() {
+    const match = window.location.pathname.match(/\/notes\/([a-z0-9_-]+)\/unit(\d+)\//i) ||
+                  window.location.href.match(/\/notes\/([a-z0-9_-]+)\/unit(\d+)\//i);
+    if (!match) return;
+    const subject = match[1].toLowerCase();
+    const unit = match[2];
+    const pdfName = `${subject}-unit${unit}-handwritten.pdf`;
+    const pdfPath = `handwritten/${pdfName}`;
+
+    // 1. Add topbar button if not already present
+    const topbarRight = document.querySelector('.topbar-right');
+    const printBtn = document.getElementById('print-btn');
+    if (topbarRight && !document.getElementById('handwritten-topbar-btn')) {
+      const hwBtn = document.createElement('a');
+      hwBtn.id = 'handwritten-topbar-btn';
+      hwBtn.href = pdfPath;
+      hwBtn.download = pdfName;
+      hwBtn.className = 'pill-action-btn';
+      hwBtn.title = 'Download handwritten notebook PDF (A4 vector ink)';
+      hwBtn.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+          <circle cx="11" cy="11" r="2"></circle>
+        </svg>
+        <span class="btn-label-desktop">HANDWRITTEN PDF</span>
+      `;
+      if (printBtn) {
+        topbarRight.insertBefore(hwBtn, printBtn);
+      } else {
+        topbarRight.prepend(hwBtn);
+      }
+    }
+
+    // 2. Add subtle link card right before unit navigation footer
+    const footer = document.querySelector('.unit-nav-footer');
+    if (footer && !document.getElementById('handwritten-notes-card')) {
+      const card = document.createElement('div');
+      card.id = 'handwritten-notes-card';
+      card.className = 'handwritten-notes-card';
+      card.innerHTML = `
+        <div class="handwritten-card-inner">
+          <div class="handwritten-card-info">
+            <span class="handwritten-card-tag">HANDWRITTEN EDITION</span>
+            <h3 class="handwritten-card-title">Handwritten-style Notes (Generated from Unit Notes)</h3>
+            <p class="handwritten-card-desc">Prefer reading offline with lined paper aesthetics? Download the complete vector notebook PDF with authentic handwriting fonts, KaTeX math formulas, and interactive diagrams in blue ink.</p>
+          </div>
+          <div class="handwritten-card-actions">
+            <a href="${pdfPath}" target="_blank" rel="noopener" class="pill-action-btn">
+              <span>VIEW PDF</span>
+            </a>
+            <a href="${pdfPath}" download="${pdfName}" class="pill-action-btn active-done">
+              <span>DOWNLOAD PDF</span>
+            </a>
+          </div>
+        </div>
+      `;
+      footer.parentNode.insertBefore(card, footer);
+    }
+  }
 })();
+

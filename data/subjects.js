@@ -430,6 +430,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "ml-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "ml-unit1-handwritten.pdf",
+              path: "notes/ml/unit1/handwritten/ml-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 43,
+              size: "2.00 MB",
+              sizeBytes: 2098816,
+              previewImage: "notes/ml/unit1/handwritten/ml-unit1-preview.webp",
+              sourceHtml: "notes/ml/unit1/unit-1-notes.html"
+            },
+            {
               id: "ml-u1-pdf",
               title: "ML Unit 1: Introduction & Concept Learning Notes",
               originalName: "Unit 1.pdf",
@@ -462,6 +476,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "ml-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "ml-unit2-handwritten.pdf",
+              path: "notes/ml/unit2/handwritten/ml-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 39,
+              size: "1.96 MB",
+              sizeBytes: 2055211,
+              previewImage: "notes/ml/unit2/handwritten/ml-unit2-preview.webp",
+              sourceHtml: "notes/ml/unit2/unit-2-notes.html"
+            },
+            {
               id: "ml-u2-pdf",
               title: "ML Unit 2: Decision Tree Learning & Artificial Neural Networks",
               originalName: "Unit 2.pdf",
@@ -492,6 +520,20 @@ window.SEM5_DATA = {
               readingTime: "40 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "ml-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "ml-unit3-handwritten.pdf",
+              path: "notes/ml/unit3/handwritten/ml-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 36,
+              size: "1.84 MB",
+              sizeBytes: 1930287,
+              previewImage: "notes/ml/unit3/handwritten/ml-unit3-preview.webp",
+              sourceHtml: "notes/ml/unit3/unit-3-notes.html"
             },
             {
               id: "ml-u3-poly-pdf",
@@ -725,6 +767,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "se-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "se-unit1-handwritten.pdf",
+              path: "notes/se/unit1/handwritten/se-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 29,
+              size: "1.77 MB",
+              sizeBytes: 1856139,
+              previewImage: "notes/se/unit1/handwritten/se-unit1-preview.webp",
+              sourceHtml: "notes/se/unit1/unit-1-notes.html"
+            },
+            {
               id: "se-u1-1-pdf",
               title: "Unit 1.1: Software Processes & SDLC Models",
               originalName: "Unit 1.1.pptx",
@@ -779,6 +835,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "se-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "se-unit2-handwritten.pdf",
+              path: "notes/se/unit2/handwritten/se-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 18,
+              size: "0.89 MB",
+              sizeBytes: 933714,
+              previewImage: "notes/se/unit2/handwritten/se-unit2-preview.webp",
+              sourceHtml: "notes/se/unit2/unit-2-notes.html"
+            },
+            {
               id: "se-u2-pdf",
               title: "Unit 2: Architectural Design & System Architecture Notes",
               originalName: "Unit 2.pptx",
@@ -820,6 +890,20 @@ window.SEM5_DATA = {
               readingTime: "42 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "se-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "se-unit3-handwritten.pdf",
+              path: "notes/se/unit3/handwritten/se-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 17,
+              size: "0.76 MB",
+              sizeBytes: 799097,
+              previewImage: "notes/se/unit3/handwritten/se-unit3-preview.webp",
+              sourceHtml: "notes/se/unit3/unit-3-notes.html"
             },
           ]
         },
@@ -1074,6 +1158,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "cn-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "cn-unit1-handwritten.pdf",
+              path: "notes/cn/unit1/handwritten/cn-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 32,
+              size: "1.70 MB",
+              sizeBytes: 1779368,
+              previewImage: "notes/cn/unit1/handwritten/cn-unit1-preview.webp",
+              sourceHtml: "notes/cn/unit1/unit-1-notes.html"
+            },
+            {
               id: "cn-u1-pdf",
               title: "IS53 CN Unit 1 Complete Notes",
               originalName: "IS53-CN-Unit1.pptx",
@@ -1106,6 +1204,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "cn-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "cn-unit2-handwritten.pdf",
+              path: "notes/cn/unit2/handwritten/cn-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 24,
+              size: "1.50 MB",
+              sizeBytes: 1569603,
+              previewImage: "notes/cn/unit2/handwritten/cn-unit2-preview.webp",
+              sourceHtml: "notes/cn/unit2/unit-2-notes.html"
+            },
+            {
               id: "cn-u2-pdf",
               title: "IS53 CN Unit 2 Complete Notes",
               originalName: "IS53-CN-Unit2.pptx",
@@ -1136,6 +1248,20 @@ window.SEM5_DATA = {
               readingTime: "45 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "cn-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "cn-unit3-handwritten.pdf",
+              path: "notes/cn/unit3/handwritten/cn-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 35,
+              size: "1.74 MB",
+              sizeBytes: 1825351,
+              previewImage: "notes/cn/unit3/handwritten/cn-unit3-preview.webp",
+              sourceHtml: "notes/cn/unit3/unit-3-notes.html"
             },
           ]
         },
@@ -1298,6 +1424,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "toc-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "toc-unit1-handwritten.pdf",
+              path: "notes/toc/unit1/handwritten/toc-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 25,
+              size: "1.40 MB",
+              sizeBytes: 1463729,
+              previewImage: "notes/toc/unit1/handwritten/toc-unit1-preview.webp",
+              sourceHtml: "notes/toc/unit1/unit-1-notes.html"
+            },
+            {
               id: "toc-u1-main",
               title: "Unit 1: Finite Automata & Regular Expressions (Comprehensive)",
               originalName: "Unit 1.pdf",
@@ -1344,6 +1484,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "toc-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "toc-unit2-handwritten.pdf",
+              path: "notes/toc/unit2/handwritten/toc-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 35,
+              size: "1.74 MB",
+              sizeBytes: 1821232,
+              previewImage: "notes/toc/unit2/handwritten/toc-unit2-preview.webp",
+              sourceHtml: "notes/toc/unit2/unit-2-notes.html"
+            },
+            {
               id: "toc-u2-main",
               title: "Unit 2: Regular Languages & Pumping Lemma (Comprehensive)",
               originalName: "Unit 2.pdf",
@@ -1375,6 +1529,20 @@ window.SEM5_DATA = {
               readingTime: "42 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "toc-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "toc-unit3-handwritten.pdf",
+              path: "notes/toc/unit3/handwritten/toc-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 31,
+              size: "1.59 MB",
+              sizeBytes: 1666363,
+              previewImage: "notes/toc/unit3/handwritten/toc-unit3-preview.webp",
+              sourceHtml: "notes/toc/unit3/unit-3-notes.html"
             },
             {
               id: "toc-u3-main",
@@ -1613,6 +1781,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "ai-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "ai-unit1-handwritten.pdf",
+              path: "notes/ai/unit1/handwritten/ai-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 32,
+              size: "1.93 MB",
+              sizeBytes: 2019909,
+              previewImage: "notes/ai/unit1/handwritten/ai-unit1-preview.webp",
+              sourceHtml: "notes/ai/unit1/unit-1-notes.html"
+            },
+            {
               id: "ai-u1-intro-agents-pdf",
               title: "AI Unit 1: Introduction to AI & Intelligent Agents Lecture Slides",
               originalName: "AI-2.pdf",
@@ -1669,6 +1851,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "ai-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "ai-unit2-handwritten.pdf",
+              path: "notes/ai/unit2/handwritten/ai-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 31,
+              size: "1.79 MB",
+              sizeBytes: 1875329,
+              previewImage: "notes/ai/unit2/handwritten/ai-unit2-preview.webp",
+              sourceHtml: "notes/ai/unit2/unit-2-notes.html"
+            },
+            {
               id: "ai-u2-uninformed-pdf",
               title: "AI Unit 2: Uninformed Search Strategies (BFS, DFS, UCS, IDS)",
               originalName: "AI-AGENTS-Uninformed_Search.pdf",
@@ -1721,6 +1917,20 @@ window.SEM5_DATA = {
               readingTime: "42 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "ai-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "ai-unit3-handwritten.pdf",
+              path: "notes/ai/unit3/handwritten/ai-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 27,
+              size: "1.68 MB",
+              sizeBytes: 1765061,
+              previewImage: "notes/ai/unit3/handwritten/ai-unit3-preview.webp",
+              sourceHtml: "notes/ai/unit3/unit-3-notes.html"
             },
             {
               id: "ai-u3-adversarial-pdf",
@@ -1915,6 +2125,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "rmipr-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "rmipr-unit1-handwritten.pdf",
+              path: "notes/rmipr/unit1/handwritten/rmipr-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 27,
+              size: "1.10 MB",
+              sizeBytes: 1156312,
+              previewImage: "notes/rmipr/unit1/handwritten/rmipr-unit1-preview.webp",
+              sourceHtml: "notes/rmipr/unit1/unit-1-notes.html"
+            },
+            {
               id: "rmipr-u1-pdf",
               title: "RM & IPR Unit 1 Complete Presentation Notes",
               originalName: "RM & IPR Unit 1 PPT (1).pptx",
@@ -1947,6 +2171,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "rmipr-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "rmipr-unit2-handwritten.pdf",
+              path: "notes/rmipr/unit2/handwritten/rmipr-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 24,
+              size: "1.01 MB",
+              sizeBytes: 1058973,
+              previewImage: "notes/rmipr/unit2/handwritten/rmipr-unit2-preview.webp",
+              sourceHtml: "notes/rmipr/unit2/unit-2-notes.html"
+            },
+            {
               id: "rmipr-u2-pdf",
               title: "RM & IPR Unit 2 Complete Presentation Notes",
               originalName: "Unit 2 ppt.pptx",
@@ -1977,6 +2215,20 @@ window.SEM5_DATA = {
               readingTime: "45 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "rmipr-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "rmipr-unit3-handwritten.pdf",
+              path: "notes/rmipr/unit3/handwritten/rmipr-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 24,
+              size: "1.02 MB",
+              sizeBytes: 1067043,
+              previewImage: "notes/rmipr/unit3/handwritten/rmipr-unit3-preview.webp",
+              sourceHtml: "notes/rmipr/unit3/unit-3-notes.html"
             },
           ]
         },
@@ -2161,6 +2413,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "reactjs-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "reactjs-unit1-handwritten.pdf",
+              path: "notes/reactjs/unit1/handwritten/reactjs-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 27,
+              size: "1.42 MB",
+              sizeBytes: 1492417,
+              previewImage: "notes/reactjs/unit1/handwritten/reactjs-unit1-preview.webp",
+              sourceHtml: "notes/reactjs/unit1/unit-1-notes.html"
+            },
+            {
               id: "reactjs-u1-slides-pdf",
               title: "ReactJS Unit 1: Foundations of React, Virtual DOM & JSX Slides",
               originalName: "UNIT-1 ReactJS.pptx",
@@ -2192,6 +2458,20 @@ window.SEM5_DATA = {
               size: "Interactive Notes",
               isConverted: false
             },
+            {
+              id: "reactjs-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "reactjs-unit2-handwritten.pdf",
+              path: "notes/reactjs/unit2/handwritten/reactjs-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 26,
+              size: "1.29 MB",
+              sizeBytes: 1347673,
+              previewImage: "notes/reactjs/unit2/handwritten/reactjs-unit2-preview.webp",
+              sourceHtml: "notes/reactjs/unit2/unit-2-notes.html"
+            },
           ]
         },
         {
@@ -2212,6 +2492,20 @@ window.SEM5_DATA = {
               readingTime: "40 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "reactjs-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "reactjs-unit3-handwritten.pdf",
+              path: "notes/reactjs/unit3/handwritten/reactjs-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 20,
+              size: "1.08 MB",
+              sizeBytes: 1127989,
+              previewImage: "notes/reactjs/unit3/handwritten/reactjs-unit3-preview.webp",
+              sourceHtml: "notes/reactjs/unit3/unit-3-notes.html"
             },
           ]
         },
@@ -2336,6 +2630,20 @@ window.SEM5_DATA = {
               isConverted: false
             },
             {
+              id: "evs-u1-handwritten",
+              title: "Handwritten notes",
+              originalName: "evs-unit1-handwritten.pdf",
+              path: "notes/evs/unit1/handwritten/evs-unit1-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 25,
+              size: "1.22 MB",
+              sizeBytes: 1282581,
+              previewImage: "notes/evs/unit1/handwritten/evs-unit1-preview.webp",
+              sourceHtml: "notes/evs/unit1/unit-1-notes.html"
+            },
+            {
               id: "evs-u1-pdf",
               title: "Unit 1: Ecosystems & Biodiversity Presentation Notes",
               originalName: "Unit-1.pptx",
@@ -2366,6 +2674,20 @@ window.SEM5_DATA = {
               readingTime: "40 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "evs-u2-handwritten",
+              title: "Handwritten notes",
+              originalName: "evs-unit2-handwritten.pdf",
+              path: "notes/evs/unit2/handwritten/evs-unit2-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 25,
+              size: "1.24 MB",
+              sizeBytes: 1300156,
+              previewImage: "notes/evs/unit2/handwritten/evs-unit2-preview.webp",
+              sourceHtml: "notes/evs/unit2/unit-2-notes.html"
             },
             {
               id: "evs-u2-overview-pdf",
@@ -2453,6 +2775,20 @@ window.SEM5_DATA = {
               readingTime: "40 min read",
               size: "Interactive Notes",
               isConverted: false
+            },
+            {
+              id: "evs-u3-handwritten",
+              title: "Handwritten notes",
+              originalName: "evs-unit3-handwritten.pdf",
+              path: "notes/evs/unit3/handwritten/evs-unit3-handwritten.pdf",
+              type: "handwritten",
+              tag: "Generated",
+              generated: true,
+              pages: 24,
+              size: "1.19 MB",
+              sizeBytes: 1248345,
+              previewImage: "notes/evs/unit3/handwritten/evs-unit3-preview.webp",
+              sourceHtml: "notes/evs/unit3/unit-3-notes.html"
             },
             {
               id: "evs-u3-pdf",
