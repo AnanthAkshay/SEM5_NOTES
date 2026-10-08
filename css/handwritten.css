@@ -1,0 +1,637 @@
+/* ==========================================================================
+   SEM 5 · ISE Notes - Handwritten-Style Notebook Theme
+   A4 Portrait, Ruled Notebook Paper, Authentic Student Ink, Vector KaTeX & SVGs
+   ========================================================================== */
+
+@import url('../fonts/fonts.css');
+@import url('../assets/katex/katex.min.css');
+
+:root {
+  /* Paper Dimensions */
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --content-top: 20mm;
+  --content-bottom: 18mm;
+  --content-left: 28mm;
+  --content-right: 14mm;
+
+  /* Ruled Line Grid */
+  --rule-height: 28px;
+  --rule-color: rgba(180, 205, 230, 0.45);
+  --paper-bg: #FCFBF7; /* Warm natural college paper */
+  --margin-line-red: rgba(220, 38, 38, 0.55);
+  --margin-line-red-faint: rgba(220, 38, 38, 0.25);
+
+  /* Essential Theme Tokens for SVGs and Diagrams */
+  --surface: #FFFFFF;
+  --surface-alt: #F8F9FA;
+  --bg: #FCFBF7;
+  --bg-soft: #F8F9FA;
+  --border: #334155;
+  --border-strong: #1E293B;
+  --ink: #163660;
+  --ink-muted: #4B5563;
+  --label: #1E293B;
+  --green: #15803D;
+  --green-hover: #166534;
+  --green-ink: #FFFFFF;
+  --green-tint: rgba(187, 247, 208, 0.45);
+  --green-tint-ink: #14532D;
+  --brand: #2563EB;
+
+  /* Inks */
+  --ink-blue: #163660;       /* Rich blue fountain/ballpoint pen */
+  --ink-dark: #0f172a;       /* Black/dark header ink */
+  --ink-red: #b91c1c;        /* Red pen for exam tips & warnings */
+  --ink-green: #15803d;      /* Green pen for definitions */
+  --ink-purple: #6b21a8;     /* Purple pen for formulas/theorems */
+  --ink-muted: #4b5563;      /* Pencil/muted notes */
+
+  /* Highlighters */
+  --hl-yellow: rgba(254, 240, 138, 0.5);
+  --hl-green: rgba(187, 247, 208, 0.5);
+  --hl-pink: rgba(251, 207, 232, 0.5);
+  --hl-blue: rgba(186, 230, 253, 0.45);
+
+  /* Fonts */
+  --font-heading: 'Patrick Hand', cursive, sans-serif;
+  --font-body: 'Caveat', cursive, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Patrick Hand', cursive, sans-serif;
+  --font-math: KaTeX_Main, KaTeX_Math, 'Times New Roman', serif;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #e5e7eb; /* Viewer background */
+  font-family: var(--font-body);
+  color: var(--ink-blue);
+  font-size: 16px;
+  line-height: var(--rule-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page Container */
+.notebook-page {
+  width: var(--page-width);
+  height: var(--page-height);
+  min-height: var(--page-height);
+  max-height: var(--page-height);
+  position: relative;
+  overflow: hidden;
+  margin: 15px auto;
+  background-color: var(--paper-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  page-break-after: always;
+  break-after: page;
+}
+
+@media print {
+  body {
+    background-color: transparent;
+  }
+  .notebook-page {
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+/* Ruled Lines Background */
+.page-ruled {
+  background-color: var(--paper-bg);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    var(--rule-color) 28px
+  );
+  background-position: 0 var(--content-top);
+}
+
+/* Margin Red Lines */
+.notebook-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 22mm;
+  width: 1.5px;
+  background-color: var(--margin-line-red);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.notebook-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24mm;
+  width: 0.5px;
+  background-color: var(--margin-line-red-faint);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Punch Holes */
+.punch-hole {
+  position: absolute;
+  left: 8mm;
+  width: 7mm;
+  height: 7mm;
+  border-radius: 50%;
+  background-color: #e5e0d3;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25), 0 0 0 1px #d6cebe;
+  z-index: 3;
+}
+.punch-top { top: 40mm; }
+.punch-mid { top: 145mm; }
+.punch-bot { top: 250mm; }
+
+/* Page Header & Footer */
+.page-header {
+  position: absolute;
+  top: 6mm;
+  left: var(--content-left);
+  right: var(--content-right);
+  height: 10mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  color: var(--ink-muted);
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
+  padding-bottom: 1mm;
+  z-index: 5;
+}
+
+.page-header .header-left {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.page-header .header-right {
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55%;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 6mm;
+  left: var(--content-left);
+  right: var(--content-right);
+  height: 8mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  color: var(--ink-muted);
+  border-top: 1px dashed rgba(148, 163, 184, 0.6);
+  padding-top: 1mm;
+  z-index: 5;
+}
+
+/* Page Content Body */
+.page-content {
+  position: absolute;
+  top: var(--content-top);
+  bottom: var(--content-bottom);
+  left: var(--content-left);
+  right: var(--content-right);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+}
+
+/* Typography Inside Notebook */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--ink-dark);
+  margin: 0;
+  padding: 0;
+  line-height: var(--rule-height);
+}
+
+h1 {
+  font-size: 26px;
+  line-height: calc(var(--rule-height) * 1.5);
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 21px;
+  line-height: calc(var(--rule-height) * 1.25);
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-bottom: 2px solid rgba(22, 54, 96, 0.4);
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: var(--rule-height);
+  margin-top: 4px;
+  margin-bottom: 4px;
+  color: #1e293b;
+  text-decoration: underline;
+  text-decoration-color: rgba(220, 38, 38, 0.4);
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+p {
+  margin: 0 0 6px 0;
+  line-height: var(--rule-height);
+}
+
+ul, ol {
+  margin: 0 0 6px 0;
+  padding-left: 20px;
+  line-height: var(--rule-height);
+}
+
+li {
+  margin-bottom: 2px;
+}
+
+/* Handwriting Wobble & Human Variations */
+.wobble-1 { transform: rotate(-0.35deg) translateY(0.5px); }
+.wobble-2 { transform: rotate(0.4deg) translateY(-0.5px); }
+.wobble-3 { transform: rotate(-0.2deg); }
+.wobble-4 { transform: rotate(0.25deg) translateY(0.8px); }
+
+/* Inks & Highlights */
+.ink-red { color: var(--ink-red); }
+.ink-green { color: var(--ink-green); }
+.ink-purple { color: var(--ink-purple); }
+.ink-dark { color: var(--ink-dark); }
+.ink-blue { color: var(--ink-blue); }
+
+.hl-box {
+  background: var(--hl-yellow);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+.hl-green {
+  background: var(--hl-green);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+.hl-pink {
+  background: var(--hl-pink);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+.hl-blue {
+  background: var(--hl-blue);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+/* Hand-drawn Boxes & Callouts */
+.hand-card {
+  border: 1.5px solid rgba(22, 54, 96, 0.5);
+  border-radius: 4px 14px 5px 12px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background-color: rgba(255, 255, 255, 0.65);
+  position: relative;
+}
+
+.hand-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: bold;
+  padding: 1px 8px;
+  border-radius: 12px;
+  border: 1.2px solid currentColor;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-def {
+  border-color: rgba(21, 128, 61, 0.6);
+  background-color: rgba(240, 253, 244, 0.6);
+}
+.card-def .hand-badge {
+  color: var(--ink-green);
+  background: rgba(187, 247, 208, 0.4);
+}
+
+.card-formula {
+  border-color: rgba(107, 33, 168, 0.6);
+  background-color: rgba(250, 245, 255, 0.6);
+}
+.card-formula .hand-badge {
+  color: var(--ink-purple);
+  background: rgba(233, 213, 255, 0.4);
+}
+
+.card-example {
+  border-color: rgba(180, 83, 9, 0.6);
+  background-color: rgba(254, 243, 199, 0.4);
+}
+.card-example .hand-badge {
+  color: #b45309;
+  background: rgba(253, 230, 138, 0.4);
+}
+
+.card-tip {
+  border-color: rgba(185, 28, 28, 0.7);
+  background-color: rgba(254, 242, 242, 0.6);
+}
+.card-tip .hand-badge {
+  color: var(--ink-red);
+  background: rgba(254, 202, 202, 0.4);
+}
+
+.card-warning {
+  border-color: rgba(194, 65, 12, 0.7);
+  background-color: rgba(255, 247, 237, 0.6);
+}
+.card-warning .hand-badge {
+  color: #c2410c;
+  background: rgba(254, 215, 170, 0.4);
+}
+
+.card-recall {
+  border-color: rgba(71, 85, 105, 0.6);
+  background-color: rgba(248, 250, 252, 0.6);
+}
+.card-recall .hand-badge {
+  color: #475569;
+  background: rgba(226, 232, 240, 0.4);
+}
+
+/* Solved Problems & Numerical Working */
+.problem-card {
+  border: 1.5px solid #2563eb;
+  border-radius: 6px 12px 6px 14px;
+  background-color: rgba(239, 246, 255, 0.5);
+  padding: 8px 12px;
+  margin: 6px 0;
+}
+
+.problem-header {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 15px;
+  color: #1d4ed8;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-label {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  color: var(--ink-dark);
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* Practice Problem Cards (Expanded details) */
+.practice-card {
+  border: 1.5px dashed #475569;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.55);
+  padding: 8px 12px;
+  margin: 6px 0;
+}
+
+.practice-ans-box {
+  border: 1.2px solid #16a34a;
+  border-radius: 4px;
+  background-color: rgba(240, 253, 244, 0.7);
+  padding: 6px 10px;
+  margin-top: 6px;
+}
+
+.ans-badge {
+  display: inline-block;
+  background-color: #16a34a;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+/* KaTeX Equations in Notebook */
+.katex {
+  font-family: var(--font-math) !important;
+  color: #0f2942 !important;
+}
+
+.katex-display {
+  margin: 6px 0 !important;
+  overflow-x: visible !important;
+}
+
+.formula-highlight {
+  display: inline-block;
+  border: 1.2px solid rgba(107, 33, 168, 0.5);
+  border-radius: 4px;
+  background-color: rgba(250, 245, 255, 0.7);
+  padding: 2px 10px;
+  margin: 2px 0;
+}
+
+/* Hand-drawn Tables */
+.hand-table-wrap {
+  margin: 6px 0;
+  overflow-x: auto;
+}
+
+table.hand-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1.8px solid #334155;
+  border-radius: 4px;
+}
+
+table.hand-table th, table.hand-table td {
+  border: 1.2px solid #64748b;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+table.hand-table th {
+  background-color: rgba(226, 232, 240, 0.6);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  color: var(--ink-dark);
+}
+
+/* Code Blocks */
+.hand-code-box {
+  background-color: #f1f5f9;
+  border: 1.2px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: #0f172a;
+  white-space: pre-wrap;
+}
+
+/* Diagrams */
+.diagram-container {
+  margin: 8px 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1.2px solid rgba(148, 163, 184, 0.6);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.diagram-caption {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Interactive Note Callout (for explorers) */
+.interactive-note {
+  border: 1.2px dashed #0284c7;
+  border-radius: 6px;
+  background-color: rgba(240, 249, 255, 0.7);
+  padding: 6px 12px;
+  margin: 6px 0;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: #0369a1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Cover Page */
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-left: var(--content-left);
+  margin-right: var(--content-right);
+  width: calc(var(--page-width) - var(--content-left) - var(--content-right));
+  padding: 10mm 2mm;
+  text-align: center;
+}
+
+.cover-header {
+  margin-top: 10mm;
+}
+
+.cover-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: bold;
+  color: #1e3a8a;
+  border: 1.5px solid #1e3a8a;
+  border-radius: 20px;
+  padding: 2px 14px;
+  margin-bottom: 12px;
+}
+
+.cover-title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  line-height: 38px;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.cover-subtitle {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: #2563eb;
+  margin-bottom: 16px;
+}
+
+.cover-syllabus-card {
+  border: 1.5px solid #64748b;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 10px auto;
+  max-width: 90%;
+}
+
+.cover-toc-card {
+  border: 1.8px solid #1e3a8a;
+  border-radius: 8px;
+  background: rgba(248, 250, 252, 0.85);
+  padding: 12px 16px;
+  text-align: left;
+  margin: 10px auto;
+  max-width: 90%;
+  width: 90%;
+}
+
+.cover-toc-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: bold;
+  color: #1e3a8a;
+  border-bottom: 1.5px dashed #93c5fd;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted #cbd5e1;
+}
+
+.cover-footer {
+  margin-bottom: 5mm;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  color: var(--ink-muted);
+}

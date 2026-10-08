@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "playwright": "^1.64.0",
+    "roughjs": "^4.6.6"
+  }
+}
