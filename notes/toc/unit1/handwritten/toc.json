@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sec-central-concepts",
+    "title": "Central Concepts of Automata Theory",
+    "page": 2
+  },
+  {
+    "id": "sec-dfa",
+    "title": "Deterministic Finite Automata (DFA)",
+    "page": 2
+  },
+  {
+    "id": "sec-dfa-design",
+    "title": "DFA Design & Worked Examples",
+    "page": 3
+  },
+  {
+    "id": "sec-nfa",
+    "title": "Nondeterministic Finite Automata (NFA)",
+    "page": 7
+  },
+  {
+    "id": "sec-epsilon-nfa",
+    "title": "ϵϵϵ-NFA & ϵϵϵ-Closure",
+    "page": 8
+  },
+  {
+    "id": "sec-subset-construction",
+    "title": "Equivalence of DFA and NFA: Subset Construction Algorithm",
+    "page": 8
+  },
+  {
+    "id": "sec-epsilon-to-dfa",
+    "title": "Conversion of ϵϵϵ-NFA to DFA",
+    "page": 12
+  },
+  {
+    "id": "sec-fa-applications",
+    "title": "Real-World Applications of Finite Automata",
+    "page": 12
+  },
+  {
+    "id": "sec-revision-sheet",
+    "title": "Unit 1 Quick Revision Sheet",
+    "page": 13
+  },
+  {
+    "id": "sec-important-questions",
+    "title": "Important Exam Questions",
+    "page": 14
+  },
+  {
+    "id": "sec-questions-asked-before",
+    "title": "Solved Questions from Past CIE-1 & SEE Examination Papers",
+    "page": 16
+  },
+  {
+    "id": "sec-practice-problems",
+    "title": "Practice Problems with Step-by-Step Solutions",
+    "page": 20
+  }
+]
