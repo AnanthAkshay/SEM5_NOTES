@@ -1,0 +1,52 @@
+[
+  {
+    "id": "sec-1",
+    "title": "Data Communication Fundamentals & Network Topologies",
+    "page": 2
+  },
+  {
+    "id": "sec-2",
+    "title": "The OSI 7-Layer Model vs TCP/IP Protocol Suite",
+    "page": 4
+  },
+  {
+    "id": "sec-3",
+    "title": "Data and Signals (Time vs Frequency Domain)",
+    "page": 6
+  },
+  {
+    "id": "sec-4",
+    "title": "Transmission Impairments & Decibel Calculations",
+    "page": 8
+  },
+  {
+    "id": "sec-5",
+    "title": "Data Rate Limits: Nyquist Bit Rate & Shannon Capacity",
+    "page": 12
+  },
+  {
+    "id": "sec-6",
+    "title": "Digital Line Coding Schemes & Waveforms",
+    "page": 20
+  },
+  {
+    "id": "revision-sheet",
+    "title": "One-Page Rapid Revision Sheet",
+    "page": 23
+  },
+  {
+    "id": "important-questions",
+    "title": "Important Examination Questions",
+    "page": 24
+  },
+  {
+    "id": "questions-asked-before",
+    "title": "Solved Questions from Past CIE & Model Papers",
+    "page": 27
+  },
+  {
+    "id": "practice-problems",
+    "title": "Verified Practice Problems with Hidden Answers",
+    "page": 29
+  }
+]

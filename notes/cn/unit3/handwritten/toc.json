@@ -1,0 +1,57 @@
+[
+  {
+    "id": "sec-1",
+    "title": "Network Layer Services & Switching Models",
+    "page": 2
+  },
+  {
+    "id": "sec-2",
+    "title": "Network Performance & Delay Modeling",
+    "page": 3
+  },
+  {
+    "id": "sec-3",
+    "title": "IPv4 Addressing & CIDR Subnetting",
+    "page": 5
+  },
+  {
+    "id": "sec-4",
+    "title": "VLSM Hierarchical Design & NAT Architecture",
+    "page": 8
+  },
+  {
+    "id": "sec-5",
+    "title": "The IPv4 Datagram Header & Fragmentation",
+    "page": 10
+  },
+  {
+    "id": "sec-6",
+    "title": "Internet Control Message Protocol (ICMPv4)",
+    "page": 14
+  },
+  {
+    "id": "sec-7",
+    "title": "Routing Algorithms: Distance Vector & Dijkstra's Link State",
+    "page": 15
+  },
+  {
+    "id": "revision-sheet",
+    "title": "One-Page Rapid Revision Sheet",
+    "page": 18
+  },
+  {
+    "id": "important-questions",
+    "title": "Important Examination Questions",
+    "page": 19
+  },
+  {
+    "id": "questions-asked-before",
+    "title": "Solved Questions from Past CIE-2 Examination Papers",
+    "page": 22
+  },
+  {
+    "id": "practice-problems",
+    "title": "Practice Problems with Step-by-Step Solutions",
+    "page": 29
+  }
+]
