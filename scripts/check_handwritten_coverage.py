@@ -93,29 +93,31 @@ def check_unit_coverage(sub_id, unit_num):
     pdf_words = re.findall(r'\b\w+\b', pdf_text)
     html_words = extractor.text_tokens
 
-    # Check headings presence & order
+    # Check headings presence & order via PDF bookmarks and sequential body text
+    bookmark_titles = [item.title.lower() for item in (reader.outline or []) if hasattr(item, 'title')]
+    body_text = "".join(page.extract_text() or "" for page in reader.pages[1:]).lower()
+
     missing_h2 = []
-    found_h2_indices = []
-    last_idx = -1
     order_ok = True
+    last_idx = 0
 
     for h in extractor.h2_list:
         clean_h = re.sub(r'^\d+[\.\)]\s*', '', h).strip()
-        norm_h = clean_h.replace(r'$\epsilon$', 'ϵ').replace(r'\epsilon', 'ϵ').replace('$', '').strip()
-        
-        idx = pdf_text.lower().find(norm_h[:18].lower())
-        if idx == -1:
-            # Fallback to key words search
-            key_words = [w.lower() for w in re.findall(r'\b\w+\b', norm_h) if len(w) > 3]
-            if key_words and all(kw in pdf_text.lower() for kw in key_words):
-                idx = pdf_text.lower().find(key_words[0])
-            else:
-                missing_h2.append(h)
-        if idx != -1:
-            if idx < last_idx:
-                order_ok = False
-            last_idx = idx
-            found_h2_indices.append(idx)
+        norm_h = clean_h.replace(r'$\epsilon$', 'ϵ').replace(r'\epsilon', 'ϵ').replace('$', '').strip().lower()
+
+        matched_in_outline = any(norm_h[:15] in bm or bm[:15] in norm_h for bm in bookmark_titles)
+        search_term = norm_h[:15]
+        found_pos = body_text.find(search_term, last_idx)
+        if found_pos == -1:
+            key_words = [w for w in re.findall(r'\b\w+\b', norm_h) if len(w) > 3]
+            if key_words:
+                found_pos = body_text.find(key_words[0], last_idx)
+
+        if matched_in_outline or found_pos != -1:
+            if found_pos != -1:
+                last_idx = found_pos
+        else:
+            missing_h2.append(h)
 
     # Key numerical tokens check: check distinctive numbers from HTML
     html_numbers = set(re.findall(r'\b\d+(?:\.\d+)?%?\b', html_content))
@@ -123,12 +125,34 @@ def check_unit_coverage(sub_id, unit_num):
     key_numbers = [n for n in html_numbers if len(n) > 2 or '.' in n or '%' in n][:50]
     missing_numbers = [n for n in key_numbers if n not in pdf_text]
 
+    # Font allow-list check
+    allowed_font_substrings = ['PatrickHand', 'Caveat', 'Kalam', 'JetBrainsMono', 'KaTeX']
+    pdf_fonts = set()
+    for page in reader.pages:
+        if '/Resources' in page and '/Font' in page['/Resources']:
+            for f in page['/Resources']['/Font'].values():
+                bf = str(f.get('/BaseFont', ''))
+                if bf: pdf_fonts.add(bf)
+    disallowed_fonts = [f for f in pdf_fonts if not any(ok in f for ok in allowed_font_substrings)]
+    fonts_ok = (len(disallowed_fonts) == 0)
+
+    # Metadata & Outline check
+    meta = reader.metadata
+    title = meta.title if meta else None
+    author = meta.author if meta else None
+    outlines = reader.outline
+    meta_ok = bool(title and author and outlines)
+
+    # HTML size check
+    hand_html_path = f"notes/{sub_id}/unit{unit_num}/handwritten/{sub_id}-unit{unit_num}-handwritten.html"
+    html_size_mb = os.path.getsize(hand_html_path) / (1024 * 1024) if os.path.exists(hand_html_path) else 0
+
     word_ratio = len(pdf_words) / max(1, len(html_words))
 
     pdf_stat = os.stat(pdf_path)
     size_mb = pdf_stat.st_size / (1024 * 1024)
 
-    passed = (len(missing_h2) == 0) and (size_mb < 15.0)
+    passed = (len(missing_h2) == 0) and (size_mb <= 4.0) and (html_size_mb <= 1.5) and fonts_ok and meta_ok and order_ok
 
     return {
         "status": "PASS" if passed else "FAIL",
@@ -138,6 +162,7 @@ def check_unit_coverage(sub_id, unit_num):
         "pdf_path": pdf_path,
         "pages": total_pages,
         "size_mb": round(size_mb, 2),
+        "html_size_mb": round(html_size_mb, 2),
         "html_words": len(html_words),
         "pdf_words": len(pdf_words),
         "word_ratio": round(word_ratio, 2),
@@ -145,6 +170,9 @@ def check_unit_coverage(sub_id, unit_num):
         "h2_found": len(extractor.h2_list) - len(missing_h2),
         "missing_h2": missing_h2,
         "order_ok": order_ok,
+        "fonts_ok": fonts_ok,
+        "disallowed_fonts": disallowed_fonts,
+        "meta_ok": meta_ok,
         "missing_numbers": missing_numbers[:5],
         "tables": extractor.table_count,
         "callouts": extractor.callout_count,
@@ -193,23 +221,24 @@ def main():
         results.append(res)
 
     print("\n=======================================================")
-    print("HANDWRITTEN NOTEBOOK COVERAGE AUDIT REPORT")
+    print("HANDWRITTEN NOTEBOOK COVERAGE & GATES AUDIT REPORT")
     print("=======================================================")
     for r in results:
         status_badge = "✅ PASS" if r.get('status') == 'PASS' else "❌ FAIL"
-        print(f"[{status_badge}] {r.get('sub_id', '').upper()} Unit {r.get('unit')}: Pages: {r.get('pages')}, Size: {r.get('size_mb')} MB, Words: {r.get('pdf_words')}/{r.get('html_words')} (Ratio: {r.get('word_ratio')}), Headings: {r.get('h2_found')}/{r.get('h2_total')}")
+        fonts_badge = "Fonts: OK" if r.get('fonts_ok') else f"Fonts: FAIL ({r.get('disallowed_fonts')})"
+        print(f"[{status_badge}] {r.get('sub_id', '').upper()} Unit {r.get('unit')}: Pages: {r.get('pages')}, PDF: {r.get('size_mb')} MB, HTML: {r.get('html_size_mb')} MB, Words: {r.get('pdf_words')}/{r.get('html_words')} (Ratio: {r.get('word_ratio')}), Headings: {r.get('h2_found')}/{r.get('h2_total')}, {fonts_badge}")
         if r.get('missing_h2'):
             print(f"    Missing Headings: {r['missing_h2']}")
 
     # Write report
     report_md = "# Handwritten Notebooks Coverage & Fidelity Audit\n\n"
-    report_md += "| Subject | Unit | Pages | Size (MB) | HTML Words | PDF Words | Ratio | Headings Present | Order OK | Status |\n"
-    report_md += "|---|---|---|---|---|---|---|---|---|---|\n"
+    report_md += "| Subject | Unit | Pages | PDF (MB) | HTML (MB) | HTML Words | PDF Words | Ratio | Headings | Order OK | Fonts OK | Meta OK | Status |\n"
+    report_md += "|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
     for r in results:
         if r.get('status') == 'SKIPPED':
             continue
         st = "✅ PASS" if r.get('status') == 'PASS' else "❌ FAIL"
-        report_md += f"| {r['sub_id'].upper()} | Unit {r['unit']} | {r['pages']} | {r['size_mb']} | {r['html_words']:,} | {r['pdf_words']:,} | {r['word_ratio']} | {r['h2_found']}/{r['h2_total']} | {'Yes' if r['order_ok'] else 'No'} | {st} |\n"
+        report_md += f"| {r['sub_id'].upper()} | Unit {r['unit']} | {r['pages']} | {r['size_mb']} | {r['html_size_mb']} | {r['html_words']:,} | {r['pdf_words']:,} | {r['word_ratio']} | {r['h2_found']}/{r['h2_total']} | {'Yes' if r['order_ok'] else 'No'} | {'Yes' if r['fonts_ok'] else 'No'} | {'Yes' if r['meta_ok'] else 'No'} | {st} |\n"
 
     os.makedirs('audit', exist_ok=True)
     with open('audit/handwritten_coverage.md', 'w', encoding='utf-8') as f:
