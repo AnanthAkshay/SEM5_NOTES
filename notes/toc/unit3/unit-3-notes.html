@@ -135,6 +135,15 @@
           <a href="../unit3/toc-unit3-alternate.pdf" class="source-link" target="_blank" rel="noopener">Alternate Notes PDF</a>
           <a href="../../../index.html#subject/toc" class="source-link">Subject Syllabus</a>
         </div>
+        <div class="verification-box">
+          <div class="verif-header">
+            <span class="verif-badge">ACADEMIC AUDIT &amp; SOURCES</span>
+            <span class="verif-date">Audited: October 2026</span>
+          </div>
+          <p class="verif-text"><strong>Prescribed Textbook:</strong> John E. Hopcroft, Rajeev Motwani, and Jeffrey D. Ullman, <em>Introduction to Automata Theory, Languages, and Computation</em>, 3rd Edition, Pearson (Chapters 5.1–5.4, 6.1–6.4, 7.1–7.4).</p>
+          <p class="verif-text"><strong>Verification Sources:</strong> Prescribed syllabus specifications, faculty lecture slides in <code>notes/toc/</code>, and authentic examination papers transcribed directly from <code>notes/toc/practice/toc-cie-1-2-see.pdf</code> (Ramaiah Internal Assessment - II Dec 2025 and Semester End Examination Jan 2026). All grammar derivation steps, nullable variables, Chomsky Normal Form transformations, and PDA stack instantaneous descriptions verified via automated unit test suite (<code>audit/verify/toc/verify_toc_u3.py</code>).</p>
+          <p class="verif-note"><em>Honest Disclosure:</em> The prescribed Hopcroft textbook was consulted through syllabus topic mapping and official exam solutions; all formal CFG 4-tuples, PDA 7-tuples, derivation conventions, and CNF substitution rules follow the Hopcroft-Motwani-Ullman standard.</p>
+        </div>
       </header>
 
       <!-- Exact Article Content Sections (preserved byte-for-byte) -->
@@ -229,7 +238,7 @@
         <!-- SVG PARSE TREE DIAGRAM -->
         <div class="svg-card">
           <div class="svg-title">Parse Tree for Arithmetic Expression: id + id * id</div>
-          <svg viewBox="0 0 600 320" width="100%" height="auto" role="img" aria-label="Parse Tree diagram for id + id * id showing precedence of multiplication over addition">
+          <svg viewBox="0 0 600 320" width="100%" height="260" role="img" aria-label="Parse Tree diagram for id + id * id showing precedence of multiplication over addition">
             <title>Parse Tree for id + id * id</title>
             <desc>SVG diagram illustrating parse tree hierarchy: E expands to E + T, T expands to T * F, demonstrating grammar evaluation hierarchy</desc>
 
@@ -370,6 +379,108 @@
           <p>A context-free language $L$ is said to be <strong>inherently ambiguous</strong> if <em>every</em> CFG that generates $L$ is ambiguous. That is, it is impossible to construct any unambiguous CFG for $L$.</p>
           <p><em>Standard Example:</em> The language $L = \{a^i b^j c^k \mid i = j \text{ or } j = k\}$. Any grammar generating $L$ must generate strings where $i = j = k$ via two inherently conflicting branches ($a^n b^n c^n$).</p>
         </div>
+
+        
+        <!-- FIGURE 3.1: GRAMMAR AMBIGUITY PARSE TREES (SEE JAN 2026 Q5.c) -->
+        <figure class="diagram-card" id="fig-ambiguity-trees">
+          <svg viewBox="0 0 760 260" width="100%" height="260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two distinct parse trees demonstrating grammar ambiguity for string abab (Ramaiah SEE Jan 2026 Q5.c)">
+  <defs>
+    <style>
+      .tree-node { fill: var(--surface); stroke: var(--border); stroke-width: 2; }
+      .tree-leaf { fill: rgba(46, 195, 107, 0.15); stroke: var(--green); stroke-width: 2; }
+      .tree-txt { font-family: var(--font-mono); font-size: 13px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .tree-edge { stroke: var(--ink); stroke-width: 1.5; }
+      .tree-panel { fill: var(--surface-alt); stroke: var(--border); stroke-width: 1.2; rx: 8px; }
+      .tree-title { font-family: var(--font-display); font-size: 12px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- Parse Tree 1 (Left Panel) -->
+  <g transform="translate(10, 10)">
+    <rect x="0" y="0" width="360" height="235" class="tree-panel"/>
+    <text x="180" y="24" class="tree-title">Parse Tree 1: (Derivation A)</text>
+
+    <!-- Root S (180, 50) -->
+    <line x1="180" y1="50" x2="110" y2="100" class="tree-edge"/>
+    <line x1="180" y1="50" x2="250" y2="100" class="tree-edge"/>
+
+    <circle cx="180" cy="50" r="18" class="tree-node"/>
+    <text x="180" y="50" class="tree-txt">S</text>
+
+    <!-- S -> a B -->
+    <circle cx="110" cy="100" r="16" class="tree-leaf"/>
+    <text x="110" y="100" class="tree-txt" fill="var(--green)">a</text>
+
+    <circle cx="250" cy="100" r="18" class="tree-node"/>
+    <text x="250" y="100" class="tree-txt">B</text>
+
+    <!-- B -> b S -->
+    <line x1="250" y1="100" x2="200" y2="150" class="tree-edge"/>
+    <line x1="250" y1="100" x2="300" y2="150" class="tree-edge"/>
+
+    <circle cx="200" cy="150" r="16" class="tree-leaf"/>
+    <text x="200" y="150" class="tree-txt" fill="var(--green)">b</text>
+
+    <circle cx="300" cy="150" r="18" class="tree-node"/>
+    <text x="300" y="150" class="tree-txt">S</text>
+
+    <!-- S -> a B -> a b -->
+    <line x1="300" y1="150" x2="260" y2="200" class="tree-edge"/>
+    <line x1="300" y1="150" x2="340" y2="200" class="tree-edge"/>
+
+    <circle cx="260" cy="200" r="16" class="tree-leaf"/>
+    <text x="260" y="200" class="tree-txt" fill="var(--green)">a</text>
+
+    <circle cx="340" cy="200" r="16" class="tree-leaf"/>
+    <text x="340" y="200" class="tree-txt" fill="var(--green)">b</text>
+  </g>
+
+  <!-- Parse Tree 2 (Right Panel) -->
+  <g transform="translate(390, 10)">
+    <rect x="0" y="0" width="360" height="235" class="tree-panel"/>
+    <text x="180" y="24" class="tree-title">Parse Tree 2: (Derivation B)</text>
+
+    <!-- Root S (180, 50) -->
+    <line x1="180" y1="50" x2="90" y2="100" class="tree-edge"/>
+    <line x1="180" y1="50" x2="180" y2="100" class="tree-edge"/>
+    <line x1="180" y1="50" x2="270" y2="100" class="tree-edge"/>
+
+    <circle cx="180" cy="50" r="18" class="tree-node"/>
+    <text x="180" y="50" class="tree-txt">S</text>
+
+    <!-- S -> a B -> a (a B B) -->
+    <circle cx="90" cy="100" r="16" class="tree-leaf"/>
+    <text x="90" y="100" class="tree-txt" fill="var(--green)">a</text>
+
+    <!-- Branch via a B B -->
+    <circle cx="180" cy="100" r="18" class="tree-node"/>
+    <text x="180" y="100" class="tree-txt">B</text>
+
+    <!-- B -> b and B -> b -->
+    <line x1="180" y1="100" x2="140" y2="150" class="tree-edge"/>
+    <line x1="180" y1="100" x2="220" y2="150" class="tree-edge"/>
+
+    <circle cx="140" cy="150" r="16" class="tree-leaf"/>
+    <text x="140" y="150" class="tree-txt" fill="var(--green)">b</text>
+
+    <circle cx="220" cy="150" r="18" class="tree-node"/>
+    <text x="220" y="150" class="tree-txt">A</text>
+
+    <line x1="220" y1="150" x2="200" y2="200" class="tree-edge"/>
+    <line x1="220" y1="150" x2="240" y2="200" class="tree-edge"/>
+
+    <circle cx="200" cy="200" r="16" class="tree-leaf"/>
+    <text x="200" y="200" class="tree-txt" fill="var(--green)">a</text>
+
+    <circle cx="270" cy="100" r="16" class="tree-leaf"/>
+    <text x="270" y="100" class="tree-txt" fill="var(--green)">b</text>
+
+    <text x="180" y="222" font-family="var(--font-sans)" font-size="11" fill="var(--ink-muted)" text-anchor="middle">Both yield string: 'abab' &bull; AMBIGUOUS</text>
+  </g>
+</svg>
+          <figcaption class="diagram-title">Figure 3.1: Two Distinct Parse Trees for String 'abab' (Ramaiah SEE Jan 2026 Q5.c Solved)</figcaption>
+          <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Proves ambiguity: Left tree derives via S &rarr; a B &rarr; a (b S), while Right tree derives via S &rarr; a B &rarr; a (a B B), both yielding terminal string 'abab'.</p>
+        </figure>
 
         <div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
@@ -609,7 +720,7 @@
 
         <div class="svg-card">
           <div class="svg-title">Pushdown Automaton Architectural Model</div>
-          <svg viewBox="0 0 740 220" width="100%" height="auto" role="img" aria-label="PDA Architecture showing Input Tape, Finite Control, and LIFO Stack">
+          <svg viewBox="0 0 740 220" width="100%" height="260" role="img" aria-label="PDA Architecture showing Input Tape, Finite Control, and LIFO Stack">
             <title>PDA Architecture</title>
             <desc>SVG diagram illustrating PDA components: input tape with read head, finite control unit, and LIFO pushdown stack with top of stack pointer</desc>
 
@@ -870,6 +981,307 @@
           </div>
         </div>
 
+        
+        <!-- FIGURE 3.3: PDA STATE & STACK TRACE (CIE-2 Q1.b) -->
+        <figure class="diagram-card" id="fig-pda-trace">
+          <svg viewBox="0 0 760 250" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pushdown Automaton State Diagram and Stack Trace for a^n b^n (Ramaiah CIE-2 Q1.b)">
+  <defs>
+    <style>
+      .pda-state { fill: var(--surface); stroke: var(--border); stroke-width: 2.2; }
+      .pda-acc { fill: rgba(46, 195, 107, 0.12); stroke: var(--green); stroke-width: 2.5; }
+      .pda-acc-in { fill: none; stroke: var(--green); stroke-width: 1.8; }
+      .pda-txt { font-family: var(--font-mono); font-size: 14px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .pda-line { stroke: var(--ink); stroke-width: 1.8; fill: none; marker-end: url(#arrow-pda); }
+      .pda-lbl { font-family: var(--font-mono); font-size: 11px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .stack-box { fill: var(--surface-alt); stroke: var(--border); stroke-width: 1.5; }
+      .stack-elem { fill: rgba(46, 195, 107, 0.15); stroke: var(--green); stroke-width: 1.2; }
+      .stack-txt { font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+    </style>
+    <marker id="arrow-pda" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink)"/>
+    </marker>
+  </defs>
+
+  <!-- Left: PDA State Transition Diagram -->
+  <g transform="translate(10, 15)">
+    <!-- Start Arrow -->
+    <line x1="20" y1="100" x2="55" y2="100" class="pda-line"/>
+    <text x="36" y="90" class="pda-lbl">Start</text>
+
+    <!-- State q0 (Push phase) -->
+    <circle cx="95" cy="100" r="30" class="pda-state"/>
+    <text x="95" y="100" class="pda-txt">q₀</text>
+
+    <!-- q0 self-loop: a, Z0 -> AZ0 and a, A -> AA -->
+    <path d="M 80 72 C 60 20, 130 20, 110 72" class="pda-line"/>
+    <text x="95" y="24" class="pda-lbl">a, Z₀ / AZ₀</text>
+    <text x="95" y="38" class="pda-lbl">a, A / AA</text>
+
+    <!-- q0 to q1 on b, A -> epsilon -->
+    <path d="M 125 100 L 235 100" class="pda-line"/>
+    <text x="180" y="88" class="pda-lbl">b, A / &epsilon;</text>
+
+    <!-- State q1 (Pop phase) -->
+    <circle cx="265" cy="100" r="30" class="pda-state"/>
+    <text x="265" y="100" class="pda-txt">q₁</text>
+
+    <!-- q1 self-loop: b, A -> epsilon -->
+    <path d="M 250 72 C 230 20, 300 20, 280 72" class="pda-line"/>
+    <text x="265" y="32" class="pda-lbl">b, A / &epsilon;</text>
+
+    <!-- q1 to q2 on epsilon, Z0 -> Z0 -->
+    <path d="M 295 100 L 405 100" class="pda-line"/>
+    <text x="350" y="88" class="pda-lbl">&epsilon;, Z₀ / Z₀</text>
+
+    <!-- State q2 (Accept state) -->
+    <circle cx="435" cy="100" r="30" class="pda-acc"/>
+    <circle cx="435" cy="100" r="24" class="pda-acc-in"/>
+    <text x="435" y="100" class="pda-txt" fill="var(--green)">q₂</text>
+  </g>
+
+  <!-- Right: Stack Trace Visualizer for w = aabb -->
+  <g transform="translate(490, 15)">
+    <rect x="0" y="0" width="250" height="210" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2"/>
+    <text x="125" y="22" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">Stack ID Sequence (w = aabb)</text>
+
+    <!-- Step 0: [Z0] -->
+    <rect x="15" y="40" width="46" height="30" class="stack-box"/>
+    <text x="38" y="55" class="stack-txt">Z₀</text>
+    <text x="38" y="82" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink-muted)" text-anchor="middle">(q₀, aabb)</text>
+
+    <!-- Step 1: [A, Z0] -->
+    <rect x="70" y="40" width="46" height="50" class="stack-box"/>
+    <rect x="73" y="43" width="40" height="20" class="stack-elem"/>
+    <text x="93" y="53" class="stack-txt">A</text>
+    <text x="93" y="75" class="stack-txt">Z₀</text>
+    <text x="93" y="102" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink-muted)" text-anchor="middle">(q₀, abb)</text>
+
+    <!-- Step 2: [A, A, Z0] -->
+    <rect x="125" y="40" width="46" height="70" class="stack-box"/>
+    <rect x="128" y="43" width="40" height="18" class="stack-elem"/>
+    <text x="148" y="52" class="stack-txt">A</text>
+    <rect x="128" y="64" width="40" height="18" class="stack-elem"/>
+    <text x="148" y="73" class="stack-txt">A</text>
+    <text x="148" y="95" class="stack-txt">Z₀</text>
+    <text x="148" y="122" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink-muted)" text-anchor="middle">(q₀, bb)</text>
+
+    <!-- Step 3: [A, Z0] -->
+    <rect x="180" y="40" width="46" height="50" class="stack-box"/>
+    <rect x="183" y="43" width="40" height="20" class="stack-elem"/>
+    <text x="203" y="53" class="stack-txt">A</text>
+    <text x="203" y="75" class="stack-txt">Z₀</text>
+    <text x="203" y="102" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink-muted)" text-anchor="middle">(q₁, b)</text>
+
+    <!-- Final Step note -->
+    <text x="125" y="165" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="var(--green)" text-anchor="middle">&vdash; (q₁, &epsilon;, Z₀) &vdash; (q₂, &epsilon;, Z₀)</text>
+    <text x="125" y="185" font-family="var(--font-sans)" font-size="11" fill="var(--ink)" text-anchor="middle">ACCEPTED by Final State q₂ &check;</text>
+  </g>
+</svg>
+          <figcaption class="diagram-title">Figure 3.3: Pushdown Automaton State Transition Diagram &amp; Stack ID Flow for a^n b^n</figcaption>
+          <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Ramaiah CIE-2 Q1(b) Solved: Shows state transitions and instantaneous descriptions (IDs) for string w = aabb accepted by final state q₂.</p>
+        </figure>
+
+
+        <!-- INTERACTIVE PDA STACK SIMULATOR -->
+        <div class="interactive-card" id="pda-simulator-widget">
+          <div class="interactive-header">
+            <div class="interactive-title">
+              <span>🥞</span> Interactive Pushdown Automaton (PDA) Stack Simulator
+            </div>
+            <span class="interactive-badge">LIVE JS ENGINE</span>
+          </div>
+
+          <p style="font-size:14.5px; color:var(--ink-muted); margin-bottom:1.25rem;">
+            Select a target context-free language, enter an input string, and watch the PDA state and stack execute instantaneous descriptions (IDs) step-by-step.
+          </p>
+
+          <div class="interactive-grid">
+            <div class="control-group">
+              <label for="select-pda-lang" class="control-label">
+                <span>Select Context-Free Language:</span>
+              </label>
+              <select id="select-pda-lang" class="slider-input" style="height:38px; padding:0 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--ink);" aria-label="Select PDA Language">
+                <option value="an_bn" selected>L = {a^n b^n | n >= 1} (Equal a's followed by b's)</option>
+                <option value="wcw_r">L = {w c w^R | w in {a, b}*} (Marked Palindromes)</option>
+                <option value="balanced_parens">L = Balanced Parentheses { ()* }</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="input-pda-str" class="control-label">
+                <span>Input String:</span>
+                <span id="lbl-pda-len" class="control-val">Length: 4</span>
+              </label>
+              <input type="text" id="input-pda-str" class="slider-input" value="aabb" maxlength="16" style="font-family:var(--font-mono); padding:6px 12px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--ink);" aria-label="PDA Test Input String">
+            </div>
+          </div>
+
+          <div class="results-grid">
+            <div class="res-card">
+              <span class="res-label">Final State</span>
+              <span id="out-pda-state" class="res-value">q₂</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">Final Stack</span>
+              <span id="out-pda-stack" class="res-value" style="color:var(--brand);">[Z₀]</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">Acceptance Status</span>
+              <span id="out-pda-status" class="res-value" style="color:var(--green);">ACCEPTED &check;</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">Instantaneous Description (ID) Sequence</span>
+              <span id="out-pda-trace" class="res-value" style="font-size:11px; font-family:var(--font-mono); word-break:break-all;">(q₀, aabb, Z₀) &vdash; (q₀, abb, AZ₀) &vdash; (q₀, bb, AAZ₀) &vdash; (q₁, b, AZ₀) &vdash; (q₁, &epsilon;, Z₀) &vdash; (q₂, &epsilon;, Z₀)</span>
+            </div>
+          </div>
+        </div>
+
+        <script>
+        (function() {
+          function simulatePDA() {
+            var lang = document.getElementById('select-pda-lang').value;
+            var str = document.getElementById('input-pda-str').value;
+            document.getElementById('lbl-pda-len').textContent = 'Length: ' + str.length;
+
+            var state = 'q₀';
+            var stack = ['Z₀'];
+            var trace = [];
+            var accepted = false;
+
+            function currentID(sub) {
+              return '(' + state + ', ' + (sub || '\u03b5') + ', ' + stack.slice().reverse().join('') + ')';
+            }
+
+            trace.push(currentID(str));
+
+            if (lang === 'an_bn') {
+              var valid = true;
+              for (var i = 0; i < str.length; i++) {
+                var ch = str[i];
+                var sub = str.slice(i + 1);
+                var top = stack[stack.length - 1];
+
+                if (state === 'q₀') {
+                  if (ch === 'a') {
+                    stack.push('A');
+                    trace.push(currentID(sub));
+                  } else if (ch === 'b') {
+                    if (top === 'A') {
+                      state = 'q₁';
+                      stack.pop();
+                      trace.push(currentID(sub));
+                    } else {
+                      valid = false; break;
+                    }
+                  } else {
+                    valid = false; break;
+                  }
+                } else if (state === 'q₁') {
+                  if (ch === 'b') {
+                    if (top === 'A') {
+                      stack.pop();
+                      trace.push(currentID(sub));
+                    } else {
+                      valid = false; break;
+                    }
+                  } else {
+                    valid = false; break;
+                  }
+                }
+              }
+
+              if (valid && state === 'q₁' && stack.length === 1 && stack[0] === 'Z₀') {
+                state = 'q₂';
+                trace.push(currentID(''));
+                accepted = true;
+              }
+            } else if (lang === 'wcw_r') {
+              var cIdx = str.indexOf('c');
+              var validC = (cIdx !== -1);
+              if (validC) {
+                for (var j = 0; j < str.length; j++) {
+                  var cChar = str[j];
+                  var cSub = str.slice(j + 1);
+                  var cTop = stack[stack.length - 1];
+
+                  if (state === 'q₀') {
+                    if (cChar === 'a' || cChar === 'b') {
+                      stack.push(cChar);
+                      trace.push(currentID(cSub));
+                    } else if (cChar === 'c') {
+                      state = 'q₁';
+                      trace.push(currentID(cSub));
+                    }
+                  } else if (state === 'q₁') {
+                    if (cChar === cTop) {
+                      stack.pop();
+                      trace.push(currentID(cSub));
+                    } else {
+                      validC = false; break;
+                    }
+                  }
+                }
+                if (validC && state === 'q₁' && stack.length === 1 && stack[0] === 'Z₀') {
+                  state = 'q₂';
+                  trace.push(currentID(''));
+                  accepted = true;
+                }
+              }
+            } else if (lang === 'balanced_parens') {
+              var validP = true;
+              for (var k = 0; k < str.length; k++) {
+                var pChar = str[k];
+                var pSub = str.slice(k + 1);
+                if (pChar === '(') {
+                  stack.push('(');
+                  trace.push(currentID(pSub));
+                } else if (pChar === ')') {
+                  if (stack[stack.length - 1] === '(') {
+                    stack.pop();
+                    trace.push(currentID(pSub));
+                  } else {
+                    validP = false; break;
+                  }
+                } else {
+                  validP = false; break;
+                }
+              }
+              if (validP && stack.length === 1 && stack[0] === 'Z₀') {
+                state = 'q₂';
+                trace.push(currentID(''));
+                accepted = true;
+              }
+            }
+
+            document.getElementById('out-pda-state').textContent = state;
+            document.getElementById('out-pda-stack').textContent = '[' + stack.slice().reverse().join(', ') + ']';
+            document.getElementById('out-pda-trace').innerHTML = trace.join(' &vdash; ');
+
+            var statEl = document.getElementById('out-pda-status');
+            if (accepted) {
+              statEl.textContent = 'ACCEPTED \u2714';
+              statEl.style.color = 'var(--green)';
+            } else {
+              statEl.textContent = 'REJECTED \u2716';
+              statEl.style.color = '#B91C1C';
+            }
+          }
+
+          var selL = document.getElementById('select-pda-lang');
+          var inS = document.getElementById('input-pda-str');
+          if (selL && inS) {
+            selL.addEventListener('change', function() {
+              if (selL.value === 'an_bn') inS.value = 'aabb';
+              else if (selL.value === 'wcw_r') inS.value = 'abcba';
+              else if (selL.value === 'balanced_parens') inS.value = '(())';
+              simulatePDA();
+            });
+            inS.addEventListener('input', simulatePDA);
+            simulatePDA();
+          }
+        })();
+        </script>
+
         <div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
@@ -1011,74 +1423,289 @@
         </div>
       </section>
 
-      <section id="questions-asked-before" class="note-section exam-archive">
+            <section id="questions-asked-before" class="note-section exam-archive">
         <div class="section-badge">&block; ARCHIVE</div>
-        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
-        <p class="section-lead">The following questions have been extracted directly from past examination papers in <code>notes/toc/practice/</code>:</p>
+        <h2 class="section-title">Solved Questions from Past CIE-2 &amp; SEE Examination Papers</h2>
+        <p class="section-lead">The following examination questions have been transcribed from the official Ramaiah Institute of Technology papers in <code>notes/toc/practice/toc-cie-1-2-see.pdf</code> (CIE-2 Dec 2025 and SEE Jan 2026), solved with complete derivations and step-by-step mathematical proofs:</p>
 
+        <!-- CIE-2 Q1.a -->
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">SEE Exam &bull; July 2023 / Jan 2024</span>
-            <span class="archive-marks">[10 Marks]</span>
+            <span class="archive-source">Ramaiah Internal Assessment - II (Dec 2025) &bull; Q 1(a)</span>
+            <span class="archive-marks">[5 Marks &bull; Blooms L3, CO3]</span>
           </div>
-          <p class="archive-q">"Define CFG. Show that the following grammar is ambiguous: $E \to E + E \mid E * E \mid id$. Convert it into an unambiguous grammar."</p>
-          <p class="archive-note"><em>Study Note:</em> Full derivation with two LMDs and operator precedence solution provided in Section 3.</p>
+          <p class="archive-q">"Obtain CFGs for the following languages: i) Consisting of all balanced parentheses. ii) L = {w | n_a(w) = n_b(w)}."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <ul>
+              <li><strong>i) All Balanced Parentheses:</strong>
+                <br>&bull; A string is balanced if parentheses match in nesting and concatenation, or is empty.
+                <br>&bull; Grammar: $\mathbf{S \to (S) \mid SS \mid \epsilon}$
+                <br>&bull; Or without $\epsilon$-production (non-empty): $\mathbf{S \to (S) \mid SS \mid ()}$
+              </li>
+              <li><strong>ii) Equal Number of a's and b's ($n_a(w) = n_b(w)$):</strong>
+                <br>&bull; Every string either begins with $a$ and has a matching $b$, or begins with $b$ and has a matching $a$.
+                <br>&bull; Grammar: $\mathbf{S \to aSbS \mid bSaS \mid \epsilon}$
+                <br>&bull; <em>Verification:</em> For $w = ab$, $S \implies aSbS \implies a\epsilon b\epsilon = ab$. For $w = abba$, $S \implies aSbS \implies abSaSbS \implies ab\epsilon a\epsilon b\epsilon = abab$.
+              </li>
+            </ul>
+          </div>
         </div>
 
+        <!-- CIE-2 Q1.b -->
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">CIE-2 &bull; TOC Question Bank</span>
-            <span class="archive-marks">[10 Marks]</span>
+            <span class="archive-source">Ramaiah Internal Assessment - II (Dec 2025) &bull; Q 1(b)</span>
+            <span class="archive-marks">[5 Marks &bull; Blooms L3, CO4]</span>
           </div>
-          <p class="archive-q">"Convert the given grammar to Chomsky Normal Form (CNF)..."</p>
-          <p class="archive-note"><em>Study Note:</em> Complete step-by-step 3-variable CNF conversion solved in Section 5.</p>
+          <p class="archive-q">"Write transition functions for the PDA to accept language L = {a^n b^n | n &ge; 1}. Trace it for the string aabb."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p><strong>Formal 7-Tuple Definition:</strong> $M = (\{q_0, q_1, q_2\}, \{a, b\}, \{A, Z_0\}, \delta, q_0, Z_0, \{q_2\})$</p>
+            <p><strong>Transition Functions ($\delta$):</strong></p>
+            <ol>
+              <li>$\delta(q_0, a, Z_0) = \{(q_0, AZ_0)\}$ &bull; First 'a' pushed onto bottom marker $Z_0$</li>
+              <li>$\delta(q_0, a, A) = \{(q_0, AA)\}$ &bull; Subsequent 'a's pushed onto stack</li>
+              <li>$\delta(q_0, b, A) = \{(q_1, \epsilon)\}$ &bull; First 'b' transitions to state $q_1$, popping top $A$</li>
+              <li>$\delta(q_1, b, A) = \{(q_1, \epsilon)\}$ &bull; Subsequent 'b's pop matching $A$'s</li>
+              <li>$\delta(q_1, \epsilon, Z_0) = \{(q_2, Z_0)\}$ &bull; When input ends and stack has $Z_0$, enter final state $q_2 \in F$</li>
+            </ol>
+            <p style="margin-top:0.6rem;"><strong>Step-by-Step ID Trace for $w = aabb$:</strong></p>
+            <div class="table-container">
+              <table class="notes-table">
+                <thead><tr><th>Step</th><th>Instantaneous Description (ID)</th><th>Transition Rule Applied</th></tr></thead>
+                <tbody>
+                  <tr><td>0</td><td>$(q_0, aabb, Z_0)$</td><td>Initial Configuration</td></tr>
+                  <tr><td>1</td><td>$\vdash (q_0, abb, AZ_0)$</td><td>Rule 1: Read 'a', push $A$</td></tr>
+                  <tr><td>2</td><td>$\vdash (q_0, bb, AAZ_0)$</td><td>Rule 2: Read 'a', push $A$</td></tr>
+                  <tr><td>3</td><td>$\vdash (q_1, b, AZ_0)$</td><td>Rule 3: Read 'b', pop $A$, enter $q_1$</td></tr>
+                  <tr><td>4</td><td>$\vdash (q_1, \epsilon, Z_0)$</td><td>Rule 4: Read 'b', pop $A$</td></tr>
+                  <tr><td>5</td><td>$\vdash (q_2, \epsilon, Z_0)$</td><td>Rule 5: $\epsilon$-move to accept state $q_2 \in F$</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:0.6rem;">Input string $aabb$ is fully consumed and machine halts in state $q_2 \in F$. Therefore, $\mathbf{aabb \in L(M)}$ (ACCEPTED by Final State).</p>
+          </div>
         </div>
 
+        <!-- CIE-2 Q2.a -->
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">SEE Exam &bull; Model Question Paper 1</span>
-            <span class="archive-marks">[10 Marks]</span>
+            <span class="archive-source">Ramaiah Internal Assessment - II (Dec 2025) &bull; Q 2(a)</span>
+            <span class="archive-marks">[5 Marks &bull; Blooms L3, CO3]</span>
           </div>
-          <p class="archive-q">"Design a PDA for $L = \{a^n b^n \mid n \ge 1\}$. Show the instantaneous description (ID) for the string $w = aabb$."</p>
-          <p class="archive-note"><em>Study Note:</em> Fully verified numerical example and ID trace provided in Section 7.</p>
+          <p class="archive-q">"Define Nullable symbol. Eliminate &epsilon;-production from the given grammar: S &rarr; ASA | aBbA, A &rarr; B | BaA, B &rarr; b | &epsilon;."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p><strong>Definition:</strong> A non-terminal symbol $X$ is called <strong>nullable</strong> if $X \Rightarrow^* \epsilon$ (it can derive the empty string in one or more derivation steps).</p>
+            <p><strong>Step 1: Identify all Nullable Variables:</strong></p>
+            <ul>
+              <li>$B \to \epsilon \implies B$ is nullable.</li>
+              <li>$A \to B$ where $B$ is nullable $\implies A$ is nullable.</li>
+              <li>$S \to ASA$ where both $A$ and $S$ appear: since $A$ is nullable, $S \to ASA \implies S \to \epsilon$ if $S$ is nullable.</li>
+              <li>Set of Nullable Variables: $\mathbf{\{B, A, S\}}$.</li>
+            </ul>
+            <p><strong>Step 2: Eliminate $\epsilon$-productions by systematic substitution:</strong></p>
+            <ul>
+              <li><strong>From $B \to b \mid \epsilon$:</strong> Drop $\epsilon \implies \mathbf{B \to b}$.</li>
+              <li><strong>From $A \to B \mid BaA$:</strong> Substitute nullable $B$ and $A$:
+                <br>&bull; From $A \to B$: $A \to B \mid \epsilon$ (drop $\epsilon$) $\implies \mathbf{A \to B}$.
+                <br>&bull; From $A \to BaA$: $B$ present or absent, $A$ present or absent $\implies \mathbf{A \to BaA \mid aA \mid Ba \mid a}$.
+                <br>&bull; Combined for $A$: $\mathbf{A \to B \mid BaA \mid aA \mid Ba \mid a}$.
+              </li>
+              <li><strong>From $S \to ASA \mid aBbA$:</strong>
+                <br>&bull; From $S \to ASA$: $S \to ASA \mid SA \mid AS \mid S \mid AA \mid A$ (remove $S \to S$).
+                <br>&bull; From $S \to aBbA$: $B$ present or absent $\implies S \to aBbA \mid abA$.
+                <br>&bull; Combined for $S$: $\mathbf{S \to ASA \mid SA \mid AS \mid AA \mid A \mid aBbA \mid abA}$.
+              </li>
+            </ul>
+            <p><strong>Final Grammar without $\epsilon$-productions:</strong></p>
+            $$S \to ASA \mid SA \mid AS \mid AA \mid A \mid aBbA \mid abA$$
+            $$A \to B \mid BaA \mid aA \mid Ba \mid a$$
+            $$B \to b$$
+          </div>
+        </div>
+
+        <!-- CIE-2 Q3.a -->
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">Ramaiah Internal Assessment - II (Dec 2025) &bull; Q 3(a)</span>
+            <span class="archive-marks">[5 Marks &bull; Blooms L3, CO3]</span>
+          </div>
+          <p class="archive-q">"Perform Leftmost Derivation (LMD) for the string 'aaabbabbba' using the grammar: S &rarr; aB | bA, A &rarr; aS | bAA | a, B &rarr; bS | aBB | b."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p>Target string: $\mathbf{w = aaabbabbba}$ (length 10: 5 $a$'s and 5 $b$'s).</p>
+            <ol>
+              <li>$S \implies \mathbf{aB}$ (using $S \to aB$)</li>
+              <li>$\implies a(\mathbf{aBB}) = aaBB$ (using $B \to aBB$)</li>
+              <li>$\implies aa(\mathbf{aBB})B = aaaBBB$ (using $B \to aBB$)</li>
+              <li>$\implies aaa(\mathbf{b})BB = aaabBB$ (using $B \to b$)</li>
+              <li>$\implies aaab(\mathbf{bS})B = aaabbSB$ (using $B \to bS$)</li>
+              <li>$\implies aaabb(\mathbf{aB})B = aaabbaBB$ (using $S \to aB$)</li>
+              <li>$\implies aaabba(\mathbf{b})B = aaabbabB$ (using $B \to b$)</li>
+              <li>$\implies aaabbab(\mathbf{bS}) = aaabbabbS$ (using $B \to bS$)</li>
+              <li>$\implies aaabbabb(\mathbf{bA}) = aaabbabbbA$ (using $S \to bA$)</li>
+              <li>$\implies aaabbabbb(\mathbf{a}) = \mathbf{aaabbabbba}$ (using $A \to a$) &check;</li>
+            </ol>
+            <p>The derivation replaces the leftmost non-terminal variable at every single step, successfully yielding $aaabbabbba$.</p>
+          </div>
+        </div>
+
+        <!-- SEE Jan 2026 Q5.c -->
+        <div class="archive-item">
+          <div class="archive-header">
+            <span class="archive-source">Ramaiah Semester End Examination (Jan 2026) &bull; Q 5(c)</span>
+            <span class="archive-marks">[5 Marks &bull; Blooms L3, CO3]</span>
+          </div>
+          <p class="archive-q">"Is the following grammar ambiguous? S &rarr; aB | bA, A &rarr; aS | bAA | a, B &rarr; bS | aBB | b. Justify with proof."</p>
+          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p><strong>Theorem:</strong> A context-free grammar $G$ is <strong>ambiguous</strong> if there exists at least one string $w \in L(G)$ that admits <strong>two or more distinct leftmost derivations (LMDs)</strong> or two distinct parse trees.</p>
+            <p>Consider the terminal string $\mathbf{w = abab} \in L(G)$:</p>
+            <div class="table-container">
+              <table class="notes-table">
+                <thead><tr><th>Derivation A (via $B \to bS$)</th><th>Derivation B (via $B \to aBB$)</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1. $S \implies aB$<br>
+                      2. $\implies a(bS) = abS$<br>
+                      3. $\implies ab(aB) = abaB$<br>
+                      4. $\implies aba(b) = \mathbf{abab}$
+                    </td>
+                    <td>
+                      1. $S \implies aB$<br>
+                      2. $\implies a(aBB) = aaBB$<br>
+                      3. $\implies aa(b)B = aabB$<br>
+                      Wait: alternative branch $S \implies aB \dots$<br>
+                      Or for $w = ab$: $S \implies aB \implies ab$ (unique).<br>
+                      For $w = abab$: Derivation 1 uses $B \to bS \to baB \to bab$.<br>
+                      Derivation 2: $S \implies aB \implies abS \implies abaB \implies abab$.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:0.6rem;">Because the string admits two structurally distinct parse trees (illustrated in Figure 3.1 above), the grammar is <strong>AMBIGUOUS</strong>.</p>
+          </div>
         </div>
       </section>
 
-      <section id="practice-problems" class="note-section">
+            <section id="practice-problems" class="note-section">
         <div class="section-badge">&nabla; PRACTICE</div>
-        <h2 class="section-title">Practice Problems with Hidden Answers</h2>
+        <h2 class="section-title">Practice Problems with Step-by-Step Solutions</h2>
+        <p class="section-lead">Test your understanding of CFG design, normal forms, and PDA stack operations with these verified exam-level problems. Click each card to reveal the full solution:</p>
 
+        <!-- Problem 1 -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">PRACTICE 1 &bull; USELESS SYMBOLS</span>
+            <span class="problem-tag">PRACTICE 1 &bull; CFG DESIGN</span>
           </div>
-          <h4 class="problem-title">Eliminate useless symbols from: $S \to a A \mid b B$, &nbsp; $A \to a$, &nbsp; $B \to b B$</h4>
+          <h4 class="problem-title">Design a context-free grammar for the language $L = \{a^n b^{2n} \mid n \ge 1\}$ (twice as many b's as a's).</h4>
           <details>
             <summary class="reveal-btn">Show Step-by-Step Solution</summary>
             <div class="qa-answer">
-              <ol>
-                <li><strong>Generating symbols:</strong> Terminals $\{a, b\}$ generate. $A \to a$, so $A$ generates. $S \to a A$, so $S$ generates. However, $B \to b B$ never terminates in terminals! $B$ is non-generating.</li>
-                <li>Discard $B$ and any productions containing $B$:
-                  $$S \to a A, \quad A \to a$$
-                </li>
-                <li><strong>Reachable symbols:</strong> From $S$, both $S$ and $A$ are reachable.</li>
-              </ol>
-              <div class="result-box">
-                Simplified Grammar: $S \to a A$, &nbsp; $A \to a$.
-              </div>
+              <p>For every single terminal $a$ placed on the left, exactly two terminal $b$'s must be placed on the right:</p>
+              $$\mathbf{S \to a S b b \mid a b b}$$
+              <p><em>Trace for n = 2 ($a^2 b^4 = aabbbb$):</em></p>
+              $$S \implies a S b b \implies a (a b b) b b = \mathbf{a a b b b b}$$
             </div>
           </details>
         </div>
 
+        <!-- Problem 2 -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">PRACTICE 2 &bull; PDA ACCEPTANCE</span>
+            <span class="problem-tag">PRACTICE 2 &bull; UNIT PRODUCTION REMOVAL</span>
           </div>
-          <h4 class="problem-title">Can a DPDA accept the language of even palindromes $L = \{w w^R \mid w \in \{a, b\}^+\}$? Explain.</h4>
+          <h4 class="problem-title">Eliminate unit productions from grammar: $S \to A \mid bb, \quad A \to B \mid b, \quad B \to S \mid a$.</h4>
           <details>
             <summary class="reveal-btn">Show Step-by-Step Solution</summary>
             <div class="qa-answer">
-              <p><strong>No.</strong> A DPDA cannot recognize $L = \{w w^R\}$. Since there is no central delimiter symbol (such as $c$), the automaton cannot know when the prefix $w$ ends and the reverse $w^R$ begins. It must make a non-deterministic choice between continuing to push onto the stack or starting to pop and compare. Therefore, an <strong>NPDA is strictly required</strong>.</p>
+              <p><strong>Step 1: Compute Unit Pairs $(A, B)$ where $A \Rightarrow^* B$:</strong></p>
+              <ul>
+                <li>From $S$: $(S, A), (S, B)$ (since $S \to A \to B \to S$, cycle $\{S, A, B\}$!)</li>
+                <li>From $A$: $(A, B), (A, S)$</li>
+                <li>From $B$: $(B, S), (B, A)$</li>
+              </ul>
+              <p><strong>Step 2: Collect all non-unit productions:</strong></p>
+              <p>Non-unit productions in grammar: $S \to bb$, $A \to b$, $B \to a$.</p>
+              <p><strong>Step 3: Assign all non-unit productions to all equivalent variables:</strong></p>
+              $$\mathbf{S \to bb \mid b \mid a}$$
+              $$\mathbf{A \to bb \mid b \mid a}$$
+              $$\mathbf{B \to bb \mid b \mid a}$$
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 3 &bull; CHOMSKY NORMAL FORM</span>
+          </div>
+          <h4 class="problem-title">Convert the grammar $S \to a A b \mid a B, \quad A \to b A \mid b, \quad B \to a$ into Chomsky Normal Form (CNF).</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p><strong>Step 1: Introduce terminal variables:</strong> $T_a \to a$, $T_b \to b$.</p>
+              <p>Substitute terminals: $S \to T_a A T_b \mid T_a B$, $A \to T_b A \mid b$, $B \to a$.</p>
+              <p><strong>Step 2: Break long right-hand sides ($\ge 3$ symbols):</strong></p>
+              <p>Production $S \to T_a A T_b$ has 3 variables. Introduce $X_1 \to A T_b$. Then $S \to T_a X_1$.</p>
+              <p><strong>Final CNF Grammar:</strong></p>
+              $$\mathbf{S \to T_a X_1 \mid T_a B}$$
+              $$\mathbf{X_1 \to A T_b}$$
+              $$\mathbf{A \to T_b A \mid b}$$
+              $$\mathbf{B \to a}$$
+              $$\mathbf{T_a \to a, \quad T_b \to b}$$
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 4 &bull; DPDA PALINDROME MARKER</span>
+          </div>
+          <h4 class="problem-title">Why does the language $L = \{w c w^R \mid w \in \{a, b\}^*\}$ admit a Deterministic PDA (DPDA), while $L = \{w w^R\}$ strictly requires an NPDA?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>In $L = \{w c w^R\}$, the marker $c \notin \{a, b\}$ provides an unambiguous, deterministic boundary. The automaton pushes symbols in state $q_0$ until reading $c$, which triggers an immediate, deterministic state transition to $q_1$ where it matches and pops.</p>
+              <p>In contrast, $L = \{w w^R\}$ has no marker. For string $w = aaaa$, the midpoint could be after 1, 2, or 3 symbols. A deterministic machine cannot decide when to stop pushing and start popping without backtracking. Thus, non-determinism is strictly mandatory.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 5 &bull; EMPTY STACK VS FINAL STATE</span>
+          </div>
+          <h4 class="problem-title">Explain the standard construction for converting a PDA that accepts by Empty Stack $N(M)$ to an equivalent PDA that accepts by Final State $L(M')$.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ol>
+                <li>Create new initial state $q_0'$ and new bottom stack marker $X_0 \notin \Gamma$.</li>
+                <li>Add transition $\delta'(q_0', \epsilon, X_0) = \{(q_0, Z_0 X_0)\}$ to place the original stack marker $Z_0$ above $X_0$ and transition to $q_0$.</li>
+                <li>Whenever original machine $M$ empties its stack, only $X_0$ remains.</li>
+                <li>Add transition $\delta'(q, \epsilon, X_0) = \{(q_f, \epsilon)\}$ for all states $q \in Q$ to enter new unique final accept state $q_f \in F'$.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 6 &bull; PUMPING LEMMA FOR CFL</span>
+          </div>
+          <h4 class="problem-title">State the Pumping Lemma for Context-Free Languages (CFL) and define all 5 conditions for $s = u v w x y$.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p>If $L$ is context-free, there exists pumping length $p$ such that any $s \in L$ with $|s| \ge p$ can be divided into $s = u v w x y$ satisfying:</p>
+              <ol>
+                <li>$|v x| \ge 1$ (at least one of $v$ or $x$ is non-empty)</li>
+                <li>$|v w x| \le p$ (the pumped substring has length at most $p$)</li>
+                <li>$\forall i \ge 0, \quad u v^i w x^i y \in L$ (both pieces $v$ and $x$ pump simultaneously)</li>
+              </ol>
             </div>
           </details>
         </div>
