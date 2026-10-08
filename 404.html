@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>404: Page Not Found · SEM 5 ISE Notes</title>
+  <meta name="description" content="The requested page could not be found. Return to the 5th Semester ISE Notes portal." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23F6E9CF'/><circle cx='50' cy='50' r='32' fill='%232EC36B'/><text x='50%' y='63%' font-size='36' font-weight='800' font-family='sans-serif' fill='%230F2A18' text-anchor='middle'>V</text></svg>" />
+  <style>
+    .error-container {
+      min-height: calc(100vh - 160px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 1rem;
+      border-radius: var(--radius-pill);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 1.5rem;
+    }
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 16vw, 10rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+    .error-desc {
+      max-width: 540px;
+      color: var(--ink-muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 2.25rem;
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .quick-links-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card-sm);
+      padding: 1.75rem;
+      max-width: 600px;
+      width: 100%;
+      text-align: left;
+    }
+    .quick-links-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--label);
+      margin-bottom: 1rem;
+    }
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.75rem;
+    }
+    .quick-link-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+    .quick-link-pill:hover {
+      background: var(--green);
+      color: var(--green-ink);
+      border-color: var(--green);
+      transform: translateY(-1px);
+    }
+  </style>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('sem5_theme_v1');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="./" class="nav-brand" aria-label="SEM 5 ISE Notes Homepage">
+          <span class="brand-logo-emblem" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+              <circle cx="12" cy="4" r="2.5"></circle>
+              <circle cx="12" cy="20" r="2.5"></circle>
+              <circle cx="4" cy="12" r="2.5"></circle>
+              <circle cx="20" cy="12" r="2.5"></circle>
+            </svg>
+          </span>
+          <span class="brand-label">SEM 5 · ISE NOTES</span>
+        </a>
+
+        <nav class="nav-desktop-links" aria-label="Primary Navigation">
+          <a href="./index.html#subjects-section" class="nav-text-link">SUBJECTS</a>
+          <a href="./index.html#scheme" class="nav-text-link">SCHEME &amp; EVALUATION</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="error-container">
+    <div class="error-badge">STATUS 404</div>
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page or Resource Not Found</h1>
+    <p class="error-desc">
+      The notebook, unit note, or syllabus file you requested may have moved or does not exist. Use the button below to return to the centralized portal.
+    </p>
+
+    <div class="error-actions">
+      <a href="./index.html" class="pill-btn-green" style="padding: 0.85rem 1.85rem; font-size: 0.95rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>BACK TO NOTES PORTAL</span>
+      </a>
+      <a href="./index.html#scheme" class="pill-btn-outline" style="padding: 0.85rem 1.85rem; font-size: 0.95rem;">
+        <span>VIEW 2024 SCHEME</span>
+      </a>
+    </div>
+
+    <div class="quick-links-card">
+      <div class="quick-links-title">Jump Directly to Subject</div>
+      <div class="quick-links-grid">
+        <a href="./index.html#subject-ai" class="quick-link-pill">AI (ISE552)</a>
+        <a href="./index.html#subject-cn" class="quick-link-pill">CN (IS53)</a>
+        <a href="./index.html#subject-ml" class="quick-link-pill">ML (IS51)</a>
+        <a href="./index.html#subject-reactjs" class="quick-link-pill">ReactJS (ISAEC594)</a>
+        <a href="./index.html#subject-rmipr" class="quick-link-pill">RM &amp; IPR (AL58)</a>
+        <a href="./index.html#subject-se" class="quick-link-pill">SE (IS52)</a>
+        <a href="./index.html#subject-toc" class="quick-link-pill">TOC (IS54)</a>
+        <a href="./index.html#subject-evs" class="quick-link-pill">EVS (HS510)</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <strong style="color:var(--text-primary);">SEM 5 · ISE Notes Portal</strong>
+          <span>Department of Information Science &amp; Engineering &bull; Autonomous Scheme</span>
+        </div>
+        <div class="footer-right">
+          <span>&copy; 2026 ISE Notes Hub</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
