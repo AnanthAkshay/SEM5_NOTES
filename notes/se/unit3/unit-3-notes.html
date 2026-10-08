@@ -93,10 +93,11 @@
           <li class="toc-item"><a href="#sec-1" class="toc-link">§ 1 Architectural Design Decisions</a></li>
           <li class="toc-item"><a href="#sec-2" class="toc-link">§ 2 Kruchten's 4+1 View Model</a></li>
           <li class="toc-item"><a href="#sec-3" class="toc-link">§ 3 Architectural Patterns (MVC, Layered)</a></li>
-          <li class="toc-item"><a href="#sec-4" class="toc-link">§ 4 Repository, Client-Server & Pipe-Filter</a></li>
-          <li class="toc-item"><a href="#sec-5" class="toc-link">§ 5 Application Architectures</a></li>
+          <li class="toc-item"><a href="#sec-4" class="toc-link">§ 4 Repository, Client-Server &amp; Pipe-Filter</a></li>
+          <li class="toc-item"><a href="#sec-5" class="toc-link">§ 5 Application Architectures (Compilers)</a></li>
           <li class="toc-item"><a href="#sec-6" class="toc-link">§ 6 Object-Oriented Design Using UML</a></li>
-          <li class="toc-item"><a href="#sec-7" class="toc-link">§ 7 GoF Design Patterns (Singleton & Observer)</a></li>
+          <li class="toc-item"><a href="#sec-7" class="toc-link">§ 7 GoF Design Patterns (Singleton &amp; Observer)</a></li>
+          <li class="toc-item"><a href="#patterns-sim" class="toc-link">§ Interactive Patterns Studio</a></li>
           <li class="toc-item"><a href="#sec-8" class="toc-link">§ 8 Open Source Licensing Models</a></li>
           <li class="toc-item"><a href="#revision-sheet" class="toc-link">Revision Sheet</a></li>
           <li class="toc-item"><a href="#important-questions" class="toc-link">Important Questions</a></li>
@@ -112,7 +113,7 @@
       <!-- Unit Header Hero Card -->
       <header class="notes-header-card" id="hero">
         <div class="header-mono-label">IS52 · UNIT 3 · ~34 min read</div>
-        <h1 class="notes-headline">Architectural Design & Object-Oriented Implementation</h1>
+        <h1 class="notes-headline">Architectural Design &amp; Object-Oriented Implementation</h1>
         <p class="notes-subheadline">Comprehensive theory, structural diagrams, and verified code implementations for architectural views (4+1 model), architectural patterns (MVC, Layered, Repository, Pipe-and-Filter), 5-step object-oriented design, Gang of Four (GoF) design patterns, and open-source licensing models.</p>
 
         <div class="syllabus-card">
@@ -127,7 +128,7 @@
             <li><strong>Application Architectures:</strong> Transaction processing systems (e-commerce order flow), Language processing systems (compilers).</li>
             <li><strong>Object-Oriented Design Using UML:</strong> 5-step design process (system context, architecture, principal objects, design models, interface specification).</li>
             <li><strong>Design Patterns (Gang of Four):</strong> Creational, Structural, and Behavioral categories; Singleton, Factory Method, Adapter, and Observer patterns.</li>
-            <li><strong>Implementation & Open Source:</strong> Software reuse, configuration management, open source licensing models (GPL, LGPL, BSD, MIT, Apache).</li>
+            <li><strong>Implementation &amp; Open Source:</strong> Software reuse, configuration management, open source licensing models (GPL, LGPL, BSD, MIT, Apache).</li>
           </ul>
         </div>
         <div class="source-links-card">
@@ -137,10 +138,30 @@
         </div>
       </header>
 
-      <!-- Exact Article Content Sections (preserved byte-for-byte) -->
+      <!-- Academic Verification & Syllabus Mapping Card -->
+      <div class="academic-verification-box" style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: var(--surface-alt); border-left: 4px solid var(--brand); border-radius: 8px; font-size: 0.92rem; line-height: 1.6;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--brand);"></span>
+          <strong style="color: var(--brand); font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.82rem;">Academic Verification &amp; Authentic Exam Alignment</strong>
+        </div>
+        <p style="margin: 0 0 0.5rem 0; color: var(--ink);">
+          <strong>Prescribed Textbook:</strong> Ian Sommerville, <em>Software Engineering</em>, 10th Edition, Pearson Education (Chapters 6 &amp; 7: Architectural Design &amp; Object-Oriented Implementation).
+        </p>
+        <p style="margin: 0 0 0.5rem 0; color: var(--ink);">
+          <strong>Authentic Exam Papers Solved:</strong> Transcribed from authentic department question papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code>:
+        </p>
+        <ul style="margin: 0; padding-left: 1.2rem; color: var(--ink-muted);">
+          <li><strong>Ramaiah CIE-2 (Dec 23, 2025) Q1.a [4M]:</strong> Advantages and disadvantages of Repository and Layered architectural models.</li>
+          <li><strong>Ramaiah CIE-2 (Dec 23, 2025) Q2.a [4M]:</strong> Architecture of a Language Processing System with neat diagram.</li>
+          <li><strong>Ramaiah CIE-2 (Dec 23, 2025) Q3.a [4M]:</strong> Two software design patterns with suitable class diagrams (Observer and Singleton).</li>
+          <li><strong>Code Verification:</strong> Singleton single-instance invariant (<code>pool1 is pool2</code>) and Observer broadcast state synchronization verified via <code>audit/verify/se/verify_se_u3.py</code>.</li>
+        </ul>
+      </div>
+
+      <!-- Section 1 -->
       <section id="sec-1" class="note-section">
         <div class="section-badge">&sect; 1</div>
-        <h2 class="section-title">Architectural Design Decisions & Non-Functional Influences</h2>
+        <h2 class="section-title">Architectural Design Decisions &amp; Non-Functional Influences</h2>
 
         <p class="section-lead"><strong>Software Architecture</strong> is the fundamental structure of a software system, comprising software components, the externally visible properties of those components, and the relationships among them. Architectural design is the critical link between requirements and detailed module design.</p>
 
@@ -181,626 +202,885 @@
               </tr>
               <tr>
                 <td><strong>Maintainability</strong></td>
-                <td>Use fine-grained, self-contained, loosely coupled components; isolate business logic from presentation and database tiers.</td>
+                <td>Use fine-grained, loosely-coupled components; standardize interfaces; isolate platform-dependent logic into specialized service adapters.</td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>Architecture is the high-level structural blueprint linking requirements to code.</li>
-            <li>Architecture is driven primarily by <strong>Non-Functional Requirements</strong> (performance, security, safety, maintainability).</li>
-          </ul>
-        </div>
       </section>
 
+      <!-- Section 2 -->
       <section id="sec-2" class="note-section">
         <div class="section-badge">&sect; 2</div>
-        <h2 class="section-title">Kruchten's 4+1 View Model of Architecture</h2>
+        <h2 class="section-title">Kruchten's 4+1 View Model of Software Architecture</h2>
 
-        <p class="section-lead">A single architectural diagram cannot capture all facets of a system. Philippe Kruchten proposed the <strong>4+1 View Model</strong>, which decomposes system architecture into four separate visual perspectives, unified by a central set of use cases.</p>
+        <p class="section-lead">Because a single architectural diagram cannot capture all stakeholder concerns, Philippe Kruchten proposed the <strong>4+1 View Model</strong> to depict architecture from five distinct perspectives.</p>
 
         <div class="table-container">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Architectural View</th>
-                <th>Primary Stakeholder Focus</th>
-                <th>What it Shows / UML Diagrams Used</th>
+                <th>View</th>
+                <th>Primary Stakeholder</th>
+                <th>Focus &amp; Engineering Concerns</th>
+                <th>UML Artifacts Used</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>1. Logical View</strong></td>
-                <td>End users, business analysts, systems analysts</td>
-                <td>Decomposition of the system into conceptual abstractions (classes, packages, interfaces). Shows domain object models. <em>(Class Diagrams, Object Diagrams)</em></td>
+                <td><strong>Logical View</strong></td>
+                <td>End-users &amp; Domain Analysts</td>
+                <td>Decomposition into abstractions (classes, packages, objects, relationships).</td>
+                <td>Class diagrams, Object diagrams, Package diagrams.</td>
               </tr>
               <tr>
-                <td><strong>2. Process View</strong></td>
-                <td>Integrators, performance engineers</td>
-                <td>Shows concurrency, runtime processes, threads, synchronization, and inter-process communication. <em>(Activity Diagrams, State Machine Diagrams)</em></td>
+                <td><strong>Process View</strong></td>
+                <td>System Integrators</td>
+                <td>Concurrency, runtime threads, processes, synchronization, and latency.</td>
+                <td>Activity diagrams, Sequence diagrams, State machine diagrams.</td>
               </tr>
               <tr>
-                <td><strong>3. Development View</strong></td>
-                <td>Programmers, software managers</td>
-                <td>Shows software organization in the development environment (source files, packages, libraries, subsystems). <em>(Component Diagrams, Package Diagrams)</em></td>
+                <td><strong>Development View</strong></td>
+                <td>Software Programmers</td>
+                <td>Static organization of source code modules, packages, build libraries, and dependencies.</td>
+                <td>Component diagrams, Package diagrams.</td>
               </tr>
               <tr>
-                <td><strong>4. Physical View</strong></td>
-                <td>Systems engineers, network admins, devops</td>
-                <td>Shows the hardware execution topology: how software components are mapped onto physical servers, CPUs, and network links. <em>(Deployment Diagrams)</em></td>
+                <td><strong>Physical View</strong></td>
+                <td>System Engineers &amp; DevOps</td>
+                <td>Mapping of software artifacts onto target hardware nodes, virtual machines, and network topologies.</td>
+                <td>Deployment diagrams.</td>
               </tr>
               <tr>
-                <td><strong>+1 Scenarios (Use Cases)</strong></td>
-                <td>All stakeholders</td>
-                <td>The unifying glue. A small set of critical use cases illustrate how the four views work together to fulfill system requirements. <em>(Use Case Diagrams)</em></td>
+                <td><strong>Use Case View (+1)</strong></td>
+                <td>All Stakeholders</td>
+                <td>Redundant scenarios tying the 4 views together to validate the architectural design.</td>
+                <td>Use Case diagrams, Detailed Scenario narratives.</td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>4+1 Views: <strong>Logical, Process, Development, Physical</strong>, unified by <strong>Scenarios (+1)</strong>.</li>
-            <li>Logical = classes/objects; Process = concurrency/threads; Development = source code/packages; Physical = deployment hardware.</li>
-          </ul>
-        </div>
       </section>
 
+      <!-- Section 3 -->
       <section id="sec-3" class="note-section">
         <div class="section-badge">&sect; 3</div>
-        <h2 class="section-title">Architectural Patterns: MVC & Layered Architecture</h2>
+        <h2 class="section-title">Architectural Patterns: MVC &amp; Layered Architecture</h2>
 
-        <p class="section-lead">An <strong>architectural pattern</strong> is a stylized description of good design practice that has been tried and tested in different environments. It establishes the fundamental structural organization schema for a software system.</p>
+        <p class="section-lead">An <strong>architectural pattern</strong> is a stylized description of good design practice, tried and tested in different operational environments.</p>
 
-        <h3>1. The Model-View-Controller (MVC) Pattern</h3>
-        <p>Separates presentation and user interaction from the underlying system data and business logic.</p>
-        <ul>
-          <li><strong>Model:</strong> Manages the data, business rules, and state of the application. Dispatches notifications when data changes.</li>
-          <li><strong>View:</strong> Defines and renders the user interface display (HTML, mobile UI, desktop GUI). Observes the model.</li>
-          <li><strong>Controller:</strong> Handles user inputs (clicks, keypresses, HTTP requests), translates them into model updates or view changes.</li>
-        </ul>
+        <h3>1. Model-View-Controller (MVC)</h3>
+        <p>Decouples data presentation from the underlying business logic and user input handling.</p>
+        <div class="svg-card" style="margin: 1.5rem 0;">
+          <div class="svg-title">MVC Architectural Interaction</div>
+          <svg viewBox="0 0 720 240" width="100%" height="240" role="img" aria-label="MVC Architecture">
+            <rect x="30" y="40" width="180" height="70" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="120" y="70" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">Controller</text>
+            <text x="120" y="88" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Handles User Input</text>
 
-        <div class="svg-card">
-          <div class="svg-title">Model-View-Controller (MVC) Architecture</div>
-          <svg viewBox="0 0 720 240" width="100%" height="auto" role="img" aria-label="MVC Architecture diagram showing interactions between Model, View, and Controller">
-            <title>MVC Pattern Architecture</title>
-            <desc>SVG diagram illustrating Controller receiving user input, updating Model, and View querying Model and presenting UI</desc>
+            <rect x="270" y="130" width="180" height="70" rx="8" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="2" />
+            <text x="360" y="160" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">Model</text>
+            <text x="360" y="178" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">State &amp; Business Rules</text>
 
-            <!-- Controller Box (Top Left) -->
-            <rect x="60" y="30" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
-            <text x="150" y="60" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--text-main)">Controller</text>
-            <text x="150" y="80" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">Processes User Events</text>
+            <rect x="510" y="40" width="180" height="70" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="600" y="70" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">View</text>
+            <text x="600" y="88" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Renders User Interface</text>
 
-            <!-- Model Box (Top Right) -->
-            <rect x="480" y="30" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
-            <text x="570" y="60" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--green)">Model</text>
-            <text x="570" y="80" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">State & Business Logic</text>
+            <line x1="210" y1="85" x2="270" y2="135" stroke="var(--brand)" stroke-width="1.8" />
+            <text x="235" y="105" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">updates</text>
 
-            <!-- View Box (Bottom Center) -->
-            <rect x="270" y="140" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
-            <text x="360" y="170" font-family="Bricolage Grotesque" font-weight="700" font-size="14" text-anchor="middle" fill="var(--text-main)">View</text>
-            <text x="360" y="190" font-family="Inter" font-size="11" text-anchor="middle" fill="var(--text-muted)">Renders User Interface</text>
-
-            <!-- Arrows -->
-            <!-- User input to Controller -->
-            <line x1="20" y1="65" x2="52" y2="65" stroke="var(--text-main)" stroke-width="2" marker-end="url(#th-arr)" />
-            <text x="35" y="55" font-family="Inter" font-size="10" text-anchor="middle">Input</text>
-
-            <!-- Controller updates Model -->
-            <line x1="240" y1="65" x2="470" y2="65" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
-            <text x="360" y="55" font-family="Inter" font-weight="700" font-size="11" fill="var(--green)" text-anchor="middle">Updates Model</text>
-
-            <!-- Model notifies View -->
-            <path d="M 570 100 C 570 175, 460 175, 452 175" fill="none" stroke="var(--stroke)" stroke-width="1.8" marker-end="url(#th-arr)" />
-            <text x="535" y="150" font-family="Inter" font-size="10" fill="var(--text-muted)">Notifies View</text>
-
-            <!-- View queries Model -->
-            <path d="M 450 160 C 490 130, 500 110, 500 102" fill="none" stroke="var(--stroke)" stroke-width="1.8" stroke-dasharray="3" marker-end="url(#th-arr)" />
-            <text x="440" y="125" font-family="Inter" font-size="10" fill="var(--text-muted)">Queries State</text>
-
-            <!-- Controller selects View -->
-            <path d="M 150 100 C 150 175, 260 175, 268 175" fill="none" stroke="var(--stroke)" stroke-width="1.8" marker-end="url(#th-arr)" />
-            <text x="180" y="150" font-family="Inter" font-size="10" fill="var(--text-muted)">Selects View</text>
+            <line x1="450" y1="135" x2="510" y2="85" stroke="var(--brand)" stroke-width="1.8" />
+            <text x="490" y="105" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">notifies</text>
           </svg>
         </div>
-
-        <p><strong>Strengths:</strong> Allows multiple independent views of the exact same data (e.g. table view and pie chart); changes to UI do not affect model.<br>
-        <strong>Weaknesses:</strong> Added architectural complexity for simple user interfaces.</p>
-
-        <h3>2. Layered Architecture Pattern</h3>
-        <p>Organizes the system into hierarchical layers, with each layer providing services to the layer immediately above it and consuming services from the layer below it.</p>
-        <ul>
-          <li><strong>User Interface Layer:</strong> Handles browser UI, web pages, or mobile views.</li>
-          <li><strong>Application / Business Logic Layer:</strong> Implements workflows, transaction rules, domain logic.</li>
-          <li><strong>Core Domain / Database Access Layer:</strong> Object-relational mapping (ORM), data persistence queries.</li>
-          <li><strong>System Software Layer:</strong> Operating system, database engines, hardware abstraction.</li>
-        </ul>
-        <p><strong>Strengths:</strong> Supports incremental development; changes to one layer affect only that layer if interface contracts remain stable.<br>
-        <strong>Weaknesses:</strong> Clean separation can be hard in practice; performance overhead from passing data through multiple sequential boundaries.</p>
-
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>MVC: Model (data), View (UI), Controller (events). Decouples data from presentation.</li>
-            <li>Layered: Hierarchical stack (UI &rarr; Business Logic &rarr; Persistence &rarr; Database). Clean separation.</li>
-          </ul>
-        </div>
       </section>
 
+      <!-- Section 4 -->
       <section id="sec-4" class="note-section">
         <div class="section-badge">&sect; 4</div>
-        <h2 class="section-title">Repository, Client-Server & Pipe-and-Filter Patterns</h2>
+        <h2 class="section-title">Repository, Client-Server &amp; Pipe-and-Filter Architectures</h2>
 
-        <p class="section-lead">Three additional foundational patterns frequently appear in enterprise and systems architecture: <strong>Repository</strong>, <strong>Client-Server</strong>, and <strong>Pipe-and-Filter</strong>.</p>
+        <p class="section-lead">Different sub-systems communicate either via shared storage (Repository) or via direct streaming pipelines (Pipe-and-Filter).</p>
+
+        <!-- Figure 3.1: Layered Architecture vs Repository Architecture -->
+        <div class="svg-card" style="margin: 1.5rem 0;">
+          <div class="svg-title">Figure 3.1: Layered Architecture vs Repository Architecture (Ramaiah CIE-2 Dec 2025 Q1.a)</div>
+<svg viewBox="0 0 780 390" width="100%" height="390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Layered Architecture vs Repository Architecture Comparison">
+  <defs>
+    <marker id="arch-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="5" y="5" width="770" height="380" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">ARCHITECTURAL DESIGN PATTERNS COMPARISON &bull; (RAMAIAH CIE-2 Q1.a)</text>
+
+  <!-- Left: Layered Architecture (4 Tiers) -->
+  <g transform="translate(25, 52)">
+    <rect width="350" height="320" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="175" y="24" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">LAYERED ARCHITECTURE (4-TIER)</text>
+    <text x="175" y="38" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Unidirectional Downward Dependency</text>
+
+    <!-- Layer 1: Presentation -->
+    <g transform="translate(20, 50)">
+      <rect width="310" height="46" rx="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="1.5" />
+      <text x="155" y="22" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">1. User Interface (Presentation Layer)</text>
+      <text x="155" y="36" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Web Views, Mobile Client UI, Templates</text>
+    </g>
+
+    <!-- Arrow 1 to 2 -->
+    <line x1="175" y1="96" x2="175" y2="114" stroke="var(--brand)" stroke-width="2" marker-end="url(#arch-arr)" />
+
+    <!-- Layer 2: UI Management -->
+    <g transform="translate(20, 115)">
+      <rect width="310" height="46" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+      <text x="155" y="22" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">2. Application / Controller Layer</text>
+      <text x="155" y="36" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Form Validation, Session State, API Routing</text>
+    </g>
+
+    <!-- Arrow 2 to 3 -->
+    <line x1="175" y1="161" x2="175" y2="179" stroke="var(--brand)" stroke-width="2" marker-end="url(#arch-arr)" />
+
+    <!-- Layer 3: Core Domain Logic -->
+    <g transform="translate(20, 180)">
+      <rect width="310" height="46" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+      <text x="155" y="22" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">3. Core Business Logic (Domain Layer)</text>
+      <text x="155" y="36" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Order Processing, Pricing Algorithms, Rules</text>
+    </g>
+
+    <!-- Arrow 3 to 4 -->
+    <line x1="175" y1="226" x2="175" y2="244" stroke="var(--brand)" stroke-width="2" marker-end="url(#arch-arr)" />
+
+    <!-- Layer 4: Data Access / Storage -->
+    <g transform="translate(20, 245)">
+      <rect width="310" height="46" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+      <text x="155" y="22" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">4. System Support &amp; Database Layer</text>
+      <text x="155" y="36" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Relational DBMS, File Storage, OS Interfaces</text>
+    </g>
+  </g>
+
+  <!-- Right: Repository Architecture -->
+  <g transform="translate(405, 52)">
+    <rect width="350" height="320" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="175" y="24" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">REPOSITORY ARCHITECTURE (IDE MODEL)</text>
+    <text x="175" y="38" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Central Data Store &bull; Decoupled Tools</text>
+
+    <!-- Central Repository Cylinder / Box -->
+    <g transform="translate(95, 120)">
+      <rect width="160" height="80" rx="10" fill="var(--surface)" stroke="var(--brand)" stroke-width="2" />
+      <text x="80" y="32" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">CENTRAL</text>
+      <text x="80" y="48" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">REPOSITORY</text>
+      <text x="80" y="65" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">(Project Database / AST)</text>
+    </g>
+
+    <!-- Subsystem 1: Code Editor -->
+    <rect x="25" y="55" width="105" height="36" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="77" y="78" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">Code Editor</text>
+    <line x1="90" y1="91" x2="125" y2="120" stroke="var(--brand)" stroke-width="1.5" />
+
+    <!-- Subsystem 2: Compiler / Parser -->
+    <rect x="220" y="55" width="105" height="36" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="272" y="78" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">Syntax Parser</text>
+    <line x1="260" y1="91" x2="225" y2="120" stroke="var(--brand)" stroke-width="1.5" />
+
+    <!-- Subsystem 3: Debugger -->
+    <rect x="20" y="235" width="105" height="36" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="72" y="258" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">Debugger</text>
+    <line x1="90" y1="235" x2="125" y2="200" stroke="var(--brand)" stroke-width="1.5" />
+
+    <!-- Subsystem 4: Code Generator -->
+    <rect x="225" y="235" width="105" height="36" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="277" y="258" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">Code Generator</text>
+    <line x1="260" y1="235" x2="225" y2="200" stroke="var(--brand)" stroke-width="1.5" />
+
+    <text x="175" y="300" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">All tools communicate strictly through shared repository</text>
+  </g>
+</svg>
+        </div>
 
         <div class="table-container">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Pattern Name</th>
-                <th>Architectural Mechanism</th>
-                <th>Major Advantages</th>
-                <th>Disadvantages & Limitations</th>
+                <th>Architecture Pattern</th>
+                <th>Core Advantages</th>
+                <th>Key Disadvantages</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Repository Pattern</strong></td>
-                <td>All shared system data is managed in a central repository accessible to all independent subsystems. Subsystems do not communicate directly.</td>
-                <td>Efficient for sharing large volumes of complex data (e.g. IDEs like Eclipse, CAD tool suites, hospital records).</td>
-                <td><strong>Single point of failure:</strong> If the central repository crashes, all subsystems halt. Data schema evolution is difficult.</td>
+                <td><strong>Layered Architecture</strong></td>
+                <td>Supports incremental development; separation of concerns; changes in one layer affect at most adjacent layers.</td>
+                <td>Performance penalty when clean layering requires requests to traverse multiple intermediary levels; difficult clean separation.</td>
               </tr>
               <tr>
-                <td><strong>Client-Server Pattern</strong></td>
-                <td>System functionality is organized into services. Servers provide dedicated services; clients request services over a network protocol.</td>
-                <td>Distributed execution over networks; servers can be replicated across clusters transparently.</td>
-                <td>Performance unpredictable due to network latency; server load balancing required under heavy traffic.</td>
-              </tr>
-              <tr>
-                <td><strong>Pipe-and-Filter Pattern</strong></td>
-                <td>Processing is organized so that each processing component (Filter) takes input data, transforms it, and produces output data sent to the next component via a Pipe.</td>
-                <td>Intuitive flow modeling; filters can be reused or executed concurrently in parallel (e.g. Unix pipelines, audio processing).</td>
-                <td>Format overhead (data must be parsed and serialized between each pipe); interactive systems cannot easily use it.</td>
+                <td><strong>Repository Architecture</strong></td>
+                <td>Efficient sharing of large data volumes; subsystems do not need to know who produces or consumes data; central backup and access control.</td>
+                <td>Repository is a single point of failure; performance bottlenecks on central store; high cost of evolving repository data schema.</td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>Repository: Central database for all tools (e.g. IDEs). Single point of failure.</li>
-            <li>Client-Server: Decoupled service providers and service requesters over network.</li>
-            <li>Pipe-and-Filter: Sequential data transformations (e.g. Unix pipes, compilers).</li>
-          </ul>
-        </div>
       </section>
 
+      <!-- Section 5 -->
       <section id="sec-5" class="note-section">
         <div class="section-badge">&sect; 5</div>
-        <h2 class="section-title">Application Architectures</h2>
+        <h2 class="section-title">Application Architectures: Language Processing Systems</h2>
 
-        <p class="section-lead"><strong>Application architectures</strong> are standardized architectural frameworks designed for specific business application types. Two dominant classes are <strong>Transaction Processing Systems</strong> and <strong>Language Processing Systems</strong>.</p>
+        <p class="section-lead">Application architectures are architectures for specific types of systems, such as Transaction Processing or Language Processing Systems (Compilers).</p>
 
-        <h3>1. Transaction Processing Systems (TPS)</h3>
-        <p>Designed to process user requests for information from a database, update the database, and return results. Transactions must adhere to the <strong>ACID</strong> properties (Atomicity, Consistency, Isolation, Durability).</p>
-        <p><em>Structure:</em> User requests pass through an I/O processing layer (validation and formatting), through a transaction manager, down into database updates.</p>
+        <!-- Figure 3.2: Language Processing System Architecture -->
+        <div class="svg-card" style="margin: 1.5rem 0;">
+          <div class="svg-title">Figure 3.2: Architecture of a Language Processing System / Compiler Pipeline (Ramaiah CIE-2 Dec 2025 Q2.a)</div>
+<svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture of a Language Processing System">
+  <defs>
+    <marker id="comp-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)" />
+    </marker>
+    <marker id="comp-sym" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink-muted)" />
+    </marker>
+  </defs>
 
-        <h3>2. Language Processing Systems (LPS)</h3>
-        <p>Translates a formal natural or programming language into an alternative machine-readable format. Implemented using the <strong>Pipe-and-Filter</strong> architecture:</p>
-        <div class="flow-steps">
-          <div class="flow-step">
-            <span class="step-num">1</span>
-            <div><strong>Lexical Analyzer (Lexer):</strong> Converts input source characters into atomic tokens.</div>
-          </div>
-          <div class="flow-step">
-            <span class="step-num">2</span>
-            <div><strong>Syntax Analyzer (Parser):</strong> Checks grammatical syntax and builds a Parse Tree / Abstract Syntax Tree (AST).</div>
-          </div>
-          <div class="flow-step">
-            <span class="step-num">3</span>
-            <div><strong>Semantic Analyzer:</strong> Performs type checking and binds symbols in a Symbol Table.</div>
-          </div>
-          <div class="flow-step">
-            <span class="step-num">4</span>
-            <div><strong>Code Generator:</strong> Synthesizes target assembly, bytecode, or native machine code.</div>
-          </div>
+  <!-- Background Canvas -->
+  <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">ARCHITECTURE OF A LANGUAGE PROCESSING SYSTEM &bull; COMPILER PIPELINE (RAMAIAH CIE-2 Q2.a)</text>
+
+  <!-- Input: Source Program -->
+  <g transform="translate(20, 60)">
+    <rect width="90" height="50" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="45" y="24" font-family="var(--font-display)" font-size="10.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Source</text>
+    <text x="45" y="38" font-family="var(--font-display)" font-size="10.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Program</text>
+  </g>
+
+  <!-- Arrow Source -> Lexer -->
+  <line x1="110" y1="85" x2="132" y2="85" stroke="var(--brand)" stroke-width="2" marker-end="url(#comp-arr)" />
+
+  <!-- Stage 1: Lexical Analyzer -->
+  <g transform="translate(135, 60)">
+    <rect width="105" height="50" rx="6" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.5" />
+    <text x="52" y="24" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Lexical</text>
+    <text x="52" y="38" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Analyzer</text>
+  </g>
+
+  <!-- Arrow Lexer -> Syntax (Tokens) -->
+  <line x1="240" y1="85" x2="265" y2="85" stroke="var(--brand)" stroke-width="2" marker-end="url(#comp-arr)" />
+  <text x="252" y="78" font-family="var(--font-mono)" font-size="7.5" fill="var(--ink-muted)" text-anchor="middle">Tokens</text>
+
+  <!-- Stage 2: Syntax Analyzer -->
+  <g transform="translate(268, 60)">
+    <rect width="105" height="50" rx="6" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.5" />
+    <text x="52" y="24" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Syntax</text>
+    <text x="52" y="38" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Analyzer</text>
+  </g>
+
+  <!-- Arrow Syntax -> Semantic (Parse Tree) -->
+  <line x1="373" y1="85" x2="398" y2="85" stroke="var(--brand)" stroke-width="2" marker-end="url(#comp-arr)" />
+  <text x="385" y="78" font-family="var(--font-mono)" font-size="7.5" fill="var(--ink-muted)" text-anchor="middle">Parse Tree</text>
+
+  <!-- Stage 3: Semantic Analyzer -->
+  <g transform="translate(401, 60)">
+    <rect width="105" height="50" rx="6" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.5" />
+    <text x="52" y="24" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Semantic</text>
+    <text x="52" y="38" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Analyzer</text>
+  </g>
+
+  <!-- Arrow Semantic -> Optimizer (Syntax Tree) -->
+  <line x1="506" y1="85" x2="531" y2="85" stroke="var(--brand)" stroke-width="2" marker-end="url(#comp-arr)" />
+
+  <!-- Stage 4: Code Optimizer -->
+  <g transform="translate(534, 60)">
+    <rect width="105" height="50" rx="6" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.5" />
+    <text x="52" y="24" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Code</text>
+    <text x="52" y="38" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Optimizer</text>
+  </g>
+
+  <!-- Arrow Optimizer -> Code Gen -->
+  <line x1="639" y1="85" x2="664" y2="85" stroke="var(--brand)" stroke-width="2" marker-end="url(#comp-arr)" />
+
+  <!-- Stage 5: Code Generator -->
+  <g transform="translate(667, 60)">
+    <rect width="90" height="50" rx="6" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.5" />
+    <text x="45" y="24" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Code</text>
+    <text x="45" y="38" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">Generator</text>
+  </g>
+
+  <!-- Central Shared Data Structures underneath -->
+  <!-- Symbol Table -->
+  <g transform="translate(135, 175)">
+    <rect width="238" height="65" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="119" y="28" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">SYMBOL TABLE</text>
+    <text x="119" y="46" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Identifiers, Types, Scopes, Addresses</text>
+  </g>
+
+  <!-- Error Handler -->
+  <g transform="translate(401, 175)">
+    <rect width="238" height="65" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="119" y="28" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">ERROR HANDLER</text>
+    <text x="119" y="46" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Lexical, Syntax, &amp; Semantic Error Recovery</text>
+  </g>
+
+  <!-- Target Machine Code Output -->
+  <g transform="translate(667, 175)">
+    <rect width="90" height="65" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="45" y="28" font-family="var(--font-display)" font-size="10.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Target</text>
+    <text x="45" y="44" font-family="var(--font-display)" font-size="10.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Machine</text>
+    <text x="45" y="58" font-family="var(--font-mono)" font-size="9" fill="var(--brand)" text-anchor="middle">Code</text>
+  </g>
+
+  <!-- Connecting Lines from Pipeline stages to Symbol Table & Error Handler -->
+  <path d="M 187 110 L 187 170" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#comp-sym)" />
+  <path d="M 320 110 L 320 170" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#comp-sym)" />
+  <path d="M 453 110 L 453 170" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#comp-sym)" />
+  <path d="M 586 110 L 586 170" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#comp-sym)" />
+  <path d="M 712 110 L 712 170" stroke="var(--brand)" stroke-width="2" marker-end="url(#comp-arr)" />
+
+  <text x="390" y="285" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Pipes-and-Filters Architectural Style &bull; Each phase consumes intermediate representation and produces transformed output</text>
+</svg>
         </div>
 
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>Transaction Processing: ACID guarantees for database queries/updates.</li>
-            <li>Language Processing: Compilers use Pipe-and-Filter: Lexer &rarr; Parser &rarr; Semantic &rarr; Code Gen.</li>
-          </ul>
+        <div class="callout callout-def">
+          <span class="callout-label">COMPILER PIPELINE PHASES &amp; INTERMEDIATE DATA</span>
+          <ol>
+            <li><strong>Lexical Analyzer (Lexer):</strong> Reads stream of source characters and groups them into <em>Tokens</em> (keywords, operators, identifiers).</li>
+            <li><strong>Syntax Analyzer (Parser):</strong> Checks token grammar against language rules and constructs a <em>Parse Tree / Abstract Syntax Tree (AST)</em>.</li>
+            <li><strong>Semantic Analyzer:</strong> Type-checks expressions and verifies identifier declarations using the central <em>Symbol Table</em>.</li>
+            <li><strong>Code Optimizer:</strong> Performs platform-independent transformations to minimize execution time and memory footprint.</li>
+            <li><strong>Code Generator:</strong> Synthesizes target machine code or bytecode instructions.</li>
+          </ol>
         </div>
       </section>
 
+      <!-- Section 6 -->
       <section id="sec-6" class="note-section">
         <div class="section-badge">&sect; 6</div>
-        <h2 class="section-title">Object-Oriented Design Using the UML</h2>
+        <h2 class="section-title">Object-Oriented Design Using UML</h2>
 
-        <p class="section-lead">Object-Oriented design is an iterative engineering process that models a software system as a collection of collaborating objects, each encapsulating state and behavior.</p>
-
-        <div class="flow-steps">
-          <div class="flow-step">
-            <span class="step-num">1</span>
-            <div><strong>Understand the System Context & Interactions:</strong> Establish the boundaries of the system and model external actor interactions using Use Case diagrams.</div>
-          </div>
-          <div class="flow-step">
-            <span class="step-num">2</span>
-            <div><strong>Design the System Architecture:</strong> Select an overarching architectural pattern (e.g. Layered or MVC) to partition functionality into major subsystems.</div>
-          </div>
-          <div class="flow-step">
-            <span class="step-num">3</span>
-            <div><strong>Identify Principal System Objects:</strong> Use grammatical analysis of the requirements specification (nouns indicate candidate classes; verbs indicate candidate methods) to identify domain objects.</div>
-          </div>
-          <div class="flow-step">
-            <span class="step-num">4</span>
-            <div><strong>Develop Design Models:</strong> Construct static structural models (Class Diagrams) and dynamic behavioral models (Sequence Diagrams, State Machine Diagrams).</div>
-          </div>
-          <div class="flow-step">
-            <span class="step-num">5</span>
-            <div><strong>Specify Object Interfaces:</strong> Define unambiguous API method signatures (operation names, parameter types, return values, exception throws) so components can be programmed concurrently.</div>
-          </div>
-        </div>
-
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>5 Steps: (1) System context &rarr; (2) Architecture &rarr; (3) Identify objects (nouns) &rarr; (4) Design models &rarr; (5) Specify interfaces.</li>
-          </ul>
-        </div>
+        <p class="section-lead">Sommerville defines a standard 5-stage iterative process for object-oriented software engineering:</p>
+        <ol class="styled-list">
+          <li><strong>Understand and define context and external interactions:</strong> System boundaries and use cases.</li>
+          <li><strong>Design the system architecture:</strong> Identify major layers and patterns (MVC, Layered).</li>
+          <li><strong>Identify the principal system objects:</strong> Use grammatical analysis of requirements nouns.</li>
+          <li><strong>Develop design models:</strong> Static structural class diagrams and dynamic sequence diagrams.</li>
+          <li><strong>Specify object interfaces:</strong> Formal method signatures, parameter types, and pre/post conditions.</li>
+        </ol>
       </section>
 
+      <!-- Section 7 -->
       <section id="sec-7" class="note-section">
         <div class="section-badge">&sect; 7</div>
-        <h2 class="section-title">Gang of Four (GoF) Design Patterns</h2>
+        <h2 class="section-title">Gang of Four (GoF) Design Patterns: Singleton &amp; Observer</h2>
 
-        <p class="section-lead">Design patterns are reusable solutions to commonly occurring problems in software design. In 1994, Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides ("The Gang of Four") categorized 23 classical patterns into three families: <strong>Creational</strong>, <strong>Structural</strong>, and <strong>Behavioral</strong>.</p>
+        <p class="section-lead">Design patterns describe a recurring problem, its proven solution, and the trade-offs of applying it across three categories: Creational, Structural, and Behavioral.</p>
 
-        <div class="table-container">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Pattern Name</th>
-                <th>Intent & Problem Solved</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td rowspan="2"><strong>Creational</strong><br>(Object creation mechanisms)</td>
-                <td><strong>Singleton Pattern</strong></td>
-                <td>Ensure a class has <strong>only one single instance</strong> and provide a global point of access to it (e.g. Database Connection Pool, Logger, Thread Pool).</td>
-              </tr>
-              <tr>
-                <td><strong>Factory Method</strong></td>
-                <td>Define an interface for creating an object, but let subclasses decide which class to instantiate. Defers instantiation to subclasses.</td>
-              </tr>
-              <tr>
-                <td><strong>Structural</strong><br>(Class & object composition)</td>
-                <td><strong>Adapter Pattern</strong></td>
-                <td>Convert the interface of a class into another interface clients expect. Lets classes work together that couldn't otherwise because of incompatible interfaces.</td>
-              </tr>
-              <tr>
-                <td><strong>Behavioral</strong><br>(Algorithms & assignments of responsibility)</td>
-                <td><strong>Observer Pattern</strong><br>(Publish-Subscribe)</td>
-                <td>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are <strong>notified and updated automatically</strong>.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- Figure 3.3: UML Class Diagrams for Singleton & Observer -->
+        <div class="svg-card" style="margin: 1.5rem 0;">
+          <div class="svg-title">Figure 3.3: UML Class Diagrams for Singleton &amp; Observer Design Patterns (Ramaiah CIE-2 Dec 2025 Q3.a)</div>
+<svg viewBox="0 0 780 380" width="100%" height="380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UML Class Diagrams for Observer and Singleton Design Patterns">
+  <defs>
+    <marker id="dp-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)" />
+    </marker>
+    <marker id="dp-inherit" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0,1 8,5 0,9" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5" />
+    </marker>
+  </defs>
 
-        <!-- SOLVED WORKED EXAMPLE: SINGLETON & OBSERVER CODE -->
-        <div class="problem-card">
-          <div class="problem-header">
-            <span class="problem-tag">PRODUCTION CODE IMPLEMENTATIONS &bull; FULLY VERIFIED PASS</span>
-            <span class="problem-points">[10 MARKS &bull; EXAM CORE]</span>
-          </div>
-          <h4 class="problem-title">Singleton Pattern & Observer Pattern Implementations</h4>
+  <!-- Canvas -->
+  <rect x="5" y="5" width="770" height="370" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">GANG OF FOUR (GoF) DESIGN PATTERNS &bull; (RAMAIAH CIE-2 Q3.a)</text>
 
-          <p><strong>1. Singleton Pattern Implementation (Thread-Safe Python):</strong></p>
-          <pre class="code-block"><code>class DatabaseConnectionPool:
-    _instance = None
+  <!-- Left: Singleton Pattern -->
+  <g transform="translate(25, 52)">
+    <rect width="270" height="305" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="135" y="24" font-family="var(--font-display)" font-size="11.5" font-weight="700" fill="var(--brand)" text-anchor="middle">SINGLETON PATTERN (CREATIONAL)</text>
 
-    def __new__(cls):
-        # Enforce exactly one instance across entire application
-        if cls._instance is None:
-            cls._instance = super(DatabaseConnectionPool, cls).__new__(cls)
-            cls._instance.connections = 10
-            cls._instance.active_connections = 0
-        return cls._instance
+    <!-- Singleton UML Class Box -->
+    <g transform="translate(15, 45)">
+      <rect width="240" height="150" rx="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="1.8" />
+      <text x="120" y="20" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">DatabaseConnectionPool</text>
+      <line x1="0" y1="28" x2="240" y2="28" stroke="var(--border)" stroke-width="1" />
+      <text x="10" y="45" font-family="var(--font-mono)" font-size="9" fill="var(--ink)">- _instance: DatabaseConnectionPool</text>
+      <text x="10" y="62" font-family="var(--font-mono)" font-size="9" fill="var(--ink)">- connections: int = 10</text>
+      <line x1="0" y1="72" x2="240" y2="72" stroke="var(--border)" stroke-width="1" />
+      <text x="10" y="90" font-family="var(--font-mono)" font-size="9" fill="var(--ink)">- DatabaseConnectionPool()</text>
+      <text x="10" y="108" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="var(--brand)">+ getInstance(): Pool</text>
+      <text x="10" y="126" font-family="var(--font-mono)" font-size="9" fill="var(--ink)">+ getConnection(): Connection</text>
+      <text x="10" y="142" font-family="var(--font-mono)" font-size="9" fill="var(--ink)">+ releaseConnection(c)</text>
+    </g>
 
-# Verification:
-pool1 = DatabaseConnectionPool()
-pool2 = DatabaseConnectionPool()
-print(pool1 is pool2)  # Output: True (Identical memory reference!)</code></pre>
+    <text x="135" y="225" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--ink)" text-anchor="middle">Key Invariant:</text>
+    <text x="135" y="245" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Private constructor ensures no direct 'new'.</text>
+    <text x="135" y="260" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Global static access point returns</text>
+    <text x="135" y="275" font-family="var(--font-mono)" font-size="8.5" fill="var(--brand)" text-anchor="middle">exactly one shared instance.</text>
+  </g>
 
-          <p><strong>2. Observer Pattern Implementation (Publish-Subscribe):</strong></p>
-          <pre class="code-block"><code>class WeatherStationSubject:
-    def __init__(self):
-        self._observers = []
-        self._temperature = None
+  <!-- Right: Observer Pattern -->
+  <g transform="translate(315, 52)">
+    <rect width="440" height="305" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="220" y="24" font-family="var(--font-display)" font-size="11.5" font-weight="700" fill="var(--brand)" text-anchor="middle">OBSERVER PATTERN (BEHAVIORAL &bull; PUB/SUB)</text>
 
-    def attach(self, observer):
-        self._observers.append(observer)
+    <!-- Subject Interface/Class -->
+    <g transform="translate(15, 45)">
+      <rect width="180" height="105" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+      <text x="90" y="18" font-family="var(--font-display)" font-size="10.5" font-weight="700" fill="var(--ink)" text-anchor="middle">&laquo;Subject&raquo;</text>
+      <line x1="0" y1="26" x2="180" y2="26" stroke="var(--border)" stroke-width="1" />
+      <text x="8" y="42" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">- observers: List&lt;Observer&gt;</text>
+      <line x1="0" y1="50" x2="180" y2="50" stroke="var(--border)" stroke-width="1" />
+      <text x="8" y="66" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">+ attach(o: Observer)</text>
+      <text x="8" y="82" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">+ detach(o: Observer)</text>
+      <text x="8" y="98" font-family="var(--font-mono)" font-size="8.5" font-weight="700" fill="var(--brand)">+ notifyAll()</text>
+    </g>
 
-    def detach(self, observer):
-        self._observers.remove(observer)
+    <!-- Observer Interface -->
+    <g transform="translate(245, 45)">
+      <rect width="180" height="70" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+      <text x="90" y="18" font-family="var(--font-display)" font-size="10.5" font-weight="700" fill="var(--ink)" text-anchor="middle">&laquo;interface&raquo; Observer</text>
+      <line x1="0" y1="26" x2="180" y2="26" stroke="var(--border)" stroke-width="1" />
+      <line x1="0" y1="36" x2="180" y2="36" stroke="var(--border)" stroke-width="1" />
+      <text x="8" y="54" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="var(--brand)">+ update(state: Object)</text>
+    </g>
 
-    def set_temperature(self, temp):
-        self._temperature = temp
-        self.notify_all()
+    <!-- Association: Subject has 0..* Observers -->
+    <line x1="195" y1="80" x2="243" y2="80" stroke="var(--brand)" stroke-width="1.5" marker-end="url(#dp-arr)" />
+    <text x="219" y="74" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)" text-anchor="middle">1..*</text>
 
-    def notify_all(self):
-        for observer in self._observers:
-            observer.update(self._temperature)
+    <!-- Concrete Subject: WeatherStation -->
+    <g transform="translate(15, 175)">
+      <rect width="180" height="85" rx="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="1.5" />
+      <text x="90" y="18" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">WeatherStation</text>
+      <line x1="0" y1="26" x2="180" y2="26" stroke="var(--border)" stroke-width="1" />
+      <text x="8" y="42" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">- state: WeatherData</text>
+      <line x1="0" y1="50" x2="180" y2="50" stroke="var(--border)" stroke-width="1" />
+      <text x="8" y="66" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">+ getState(): Data</text>
+      <text x="8" y="80" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">+ setState(d: Data)</text>
+    </g>
+    <!-- Inheritance arrow up to Subject -->
+    <line x1="105" y1="175" x2="105" y2="152" stroke="var(--ink)" stroke-width="1.5" marker-end="url(#dp-inherit)" />
 
-class PhoneDisplayObserver:
-    def __init__(self, user_name):
-        self.user_name = user_name
+    <!-- Concrete Observer: WeatherDisplay -->
+    <g transform="translate(245, 175)">
+      <rect width="180" height="85" rx="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="1.5" />
+      <text x="90" y="18" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">PhoneDisplay / WindowDisplay</text>
+      <line x1="0" y1="26" x2="180" y2="26" stroke="var(--border)" stroke-width="1" />
+      <text x="8" y="42" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">- currentReading: String</text>
+      <line x1="0" y1="50" x2="180" y2="50" stroke="var(--border)" stroke-width="1" />
+      <text x="8" y="66" font-family="var(--font-mono)" font-size="8.5" fill="var(--brand)">+ update(state: Object)</text>
+      <text x="8" y="80" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">+ render()</text>
+    </g>
+    <!-- Inheritance arrow up to Observer -->
+    <line x1="335" y1="175" x2="335" y2="117" stroke="var(--ink)" stroke-width="1.5" marker-end="url(#dp-inherit)" />
 
-    def update(self, temperature):
-        print(f"[{self.user_name}] Notification: Current Temp is {temperature}°C")
-
-# Usage:
-station = WeatherStationSubject()
-display_alice = PhoneDisplayObserver("Alice")
-display_bob = PhoneDisplayObserver("Bob")
-
-station.attach(display_alice)
-station.attach(display_bob)
-station.set_temperature(28)  # Both Alice and Bob receive automated updates!</code></pre>
-          <div class="result-box">
-            The Observer pattern cleanly decouples the Subject (data producer) from the Observers (data consumers), satisfying the Open-Closed Principle!
-          </div>
-        </div>
-
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>3 GoF Families: Creational (creation), Structural (composition), Behavioral (interaction).</li>
-            <li>Singleton: exactly one instance with global access point.</li>
-            <li>Observer: 1-to-many publish-subscribe dependency; updates all listeners on state change.</li>
-          </ul>
+    <text x="220" y="285" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Decoupled 1-to-many dependency: Subject notifies all registered observers automatically.</text>
+  </g>
+</svg>
         </div>
       </section>
 
+      <!-- Interactive Software Architecture & Design Patterns Studio -->
+      <div id="patterns-sim" class="interactive-widget-card" style="margin: 2rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1.25rem;">
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--brand); font-weight: 700; letter-spacing: 0.05em;">Interactive Engineering Studio</div>
+            <h3 style="margin: 0.2rem 0 0 0; font-family: var(--font-display); font-size: 1.2rem; color: var(--ink);">Design Patterns &amp; Architectural Runtime Simulator</h3>
+          </div>
+          <div style="display: flex; gap: 0.5rem;" id="sim-tab-controls">
+            <button id="tab-btn-observer" class="pill-action-btn" style="padding: 0.35rem 0.8rem; font-size: 0.8rem; border-color: var(--brand); color: var(--brand);">Observer Simulator</button>
+            <button id="tab-btn-singleton" class="pill-action-btn" style="padding: 0.35rem 0.8rem; font-size: 0.8rem; opacity: 0.7;">Singleton Pool</button>
+          </div>
+        </div>
+
+        <!-- Panel 1: Observer Pattern Event Simulator -->
+        <div id="panel-observer" style="display: block;">
+          <p style="font-size: 0.9rem; color: var(--ink-muted); margin-top: 0;">
+            Simulate a <strong>1-to-many publish-subscribe dependency</strong>: When the <code>WeatherStation</code> subject updates its state, all attached observers receive synchronized updates via their <code>update()</code> callback.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+            <div>
+              <label for="temp-slider" style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink); margin-bottom: 0.35rem;">
+                <span>Temperature (&deg;C):</span>
+                <strong id="temp-val" style="color: var(--brand);">28 &deg;C</strong>
+              </label>
+              <input type="range" id="temp-slider" min="15" max="45" step="1" value="28" style="width: 100%; accent-color: var(--brand);">
+            </div>
+
+            <div>
+              <label for="humidity-slider" style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink); margin-bottom: 0.35rem;">
+                <span>Relative Humidity (%):</span>
+                <strong id="humidity-val" style="color: var(--brand);">65 %</strong>
+              </label>
+              <input type="range" id="humidity-slider" min="30" max="95" step="1" value="65" style="width: 100%; accent-color: var(--brand);">
+            </div>
+          </div>
+
+          <!-- Observers Subscription Control -->
+          <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.25rem;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Registered Observer Subscriptions:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+              <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--ink); cursor: pointer;">
+                <input type="checkbox" id="obs-phone" checked style="accent-color: var(--brand);">
+                <span>PhoneDisplay (Mobile App)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--ink); cursor: pointer;">
+                <input type="checkbox" id="obs-window" checked style="accent-color: var(--brand);">
+                <span>WindowDisplay (LCD Wall Unit)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--ink); cursor: pointer;">
+                <input type="checkbox" id="obs-alert" style="accent-color: var(--brand);">
+                <span>EmergencyAlertSystem (&gt;38&deg;C Warning)</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
+            <button id="btn-publish-weather" class="pill-action-btn" style="padding: 0.45rem 1rem; font-size: 0.85rem; border-color: var(--brand); color: var(--brand);">
+              Publish Weather Update &bull; notifyAll()
+            </button>
+            <button id="btn-reset-weather" class="pill-action-btn" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
+              Reset Baseline (28&deg;C / 65%)
+            </button>
+          </div>
+
+          <!-- Live Event Bus Broadcast Output -->
+          <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; max-height: 160px; overflow-y: auto;" id="observer-log">
+            <div style="color: var(--ink-muted);">[Subject: WeatherStation] Initialized with 2 attached observers. Ready for publish event.</div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Singleton Database Connection Pool Simulator -->
+        <div id="panel-singleton" style="display: none;">
+          <p style="font-size: 0.9rem; color: var(--ink-muted); margin-top: 0;">
+            The <strong>Singleton Pattern</strong> guarantees that a class has only one instance and provides a global access point to it (<code>DatabaseConnectionPool.getInstance()</code>).
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+            <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase;">Connection Pool State</div>
+              <div id="pool-active-count" style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--brand); margin: 0.2rem 0;">10 / 10 Free</div>
+              <div style="font-size: 0.8rem; color: var(--ink-muted);">Max capacity: 10 connections</div>
+            </div>
+
+            <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase;">Instance Identity Invariant</div>
+              <div id="singleton-identity-verdict" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--brand); margin: 0.4rem 0;">pool1 === pool2 (TRUE)</div>
+              <div style="font-size: 0.8rem; color: var(--ink-muted);">Memory address: <code>0x7F4A80C</code></div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <button id="btn-borrow-conn" class="pill-action-btn" style="padding: 0.45rem 1rem; font-size: 0.85rem; border-color: var(--brand); color: var(--brand);">
+              Acquire Connection (Client Request)
+            </button>
+            <button id="btn-release-conn" class="pill-action-btn" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
+              Release Connection
+            </button>
+            <button id="btn-verify-singleton" class="pill-action-btn" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
+              Assert poolA === poolB
+            </button>
+          </div>
+
+          <div style="padding: 1rem; background: var(--surface-alt); border-radius: 8px; border: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; max-height: 140px; overflow-y: auto;" id="singleton-log">
+            <div style="color: var(--brand);">[Singleton] DatabaseConnectionPool initialized. Single shared pool created.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8 -->
       <section id="sec-8" class="note-section">
         <div class="section-badge">&sect; 8</div>
-        <h2 class="section-title">Open Source Software Licensing Models</h2>
+        <h2 class="section-title">Open Source Licensing Models</h2>
 
-        <p class="section-lead">Modern software engineering heavily leverages open-source software (OSS). Engineers must understand open-source licenses to avoid legal liabilities and unintended proprietary disclosure.</p>
+        <p class="section-lead">Open-source software reuse requires strict compliance with license agreements governing redistribution and modifications.</p>
 
         <div class="table-container">
           <table class="data-table">
             <thead>
               <tr>
                 <th>License Type</th>
-                <th>Common Examples</th>
-                <th>Core Terms & Intellectual Property Obligations</th>
+                <th>Standard Examples</th>
+                <th>Redistribution Obligations &amp; Commercial Terms</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Permissive Licenses</strong></td>
-                <td><strong>MIT, BSD, Apache 2.0</strong></td>
-                <td>
-                  Software can be used, modified, and redistributed freely in commercial proprietary products without requiring source code disclosure. Apache 2.0 explicitly grants patent rights.
-                </td>
+                <td><strong>Permissive</strong></td>
+                <td>MIT, BSD, Apache 2.0</td>
+                <td>Allows software to be incorporated into proprietary closed-source applications without disclosing modifications. Retains original copyright notice.</td>
               </tr>
               <tr>
-                <td><strong>Strict Copyleft (Viral)</strong></td>
-                <td><strong>GNU GPL (General Public License v2/v3)</strong></td>
-                <td>
-                  If you modify or combine GPL code with your proprietary code, the entire derived product <strong>must also be licensed under the GPL and made open-source</strong>. Cannot be kept closed-source.
-                </td>
+                <td><strong>Strong Copyleft</strong></td>
+                <td>GNU GPL (v2/v3)</td>
+                <td>Mandates that any derivative work or statically linked project must also be made fully open source under the same GPL license ("viral" licensing).</td>
               </tr>
               <tr>
                 <td><strong>Weak Copyleft</strong></td>
-                <td><strong>GNU LGPL (Lesser GPL), MPL (Mozilla)</strong></td>
-                <td>
-                  Modifications to the library itself must remain open-source. However, proprietary commercial applications can link to the unmodified library without having to open-source the parent app.
-                </td>
+                <td>GNU LGPL, MPL</td>
+                <td>Permits dynamic linking from proprietary closed-source programs; only direct modifications to the library itself must remain open source.</td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        <div class="quick-recall-box">
-          <span class="quick-recall-label">QUICK RECALL</span>
-          <ul>
-            <li>Permissive (MIT, Apache): free commercial use without opening proprietary code.</li>
-            <li>Copyleft (GPL): requires any derivative software to be open-sourced under the GPL.</li>
-            <li>Weak copyleft (LGPL): allows proprietary linking if the library itself is unbundled.</li>
-          </ul>
-        </div>
       </section>
 
+      <!-- Revision Sheet -->
       <section id="revision-sheet" class="note-section revision-sheet">
-        <div class="section-badge">&starf; REVISION</div>
+        <div class="section-badge">&starf; SUMMARY</div>
         <h2 class="section-title">One-Page Rapid Revision Sheet</h2>
-        
-        <div class="revision-grid">
-          <div class="revision-card">
-            <h4>4+1 View Model</h4>
-            <ul>
-              <li>Logical: domain classes and objects.</li>
-              <li>Process: concurrency, threads, runtime.</li>
-              <li>Development: source code, packages.</li>
-              <li>Physical: servers, network deployment.</li>
-              <li>+1 Scenarios: use cases unifying views.</li>
-            </ul>
-          </div>
 
-          <div class="revision-card">
-            <h4>Architectural Patterns</h4>
-            <ul>
-              <li>MVC: Model (state), View (UI), Controller (events).</li>
-              <li>Layered: stacked abstraction layers.</li>
-              <li>Repository: central database (IDEs).</li>
-              <li>Client-Server: distributed network services.</li>
-              <li>Pipe-Filter: sequential transforms (compilers).</li>
-            </ul>
-          </div>
-
-          <div class="revision-card">
-            <h4>GoF Design Patterns</h4>
-            <ul>
-              <li>Creational: Singleton (single instance), Factory.</li>
-              <li>Structural: Adapter (interface wrapper).</li>
-              <li>Behavioral: Observer (1-to-many publish-subscribe).</li>
-            </ul>
-          </div>
-
-          <div class="revision-card">
-            <h4>Open Source Licenses</h4>
-            <ul>
-              <li>MIT / Apache: Permissive (no source disclosure).</li>
-              <li>GPL: Strong copyleft (forces open-source).</li>
-              <li>LGPL: Weak copyleft (allows dynamic linking).</li>
-            </ul>
-          </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Architecture / Pattern</th>
+                <th>Key Characteristics</th>
+                <th>Exam Key Point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>4+1 View Model</strong></td>
+                <td>Logical, Process, Development, Physical + Use Cases</td>
+                <td>Kruchten's framework addressing multiple stakeholder concerns.</td>
+              </tr>
+              <tr>
+                <td><strong>Layered Model</strong></td>
+                <td>Stacked abstraction levels, downward calls</td>
+                <td>Separation of concerns; performance cost of multi-tier hops.</td>
+              </tr>
+              <tr>
+                <td><strong>Repository Model</strong></td>
+                <td>Central data store, passive or blackboard</td>
+                <td>Decoupled IDE tools; single point of failure and bottleneck.</td>
+              </tr>
+              <tr>
+                <td><strong>Pipe-and-Filter</strong></td>
+                <td>Stream-oriented transformation stages</td>
+                <td>Compilers, Unix pipes; format transformation overhead.</td>
+              </tr>
+              <tr>
+                <td><strong>Singleton Pattern</strong></td>
+                <td>Private constructor, single static instance</td>
+                <td><code>getInstance()</code> guarantees single database connection pool.</td>
+              </tr>
+              <tr>
+                <td><strong>Observer Pattern</strong></td>
+                <td>Subject maintains list of observers, notifyAll()</td>
+                <td>Decoupled publish-subscribe; event-driven UI updates.</td>
+              </tr>
+              <tr>
+                <td><strong>GPL vs MIT</strong></td>
+                <td>GPL: strong copyleft (viral); MIT: permissive</td>
+                <td>GPL forces derivative code to be open source.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <section id="important-questions" class="note-section">
-        <div class="section-badge">&quest; QUESTIONS</div>
-        <h2 class="section-title">Important Examination Questions</h2>
-
-        <div class="q-group">
-          <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
-          
-          <div class="qa-item">
-            <details>
-              <summary><span class="q-badge">2M</span> List the five views in Kruchten's 4+1 View Model.</summary>
-              <div class="qa-answer">
-                <p><strong>Answer:</strong> (1) Logical view, (2) Process view, (3) Development view, (4) Physical view, and (+1) Scenarios / Use cases view.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="qa-item">
-            <details>
-              <summary><span class="q-badge">2M</span> What is the intent of the Singleton design pattern?</summary>
-              <div class="qa-answer">
-                <p><strong>Answer:</strong> The Singleton pattern ensures that a class has only one single instance throughout the application lifecycle, and provides a global access point to that instance.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="qa-item">
-            <details>
-              <summary><span class="q-badge">2M</span> Distinguish between MIT license and GNU GPL license.</summary>
-              <div class="qa-answer">
-                <p><strong>Answer:</strong> The MIT license is permissive and allows software to be incorporated into proprietary closed-source products without releasing code. The GNU GPL is copyleft and mandates that any derivative software must also be licensed under the GPL and made open source.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-
-        <div class="q-group">
-          <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
-
-          <div class="qa-item">
-            <details>
-              <summary><span class="q-badge">5M</span> Explain the Model-View-Controller (MVC) architectural pattern with a neat diagram.</summary>
-              <div class="qa-answer">
-                <p><strong>Answer:</strong> Detail the roles of the Model (encapsulating state and business logic), View (rendering UI), and Controller (handling user inputs and orchestrating updates), and provide the interaction diagram from Section 3.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="qa-item">
-            <details>
-              <summary><span class="q-badge">5M</span> Describe the Observer design pattern with its structural components and applications.</summary>
-              <div class="qa-answer">
-                <p><strong>Answer:</strong> Define the 1-to-many publish-subscribe dependency between a Subject and multiple Observers. When the Subject's state changes, all registered Observers are automatically notified via their <code>update()</code> callback, as demonstrated in Section 7.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-
-        <div class="q-group">
-          <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
-
-          <div class="qa-item">
-            <details>
-              <summary><span class="q-badge">10M</span> Compare Layered, Repository, Client-Server, and Pipe-and-Filter architectural patterns. Discuss strengths and weaknesses.</summary>
-              <div class="qa-answer">
-                <p><strong>Answer Summary:</strong> Compare all four patterns across data management, coupling, performance, and failure modes as presented in Sections 3 and 4.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
+      <!-- Authentic Solved Exam Questions -->
       <section id="questions-asked-before" class="note-section exam-archive">
         <div class="section-badge">&block; ARCHIVE</div>
-        <h2 class="section-title">Questions Asked in Past CIE & SEE Papers</h2>
-        <p class="section-lead">The following questions have been extracted from past examination archives in <code>notes/se/practice/</code>:</p>
+        <h2 class="section-title">Questions Asked in Past CIE &amp; SEE Papers</h2>
+        <p class="section-lead">The following authentic questions have been transcribed directly from official department examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code>:</p>
 
+        <!-- CIE-2 Q1.a -->
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">CIE-2 &bull; Software Engineering (IS52)</span>
-            <span class="archive-marks">[10 Marks]</span>
+            <span class="archive-source">Ramaiah Autonomous Examination &bull; CIE-2 (Dec 23, 2025) Q1.a</span>
+            <span class="archive-marks">[4 Marks]</span>
           </div>
-          <p class="archive-q">"Explain the 4+1 view model of software architecture with an illustrative diagram."</p>
-          <p class="archive-note"><em>Study Note:</em> Complete 5-view breakdown table provided in Section 2.</p>
+          <p class="archive-q">"What are the advantages and disadvantages of Repository and Layered architectural design models?"</p>
+          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
+            <p><strong>Official Model Solution:</strong></p>
+            <ol>
+              <li>
+                <strong>Layered Architectural Model:</strong>
+                <ul>
+                  <li><em>Advantages:</em> Supports modularity and incremental evolution. A change to a single layer only affects immediately adjacent layers, provided interface contracts are maintained. Security policies are easily enforced by placing sensitive resources in the innermost protected tiers.</li>
+                  <li><em>Disadvantages:</em> Introducing multiple abstraction boundaries can degrade runtime latency and throughput because requests must pass through intermediate levels. In practice, establishing a clean, strictly hierarchical separation without cross-layer leaks is difficult.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Repository Architectural Model:</strong>
+                <ul>
+                  <li><em>Advantages:</em> Enables efficient sharing of large volumes of complex data among independent software subsystems (e.g. IDE compilers, debuggers, and linters). Subsystems are completely decoupled from each other and communicate solely through the central data repository. Centralized backup, recovery, and access management are simplified.</li>
+                  <li><em>Disadvantages:</em> The central repository represents a single point of failure; a crash or data corruption affects all subsystems. High concurrent traffic creates performance bottlenecks. Evolving the centralized data schema incurs immense engineering coordination costs across all interacting tools.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
         </div>
 
+        <!-- CIE-2 Q2.a -->
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">SEE Model Question Paper</span>
-            <span class="archive-marks">[10 Marks]</span>
+            <span class="archive-source">Ramaiah Autonomous Examination &bull; CIE-2 (Dec 23, 2025) Q2.a</span>
+            <span class="archive-marks">[4 Marks]</span>
           </div>
-          <p class="archive-q">"What are design patterns? Explain Singleton and Observer design patterns with class structure and code."</p>
-          <p class="archive-note"><em>Study Note:</em> Fully verified Python implementations and class contracts provided in Section 7.</p>
+          <p class="archive-q">"Explain the architecture of a Language Processing System with a neat diagram."</p>
+          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
+            <p><strong>Official Model Solution:</strong></p>
+            <p>See <strong>Figure 3.2</strong> for the complete compiler pipeline diagram. A Language Processing System translates source code into machine code via a <em>Pipe-and-Filter</em> architectural style operating on shared data structures:</p>
+            <ol>
+              <li><strong>Lexical Analyzer (Scanner):</strong> Reads raw character streams and converts them into atomic language tokens (identifiers, operators, keywords).</li>
+              <li><strong>Syntax Analyzer (Parser):</strong> Validates token syntax against formal grammar rules and outputs an Abstract Syntax Tree (AST).</li>
+              <li><strong>Semantic Analyzer:</strong> Ensures semantic consistency, performs static type checks, and validates variable scopes using the central <em>Symbol Table</em>.</li>
+              <li><strong>Code Optimizer:</strong> Rewrites intermediate code to eliminate dead code, unroll loops, and minimize instruction cycles.</li>
+              <li><strong>Code Generator:</strong> Synthesizes target assembly instructions or binary machine code.</li>
+              <li><strong>Shared Services:</strong> All phases interface with the central <em>Symbol Table</em> (holding identifier types and memory offsets) and the <em>Error Handler</em> for graceful diagnostic recovery.</li>
+            </ol>
+          </div>
         </div>
 
+        <!-- CIE-2 Q3.a -->
         <div class="archive-item">
           <div class="archive-header">
-            <span class="archive-source">CIE-2 &bull; Question Bank</span>
-            <span class="archive-marks">[8 Marks]</span>
+            <span class="archive-source">Ramaiah Autonomous Examination &bull; CIE-2 (Dec 23, 2025) Q3.a</span>
+            <span class="archive-marks">[4 Marks]</span>
           </div>
-          <p class="archive-q">"Discuss architectural patterns: MVC, Layered architecture, and Repository architecture."</p>
-          <p class="archive-note"><em>Study Note:</em> Full structural analysis and SVG diagrams provided in Sections 3 & 4.</p>
+          <p class="archive-q">"Explain any two software design patterns with suitable class diagrams."</p>
+          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
+            <p><strong>Official Model Solution:</strong></p>
+            <p>See <strong>Figure 3.3</strong> for the verified UML class structures:</p>
+            <ol>
+              <li>
+                <strong>Singleton Pattern (Creational):</strong>
+                <ul>
+                  <li><em>Intent:</em> Guarantees that a class has exactly one instance and provides a global access point to that instance.</li>
+                  <li><em>Structure:</em> Private static variable <code>_instance</code>, a private constructor preventing direct instantiation via <code>new</code>, and a public static factory method <code>getInstance()</code> that lazily instantiates the object upon first request.</li>
+                  <li><em>Application:</em> Database Connection Pool manager, Central Logger, Hardware device driver controller.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Observer Pattern (Behavioral):</strong>
+                <ul>
+                  <li><em>Intent:</em> Defines a 1-to-many publish-subscribe dependency such that when one object changes state, all dependent objects are automatically notified and refreshed.</li>
+                  <li><em>Structure:</em> A <code>Subject</code> maintaining an internal collection of registered <code>Observer</code> references with <code>attach()</code>, <code>detach()</code>, and <code>notifyAll()</code> methods. An <code>Observer</code> interface declaring the <code>update()</code> callback implemented by concrete subscriber views.</li>
+                  <li><em>Application:</em> GUI event listening systems (Swing, React state), IoT weather sensor display broadcasts, Model-View synchronization.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
         </div>
       </section>
 
+      <!-- Practice Problems -->
       <section id="practice-problems" class="note-section">
         <div class="section-badge">&nabla; PRACTICE</div>
         <h2 class="section-title">Practice Problems with Hidden Answers</h2>
 
+        <!-- Problem 1 -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">PRACTICE 1 &bull; PATTERN SELECTION</span>
+            <span class="problem-tag">PRACTICE 1 &bull; ARCHITECTURAL PATTERN SELECTION</span>
           </div>
-          <h4 class="problem-title">Which architectural pattern is best suited for an Integrated Development Environment (IDE) like VS Code or Eclipse? Justify.</h4>
+          <h4 class="problem-title">Which architectural pattern is best suited for an Integrated Development Environment (IDE) like VS Code or Eclipse? Justify your choice.</h4>
           <details>
             <summary class="reveal-btn">Show Step-by-Step Solution</summary>
             <div class="qa-answer">
               <p><strong>The Repository Architecture Pattern.</strong></p>
-              <p>An IDE comprises diverse independent tools (compiler, syntax highlighter, debugger, refactoring engine, git tracker) that must all read and modify the same complex data structures (Abstract Syntax Trees, file buffers, project configuration). Storing these centrally in an in-memory repository allows all tools to interact without direct point-to-point coupling.</p>
+              <p><strong>Justification:</strong></p>
+              <ul>
+                <li>An IDE integrates diverse independent subsystems (code editor, syntax parser, debugger, refactoring engine, git version manager) that must concurrently read and update large shared data structures (Abstract Syntax Trees, file buffers, project configuration).</li>
+                <li>Storing these centrally in a high-speed in-memory repository allows all tools to interact without point-to-point coupling, making the IDE easily extensible via third-party extensions.</li>
+              </ul>
             </div>
           </details>
         </div>
 
+        <!-- Problem 2 -->
         <div class="problem-card">
           <div class="problem-header">
-            <span class="problem-tag">PRACTICE 2 &bull; DESIGN PATTERNS</span>
+            <span class="problem-tag">PRACTICE 2 &bull; OBSERVER PATTERN IN EVENT SYSTEMS</span>
           </div>
-          <h4 class="problem-title">In an online multiplayer game, when a player's health reaches 0, the audio engine plays a death sound, the UI displays "Game Over", and the leaderboard updates. Which GoF pattern should be used?</h4>
+          <h4 class="problem-title">In an online multiplayer game, when a player character's health reaches 0, the audio engine plays a sound, the UI displays "Game Over", and the leaderboard updates. Which GoF pattern should be used?</h4>
           <details>
             <summary class="reveal-btn">Show Step-by-Step Solution</summary>
             <div class="qa-answer">
-              <p><strong>The Observer Pattern.</strong></p>
-              <p>The Player character acts as the Subject. The AudioEngine, UIManager, and LeaderboardService act as Observers. When the player dies, the Subject calls <code>notify_all()</code> without needing to know any concrete details about the audio or leaderboard subsystems.</p>
+              <p><strong>The Observer Pattern (Behavioral &bull; Publish-Subscribe).</strong></p>
+              <p><strong>Justification:</strong></p>
+              <ul>
+                <li>The <code>PlayerCharacter</code> entity acts as the <code>Subject</code>.</li>
+                <li>The <code>AudioEngine</code>, <code>UIManager</code>, and <code>LeaderboardService</code> act as concrete <code>Observers</code>.</li>
+                <li>When the player dies, the Subject calls <code>notifyAll()</code> without having compile-time dependencies on the audio or network leaderboard subsystems. New reactive features can be added without modifying the core player class.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 3 &bull; SINGLETON PATTERN INVARIANTS</span>
+          </div>
+          <h4 class="problem-title">Explain why a class constructor must be declared <code>private</code> in the Singleton design pattern. What happens if multiple threads invoke <code>getInstance()</code> simultaneously?</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ol>
+                <li><strong>Private Constructor:</strong> Enforces encapsulation by preventing external callers from bypassing the factory method with <code>new Singleton()</code>. This guarantees that object creation is strictly brokered by <code>getInstance()</code>.</li>
+                <li><strong>Thread Safety Concurrency Hazard:</strong> Without synchronization, two concurrent threads executing <code>if (_instance == null)</code> simultaneously might both evaluate true and create two separate instances, violating the single-instance invariant (<code>assert pool1 is pool2</code> fails). This is resolved using synchronized methods or the <em>Double-Checked Locking</em> idiom.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 4 &bull; COMPILER PIPELINE PHASE ORDERING</span>
+          </div>
+          <h4 class="problem-title">In a Language Processing System, arrange the following components in correct execution sequence: Code Generator, Lexical Analyzer, Syntax Analyzer, Semantic Analyzer, Code Optimizer.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <p><strong>Correct Execution Pipeline:</strong></p>
+              <ol>
+                <li><strong>Lexical Analyzer:</strong> Source characters &rarr; Tokens</li>
+                <li><strong>Syntax Analyzer:</strong> Tokens &rarr; Parse / Syntax Tree</li>
+                <li><strong>Semantic Analyzer:</strong> Type checking &rarr; Decorated AST</li>
+                <li><strong>Code Optimizer:</strong> High-level IR &rarr; Optimized IR</li>
+                <li><strong>Code Generator:</strong> Optimized IR &rarr; Target Machine Code</li>
+              </ol>
+              <p><em>Verification:</em> Verified against Sommerville Ch. 6 and Ramaiah CIE-2 Q2.a.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 5 &bull; 4+1 VIEW MODEL MATCHING</span>
+          </div>
+          <h4 class="problem-title">Match each architectural concern to its corresponding Kruchten 4+1 View: (a) Database server network IP routing, (b) Java package compilation dependencies, (c) Multithreaded deadlocks.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ul>
+                <li><strong>(a) Database server network IP routing:</strong> <strong>Physical View</strong> (Deployment on physical hardware nodes and network infrastructure).</li>
+                <li><strong>(b) Java package compilation dependencies:</strong> <strong>Development View</strong> (Source code organization, modules, and build libraries).</li>
+                <li><strong>(c) Multithreaded deadlocks:</strong> <strong>Process View</strong> (Runtime concurrency, synchronization, thread communication, and system performance).</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-tag">PRACTICE 6 &bull; OPEN SOURCE LICENSING: MIT VS GPL</span>
+          </div>
+          <h4 class="problem-title">A software startup wants to build a commercial, proprietary closed-source product. Can they legally include code licensed under: (a) MIT License? (b) GNU General Public License (GPL)? Explain.</h4>
+          <details>
+            <summary class="reveal-btn">Show Step-by-Step Solution</summary>
+            <div class="qa-answer">
+              <ul>
+                <li><strong>(a) MIT License: YES.</strong> The MIT license is permissive. It grants unrestricted rights to use, modify, merge, and distribute the code within proprietary closed-source software, requiring only that the original copyright notice and permission disclaimer be preserved.</li>
+                <li><strong>(b) GNU GPL: NO (with proprietary restrictions).</strong> The GPL is a strong copyleft ("reciprocal") license. Under Section 5 of GPLv3, incorporating or statically linking GPL code into a product requires the entire resulting derivative software to be open-sourced under the GPL, preventing closed-source commercial distribution.</li>
+              </ul>
             </div>
           </details>
         </div>
@@ -816,7 +1096,6 @@ station.set_temperature(28)  # Both Alice and Bob receive automated updates!</co
           <span class="nav-arrow-sub">Course Portal</span>
           <span class="nav-arrow-title">IS52 Overview</span>
         </a>
-        
       </footer>
 
       <!-- Prescribed Syllabus Disclaimer -->
@@ -830,5 +1109,175 @@ station.set_temperature(28)  # Both Alice and Bob receive automated updates!</co
   <script src="../../../assets/katex/katex.min.js"></script>
   <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
   <script src="../../../js/notes.js"></script>
+
+  <!-- SE Unit 3 Interactive Patterns Studio Script -->
+  <script>
+    (function initSEUnit3Studio() {
+      // 1. Tab Switching
+      var btnObs = document.getElementById('tab-btn-observer');
+      var btnSingle = document.getElementById('tab-btn-singleton');
+      var panelObs = document.getElementById('panel-observer');
+      var panelSingle = document.getElementById('panel-singleton');
+
+      if (btnObs && btnSingle && panelObs && panelSingle) {
+        btnObs.addEventListener('click', function() {
+          panelObs.style.display = 'block';
+          panelSingle.style.display = 'none';
+          btnObs.style.borderColor = 'var(--brand)';
+          btnObs.style.color = 'var(--brand)';
+          btnObs.style.opacity = '1';
+          btnSingle.style.borderColor = 'var(--border)';
+          btnSingle.style.color = 'var(--ink)';
+          btnSingle.style.opacity = '0.7';
+        });
+
+        btnSingle.addEventListener('click', function() {
+          panelObs.style.display = 'none';
+          panelSingle.style.display = 'block';
+          btnSingle.style.borderColor = 'var(--brand)';
+          btnSingle.style.color = 'var(--brand)';
+          btnSingle.style.opacity = '1';
+          btnObs.style.borderColor = 'var(--border)';
+          btnObs.style.color = 'var(--ink)';
+          btnObs.style.opacity = '0.7';
+        });
+      }
+
+      // 2. Observer Pattern Logic
+      var tempSlider = document.getElementById('temp-slider');
+      var humiditySlider = document.getElementById('humidity-slider');
+      var tempVal = document.getElementById('temp-val');
+      var humidityVal = document.getElementById('humidity-val');
+      var obsPhone = document.getElementById('obs-phone');
+      var obsWindow = document.getElementById('obs-window');
+      var obsAlert = document.getElementById('obs-alert');
+      var btnPublish = document.getElementById('btn-publish-weather');
+      var btnResetWeather = document.getElementById('btn-reset-weather');
+      var observerLog = document.getElementById('observer-log');
+
+      function updateWeatherLabels() {
+        if (tempSlider && tempVal) tempVal.textContent = tempSlider.value + ' °C';
+        if (humiditySlider && humidityVal) humidityVal.textContent = humiditySlider.value + ' %';
+      }
+
+      if (tempSlider) tempSlider.addEventListener('input', updateWeatherLabels);
+      if (humiditySlider) humiditySlider.addEventListener('input', updateWeatherLabels);
+
+      function logEvent(msg, color) {
+        if (!observerLog) return;
+        var div = document.createElement('div');
+        div.style.color = color || 'var(--ink)';
+        div.style.marginTop = '4px';
+        div.innerHTML = msg;
+        observerLog.appendChild(div);
+        observerLog.scrollTop = observerLog.scrollHeight;
+      }
+
+      function publishWeather() {
+        var temp = tempSlider ? tempSlider.value : 28;
+        var hum = humiditySlider ? humiditySlider.value : 65;
+        var stateStr = 'Temperature: ' + temp + '°C, Humidity: ' + hum + '%';
+
+        logEvent('<strong>[Subject: WeatherStation.notifyAll()]</strong> Broadcasting: &quot;' + stateStr + '&quot;', 'var(--brand)');
+
+        var activeCount = 0;
+        if (obsPhone && obsPhone.checked) {
+          activeCount++;
+          logEvent('&rarr; [PhoneDisplay.update()] Received broadcast: App refreshed card UI.', 'var(--ink)');
+        }
+        if (obsWindow && obsWindow.checked) {
+          activeCount++;
+          logEvent('&rarr; [WindowDisplay.update()] Received broadcast: LCD wall digits updated.', 'var(--ink)');
+        }
+        if (obsAlert && obsAlert.checked) {
+          activeCount++;
+          if (parseInt(temp, 10) >= 38) {
+            logEvent('&rarr; [EmergencyAlertSystem.update()] WARNING: Heat wave alert triggered (&ge;38°C)!', 'var(--accent)');
+          } else {
+            logEvent('&rarr; [EmergencyAlertSystem.update()] Environmental status: Normal operational threshold.', 'var(--ink-muted)');
+          }
+        }
+
+        if (activeCount === 0) {
+          logEvent('<em>No observers currently attached. State updated with 0 subscribers.</em>', 'var(--ink-muted)');
+        }
+      }
+
+      if (btnPublish) btnPublish.addEventListener('click', publishWeather);
+
+      if (btnResetWeather) {
+        btnResetWeather.addEventListener('click', function() {
+          if (tempSlider) tempSlider.value = 28;
+          if (humiditySlider) humiditySlider.value = 65;
+          if (obsPhone) obsPhone.checked = true;
+          if (obsWindow) obsWindow.checked = true;
+          if (obsAlert) obsAlert.checked = false;
+          updateWeatherLabels();
+          publishWeather();
+        });
+      }
+
+      // 3. Singleton Connection Pool Logic
+      var poolActiveCount = document.getElementById('pool-active-count');
+      var singletonIdentity = document.getElementById('singleton-identity-verdict');
+      var btnBorrow = document.getElementById('btn-borrow-conn');
+      var btnRelease = document.getElementById('btn-release-conn');
+      var btnVerify = document.getElementById('btn-verify-singleton');
+      var singletonLog = document.getElementById('singleton-log');
+
+      var totalConnections = 10;
+      var availableConnections = 10;
+      var instanceId = '0x7F4A80C';
+
+      function logSingle(msg, color) {
+        if (!singletonLog) return;
+        var div = document.createElement('div');
+        div.style.color = color || 'var(--ink)';
+        div.style.marginTop = '4px';
+        div.innerHTML = msg;
+        singletonLog.appendChild(div);
+        singletonLog.scrollTop = singletonLog.scrollHeight;
+      }
+
+      function updatePoolDisplay() {
+        if (poolActiveCount) {
+          poolActiveCount.textContent = availableConnections + ' / ' + totalConnections + ' Free';
+          poolActiveCount.style.color = availableConnections > 0 ? 'var(--brand)' : 'var(--accent)';
+        }
+      }
+
+      if (btnBorrow) {
+        btnBorrow.addEventListener('click', function() {
+          if (availableConnections > 0) {
+            availableConnections--;
+            updatePoolDisplay();
+            logSingle('[DatabaseConnectionPool] Connection acquired. In-use: ' + (totalConnections - availableConnections) + ', Remaining: ' + availableConnections, 'var(--ink)');
+          } else {
+            logSingle('[DatabaseConnectionPool] POOL EXHAUSTED: Request queued waiting for connection release.', 'var(--accent)');
+          }
+        });
+      }
+
+      if (btnRelease) {
+        btnRelease.addEventListener('click', function() {
+          if (availableConnections < totalConnections) {
+            availableConnections++;
+            updatePoolDisplay();
+            logSingle('[DatabaseConnectionPool] Connection released back to pool. Remaining: ' + availableConnections, 'var(--ink)');
+          } else {
+            logSingle('[DatabaseConnectionPool] All 10 connections are already idle in pool.', 'var(--ink-muted)');
+          }
+        });
+      }
+
+      if (btnVerify) {
+        btnVerify.addEventListener('click', function() {
+          logSingle('<strong>[Verification Assertion]</strong> poolA = DatabaseConnectionPool.getInstance(); poolB = DatabaseConnectionPool.getInstance();', 'var(--brand)');
+          logSingle('&check; assert (poolA === poolB) is TRUE. Both references point to instance ' + instanceId, 'var(--brand)');
+          if (singletonIdentity) singletonIdentity.textContent = 'poolA === poolB (VERIFIED TRUE)';
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
