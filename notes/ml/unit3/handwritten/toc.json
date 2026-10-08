@@ -12,61 +12,61 @@
   {
     "id": "sec-nearest-centroid",
     "title": "Nearest Centroid Classifier (Rocchio)",
-    "page": 7
+    "page": 5
   },
   {
     "id": "sec-lwr",
     "title": "Locally Weighted Regression (LWR)",
-    "page": 7
+    "page": 5
   },
   {
     "id": "sec-intro-regression",
     "title": "Introduction to Regression Analysis",
-    "page": 8
+    "page": 6
   },
   {
     "id": "sec-linear-regression",
     "title": "Linear Regression: Ordinary Least Squares (OLS)",
-    "page": 9
+    "page": 7
   },
   {
     "id": "sec-polynomial-regression",
     "title": "Polynomial Regression & Bias-Variance Tradeoff",
-    "page": 12
+    "page": 8
   },
   {
     "id": "sec-logistic-regression",
     "title": "Logistic Regression",
-    "page": 13
+    "page": 9
   },
   {
     "id": "sec-dt-model",
     "title": "Decision Tree Learning Model",
-    "page": 15
+    "page": 11
   },
   {
     "id": "sec-dt-algorithms",
     "title": "Decision Tree Induction Algorithms: ID3, C4.5 & CART",
-    "page": 16
+    "page": 12
   },
   {
     "id": "sec-revision-sheet",
     "title": "Unit 3 Quick Revision Sheet",
-    "page": 21
+    "page": 14
   },
   {
     "id": "sec-important-questions",
     "title": "Important Exam Questions",
-    "page": 22
+    "page": 15
   },
   {
     "id": "sec-questions-asked-before",
     "title": "Solved Questions from Past Department Examinations",
-    "page": 25
+    "page": 18
   },
   {
     "id": "sec-practice-problems",
     "title": "Practice Problems (Step-by-Step Verified Solutions)",
-    "page": 31
+    "page": 23
   }
 ]

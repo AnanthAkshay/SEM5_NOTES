@@ -17,41 +17,41 @@
   {
     "id": "sec-4",
     "title": "Constraint Satisfaction Problems (CSP)",
-    "page": 7
+    "page": 6
   },
   {
     "id": "sec-5",
     "title": "Constraint Propagation & The AC-3 Arc Consistency Algorithm",
-    "page": 8
+    "page": 7
   },
   {
     "id": "sec-6",
     "title": "Backtracking Search & Intelligent Heuristics",
-    "page": 10
+    "page": 9
   },
   {
     "id": "sec-7",
     "title": "Forward Checking & Maintaining Arc Consistency (MAC)",
-    "page": 11
+    "page": 10
   },
   {
     "id": "revision-sheet",
     "title": "One-Page Rapid Revision Sheet",
-    "page": 12
+    "page": 11
   },
   {
     "id": "important-questions",
     "title": "Important Examination Questions",
-    "page": 13
+    "page": 12
   },
   {
     "id": "questions-asked-before",
     "title": "Authentic Solved Questions from Past Ramaiah CIE & SEE Papers",
-    "page": 15
+    "page": 14
   },
   {
     "id": "practice-problems",
     "title": "Verified High-Yield Practice Problems",
-    "page": 21
+    "page": 18
   }
 ]

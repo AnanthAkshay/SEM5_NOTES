@@ -17,56 +17,56 @@
   {
     "id": "sec-design-learning-sys",
     "title": "Design of a Learning System",
-    "page": 8
+    "page": 7
   },
   {
     "id": "sec-concept-learning",
     "title": "Introduction to Concept Learning",
-    "page": 11
+    "page": 9
   },
   {
     "id": "sec-find-s",
     "title": "The Find-S Algorithm",
-    "page": 12
+    "page": 10
   },
   {
     "id": "sec-candidate-elimination",
     "title": "Candidate Elimination Algorithm & Version Spaces",
-    "page": 14
+    "page": 11
   },
   {
     "id": "sec-inductive-bias",
     "title": "Inductive Bias & The Unbiased Learner Fallacy",
-    "page": 18
+    "page": 14
   },
   {
     "id": "sec-modelling-ml",
     "title": "Modelling in Machine Learning",
-    "page": 19
+    "page": 15
   },
   {
     "id": "sec-learning-frameworks",
     "title": "Learning Frameworks: PAC Learning & VC Dimension",
-    "page": 20
+    "page": 16
   },
   {
     "id": "sec-revision-sheet",
     "title": "Unit 2 Quick Revision Sheet",
-    "page": 22
+    "page": 18
   },
   {
     "id": "sec-important-questions",
     "title": "Important Exam Questions",
-    "page": 23
+    "page": 18
   },
   {
     "id": "sec-questions-asked-before",
     "title": "Solved Questions from Past Department Examinations",
-    "page": 26
+    "page": 21
   },
   {
     "id": "sec-practice-problems",
     "title": "Practice Problems (Step-by-Step Verified Solutions)",
-    "page": 33
+    "page": 26
   }
 ]

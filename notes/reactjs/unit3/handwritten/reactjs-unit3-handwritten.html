@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISAEC594 Unit 3 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Architects Daughter', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #1e293b;
       --ink-dark: #0284c7;
     }
@@ -27,28 +26,109 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-syntheticevent" data-sec-title="1. The SyntheticEvent System" data-sec-index="0">
-        <h2 id="sec-syntheticevent">1. The SyntheticEvent System</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
-          
-          <p>A <strong>SyntheticEvent</strong> is a cross-browser JavaScript wrapper object around the browser's native DOM event. It provides an identical API across all browsers (Chrome, Firefox, Safari, Edge) according to the W3C event specification.</p>
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/reactjs" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">ISAEC594 Unit 3 · Handwritten Notebook</span>
+    <a href="reactjs-unit3-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">ISAEC594 · ReactJS</div>
+          <h1 class="cover-title">Unit 3: Events &amp; Form Handling</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
         </div>
 
-        <h3 class="subsection-title">1.1 Why React Uses SyntheticEvents (Event Delegation)</h3>
-        <p>In standard DOM scripting, attaching event listeners directly to hundreds of table cells or list items consumes significant memory. React solves this via <strong>Event Delegation</strong>:</p>
-        <ul>
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
+          
+          
+            Handling Events: SyntheticEvent wrapper, cross-browser normalization, `e.preventDefault()`
+          Binding Mechanisms: Arrow functions vs. `Function.prototype.bind()` in class and functional components
+          Controlled vs. Uncontrolled: Single sou...</p>
+        </div>
+
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>1. The SyntheticEvent System</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>2. Event Binding &amp; Arrow Functions</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>3. Controlled vs. Uncontrolled Components</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>4. Handling Form Elements (input, textarea, select)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>5. Scalable Multi-Field Form Architecture</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 6</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>6. The Lifting State Up Architectural Pattern</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 8</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>7. Complete Tested Applications &amp; Traces</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 8</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>8. Quick Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 10</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>9. Important Exam Questions &amp; Practice</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 11</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>10. Prescribed References</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 20</span>
+        </li>
+      </ul>
+        </div>
+
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">2. Event Binding &amp; Arrow Functions</span>
+        </div>
+        <div class="page-content"><h2 id="sec-syntheticevent">1. The SyntheticEvent System</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
+          
+          <p>A <strong>SyntheticEvent</strong> is a cross-browser JavaScript wrapper object around the browser's native DOM event. It provides an identical API across all browsers (Chrome, Firefox, Safari, Edge) according to the W3C event specification.</p>
+        </div><h3 class="subsection-title">1.1 Why React Uses SyntheticEvents (Event Delegation)</h3><p>In standard DOM scripting, attaching event listeners directly to hundreds of table cells or list items consumes significant memory. React solves this via <strong>Event Delegation</strong>:</p><ul>
           <li>React attaches a single top-level event listener to the root container (<code>document.getElementById('root')</code> in React 18).</li>
           <li>When an event fires anywhere in the application, it bubbles up to the root container, where React catches it, wraps it in a <code>SyntheticEvent</code>, and dispatches it to the appropriate component handler.</li>
-        </ul>
-
-        <h3 class="subsection-title">1.2 Preventing Default Actions</h3>
-        <p>In plain HTML, returning <code>false</code> from an inline handler stops default actions (e.g. <code>&lt;form onsubmit="return false"&gt;</code>). In React, returning <code>false</code> does NOT work; you must explicitly invoke <code>e.preventDefault()</code>:</p>
-        <div class="code-block-wrapper">
+        </ul><h3 class="subsection-title">1.2 Preventing Default Actions</h3><p>In plain HTML, returning <code>false</code> from an inline handler stops default actions (e.g. <code>&lt;form onsubmit="return false"&gt;</code>). In React, returning <code>false</code> does NOT work; you must explicitly invoke <code>e.preventDefault()</code>:</p><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-prevent-default">Copy</button>
@@ -67,26 +147,23 @@
     &lt;/form&gt;
   );
 }</code></pre>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>SyntheticEvent normalizes native browser events cross-platform. React uses root-level event delegation. Always call <code>e.preventDefault()</code> to halt full-page reloads.</p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 20</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">2. Event Binding &amp; Arrow Functions</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-event-binding" data-sec-title="2. Event Binding &amp; Arrow Functions" data-sec-index="1">
-        <h2 id="sec-event-binding">2. Event Binding &amp; Arrow Functions</h2>
-        <div class="staging-body">
-          
-        
-
-        <h3 class="subsection-title">2.1 Event Handling in Functional Components (Simple &amp; Modern)</h3>
-        <p>In functional components, functions do not possess their own <code>this</code> context, making event handling clean and natural:</p>
-        <div class="code-block-wrapper">
+        <div class="page-content"><h2 id="sec-event-binding">2. Event Binding &amp; Arrow Functions</h2><h3 class="subsection-title">2.1 Event Handling in Functional Components (Simple &amp; Modern)</h3><p>In functional components, functions do not possess their own <code>this</code> context, making event handling clean and natural:</p><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-fn-events">Copy</button>
@@ -112,11 +189,20 @@
     &lt;/div&gt;
   );
 }</code></pre>
+        </div><h3 class="subsection-title">2.2 Event Handling in Class Components: The <code>bind()</code> Dilemma</h3><p>In JavaScript classes, class methods are not bound by default. If you pass <code>this.handleClick</code> to an <code>onClick</code> attribute without binding, <code>this</code> will be <code>undefined</code> when invoked:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 20</span>
         </div>
-
-        <h3 class="subsection-title">2.2 Event Handling in Class Components: The <code>bind()</code> Dilemma</h3>
-        <p>In JavaScript classes, class methods are not bound by default. If you pass <code>this.handleClick</code> to an <code>onClick</code> attribute without binding, <code>this</code> will be <code>undefined</code> when invoked:</p>
-        <div class="code-block-wrapper">
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">3. Controlled vs. Uncontrolled Components</span>
+        </div>
+        <div class="page-content"><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-class-binding">Copy</button>
@@ -143,94 +229,73 @@
     return &lt;button onClick={this.handleClick}&gt;Toggle&lt;/button&gt;;
   }
 }</code></pre>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Pass function references <code>onClick={handleClick}</code>, not invocations <code>onClick={handleClick()}</code>. In class components, bind methods in the constructor or use public class arrow fields.</p>
+        </div><h2 id="sec-controlled-vs-uncontrolled">3. Controlled vs. Uncontrolled Components</h2><p>A central concept in React form architecture is deciding who holds the <strong>Single Source of Truth</strong> for form input data.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 20</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">4. Handling Form Elements (input, textarea, select)</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-controlled-vs-uncontrolled" data-sec-title="3. Controlled vs. Uncontrolled Components" data-sec-index="2">
-        <h2 id="sec-controlled-vs-uncontrolled">3. Controlled vs. Uncontrolled Components</h2>
-        <div class="staging-body">
-          
-        
-        <p>A central concept in React form architecture is deciding who holds the <strong>Single Source of Truth</strong> for form input data.</p>
-
-        <div class="table-container">
-          <table class="notes-table hand-table">
-            <thead>
-              <tr>
+        <div class="page-content"><table class="notes-table hand-table"><tr>
                 <th>Dimension</th>
                 <th>Controlled Component</th>
                 <th>Uncontrolled Component</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Source of Truth</strong></td>
                 <td><strong>React State</strong> (via <code>useState</code>).</td>
                 <td><strong>The Browser DOM</strong> itself.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Data Flow</strong></td>
                 <td>Value is passed into the element via <code>value={state}</code>; updates flow back to state via <code>onChange</code>.</td>
                 <td>DOM manages value internally; React pulls it on demand using a <code>ref</code> (<code>inputRef.current.value</code>).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Instant Validation</strong></td>
                 <td>Trivial (state updates on every keystroke, allowing live validation badges and disable buttons).</td>
                 <td>Difficult (only validated on form submit or requiring manual DOM listeners).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Default Values</strong></td>
                 <td>Set via initial state in <code>useState(initialVal)</code>.</td>
                 <td>Set using the <code>defaultValue</code> attribute.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Best Use Case</strong></td>
                 <td>Dynamic web forms, instant formatting, conditional submit buttons.</td>
                 <td>Simple forms, file inputs (<code>&lt;input type="file" /&gt;</code> is inherently uncontrolled), integrating non-React legacy plugins.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+              </tr></table><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Controlled = React state drives the input value via <code>value</code> and <code>onChange</code>. Uncontrolled = DOM retains the value, accessed on demand via <code>ref</code>.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-form-elements" data-sec-title="4. Handling Form Elements (input, textarea, select)" data-sec-index="3">
-        <h2 id="sec-form-elements">4. Handling Form Elements (input, textarea, select)</h2>
-        <div class="staging-body">
-          
-        
-        <p>In standard HTML, different form elements have inconsistent APIs (e.g. <code>textarea</code> wraps text between tags, while <code>select</code> marks <code>selected</code> on children). React standardizes all of them to use a consistent <code>value</code> prop:</p>
-
-        <h3 class="subsection-title">4.1 The Standardized React Form Elements</h3>
-        <ul>
-          <li><strong>Text Input:</strong> Uses <code>value</code> and <code>onChange</code>:
+        </div><h2 id="sec-form-elements">4. Handling Form Elements (input, textarea, select)</h2><p>In standard HTML, different form elements have inconsistent APIs (e.g. <code>textarea</code> wraps text between tags, while <code>select</code> marks <code>selected</code> on children). React standardizes all of them to use a consistent <code>value</code> prop:</p><h3 class="subsection-title">4.1 The Standardized React Form Elements</h3><ul class=""><li><strong>Text Input:</strong> Uses <code>value</code> and <code>onChange</code>:
           <div class="code-block-wrapper">
             <div class="code-header"><span class="code-lang">jsx</span></div>
             <pre class="hand-code-box"><code>&lt;input type="text" value={name} onChange={(e) =&gt; setName(e.target.value)} /&gt;</code></pre>
           </div>
-          </li>
-          <li><strong>Textarea:</strong> Instead of <code>&lt;textarea&gt;{text}&lt;/textarea&gt;</code>, React uses a <code>value</code> attribute:
+          </li></ul></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 20</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">5. Scalable Multi-Field Form Architecture</span>
+        </div>
+        <div class="page-content"><ul class=""><li><strong>Textarea:</strong> Instead of <code>&lt;textarea&gt;{text}&lt;/textarea&gt;</code>, React uses a <code>value</code> attribute:
           <div class="code-block-wrapper">
             <div class="code-header"><span class="code-lang">jsx</span></div>
             <pre class="hand-code-box"><code>&lt;textarea value={bio} onChange={(e) =&gt; setBio(e.target.value)} rows={4} /&gt;</code></pre>
           </div>
-          </li>
-          <li><strong>Select Dropdown:</strong> Instead of setting <code>selected</code> on individual <code>&lt;option&gt;</code> tags, React sets <code>value</code> directly on the parent <code>&lt;select&gt;</code>:
+          </li><li><strong>Select Dropdown:</strong> Instead of setting <code>selected</code> on individual <code>&lt;option&gt;</code> tags, React sets <code>value</code> directly on the parent <code>&lt;select&gt;</code>:
           <div class="code-block-wrapper">
             <div class="code-header"><span class="code-lang">jsx</span></div>
             <pre class="hand-code-box"><code>&lt;select value={semester} onChange={(e) =&gt; setSemester(e.target.value)}&gt;
@@ -238,32 +303,28 @@
   &lt;option value="6"&gt;6th Semester&lt;/option&gt;
 &lt;/select&gt;</code></pre>
           </div>
-          </li>
-          <li><strong>Checkbox:</strong> Uses <code>checked</code> instead of <code>value</code>:
+          </li><li><strong>Checkbox:</strong> Uses <code>checked</code> instead of <code>value</code>:
           <div class="code-block-wrapper">
             <div class="code-header"><span class="code-lang">jsx</span></div>
             <pre class="hand-code-box"><code>&lt;input type="checkbox" checked={agreed} onChange={(e) =&gt; setAgreed(e.target.checked)} /&gt;</code></pre>
           </div>
-          </li>
-        </ul>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          </li></ul><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>React standardizes forms: <code>input</code>, <code>textarea</code>, and <code>select</code> all use the <code>value</code> prop and <code>onChange</code> handler. Checkboxes use the <code>checked</code> prop.</p>
+        </div><h2 id="sec-multi-field-forms">5. Scalable Multi-Field Form Architecture</h2><p>Creating separate <code>useState</code> hooks and handler functions for every field in a 10-field form creates massive boilerplate. The idiomatic React solution uses a <strong>single state object</strong> and a <strong>single generic handler</strong> leveraging ES6 <strong>Computed Property Names</strong>:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 20</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">5. Scalable Multi-Field Form Architecture</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-multi-field-forms" data-sec-title="5. Scalable Multi-Field Form Architecture" data-sec-index="4">
-        <h2 id="sec-multi-field-forms">5. Scalable Multi-Field Form Architecture</h2>
-        <div class="staging-body">
-          
-        
-        <p>Creating separate <code>useState</code> hooks and handler functions for every field in a 10-field form creates massive boilerplate. The idiomatic React solution uses a <strong>single state object</strong> and a <strong>single generic handler</strong> leveraging ES6 <strong>Computed Property Names</strong>:</p>
-
-        <div class="code-block-wrapper">
+        <div class="page-content"><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-multi-field">Copy</button>
@@ -318,29 +379,26 @@ export default function MultiFieldForm() {
     &lt;/form&gt;
   );
 }</code></pre>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 20</span>
         </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">7. Complete Tested Applications &amp; Traces</span>
+        </div>
+        <div class="page-content"><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Multi-field forms use one object in state and one handler: <code>setForm(prev =&gt; ({ ...prev, [e.target.name]: e.target.value }))</code>.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-lifting-state-up" data-sec-title="6. The Lifting State Up Architectural Pattern" data-sec-index="5">
-        <h2 id="sec-lifting-state-up">6. The Lifting State Up Architectural Pattern</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+        </div><h2 id="sec-lifting-state-up">6. The Lifting State Up Architectural Pattern</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
           
           <p><strong>Lifting State Up</strong> is a core React architectural pattern where shared state that needs to be synchronized between multiple sibling components is removed from the siblings and relocated to their <strong>closest common parent</strong>.</p>
-        </div>
-
-        <!-- SVG 3.1: Lifting State Up Architecture -->
-        <div class="diagram-wrapper">
+        </div><div class="diagram-wrapper" data-atomic="true">
           <div class="diagram-title">Figure 3.1: Architectural Flow of Lifting State Up</div>
           <svg viewBox="0 0 760 260" class="svg-diagram" aria-label="Diagram showing Parent holding Shared State, passing data down via props and receiving changes up via callback functions">
             <title>Lifting State Up Architecture</title>
@@ -377,24 +435,23 @@ export default function MultiFieldForm() {
             <text x="600" y="215" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Displays °F &amp; reports changes</text>
           </svg>
           <div class="diagram-caption">Data flows down through immutable props; user modifications flow up through callback event handlers, keeping siblings in synchronization.</div>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Lifting state up: When siblings must synchronize, move state up to their parent. Parent passes state down as props and handles updates via callback functions.</p>
+        </div><h2 id="sec-code-demos">7. Complete Tested Applications &amp; Traces</h2></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 20</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">7. Complete Tested Applications &amp; Traces</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-code-demos" data-sec-title="7. Complete Tested Applications &amp; Traces" data-sec-index="6">
-        <h2 id="sec-code-demos">7. Complete Tested Applications &amp; Traces</h2>
-        <div class="staging-body">
-          
-        
-
-        <div class="callout callout-example hand-card card-example"><div class="hand-badge">Runnable Application: Bidirectional Temperature Converter (Lifting State Up)</div>
+        <div class="page-content"><div class="callout callout-example hand-card card-example"><div class="hand-label label-example">Runnable Application: Bidirectional Temperature Converter (Lifting State Up):</div>
           
           <p>This classic React demonstration features two sibling input fields that convert temperatures in real-time between Celsius and Fahrenheit:</p>
           <div class="code-block-wrapper">
@@ -481,11 +538,20 @@ export default function Calculator() {
             <li>Parent re-renders: calculates <code>celsius = tryConvert("32", toCelsius) = "0"</code>.</li>
             <li>Both siblings receive fresh props and update simultaneously in the browser!</li>
           </ol>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 20</span>
         </div>
-      
-
-      <!-- Interactive Controlled Form & State Lifting Studio -->
-      <div id="react-forms-studio" class="interactive-widget-card" style="margin: 2.5rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">8. Quick Revision Sheet</span>
+        </div>
+        <div class="page-content"><div id="react-forms-studio" class="interactive-widget-card" style="margin: 2.5rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
           <div>
             <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--brand); font-weight: 700; letter-spacing: 0.05em;">Interactive Lab Explorer</div>
@@ -614,20 +680,20 @@ setFormData(prev =&gt; ({
             </div>
           </div>
         </div>
-      </div>
-
-
+      </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 20</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="8. Quick Revision Sheet" data-sec-index="7">
-        <h2 id="revision-sheet">8. Quick Revision Sheet</h2>
-        <div class="staging-body">
-          
-        
-
-        <div class="table-container">
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><h2 id="revision-sheet">8. Quick Revision Sheet</h2><div class="table-container">
           <table class="notes-table hand-table">
             <thead>
               <tr>
@@ -669,32 +735,27 @@ setFormData(prev =&gt; ({
               </tr>
             </tbody>
           </table>
+        </div><h2 id="exam-questions">9. Important Exam Questions &amp; Practice</h2><p class="section-lead">The following conceptual questions and verified code tracing problems cover essential university examination patterns for <strong>ISAEC594 (Front End Development using ReactJS)</strong>:</p><h3 class="subsection-title">2-Mark Conceptual Questions</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 20</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="exam-questions" data-sec-title="9. Important Exam Questions &amp; Practice" data-sec-index="8">
-        <h2 id="exam-questions">9. Important Exam Questions &amp; Practice</h2>
-        <div class="staging-body">
-          
-        
-        <p class="section-lead">The following conceptual questions and verified code tracing problems cover essential university examination patterns for <strong>ISAEC594 (Front End Development using ReactJS)</strong>:</p>
-
-        <h3 class="subsection-title">2-Mark Conceptual Questions</h3>
-
-        <!-- Q1 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">1. What is a SyntheticEvent in React and why does React use it?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -704,19 +765,14 @@ setFormData(prev =&gt; ({
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">2. Distinguish between Controlled and Uncontrolled components in React forms.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -728,19 +784,14 @@ setFormData(prev =&gt; ({
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q3 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">3. Why must `e.preventDefault()` be called in a form submit handler in React?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -749,19 +800,27 @@ setFormData(prev =&gt; ({
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 20</span>
         </div>
-
-        <!-- Q4 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">4. How do ES6 computed property names enable a single handler to manage multiple form inputs?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -770,19 +829,14 @@ setFormData(prev =&gt; ({
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q5 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">5. Why can sibling components in React not share state directly with one another?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -791,21 +845,27 @@ setFormData(prev =&gt; ({
           </div>
         </div>
           </div>
+        </div><h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 20</span>
         </div>
-
-        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
-
-        <!-- Q6 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">10 MARKS</span>
             <span class="q-title">6. Explain the architectural pattern of 'Lifting State Up' in detail with a diagram and code walkthrough.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -821,19 +881,27 @@ setFormData(prev =&gt; ({
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 20</span>
         </div>
-
-        <!-- Q7 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">5 MARKS</span>
             <span class="q-title">7. Write a complete React controlled component handling multiple inputs (text, email, select, checkbox) using a single handleChange method.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -876,23 +944,29 @@ export default function RegistrationForm() {
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 20</span>
         </div>
-
-        <h3 class="subsection-title">Verified Code Tracing &amp; Practice Problems</h3>
-
-        <!-- Practice 1 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><h3 class="subsection-title">Verified Code Tracing &amp; Practice Problems</h3><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 1 • SYNTHETICEVENT PREVENTDEFAULT SIMULATION</span>
           </div>
           <h4 class="problem-title">Trace the execution of <code>submitEvent.preventDefault()</code> and explain how it prevents browser reload in Single Page Applications.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -914,21 +988,29 @@ export default function RegistrationForm() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 20</span>
         </div>
-
-        <!-- Practice 2 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 2 • MULTI-FIELD STATE COMPUTED PROPERTY TRACE</span>
           </div>
           <h4 class="problem-title">Trace state transitions for initial state: <code>{ fullName: "", semester: "5", agreedToTerms: false }</code> when updating name to "Aditi Rao", semester to "6", and agreedToTerms to true.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -947,21 +1029,29 @@ export default function RegistrationForm() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 20</span>
         </div>
-
-        <!-- Practice 3 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-18">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 3 • TEMPERATURE CONVERSION FORMULAS</span>
           </div>
           <h4 class="problem-title">Verify conversion output: (a) 100°C to Fahrenheit, (b) 32°F to Celsius, and (c) 98.6°F to Celsius.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -976,21 +1066,16 @@ export default function RegistrationForm() {
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- Practice 4 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 4 • CHECKBOX VALUE VS CHECKED ATTRIBUTE</span>
           </div>
           <h4 class="problem-title">Why does reading <code>e.target.value</code> from an HTML checkbox cause a bug in React? What is the correct property?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1001,21 +1086,29 @@ export default function RegistrationForm() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 18 of 20</span>
         </div>
-
-        <!-- Practice 5 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-19">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">9. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 5 • TRYCONVERT ROBUST ERROR HANDLING</span>
           </div>
           <h4 class="problem-title">Write the implementation of <code>tryConvert(temperature, convertFn)</code> that handles empty strings, non-numeric inputs, and rounds to 3 decimal places.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1033,21 +1126,29 @@ export default function RegistrationForm() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 19 of 20</span>
         </div>
-
-        <!-- Practice 6 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-20">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 3</span>
+          <span class="header-right">10. Prescribed References</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 6 • CONTROLLED COMPONENT WARNING FIX</span>
           </div>
           <h4 class="problem-title">Explain the console warning: <em>"A component is changing an uncontrolled input to be controlled"</em> and show how to fix it.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1062,18 +1163,7 @@ const [name, setName] = useState("");</code></pre>
           </div>
           </div>
         </div>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-references" data-sec-title="10. Prescribed References" data-sec-index="9">
-        <h2 id="sec-references">10. Prescribed References</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-note hand-card card-example"><div class="hand-badge">Course Reference Literature</div>
+        </div><h2 id="sec-references">10. Prescribed References</h2><div class="callout callout-note hand-card card-example"><div class="hand-label label-example">Course Reference Literature:</div>
           
           <ol>
             <li><strong>Chris Minnick</strong>, <em>Beginning ReactJS Foundations: Building User Interfaces with ReactJS - An Approachable Guide</em>, Wiley, 2022. (Chapters 7 &amp; 8: Events and Forms).</li>
@@ -1081,12 +1171,11 @@ const [name, setName] = useState("");</code></pre>
             <li><strong>React Official Documentation</strong>: <a href="https://react.dev" target="_blank" rel="noopener">https://react.dev</a>.</li>
           </ol>
           <p class="exam-disclaimer"><em>AI-assisted study notes written from the official courseware. Verify against the prescribed textbook before the exam.</em></p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 20 of 20</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

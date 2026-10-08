@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IS52 Unit 3 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Kalam', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #172554;
       --ink-dark: #0f172a;
     }
@@ -27,28 +26,114 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-1" data-sec-title="Architectural Design Decisions &amp; Non-Functional Influences" data-sec-index="0">
-        <h2 id="sec-1">Architectural Design Decisions &amp; Non-Functional Influences</h2>
-        <div class="staging-body">
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/se" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">IS52 Unit 3 · Handwritten Notebook</span>
+    <a href="se-unit3-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">IS52 · Software Engineering</div>
+          <h1 class="cover-title">Unit 3: Architectural Design &amp; Object-Oriented Implementation</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
+        </div>
+
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
           
-        <div class="section-badge">§ 1</div>
-        
+          
+            Architectural Design Decisions: Architectural design process, non-functional influences (performance, security, safety, availability, maintainability).
+            Architectural Views: Kruchten's 4+1 View Model (Logical view, Process view, Development v...</p>
+        </div>
 
-        <p class="section-lead"><strong>Software Architecture</strong> is the fundamental structure of a software system, comprising software components, the externally visible properties of those components, and the relationships among them. Architectural design is the critical link between requirements and detailed module design.</p>
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>Architectural Design Decisions &amp; Non-Functional Influences</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Kruchten's 4+1 View Model of Software Architecture</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Architectural Patterns: MVC &amp; Layered Architecture</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 3</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Repository, Client-Server &amp; Pipe-and-Filter Architectures</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Application Architectures: Language Processing Systems</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Object-Oriented Design Using UML</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 6</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Gang of Four (GoF) Design Patterns: Singleton &amp; Observer</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 7</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Open Source Licensing Models</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 7</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>One-Page Rapid Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 8</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Questions Asked in Past CIE &amp; SEE Papers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Practice Problems with Hidden Answers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 12</span>
+        </li>
+      </ul>
+        </div>
 
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">WHY SOFTWARE ARCHITECTURE MATTERS</div>
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Kruchten's 4+1 View Model of Software Architecture</span>
+        </div>
+        <div class="page-content"><h2 id="sec-1">Architectural Design Decisions &amp; Non-Functional Influences</h2><div class="section-badge">§ 1</div><p class="section-lead"><strong>Software Architecture</strong> is the fundamental structure of a software system, comprising software components, the externally visible properties of those components, and the relationships among them. Architectural design is the critical link between requirements and detailed module design.</p><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">WHY SOFTWARE ARCHITECTURE MATTERS:</div>
           
           <ol>
             <li><strong>Stakeholder Communication:</strong> Represents a high-level abstraction understandable by non-technical clients, managers, and engineers.</li>
             <li><strong>System Analysis:</strong> Determines whether the system can meet critical non-functional requirements (performance, reliability, security).</li>
             <li><strong>Large-Scale Reuse:</strong> Architectural styles and patterns can be reused across an entire product line or company portfolio.</li>
           </ol>
-        </div>
-
-        <h3>Non-Functional Quality Attributes Influencing Architecture</h3>
-        <div class="table-container">
+        </div><h3>Non-Functional Quality Attributes Influencing Architecture</h3><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -79,22 +164,20 @@
               </tr>
             </tbody>
           </table>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Architectural Patterns: MVC &amp; Layered Architecture</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-2" data-sec-title="Kruchten's 4+1 View Model of Software Architecture" data-sec-index="1">
-        <h2 id="sec-2">Kruchten's 4+1 View Model of Software Architecture</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 2</div>
-        
-
-        <p class="section-lead">Because a single architectural diagram cannot capture all stakeholder concerns, Philippe Kruchten proposed the <strong>4+1 View Model</strong> to depict architecture from five distinct perspectives.</p>
-
-        <div class="table-container">
+        <div class="page-content"><h2 id="sec-2">Kruchten's 4+1 View Model of Software Architecture</h2><div class="section-badge">§ 2</div><p class="section-lead">Because a single architectural diagram cannot capture all stakeholder concerns, Philippe Kruchten proposed the <strong>4+1 View Model</strong> to depict architecture from five distinct perspectives.</p><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -137,24 +220,20 @@
               </tr>
             </tbody>
           </table>
+        </div><h2 id="sec-3">Architectural Patterns: MVC &amp; Layered Architecture</h2><div class="section-badge">§ 3</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Repository, Client-Server &amp; Pipe-and-Filter Architectures</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-3" data-sec-title="Architectural Patterns: MVC &amp; Layered Architecture" data-sec-index="2">
-        <h2 id="sec-3">Architectural Patterns: MVC &amp; Layered Architecture</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 3</div>
-        
-
-        <p class="section-lead">An <strong>architectural pattern</strong> is a stylized description of good design practice, tried and tested in different operational environments.</p>
-
-        <h3>1. Model-View-Controller (MVC)</h3>
-        <p>Decouples data presentation from the underlying business logic and user input handling.</p>
-        <div class="svg-card" style="margin: 1.5rem 0;">
+        <div class="page-content"><p class="section-lead">An <strong>architectural pattern</strong> is a stylized description of good design practice, tried and tested in different operational environments.</p><h3>1. Model-View-Controller (MVC)</h3><p>Decouples data presentation from the underlying business logic and user input handling.</p><div class="svg-card" style="margin: 1.5rem 0;">
           <div class="svg-title">MVC Architectural Interaction</div>
           <svg viewBox="0 0 720 240" width="100%" height="240" role="img" aria-label="MVC Architecture">
             <rect x="30" y="40" width="180" height="70" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5"></rect>
@@ -175,23 +254,20 @@
             <line x1="450" y1="135" x2="510" y2="85" stroke="var(--brand)" stroke-width="1.8"></line>
             <text x="490" y="105" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)">notifies</text>
           </svg>
+        </div><h2 id="sec-4">Repository, Client-Server &amp; Pipe-and-Filter Architectures</h2><div class="section-badge">§ 4</div><p class="section-lead">Different sub-systems communicate either via shared storage (Repository) or via direct streaming pipelines (Pipe-and-Filter).</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Application Architectures: Language Processing Systems</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-4" data-sec-title="Repository, Client-Server &amp; Pipe-and-Filter Architectures" data-sec-index="3">
-        <h2 id="sec-4">Repository, Client-Server &amp; Pipe-and-Filter Architectures</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 4</div>
-        
-
-        <p class="section-lead">Different sub-systems communicate either via shared storage (Repository) or via direct streaming pipelines (Pipe-and-Filter).</p>
-
-        <!-- Figure 3.1: Layered Architecture vs Repository Architecture -->
-        <div class="svg-card" style="margin: 1.5rem 0;">
+        <div class="page-content"><div class="svg-card" style="margin: 1.5rem 0;">
           <div class="svg-title">Figure 3.1: Layered Architecture vs Repository Architecture (Ramaiah CIE-2 Dec 2025 Q1.a)</div>
 <svg viewBox="0 0 780 390" width="100%" height="390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Layered Architecture vs Repository Architecture Comparison">
   <defs>
@@ -285,9 +361,7 @@
     <text x="175" y="300" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">All tools communicate strictly through shared repository</text>
   </g>
 </svg>
-        </div>
-
-        <div class="table-container">
+        </div><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -309,23 +383,20 @@
               </tr>
             </tbody>
           </table>
+        </div><h2 id="sec-5">Application Architectures: Language Processing Systems</h2><div class="section-badge">§ 5</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Object-Oriented Design Using UML</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-5" data-sec-title="Application Architectures: Language Processing Systems" data-sec-index="4">
-        <h2 id="sec-5">Application Architectures: Language Processing Systems</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 5</div>
-        
-
-        <p class="section-lead">Application architectures are architectures for specific types of systems, such as Transaction Processing or Language Processing Systems (Compilers).</p>
-
-        <!-- Figure 3.2: Language Processing System Architecture -->
-        <div class="svg-card" style="margin: 1.5rem 0;">
+        <div class="page-content"><p class="section-lead">Application architectures are architectures for specific types of systems, such as Transaction Processing or Language Processing Systems (Compilers).</p><div class="svg-card" style="margin: 1.5rem 0;">
           <div class="svg-title">Figure 3.2: Architecture of a Language Processing System / Compiler Pipeline (Ramaiah CIE-2 Dec 2025 Q2.a)</div>
 <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture of a Language Processing System">
   <defs>
@@ -432,9 +503,7 @@
 
   <text x="390" y="285" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Pipes-and-Filters Architectural Style • Each phase consumes intermediate representation and produces transformed output</text>
 </svg>
-        </div>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">COMPILER PIPELINE PHASES &amp; INTERMEDIATE DATA</div>
+        </div><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">COMPILER PIPELINE PHASES &amp; INTERMEDIATE DATA:</div>
           
           <ol>
             <li><strong>Lexical Analyzer (Lexer):</strong> Reads stream of source characters and groups them into <em>Tokens</em> (keywords, operators, identifiers).</li>
@@ -443,43 +512,20 @@
             <li><strong>Code Optimizer:</strong> Performs platform-independent transformations to minimize execution time and memory footprint.</li>
             <li><strong>Code Generator:</strong> Synthesizes target machine code or bytecode instructions.</li>
           </ol>
+        </div><h2 id="sec-6">Object-Oriented Design Using UML</h2><div class="section-badge">§ 6</div><p class="section-lead">Sommerville defines a standard 5-stage iterative process for object-oriented software engineering:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Open Source Licensing Models</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-6" data-sec-title="Object-Oriented Design Using UML" data-sec-index="5">
-        <h2 id="sec-6">Object-Oriented Design Using UML</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 6</div>
-        
-
-        <p class="section-lead">Sommerville defines a standard 5-stage iterative process for object-oriented software engineering:</p>
-        <ol class="styled-list">
-          <li><strong>Understand and define context and external interactions:</strong> System boundaries and use cases.</li>
-          <li><strong>Design the system architecture:</strong> Identify major layers and patterns (MVC, Layered).</li>
-          <li><strong>Identify the principal system objects:</strong> Use grammatical analysis of requirements nouns.</li>
-          <li><strong>Develop design models:</strong> Static structural class diagrams and dynamic sequence diagrams.</li>
-          <li><strong>Specify object interfaces:</strong> Formal method signatures, parameter types, and pre/post conditions.</li>
-        </ol>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-7" data-sec-title="Gang of Four (GoF) Design Patterns: Singleton &amp; Observer" data-sec-index="6">
-        <h2 id="sec-7">Gang of Four (GoF) Design Patterns: Singleton &amp; Observer</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 7</div>
-        
-
-        <p class="section-lead">Design patterns describe a recurring problem, its proven solution, and the trade-offs of applying it across three categories: Creational, Structural, and Behavioral.</p>
-
-        <!-- Figure 3.3: UML Class Diagrams for Singleton & Observer -->
-        <div class="svg-card" style="margin: 1.5rem 0;">
+        <div class="page-content"><ol start="1" class="styled-list"><li><strong>Understand and define context and external interactions:</strong> System boundaries and use cases.</li><li><strong>Design the system architecture:</strong> Identify major layers and patterns (MVC, Layered).</li><li><strong>Identify the principal system objects:</strong> Use grammatical analysis of requirements nouns.</li><li><strong>Develop design models:</strong> Static structural class diagrams and dynamic sequence diagrams.</li><li><strong>Specify object interfaces:</strong> Formal method signatures, parameter types, and pre/post conditions.</li></ol><h2 id="sec-7">Gang of Four (GoF) Design Patterns: Singleton &amp; Observer</h2><div class="section-badge">§ 7</div><p class="section-lead">Design patterns describe a recurring problem, its proven solution, and the trade-offs of applying it across three categories: Creational, Structural, and Behavioral.</p><div class="svg-card" style="margin: 1.5rem 0;">
           <div class="svg-title">Figure 3.3: UML Class Diagrams for Singleton &amp; Observer Design Patterns (Ramaiah CIE-2 Dec 2025 Q3.a)</div>
 <svg viewBox="0 0 780 380" width="100%" height="380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UML Class Diagrams for Observer and Singleton Design Patterns">
   <defs>
@@ -579,22 +625,20 @@
     <text x="220" y="285" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Decoupled 1-to-many dependency: Subject notifies all registered observers automatically.</text>
   </g>
 </svg>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">One-Page Rapid Revision Sheet</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-8" data-sec-title="Open Source Licensing Models" data-sec-index="7">
-        <h2 id="sec-8">Open Source Licensing Models</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 8</div>
-        
-
-        <p class="section-lead">Open-source software reuse requires strict compliance with license agreements governing redistribution and modifications.</p>
-
-        <div class="table-container">
+        <div class="page-content"><h2 id="sec-8">Open Source Licensing Models</h2><div class="section-badge">§ 8</div><p class="section-lead">Open-source software reuse requires strict compliance with license agreements governing redistribution and modifications.</p><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -621,82 +665,69 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="One-Page Rapid Revision Sheet" data-sec-index="8">
-        <h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">★ SUMMARY</div>
-        
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </div><h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2><div class="section-badge">★ SUMMARY</div><table class="data-table hand-table"><tr>
                 <th>Architecture / Pattern</th>
                 <th>Key Characteristics</th>
                 <th>Exam Key Point</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>4+1 View Model</strong></td>
                 <td>Logical, Process, Development, Physical + Use Cases</td>
                 <td>Kruchten's framework addressing multiple stakeholder concerns.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Layered Model</strong></td>
                 <td>Stacked abstraction levels, downward calls</td>
                 <td>Separation of concerns; performance cost of multi-tier hops.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Repository Model</strong></td>
                 <td>Central data store, passive or blackboard</td>
                 <td>Decoupled IDE tools; single point of failure and bottleneck.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Pipe-and-Filter</strong></td>
                 <td>Stream-oriented transformation stages</td>
                 <td>Compilers, Unix pipes; format transformation overhead.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 17</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Questions Asked in Past CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Architecture / Pattern</th>
+                <th>Key Characteristics</th>
+                <th>Exam Key Point</th>
+              </tr><tr>
                 <td><strong>Singleton Pattern</strong></td>
                 <td>Private constructor, single static instance</td>
                 <td><code>getInstance()</code> guarantees single database connection pool.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Observer Pattern</strong></td>
                 <td>Subject maintains list of observers, notifyAll()</td>
                 <td>Decoupled publish-subscribe; event-driven UI updates.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>GPL vs MIT</strong></td>
                 <td>GPL: strong copyleft (viral); MIT: permissive</td>
                 <td>GPL forces derivative code to be open source.</td>
-              </tr>
-            </tbody>
-          </table>
+              </tr></table><h2 id="questions-asked-before">Questions Asked in Past CIE &amp; SEE Papers</h2><div class="section-badge">█ ARCHIVE</div><p class="section-lead">The following authentic questions have been transcribed directly from official department examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code>:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Questions Asked in Past CIE &amp; SEE Papers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="questions-asked-before" data-sec-title="Questions Asked in Past CIE &amp; SEE Papers" data-sec-index="9">
-        <h2 id="questions-asked-before">Questions Asked in Past CIE &amp; SEE Papers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">█ ARCHIVE</div>
-        
-        <p class="section-lead">The following authentic questions have been transcribed directly from official department examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code>:</p>
-
-        <!-- CIE-2 Q1.a -->
-        <div class="archive-item">
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Autonomous Examination • CIE-2 (Dec 23, 2025) Q1.a</span>
             <span class="archive-marks">[4 Marks]</span>
@@ -721,10 +752,20 @@
               </li>
             </ol>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 17</span>
         </div>
-
-        <!-- CIE-2 Q2.a -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Questions Asked in Past CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Autonomous Examination • CIE-2 (Dec 23, 2025) Q2.a</span>
             <span class="archive-marks">[4 Marks]</span>
@@ -742,10 +783,20 @@
               <li><strong>Shared Services:</strong> All phases interface with the central <em>Symbol Table</em> (holding identifier types and memory offsets) and the <em>Error Handler</em> for graceful diagnostic recovery.</li>
             </ol>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 17</span>
         </div>
-
-        <!-- CIE-2 Q3.a -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Autonomous Examination • CIE-2 (Dec 23, 2025) Q3.a</span>
             <span class="archive-marks">[4 Marks]</span>
@@ -773,32 +824,29 @@
               </li>
             </ol>
           </div>
+        </div><h2 id="practice-problems">Practice Problems with Hidden Answers</h2><div class="section-badge">∇ PRACTICE</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="practice-problems" data-sec-title="Practice Problems with Hidden Answers" data-sec-index="10">
-        <h2 id="practice-problems">Practice Problems with Hidden Answers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">∇ PRACTICE</div>
-        
-
-        <!-- Problem 1 -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 1 • ARCHITECTURAL PATTERN SELECTION</span>
           </div>
           <h4 class="problem-title">Which architectural pattern is best suited for an Integrated Development Environment (IDE) like VS Code or Eclipse? Justify your choice.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -812,21 +860,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 17</span>
         </div>
-
-        <!-- Problem 2 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 2 • OBSERVER PATTERN IN EVENT SYSTEMS</span>
           </div>
           <h4 class="problem-title">In an online multiplayer game, when a player character's health reaches 0, the audio engine plays a sound, the UI displays "Game Over", and the leaderboard updates. Which GoF pattern should be used?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -841,21 +897,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 17</span>
         </div>
-
-        <!-- Problem 3 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 3 • SINGLETON PATTERN INVARIANTS</span>
           </div>
           <h4 class="problem-title">Explain why a class constructor must be declared <code>private</code> in the Singleton design pattern. What happens if multiple threads invoke <code>getInstance()</code> simultaneously?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -867,21 +931,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 17</span>
         </div>
-
-        <!-- Problem 4 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 4 • COMPILER PIPELINE PHASE ORDERING</span>
           </div>
           <h4 class="problem-title">In a Language Processing System, arrange the following components in correct execution sequence: Code Generator, Lexical Analyzer, Syntax Analyzer, Semantic Analyzer, Code Optimizer.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -898,21 +970,16 @@
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- Problem 5 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 5 • 4+1 VIEW MODEL MATCHING</span>
           </div>
           <h4 class="problem-title">Match each architectural concern to its corresponding Kruchten 4+1 View: (a) Database server network IP routing, (b) Java package compilation dependencies, (c) Multithreaded deadlocks.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -925,21 +992,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 17</span>
         </div>
-
-        <!-- Problem 6 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 3</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 6 • OPEN SOURCE LICENSING: MIT VS GPL</span>
           </div>
           <h4 class="problem-title">A software startup wants to build a commercial, proprietary closed-source product. Can they legally include code licensed under: (a) MIT License? (b) GNU General Public License (GPL)? Explain.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -951,12 +1026,11 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 17</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

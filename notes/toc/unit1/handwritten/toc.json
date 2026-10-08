@@ -17,46 +17,46 @@
   {
     "id": "sec-nfa",
     "title": "Nondeterministic Finite Automata (NFA)",
-    "page": 7
+    "page": 5
   },
   {
     "id": "sec-epsilon-nfa",
     "title": "ϵϵϵ-NFA & ϵϵϵ-Closure",
-    "page": 8
+    "page": 6
   },
   {
     "id": "sec-subset-construction",
     "title": "Equivalence of DFA and NFA: Subset Construction Algorithm",
-    "page": 8
+    "page": 6
   },
   {
     "id": "sec-epsilon-to-dfa",
     "title": "Conversion of ϵϵϵ-NFA to DFA",
-    "page": 12
+    "page": 7
   },
   {
     "id": "sec-fa-applications",
     "title": "Real-World Applications of Finite Automata",
-    "page": 12
+    "page": 8
   },
   {
     "id": "sec-revision-sheet",
     "title": "Unit 1 Quick Revision Sheet",
-    "page": 13
+    "page": 8
   },
   {
     "id": "sec-important-questions",
     "title": "Important Exam Questions",
-    "page": 14
+    "page": 9
   },
   {
     "id": "sec-questions-asked-before",
     "title": "Solved Questions from Past CIE-1 & SEE Examination Papers",
-    "page": 16
+    "page": 10
   },
   {
     "id": "sec-practice-problems",
     "title": "Practice Problems with Step-by-Step Solutions",
-    "page": 20
+    "page": 13
   }
 ]

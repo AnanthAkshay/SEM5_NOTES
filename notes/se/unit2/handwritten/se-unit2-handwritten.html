@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IS52 Unit 2 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Kalam', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #172554;
       --ink-dark: #0f172a;
     }
@@ -27,73 +26,153 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-1" data-sec-title="Functional vs Non-Functional Requirements" data-sec-index="0">
-        <h2 id="sec-1">Functional vs Non-Functional Requirements</h2>
-        <div class="staging-body">
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/se" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">IS52 Unit 2 · Handwritten Notebook</span>
+    <a href="se-unit2-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">IS52 · Software Engineering</div>
+          <h1 class="cover-title">Unit 2: Requirements Engineering &amp; System Modeling</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
+        </div>
+
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
           
-        <div class="section-badge">§ 1</div>
-        
+          
+            Requirements Engineering: Functional vs non-functional requirements, product, organizational, and external requirements, NFR metrics.
+            The Software Requirements Document: Structure of the SRS, IEEE 830 standard guidelines, users of an SRS.
+  ...</p>
+        </div>
 
-        <p class="section-lead">A <strong>software requirement</strong> is a condition or capability needed by a user to solve a problem or achieve an objective. Requirements range from high-level abstract statements of service to detailed formal mathematical specifications.</p>
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>Functional vs Non-Functional Requirements</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>The Software Requirements Specification (SRS) &amp; IEEE 830</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 3</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Requirements Engineering Processes &amp; Traceability (RTM)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Context &amp; Interaction Models: Use Case Diagrams</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Interaction Models: Sequence Diagrams</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 6</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Structural Models: UML Class Diagrams</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 7</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Behavioral Models: Activity &amp; State Machine Diagrams</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 8</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Model-Driven Engineering (MDE &amp; MDA)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 8</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>One-Page Rapid Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Questions Asked in Past CIE &amp; SEE Papers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Practice Problems with Hidden Answers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 13</span>
+        </li>
+      </ul>
+        </div>
 
-        <h3>1. Functional Requirements</h3>
-        <p>Statements of services the system should provide, how the system should react to particular inputs, and how the system should behave in particular situations. (In some cases, they also state what the system should <em>not</em> do).</p>
-        <p><em>Example:</em> "The system shall allow students to search for courses by department, course code, or instructor name."</p>
-
-        <h3>2. Non-Functional Requirements (NFRs)</h3>
-        <p>Constraints on the services or functions offered by the system. They include timing constraints, constraints on the development process, standards, security policies, and performance targets.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Functional vs Non-Functional Requirements</span>
+        </div>
+        <div class="page-content"><h2 id="sec-1">Functional vs Non-Functional Requirements</h2><div class="section-badge">§ 1</div><p class="section-lead">A <strong>software requirement</strong> is a condition or capability needed by a user to solve a problem or achieve an objective. Requirements range from high-level abstract statements of service to detailed formal mathematical specifications.</p><h3>1. Functional Requirements</h3><p>Statements of services the system should provide, how the system should react to particular inputs, and how the system should behave in particular situations. (In some cases, they also state what the system should <em>not</em> do).</p><p><em>Example:</em> "The system shall allow students to search for courses by department, course code, or instructor name."</p><h3>2. Non-Functional Requirements (NFRs)</h3><p>Constraints on the services or functions offered by the system. They include timing constraints, constraints on the development process, standards, security policies, and performance targets.</p><table class="data-table hand-table"><tr>
                 <th>Classification</th>
                 <th>Sub-Category</th>
                 <th>Engineering Definition &amp; Concrete Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td rowspan="3"><strong>Product Requirements</strong><br>(Constrain runtime behavior)</td>
                 <td><strong>Performance / Speed</strong></td>
                 <td>The system shall render search query results in less than 0.5 seconds under a load of 1,000 concurrent queries.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Reliability &amp; Availability</strong></td>
                 <td>The system shall maintain an uptime availability of <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>99.9</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">99.9\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord">99.9%</span></span></span></span></span>, with Mean Time Between Failures (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>MTBF</mtext></mrow><annotation encoding="application/x-tex">\text{MTBF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord text"><span class="mord">MTBF</span></span></span></span></span></span>) <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>720</mn><mtext>&nbsp;hours</mtext></mrow><annotation encoding="application/x-tex">\ge 720\text{ hours}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7719em; vertical-align: -0.136em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">720</span><span class="mord text"><span class="mord">&nbsp;hours</span></span></span></span></span></span>.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Security &amp; Usability</strong></td>
                 <td>All stored passwords shall be hashed using bcrypt (cost 12); user interface shall comply with WCAG 2.1 AA accessibility guidelines.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td rowspan="2"><strong>Organizational Requirements</strong><br>(Constrain policies &amp; processes)</td>
                 <td><strong>Development Standards</strong></td>
                 <td>All backend services must be written in Java 17 and follow the Google Java Style Guide with 80% test coverage.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Delivery &amp; Operational</strong></td>
                 <td>The system must be containerized using Docker and deployable onto Kubernetes clusters.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 17</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">The Software Requirements Specification (SRS) &amp; IEEE 830</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Classification</th>
+                <th>Sub-Category</th>
+                <th>Engineering Definition &amp; Concrete Example</th>
+              </tr><tr>
                 <td rowspan="2"><strong>External Requirements</strong><br>(Arise from external factors)</td>
                 <td><strong>Regulatory / Privacy</strong></td>
                 <td>Patient medical data must comply with HIPAA regulations and GDPR data erasure guidelines.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Ethical / Legal</strong></td>
                 <td>The system shall not collect geographic location data without explicit, opt-in consent from the user.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Quantifying Non-Functional Requirements with Metrics</h3>
-        <p>Requirements engineers must state non-functional constraints quantitatively so that verification can be objectively tested:</p>
-
-        <div class="table-container">
+              </tr></table><h3>Quantifying Non-Functional Requirements with Metrics</h3><p>Requirements engineers must state non-functional constraints quantitatively so that verification can be objectively tested:</p><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -128,48 +207,32 @@
               </tr>
             </tbody>
           </table>
+        </div><h2 id="sec-2">The Software Requirements Specification (SRS) &amp; IEEE 830</h2><div class="section-badge">§ 2</div><p class="section-lead">The <strong>SRS</strong> is the official statement of what system developers must implement. It serves as a contract between system customers and software developers.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Requirements Engineering Processes &amp; Traceability (RTM)</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-2" data-sec-title="The Software Requirements Specification (SRS) &amp; IEEE 830" data-sec-index="1">
-        <h2 id="sec-2">The Software Requirements Specification (SRS) &amp; IEEE 830</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 2</div>
-        
-
-        <p class="section-lead">The <strong>SRS</strong> is the official statement of what system developers must implement. It serves as a contract between system customers and software developers.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                 <th>IEEE 830 Section</th>
                 <th>Standard Contents &amp; Engineering Purpose</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>1. Introduction</strong></td>
                 <td>1.1 Purpose, 1.2 Scope of the product, 1.3 Definitions, acronyms, and abbreviations, 1.4 References, 1.5 Overview of document layout.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>2. Overall Description</strong></td>
                 <td>2.1 Product perspective (relation to other systems), 2.2 Product functions summary, 2.3 User characteristics, 2.4 General constraints, 2.5 Assumptions and dependencies.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>3. Specific Requirements</strong></td>
                 <td>External interfaces (UI, hardware, software, communications), Detailed Functional Requirements, Performance constraints, Design constraints, Security, Software system attributes.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Attributes of a High-Quality SRS</h3>
-        <ul class="styled-list">
+              </tr></table><h3>Attributes of a High-Quality SRS</h3><ul class="styled-list">
           <li><strong>Correctness:</strong> Every requirement accurately reflects real stakeholder needs.</li>
           <li><strong>Unambiguous:</strong> Each requirement has exactly one clear interpretation across all readers.</li>
           <li><strong>Complete:</strong> All significant requirements (functional, quality, constraints) are fully stated.</li>
@@ -177,23 +240,20 @@
           <li><strong>Verifiable:</strong> A cost-effective test or demonstration can prove the software satisfies the requirement.</li>
           <li><strong>Modifiable:</strong> Structure allows changes to be made easily and consistently.</li>
           <li><strong>Traceable:</strong> The origin of each requirement is clear, and forward references to design/tests exist.</li>
-        </ul>
-      
+        </ul><h2 id="sec-3">Requirements Engineering Processes &amp; Traceability (RTM)</h2><div class="section-badge">§ 3</div><p class="section-lead">Requirements engineering is an iterative, spiral process comprising four interdependent activities: Elicitation, Analysis, Specification, and Validation, under continuous Requirements Management.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 17</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-3" data-sec-title="Requirements Engineering Processes &amp; Traceability (RTM)" data-sec-index="2">
-        <h2 id="sec-3">Requirements Engineering Processes &amp; Traceability (RTM)</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 3</div>
-        
-
-        <p class="section-lead">Requirements engineering is an iterative, spiral process comprising four interdependent activities: Elicitation, Analysis, Specification, and Validation, under continuous Requirements Management.</p>
-
-        <!-- Figure 2.3: Requirements Engineering Process Flow -->
-        <div class="svg-card" style="margin: 1.5rem 0;">
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Context &amp; Interaction Models: Use Case Diagrams</span>
+        </div>
+        <div class="page-content"><div class="svg-card" style="margin: 1.5rem 0;">
           <div class="svg-title">Figure 2.3: Requirements Engineering Process Flow &amp; RTM Governance (Sommerville Ch. 4)</div>
 <svg viewBox="0 0 780 320" width="100%" height="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Requirements Engineering Process Flow with Feedback Loops">
   <defs>
@@ -276,29 +336,20 @@
     <text x="20" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">Links initial user needs → SRS specification items → design modules → executable verification test cases.</text>
   </g>
 </svg>
+        </div><h3>Requirements Traceability Matrix (RTM)</h3><p>An <strong>RTM</strong> is a grid that establishes forward and backward traceability between user needs, functional requirements, architectural components, and automated test cases.</p><h2 id="sec-4">Context &amp; Interaction Models: Use Case Diagrams</h2><div class="section-badge">§ 4</div><p class="section-lead"><strong>System modeling</strong> uses graphical notations (principally the Unified Modeling Language - UML) to represent different perspectives of a system: <em>External context</em>, <em>Interaction</em>, <em>Structural</em>, and <em>Behavioral</em>.</p><h3>Use Case Modeling</h3><p>A <strong>Use Case</strong> describes an interaction between the system and external actors (humans or external hardware/software systems). Actors are represented by stick figures, use cases by horizontal ellipses, and relationships by solid or dashed arrows.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 17</span>
         </div>
-
-        <h3>Requirements Traceability Matrix (RTM)</h3>
-        <p>An <strong>RTM</strong> is a grid that establishes forward and backward traceability between user needs, functional requirements, architectural components, and automated test cases.</p>
-      
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Interaction Models: Sequence Diagrams</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-4" data-sec-title="Context &amp; Interaction Models: Use Case Diagrams" data-sec-index="3">
-        <h2 id="sec-4">Context &amp; Interaction Models: Use Case Diagrams</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 4</div>
-        
-
-        <p class="section-lead"><strong>System modeling</strong> uses graphical notations (principally the Unified Modeling Language - UML) to represent different perspectives of a system: <em>External context</em>, <em>Interaction</em>, <em>Structural</em>, and <em>Behavioral</em>.</p>
-
-        <h3>Use Case Modeling</h3>
-        <p>A <strong>Use Case</strong> describes an interaction between the system and external actors (humans or external hardware/software systems). Actors are represented by stick figures, use cases by horizontal ellipses, and relationships by solid or dashed arrows.</p>
-
-        <!-- Figure 2.1: Library Management System Use Case Diagram -->
-        <div class="svg-card" style="margin: 1.5rem 0;">
+        <div class="page-content"><div class="svg-card" style="margin: 1.5rem 0;">
           <div class="svg-title">Figure 2.1: Library Management System Use Case Diagram (Ramaiah CIE-1 Oct 2025 Q3.b)</div>
 <svg viewBox="0 0 780 420" width="100%" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Use Case Diagram for Library Management System showing Member and Librarian actors">
   <defs>
@@ -406,31 +457,26 @@
   <rect x="350" y="222" width="60" height="14" rx="3" fill="var(--surface)"></rect>
   <text x="380" y="232" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">«extend»</text>
 </svg>
-        </div>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">INCLUDE VS EXTEND RELATIONSHIPS IN USE CASES</div>
+        </div><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">INCLUDE VS EXTEND RELATIONSHIPS IN USE CASES:</div>
           
           <ul>
             <li><strong><code>&lt;&lt;include&gt;&gt;</code>:</strong> Mandatory behavior. The base use case <em>always</em> executes the included use case as an essential sub-step (e.g., <em>Borrow Book</em> <code>&lt;&lt;include&gt;&gt;</code> <em>Validate Member Identity</em>).</li>
             <li><strong><code>&lt;&lt;extend&gt;&gt;</code>:</strong> Optional / Conditional behavior. The extension use case is executed <em>only under specific circumstances</em> governed by an extension point (e.g., <em>Return Book</em> <code>&lt;&lt;extend&gt;&gt;</code> <em>Calculate &amp; Collect Fine</em> when loan period &gt; 14 days).</li>
           </ul>
+        </div><h2 id="sec-5">Interaction Models: Sequence Diagrams</h2><div class="section-badge">§ 5</div><p class="section-lead">A <strong>Sequence Diagram</strong> models the dynamic interaction between objects in a use case by depicting the chronological exchange of messages along vertical <strong>lifelines</strong>.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Structural Models: UML Class Diagrams</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-5" data-sec-title="Interaction Models: Sequence Diagrams" data-sec-index="4">
-        <h2 id="sec-5">Interaction Models: Sequence Diagrams</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 5</div>
-        
-
-        <p class="section-lead">A <strong>Sequence Diagram</strong> models the dynamic interaction between objects in a use case by depicting the chronological exchange of messages along vertical <strong>lifelines</strong>.</p>
-
-        <!-- Figure 2.2: Sequence Diagram for Book Borrowing -->
-        <div class="svg-card" style="margin: 1.5rem 0;">
+        <div class="page-content"><div class="svg-card" style="margin: 1.5rem 0;">
           <div class="svg-title">Figure 2.2: Sequence Diagram for Book Borrowing &amp; Checkout Interaction</div>
 <svg viewBox="0 0 780 390" width="100%" height="390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sequence Diagram for Book Borrowing interaction">
   <defs>
@@ -512,9 +558,7 @@
   <line x1="274" y1="295" x2="98" y2="295" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)"></line>
   <text x="180" y="289" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">8: displayCheckoutReceipt(loanId)</text>
 </svg>
-        </div>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">KEY SEQUENCE DIAGRAM NOTATIONS</div>
+        </div><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">KEY SEQUENCE DIAGRAM NOTATIONS:</div>
           
           <ul>
             <li><strong>Lifeline:</strong> Dashed vertical line representing the object's existence over time.</li>
@@ -522,128 +566,69 @@
             <li><strong>Synchronous Call:</strong> Solid line with filled arrow (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⟶</mo></mrow><annotation encoding="application/x-tex">\longrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.522em; vertical-align: -0.011em;"></span><span class="mrel">⟶</span></span></span></span></span>) blocking caller until return.</li>
             <li><strong>Reply / Return:</strong> Dashed line with open arrow (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇢</mo></mrow><annotation encoding="application/x-tex">\dashrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.437em;"></span><span class="mrel amsrm">⇢</span></span></span></span></span>) conveying computed return values.</li>
           </ul>
+        </div><h2 id="sec-6">Structural Models: UML Class Diagrams</h2><div class="section-badge">§ 6</div><p class="section-lead"><strong>Structural models</strong> show the organization and architecture of a system in terms of the components that make up that system and their relationships.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Model-Driven Engineering (MDE &amp; MDA)</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-6" data-sec-title="Structural Models: UML Class Diagrams" data-sec-index="5">
-        <h2 id="sec-6">Structural Models: UML Class Diagrams</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 6</div>
-        
-
-        <p class="section-lead"><strong>Structural models</strong> show the organization and architecture of a system in terms of the components that make up that system and their relationships.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                 <th>Relationship</th>
                 <th>UML Notation</th>
                 <th>Semantics &amp; Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Association</strong></td>
                 <td>Solid line (optional navigability arrow)</td>
                 <td>General structural relationship. <em>Teacher</em> teaches <em>Student</em>.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Aggregation</strong></td>
                 <td>Solid line with hollow diamond at container</td>
                 <td>Weak "has-a" relationship. Part can exist without whole. <em>Department</em> has <em>Professors</em>.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Composition</strong></td>
                 <td>Solid line with filled diamond at container</td>
                 <td>Strong "has-a" relationship. Part lifetime tied to whole. <em>Building</em> has <em>Rooms</em>.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Generalization</strong></td>
                 <td>Solid line with hollow triangular arrowhead</td>
                 <td>"Is-a" inheritance relationship. <em>CheckingAccount</em> is a <em>BankAccount</em>.</td>
-              </tr>
-            </tbody>
-          </table>
+              </tr></table><h2 id="sec-7">Behavioral Models: Activity &amp; State Machine Diagrams</h2><div class="section-badge">§ 7</div><p class="section-lead"><strong>Behavioral models</strong> capture what happens or what is supposed to happen when a system responds to a stimulus from its environment.</p><h3>1. Activity Diagrams</h3><p>Model the procedural flow of control from activity to activity. Swimlanes separate activities according to which subsystem or actor performs them.</p><h3>2. State Machine Diagrams (Statecharts)</h3><p>Show the system or object life cycle as a sequence of states triggered by external events. Standard notation: initial state (solid circle), states (rounded rectangles), transitions (arrows with <code>event [guard] / action</code>), final state (bullseye circle).</p><h2 id="sec-8">Model-Driven Engineering (MDE &amp; MDA)</h2><div class="section-badge">§ 8</div><p class="section-lead"><strong>Model-Driven Engineering (MDE)</strong> is an approach to software development where models, rather than programs, are the principal outputs of the development process.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Questions Asked in Past CIE &amp; SEE Papers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-7" data-sec-title="Behavioral Models: Activity &amp; State Machine Diagrams" data-sec-index="6">
-        <h2 id="sec-7">Behavioral Models: Activity &amp; State Machine Diagrams</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 7</div>
-        
-
-        <p class="section-lead"><strong>Behavioral models</strong> capture what happens or what is supposed to happen when a system responds to a stimulus from its environment.</p>
-
-        <h3>1. Activity Diagrams</h3>
-        <p>Model the procedural flow of control from activity to activity. Swimlanes separate activities according to which subsystem or actor performs them.</p>
-
-        <h3>2. State Machine Diagrams (Statecharts)</h3>
-        <p>Show the system or object life cycle as a sequence of states triggered by external events. Standard notation: initial state (solid circle), states (rounded rectangles), transitions (arrows with <code>event [guard] / action</code>), final state (bullseye circle).</p>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-8" data-sec-title="Model-Driven Engineering (MDE &amp; MDA)" data-sec-index="7">
-        <h2 id="sec-8">Model-Driven Engineering (MDE &amp; MDA)</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 8</div>
-        
-
-        <p class="section-lead"><strong>Model-Driven Engineering (MDE)</strong> is an approach to software development where models, rather than programs, are the principal outputs of the development process.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                 <th>Layer</th>
                 <th>Full Name</th>
                 <th>Role in Model-Driven Architecture (MDA)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>CIM</strong></td>
                 <td>Computation Independent Model</td>
                 <td>Models domain abstractions without software system concepts (business domain model).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>PIM</strong></td>
                 <td>Platform Independent Model</td>
                 <td>Models system operation and structure without reference to implementation technology.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>PSM</strong></td>
                 <td>Platform Specific Model</td>
                 <td>Transforms PIM by adding implementation-specific rules (e.g. Java Spring, PostgreSQL).</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="One-Page Rapid Revision Sheet" data-sec-index="8">
-        <h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">★ SUMMARY</div>
-        
-
-        <div class="table-container">
+              </tr></table><h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2><div class="section-badge">★ SUMMARY</div><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -695,22 +680,20 @@
               </tr>
             </tbody>
           </table>
+        </div><h2 id="questions-asked-before">Questions Asked in Past CIE &amp; SEE Papers</h2><div class="section-badge">█ ARCHIVE</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Questions Asked in Past CIE &amp; SEE Papers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="questions-asked-before" data-sec-title="Questions Asked in Past CIE &amp; SEE Papers" data-sec-index="9">
-        <h2 id="questions-asked-before">Questions Asked in Past CIE &amp; SEE Papers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">█ ARCHIVE</div>
-        
-        <p class="section-lead">The following authentic questions have been transcribed directly from official department examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code>:</p>
-
-        <!-- CIE-1 Q1.b -->
-        <div class="archive-item">
+        <div class="page-content"><p class="section-lead">The following authentic questions have been transcribed directly from official department examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code>:</p><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q1.b</span>
             <span class="archive-marks">[7 Marks]</span>
@@ -737,53 +720,53 @@
               </li>
             </ol>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 17</span>
         </div>
-
-        <!-- CIE-1 Q2.b -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q2.b</span>
-            <span class="archive-marks">[7 Marks]</span>
-          </div>
-          <p class="archive-q">"What are the common challenges faced during the requirements elicitation process? Discuss appropriate mitigation strategies for each."</p>
-          <div class="qa-answer" style="margin-top: 0.75rem; padding: 1rem; background: var(--surface-alt); border-radius: 8px;">
-            <p><strong>Official Model Solution:</strong></p>
-            <table class="data-table hand-table" style="font-size: 0.85rem; margin-top: 0.5rem;">
-              <thead>
-                <tr>
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Questions Asked in Past CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                   <th>Elicitation Challenge</th>
                   <th>Root Cause / Manifestation</th>
                   <th>Engineering Mitigation Strategy</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
+                </tr><tr>
                   <td><strong>Scope Creep &amp; Boundary Confusion</strong></td>
                   <td>Stakeholders request non-essential features, expanding system boundaries uncontrollably.</td>
                   <td>Establish a clear Project Charter with a Change Control Board (CCB) and MoSCoW prioritization.</td>
-                </tr>
-                <tr>
+                </tr><tr>
                   <td><strong>Tacit Knowledge / Articulation Gap</strong></td>
                   <td>Users know how to do their daily tasks but cannot articulate exact procedural steps.</td>
                   <td>Deploy Ethnography, on-site observation, and interactive user journey walkthroughs.</td>
-                </tr>
-                <tr>
+                </tr><tr>
                   <td><strong>Conflicting Stakeholder Needs</strong></td>
                   <td>Marketing, security, and finance departments place contradictory demands on system behavior.</td>
                   <td>Conduct joint requirements negotiation sessions with weighted objective matrices.</td>
-                </tr>
-                <tr>
+                </tr><tr>
                   <td><strong>Evolving / Volatile Requirements</strong></td>
                   <td>Market conditions and regulatory standards shift during development cycles.</td>
                   <td>Adopt Agile incremental sprints with short sprint review demos and living product backlogs.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 17</span>
         </div>
-
-        <!-- CIE-1 Q3.b -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Questions Asked in Past CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q3.b</span>
             <span class="archive-marks">[5 Marks]</span>
@@ -803,10 +786,20 @@
               </li>
             </ul>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 17</span>
         </div>
-
-        <!-- CIE-1 Q3.c -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Autonomous Examination • CIE-1 (Oct 28, 2025) Q3.c</span>
             <span class="archive-marks">[4 Marks]</span>
@@ -821,32 +814,29 @@
               <li><strong>Test-Case Generation:</strong> If a requirement is realistic and testable, writing an automated acceptance test case for it must be straightforward. Inability to formulate a clear test case indicates the requirement is vague or unachievable.</li>
             </ol>
           </div>
+        </div><h2 id="practice-problems">Practice Problems with Hidden Answers</h2><div class="section-badge">∇ PRACTICE</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 17</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="practice-problems" data-sec-title="Practice Problems with Hidden Answers" data-sec-index="10">
-        <h2 id="practice-problems">Practice Problems with Hidden Answers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">∇ PRACTICE</div>
-        
-
-        <!-- Problem 1 -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 1 • AVAILABILITY CALCULATION</span>
           </div>
           <h4 class="problem-title">A cloud server has an MTBF of 500 hours and an MTTR of 2 hours. Calculate its availability percentage and total expected annual downtime.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -859,21 +849,16 @@
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- Problem 2 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 2 • NFR CLASSIFICATION</span>
           </div>
           <h4 class="problem-title">Classify the following requirement according to Sommerville's 3-tier taxonomy: "The system must conform to ISO 9001 quality audit documentation guidelines."</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -883,21 +868,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 17</span>
         </div>
-
-        <!-- Problem 3 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 3 • REQUIREMENTS TRACEABILITY MATRIX (RTM)</span>
           </div>
           <h4 class="problem-title">In an audit of 6 system requirements, all 6 are successfully mapped to architectural modules and automated test cases. Calculate the Traceability Coverage and describe why backward traceability is vital.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -911,21 +904,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 17</span>
         </div>
-
-        <!-- Problem 4 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 4 • USE CASE INCLUDE VS EXTEND CRITERIA</span>
           </div>
           <h4 class="problem-title">An airline reservation system has a "Book Flight" use case and an "Opt for Travel Insurance" use case. Should the relationship be <code>&lt;&lt;include&gt;&gt;</code> or <code>&lt;&lt;extend&gt;&gt;</code>? Justify your answer.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -939,21 +940,16 @@
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- Problem 5 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 5 • SEQUENCE DIAGRAM ACTIVATION BAR DURATION</span>
           </div>
           <h4 class="problem-title">In a sequence diagram, object A sends a synchronous message to object B, which then queries object C. How should the activation bars on A, B, and C be drawn?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -966,21 +962,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 17</span>
         </div>
-
-        <!-- Problem 6 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 2</span>
+          <span class="header-right">Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 6 • MODEL-DRIVEN ARCHITECTURE (MDA)</span>
           </div>
           <h4 class="problem-title">Trace the transformation chain in Model-Driven Architecture (MDA) from initial requirements down to executable application code.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -997,12 +1001,11 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 17</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

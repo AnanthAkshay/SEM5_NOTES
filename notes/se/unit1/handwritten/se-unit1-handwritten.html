@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IS52 Unit 1 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Kalam', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #172554;
       --ink-dark: #0f172a;
     }
@@ -27,218 +26,277 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-1" data-sec-title="Professional Software Development &amp; Essential Attributes" data-sec-index="0">
-        <h2 id="sec-1">Professional Software Development &amp; Essential Attributes</h2>
-        <div class="staging-body">
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/se" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">IS52 Unit 1 · Handwritten Notebook</span>
+    <a href="se-unit1-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">IS52 · Software Engineering</div>
+          <h1 class="cover-title">Unit 1: Professional Software Development, Processes &amp; Agile</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
+        </div>
+
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
           
-        <div class="section-badge">§ 1</div>
-        
+          
+            Professional Software Development: Software engineering definition, attributes of good software (maintainability, dependability, efficiency, acceptability), engineering diversity.
+            Software Engineering Ethics: ACM/IEEE Code of Ethics 8 princi...</p>
+        </div>
 
-        <p class="section-lead"><strong>Software Engineering</strong> is an engineering discipline concerned with all aspects of software production from early system specification through to maintaining the system after it has gone into use.</p>
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>Professional Software Development &amp; Essential Attributes</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Software Engineering Ethics (ACM/IEEE Code)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 3</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Three Landmark Case Studies (Sommerville)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Software Process Models</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Coping with Change &amp; Boehm's Spiral Model</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 7</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Process Improvement &amp; The CMMI Framework</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Agile Software Development &amp; Extreme Programming (XP)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 10</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>The Scrum Framework, Sprint Velocity &amp; Burndown</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 11</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>One-Page Rapid Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 13</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Important Examination Questions</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 14</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 16</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Verified High-Yield Practice Problems</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 21</span>
+        </li>
+      </ul>
+        </div>
 
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">SOFTWARE ENGINEERING VS COMPUTER SCIENCE</div>
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Professional Software Development &amp; Essential Attributes</span>
+        </div>
+        <div class="page-content"><h2 id="sec-1">Professional Software Development &amp; Essential Attributes</h2><div class="section-badge">§ 1</div><p class="section-lead"><strong>Software Engineering</strong> is an engineering discipline concerned with all aspects of software production from early system specification through to maintaining the system after it has gone into use.</p><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">SOFTWARE ENGINEERING VS COMPUTER SCIENCE:</div>
           
           <ul>
             <li><strong>Computer Science:</strong> Concerned with theories, mathematical algorithms, and foundational computation principles.</li>
             <li><strong>Software Engineering:</strong> Concerned with the practical problems of producing software: economics, project management, customer collaboration, team development, toolchains, and quality assurance.</li>
           </ul>
-        </div>
-
-        <h3>The Four Essential Attributes of Good Software</h3>
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </div><h3>The Four Essential Attributes of Good Software</h3><table class="data-table hand-table"><tr>
                 <th>Attribute</th>
                 <th>Engineering Definition</th>
                 <th>Practical Significance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>1. Maintainability</strong></td>
                 <td>Software must be written in such a way that it can evolve to meet the changing needs of customers.</td>
                 <td>Over 70% of lifecycle software costs occur after initial delivery during maintenance and adaptation.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>2. Dependability &amp; Security</strong></td>
                 <td>Includes reliability, security, safety, and resilience. Software should not cause physical or economic damage in the event of system failure.</td>
                 <td>Essential for safety-critical medical devices, banking transactions, and aerospace control systems.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>3. Efficiency</strong></td>
                 <td>Software should not make wasteful use of system resources (memory, CPU processing cycles, network bandwidth).</td>
                 <td>Critical for battery-powered mobile devices and cloud microservices where compute costs scale with usage.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 27</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Software Engineering Ethics (ACM/IEEE Code)</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Attribute</th>
+                <th>Engineering Definition</th>
+                <th>Practical Significance</th>
+              </tr><tr>
                 <td><strong>4. Acceptability</strong></td>
                 <td>Software must be acceptable to the type of users for which it was designed: understandable, usable, and compatible with other systems.</td>
                 <td>Software with great architecture will still fail in the marketplace if the user experience is hostile.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="quick-recall-box">
+              </tr></table><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Software engineering focuses on practical, cost-effective delivery of reliable software.</li>
             <li>4 Essential Attributes: <strong>Maintainability, Dependability/Security, Efficiency, Acceptability</strong>.</li>
             <li>Maintenance constitutes the majority of the lifetime cost of software.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-2" data-sec-title="Software Engineering Ethics (ACM/IEEE Code)" data-sec-index="1">
-        <h2 id="sec-2">Software Engineering Ethics (ACM/IEEE Code)</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 2</div>
-        
-
-        <p class="section-lead">Software engineers do not simply apply technical skills; they carry ethical and social responsibilities. Software can directly impact human safety, privacy, and economic well-being. The joint <strong>ACM/IEEE-CS Code of Ethics</strong> establishes eight ethical principles.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </div><h2 id="sec-2">Software Engineering Ethics (ACM/IEEE Code)</h2><div class="section-badge">§ 2</div><p class="section-lead">Software engineers do not simply apply technical skills; they carry ethical and social responsibilities. Software can directly impact human safety, privacy, and economic well-being. The joint <strong>ACM/IEEE-CS Code of Ethics</strong> establishes eight ethical principles.</p><table class="data-table hand-table"><tr>
                 <th>Principle #</th>
                 <th>Principle Name</th>
                 <th>Core Ethical Mandate</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>1</strong></td>
                 <td><strong>PUBLIC</strong></td>
                 <td>Software engineers shall act consistently with the public interest, prioritizing safety, health, and welfare.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>2</strong></td>
                 <td><strong>CLIENT &amp; EMPLOYER</strong></td>
                 <td>Act in the best interests of their client and employer, consistent with the public interest.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>3</strong></td>
                 <td><strong>PRODUCT</strong></td>
                 <td>Ensure that products and related modifications meet the highest professional standards possible.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>4</strong></td>
                 <td><strong>JUDGMENT</strong></td>
                 <td>Maintain integrity and independence in their professional judgment; reject bribes or compromised audits.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 27</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Three Landmark Case Studies (Sommerville)</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Principle #</th>
+                <th>Principle Name</th>
+                <th>Core Ethical Mandate</th>
+              </tr><tr>
                 <td><strong>5</strong></td>
                 <td><strong>MANAGEMENT</strong></td>
                 <td>Managers and leaders shall subscribe to and promote an ethical approach to the management of software development.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>6</strong></td>
                 <td><strong>PROFESSION</strong></td>
                 <td>Advance the integrity and reputation of the profession consistent with the public interest.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>7</strong></td>
                 <td><strong>COLLEAGUES</strong></td>
                 <td>Be fair to and supportive of their colleagues; mentor junior engineers and credit intellectual contributions.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>8</strong></td>
                 <td><strong>SELF</strong></td>
                 <td>Participate in lifelong learning regarding the practice of their profession and promote an ethical approach.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="quick-recall-box">
+              </tr></table><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>ACM/IEEE Code of Ethics contains 8 principles.</li>
             <li>Top priority: <strong>Public interest ALWAYS supersedes client or employer demands!</strong></li>
             <li>Confidentiality, Competence, and Intellectual Property must be honored.</li>
           </ul>
+        </div><h2 id="sec-3">Three Landmark Case Studies (Sommerville)</h2><div class="section-badge">§ 3</div><p class="section-lead">Sommerville grounds software engineering principles in three diverse real-world systems, each illustrating different operational challenges.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 27</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Software Process Models</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-3" data-sec-title="Three Landmark Case Studies (Sommerville)" data-sec-index="2">
-        <h2 id="sec-3">Three Landmark Case Studies (Sommerville)</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 3</div>
-        
-
-        <p class="section-lead">Sommerville grounds software engineering principles in three diverse real-world systems, each illustrating different operational challenges.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                 <th>Case Study System</th>
                 <th>System Domain</th>
                 <th>Core Architectural &amp; Engineering Challenges</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>1. Insulin Pump Control System</strong></td>
                 <td>Embedded safety-critical medical device</td>
                 <td>
                   Monitors blood glucose levels and injects calculated micro-doses of insulin. <strong>Zero margin for error:</strong> overdosing induces hypoglycemic coma/death; underdosing causes organ failure. Requires formal verification, fault-tolerant fail-safe hardware backups, and rigorous plan-driven documentation.
                 </td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>2. Mentcare Mental Health System</strong></td>
                 <td>Information system / Clinical record database</td>
                 <td>
                   Maintains patient history and prescribed medications across regional mental health clinics. <strong>Primary challenge:</strong> balancing medical staff access in psychiatric emergencies with strict patient data privacy regulations (HIPAA/GDPR).
                 </td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>3. Wilderness Weather Station</strong></td>
                 <td>Distributed sensor data collection</td>
                 <td>
                   Autonomous weather sensor stations deployed in harsh, remote wilderness with solar/battery power and satellite communications. <strong>Primary challenge:</strong> power conservation, self-healing reboot mechanisms, dynamic reconfiguration, and autonomous sensor calibration without human intervention.
                 </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="quick-recall-box">
+              </tr></table><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Insulin Pump: Safety-critical, formal verification, fail-safe architecture.</li>
             <li>Mentcare: Information system, privacy regulations vs emergency usability.</li>
             <li>Wilderness Weather Station: Distributed, low power, autonomous fault recovery.</li>
           </ul>
+        </div><h2 id="sec-4">Software Process Models</h2><div class="section-badge">§ 4</div><p class="section-lead">A <strong>software process</strong> is a structured set of activities required to develop a software system. All processes involve four fundamental activities: <strong>Specification</strong> (defining requirements), <strong>Development</strong> (design and coding), <strong>Validation</strong> (testing), and <strong>Evolution</strong> (maintenance).</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 27</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Software Process Models</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-4" data-sec-title="Software Process Models" data-sec-index="3">
-        <h2 id="sec-4">Software Process Models</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 4</div>
-        
-
-        <p class="section-lead">A <strong>software process</strong> is a structured set of activities required to develop a software system. All processes involve four fundamental activities: <strong>Specification</strong> (defining requirements), <strong>Development</strong> (design and coding), <strong>Validation</strong> (testing), and <strong>Evolution</strong> (maintenance).</p>
-
-        
-        <!-- FIGURE 1.1: WATERFALL PROCESS MODEL -->
-        <figure class="diagram-card" id="fig-waterfall-model">
+        <div class="page-content"><figure class="diagram-card" id="fig-waterfall-model" data-atomic="true">
 <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Waterfall Process Model for Software Development">
   <defs>
     <marker id="wf-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -307,11 +365,7 @@
 </svg>
           <figcaption class="diagram-title">Figure 1.1: The Classical Waterfall Process Model with Downward Cascades (Sommerville • Ramaiah CIE-1 Q2.a)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Phases flow strictly in sequence: Requirements → System &amp; SW Design → Implementation &amp; Unit Testing → Integration &amp; System Testing → Operations &amp; Maintenance. Backtracking is cost-prohibitive in practice.</p>
-        </figure>
-
-        <h3>1. The Waterfall Model (Classic SDLC)</h3>
-        <p>A strictly plan-driven, sequential process where each phase must be signed off before the next phase begins:</p>
-        <div class="flow-steps">
+        </figure><h3>1. The Waterfall Model (Classic SDLC)</h3><p>A strictly plan-driven, sequential process where each phase must be signed off before the next phase begins:</p><div class="flow-steps">
           <div class="flow-step">
             <span class="step-num">1</span>
             <div><strong>Requirements Analysis &amp; Definition:</strong> System services, constraints, and goals established with users.</div>
@@ -332,53 +386,50 @@
             <span class="step-num">5</span>
             <div><strong>Operation &amp; Maintenance:</strong> System installed, put into practical use, and bugs fixed over time.</div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 27</span>
         </div>
-        <p><em>Strengths:</em> Highly structured, predictable documentation, clear milestones for contract management.<br>
-        <em>Weaknesses:</em> Inflexible partitioning; late integration; disaster strikes if requirements change halfway through.</p>
-
-        <h3>2. Incremental Development</h3>
-        <p>Specification, development, and validation are interleaved. The system is developed as a series of increments (versions), with each increment adding functional features to previous releases.</p>
-        <ul>
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Coping with Change &amp; Boehm's Spiral Model</span>
+        </div>
+        <div class="page-content"><p><em>Strengths:</em> Highly structured, predictable documentation, clear milestones for contract management.<br>
+        <em>Weaknesses:</em> Inflexible partitioning; late integration; disaster strikes if requirements change halfway through.</p><h3>2. Incremental Development</h3><p>Specification, development, and validation are interleaved. The system is developed as a series of increments (versions), with each increment adding functional features to previous releases.</p><ul>
           <li><strong>Advantages:</strong> Cost of accommodating changing customer requirements is greatly reduced; early feedback from working software; rapid delivery of useful functionality.</li>
           <li><strong>Disadvantages:</strong> Process is not visible (managers need documents to measure progress); system architecture tends to degrade as new increments are added unless refactored.</li>
-        </ul>
-
-        <h3>3. Reuse-Oriented Software Engineering (Integration &amp; Configuration)</h3>
-        <p>Relies on integrating existing Commercial Off-The-Shelf (COTS) software components, open-source libraries, or cloud web services rather than writing from scratch.</p>
-
-        <div class="quick-recall-box">
+        </ul><h3>3. Reuse-Oriented Software Engineering (Integration &amp; Configuration)</h3><p>Relies on integrating existing Commercial Off-The-Shelf (COTS) software components, open-source libraries, or cloud web services rather than writing from scratch.</p><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>4 Activities: Specification → Development → Validation → Evolution.</li>
             <li>Waterfall: sequential, rigid, document-driven, best for stable requirements (embedded/safety-critical).</li>
             <li>Incremental: interleaved, early feedback, lower risk of customer rejection.</li>
           </ul>
+        </div><h2 id="sec-5">Coping with Change &amp; Boehm's Spiral Model</h2><div class="section-badge">§ 5</div><p class="section-lead">Change is an inevitable reality in all software development. Software engineering processes incorporate two primary strategies to reduce the cost of rework: <strong>System Prototyping</strong> and <strong>Boehm's Spiral Model</strong>.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 27</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Coping with Change &amp; Boehm's Spiral Model</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-5" data-sec-title="Coping with Change &amp; Boehm's Spiral Model" data-sec-index="4">
-        <h2 id="sec-5">Coping with Change &amp; Boehm's Spiral Model</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 5</div>
-        
-
-        <p class="section-lead">Change is an inevitable reality in all software development. Software engineering processes incorporate two primary strategies to reduce the cost of rework: <strong>System Prototyping</strong> and <strong>Boehm's Spiral Model</strong>.</p>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">SYSTEM PROTOTYPING: THROWAWAY VS EVOLUTIONARY</div>
+        <div class="page-content"><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">SYSTEM PROTOTYPING: THROWAWAY VS EVOLUTIONARY:</div>
           
           <ul>
             <li><strong>Throwaway Prototyping:</strong> A quick prototype developed solely to clarify poorly understood requirements. Once requirements are clear, the prototype is discarded and the production system is engineered properly.</li>
             <li><strong>Evolutionary Prototyping:</strong> Starts with an initial working prototype that is repeatedly refined through customer feedback, eventually evolving into the final delivered product.</li>
           </ul>
-        </div>
-
-        
-        <!-- FIGURE 1.2: RUP 4 PHASES & MILESTONES -->
-        <figure class="diagram-card" id="fig-rup-model">
+        </div><figure class="diagram-card" id="fig-rup-model" data-atomic="true">
 <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rational Unified Process 4 Phases and Milestones">
   <!-- Background Canvas -->
   <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
@@ -458,128 +509,98 @@
 </svg>
           <figcaption class="diagram-title">Figure 1.2: Rational Unified Process (RUP) 4 Distinct Phases &amp; Exit Milestones (Ramaiah CIE-1 Q3.a)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Inception (Lifecycle Objective milestone) → Elaboration (Lifecycle Architecture milestone) → Construction (Initial Operational Capability milestone) → Transition (Product Release milestone).</p>
-        </figure>
-
-        <h3>Boehm's Spiral Model (Risk-Driven Process)</h3>
-        <p>In Barry Boehm's Spiral Model, the software process is represented as a spiral rather than a sequence of activities with backtracking. Each loop represents a phase of the process, partitioned into <strong>four distinct sectors</strong>:</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </figure><h3>Boehm's Spiral Model (Risk-Driven Process)</h3><p>In Barry Boehm's Spiral Model, the software process is represented as a spiral rather than a sequence of activities with backtracking. Each loop represents a phase of the process, partitioned into <strong>four distinct sectors</strong>:</p><table class="data-table hand-table"><tr>
                 <th>Sector #</th>
                 <th>Spiral Sector Name</th>
                 <th>Activities Conducted in Sector</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Quadrant 1</strong></td>
                 <td><strong>Determine Objectives &amp; Constraints</strong></td>
                 <td>Specific objectives for the phase identified; constraints on the process and product determined; alternative management plans drawn up.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Quadrant 2</strong></td>
                 <td><strong>Identify &amp; Resolve Risks</strong></td>
                 <td>Detailed risk analysis conducted; prototyping and simulation used to resolve identified technical, management, and cost risks.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 27</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Process Improvement &amp; The CMMI Framework</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Sector #</th>
+                <th>Spiral Sector Name</th>
+                <th>Activities Conducted in Sector</th>
+              </tr><tr>
                 <td><strong>Quadrant 3</strong></td>
                 <td><strong>Development &amp; Testing</strong></td>
                 <td>A development model (Waterfall, Incremental) chosen based on remaining risks; software is designed, coded, and verified.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Quadrant 4</strong></td>
                 <td><strong>Plan the Next Phase</strong></td>
                 <td>Project is reviewed; decision made whether to continue with a further loop; next phase plans developed.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="quick-recall-box">
+              </tr></table><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Spiral model is strictly <strong>risk-driven</strong>: each loop incorporates risk assessment.</li>
             <li>4 Quadrants: (1) Objectives → (2) Risk Analysis → (3) Development → (4) Planning next phase.</li>
             <li>Radius of spiral represents cumulative cost; angular dimension represents progress.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-6" data-sec-title="Process Improvement &amp; The CMMI Framework" data-sec-index="5">
-        <h2 id="sec-6">Process Improvement &amp; The CMMI Framework</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 6</div>
-        
-
-        <p class="section-lead">Process improvement aims to understand existing processes and change them to improve product quality, reduce costs, or accelerate delivery schedules. The <strong>Capability Maturity Model Integration (CMMI)</strong> provides a staged architecture to evaluate organizational maturity.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </div><h2 id="sec-6">Process Improvement &amp; The CMMI Framework</h2><div class="section-badge">§ 6</div><p class="section-lead">Process improvement aims to understand existing processes and change them to improve product quality, reduce costs, or accelerate delivery schedules. The <strong>Capability Maturity Model Integration (CMMI)</strong> provides a staged architecture to evaluate organizational maturity.</p><table class="data-table hand-table"><tr>
                 <th>Level #</th>
                 <th>CMMI Maturity Level</th>
                 <th>Characterization of Organizational Process</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Level 1</strong></td>
                 <td><strong>Initial (Ad-hoc)</strong></td>
                 <td>Processes are unpredictable, poorly controlled, and reactive. Success depends entirely on individual heroics.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Level 2</strong></td>
                 <td><strong>Managed (Repeatable)</strong></td>
                 <td>Basic project management practices established (tracking costs, schedule, functionality). Repeatable across similar projects.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Level 3</strong></td>
                 <td><strong>Defined</strong></td>
                 <td>Processes documented, standardized, and integrated across the entire organization. Standard software process defined.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 27</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Agile Software Development &amp; Extreme Programming (XP)</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Level #</th>
+                <th>CMMI Maturity Level</th>
+                <th>Characterization of Organizational Process</th>
+              </tr><tr>
                 <td><strong>Level 4</strong></td>
                 <td><strong>Quantitatively Managed</strong></td>
                 <td>Detailed quantitative metrics collected for both process and product quality. Statistical process control applied.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Level 5</strong></td>
                 <td><strong>Optimizing</strong></td>
                 <td>Continuous process improvement achieved through quantitative feedback and innovative pilot technology insertion.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="quick-recall-box">
+              </tr></table><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>CMMI 5 Levels: <strong>Initial → Managed → Defined → Quantitatively Managed → Optimizing</strong>.</li>
             <li>Level 2 establishes project tracking; Level 3 standardizes company-wide; Level 4 measures with stats; Level 5 optimizes continuously.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-7" data-sec-title="Agile Software Development &amp; Extreme Programming (XP)" data-sec-index="6">
-        <h2 id="sec-7">Agile Software Development &amp; Extreme Programming (XP)</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 7</div>
-        
-
-        <p class="section-lead">Dissatisfaction with the overhead of heavy plan-driven models led in 2001 to the <strong>Agile Manifesto</strong>, prioritizing working software, collaboration, and rapid responsiveness over rigid process documentation.</p>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">THE 4 CORE VALUES OF THE AGILE MANIFESTO</div>
+        </div><h2 id="sec-7">Agile Software Development &amp; Extreme Programming (XP)</h2><div class="section-badge">§ 7</div><p class="section-lead">Dissatisfaction with the overhead of heavy plan-driven models led in 2001 to the <strong>Agile Manifesto</strong>, prioritizing working software, collaboration, and rapid responsiveness over rigid process documentation.</p><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">THE 4 CORE VALUES OF THE AGILE MANIFESTO:</div>
           
           <ol>
             <li><strong>Individuals and interactions</strong> over processes and tools.</li>
@@ -587,41 +608,26 @@
             <li><strong>Customer collaboration</strong> over contract negotiation.</li>
             <li><strong>Responding to change</strong> over following a plan.</li>
           </ol>
+        </div><h3>Extreme Programming (XP) Key Practices</h3><ul class=""><li><strong>Pair Programming:</strong> Developers work in pairs at a single workstation (driver and navigator). Continuous peer code review improves quality and shares knowledge.</li><li><strong>Test-First Development (TDD):</strong> Automated unit tests are written <em>before</em> writing the code itself. Code is only considered complete when it passes all tests.</li><li><strong>Refactoring:</strong> Programmers continuously look for improvements to code structure ("cleaning code smells") even if no new functionality is added.</li></ul></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 27</span>
         </div>
-
-        <h3>Extreme Programming (XP) Key Practices</h3>
-        <ul>
-          <li><strong>Pair Programming:</strong> Developers work in pairs at a single workstation (driver and navigator). Continuous peer code review improves quality and shares knowledge.</li>
-          <li><strong>Test-First Development (TDD):</strong> Automated unit tests are written <em>before</em> writing the code itself. Code is only considered complete when it passes all tests.</li>
-          <li><strong>Refactoring:</strong> Programmers continuously look for improvements to code structure ("cleaning code smells") even if no new functionality is added.</li>
-          <li><strong>Continuous Integration:</strong> Code is integrated into the mainline repository multiple times a day; automated tests immediately verify build integrity.</li>
-          <li><strong>Small Releases:</strong> Releases occur every two to three weeks, keeping user feedback immediate.</li>
-        </ul>
-
-        <div class="quick-recall-box">
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">The Scrum Framework, Sprint Velocity &amp; Burndown</span>
+        </div>
+        <div class="page-content"><ul class=""><li><strong>Continuous Integration:</strong> Code is integrated into the mainline repository multiple times a day; automated tests immediately verify build integrity.</li><li><strong>Small Releases:</strong> Releases occur every two to three weeks, keeping user feedback immediate.</li></ul><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Agile values working software and responding to change over rigid documentation.</li>
             <li>XP practices: Pair Programming, Test-First Development (TDD), Refactoring, Continuous Integration.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-8" data-sec-title="The Scrum Framework, Sprint Velocity &amp; Burndown" data-sec-index="7">
-        <h2 id="sec-8">The Scrum Framework, Sprint Velocity &amp; Burndown</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 8</div>
-        
-
-        <p class="section-lead"><strong>Scrum</strong> is an agile framework that focuses on managing iterative development rather than specific programming practices. It provides a lightweight structure of roles, events, and artifacts.</p>
-
-        
-        <!-- FIGURE 1.3: SCRUM AGILE FRAMEWORK -->
-        <figure class="diagram-card" id="fig-scrum-framework">
+        </div><h2 id="sec-8">The Scrum Framework, Sprint Velocity &amp; Burndown</h2><div class="section-badge">§ 8</div><p class="section-lead"><strong>Scrum</strong> is an agile framework that focuses on managing iterative development rather than specific programming practices. It provides a lightweight structure of roles, events, and artifacts.</p><figure class="diagram-card" id="fig-scrum-framework" data-atomic="true">
 <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scrum Framework with Product Backlog and Sprint Cycle">
   <defs>
     <marker id="scrum-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -704,72 +710,73 @@
 </svg>
           <figcaption class="diagram-title">Figure 1.3: The Scrum Agile Framework Lifecycle • Sprints, Velocity &amp; Increments (Sommerville Ch. 3)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Product Backlog → Sprint Planning → 2-4 Week Sprint Loop with 15-min Daily Standup → Potentially Shippable Increment with Sprint Review &amp; Retrospective.</p>
-        </figure>
-
-        <h3>Scrum Roles, Events, and Artifacts</h3>
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </figure><h3>Scrum Roles, Events, and Artifacts</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 27</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">The Scrum Framework, Sprint Velocity &amp; Burndown</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                 <th>Scrum Dimension</th>
                 <th>Element</th>
                 <th>Role &amp; Responsibility</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td rowspan="3"><strong>Roles</strong></td>
                 <td><strong>Product Owner</strong></td>
                 <td>Represents the business and customer. Owns, prioritizes, and maintains the Product Backlog.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Scrum Master</strong></td>
                 <td>Servant-leader. Ensures Scrum practices are followed, facilitates meetings, and removes external impediments for the team.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Development Team</strong></td>
                 <td>Self-organizing, cross-functional team (typically 5–9 people) that designs, develops, tests, and delivers the increment.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td rowspan="5"><strong>Events</strong></td>
                 <td><strong>Sprint</strong></td>
                 <td>Fixed time-box of 1 to 4 weeks during which a "Done" usable increment is created.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Sprint Planning</strong></td>
                 <td>Team selects user stories from Product Backlog and defines how they will be built.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Daily Scrum</strong></td>
                 <td>15-minute daily standup answering: What did I do yesterday? What will I do today? Any blockers?</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Sprint Review</strong></td>
                 <td>Demo of completed increment to stakeholders for live feedback.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Sprint Retrospective</strong></td>
                 <td>Team reflects on its own process to identify continuous improvements for next sprint.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td rowspan="3"><strong>Artifacts</strong></td>
                 <td><strong>Product Backlog</strong></td>
                 <td>Prioritized master list of all features, enhancements, and bug fixes for the product.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Sprint Backlog</strong></td>
                 <td>The subset of product backlog items chosen for the current sprint plus technical tasks.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Increment</strong></td>
                 <td>The sum of all Product Backlog items completed during a Sprint meeting the Definition of Done.</td>
-              </tr>
-            </tbody>
-          </table>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 27</span>
         </div>
-
-        <!-- SOLVED WORKED NUMERICAL: SPRINT VELOCITY -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">One-Page Rapid Revision Sheet</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">WORKED NUMERICAL • FULLY VERIFIED PASS</span>
             <span class="problem-points">[8 MARKS • EXAM CORE]</span>
@@ -797,29 +804,27 @@
           <div class="result-box">
             The project requires <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌈</mo><mn>1.09</mn><mo stretchy="false">⌉</mo><mo>=</mo><mrow><mn mathvariant="bold">2</mn><mtext>&nbsp;additional&nbsp;sprints</mtext></mrow></mrow><annotation encoding="application/x-tex">\lceil 1.09 \rceil = \mathbf{2\text{ additional sprints}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">⌈</span><span class="mord">1.09</span><span class="mclose">⌉</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathbf">2</span><span class="mord text"><span class="mord">&nbsp;additional&nbsp;sprints</span></span></span></span></span></span></span> (4 weeks) to fully deliver the remaining backlog items.
           </div>
-        </div>
-
-        <div class="quick-recall-box">
+        </div><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Scrum Roles: Product Owner (backlog priority), Scrum Master (coach/remover of blockers), Team (delivery).</li>
             <li>Scrum Events: Sprint, Planning, Daily Standup (15 min), Review (demo), Retrospective (process improvement).</li>
             <li>Velocity = Story points completed per sprint; Burndown tracks remaining work over time.</li>
           </ul>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 27</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Important Examination Questions</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="One-Page Rapid Revision Sheet" data-sec-index="8">
-        <h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">★ REVISION</div>
-        
-        
-        <div class="revision-grid">
+        <div class="page-content"><h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2><div class="section-badge">★ REVISION</div><div class="revision-grid">
           <div class="revision-card">
             <h4>Good Software Attributes</h4>
             <ul>
@@ -859,38 +864,30 @@
               <li>Velocity: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∑</mo><mi>S</mi><msub><mi>P</mi><mrow><mi>c</mi><mi>o</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>t</mi><mi>e</mi><mi>d</mi></mrow></msub><mi mathvariant="normal">/</mi><mtext>Sprints</mtext></mrow><annotation encoding="application/x-tex">\sum SP_{completed} / \text{Sprints}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0361em; vertical-align: -0.2861em;"></span><span class="mop op-symbol small-op" style="position: relative; top: 0em;">∑</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.0576em;">S</span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.1389em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight" style="margin-right: 0.0197em;">pl</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mord">/</span><span class="mord text"><span class="mord">Sprints</span></span></span></span></span></span>.</li>
             </ul>
           </div>
+        </div><div class="interactive-note">
+          <span>💻 <strong>Interactive Tool Available Online:</strong> ⚡ Interactive Scrum Sprint Velocity &amp; Burndown Calculator. Explore the step-by-step calculator and visualizer on the live site notes page.</span>
+        </div><h2 id="important-questions">Important Examination Questions</h2><div class="section-badge">? QUESTIONS</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 27</span>
         </div>
-      
-        <!-- INTERACTIVE SCRUM SPRINT VELOCITY & BURNDOWN CALCULATOR -->
-        <div class="interactive-note">
-          <span>💻 <strong>Interactive Tool Available Online:</strong> ⚡ Interactive Scrum Sprint Velocity &amp; Burndown Calculator. Try the interactive step-by-step calculator and visualizer on the live site notes page.</span>
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Important Examination Questions</span>
         </div>
-
-        
-
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="important-questions" data-sec-title="Important Examination Questions" data-sec-index="9">
-        <h2 id="important-questions">Important Examination Questions</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">? QUESTIONS</div>
-        
-
-        <div class="q-group">
+        <div class="page-content"><div class="q-group">
           <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
           
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> List the four essential attributes of professional software.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> List the four essential attributes of professional software.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -903,12 +900,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> What is the primary difference between plan-driven and agile development?</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> What is the primary difference between plan-driven and agile development?</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -921,12 +916,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> What are the four sectors in Boehm's Spiral Model?</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> What are the four sectors in Boehm's Spiral Model?</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -936,19 +929,28 @@
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 27</span>
         </div>
-
-        <div class="q-group">
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><div class="q-group">
           <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">5M</span> Explain the roles and ceremonies in the Scrum framework.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">5M</span> Explain the roles and ceremonies in the Scrum framework.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -961,12 +963,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">5M</span> Describe the five maturity levels of the CMMI framework.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">5M</span> Describe the five maturity levels of the CMMI framework.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -976,19 +976,15 @@
           </div>
         </div>
           </div>
-        </div>
-
-        <div class="q-group">
+        </div><div class="q-group">
           <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">10M</span> Compare the Waterfall model with Incremental development. Under what project conditions should each be selected?</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">10M</span> Compare the Waterfall model with Incremental development. Under what project conditions should each be selected?</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -998,200 +994,85 @@
           </div>
         </div>
           </div>
+        </div><h2 id="questions-asked-before">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</h2><div class="section-badge">█ EXAM ARCHIVE</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 27</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="questions-asked-before" data-sec-title="Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers" data-sec-index="10">
-        <h2 id="questions-asked-before">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">█ EXAM ARCHIVE</div>
-        
-        <p class="section-lead">The following questions are transcribed directly from authentic internal assessment and semester-end examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code> (Ramaiah Continuous Internal Evaluation - I, October 28, 2025, Course Code 23IS51):</p>
-
-        <!-- CIE-1 OCT 2025 Q1.a -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah CIE-1 • October 28, 2025 • Question 1.a</span>
-            <span class="archive-marks">[8 Marks]</span>
-          </div>
-          <p class="archive-q"><strong>"Define Software Engineering. How is it more than 'just programming'? Consider a client has a vague idea of their requirements and expects them to change frequently. Which process model would you recommend and why?"</strong></p>
-
-          <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-            
-            <div class="qa-answer">
-              <p><strong>1. Formal Definition of Software Engineering:</strong></p>
-              <p>According to Ian Sommerville, <strong>Software Engineering</strong> is an engineering discipline concerned with all aspects of software production from the earliest stages of system specification through to maintaining the system after it has gone into live use.</p>
-
-              <p><strong>2. Why Software Engineering is More Than "Just Programming":</strong></p>
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
+        <div class="page-content"><p class="section-lead">The following questions are transcribed directly from authentic internal assessment and semester-end examination papers in <code>notes/se/practice/se-cie-1-and-2.pdf</code> (Ramaiah Continuous Internal Evaluation - I, October 28, 2025, Course Code 23IS51):</p><table class="data-table hand-table"><tr>
                       <th>Dimension</th>
                       <th>Programming</th>
                       <th>Software Engineering</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Scope &amp; Lifecycle</strong></td>
                       <td>Writing code to solve an immediate algorithmic task.</td>
                       <td>Encompasses requirements, architecture, testing, deployment, and decades of maintenance.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Scale &amp; Team</strong></td>
                       <td>Often individual or small team; single codebase.</td>
                       <td>Large distributed teams; hundreds of components; versioning and configuration control.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Quality Attributes</strong></td>
                       <td>Focuses on functional correctness and algorithm speed.</td>
                       <td>Prioritizes maintainability, dependability, security, usability, and regulatory compliance.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Economic Impact</strong></td>
                       <td>Development cost dominated by initial authoring.</td>
                       <td>Over <strong>70% of total lifetime cost</strong> occurs during software evolution and maintenance!</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <p><strong>3. Client Scenario Analysis &amp; Process Model Recommendation:</strong></p>
-              <ul>
-                <li><strong>Scenario Characteristics:</strong> Vague initial requirements, frequent changes anticipated, high uncertainty.</li>
-                <li><strong>Process Rejection:</strong> The <em>Waterfall Model</em> must be strictly rejected. Waterfall requires complete upfront specification; accommodating changes late in the lifecycle requires catastrophic, expensive rework.</li>
-                <li><strong>Recommendation: Agile Incremental Development / Scrum Framework</strong> ★</li>
-                <li><strong>Engineering Justification:</strong>
-                  <ol>
-                    <li><strong>Short Time-Boxed Sprints (1 to 3 weeks):</strong> Software is delivered in rapid increments. The client can evaluate working software rather than abstract specification documents.</li>
-                    <li><strong>Flexible Product Backlog:</strong> The client can adjust, reprioritize, or introduce new requirements at the end of every sprint without disrupting in-flight development.</li>
-                    <li><strong>Early Value Realization:</strong> High-priority features are deployed early, allowing the client to test market demand while refining remaining features.</li>
-                    <li><strong>Customer Collaboration:</strong> The Product Owner works directly with developers daily, resolving requirement vagueness through rapid conversational feedback.</li>
-                  </ol>
-                </li>
-              </ul>
-            </div>
-          </div>
-          </div>
-        </div>
-        </div>
-
-        <!-- CIE-1 OCT 2025 Q2.a -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah CIE-1 • October 28, 2025 • Question 2.a</span>
-            <span class="archive-marks">[8 Marks]</span>
-          </div>
-          <p class="archive-q"><strong>"With diagram, explain in detail about the waterfall process model for software development."</strong></p>
-
-          <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-            
-            <div class="qa-answer">
-              <p>The <strong>Waterfall Model</strong> (first formalized by Winston Royce, 1970) is the classical plan-driven software development lifecycle where progress flows steadily downwards like a waterfall through discrete sequential phases:</p>
-
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
+                    </tr></table><table class="data-table hand-table"><tr>
                       <th>Phase #</th>
                       <th>Phase Name</th>
                       <th>Key Engineering Activities &amp; Tangible Deliverables</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+                    </tr><tr>
                       <td><strong>1</strong></td>
                       <td><strong>Requirements Analysis &amp; Definition</strong></td>
                       <td>System services, constraints, and operational goals are established through customer consultation. <em>Deliverable:</em> Formally signed-off Software Requirements Specification (SRS) document.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>2</strong></td>
                       <td><strong>System &amp; Software Design</strong></td>
                       <td>Partitions requirements into hardware and software subsystems. Establishes overall architectural frameworks, data structures, and interface definitions. <em>Deliverable:</em> Software Architecture &amp; High-Level Design Document.</td>
-                    </tr>
-                    <tr>
+                    </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 27</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-18">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                      <th>Phase #</th>
+                      <th>Phase Name</th>
+                      <th>Key Engineering Activities &amp; Tangible Deliverables</th>
+                    </tr><tr>
                       <td><strong>3</strong></td>
                       <td><strong>Implementation &amp; Unit Testing</strong></td>
                       <td>Software design is realized as a set of program modules. Individual units are coded and verified against module specifications. <em>Deliverable:</em> Verified source code units and unit test suites.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>4</strong></td>
                       <td><strong>Integration &amp; System Testing</strong></td>
                       <td>Individual program units are integrated and tested as a unified software system to ensure complete compliance with the SRS. <em>Deliverable:</em> Verified integrated system and test sign-off report.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>5</strong></td>
                       <td><strong>Operation &amp; Maintenance</strong></td>
                       <td>System is deployed into production. Maintenance involves fixing undiscovered errors, adapting software to environmental changes, and adding new requirements. <em>Deliverable:</em> Live software patches and version releases.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <p><strong>Strengths:</strong></p>
-              <ul>
-                <li>Disciplined, structured phases with clear milestone sign-offs.</li>
-                <li>Comprehensive documentation at every stage aids contract management and large multi-team handovers.</li>
-              </ul>
-
-              <p><strong>Fatal Limitation &amp; Inflexibility:</strong></p>
-              <p>The fundamental flaw of the waterfall model is its <strong>inflexible partitioning of the project into distinct stages</strong>. Commitments must be made early on, making it extremely difficult and expensive to respond to changing customer requirements. A change requested during system testing requires re-opening the SRS, redesigning modules, and rewriting code — incurring massive budget overruns.</p>
-            </div>
-          </div>
-          </div>
-        </div>
-        </div>
-
-        <!-- CIE-1 OCT 2025 Q3.a -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah CIE-1 • October 28, 2025 • Question 3.a</span>
-            <span class="archive-marks">[6 Marks]</span>
-          </div>
-          <p class="archive-q"><strong>"Describe and elaborate the four distinct phases of the Rational Unified Process (RUP), with a neat diagram."</strong></p>
-
-          <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-            
-            <div class="qa-answer">
-              <p>The <strong>Rational Unified Process (RUP)</strong> is a modern process framework developed by Rational Software (now IBM) that combines plan-driven architectural discipline with agile iterative development. It divides the project lifecycle into <strong>four distinct phases</strong> separated by formal management decision milestones:</p>
-
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
+                    </tr></table><table class="data-table hand-table"><tr>
                       <th>RUP Phase</th>
                       <th>Primary Objectives &amp; Focus</th>
                       <th>Key Exit Milestone</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+                    </tr><tr>
                       <td><strong>1. Inception</strong></td>
                       <td>
                         Establish the business case for the system.<br>
@@ -1202,8 +1083,7 @@
                         <strong>Lifecycle Objective (LCO) Milestone:</strong><br>
                         Stakeholders agree on scope, cost estimates, and whether to fund the project.
                       </td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>2. Elaboration</strong></td>
                       <td>
                         Develop an understanding of the problem domain.<br>
@@ -1214,8 +1094,24 @@
                         <strong>Lifecycle Architecture (LCA) Milestone:</strong><br>
                         A stable, verified architecture is established. High risks mitigated.
                       </td>
-                    </tr>
-                    <tr>
+                    </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 18 of 27</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-19">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                      <th>RUP Phase</th>
+                      <th>Primary Objectives &amp; Focus</th>
+                      <th>Key Exit Milestone</th>
+                    </tr><tr>
                       <td><strong>3. Construction</strong></td>
                       <td>
                         Focuses on component development, coding, and integration.<br>
@@ -1226,8 +1122,7 @@
                         <strong>Initial Operational Capability (IOC) Milestone:</strong><br>
                         A working beta release is ready for initial user trials.
                       </td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>4. Transition</strong></td>
                       <td>
                         Moving the software from development into production use.<br>
@@ -1238,20 +1133,20 @@
                         <strong>Product Release Milestone:</strong><br>
                         The software system is officially handed over to the client.
                       </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <p><strong>Core Dynamic Workflows (Disciplines):</strong> Unlike Waterfall, RUP recognizes that activities occur concurrently across phases in varying intensity: Business Modeling, Requirements, Analysis &amp; Design, Implementation, Testing, Deployment, Configuration &amp; Change Management, Project Management, and Environment.</p>
-            </div>
-          </div>
-          </div>
+                    </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 19 of 27</span>
         </div>
+      </div><div class="notebook-page page-ruled" id="page-20">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
         </div>
-
-        <!-- AUTHENTIC SEE MODEL PAPER: EXTREME PROGRAMMING -->
-        <div class="archive-item">
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah SEE Archive • Model Question Paper</span>
             <span class="archive-marks">[8 Marks]</span>
@@ -1259,12 +1154,10 @@
           <p class="archive-q"><strong>"Explain Extreme Programming (XP) practices including Test-Driven Development (TDD), Pair Programming, Refactoring, and Small Releases."</strong></p>
 
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Complete Step-by-Step Model Answer</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1279,121 +1172,101 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 20 of 27</span>
         </div>
-
-        <!-- AUTHENTIC QUESTION BANK: PLAN-DRIVEN VS AGILE -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah Question Bank • Software Processes</span>
-            <span class="archive-marks">[6 Marks]</span>
-          </div>
-          <p class="archive-q"><strong>"Compare Plan-Driven Development with Agile Development across customer involvement, requirements change, team structure, and documentation."</strong></p>
-
-          <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-            
-            <div class="qa-answer">
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
+      </div><div class="notebook-page page-ruled" id="page-21">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                       <th>Evaluation Dimension</th>
                       <th>Plan-Driven Development (e.g., Waterfall)</th>
                       <th>Agile Development (e.g., Scrum / XP)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Customer Involvement</strong></td>
                       <td>Customer involved primarily at beginning (requirements sign-off) and end (acceptance testing).</td>
                       <td>Customer is continuously engaged (e.g., on-site customer or active Product Owner in every sprint).</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Response to Change</strong></td>
                       <td>Formal Change Control Board (CCB); changes are resisted as costly disruptions to the plan.</td>
                       <td>Welcomes changing requirements at any stage as a competitive advantage for the client.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Team Structure</strong></td>
                       <td>Hierarchical, specialized roles (analysts, designers, coders, testers).</td>
                       <td>Cross-functional, self-organizing, collaborative teams.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Documentation Standard</strong></td>
                       <td>Comprehensive formal documents required at every phase boundary (SRS, SDD, Test Plans).</td>
                       <td>Minimal documentation; working executable code and automated unit tests serve as ground truth.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          </div>
+                    </tr></table><h2 id="practice-problems">Verified High-Yield Practice Problems</h2><div class="section-badge">∇ PRACTICE</div><p class="section-lead">Test your software engineering reasoning with these exam-caliber problems. All numerical calculations are verified against <code>audit/verify/se/verify_se_u1.py</code>:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 21 of 27</span>
         </div>
+      </div><div class="notebook-page page-ruled" id="page-22">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
         </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="practice-problems" data-sec-title="Verified High-Yield Practice Problems" data-sec-index="11">
-        <h2 id="practice-problems">Verified High-Yield Practice Problems</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">∇ PRACTICE</div>
-        
-        <p class="section-lead">Test your software engineering reasoning with these exam-caliber problems. All numerical calculations are verified against <code>audit/verify/se/verify_se_u1.py</code>:</p>
-
-        <!-- PRACTICE 1: SCRUM VELOCITY & BURNDOWN -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 1 • SPRINT VELOCITY &amp; RELEASE ESTIMATION</span>
           </div>
           <h4 class="problem-title">A software project has an initial product backlog of 180 Story Points (SP). Over three 2-week sprints, the team completes 40 SP, 45 SP, and 47 SP. Calculate the average velocity, remaining backlog, and projected sprints to completion.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
               <p><strong>1. Total Story Points Completed:</strong></p>
               <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>e</mi><mi>x</mi><mi>t</mi><mrow><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>C</mi><mi>o</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>t</mi><mi>e</mi><mi>d</mi></mrow><mo>=</mo><mn>40</mn><mo>+</mo><mn>45</mn><mo>+</mo><mn>47</mn><mo>=</mo><mrow><mn mathvariant="bold">132</mn><mi mathvariant="bold">e</mi><mi mathvariant="bold">x</mi><mi mathvariant="bold">t</mi><mrow><mi mathvariant="bold">S</mi><mi mathvariant="bold">P</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">	ext{Total Completed} = 40 + 45 + 47 = \mathbf{132	ext{ SP}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="mord mathnormal">o</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right: 0.0197em;">l</span><span class="mord mathnormal" style="margin-right: 0.0715em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right: 0.0197em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">40</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">45</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">47</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6861em;"></span><span class="mord"><span class="mord mathbf">132ext</span><span class="mord"><span class="mord mathbf">SP</span></span></span></span></span></span></span></span>
               <p><strong>2. Average Team Velocity:</strong></p>
-              <span><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected character: '' at position 17: …_{	ext{avg}} = ̲rac{132}{3} = \…" style="color:#cc0000">V_{	ext{avg}} = rac{132}{3} = \mathbf{44.00	ext{ SP/sprint}}</span></span>
+              <span><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected character: ' ' at position 17: …_{	ext{avg}} =  ̲rac{132}{3} = \…" style="color:#cc0000">V_{	ext{avg}} =  rac{132}{3} = \mathbf{44.00	ext{ SP/sprint}}</span></span>
               <p><strong>3. Remaining Product Backlog:</strong></p>
               <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>e</mi><mi>x</mi><mi>t</mi><mrow><mi>R</mi><mi>e</mi><mi>m</mi><mi>a</mi><mi>i</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>S</mi><mi>c</mi><mi>o</mi><mi>p</mi><mi>e</mi></mrow><mo>=</mo><mn>180</mn><mo>−</mo><mn>132</mn><mo>=</mo><mrow><mn mathvariant="bold">48</mn><mi mathvariant="bold">e</mi><mi mathvariant="bold">x</mi><mi mathvariant="bold">t</mi><mrow><mi mathvariant="bold">S</mi><mi mathvariant="bold">P</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">	ext{Remaining Scope} = 180 - 132 = \mathbf{48	ext{ SP}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.0077em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal">mainin</span><span class="mord mathnormal" style="margin-right: 0.0359em;">g</span><span class="mord mathnormal" style="margin-right: 0.0576em;">S</span><span class="mord mathnormal">co</span><span class="mord mathnormal">p</span><span class="mord mathnormal">e</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">180</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">132</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6861em;"></span><span class="mord"><span class="mord mathbf">48ext</span><span class="mord"><span class="mord mathbf">SP</span></span></span></span></span></span></span></span>
               <p><strong>4. Projected Sprints Remaining:</strong></p>
-              <span><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected character: '' at position 31: … Completion} = ̲rac{48}{44.00} …" style="color:#cc0000">	ext{Sprints to Completion} = rac{48}{44.00} = \mathbf{1.09	ext{ sprints}} \implies \mathbf{2	ext{ sprints}}</span></span>
+              <span><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected character: ' ' at position 31: … Completion} =  ̲rac{48}{44.00} …" style="color:#cc0000">	ext{Sprints to Completion} =  rac{48}{44.00} = \mathbf{1.09	ext{ sprints}} \implies \mathbf{2	ext{ sprints}}</span></span>
               <p><em>Conclusion:</em> The team will deliver the remaining scope comfortably in approximately 2 further 2-week sprints (4 weeks of calendar time).</p>
             </div>
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 22 of 27</span>
         </div>
-
-        <!-- PRACTICE 2: PROCESS MODEL SELECTION -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-23">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 2 • SAFETY-CRITICAL VS STARTUP PROCESS SELECTION</span>
           </div>
           <h4 class="problem-title">Which process model would you recommend for: (a) An embedded automated insulin pump controller, (b) A consumer photo-sharing mobile application? Justify your choice based on engineering characteristics.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1411,21 +1284,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 23 of 27</span>
         </div>
-
-        <!-- PRACTICE 3: CODE OF ETHICS SCENARIO -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-24">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 3 • ACM/IEEE CODE OF ETHICS ANALYSIS</span>
           </div>
           <h4 class="problem-title">A project manager pressures a software engineer to sign off on an untested safety module for an autonomous drone to meet a contractual delivery deadline. Which ACM/IEEE ethical principles are violated? What should the engineer do?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1441,21 +1322,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 24 of 27</span>
         </div>
-
-        <!-- PRACTICE 4: CMMI 5 LEVELS -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-25">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 4 • CMMI CAPABILITY MATURITY PROGRESSION</span>
           </div>
           <h4 class="problem-title">Explain the five maturity levels of the Capability Maturity Model Integration (CMMI) and identify the key milestone that distinguishes Level 3 from Level 2.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1471,21 +1360,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 25 of 27</span>
         </div>
-
-        <!-- PRACTICE 5: TDD CYCLE -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-26">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 5 • TEST-DRIVEN DEVELOPMENT (RED-GREEN-REFACTOR)</span>
           </div>
           <h4 class="problem-title">Explain the three stages of the TDD "Red-Green-Refactor" cycle and list two concrete engineering benefits of this methodology.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1503,21 +1400,29 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 26 of 27</span>
         </div>
-
-        <!-- PRACTICE 6: BOEHM'S SPIRAL QUADRANTS -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-27">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS52 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 6 • BOEHM'S SPIRAL MODEL RISK ANALYSIS</span>
           </div>
           <h4 class="problem-title">Detail the four quadrants of Boehm's Spiral Model and explain what the radial dimension and angular dimension represent physically.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1537,12 +1442,11 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 27 of 27</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

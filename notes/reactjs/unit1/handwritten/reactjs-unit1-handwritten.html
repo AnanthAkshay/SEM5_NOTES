@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISAEC594 Unit 1 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Architects Daughter', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #1e293b;
       --ink-dark: #0284c7;
     }
@@ -27,20 +26,121 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-react-philosophy" data-sec-title="1. What is React? &amp; Core Philosophy" data-sec-index="0">
-        <h2 id="sec-react-philosophy">1. What is React? &amp; Core Philosophy</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
-          
-          <p><strong>React</strong> is an open-source, component-based JavaScript library created by Jordan Walke at Facebook (Meta) in 2013 for building rich, interactive, and high-performance user interfaces for Single Page Applications (SPAs).</p>
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/reactjs" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">ISAEC594 Unit 1 · Handwritten Notebook</span>
+    <a href="reactjs-unit1-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">ISAEC594 · ReactJS</div>
+          <h1 class="cover-title">Unit 1: Introduction to React, Vite &amp; JSX</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
         </div>
 
-        <h3 class="subsection-title">1.1 The Three Pillars of React Philosophy</h3>
-        <ol>
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
+          
+          
+            React Foundations: Features of React, Declarative UI, Component-Based Architecture, One-Way Data Flow
+          The Virtual DOM: Real DOM bottlenecks, Virtual DOM diffing, reconciliation algorithm, Fiber batching
+          Framework Comparison: React (L...</p>
+        </div>
+
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>1. What is React? &amp; Core Philosophy</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>2. The Virtual DOM &amp; Reconciliation</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>3. React vs. Other Front-End Frameworks (Angular &amp; Vue)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 3</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>4. Setting Up the React Environment with Vite</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>5. React Project Structure &amp; Execution Lifecycle</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>6. Introduction to JSX &amp; Syntax Rules</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 6</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>7. Embedding Expressions &amp; Evaluation in JSX</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 7</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>8. Conditional &amp; List Rendering in JSX</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 8</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>9. JSX Compilation Under the Hood</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>10. Complete Tested Code Demonstrations</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 11</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>11. Quick Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 12</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>12. Important Exam Questions &amp; Practice</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 13</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>13. Prescribed References</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 24</span>
+        </li>
+      </ul>
+        </div>
+
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">2. The Virtual DOM &amp; Reconciliation</span>
+        </div>
+        <div class="page-content"><h2 id="sec-react-philosophy">1. What is React? &amp; Core Philosophy</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
+          
+          <p><strong>React</strong> is an open-source, component-based JavaScript library created by Jordan Walke at Facebook (Meta) in 2013 for building rich, interactive, and high-performance user interfaces for Single Page Applications (SPAs).</p>
+        </div><h3 class="subsection-title">1.1 The Three Pillars of React Philosophy</h3><ol>
           <li><strong>1. Declarative UI (Declarative vs. Imperative Programming):</strong>
             <ul>
               <li><em>Imperative (Traditional DOM/jQuery):</em> You tell the browser step-by-step <em>how</em> to manipulate the DOM (e.g., <code>document.getElementById('btn').classList.add('active')</code>). This becomes notoriously bug-prone as application state grows complex.</li>
@@ -49,34 +149,26 @@
           </li>
           <li><strong>2. Component-Based Architecture:</strong> UIs are constructed as independent, reusable, self-contained bricks called <strong>components</strong>. Each component encapsulates its own structure, internal state, and rendering logic.</li>
           <li><strong>3. One-Way (Unidirectional) Data Flow:</strong> Data strictly flows downward from parent components to child components via immutable <strong>props</strong>. This guarantees predictable state changes, eliminates cascading side-effects, and makes debugging straightforward.</li>
-        </ol>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </ol><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>React is a declarative, component-driven UI library utilizing unidirectional data flow. You specify what the UI looks like for a state; React manages the DOM updates.</p>
+        </div><h2 id="sec-virtual-dom">2. The Virtual DOM &amp; Reconciliation</h2><h3 class="subsection-title">2.1 Why the Real Browser DOM is Slow</h3><p>The native Browser Document Object Model (DOM) is a tree-like object structure representing HTML elements. Direct DOM manipulation is computationally expensive because altering a single node frequently forces the browser layout engine to trigger:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">3. React vs. Other Front-End Frameworks (Angular &amp; Vue)</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-virtual-dom" data-sec-title="2. The Virtual DOM &amp; Reconciliation" data-sec-index="1">
-        <h2 id="sec-virtual-dom">2. The Virtual DOM &amp; Reconciliation</h2>
-        <div class="staging-body">
-          
-        
-        <h3 class="subsection-title">2.1 Why the Real Browser DOM is Slow</h3>
-        <p>The native Browser Document Object Model (DOM) is a tree-like object structure representing HTML elements. Direct DOM manipulation is computationally expensive because altering a single node frequently forces the browser layout engine to trigger:</p>
-        <ul>
+        <div class="page-content"><ul>
           <li><strong>Reflow (Layout calculation):</strong> Recalculating the geometric coordinates and bounding boxes of all surrounding elements on the page.</li>
           <li><strong>Repaint:</strong> Redrawing pixels on screen to reflect style and geometry shifts.</li>
-        </ul>
-
-        <h3 class="subsection-title">2.2 What is the Virtual DOM?</h3>
-        <p>The <strong>Virtual DOM (VDOM)</strong> is a lightweight, pure JavaScript object tree stored in memory that mirrors the actual DOM. It contains no browser-specific layout APIs, making in-memory operations instantaneous.</p>
-
-        <!-- SVG 1.1: Virtual DOM Reconciliation Workflow -->
-        <div class="diagram-wrapper">
+        </ul><h3 class="subsection-title">2.2 What is the Virtual DOM?</h3><p>The <strong>Virtual DOM (VDOM)</strong> is a lightweight, pure JavaScript object tree stored in memory that mirrors the actual DOM. It contains no browser-specific layout APIs, making in-memory operations instantaneous.</p><div class="diagram-wrapper" data-atomic="true">
           <div class="diagram-title">Figure 1.1: The Virtual DOM Diffing and Reconciliation Process</div>
           <svg viewBox="0 0 780 240" class="svg-diagram" aria-label="Workflow diagram showing State Change leading to Previous VDOM and New VDOM diffing, calculating minimal patch and updating Real DOM">
             <title>Virtual DOM Reconciliation Architecture</title>
@@ -102,7 +194,7 @@
 
             <rect x="400" y="75" width="170" height="80" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"></rect>
             <text x="485" y="105" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="13">Diffing Algorithm</text>
-            <text x="485" y="125" text-anchor="middle" fill="var(--green)" font-weight="600" font-size="11"><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> Heuristic Diff</text>
+            <text x="485" y="125" text-anchor="middle" fill="var(--green)" font-weight="600" font-size="11">O(n)O(n)O(n) Heuristic Diff</text>
             <text x="485" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Computes Delta Patch</text>
 
             <path d="M 570 115 L 610 115" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"></path>
@@ -114,30 +206,26 @@
             <text x="690" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Minimal Reflow/Repaint</text>
           </svg>
           <div class="diagram-caption">Reconciliation compares the new VDOM against the previous VDOM snapshot using an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> heuristic diff, applying only minimal batched patches to the real DOM.</div>
-        </div>
-
-        <h3 class="subsection-title">2.3 The Reconciliation Algorithm &amp; Fiber Architecture</h3>
-        <p>A generic tree diffing algorithm operates in <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0641em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span> time complexity, which would be unusable for interfaces with thousands of elements. React achieves an optimal <strong><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span></strong> linear reconciliation via two core heuristics:</p>
-        <ol>
+        </div><h3 class="subsection-title">2.3 The Reconciliation Algorithm &amp; Fiber Architecture</h3><p>A generic tree diffing algorithm operates in <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0641em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span> time complexity, which would be unusable for interfaces with thousands of elements. React achieves an optimal <strong><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span></strong> linear reconciliation via two core heuristics:</p><ol>
           <li><strong>Different Element Types:</strong> Two elements of different HTML types (e.g. changing <code>&lt;div&gt;</code> to <code>&lt;span&gt;</code>) will tear down and completely reconstruct that entire subtree from scratch.</li>
           <li><strong>Keys for List Elements:</strong> Developers supply a persistent <code>key</code> prop so React can identify which items were inserted, deleted, or reordered without re-rendering the whole collection.</li>
-        </ol>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </ol><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>VDOM is a lightweight in-memory JS representation of the UI. Reconciliation compares the new VDOM to the old VDOM via an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> heuristic diff and batches minimal updates to the real DOM.</p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">4. Setting Up the React Environment with Vite</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-framework-comparison" data-sec-title="3. React vs. Other Front-End Frameworks (Angular &amp; Vue)" data-sec-index="2">
-        <h2 id="sec-framework-comparison">3. React vs. Other Front-End Frameworks (Angular &amp; Vue)</h2>
-        <div class="staging-body">
-          
-        
-        <div class="table-container">
+        <div class="page-content"><h2 id="sec-framework-comparison">3. React vs. Other Front-End Frameworks (Angular &amp; Vue)</h2><div class="table-container">
           <table class="notes-table hand-table">
             <thead>
               <tr>
@@ -180,32 +268,23 @@
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>React is a flexible UI library using one-way data binding and JSX; Angular is an opinionated full framework with two-way binding; Vue is a progressive template framework.</p>
+        </div><h2 id="sec-vite-setup">4. Setting Up the React Environment with Vite</h2><h3 class="subsection-title">4.1 Why Vite Over Create React App (CRA)?</h3><p>The legacy <em>Create React App (CRA)</em> utility relied on Webpack, which bundles the entire application codebase in memory before serving, leading to sluggish server start times and slow rebuilds as projects grew. <strong>Vite</strong> revolutionizes frontend tooling:</p><ul class=""><li><strong>Instant Server Start:</strong> Leverages native browser ES Modules (ESM) to serve source code on-demand without bundling beforehand.</li><li><strong>Lightning-Fast Pre-bundling:</strong> Uses <code>esbuild</code> (written in Go), pre-bundling dependencies <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>−</mo><mn>100</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">10-100\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">100</span><span class="mord">×</span></span></span></span></span> faster than JavaScript-based bundlers.</li></ul></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">5. React Project Structure &amp; Execution Lifecycle</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-vite-setup" data-sec-title="4. Setting Up the React Environment with Vite" data-sec-index="3">
-        <h2 id="sec-vite-setup">4. Setting Up the React Environment with Vite</h2>
-        <div class="staging-body">
-          
-        
-        <h3 class="subsection-title">4.1 Why Vite Over Create React App (CRA)?</h3>
-        <p>The legacy <em>Create React App (CRA)</em> utility relied on Webpack, which bundles the entire application codebase in memory before serving, leading to sluggish server start times and slow rebuilds as projects grew. <strong>Vite</strong> revolutionizes frontend tooling:</p>
-        <ul>
-          <li><strong>Instant Server Start:</strong> Leverages native browser ES Modules (ESM) to serve source code on-demand without bundling beforehand.</li>
-          <li><strong>Lightning-Fast Pre-bundling:</strong> Uses <code>esbuild</code> (written in Go), pre-bundling dependencies <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>−</mo><mn>100</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">10-100\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">100</span><span class="mord">×</span></span></span></span></span> faster than JavaScript-based bundlers.</li>
-          <li><strong>Hot Module Replacement (HMR):</strong> Updates modified component files instantly in the browser without losing application state.</li>
-        </ul>
-
-        <h3 class="subsection-title">4.2 Bootstrapping a Modern Vite React Application</h3>
-        <div class="code-block-wrapper">
+        <div class="page-content"><ul class=""><li><strong>Hot Module Replacement (HMR):</strong> Updates modified component files instantly in the browser without losing application state.</li></ul><h3 class="subsection-title">4.2 Bootstrapping a Modern Vite React Application</h3><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">bash</span>
             <button class="btn-copy" data-target="code-vite-setup">Copy</button>
@@ -221,23 +300,10 @@ npm install
 
 # 4. Launch the lightning-fast local development server
 npm run dev</code></pre>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Vite serves source code over native ES Modules (ESM) and uses Go-based <code>esbuild</code> for dependencies, offering near-instant dev server boot and fast Hot Module Replacement.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-project-structure" data-sec-title="5. React Project Structure &amp; Execution Lifecycle" data-sec-index="4">
-        <h2 id="sec-project-structure">5. React Project Structure &amp; Execution Lifecycle</h2>
-        <div class="staging-body">
-          
-        
-        <div class="code-block-wrapper">
+        </div><h2 id="sec-project-structure">5. React Project Structure &amp; Execution Lifecycle</h2><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">text</span>
             <button class="btn-copy" data-target="code-dir-struct">Copy</button>
@@ -252,11 +318,20 @@ npm run dev</code></pre>
     ├── App.jsx          # Root component of your application tree
     ├── App.css          # Styles scoped to App component
     └── index.css        # Global CSS rules and CSS custom properties</code></pre>
+        </div><h3 class="subsection-title">5.1 The Entry Point: <code>main.jsx</code></h3><p>In modern React 18+, the application attaches to the HTML DOM using the <code>createRoot</code> API from <code>react-dom/client</code>:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 24</span>
         </div>
-
-        <h3 class="subsection-title">5.1 The Entry Point: <code>main.jsx</code></h3>
-        <p>In modern React 18+, the application attaches to the HTML DOM using the <code>createRoot</code> API from <code>react-dom/client</code>:</p>
-        <div class="code-block-wrapper">
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">6. Introduction to JSX &amp; Syntax Rules</span>
+        </div>
+        <div class="page-content"><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-main-jsx">Copy</button>
@@ -272,57 +347,36 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     &lt;App /&gt;
   &lt;/React.StrictMode&gt;
 );</code></pre>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Execution starts in <code>index.html</code> with <code>&lt;div id="root"&gt;</code>, which loads <code>main.jsx</code>, where <code>createRoot(...).render(&lt;App /&gt;)</code> mounts the root component tree.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-jsx-fundamentals" data-sec-title="6. Introduction to JSX &amp; Syntax Rules" data-sec-index="5">
-        <h2 id="sec-jsx-fundamentals">6. Introduction to JSX &amp; Syntax Rules</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+        </div><h2 id="sec-jsx-fundamentals">6. Introduction to JSX &amp; Syntax Rules</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
           
           <p><strong>JSX (JavaScript XML)</strong> is a syntax extension for JavaScript that allows developers to write HTML-like markup directly inside JavaScript files. It is not valid JavaScript natively; build tools transpile it into standard JavaScript function calls.</p>
+        </div><h3 class="subsection-title">6.1 The Three Essential Rules of JSX</h3><ol class=""><li><strong>1. Return a Single Root Element:</strong> A component cannot return multiple adjacent top-level JSX tags. You must wrap them in a parent element or a <strong>React Fragment</strong> (<code>&lt;&gt;...&lt;/&gt;</code> or <code>&lt;React.Fragment&gt;</code>), because JavaScript functions cannot return multiple values without an enclosing container.</li><li><strong>2. Close All Tags:</strong> Every tag must be explicitly closed. Tags that are void in HTML (like <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>) must be self-closing in JSX: <code>&lt;img src="..." alt="..." /&gt;</code>.</li></ol></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 24</span>
         </div>
-
-        <h3 class="subsection-title">6.1 The Three Essential Rules of JSX</h3>
-        <ol>
-          <li><strong>1. Return a Single Root Element:</strong> A component cannot return multiple adjacent top-level JSX tags. You must wrap them in a parent element or a <strong>React Fragment</strong> (<code>&lt;&gt;...&lt;/&gt;</code> or <code>&lt;React.Fragment&gt;</code>), because JavaScript functions cannot return multiple values without an enclosing container.</li>
-          <li><strong>2. Close All Tags:</strong> Every tag must be explicitly closed. Tags that are void in HTML (like <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>) must be self-closing in JSX: <code>&lt;img src="..." alt="..." /&gt;</code>.</li>
-          <li><strong>3. camelCase Most HTML Attributes:</strong> Because JSX compiles to JavaScript objects and words like <code>class</code> and <code>for</code> are reserved keywords in JavaScript:
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">7. Embedding Expressions &amp; Evaluation in JSX</span>
+        </div>
+        <div class="page-content"><ol start="3" class=""><li><strong>3. camelCase Most HTML Attributes:</strong> Because JSX compiles to JavaScript objects and words like <code>class</code> and <code>for</code> are reserved keywords in JavaScript:
             <ul>
               <li>Use <code>className</code> instead of <code>class</code>.</li>
               <li>Use <code>htmlFor</code> instead of <code>for</code> (in <code>&lt;label&gt;</code>).</li>
               <li>Event handlers use camelCase: <code>onClick</code>, <code>onChange</code>, <code>onSubmit</code>.</li>
               <li>Inline styles use camelCase properties inside double curly braces: <code>style={{ backgroundColor: 'red', marginTop: '10px' }}</code>.</li>
             </ul>
-          </li>
-        </ol>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+          </li></ol><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>JSX rules: 1. Single root element (or Fragment <code>&lt;&gt;&lt;/&gt;</code>); 2. All tags must close (e.g. <code>&lt;br /&gt;</code>); 3. camelCase attributes (<code>className</code>, <code>htmlFor</code>, <code>onClick</code>).</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-jsx-expressions" data-sec-title="7. Embedding Expressions &amp; Evaluation in JSX" data-sec-index="6">
-        <h2 id="sec-jsx-expressions">7. Embedding Expressions &amp; Evaluation in JSX</h2>
-        <div class="staging-body">
-          
-        
-        <p>You can embed any valid JavaScript <strong>expression</strong> inside JSX markup by enclosing it in curly braces <code>{ }</code>:</p>
-        <div class="code-block-wrapper">
+        </div><h2 id="sec-jsx-expressions">7. Embedding Expressions &amp; Evaluation in JSX</h2><p>You can embed any valid JavaScript <strong>expression</strong> inside JSX markup by enclosing it in curly braces <code>{ }</code>:</p><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-expressions">Copy</button>
@@ -350,43 +404,48 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     &lt;/div&gt;
   );
 }</code></pre>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 24</span>
         </div>
-
-        <div class="callout callout-warning hand-card card-warning"><div class="hand-badge">Important Limitation</div>
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">8. Conditional &amp; List Rendering in JSX</span>
+        </div>
+        <div class="page-content"><div class="callout callout-warning hand-card card-warning"><div class="hand-label label-warning">Important Limitation:</div>
           
           <p>Only <strong>expressions</strong> (code that evaluates to a value) can be placed inside <code>{ }</code>. JavaScript <strong>statements</strong> (like <code>if (...)</code>, <code>for (...)</code>, <code>switch (...)</code>, or <code>function (...)</code> declarations) cannot be placed directly inside JSX curly braces!</p>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Curly braces <code>{ }</code> open a window to JavaScript inside JSX. Only expressions (producing a value) are permitted; statements (<code>if</code>, <code>for</code>) cause syntax errors.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-conditional-lists" data-sec-title="8. Conditional &amp; List Rendering in JSX" data-sec-index="7">
-        <h2 id="sec-conditional-lists">8. Conditional &amp; List Rendering in JSX</h2>
-        <div class="staging-body">
-          
-        
-
-        <h3 class="subsection-title">8.1 Idiomatic Conditional Rendering Patterns</h3>
-        <ul>
+        </div><h2 id="sec-conditional-lists">8. Conditional &amp; List Rendering in JSX</h2><h3 class="subsection-title">8.1 Idiomatic Conditional Rendering Patterns</h3><ul>
           <li><strong>1. Ternary Operator (<code>condition ? &lt;TrueView /&gt; : &lt;FalseView /&gt;</code>):</strong> Used when you want to render one element when true, and an alternate element when false.</li>
           <li><strong>2. Logical AND Short-Circuit (<code>condition &amp;&amp; &lt;Component /&gt;</code>):</strong> Used when you want to render a component only if a condition is true, and nothing if false.
-            <div class="callout callout-warning hand-card card-warning" style="margin-top:8px;"><div class="hand-badge">The "Zero" Pitfall</div>
+            <div class="callout callout-warning hand-card card-warning" style="margin-top:8px;"><div class="hand-label label-warning">The "Zero" Pitfall:</div>
               
               <p>Be careful when the condition is a number! In JavaScript, <code>0 &amp;&amp; &lt;Span /&gt;</code> evaluates to the number <code>0</code>, which React renders as text "0" on screen. To prevent this, check boolean explicitly: <code>messages.length &gt; 0 &amp;&amp; &lt;Badge /&gt;</code>.</p>
             </div>
           </li>
           <li><strong>3. Early Return with <code>if / else</code>:</strong> When an entire component's return value depends on an early check (e.g. returning a loading spinner while data fetches).</li>
-        </ul>
-
-        <h3 class="subsection-title">8.2 Rendering Lists with the <code>.map()</code> Method and <code>key</code> Prop</h3>
-        <p>In React, collections of data are transformed into arrays of JSX elements using standard JavaScript array <code>.map()</code>:</p>
-        <div class="code-block-wrapper">
+        </ul><h3 class="subsection-title">8.2 Rendering Lists with the <code>.map()</code> Method and <code>key</code> Prop</h3><p>In React, collections of data are transformed into arrays of JSX elements using standard JavaScript array <code>.map()</code>:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 24</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">9. JSX Compilation Under the Hood</span>
+        </div>
+        <div class="page-content"><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-list-render">Copy</button>
@@ -409,31 +468,26 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     &lt;/ul&gt;
   );
 }</code></pre>
-        </div>
-
-        <div class="callout callout-warning hand-card card-warning"><div class="hand-badge">Why Array Indices Should Not Be Used as Keys</div>
+        </div><div class="callout callout-warning hand-card card-warning"><div class="hand-label label-warning">Why Array Indices Should Not Be Used as Keys:</div>
           
           <p>Using <code>key={index}</code> works for static, never-changing lists, but fails catastrophically if items can be sorted, filtered, inserted, or deleted. The index of an item changes when preceding items are modified, causing React to mistakenly match different component instances, resulting in corrupted form state and broken animations!</p>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Render lists using <code>array.map()</code>. Every item requires a unique, persistent <code>key</code> prop (use IDs, not indices) so the reconciliation algorithm can track element identity.</p>
+        </div><h2 id="sec-jsx-compilation">9. JSX Compilation Under the Hood</h2><p>Browsers cannot execute JSX directly. Build tools like Babel or esbuild compile JSX into pure JavaScript before execution.</p><h3 class="subsection-title">9.1 Classic Transform vs. Modern React 17+ JSX Transform</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">9. JSX Compilation Under the Hood</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-jsx-compilation" data-sec-title="9. JSX Compilation Under the Hood" data-sec-index="8">
-        <h2 id="sec-jsx-compilation">9. JSX Compilation Under the Hood</h2>
-        <div class="staging-body">
-          
-        
-        <p>Browsers cannot execute JSX directly. Build tools like Babel or esbuild compile JSX into pure JavaScript before execution.</p>
-
-        <h3 class="subsection-title">9.1 Classic Transform vs. Modern React 17+ JSX Transform</h3>
-        <div class="table-container">
+        <div class="page-content"><div class="table-container">
           <table class="notes-table hand-table">
             <thead>
               <tr>
@@ -457,16 +511,23 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>JSX compiles to JavaScript function calls. Modern React 17+ automatically uses <code>react/jsx-runtime</code> (<code>_jsx</code>), eliminating the legacy requirement to import React in every JSX file.</p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 24</span>
         </div>
-      
-
-      <!-- Interactive JSX Compilation & Virtual DOM Diffing Studio -->
-      <div id="react-jsx-studio" class="interactive-widget-card" style="margin: 2.5rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">10. Complete Tested Code Demonstrations</span>
+        </div>
+        <div class="page-content"><div id="react-jsx-studio" class="interactive-widget-card" style="margin: 2.5rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
           <div>
             <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--brand); font-weight: 700; letter-spacing: 0.05em;">Interactive Lab Explorer</div>
@@ -612,20 +673,20 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </div>
           </div>
         </div>
-      </div>
-
-
+      </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 24</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-code-demos" data-sec-title="10. Complete Tested Code Demonstrations" data-sec-index="9">
-        <h2 id="sec-code-demos">10. Complete Tested Code Demonstrations</h2>
-        <div class="staging-body">
-          
-        
-
-        <div class="callout callout-example hand-card card-example"><div class="hand-badge">Runnable Component: Student Dashboard Card with Expressions &amp; Conditions</div>
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">11. Quick Revision Sheet</span>
+        </div>
+        <div class="page-content"><h2 id="sec-code-demos">10. Complete Tested Code Demonstrations</h2><div class="callout callout-example hand-card card-example"><div class="hand-label label-example">Runnable Component: Student Dashboard Card with Expressions &amp; Conditions:</div>
           
           <p>This complete, self-contained functional component demonstrates dynamic expressions, conditional status badges, and list mapping with unique keys:</p>
           <div class="code-block-wrapper">
@@ -684,19 +745,20 @@ export default function StudentProfile() {
 }</code></pre>
           </div>
           <p><strong>Expected Output:</strong> Renders Aditya Kumar's card with GPA 8.92, green "Dean's Merit List" text, an active Honors badge, and 3 enrolled courses totaling 9 credits.</p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="11. Quick Revision Sheet" data-sec-index="10">
-        <h2 id="revision-sheet">11. Quick Revision Sheet</h2>
-        <div class="staging-body">
-          
-        
-
-        <div class="table-container">
+        <div class="page-content"><h2 id="revision-sheet">11. Quick Revision Sheet</h2><div class="table-container">
           <table class="notes-table hand-table">
             <thead>
               <tr>
@@ -738,32 +800,27 @@ export default function StudentProfile() {
               </tr>
             </tbody>
           </table>
+        </div><h2 id="exam-questions">12. Important Exam Questions &amp; Practice</h2><p class="section-lead">The following conceptual questions and verified code tracing problems cover key university examination patterns for <strong>ISAEC594 (Front End Development using ReactJS)</strong>:</p><h3 class="subsection-title">2-Mark Conceptual Questions</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="exam-questions" data-sec-title="12. Important Exam Questions &amp; Practice" data-sec-index="11">
-        <h2 id="exam-questions">12. Important Exam Questions &amp; Practice</h2>
-        <div class="staging-body">
-          
-        
-        <p class="section-lead">The following conceptual questions and verified code tracing problems cover key university examination patterns for <strong>ISAEC594 (Front End Development using ReactJS)</strong>:</p>
-
-        <h3 class="subsection-title">2-Mark Conceptual Questions</h3>
-
-        <!-- Q1 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">1. What is the Virtual DOM and how does React reconciliation improve application performance?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -776,19 +833,14 @@ export default function StudentProfile() {
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">2. State three fundamental syntax rules of JSX and explain why each is required.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -801,19 +853,27 @@ export default function StudentProfile() {
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 24</span>
         </div>
-
-        <!-- Q3 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">3. Why should array indices not be used as the 'key' prop when rendering dynamic lists in React?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -826,19 +886,14 @@ export default function StudentProfile() {
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q4 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">4. Distinguish between JavaScript expressions and statements in JSX. Give an example of an invalid JSX embedding.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -851,19 +906,27 @@ export default function StudentProfile() {
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 24</span>
         </div>
-
-        <!-- Q5 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">5. What is meant by unidirectional (one-way) data flow, and why is it beneficial?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -873,85 +936,57 @@ export default function StudentProfile() {
           </div>
         </div>
           </div>
-        </div>
-
-        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
-
-        <!-- Q6 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
-            <span class="q-badge">10 MARKS</span>
-            <span class="q-title">6. Compare React with Angular and Vue.js across key architectural dimensions.</span>
-          </div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-          
-          <div class="qa-answer">
-            <p><strong>Comprehensive Architectural Comparison:</strong></p>
-            <div class="table-container">
-              <table class="notes-table hand-table">
-                <thead>
-                  <tr>
+        </div><h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3><table class="notes-table hand-table"><tr>
                     <th>Dimension</th>
                     <th>React (Meta)</th>
                     <th>Angular (Google)</th>
                     <th>Vue.js (Evan You)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
+                  </tr><tr>
                     <td><strong>Classification</strong></td>
                     <td>UI Library (unopinionated; routing and state managed by ecosystem)</td>
                     <td>Complete Framework (batteries-included: CLI, forms, router, HTTP, DI)</td>
                     <td>Progressive Framework (incrementally adoptable core + official ecosystem)</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td><strong>Syntax / Templates</strong></td>
                     <td>JSX (JavaScript XML with pure JS logic)</td>
                     <td>HTML enhanced with directives (<code>*ngIf</code>, <code>*ngFor</code>)</td>
                     <td>SFC (Single File Components with <code>&lt;template&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code>)</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td><strong>Data Binding</strong></td>
                     <td>Strictly Unidirectional (one-way data flow via props)</td>
                     <td>Two-way data binding (<code>[(ngModel)]</code>) &amp; unidirectional</td>
                     <td>Two-way model binding (<code>v-model</code>) on top of one-way props</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td><strong>DOM Abstraction</strong></td>
                     <td>Virtual DOM with Fiber reconciler</td>
                     <td>Incremental DOM (compiles templates into direct DOM instructions)</td>
                     <td>Optimized Virtual DOM with compile-time flag optimizations</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td><strong>Language Primary</strong></td>
                     <td>JavaScript (ES6+) or TypeScript</td>
                     <td>TypeScript (enforced by default)</td>
                     <td>JavaScript or TypeScript</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+                  </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 24</span>
         </div>
-          </div>
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
         </div>
-
-        <!-- Q7 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">5 MARKS</span>
             <span class="q-title">7. Explain the reconciliation algorithm in React. How does React achieve <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> time complexity?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -965,19 +1000,27 @@ export default function StudentProfile() {
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 24</span>
         </div>
-
-        <!-- Q8 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-18">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">5 MARKS</span>
             <span class="q-title">8. Explain why modern React development replaced Create React App (CRA) with Vite. Contrast their architectural approaches.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -995,23 +1038,29 @@ export default function StudentProfile() {
           </div>
         </div>
           </div>
+        </div><h3 class="subsection-title">Verified Code Tracing &amp; Practice Problems</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 18 of 24</span>
         </div>
-
-        <h3 class="subsection-title">Verified Code Tracing &amp; Practice Problems</h3>
-
-        <!-- Practice 1 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-19">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 1 • VIRTUAL DOM TREE CONSTRUCTION</span>
           </div>
           <h4 class="problem-title">Write the exact JavaScript object (AST) generated by React for the following JSX: <code>&lt;div className="card"&gt;&lt;h1&gt;Hello Ananya&lt;/h1&gt;&lt;p&gt;Active: Yes&lt;/p&gt;&lt;/div&gt;</code>.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1037,21 +1086,29 @@ export default function StudentProfile() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 19 of 24</span>
         </div>
-
-        <!-- Practice 2 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-20">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 2 • CONDITIONAL GREETING &amp; BADGE TRACE</span>
           </div>
           <h4 class="problem-title">Trace the output of <code>renderStatus(isLoggedIn, unreadCount)</code> for (a) <code>isLoggedIn = true, unreadCount = 3</code> and (b) <code>isLoggedIn = false, unreadCount = 0</code>.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1070,21 +1127,29 @@ export default function StudentProfile() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 20 of 24</span>
         </div>
-
-        <!-- Practice 3 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-21">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 3 • LIST TRANSFORMATION WITH KEYS</span>
           </div>
           <h4 class="problem-title">Given array <code>courses = [{id: "c1", title: "ReactJS", credits: 1}, {id: "c2", title: "ML", credits: 4}, {id: "c3", title: "CN", credits: 4}]</code>, trace the mapped elements and confirm the key property.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1099,21 +1164,29 @@ export default function StudentProfile() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 21 of 24</span>
         </div>
-
-        <!-- Practice 4 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-22">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 4 • FALSY VALUE SHORT-CIRCUIT TRAP</span>
           </div>
           <h4 class="problem-title">What gets rendered in the browser DOM for <code>&lt;div&gt;{unreadCount &amp;&amp; &lt;span&gt;New Items&lt;/span&gt;}&lt;/div&gt;</code> when <code>unreadCount = 0</code>? Explain why this happens and provide the fix.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1129,21 +1202,29 @@ export default function StudentProfile() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 22 of 24</span>
         </div>
-
-        <!-- Practice 5 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-23">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">12. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 5 • BABEL TRANSPILATION OF NESTED JSX</span>
           </div>
           <h4 class="problem-title">Show the transpiled JavaScript function calls for: <code>&lt;nav id="main"&gt;&lt;a href="/home" className="active"&gt;Home&lt;/a&gt;&lt;/nav&gt;</code>.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1161,21 +1242,29 @@ export default function StudentProfile() {
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 23 of 24</span>
         </div>
-
-        <!-- Practice 6 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-24">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 1</span>
+          <span class="header-right">13. Prescribed References</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 6 • FRAGMENTS WITH KEY PROPS</span>
           </div>
           <h4 class="problem-title">When is the empty fragment shorthand <code>&lt;&gt;...&lt;/&gt;</code> invalid in React, and what syntax must be used instead?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1192,18 +1281,7 @@ export default function StudentProfile() {
           </div>
           </div>
         </div>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-references" data-sec-title="13. Prescribed References" data-sec-index="12">
-        <h2 id="sec-references">13. Prescribed References</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-note hand-card card-example"><div class="hand-badge">Course Reference Literature</div>
+        </div><h2 id="sec-references">13. Prescribed References</h2><div class="callout callout-note hand-card card-example"><div class="hand-label label-example">Course Reference Literature:</div>
           
           <ol>
             <li><strong>Chris Minnick</strong>, <em>Beginning ReactJS Foundations: Building User Interfaces with ReactJS - An Approachable Guide</em>, Wiley, 2022. (Chapters 1, 2 &amp; 3).</li>
@@ -1211,12 +1289,11 @@ export default function StudentProfile() {
             <li><strong>React Official Documentation</strong>: <a href="https://react.dev" target="_blank" rel="noopener">https://react.dev</a>.</li>
           </ol>
           <p class="exam-disclaimer"><em>AI-assisted study notes written from the official courseware. Verify against the prescribed textbook before the exam.</em></p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 24 of 24</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

@@ -17,17 +17,17 @@
   {
     "id": "sec-4",
     "title": "VLSM Hierarchical Design & NAT Architecture",
-    "page": 8
+    "page": 9
   },
   {
     "id": "sec-5",
     "title": "The IPv4 Datagram Header & Fragmentation",
-    "page": 10
+    "page": 11
   },
   {
     "id": "sec-6",
     "title": "Internet Control Message Protocol (ICMPv4)",
-    "page": 14
+    "page": 13
   },
   {
     "id": "sec-7",
@@ -37,21 +37,21 @@
   {
     "id": "revision-sheet",
     "title": "One-Page Rapid Revision Sheet",
-    "page": 18
+    "page": 17
   },
   {
     "id": "important-questions",
     "title": "Important Examination Questions",
-    "page": 19
+    "page": 18
   },
   {
     "id": "questions-asked-before",
     "title": "Solved Questions from Past CIE-2 Examination Papers",
-    "page": 22
+    "page": 20
   },
   {
     "id": "practice-problems",
     "title": "Practice Problems with Step-by-Step Solutions",
-    "page": 29
+    "page": 25
   }
 ]

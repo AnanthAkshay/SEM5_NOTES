@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISE552 Unit 1 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Caveat', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #1e3a8a;
       --ink-dark: #111827;
     }
@@ -27,20 +26,112 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-1" data-sec-title="What is AI? The Four Historical Approaches" data-sec-index="0">
-        <h2 id="sec-1">What is AI? The Four Historical Approaches</h2>
-        <div class="staging-body">
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/ai" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">ISE552 Unit 1 · Handwritten Notebook</span>
+    <a href="ai-unit1-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">ISE552 · Artificial Intelligence</div>
+          <h1 class="cover-title">Unit 1: Introduction to AI, Intelligent Agents &amp; Problem Solving</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
+        </div>
+
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
           
-        <div class="section-badge">§ 1</div>
-        
+          
+            Definitions of AI: Thinking humanly (cognitive modeling), acting humanly (Turing test), thinking rationally (laws of thought), and acting rationally (rational agent approach).
+            Foundations of AI: Philosophy, Mathematics, Economics, Neuroscien...</p>
+        </div>
 
-        <p class="section-lead">Historically, researchers have approached <strong>Artificial Intelligence</strong> along two fundamental dimensions: whether the goal is to match <em>human performance</em> or adhere to an ideal standard of <em>rationality</em>, and whether the focus is on internal <em>thought processes</em> or external <em>behavior (actions)</em>.</p>
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>What is AI? The Four Historical Approaches</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Intelligent Agents and Environments</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>The Concept of Rationality and Autonomy</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>The PEAS Specification Framework</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 6</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Environment Classifications &amp; Dimensions</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 7</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Internal Agent Architectures</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Problem Solving by Search &amp; The 5 Components</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 11</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>State Space Formulations for Toy &amp; Real-World Problems</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 12</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>One-Page Rapid Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 14</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Important Examination Questions</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 15</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 17</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Verified High-Yield Practice Problems</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 23</span>
+        </li>
+      </ul>
+        </div>
 
-        
-        <!-- FIGURE 1.1: FOUR APPROACHES TO AI MATRIX -->
-        <figure class="diagram-card" id="fig-four-approaches">
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">What is AI? The Four Historical Approaches</span>
+        </div>
+        <div class="page-content"><h2 id="sec-1">What is AI? The Four Historical Approaches</h2><div class="section-badge">§ 1</div><p class="section-lead">Historically, researchers have approached <strong>Artificial Intelligence</strong> along two fundamental dimensions: whether the goal is to match <em>human performance</em> or adhere to an ideal standard of <em>rationality</em>, and whether the focus is on internal <em>thought processes</em> or external <em>behavior (actions)</em>.</p><figure class="diagram-card" id="fig-four-approaches" data-atomic="true">
           <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four Approaches to Defining Artificial Intelligence">
   <!-- Background Canvas -->
   <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
@@ -95,9 +186,20 @@
 </svg>
           <figcaption class="diagram-title">Figure 1.1: The Four Approaches to Defining Artificial Intelligence (Russell &amp; Norvig • Ramaiah CIE-1 Q1.a)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Modern AI adopts the <strong>Acting Rationally</strong> (Rational Agent) standard, as it provides a general, mathematically rigorous framework independent of human biological constraints.</p>
-        </figure>
-
-        <div class="table-container">
+        </figure></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 28</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">What is AI? The Four Historical Approaches</span>
+        </div>
+        <div class="page-content"><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -131,40 +233,34 @@
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">WHY MODERN AI FOCUSES ON THE RATIONAL AGENT APPROACH</div>
+        </div><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">WHY MODERN AI FOCUSES ON THE RATIONAL AGENT APPROACH:</div>
           
           <p>The rational agent approach is superior to human modeling for two main reasons:</p>
           <ol>
             <li>It is more general than the "laws of thought" approach, because correct inference is only one of several mechanisms for achieving rationality (e.g. reflex actions can be rational without logical deduction).</li>
             <li>It is more mathematically amenable to scientific development than approaches based on human behavior, because the standard of rationality is mathematically well-defined and completely independent of human biological quirks and cognitive errors.</li>
           </ol>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 28</span>
         </div>
-
-        <div class="quick-recall-box">
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Intelligent Agents and Environments</span>
+        </div>
+        <div class="page-content"><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>4 Approaches: Thinking Humanly, Acting Humanly (Turing), Thinking Rationally (Logic), Acting Rationally (Agents).</li>
             <li>Turing Test requires: NLP, Knowledge Representation, Automated Reasoning, Machine Learning. (Total Turing Test adds Computer Vision &amp; Robotics).</li>
             <li>Modern AI standard: <strong>Acting Rationally</strong> (maximizing expected performance).</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-2" data-sec-title="Intelligent Agents and Environments" data-sec-index="1">
-        <h2 id="sec-2">Intelligent Agents and Environments</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 2</div>
-        
-
-        <p class="section-lead">An <strong>agent</strong> is anything that can be viewed as perceiving its <strong>environment</strong> through <strong>sensors</strong> and acting upon that environment through <strong>actuators</strong>.</p>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">AGENT MATHEMATICAL FORMALISM</div>
+        </div><h2 id="sec-2">Intelligent Agents and Environments</h2><div class="section-badge">§ 2</div><p class="section-lead">An <strong>agent</strong> is anything that can be viewed as perceiving its <strong>environment</strong> through <strong>sensors</strong> and acting upon that environment through <strong>actuators</strong>.</p><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">AGENT MATHEMATICAL FORMALISM:</div>
           
           <ul>
             <li><strong>Percept:</strong> The agent's perceptual inputs at any given instant.</li>
@@ -176,9 +272,7 @@
               <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Agent</mtext><mo>=</mo><mtext>Architecture</mtext><mo>+</mo><mtext>Program</mtext></mrow><annotation encoding="application/x-tex">\text{Agent} = \text{Architecture} + \text{Program}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Agent</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7778em; vertical-align: -0.0833em;"></span><span class="mord text"><span class="mord">Architecture</span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Program</span></span></span></span></span></span></span>
             </li>
           </ul>
-        </div>
-
-        <div class="svg-card">
+        </div><div class="svg-card">
           <div class="svg-title">Agent Interaction with its Environment</div>
           <svg viewBox="0 0 720 220" width="100%" height="220" role="img" aria-label="Agent Environment interaction model with sensors and actuators">
             <title>Agent-Environment Interaction Model</title>
@@ -209,37 +303,30 @@
             <path d="M 280 145 L 440 145" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)"></path>
             <text x="360" y="135" font-family="Inter" font-weight="700" font-size="12" fill="var(--text-main)" text-anchor="middle">Actuators (Actions)</text>
           </svg>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 28</span>
         </div>
-
-        <div class="quick-recall-box">
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">The Concept of Rationality and Autonomy</span>
+        </div>
+        <div class="page-content"><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Agent perceives environment via sensors; affects environment via actuators.</li>
             <li>Agent Function is an abstract mathematical mapping: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>P</mi><mo>∗</mo></msup><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">f: P^* \to A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.1076em;">f</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6887em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">P</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.6887em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span></span>.</li>
             <li>Agent Program is the concrete software code running on the physical architecture.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-3" data-sec-title="The Concept of Rationality and Autonomy" data-sec-index="2">
-        <h2 id="sec-3">The Concept of Rationality and Autonomy</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 3</div>
-        
-
-        <p class="section-lead">What is rational at any given time depends on four factors: the <strong>performance measure</strong> that defines the criterion of success, the agent's <strong>prior knowledge</strong> of the environment, the <strong>actions</strong> that the agent can perform, and the agent's <strong>percept sequence</strong> to date.</p>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">DEFINITION OF A RATIONAL AGENT</div>
+        </div><h2 id="sec-3">The Concept of Rationality and Autonomy</h2><div class="section-badge">§ 3</div><p class="section-lead">What is rational at any given time depends on four factors: the <strong>performance measure</strong> that defines the criterion of success, the agent's <strong>prior knowledge</strong> of the environment, the <strong>actions</strong> that the agent can perform, and the agent's <strong>percept sequence</strong> to date.</p><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">DEFINITION OF A RATIONAL AGENT:</div>
           
           <p>For each possible percept sequence, a rational agent should select an action that is expected to <strong>maximize its performance measure</strong>, given the evidence provided by the percept sequence and whatever built-in knowledge the agent has.</p>
-        </div>
-
-        <h3>Critical Distinctions in Rationality</h3>
-        <div class="table-container">
+        </div><h3>Critical Distinctions in Rationality</h3><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -266,33 +353,27 @@
               </tr>
             </tbody>
           </table>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 28</span>
         </div>
-
-        <div class="quick-recall-box">
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">The PEAS Specification Framework</span>
+        </div>
+        <div class="page-content"><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Rationality depends on: Performance measure, Prior knowledge, Actions, Percept sequence.</li>
             <li>Rationality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo mathvariant="normal">≠</mo></mrow><annotation encoding="application/x-tex">\ne</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mrel"><span class="mrel"><span class="mord katex-vbox"><span class="katex-thinbox"><span class="rlap"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="katex-inner"><span class="mord"><span class="mrel"></span></span></span><span class="katex-fix"></span></span></span></span></span><span class="mspace nobreak"></span><span class="mrel">=</span></span></span></span></span></span> Omniscience. Rationality maximizes <em>expected</em> success, not perfection in hindsight.</li>
             <li>Autonomy = learning from experience rather than relying solely on built-in prior knowledge.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-4" data-sec-title="The PEAS Specification Framework" data-sec-index="3">
-        <h2 id="sec-4">The PEAS Specification Framework</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 4</div>
-        
-
-        <p class="section-lead">To design a rational agent, we must first specify the <strong>task environment</strong> using the <strong>PEAS</strong> framework: <strong>P</strong>erformance measure, <strong>E</strong>nvironment, <strong>A</strong>ctuators, and <strong>S</strong>ensors.</p>
-
-        
-        <!-- FIGURE 1.3: PEAS TASK ENVIRONMENT SPECIFICATION -->
-        <figure class="diagram-card" id="fig-peas-framework">
+        </div><h2 id="sec-4">The PEAS Specification Framework</h2><div class="section-badge">§ 4</div><p class="section-lead">To design a rational agent, we must first specify the <strong>task environment</strong> using the <strong>PEAS</strong> framework: <strong>P</strong>erformance measure, <strong>E</strong>nvironment, <strong>A</strong>ctuators, and <strong>S</strong>ensors.</p><figure class="diagram-card" id="fig-peas-framework" data-atomic="true">
           <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PEAS Framework Breakdown for Intelligent Systems">
   <!-- Background Canvas -->
   <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"></rect>
@@ -354,153 +435,129 @@
 </svg>
           <figcaption class="diagram-title">Figure 1.3: PEAS Specification Architecture for Smart Traffic Control &amp; Medical Diagnosis (Ramaiah CIE-1 Q3.a)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Specifying Performance (P), Environment (E), Actuators (A), and Sensors (S) is the mandatory first step before selecting an agent architecture.</p>
-        </figure>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </figure></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 28</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Environment Classifications &amp; Dimensions</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                 <th>Agent Type</th>
                 <th>Performance Measure (P)</th>
                 <th>Environment (E)</th>
                 <th>Actuators (A)</th>
                 <th>Sensors (S)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Automated Taxi Driver</strong></td>
                 <td>Safe, fast, legal trip; maximize profits; minimize passenger discomfort; fuel efficiency.</td>
                 <td>City roads, traffic, pedestrians, weather conditions, customers.</td>
                 <td>Steering wheel, accelerator, brakes, gear shift, horn, turn signals, display screen.</td>
                 <td>Video cameras, sonar/radar, LIDAR, GPS, speedometer, engine sensors, accelerometer.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Medical Diagnosis System</strong></td>
                 <td>Healthy patient, minimized healthcare costs, zero misdiagnoses, patient recovery time.</td>
                 <td>Patient, hospital clinical staff, insurance systems, laboratory.</td>
                 <td>Display screen (diagnostic reports, treatment plans, prescription suggestions).</td>
                 <td>Keyboard (symptoms entered by doctor), patient medical history, lab test results.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Part-Picking Robot</strong></td>
                 <td>Percentage of parts correctly sorted into bins; speed; zero damaged parts.</td>
                 <td>Conveyor belt, parts bins, assembly line.</td>
                 <td>Jointed robotic arm, pneumatic gripper, conveyor belt speed control.</td>
                 <td>RGB-D camera, infrared proximity sensors, tactile grip sensors.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Interactive AI Language Tutor</strong></td>
                 <td>Student mastery test scores, student engagement time, minimized frustration.</td>
                 <td>Set of students, curriculum database, learning management system.</td>
                 <td>Display screen (exercises, feedback, hints, motivational voice synthesis).</td>
                 <td>Keyboard and mouse input, speech recognition microphone, webcam (facial attentiveness).</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="quick-recall-box">
+              </tr></table><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>PEAS: Performance measure, Environment, Actuators, Sensors.</li>
             <li>Always state Performance measure objectively from the perspective of an external observer.</li>
             <li>Actuators are the mechanisms that affect the world; Sensors are the perception devices.</li>
           </ul>
+        </div><h2 id="sec-5">Environment Classifications &amp; Dimensions</h2><div class="section-badge">§ 5</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 28</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Environment Classifications &amp; Dimensions</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-5" data-sec-title="Environment Classifications &amp; Dimensions" data-sec-index="4">
-        <h2 id="sec-5">Environment Classifications &amp; Dimensions</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 5</div>
-        
-
-        <p class="section-lead">The design of an agent program is determined almost entirely by the nature of its task environment. Environments are classified across seven fundamental conceptual dimensions.</p>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        <div class="page-content"><p class="section-lead">The design of an agent program is determined almost entirely by the nature of its task environment. Environments are classified across seven fundamental conceptual dimensions.</p><table class="data-table hand-table"><tr>
                 <th>Dimension</th>
                 <th>Dichotomy Definition</th>
                 <th>Example: Easy vs Hard</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Observability</strong></td>
                 <td><strong>Fully Observable:</strong> Agent's sensors give complete access to the entire state of the environment at all times.<br><strong>Partially Observable:</strong> Noise, inaccurate sensors, or hidden state prevents full view.</td>
                 <td>Chess is fully observable.<br>Poker / Driving is partially observable.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Number of Agents</strong></td>
                 <td><strong>Single-Agent:</strong> Agent operates alone.<br><strong>Multi-Agent:</strong> Environment contains multiple agents. Can be <strong>Competitive</strong> (adversarial) or <strong>Cooperative</strong>.</td>
                 <td>Crossword puzzle is single-agent.<br>Chess is competitive multi-agent.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Determinism</strong></td>
                 <td><strong>Deterministic:</strong> Next state is completely determined by current state and the agent's action.<br><strong>Stochastic:</strong> Uncertainty or randomness (probabilities) affect outcomes.</td>
                 <td>Vacuum world without slippage is deterministic.<br>Autonomous driving is stochastic.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Episodic vs Sequential</strong></td>
                 <td><strong>Episodic:</strong> Experience is divided into atomic episodes; current decision does not affect future episodes.<br><strong>Sequential:</strong> Current action affects all future states and rewards (requires planning).</td>
                 <td>Defective part detection is episodic.<br>Chess and Maze navigation are sequential.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Static vs Dynamic</strong></td>
                 <td><strong>Static:</strong> Environment does not change while the agent is deliberating.<br><strong>Dynamic:</strong> Environment continuously changes while the agent thinks (semidynamic = score drops).</td>
                 <td>Crossword is static.<br>Taxi driving is dynamic.<br>Timed chess is semidynamic.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Discrete vs Continuous</strong></td>
                 <td><strong>Discrete:</strong> Finite, distinct number of states, actions, and percepts.<br><strong>Continuous:</strong> Smoothly varying values over time (speed, coordinates).</td>
                 <td>Chess is discrete.<br>Taxi driving is continuous.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 28</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Internal Agent Architectures</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Dimension</th>
+                <th>Dichotomy Definition</th>
+                <th>Example: Easy vs Hard</th>
+              </tr><tr>
                 <td><strong>Known vs Unknown</strong></td>
                 <td><strong>Known:</strong> The laws / physics of the environment are known to the agent.<br><strong>Unknown:</strong> The agent must explore and learn how the environment works.</td>
                 <td>Video game with known rules is known.<br>Real world exploration is unknown.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout callout-warning hand-card card-warning"><div class="hand-badge">EXAM SUMMARY: THE HARDEST ENVIRONMENT TYPE</div>
+              </tr></table><div class="callout callout-warning hand-card card-warning"><div class="hand-label label-warning">EXAM SUMMARY: THE HARDEST ENVIRONMENT TYPE:</div>
           
           <p>The most difficult task environment for an AI agent is: <strong>Partially observable, Multi-agent, Stochastic, Sequential, Dynamic, Continuous, and Unknown</strong> (e.g. Automated Taxi Driving in a foreign city!).</p>
-        </div>
-
-        <div class="quick-recall-box">
+        </div><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>7 Dimensions: Observability, Agents, Determinism, Episodic/Sequential, Static/Dynamic, Discrete/Continuous, Known/Unknown.</li>
             <li>Chess: Fully observable, Deterministic, Sequential, Static, Discrete, Known.</li>
             <li>Taxi Driving: Partially observable, Stochastic, Sequential, Dynamic, Continuous, Unknown.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-6" data-sec-title="Internal Agent Architectures" data-sec-index="5">
-        <h2 id="sec-6">Internal Agent Architectures</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 6</div>
-        
-
-        <p class="section-lead">Russell and Norvig define five basic agent architectures of increasing sophistication: <strong>Simple Reflex</strong>, <strong>Model-Based Reflex</strong>, <strong>Goal-Based</strong>, <strong>Utility-Based</strong>, and <strong>Learning Agents</strong>.</p>
-
-        
-        <!-- FIGURE 1.2: MODEL-BASED REFLEX AGENT ARCHITECTURE -->
-        <figure class="diagram-card" id="fig-model-based-agent">
+        </div><h2 id="sec-6">Internal Agent Architectures</h2><div class="section-badge">§ 6</div><p class="section-lead">Russell and Norvig define five basic agent architectures of increasing sophistication: <strong>Simple Reflex</strong>, <strong>Model-Based Reflex</strong>, <strong>Goal-Based</strong>, <strong>Utility-Based</strong>, and <strong>Learning Agents</strong>.</p><figure class="diagram-card" id="fig-model-based-agent" data-atomic="true">
           <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Model-Based Reflex Agent Internal Architecture">
   <defs>
     <marker id="agent-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -594,55 +651,63 @@
 </svg>
           <figcaption class="diagram-title">Figure 1.2: Model-Based Reflex Agent Internal Architecture (Ramaiah CIE-1 Q2.a)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">The agent maintains an internal state updated via transition model physics ("how world evolves") and sensor model ("what my actions do"), overcoming partial observability.</p>
-        </figure>
-
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </figure></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 28</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Internal Agent Architectures</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                 <th>Agent Architecture</th>
                 <th>Internal State &amp; Mechanism</th>
                 <th>Action Selection Rule</th>
                 <th>Limitation / Failure Mode</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>1. Simple Reflex Agent</strong></td>
                 <td>No memory of past percepts. Direct link from current percept to action.</td>
                 <td>Condition-Action Rules:<br><code>if condition then action</code></td>
                 <td>Infinite loops in partially observable environments (e.g. can't escape if state looks identical).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>2. Model-Based Reflex Agent</strong></td>
                 <td>Maintains an <strong>internal state</strong> tracking aspects of the unobserved world.</td>
                 <td>Updates state using transition model ("How world evolves") and sensor model ("How actions affect world").</td>
                 <td>Lacks explicit future goals; only acts on current beliefs.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>3. Goal-Based Agent</strong></td>
                 <td>Combines internal state with explicit <strong>Goal information</strong> describing desirable situations.</td>
                 <td>Uses <strong>Search and Planning</strong> to find sequences of actions that achieve the goal.</td>
                 <td>Binary satisfaction (goal achieved vs not); cannot trade off between conflicting goals.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>4. Utility-Based Agent</strong></td>
                 <td>Uses an explicit <strong>Utility function</strong> mapping states to real numbers (degrees of happiness).</td>
                 <td>Selects the action that maximizes <em>Expected Utility</em>.</td>
                 <td>Computationally expensive; designing complex multi-attribute utility functions is hard.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>5. Learning Agent</strong></td>
                 <td>Divided into 4 functional modules: <em>Critic</em>, <em>Learning Element</em>, <em>Performance Element</em>, <em>Problem Generator</em>.</td>
                 <td>Learns from feedback to improve performance beyond initial programming.</td>
                 <td>Requires training samples and exploration-exploitation balance.</td>
-              </tr>
-            </tbody>
-          </table>
+              </tr></table><h3>The Four Components of a Learning Agent</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 28</span>
         </div>
-
-        <h3>The Four Components of a Learning Agent</h3>
-        <div class="flow-steps">
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Problem Solving by Search &amp; The 5 Components</span>
+        </div>
+        <div class="page-content"><div class="flow-steps">
           <div class="flow-step">
             <span class="step-num">1</span>
             <div><strong>Critic:</strong> Evaluates how well the agent is doing against an external, fixed performance standard. Provides feedback to the learning element.</div>
@@ -659,9 +724,7 @@
             <span class="step-num">4</span>
             <div><strong>Problem Generator:</strong> Suggests actions that lead to new and informative experiences (exploration), even if they may yield suboptimal short-term rewards.</div>
           </div>
-        </div>
-
-        <div class="quick-recall-box">
+        </div><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Simple reflex: condition-action rules; fails if partially observable.</li>
@@ -670,30 +733,22 @@
             <li>Utility-based: maximizes expected utility (handles trade-offs).</li>
             <li>Learning agent: Critic, Learning Element, Performance Element, Problem Generator.</li>
           </ul>
+        </div><div class="interactive-note">
+          <span>💻 <strong>Interactive Tool Available Online:</strong> 🤖 Interactive Agent Architecture &amp; PEAS Task Environment Simulator. Explore the step-by-step calculator and visualizer on the live site notes page.</span>
+        </div><h2 id="sec-7">Problem Solving by Search &amp; The 5 Components</h2><div class="section-badge">§ 7</div><p class="section-lead">A <strong>problem-solving agent</strong> is a goal-based agent that decides what to do by finding sequences of actions that lead to desirable states. When the correct action cannot be determined immediately, the agent formulates a search problem.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 28</span>
         </div>
-      
-        <!-- INTERACTIVE AGENT ARCHITECTURE & PEAS ENVIRONMENT SIMULATOR -->
-        <div class="interactive-note">
-          <span>💻 <strong>Interactive Tool Available Online:</strong> 🤖 Interactive Agent Architecture &amp; PEAS Task Environment Simulator. Try the interactive step-by-step calculator and visualizer on the live site notes page.</span>
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">State Space Formulations for Toy &amp; Real-World Problems</span>
         </div>
-
-        
-
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-7" data-sec-title="Problem Solving by Search &amp; The 5 Components" data-sec-index="6">
-        <h2 id="sec-7">Problem Solving by Search &amp; The 5 Components</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 7</div>
-        
-
-        <p class="section-lead">A <strong>problem-solving agent</strong> is a goal-based agent that decides what to do by finding sequences of actions that lead to desirable states. When the correct action cannot be determined immediately, the agent formulates a search problem.</p>
-
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">5 FIVE COMPONENTS OF A WELL-DEFINED SEARCH PROBLEM</div>
+        <div class="page-content"><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">5 FIVE COMPONENTS OF A WELL-DEFINED SEARCH PROBLEM:</div>
           
           <ol>
             <li><strong>Initial State (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">s_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.5806em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span>):</strong> The state that the agent starts in (e.g. <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mo stretchy="false">(</mo><mi>A</mi><mi>r</mi><mi>a</mi><mi>d</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">In(Arad)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0785em;">I</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right: 0.0278em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mclose">)</span></span></span></span></span>).</li>
@@ -702,34 +757,27 @@
             <li><strong>Goal Test (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>s</mi><mi>G</mi><mi>o</mi><mi>a</mi><mi>l</mi><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">IsGoal(s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0785em;">I</span><span class="mord mathnormal">s</span><span class="mord mathnormal">G</span><span class="mord mathnormal">o</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right: 0.0197em;">l</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span></span></span></span></span>):</strong> Determines whether a given state <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span></span> is a goal state. Can be explicit (e.g. <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>I</mi><mi>n</mi><mo stretchy="false">(</mo><mi>B</mi><mi>u</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s = In(Bucharest)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.0785em;">I</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right: 0.0502em;">B</span><span class="mord mathnormal">u</span><span class="mord mathnormal">c</span><span class="mord mathnormal">ha</span><span class="mord mathnormal" style="margin-right: 0.0278em;">r</span><span class="mord mathnormal">es</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span>) or implicit (e.g. checkmate in chess).</li>
             <li><strong>Path Cost (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>a</mi><mo separator="true">,</mo><msup><mi>s</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">c(s, a, s')</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0019em; vertical-align: -0.25em;"></span><span class="mord mathnormal">c</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.7519em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span>):</strong> A function that assigns a numeric cost to each step. The step cost of taking action <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span></span> in state <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span></span> to reach <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">s'</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7519em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.7519em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span> is denoted <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>a</mi><mo separator="true">,</mo><msup><mi>s</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">c(s, a, s')</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0019em; vertical-align: -0.25em;"></span><span class="mord mathnormal">c</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.7519em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span>. The total path cost is the sum of step costs along the path.</li>
           </ol>
-        </div>
-
-        <p>A <strong>solution</strong> is an action sequence that leads from the initial state to a goal state. An <strong>optimal solution</strong> is a solution that has the lowest path cost among all solutions.</p>
-
-        <div class="quick-recall-box">
+        </div><p>A <strong>solution</strong> is an action sequence that leads from the initial state to a goal state. An <strong>optimal solution</strong> is a solution that has the lowest path cost among all solutions.</p><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>5 Components: Initial State, Actions, Transition Model, Goal Test, Path Cost.</li>
             <li>State Space: set of all reachable states from the initial state.</li>
             <li>Optimal solution = lowest path cost among all solutions.</li>
           </ul>
+        </div><h2 id="sec-8">State Space Formulations for Toy &amp; Real-World Problems</h2><div class="section-badge">§ 8</div><p class="section-lead">A <strong>state space</strong> is the complete set of all states reachable from the initial state by any sequence of actions. State space formulation abstracts away irrelevant physical details to focus on formal problem solving.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 28</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">State Space Formulations for Toy &amp; Real-World Problems</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-8" data-sec-title="State Space Formulations for Toy &amp; Real-World Problems" data-sec-index="7">
-        <h2 id="sec-8">State Space Formulations for Toy &amp; Real-World Problems</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 8</div>
-        
-
-        <p class="section-lead">A <strong>state space</strong> is the complete set of all states reachable from the initial state by any sequence of actions. State space formulation abstracts away irrelevant physical details to focus on formal problem solving.</p>
-
-        <!-- SOLVED WORKED FORMULATION: 8-PUZZLE -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">CORE PROBLEM FORMULATION • VERIFIED SCRIPT PASS</span>
             <span class="problem-points">[10 MARKS • EXAM CORE]</span>
@@ -760,71 +808,60 @@
             <li>Blank in center (1 center): 4 legal moves.</li>
             <li>Average branching factor: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mfrac><mrow><mn>4</mn><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo><mo>+</mo><mn>4</mn><mo stretchy="false">(</mo><mn>3</mn><mo stretchy="false">)</mo><mo>+</mo><mn>1</mn><mo stretchy="false">(</mo><mn>4</mn><mo stretchy="false">)</mo></mrow><mn>9</mn></mfrac><mo>=</mo><mfrac><mrow><mn>8</mn><mo>+</mo><mn>12</mn><mo>+</mo><mn>4</mn></mrow><mn>9</mn></mfrac><mo>=</mo><mfrac><mn>24</mn><mn>9</mn></mfrac><mo>≈</mo><mn mathvariant="bold">2.67</mn></mrow><annotation encoding="application/x-tex">b = \frac{4(2) + 4(3) + 1(4)}{9} = \frac{8 + 12 + 4}{9} = \frac{24}{9} \approx \mathbf{2.67}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1.355em; vertical-align: -0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.01em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.485em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span><span class="mbin mtight">+</span><span class="mord mtight">4</span><span class="mopen mtight">(</span><span class="mord mtight">3</span><span class="mclose mtight">)</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mopen mtight">(</span><span class="mord mtight">4</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1.1901em; vertical-align: -0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.8451em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.394em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span><span class="mbin mtight">+</span><span class="mord mtight">12</span><span class="mbin mtight">+</span><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1.1901em; vertical-align: -0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.8451em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.394em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">24</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord"><span class="mord mathbf">2.67</span></span></span></span></span></span>.</li>
           </ul>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 28</span>
         </div>
-
-        <!-- SOLVED WORKED FORMULATION: 8-QUEENS -->
-        <div class="problem-card">
-          <div class="problem-header">
-            <span class="problem-tag">FORMULATION 2 • 8-QUEENS PROBLEM</span>
-            <span class="problem-points">[8 MARKS]</span>
-          </div>
-          <h4 class="problem-title">Incremental vs Complete-State Formulation of 8-Queens</h4>
-          <p>Place 8 queens on an <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>×</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">8 \times 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">8</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">8</span></span></span></span></span> chessboard such that no queen attacks another (no two queens share the same row, column, or diagonal).</p>
-          <div class="table-container">
-            <table class="data-table hand-table">
-              <thead>
-                <tr>
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">One-Page Rapid Revision Sheet</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                   <th>Formulation Style</th>
                   <th>State Representation</th>
                   <th>State Space Size</th>
                   <th>Search Methodology</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
+                </tr><tr>
                   <td><strong>Naive Incremental</strong></td>
                   <td>Any arrangement of 0 to 8 queens on the 64 squares.</td>
                   <td><span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo fence="true">(</mo><mfrac linethickness="0px"><mn>64</mn><mn>8</mn></mfrac><mo fence="true">)</mo></mrow><mo>≈</mo><mn>4.4</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup><mtext>&nbsp;states</mtext></mrow><annotation encoding="application/x-tex">\binom{64}{8} \approx 4.4 \times 10^9\text{ states}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 2.4em; vertical-align: -0.95em;"></span><span class="mord"><span class="mopen delimcenter" style="top: 0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">8</span></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">64</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose delimcenter" style="top: 0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">4.4</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8641em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8641em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span><span class="mord text"><span class="mord">&nbsp;states</span></span></span></span></span></span></span></td>
                   <td>Place queen on any empty square. Massive redundant search.</td>
-                </tr>
-                <tr>
+                </tr><tr>
                   <td><strong>Clever Incremental</strong></td>
                   <td>Place one queen per column in columns 1 to <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord mathnormal" style="margin-right: 0.0315em;">k</span></span></span></span></span> such that no queen is attacked.</td>
                   <td><span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mn>8</mn><mn>8</mn></msup><mo>≈</mo><mn>1.68</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup><mtext>&nbsp;states</mtext></mrow><annotation encoding="application/x-tex">8^8 \approx 1.68 \times 10^7\text{ states}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8641em;"></span><span class="mord"><span class="mord">8</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8641em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">1.68</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8641em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8641em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span><span class="mord text"><span class="mord">&nbsp;states</span></span></span></span></span></span></span></td>
                   <td>Place next queen in leftmost empty column without conflict.</td>
-                </tr>
-                <tr>
+                </tr><tr>
                   <td><strong>Complete-State Formulation</strong></td>
                   <td>All 8 queens are on the board, exactly one queen per column.</td>
                   <td><span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>8</mn><mo stretchy="false">!</mo><mo>=</mo><mrow><mn mathvariant="bold">40</mn><mo separator="true">,</mo><mn mathvariant="bold">320</mn><mtext>&nbsp;states</mtext></mrow></mrow><annotation encoding="application/x-tex">8! = \mathbf{40,320\text{ states}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">8</span><span class="mclose">!</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8389em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathbf">40</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathbf">320</span><span class="mord text"><span class="mord">&nbsp;states</span></span></span></span></span></span></span></span></td>
                   <td>Used by local search (Hill Climbing / Min-Conflicts) to slide queens vertically within their column.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="quick-recall-box">
+                </tr></table><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>8-puzzle: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mo stretchy="false">!</mo><mo>=</mo><mn>362</mn><mo separator="true">,</mo><mn>880</mn></mrow><annotation encoding="application/x-tex">9! = 362,880</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">9</span><span class="mclose">!</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8389em; vertical-align: -0.1944em;"></span><span class="mord">362</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">880</span></span></span></span></span> permutations; <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>181</mn><mo separator="true">,</mo><mn>440</mn></mrow><annotation encoding="application/x-tex">181,440</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8389em; vertical-align: -0.1944em;"></span><span class="mord">181</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">440</span></span></span></span></span> reachable states due to inversion parity.</li>
             <li>8-puzzle average branching factor <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>24</mn><mi mathvariant="normal">/</mi><mn>9</mn><mo>≈</mo><mn>2.67</mn></mrow><annotation encoding="application/x-tex">b = 24/9 \approx 2.67</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">24/9</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">2.67</span></span></span></span></span>.</li>
             <li>8-queens complete-state formulation reduces search space from <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4.4</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">4.4 \times 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">4.4</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span> to <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo stretchy="false">!</mo><mo>=</mo><mn>40</mn><mo separator="true">,</mo><mn>320</mn></mrow><annotation encoding="application/x-tex">8! = 40,320</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">8</span><span class="mclose">!</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8389em; vertical-align: -0.1944em;"></span><span class="mord">40</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">320</span></span></span></span></span>.</li>
           </ul>
+        </div><h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2><div class="section-badge">★ REVISION</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 28</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Important Examination Questions</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="One-Page Rapid Revision Sheet" data-sec-index="8">
-        <h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">★ REVISION</div>
-        
-        
-        <div class="revision-grid">
+        <div class="page-content"><div class="revision-grid">
           <div class="revision-card">
             <h4>Definitions of AI</h4>
             <ul>
@@ -863,30 +900,28 @@
               <li>8-Queens: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo stretchy="false">!</mo><mo>=</mo><mn>40</mn><mo separator="true">,</mo><mn>320</mn></mrow><annotation encoding="application/x-tex">8! = 40,320</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">8</span><span class="mclose">!</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8389em; vertical-align: -0.1944em;"></span><span class="mord">40</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">320</span></span></span></span></span> permutations in complete-state.</li>
             </ul>
           </div>
+        </div><h2 id="important-questions">Important Examination Questions</h2><div class="section-badge">? QUESTIONS</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 28</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Important Examination Questions</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="important-questions" data-sec-title="Important Examination Questions" data-sec-index="9">
-        <h2 id="important-questions">Important Examination Questions</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">? QUESTIONS</div>
-        
-
-        <div class="q-group">
+        <div class="page-content"><div class="q-group">
           <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
           
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> Define an agent and write the agent function mathematically.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> Define an agent and write the agent function mathematically.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -899,12 +934,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> Distinguish between rationality and omniscience.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> Distinguish between rationality and omniscience.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -917,12 +950,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> What are condition-action rules in simple reflex agents?</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> What are condition-action rules in simple reflex agents?</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -932,19 +963,28 @@
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 28</span>
         </div>
-
-        <div class="q-group">
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><div class="q-group">
           <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">5M</span> Explain the Turing Test approach to AI and list the capabilities required to pass it.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">5M</span> Explain the Turing Test approach to AI and list the capabilities required to pass it.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -963,12 +1003,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">5M</span> Detail the PEAS specification for an automated taxi driver.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">5M</span> Detail the PEAS specification for an automated taxi driver.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -984,19 +1022,15 @@
           </div>
         </div>
           </div>
-        </div>
-
-        <div class="q-group">
+        </div><div class="q-group">
           <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">10M</span> Explain the five agent architectures with neat diagrams, and compare their operational mechanisms.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">10M</span> Explain the five agent architectures with neat diagrams, and compare their operational mechanisms.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -1006,22 +1040,33 @@
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 28</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-18">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="questions-asked-before" data-sec-title="Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers" data-sec-index="10">
-        <h2 id="questions-asked-before">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">█ EXAM ARCHIVE</div>
-        
-        <p class="section-lead">The following questions are transcribed directly from authentic internal assessment and semester-end examination papers in <code>notes/ai/practice/ai-cie-1-and-2.pdf</code> (Ramaiah Continuous Internal Evaluation - I, October 29, 2025, Course Code ISE552):</p>
-
-        <!-- CIE-1 OCT 2025 Q1.a -->
-        <div class="archive-item">
+        <div class="page-content"><h2 id="questions-asked-before">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</h2><div class="section-badge">█ EXAM ARCHIVE</div><p class="section-lead">The following questions are transcribed directly from authentic internal assessment and semester-end examination papers in <code>notes/ai/practice/ai-cie-1-and-2.pdf</code> (Ramaiah Continuous Internal Evaluation - I, October 29, 2025, Course Code ISE552):</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 18 of 28</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-19">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah CIE-1 • October 29, 2025 • Question 1.a</span>
             <span class="archive-marks">[4 Marks]</span>
@@ -1029,12 +1074,10 @@
           <p class="archive-q"><strong>"Describe the four approaches to defining Artificial Intelligence."</strong></p>
           
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Complete Step-by-Step Model Answer</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1085,10 +1128,20 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 19 of 28</span>
         </div>
-
-        <!-- CIE-1 OCT 2025 Q2.a -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-20">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah CIE-1 • October 29, 2025 • Question 2.a</span>
             <span class="archive-marks">[4 Marks]</span>
@@ -1096,12 +1149,10 @@
           <p class="archive-q"><strong>"Explain Model-Based Reflex Agent with a neat schematic diagram and algorithmic flow."</strong></p>
 
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Complete Step-by-Step Model Answer</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1137,101 +1188,48 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 20 of 28</span>
         </div>
-
-        <!-- CIE-1 OCT 2025 Q3.a -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah CIE-1 • October 29, 2025 • Question 3.a</span>
-            <span class="archive-marks">[6 Marks]</span>
-          </div>
-          <p class="archive-q"><strong>"Specify the PEAS components for: (i) Smart Traffic Control System, (ii) Intelligent Medical Diagnosis System."</strong></p>
-
-          <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-            
-            <div class="qa-answer">
-              <p>The <strong>PEAS</strong> framework (Performance Measure, Environment, Actuators, Sensors) formalizes the task environment specification required before selecting an agent architecture:</p>
-
-              <h4>(i) Smart Traffic Control System (CIE-1 Q3.a.i)</h4>
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
+      </div><div class="notebook-page page-ruled" id="page-21">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                       <th>PEAS Component</th>
                       <th>Engineering Specification</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Performance Measure (P)</strong></td>
                       <td>Minimize average vehicle wait time and queue lengths; eliminate intersection gridlock; prioritize emergency vehicles (ambulances/fire engines); minimize fuel consumption/emissions; maximize vehicle throughput.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Environment (E)</strong></td>
                       <td>Multi-lane urban intersection roads, motorized vehicular traffic (cars, buses, two-wheelers), pedestrians at crosswalks, varying weather conditions (rain, fog), time-of-day traffic surges.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Actuators (A)</strong></td>
                       <td>Traffic signal heads (Red, Yellow, Green cycle timing controllers), variable message electronic sign boards, audible pedestrian crossing tones, motorized emergency barrier gates.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Sensors (S)</strong></td>
                       <td>High-definition CCTV overhead intersection cameras, in-road inductive loop electromagnetic detectors, infrared/radar vehicle speed sensors, acoustic siren detectors, pedestrian crosswalk pushbuttons.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h4>(ii) Intelligent Medical Diagnosis System (CIE-1 Q3.a.ii)</h4>
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
-                      <th>PEAS Component</th>
-                      <th>Engineering Specification</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>Performance Measure (P)</strong></td>
-                      <td>Diagnostic precision and sensitivity; zero false negatives on critical conditions; patient recovery speed; minimize diagnostic testing cost and patient physical invasiveness.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Environment (E)</strong></td>
-                      <td>Clinical hospital ward, patient physiological states, attending physicians and nursing staff, medical records database, diagnostic laboratories.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Actuators (A)</strong></td>
-                      <td>Computer display monitor (diagnostic probability rankings, recommended clinical treatment plans, prescription suggestions, referrals for follow-up testing).</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Sensors (S)</strong></td>
-                      <td>Keyboard/touchscreen entry of patient symptoms and doctor observations, digital electronic medical records (EMR), continuous vitals telemetry (ECG, pulse oximetry, blood pressure monitors), laboratory assay feeds.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <p><strong>Environment Property Comparison:</strong></p>
-              <ul>
-                <li><strong>Smart Traffic:</strong> Partially observable, multi-agent (competitive/cooperative), stochastic, sequential, dynamic, continuous, known.</li>
-                <li><strong>Medical Diagnosis:</strong> Partially observable, single-agent (diseases are biological nature, not adversarial agents), stochastic, sequential, static (during deliberation), continuous/discrete, partially known.</li>
-              </ul>
-            </div>
-          </div>
-          </div>
+                    </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 21 of 28</span>
         </div>
+      </div><div class="notebook-page page-ruled" id="page-22">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Authentic Solved Questions from Past Ramaiah CIE &amp; SEE Papers</span>
         </div>
-
-        <!-- AUTHENTIC MODEL QUESTION / SEE ARCHIVE -->
-        <div class="archive-item">
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah SEE Archive • Model Question Paper</span>
             <span class="archive-marks">[8 Marks]</span>
@@ -1239,12 +1237,10 @@
           <p class="archive-q"><strong>"Formulate the 8-Puzzle Problem as a State Space Search Problem. Determine the total permutations, reachable states using the Inversion Parity Theorem, and average branching factor."</strong></p>
 
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Complete Step-by-Step Model Answer</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1287,113 +1283,82 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"></path></svg></span></span></span><span c
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 22 of 28</span>
         </div>
-
-        <!-- AUTHENTIC QUESTION BANK: 7 DIMENSIONS -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah AI Question Bank • Comprehensive Syllabus</span>
-            <span class="archive-marks">[6 Marks]</span>
-          </div>
-          <p class="archive-q"><strong>"Classify the task environments for: (a) Chess with a clock, (b) Taxi driving, (c) Medical diagnosis system across all 7 environmental dimensions with clear engineering justifications."</strong></p>
-
-          <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Complete Step-by-Step Model Answer</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-            
-            <div class="qa-answer">
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
+      </div><div class="notebook-page page-ruled" id="page-23">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
                       <th>Dimension</th>
                       <th>Chess with Clock</th>
                       <th>Autonomous Taxi Driving</th>
                       <th>Medical Diagnosis System</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Observability</strong></td>
                       <td><strong>Fully Observable:</strong> Entire board state visible.</td>
                       <td><strong>Partially Observable:</strong> Obstructed streets, blind spots.</td>
                       <td><strong>Partially Observable:</strong> Unseen internal pathology.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Agents</strong></td>
                       <td><strong>Multi-Agent Competitive:</strong> Opponent is an adversary.</td>
                       <td><strong>Multi-Agent:</strong> Competitive &amp; cooperative drivers.</td>
                       <td><strong>Single-Agent:</strong> Diseases are biological, not adversaries.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Determinism</strong></td>
                       <td><strong>Deterministic:</strong> Moves have exact outcomes.</td>
                       <td><strong>Stochastic:</strong> Slippery roads, sudden obstacles.</td>
                       <td><strong>Stochastic:</strong> Variable biological patient responses.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Episodic / Sequential</strong></td>
                       <td><strong>Sequential:</strong> Early moves dictate endgame.</td>
                       <td><strong>Sequential:</strong> Steering affects future positions.</td>
                       <td><strong>Sequential:</strong> Tests affect subsequent treatments.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Static / Dynamic</strong></td>
                       <td><strong>Semidynamic:</strong> Board is static, but clock ticks.</td>
                       <td><strong>Dynamic:</strong> Traffic moves while agent computes.</td>
                       <td><strong>Static:</strong> Patient status stable during typing.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Discrete / Continuous</strong></td>
                       <td><strong>Discrete:</strong> Finite board positions and turns.</td>
                       <td><strong>Continuous:</strong> Velocity, steering angle, time.</td>
                       <td><strong>Continuous/Discrete:</strong> Vitals vs symptom flags.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><strong>Known / Unknown</strong></td>
                       <td><strong>Known:</strong> Formal chess rules fixed.</td>
                       <td><strong>Unknown:</strong> New roads, changing traffic rules.</td>
                       <td><strong>Partially Known:</strong> Medical science vs individual genetics.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          </div>
+                    </tr></table><h2 id="practice-problems">Verified High-Yield Practice Problems</h2><div class="section-badge">∇ PRACTICE</div><p class="section-lead">Test your understanding with these exam-caliber problems. All numerical counts and logical derivations are verified against <code>audit/verify/ai/verify_ai_u1.py</code>:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 23 of 28</span>
         </div>
+      </div><div class="notebook-page page-ruled" id="page-24">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
         </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="practice-problems" data-sec-title="Verified High-Yield Practice Problems" data-sec-index="11">
-        <h2 id="practice-problems">Verified High-Yield Practice Problems</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">∇ PRACTICE</div>
-        
-        <p class="section-lead">Test your understanding with these exam-caliber problems. All numerical counts and logical derivations are verified against <code>audit/verify/ai/verify_ai_u1.py</code>:</p>
-
-        <!-- PRACTICE 1: 8-QUEENS -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 1 • 8-QUEENS STATE SPACE REDUCTION</span>
           </div>
           <h4 class="problem-title">Compare the state-space sizes of the naive formulation, column-constrained formulation, and complete-state permutation formulation of the 8-Queens problem.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1408,21 +1373,29 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"></path></svg></span></span></span><span c
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 24 of 28</span>
         </div>
-
-        <!-- PRACTICE 2: 8-PUZZLE INVERSION PARITY -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-25">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 2 • 8-PUZZLE REACHABILITY THEOREM</span>
           </div>
           <h4 class="problem-title">Can the start state <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>6</mn><mo separator="true">,</mo><mn>8</mn><mo separator="true">,</mo><mn>7</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">S = [1, 2, 3, 4, 5, 6, 8, 7, 0]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.0576em;">S</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">7</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">0</span><span class="mclose">]</span></span></span></span></span> reach the standard goal state <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>6</mn><mo separator="true">,</mo><mn>7</mn><mo separator="true">,</mo><mn>8</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">G = [1, 2, 3, 4, 5, 6, 7, 8, 0]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">7</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">0</span><span class="mclose">]</span></span></span></span></span>? Justify mathematically.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1442,21 +1415,29 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"></path></svg></span></span></span><span c
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 25 of 28</span>
         </div>
-
-        <!-- PRACTICE 3: BRANCHING FACTOR -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-26">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 3 • BRANCHING FACTOR DERIVATION</span>
           </div>
           <h4 class="problem-title">Derive the average branching factor of the 8-puzzle and explain why blank moves simplify problem formulation.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1473,21 +1454,29 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"></path></svg></span></span></span><span c
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 26 of 28</span>
         </div>
-
-        <!-- PRACTICE 4: POKER ENVIRONMENT -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-27">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 4 • ENVIRONMENT CLASSIFICATION FOR POKER</span>
           </div>
           <h4 class="problem-title">Classify the task environment of playing Texas Hold'em Poker across the 7 environmental dimensions.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1504,85 +1493,49 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"></path></svg></span></span></span><span c
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- PRACTICE 5: VACUUM WORLD -->
-        <div class="problem-card">
-          <div class="problem-header">
-            <span class="problem-tag">PRACTICE 5 • VACUUM WORLD STATE SPACE FORMULATION</span>
-          </div>
-          <h4 class="problem-title">For a simple 2-location vacuum world (locations A and B), determine the total number of distinct world states and write the complete rational agent function table.</h4>
-          <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-            
-            <div class="qa-answer">
-              <p><strong>1. State Space Size:</strong></p>
-              <ul>
-                <li>Agent can be in 2 locations: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span></span> or <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.0502em;">B</span></span></span></span></span>.</li>
-                <li>Each square can be in 2 states: Clean or Dirty (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">2^2 = 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">4</span></span></span></span></span> surface dirt configurations).</li>
-                <li>Total distinct world states:
-                  <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Total&nbsp;States</mtext><mo>=</mo><mn>2</mn><mo>×</mo><msup><mn>2</mn><mn>2</mn></msup><mo>=</mo><mn>2</mn><mo>×</mo><mn>4</mn><mo>=</mo><mrow><mn mathvariant="bold">8</mn><mtext>&nbsp;states</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{Total States} = 2 \times 2^2 = 2 \times 4 = \mathbf{8\text{ states}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord text"><span class="mord">Total&nbsp;States</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8641em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8641em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">4</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord"><span class="mord mathbf">8</span><span class="mord text"><span class="mord">&nbsp;states</span></span></span></span></span></span></span></span>
-                </li>
-              </ul>
-              <p><strong>2. Complete Rational Agent Function Table:</strong></p>
-              <div class="table-container">
-                <table class="data-table hand-table">
-                  <thead>
-                    <tr>
+        </div><table class="data-table hand-table"><tr>
                       <th>Current Percept [Location, Status]</th>
                       <th>Rational Action</th>
                       <th>Justification</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+                    </tr><tr>
                       <td><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo separator="true">,</mo><mtext>Dirty</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A, \text{Dirty}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord text"><span class="mord">Dirty</span></span><span class="mclose">]</span></span></span></span></span></td>
                       <td><strong>Suck</strong></td>
                       <td>Cleans dirty location A.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo separator="true">,</mo><mtext>Clean</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A, \text{Clean}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord text"><span class="mord">Clean</span></span><span class="mclose">]</span></span></span></span></span></td>
                       <td><strong>Right</strong></td>
                       <td>Moves to explore location B.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>B</mi><mo separator="true">,</mo><mtext>Dirty</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[B, \text{Dirty}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right: 0.0502em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord text"><span class="mord">Dirty</span></span><span class="mclose">]</span></span></span></span></span></td>
                       <td><strong>Suck</strong></td>
                       <td>Cleans dirty location B.</td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
                       <td><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>B</mi><mo separator="true">,</mo><mtext>Clean</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[B, \text{Clean}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right: 0.0502em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord text"><span class="mord">Clean</span></span><span class="mclose">]</span></span></span></span></span></td>
                       <td><strong>Left</strong></td>
                       <td>Moves to explore location A.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          </div>
+                    </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 27 of 28</span>
         </div>
+      </div><div class="notebook-page page-ruled" id="page-28">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISE552 · Unit 1</span>
+          <span class="header-right">Verified High-Yield Practice Problems</span>
         </div>
-
-        <!-- PRACTICE 6: RATIONALITY VS OMNISCIENCE -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 6 • RATIONALITY VS OMNISCIENCE SCENARIO</span>
           </div>
           <h4 class="problem-title">An autonomous vehicle travels safely at 40 km/h on an empty road. A boulder suddenly dislodges from an unmonitored cliff face and crushes the car. Was the vehicle agent irrational? Explain.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1597,12 +1550,11 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"></path></svg></span></span></span><span c
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 28 of 28</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IS53 Unit 2 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Kalam', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #1b3252;
       --ink-dark: #0a0f1d;
     }
@@ -27,18 +26,108 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-1" data-sec-title="Data Link Layer Duties &amp; Framing Methods" data-sec-index="0">
-        <h2 id="sec-1">Data Link Layer Duties &amp; Framing Methods</h2>
-        <div class="staging-body">
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/cn" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">IS53 Unit 2 · Handwritten Notebook</span>
+    <a href="cn-unit2-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">IS53 · Computer Networks</div>
+          <h1 class="cover-title">Unit 2: Data Link Layer, Error Control &amp; Multiple Access</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
+        </div>
+
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
           
-        <div class="section-badge">§ 1</div>
-        
+          
+            Data Link Layer Framing: Bit stuffing (01111110 delimiter) and byte stuffing (ESC flags), physical MAC addressing.
+            Address Resolution Protocol (ARP): ARP request/reply, packet format, ARP cache operation, ARP spoofing attacks.
+            Er...</p>
+        </div>
 
-        <p class="section-lead">The <strong>Data Link Layer (DLL)</strong> transforms a raw, error-prone transmission facility into a reliable, hop-to-hop link for the Network Layer. It accomplishes this by packaging network-layer packets into discrete units called <strong>frames</strong>, regulating transmission speed via flow control, and detecting physical errors.</p>
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>Data Link Layer Duties &amp; Framing Methods</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Address Resolution Protocol (ARP)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Error Detection, Correction &amp; Block Coding</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Cyclic Redundancy Check (CRC)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 6</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>The Internet Checksum Algorithm</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Random Access Protocols: ALOHA &amp; CSMA/CD</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 11</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Controlled Access &amp; Channelization Protocols</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 13</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>One-Page Rapid Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 15</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Important Examination Questions</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 15</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Solved Questions from Past CIE-1 &amp; CIE-2 Papers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 17</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>Verified Practice Problems with Hidden Answers</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 21</span>
+        </li>
+      </ul>
+        </div>
 
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">CORE RESPONSIBILITIES OF THE DATA LINK LAYER</div>
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Data Link Layer Duties &amp; Framing Methods</span>
+        </div>
+        <div class="page-content"><h2 id="sec-1">Data Link Layer Duties &amp; Framing Methods</h2><div class="section-badge">§ 1</div><p class="section-lead">The <strong>Data Link Layer (DLL)</strong> transforms a raw, error-prone transmission facility into a reliable, hop-to-hop link for the Network Layer. It accomplishes this by packaging network-layer packets into discrete units called <strong>frames</strong>, regulating transmission speed via flow control, and detecting physical errors.</p><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">CORE RESPONSIBILITIES OF THE DATA LINK LAYER:</div>
           
           <ul>
             <li><strong>Framing:</strong> Divides the stream of bits received from the physical layer into manageable data units (frames) with distinct header and trailer delimiters.</li>
@@ -47,39 +136,40 @@
             <li><strong>Error Control:</strong> Detects and retransmits damaged or lost frames by adding trailers containing Cyclic Redundancy Check (CRC) codes.</li>
             <li><strong>Access Control:</strong> In broadcast channels, determines which device has permission to transmit at any given time (MAC sublayer).</li>
           </ul>
-        </div>
-
-        <h3>Framing Techniques: Character Count vs Stuffing</h3>
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </div><h3>Framing Techniques: Character Count vs Stuffing</h3><table class="data-table hand-table"><tr>
                 <th>Framing Technique</th>
                 <th>Delimiter / Mechanism</th>
                 <th>Operation &amp; Vulnerability</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Character Count</strong></td>
                 <td>Integer in the frame header specifies total frame length.</td>
                 <td><strong>Fatal flaw:</strong> If the count field is corrupted by a single bit flip, the receiver loses frame synchronization for all subsequent frames. Deprecated in modern networks.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Byte Stuffing</strong> (Byte-Oriented)</td>
                 <td>Special flag bytes (e.g. `FLAG = 0x7E`) delimit start and end of frames.</td>
                 <td>If the flag pattern occurs naturally within data, the sender inserts an escape byte (`ESC = 0x7D`) before it. If an `ESC` occurs in data, it is escaped with another `ESC` (`ESC ESC`). Receiver strips the stuffing `ESC`.</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 24</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Data Link Layer Duties &amp; Framing Methods</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Framing Technique</th>
+                <th>Delimiter / Mechanism</th>
+                <th>Operation &amp; Vulnerability</th>
+              </tr><tr>
                 <td><strong>Bit Stuffing</strong> (Bit-Oriented)</td>
                 <td>Special bit pattern `01111110` (six consecutive 1s) delimits frame boundaries.</td>
                 <td><strong>Rule:</strong> Whenever the sender encounters <strong>five consecutive 1s</strong> (`11111`) in user data, it automatically stuffs a `0` after the fifth 1. Receiver detects five 1s and discards the stuffed 0.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout callout-example hand-card card-example"><div class="hand-badge">WORKED EXAMPLE: BIT STUFFING &amp; UNSTUFFING</div>
+              </tr></table><div class="callout callout-example hand-card card-example"><div class="hand-label label-example">WORKED EXAMPLE: BIT STUFFING &amp; UNSTUFFING:</div>
           
           <p><strong>Input Bit Stream:</strong> <code>010011111011111101011111110</code></p>
           <p><strong>Step 1: Sender Stuffing (Insert 0 after every five consecutive 1s):</strong></p>
@@ -90,11 +180,7 @@
           </ul>
           <p><strong>Stuffed Stream Transmitted:</strong> <code>0100111110011111010010111110110</code></p>
           <p><strong>Step 2: Receiver Unstuffing:</strong> Receiver encounters five 1s followed by a 0, removes the 0, perfectly restoring the original data stream.</p>
-        </div>
-
-        
-        <!-- FIGURE 2.2: SELECTIVE REPEAT SLIDING WINDOW (CIE-2 QUESTION) -->
-        <figure class="diagram-card" id="fig-sliding-window">
+        </div><figure class="diagram-card" id="fig-sliding-window" data-atomic="true">
           <svg viewBox="0 0 720 400" width="100%" height="400" role="img" aria-label="Selective Repeat ARQ Sliding Window Protocol Timing Diagram">
   <title>Selective Repeat ARQ Protocol (Sender Window Sw = 2^(m-1))</title>
   <rect width="100%" height="100%" fill="var(--surface)" rx="12"></rect>
@@ -155,31 +241,27 @@
 </svg>
           <figcaption class="diagram-title">Figure 2.2: Selective Repeat ARQ Flow (m = 2, Sender Window Sw = 2^(m-1) = 2)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Ramaiah CIE-2 Q1(b) Justified: When frame 1 is lost, receiver buffers frame 2 and issues NAK 1. Only frame 1 is retransmitted.</p>
-        </figure>
-
-        <div class="quick-recall-box">
+        </figure></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 24</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Address Resolution Protocol (ARP)</span>
+        </div>
+        <div class="page-content"><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>DLL handles hop-to-hop delivery using 48-bit physical MAC addresses.</li>
             <li>Byte stuffing escapes special flag bytes with `ESC`.</li>
             <li>Bit stuffing inserts a `0` after every <strong>five consecutive 1s</strong> (`11111`) to prevent imitation of flag `01111110`.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-2" data-sec-title="Address Resolution Protocol (ARP)" data-sec-index="1">
-        <h2 id="sec-2">Address Resolution Protocol (ARP)</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 2</div>
-        
-
-        <p class="section-lead">While the Network Layer routes packets based on 32-bit logical IPv4 addresses, physical local area networks (such as Ethernet) only deliver frames using 48-bit physical MAC addresses. The <strong>Address Resolution Protocol (ARP)</strong> dynamically maps a known IP address to its unknown physical MAC address on the local link.</p>
-
-        <div class="svg-card">
+        </div><h2 id="sec-2">Address Resolution Protocol (ARP)</h2><div class="section-badge">§ 2</div><p class="section-lead">While the Network Layer routes packets based on 32-bit logical IPv4 addresses, physical local area networks (such as Ethernet) only deliver frames using 48-bit physical MAC addresses. The <strong>Address Resolution Protocol (ARP)</strong> dynamically maps a known IP address to its unknown physical MAC address on the local link.</p><div class="svg-card">
           <div class="svg-title">ARP Protocol Exchange: Broadcast Request &amp; Unicast Reply</div>
           <svg viewBox="0 0 740 240" width="100%" role="img" aria-label="ARP Request and Reply flow diagram across local subnet">
             <title>ARP Protocol Workflow</title>
@@ -218,66 +300,59 @@
             <text x="440" y="175" font-family="Inter" font-weight="700" font-size="11" fill="var(--text-main)">2. ARP Reply (Unicast to Host A)</text>
             <text x="440" y="190" font-family="Inter" font-size="10" fill="var(--text-muted)">"192.168.1.20 is at 00:AA:BB:44:55:66"</text>
           </svg>
-        </div>
-
-        <h3>ARP Packet Fields (28-Byte Payload)</h3>
-        <div class="table-container">
-          <table class="data-table hand-table">
-            <thead>
-              <tr>
+        </div><h3>ARP Packet Fields (28-Byte Payload)</h3><table class="data-table hand-table"><tr>
                 <th>Field Name</th>
                 <th>Length</th>
                 <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Hardware Type (HTYPE)</strong></td>
                 <td>16 bits</td>
                 <td>Physical network protocol (Ethernet = `1`).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Protocol Type (PTYPE)</strong></td>
                 <td>16 bits</td>
                 <td>Network layer protocol (IPv4 = `0x0800`).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Hardware Length (HLEN)</strong></td>
                 <td>8 bits</td>
                 <td>Length of hardware address in bytes (Ethernet = `6`).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Protocol Length (PLEN)</strong></td>
                 <td>8 bits</td>
                 <td>Length of logical address in bytes (IPv4 = `4`).</td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 24</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Error Detection, Correction &amp; Block Coding</span>
+        </div>
+        <div class="page-content"><table class="data-table hand-table"><tr>
+                <th>Field Name</th>
+                <th>Length</th>
+                <th>Description</th>
+              </tr><tr>
                 <td><strong>Operation Code (OPER)</strong></td>
                 <td>16 bits</td>
                 <td>`1` for ARP Request, `2` for ARP Reply.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Sender Hardware / IP</strong></td>
                 <td>6 + 4 bytes</td>
                 <td>MAC address and IP address of the transmitting node.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Target Hardware / IP</strong></td>
                 <td>6 + 4 bytes</td>
                 <td>Target MAC (`00:00:00:00:00:00` in request) and Target IP.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout callout-warning hand-card card-warning"><div class="hand-badge">SECURITY WARNING: ARP SPOOFING / POISONING</div>
+              </tr></table><div class="callout callout-warning hand-card card-warning"><div class="hand-label label-warning">SECURITY WARNING: ARP SPOOFING / POISONING:</div>
           
           <p>Because ARP is completely stateless and does not authenticate replies, an attacker on the same local subnet can send unsolicited (gratuitous) fake ARP replies claiming their MAC address belongs to the default gateway's IP. All outbound traffic from victim hosts is then silently routed through the attacker (Man-in-the-Middle attack).</p>
-        </div>
-
-        
-        <!-- FIGURE 2.1: ARP PACKET FORMAT (CIE-1 QUESTION) -->
-        <figure class="diagram-card" id="fig-arp-packet">
+        </div><figure class="diagram-card" id="fig-arp-packet" data-atomic="true">
           <svg viewBox="0 0 720 250" width="100%" height="250" role="img" aria-label="ARP Packet Format Diagram (28 Bytes Header)">
   <title>ARP Packet Layout (RFC 826)</title>
   <rect width="100%" height="100%" fill="var(--surface)" rx="12"></rect>
@@ -347,40 +422,32 @@
 </svg>
           <figcaption class="diagram-title">Figure 2.1: 28-Byte ARP Packet Structure over Ethernet &amp; IPv4 (RFC 826)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">As required in Ramaiah CIE-1 Exam: Maps 32-bit IP addresses to 48-bit MAC addresses within local broadcast domains.</p>
-        </figure>
-
-        <div class="quick-recall-box">
+        </figure><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>ARP maps 32-bit IPv4 address → 48-bit MAC address.</li>
             <li>ARP Request is a <strong>Broadcast</strong> (`FF:FF:FF:FF:FF:FF`); ARP Reply is a <strong>Unicast</strong>.</li>
             <li>ARP Cache stores mappings temporarily with a Time-to-Live (TTL).</li>
           </ul>
+        </div><h2 id="sec-3">Error Detection, Correction &amp; Block Coding</h2><div class="section-badge">§ 3</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Cyclic Redundancy Check (CRC)</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-3" data-sec-title="Error Detection, Correction &amp; Block Coding" data-sec-index="2">
-        <h2 id="sec-3">Error Detection, Correction &amp; Block Coding</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 3</div>
-        
-
-        <p class="section-lead">Electromagnetic noise and interference inevitably introduce errors during physical transmission. Errors are classified as <strong>single-bit errors</strong> (only 1 bit inverted in the entire data unit) or <strong>burst errors</strong> (2 or more consecutive bits corrupted, where the burst length is measured from the first to the last corrupted bit).</p>
-
-        <h3>Hamming Distance</h3>
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">HAMMING DISTANCE DEFINITION</div>
+        <div class="page-content"><p class="section-lead">Electromagnetic noise and interference inevitably introduce errors during physical transmission. Errors are classified as <strong>single-bit errors</strong> (only 1 bit inverted in the entire data unit) or <strong>burst errors</strong> (2 or more consecutive bits corrupted, where the burst length is measured from the first to the last corrupted bit).</p><h3>Hamming Distance</h3><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">HAMMING DISTANCE DEFINITION:</div>
           
           <p>The <strong>Hamming distance</strong> <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span><span class="mclose">)</span></span></span></span></span> between two binary words of equal length is the number of bit positions in which the corresponding bits differ. It is easily calculated by taking the bitwise exclusive-OR (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⊕</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x \oplus y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span></span></span></span></span>) and counting the number of 1s (Hamming weight).</p>
           <p><em>Example:</em> <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>10101</mn></mrow><annotation encoding="application/x-tex">x = 10101</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">10101</span></span></span></span></span> and <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>11110</mn></mrow><annotation encoding="application/x-tex">y = 11110</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">11110</span></span></span></span></span>. <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⊕</mo><mi>y</mi><mo>=</mo><mn>01011</mn></mrow><annotation encoding="application/x-tex">x \oplus y = 01011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">01011</span></span></span></span></span> (three 1s) &amp;implies; <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">d(x, y) = 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">3</span></span></span></span></span>.</p>
           <p>The <strong>minimum Hamming distance</strong> <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">d_{min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8444em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span> of a code is the smallest Hamming distance between all distinct pairs of valid codewords in that code.</p>
-        </div>
-
-        <h3>Mathematical Criteria for Detection and Correction</h3>
-        <div class="callout callout-formula hand-card card-formula"><div class="hand-badge">HAMMING DISTANCE CRITERIA</div>
+        </div><h3>Mathematical Criteria for Detection and Correction</h3><div class="callout callout-formula hand-card card-formula"><div class="hand-label label-formula">HAMMING DISTANCE CRITERIA:</div>
           
           <ol>
             <li><strong>To detect up to <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span></span> errors:</strong>
@@ -392,31 +459,27 @@
               <em>Intuition:</em> Spheres of radius <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></span> drawn around valid codewords must never intersect. A received word with up to <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></span> errors is uniquely closer to the original transmitted codeword than to any other.
             </li>
           </ol>
-        </div>
-
-        <div class="quick-recall-box">
+        </div><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Hamming distance <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span><span class="mclose">)</span></span></span></span></span> = number of differing bits = weight of <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⊕</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x \oplus y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span></span></span></span></span>.</li>
             <li>Error Detection: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>≥</mo><mi>s</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">d_{min} \ge s + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8444em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>. Example: to detect 2 errors, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">d_{min} \ge 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8444em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">3</span></span></span></span></span>.</li>
             <li>Error Correction: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>≥</mo><mn>2</mn><mi>t</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">d_{min} \ge 2t + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8444em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">2</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>. Example: to correct 1 error, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">d_{min} \ge 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8444em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">3</span></span></span></span></span>.</li>
           </ul>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Cyclic Redundancy Check (CRC)</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-4" data-sec-title="Cyclic Redundancy Check (CRC)" data-sec-index="3">
-        <h2 id="sec-4">Cyclic Redundancy Check (CRC)</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 4</div>
-        
-
-        <p class="section-lead"><strong>Cyclic Redundancy Check (CRC)</strong> is an exceptionally powerful, hardware-friendly error-detecting code used across Ethernet, Wi-Fi, and storage systems. It treats binary bit streams as algebraic polynomials with binary coefficients and performs <strong>modulo-2 polynomial division</strong>.</p>
-
-        <div class="callout callout-algorithm hand-card card-def"><div class="hand-badge">CRC SENDER AND RECEIVER ALGORITHM</div>
+        <div class="page-content"><h2 id="sec-4">Cyclic Redundancy Check (CRC)</h2><div class="section-badge">§ 4</div><p class="section-lead"><strong>Cyclic Redundancy Check (CRC)</strong> is an exceptionally powerful, hardware-friendly error-detecting code used across Ethernet, Wi-Fi, and storage systems. It treats binary bit streams as algebraic polynomials with binary coefficients and performs <strong>modulo-2 polynomial division</strong>.</p><div class="callout callout-algorithm hand-card card-def"><div class="hand-label label-def">CRC SENDER AND RECEIVER ALGORITHM:</div>
           
           <p>Let dataword <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">D</span></span></span></span></span> have <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord mathnormal" style="margin-right: 0.0315em;">k</span></span></span></span></span> bits, and generator polynomial <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span> have degree <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">r</span></span></span></span></span> (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">r</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span> bits):</p>
           <ol>
@@ -426,10 +489,20 @@
             <li><strong>Sender Step 4:</strong> Append the <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">r</span></span></span></span></span>-bit CRC remainder to original dataword <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">D</span></span></span></span></span>. Transmit codeword <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>D</mi><mo>⋅</mo><msup><mn>2</mn><mi>r</mi></msup><mo>⊕</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">T = D \cdot 2^r \oplus R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">D</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7477em; vertical-align: -0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.6644em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.0077em;">R</span></span></span></span></span>.</li>
             <li><strong>Receiver Step:</strong> Divide the received codeword <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">T'</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.7519em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span> by the identical generator <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span>. If the remainder is <strong>strictly all zeros</strong>, accept the frame; otherwise, an error occurred — discard frame!</li>
           </ol>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 24</span>
         </div>
-
-        <!-- SOLVED WORKED NUMERICAL: CRC DIVISION -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Cyclic Redundancy Check (CRC)</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">WORKED NUMERICAL • FULLY VERIFIED PASS</span>
             <span class="problem-points">[10 MARKS • EXAM FAVOURITE]</span>
@@ -499,11 +572,20 @@
           <div class="result-box">
             Remainder is exactly <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">000</mn></mrow><annotation encoding="application/x-tex">\mathbf{000}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord"><span class="mord mathbf">000</span></span></span></span></span></span>. The transmission is verified and accepted without error.
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 24</span>
         </div>
-
-        
-        <!-- FIGURE 2.3: CRC MODULO-2 POLYNOMIAL DIVISION -->
-        <figure class="diagram-card" id="fig-crc-division">
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">The Internet Checksum Algorithm</span>
+        </div>
+        <div class="page-content"><figure class="diagram-card" id="fig-crc-division" data-atomic="true">
           <svg viewBox="0 0 720 280" width="100%" height="280" role="img" aria-label="CRC Modulo-2 Polynomial Long Division Diagram">
   <title>CRC Modulo-2 Binary Division (Dataword: 101011, Divisor: 10011)</title>
   <rect width="100%" height="100%" fill="var(--surface)" rx="12"></rect>
@@ -563,39 +645,29 @@
 </svg>
           <figcaption class="diagram-title">Figure 2.3: CRC Modulo-2 Polynomial Long Division (Ramaiah CIE-1 Q1.c Solved)</figcaption>
           <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Dataword 101011 • Divisor 10011 (x^4 + x + 1) • Remainder (FCS) 0100 • Transmitted Codeword: 101011 0100.</p>
-        </figure>
-
-
-        <!-- INTERACTIVE CRC EXPLORER WIDGET -->
-        <div class="interactive-note">
-          <span>💻 <strong>Interactive Tool Available Online:</strong> 🛡️ Interactive CRC-4 Modulo-2 Calculator &amp; Error Injector. Try the interactive step-by-step calculator and visualizer on the live site notes page.</span>
-        </div>
-
-        
-
-        <div class="quick-recall-box">
+        </figure><div class="interactive-note">
+          <span>💻 <strong>Interactive Tool Available Online:</strong> 🛡️ Interactive CRC-4 Modulo-2 Calculator &amp; Error Injector. Explore the step-by-step calculator and visualizer on the live site notes page.</span>
+        </div><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Append <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mtext>deg</mtext><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">r = \text{deg}(G(x))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">r</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord text"><span class="mord">deg</span></span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">))</span></span></span></span></span> zeros to dataword before dividing.</li>
             <li>Modulo-2 division uses XOR (same bits = 0, different bits = 1; NO carries/borrows).</li>
             <li>Codeword = Dataword + Remainder. Receiver gets remainder 0 if error-free.</li>
           </ul>
+        </div><h2 id="sec-5">The Internet Checksum Algorithm</h2><div class="section-badge">§ 5</div><p class="section-lead">The <strong>Internet Checksum</strong> is utilized by IP, TCP, and UDP. It treats data as a sequence of 16-bit integers and computes their sum using <strong>one's complement arithmetic</strong> with end-around carry.</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">The Internet Checksum Algorithm</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-5" data-sec-title="The Internet Checksum Algorithm" data-sec-index="4">
-        <h2 id="sec-5">The Internet Checksum Algorithm</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 5</div>
-        
-
-        <p class="section-lead">The <strong>Internet Checksum</strong> is utilized by IP, TCP, and UDP. It treats data as a sequence of 16-bit integers and computes their sum using <strong>one's complement arithmetic</strong> with end-around carry.</p>
-
-        <div class="callout callout-algorithm hand-card card-def"><div class="hand-badge">CHECKSUM COMPUTATION STEPS</div>
+        <div class="page-content"><div class="callout callout-algorithm hand-card card-def"><div class="hand-label label-def">CHECKSUM COMPUTATION STEPS:</div>
           
           <p><strong>At Sender:</strong></p>
           <ol>
@@ -606,10 +678,7 @@
             <li>Send the data words along with the checksum.</li>
           </ol>
           <p><strong>At Receiver:</strong> Sum all received 16-bit words <em>including</em> the checksum using one's complement. If the result is all 1s (`0xFFFF`), which when complemented yields `0x0000`, the packet is accepted!</p>
-        </div>
-
-        <!-- SOLVED WORKED NUMERICAL: CHECKSUM -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">WORKED NUMERICAL • FULLY VERIFIED PASS</span>
             <span class="problem-points">[8 MARKS]</span>
@@ -635,33 +704,27 @@
           <div class="result-box">
             Inverting <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>0xFFFF</mtext></mrow><annotation encoding="application/x-tex">\text{0xFFFF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord text"><span class="mord">0xFFFF</span></span></span></span></span></span> gives <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>0x0000</mtext></mrow><annotation encoding="application/x-tex">\mathbf{\text{0x0000}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord text"><span class="mord">0x0000</span></span></span></span></span></span>. The data is completely verified!
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 24</span>
         </div>
-
-        <div class="quick-recall-box">
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Random Access Protocols: ALOHA &amp; CSMA/CD</span>
+        </div>
+        <div class="page-content"><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Internet Checksum uses 16-bit one's complement addition with end-around carry.</li>
             <li>Sender checksum = bitwise NOT of sum.</li>
             <li>Receiver sum of all words + checksum must equal all 1s (`0xFFFF`).</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-6" data-sec-title="Random Access Protocols: ALOHA &amp; CSMA/CD" data-sec-index="5">
-        <h2 id="sec-6">Random Access Protocols: ALOHA &amp; CSMA/CD</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 6</div>
-        
-
-        <p class="section-lead">In a broadcast network, multiple stations share a single communication channel. <strong>Random Access (Contention) Protocols</strong> allow stations to transmit whenever they have data, resolving collisions when simultaneous transmissions overlap.</p>
-
-        <h3>1. Pure ALOHA vs Slotted ALOHA Throughput Analysis</h3>
-        <p>Let <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span></span> be the offered load (average number of frame generation requests per frame transmission time <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>f</mi><mi>r</mi></mrow></msub></mrow><annotation encoding="application/x-tex">T_{fr}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9694em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.1389em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span></span></span></span></span>):</p>
-        <div class="table-container">
+        </div><h2 id="sec-6">Random Access Protocols: ALOHA &amp; CSMA/CD</h2><div class="section-badge">§ 6</div><p class="section-lead">In a broadcast network, multiple stations share a single communication channel. <strong>Random Access (Contention) Protocols</strong> allow stations to transmit whenever they have data, resolving collisions when simultaneous transmissions overlap.</p><h3>1. Pure ALOHA vs Slotted ALOHA Throughput Analysis</h3><p>Let <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span></span> be the offered load (average number of frame generation requests per frame transmission time <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>f</mi><mi>r</mi></mrow></msub></mrow><annotation encoding="application/x-tex">T_{fr}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9694em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.1389em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span></span></span></span></span>):</p><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -689,29 +752,43 @@
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <h3>2. Carrier Sense Multiple Access (CSMA)</h3>
-        <p>Before transmitting, stations <em>"listen before speaking"</em> (sense the carrier) to avoid obvious collisions:</p>
-        <ul>
+        </div><h3>2. Carrier Sense Multiple Access (CSMA)</h3><p>Before transmitting, stations <em>"listen before speaking"</em> (sense the carrier) to avoid obvious collisions:</p><ul>
           <li><strong>1-Persistent CSMA:</strong> If channel is idle, transmit immediately. If busy, continue sensing continuously until idle, then transmit with probability <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>. (High collision probability when two waiting stations transmit simultaneously upon channel becoming idle).</li>
           <li><strong>Non-Persistent CSMA:</strong> If idle, transmit immediately. If busy, wait a random backoff time before sensing again. (Reduces collisions, but introduces channel idle time).</li>
           <li><strong>p-Persistent CSMA:</strong> Used in slotted channels. If idle, transmit with probability <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span>; defer to next slot with probability <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">1 - p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span>.</li>
-        </ul>
-
-        <h3>3. CSMA with Collision Detection (CSMA/CD)</h3>
-        <p>Stations <em>"listen while talking"</em>. If two signals collide on the wire, the collision energy spike is detected immediately, transmission is aborted, a 32-bit <strong>jamming signal</strong> is broadcast to alert all nodes, and stations invoke the <strong>Binary Exponential Backoff</strong> algorithm.</p>
-
-        <div class="callout callout-formula hand-card card-formula"><div class="hand-badge">CSMA/CD MINIMUM FRAME LENGTH RULE</div>
+        </ul></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 24</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Random Access Protocols: ALOHA &amp; CSMA/CD</span>
+        </div>
+        <div class="page-content"><h3>3. CSMA with Collision Detection (CSMA/CD)</h3><p>Stations <em>"listen while talking"</em>. If two signals collide on the wire, the collision energy spike is detected immediately, transmission is aborted, a 32-bit <strong>jamming signal</strong> is broadcast to alert all nodes, and stations invoke the <strong>Binary Exponential Backoff</strong> algorithm.</p><div class="callout callout-formula hand-card card-formula"><div class="hand-label label-formula">CSMA/CD MINIMUM FRAME LENGTH RULE:</div>
           
           <p>For a station to reliably detect a collision before it finishes transmitting its frame, the frame transmission time <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>f</mi><mi>r</mi></mrow></msub></mrow><annotation encoding="application/x-tex">T_{fr}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9694em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.1389em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span></span></span></span></span> must be at least twice the maximum end-to-end propagation delay <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi></mrow></msub></mrow><annotation encoding="application/x-tex">t_{prop}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9012em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span></span></span></span></span> (round-trip time):</p>
           <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>T</mi><mrow><mi>f</mi><mi>r</mi></mrow></msub><mo>≥</mo><mn>2</mn><mo>×</mo><msub><mi>t</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi></mrow></msub></mrow><annotation encoding="application/x-tex">T_{fr} \ge 2 \times t_{prop}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9694em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.1389em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.9012em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span></span></span></span></span></span>
           <p>Since <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>f</mi><mi>r</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>L</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mtext>Bandwidth</mtext></mfrac></mrow><annotation encoding="application/x-tex">T_{fr} = \frac{L_{min}}{\text{Bandwidth}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9694em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.1389em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1.2334em; vertical-align: -0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.8884em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Bandwidth</span></span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.4101em;"><span class="pstrut" style="height: 3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3281em;"><span class="" style="top: -2.357em; margin-left: 0em; margin-right: 0.0714em;"><span class="pstrut" style="height: 2.5em;"></span><span class="katex-sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.143em;"><span class=""></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>, we have the fundamental dimensioning formula:</p>
           <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="bold">L</mi><mrow><mi mathvariant="bold">m</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">n</mi></mrow></msub><mo>≥</mo><mn mathvariant="bold">2</mn><mo>×</mo><msub><mi mathvariant="bold">t</mi><mrow><mi mathvariant="bold">p</mi><mi mathvariant="bold">r</mi><mi mathvariant="bold">o</mi><mi mathvariant="bold">p</mi></mrow></msub><mo>×</mo><mtext>Bandwidth</mtext></mrow><annotation encoding="application/x-tex">\mathbf{L_{min} \ge 2 \times t_{prop} \times \text{Bandwidth}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9805em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathbf mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord mathbf">2</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord"><span class="mord mathbf">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1611em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathbf mtight">prop</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord text"><span class="mord">Bandwidth</span></span></span></span></span></span></span></span>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 24</span>
         </div>
-
-        <!-- SOLVED WORKED NUMERICAL: MINIMUM FRAME SIZE -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Controlled Access &amp; Channelization Protocols</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">WORKED NUMERICAL • VERIFIED SCRIPT PASS</span>
             <span class="problem-points">[8 MARKS • CORE EXAM]</span>
@@ -731,32 +808,27 @@
             <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>L</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>=</mo><mfrac><mn>250</mn><mn>8</mn></mfrac><mo>=</mo><mrow><mn mathvariant="bold">31.25</mn><mtext>&nbsp;bytes</mtext></mrow><mo>≈</mo><mrow><mn mathvariant="bold">32</mn><mtext>&nbsp;bytes</mtext></mrow></mrow><annotation encoding="application/x-tex">L_{min} = \frac{250}{8} = \mathbf{31.25\text{ bytes}} \approx \mathbf{32\text{ bytes}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">8</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">250</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathbf">31.25</span><span class="mord text"><span class="mord">&nbsp;bytes</span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathbf">32</span><span class="mord text"><span class="mord">&nbsp;bytes</span></span></span></span></span></span></span></span>
           </div>
           <p><em>Standard Ethernet Note:</em> In IEEE 802.3 10BASE5 standard Ethernet, accounting for 4 repeaters and worst-case delay, round-trip time is standardized to <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>51.2</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>s</mtext></mrow><annotation encoding="application/x-tex">51.2\text{ }\mu\text{s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8389em; vertical-align: -0.1944em;"></span><span class="mord">51.2</span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">s</span></span></span></span></span></span>, producing the famous minimum frame size of <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">512</mn><mtext>&nbsp;bits</mtext><mo>=</mo><mn mathvariant="bold">64</mn><mtext>&nbsp;bytes</mtext></mrow><annotation encoding="application/x-tex">\mathbf{512\text{ bits} = 64\text{ bytes}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathbf">512</span><span class="mord text"><span class="mord">&nbsp;bits</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord mathbf">64</span><span class="mord text"><span class="mord">&nbsp;bytes</span></span></span></span></span></span></span>.</p>
-        </div>
-
-        <div class="quick-recall-box">
+        </div><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Pure ALOHA max throughput: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>18.4</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">18.4\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord">18.4%</span></span></span></span></span> at <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">G = 0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">0.5</span></span></span></span></span>. Slotted ALOHA max throughput: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>36.8</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">36.8\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8056em; vertical-align: -0.0556em;"></span><span class="mord">36.8%</span></span></span></span></span> at <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mn>1.0</mn></mrow><annotation encoding="application/x-tex">G = 1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">1.0</span></span></span></span></span>.</li>
             <li>CSMA: 1-persistent (greedy), non-persistent (random wait), p-persistent (probabilistic).</li>
             <li>CSMA/CD requires <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>f</mi><mi>r</mi></mrow></msub><mo>≥</mo><mn>2</mn><msub><mi>t</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi></mrow></msub>  <mo>⟹</mo>  <msub><mi>L</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>≥</mo><mn>2</mn><msub><mi>t</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi></mrow></msub><mo>×</mo><mtext>Bandwidth</mtext></mrow><annotation encoding="application/x-tex">T_{fr} \ge 2 t_{prop} \implies L_{min} \ge 2 t_{prop} \times \text{Bandwidth}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9694em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.1389em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.9305em; vertical-align: -0.2861em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.9305em; vertical-align: -0.2861em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight" style="margin-right: 0.0278em;">r</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord text"><span class="mord">Bandwidth</span></span></span></span></span></span>.</li>
           </ul>
+        </div><h2 id="sec-7">Controlled Access &amp; Channelization Protocols</h2><div class="section-badge">§ 7</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Controlled Access &amp; Channelization Protocols</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-7" data-sec-title="Controlled Access &amp; Channelization Protocols" data-sec-index="6">
-        <h2 id="sec-7">Controlled Access &amp; Channelization Protocols</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">§ 7</div>
-        
-
-        <p class="section-lead">Unlike random access where stations compete and collide, <strong>Controlled Access</strong> ensures collision-free communication by having stations consult each other before transmitting, while <strong>Channelization</strong> divides channel capacity across frequency, time, or orthogonal code space.</p>
-
-        <h3>1. Controlled Access Protocols</h3>
-        <div class="table-container">
+        <div class="page-content"><p class="section-lead">Unlike random access where stations compete and collide, <strong>Controlled Access</strong> ensures collision-free communication by having stations consult each other before transmitting, while <strong>Channelization</strong> divides channel capacity across frequency, time, or orthogonal code space.</p><h3>1. Controlled Access Protocols</h3><div class="table-container">
           <table class="data-table hand-table">
             <thead>
               <tr>
@@ -783,38 +855,33 @@
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <h3>2. Channelization Protocols (FDMA, TDMA, CDMA)</h3>
-        <ul>
+        </div><h3>2. Channelization Protocols (FDMA, TDMA, CDMA)</h3><ul>
           <li><strong>FDMA (Frequency-Division Multiple Access):</strong> Available channel bandwidth is partitioned into discrete frequency bands separated by guard bands. Each station transmits continuously on its assigned band.</li>
           <li><strong>TDMA (Time-Division Multiple Access):</strong> Stations share the entire frequency bandwidth but are allocated synchronized time slots within periodic frames.</li>
           <li><strong>CDMA (Code-Division Multiple Access):</strong> All stations transmit simultaneously over the entire frequency bandwidth! Signals are separated by assigning each station an <strong>orthogonal chipping code (Walsh sequence)</strong> where:
             <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><msub><mi mathvariant="bold">c</mi><mi mathvariant="bold">i</mi></msub><mo>⋅</mo><msub><mi mathvariant="bold">c</mi><mi mathvariant="bold">j</mi></msub><mo>=</mo><mn mathvariant="bold">0</mn><mspace width="1em"></mspace><mo stretchy="false">(</mo><mi mathvariant="bold">i</mi><mo mathvariant="bold">≠</mo><mi mathvariant="bold">j</mi><mo stretchy="false">)</mo></mrow><mo separator="true">,</mo><mspace width="1em"></mspace><mrow><msub><mi mathvariant="bold">c</mi><mi mathvariant="bold">i</mi></msub><mo>⋅</mo><msub><mi mathvariant="bold">c</mi><mi mathvariant="bold">i</mi></msub><mo>=</mo><mi mathvariant="bold">m</mi></mrow></mrow><annotation encoding="application/x-tex">\mathbf{c_i \cdot c_j = 0 \quad (i \ne j)}, \quad \mathbf{c_i \cdot c_i = m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1.0361em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord"><span class="mord mathbf">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord mathbf">0</span><span class="mspace" style="margin-right: 1em;"></span><span class="mopen">(</span><span class="mord mathbf">i</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord katex-vbox"><span class="katex-thinbox"><span class="rlap"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="katex-inner"><span class="mord"><span class="mrel"></span></span></span><span class="katex-fix"></span></span></span></span></span><span class="mspace nobreak"></span><span class="mrel">=</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord mathbf">j</span><span class="mclose">)</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 1em;"></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord"><span class="mord mathbf">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord mathbf">m</span></span></span></span></span></span></span>
           </li>
-        </ul>
-
-        <div class="quick-recall-box">
+        </ul></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 24</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Important Examination Questions</span>
+        </div>
+        <div class="page-content"><div class="quick-recall-box">
           <span class="quick-recall-label">QUICK RECALL</span>
           <ul>
             <li>Controlled access: Reservation (mini-slots), Polling (Primary/Secondary), Token Passing (Token Ring).</li>
             <li>FDMA separates by frequency bands; TDMA separates by synchronized time slots.</li>
             <li>CDMA allows simultaneous transmission over full bandwidth using orthogonal Walsh codes.</li>
           </ul>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="One-Page Rapid Revision Sheet" data-sec-index="7">
-        <h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">★ REVISION</div>
-        
-        
-        <div class="revision-grid">
+        </div><h2 id="revision-sheet">One-Page Rapid Revision Sheet</h2><div class="section-badge">★ REVISION</div><div class="revision-grid">
           <div class="revision-card">
             <h4>Framing &amp; Stuffing</h4>
             <ul>
@@ -853,30 +920,28 @@
               <li>CDMA: orthogonal chipping sequences (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="bold">c</mi><mi mathvariant="bold">i</mi></msub><mo>⋅</mo><msub><mi mathvariant="bold">c</mi><mi mathvariant="bold">j</mi></msub><mo>=</mo><mn mathvariant="bold">0</mn></mrow><annotation encoding="application/x-tex">\mathbf{c_i \cdot c_j = 0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.9305em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord"><span class="mord mathbf">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord mathbf">0</span></span></span></span></span></span>).</li>
             </ul>
           </div>
+        </div><h2 id="important-questions">Important Examination Questions</h2><div class="section-badge">? QUESTIONS</div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Important Examination Questions</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="important-questions" data-sec-title="Important Examination Questions" data-sec-index="8">
-        <h2 id="important-questions">Important Examination Questions</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">? QUESTIONS</div>
-        
-
-        <div class="q-group">
+        <div class="page-content"><div class="q-group">
           <h3 class="q-group-title">2-Mark Questions (Short Answer)</h3>
           
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> What is the purpose of bit stuffing in framing?</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> What is the purpose of bit stuffing in framing?</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -889,12 +954,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> State the condition on minimum Hamming distance to correct <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></span> errors.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> State the condition on minimum Hamming distance to correct <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></span> errors.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -907,12 +970,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">2M</span> Compare maximum throughput of Pure ALOHA and Slotted ALOHA.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">2M</span> Compare maximum throughput of Pure ALOHA and Slotted ALOHA.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -922,19 +983,28 @@
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 24</span>
         </div>
-
-        <div class="q-group">
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Solved Questions from Past CIE-1 &amp; CIE-2 Papers</span>
+        </div>
+        <div class="page-content"><div class="q-group">
           <h3 class="q-group-title">5-Mark Questions (Medium Length)</h3>
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">5M</span> Explain the working of the Address Resolution Protocol (ARP).</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">5M</span> Explain the working of the Address Resolution Protocol (ARP).</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -947,12 +1017,10 @@
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">5M</span> Explain why CSMA/CD imposes a restriction on minimum frame size.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">5M</span> Explain why CSMA/CD imposes a restriction on minimum frame size.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -962,19 +1030,15 @@
           </div>
         </div>
           </div>
-        </div>
-
-        <div class="q-group">
+        </div><div class="q-group">
           <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
 
           <div class="qa-item">
             <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;"><span class="q-badge">10M</span> Explain Cyclic Redundancy Check (CRC) with an example, and show division at both sender and receiver.</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;"><span class="q-badge">10M</span> Explain Cyclic Redundancy Check (CRC) with an example, and show division at both sender and receiver.</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
               
               <div class="qa-answer">
@@ -984,22 +1048,20 @@
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-18">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Solved Questions from Past CIE-1 &amp; CIE-2 Papers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="questions-asked-before" data-sec-title="Solved Questions from Past CIE-1 &amp; CIE-2 Papers" data-sec-index="9">
-        <h2 id="questions-asked-before">Solved Questions from Past CIE-1 &amp; CIE-2 Papers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">█ ARCHIVE</div>
-        
-        <p class="section-lead">The following questions have been transcribed from the official Ramaiah CIE-1 and CIE-2 test papers (Term 2025) in <code>notes/cn/practice/cn-cie-1-and-2.pdf</code>, solved with complete intermediate steps:</p>
-
-        <!-- CIE-1 Q1(c) -->
-        <div class="archive-item">
+        <div class="page-content"><h2 id="questions-asked-before">Solved Questions from Past CIE-1 &amp; CIE-2 Papers</h2><div class="section-badge">█ ARCHIVE</div><p class="section-lead">The following questions have been transcribed from the official Ramaiah CIE-1 and CIE-2 test papers (Term 2025) in <code>notes/cn/practice/cn-cie-1-and-2.pdf</code>, solved with complete intermediate steps:</p><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Internal Assessment - I (2025) • Q 1(c)</span>
             <span class="archive-marks">[7 Marks • Blooms L3, CO2]</span>
@@ -1018,10 +1080,7 @@
               </li>
             </ul>
           </div>
-        </div>
-
-        <!-- CIE-1 Q2(c) -->
-        <div class="archive-item">
+        </div><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Internal Assessment - I (2025) • Q 2(c)</span>
             <span class="archive-marks">[7 Marks • Blooms L2, CO2]</span>
@@ -1041,10 +1100,20 @@
               <li><strong>Target Protocol Address (TPA: 32 bits):</strong> 4-byte IPv4 address being resolved.</li>
             </ol>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 18 of 24</span>
         </div>
-
-        <!-- CIE-1 Q3(a) -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-19">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Solved Questions from Past CIE-1 &amp; CIE-2 Papers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Internal Assessment - I (2025) • Q 3(a)</span>
             <span class="archive-marks">[4 Marks • Blooms L4, CO2]</span>
@@ -1056,10 +1125,20 @@
               <li><strong>Bit Stuffing:</strong> Used in bit-oriented protocols (HDLC). Delimiter flag is <code>01111110</code> (six consecutive 1s). Whenever the sender detects <strong>five consecutive 1s</strong> in the payload stream, it automatically inserts an extra <code>0</code> bit, regardless of the subsequent bit. Receiver removes the <code>0</code> following five 1s to restore original stream.</li>
             </ul>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 19 of 24</span>
         </div>
-
-        <!-- CIE-1 Q3(b) -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-20">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Solved Questions from Past CIE-1 &amp; CIE-2 Papers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Internal Assessment - I (2025) • Q 3(b)</span>
             <span class="archive-marks">[4 Marks • Blooms L3, CO2]</span>
@@ -1085,10 +1164,20 @@
             <p><strong>Receiver Verification:</strong> Add all 7 words + Checksum = <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>x</mi><mn>210</mn><mi>F</mi><mn>8</mn><mo>+</mo><mn>0</mn><mi>x</mi><mi>E</mi><mi>F</mi><mn>05</mn><mo>=</mo><mn>0</mn><mi>x</mi><mn>2</mn><mi>F</mi><mi>F</mi><mi>F</mi><mi>F</mi>  <mo>⟹</mo>  <mn>0</mn><mi>x</mi><mi>F</mi><mi>F</mi><mi>F</mi><mi>F</mi><mo>+</mo><mn>0</mn><mi>x</mi><mn>2</mn><mo>=</mo><mn>0</mn><mi>x</mi><mn>0001</mn><mo>+</mo><mo>⋯</mo><mo>=</mo><mn>0</mn><mi>x</mi><mi>F</mi><mi>F</mi><mi>F</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">0x210F8 + 0xEF05 = 0x2FFFF \implies 0xFFFF + 0x2 = 0x0001 + \dots = 0xFFFF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.7667em; vertical-align: -0.0833em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord">210</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord">8</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right: 0.0576em;">E</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord">05</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7073em; vertical-align: -0.024em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7667em; vertical-align: -0.0833em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord">2</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord">0001</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.3669em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span></span></span></span></span>. Inverting <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>x</mi><mi>F</mi><mi>F</mi><mi>F</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">0xFFFF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span></span></span></span></span> yields <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">0</mn><mi mathvariant="bold">x</mi><mn mathvariant="bold">0000</mn></mrow><annotation encoding="application/x-tex">\mathbf{0x0000}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord"><span class="mord mathbf">0x0000</span></span></span></span></span></span> (Error Free ✓).</p>
             <p><em>(Note: If space is taken as standard ASCII 0x20 instead of given hex 32, Sum = 0x210E6, Checksum = 0xEF17).</em></p>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 20 of 24</span>
         </div>
-
-        <!-- CIE-2 Q1(b) -->
-        <div class="archive-item">
+      </div><div class="notebook-page page-ruled" id="page-21">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Verified Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Internal Assessment - II (2025) • Q 1(b)</span>
             <span class="archive-marks">[6 Marks • Blooms L4, CO4]</span>
@@ -1104,34 +1193,30 @@
               <li><strong>With <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>w</mi></msub><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">S_w = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.0576em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: -0.0576em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right: 0.0269em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">2</span></span></span></span></span>:</strong> Sender transmits frames <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo separator="true">,</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0, 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8389em; vertical-align: -0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">1</span></span></span></span></span>. Receiver window slides to <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[2, 3]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">3</span><span class="mclose">]</span></span></span></span></span>. If retransmission of frame <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">0</span></span></span></span></span> arrives, receiver immediately recognizes <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo mathvariant="normal">∉</mo><mo stretchy="false">[</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">0 \notin [2, 3]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">0</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel"><span class="mord"><span class="mrel">∈</span></span><span class="mord katex-vbox"><span class="katex-thinbox"><span class="llap"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="katex-inner"><span class="mord"><span class="mord">/</span><span class="mspace" style="margin-right: 0.0556em;"></span></span></span><span class="katex-fix"></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">[</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord">3</span><span class="mclose">]</span></span></span></span></span> and drops the duplicate without error (<a href="#fig-sliding-window">Figure 2.2</a>).</li>
             </ul>
           </div>
+        </div><h2 id="practice-problems">Verified Practice Problems with Hidden Answers</h2><div class="section-badge">∇ PRACTICE</div><p class="section-lead">Test your problem-solving speed on these 6 exam-pattern numericals. Click each card to reveal the complete step-by-step verified solution:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 21 of 24</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-22">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Verified Practice Problems with Hidden Answers</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="practice-problems" data-sec-title="Verified Practice Problems with Hidden Answers" data-sec-index="10">
-        <h2 id="practice-problems">Verified Practice Problems with Hidden Answers</h2>
-        <div class="staging-body">
-          
-        <div class="section-badge">∇ PRACTICE</div>
-        
-        <p class="section-lead">Test your problem-solving speed on these 6 exam-pattern numericals. Click each card to reveal the complete step-by-step verified solution:</p>
-
-        <!-- PRACTICE 1 -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-badge easy">PRACTICE 1 • HAMMING DISTANCE BOUNDS</span>
             <span class="problem-points">[3 MARKS]</span>
           </div>
           <h4 class="problem-title">A block code has a minimum Hamming distance of <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">d_{min} = 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8444em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3117em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">5</span></span></span></span></span>. How many bit errors can it guarantee to (a) detect, and (b) correct?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="answer-body">
@@ -1147,22 +1232,17 @@
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- PRACTICE 2 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-badge exam">PRACTICE 2 • CRC POLYNOMIAL DIVISION</span>
             <span class="problem-points">[5 MARKS]</span>
           </div>
           <h4 class="problem-title">Given dataword <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>110101</mn></mrow><annotation encoding="application/x-tex">110101</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">110101</span></span></span></span></span> and divisor polynomial <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">G(x) = x^3 + x + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.8974em; vertical-align: -0.0833em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6667em; vertical-align: -0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span> (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1011</mn></mrow><annotation encoding="application/x-tex">1011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">1011</span></span></span></span></span>), determine the transmitted codeword.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="answer-body">
@@ -1183,22 +1263,30 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 22 of 24</span>
         </div>
-
-        <!-- PRACTICE 3 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-23">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Verified Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-badge exam">PRACTICE 3 • INTERNET CHECKSUM</span>
             <span class="problem-points">[4 MARKS]</span>
           </div>
           <h4 class="problem-title">Compute the 16-bit Internet checksum for the two hexadecimal words <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>x</mi><mn>466</mn><mi>F</mi></mrow><annotation encoding="application/x-tex">0x466F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord">466</span><span class="mord mathnormal" style="margin-right: 0.1389em;">F</span></span></span></span></span> and <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>x</mi><mn>7275</mn></mrow><annotation encoding="application/x-tex">0x7275</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">0</span><span class="mord mathnormal">x</span><span class="mord">7275</span></span></span></span></span>.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="answer-body">
@@ -1213,22 +1301,17 @@
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- PRACTICE 4 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-badge exam">PRACTICE 4 • PURE ALOHA THROUGHPUT</span>
             <span class="problem-points">[4 MARKS]</span>
           </div>
           <h4 class="problem-title">A pure ALOHA channel transmits <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mtext>-bit</mtext></mrow><annotation encoding="application/x-tex">200\text{-bit}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">200</span><span class="mord text"><span class="mord">-bit</span></span></span></span></span></span> frames on a shared <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>50</mn><mtext>&nbsp;kbps</mtext></mrow><annotation encoding="application/x-tex">50\text{ kbps}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord">50</span><span class="mord text"><span class="mord">&nbsp;kbps</span></span></span></span></span></span> link. If the network generates <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mtext>&nbsp;frames/second</mtext></mrow><annotation encoding="application/x-tex">100\text{ frames/second}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">100</span><span class="mord text"><span class="mord">&nbsp;frames/second</span></span></span></span></span></span>, what is the throughput <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.0576em;">S</span></span></span></span></span>?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="answer-body">
@@ -1243,22 +1326,30 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 23 of 24</span>
         </div>
-
-        <!-- PRACTICE 5 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-24">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">IS53 · Unit 2</span>
+          <span class="header-right">Verified Practice Problems with Hidden Answers</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-badge exam">PRACTICE 5 • CSMA/CD MINIMUM FRAME SIZE</span>
             <span class="problem-points">[5 MARKS]</span>
           </div>
           <h4 class="problem-title">In a <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>&nbsp;Gbps</mtext></mrow><annotation encoding="application/x-tex">1\text{ Gbps}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord">1</span><span class="mord text"><span class="mord">&nbsp;Gbps</span></span></span></span></span></span> Ethernet network operating over a distance of <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>&nbsp;km</mtext></mrow><annotation encoding="application/x-tex">1\text{ km}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6944em;"></span><span class="mord">1</span><span class="mord text"><span class="mord">&nbsp;km</span></span></span></span></span></span> (<span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>8</mn></msup><mtext>&nbsp;m/s</mtext></mrow><annotation encoding="application/x-tex">v = 2 \times 10^8\text{ m/s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.4306em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">v</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height: 1.0641em; vertical-align: -0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class="mord text"><span class="mord">&nbsp;m/s</span></span></span></span></span></span>), what is the minimum frame size required for reliable collision detection?</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="answer-body">
@@ -1274,22 +1365,17 @@
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- PRACTICE 6 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-badge exam">PRACTICE 6 • STOP-AND-WAIT EFFICIENCY</span>
             <span class="problem-points">[5 MARKS]</span>
           </div>
           <h4 class="problem-title">A <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>&nbsp;Mbps</mtext></mrow><annotation encoding="application/x-tex">1\text{ Mbps}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord">1</span><span class="mord text"><span class="mord">&nbsp;Mbps</span></span></span></span></span></span> point-to-point link has a one-way propagation delay of <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mtext>&nbsp;ms</mtext></mrow><annotation encoding="application/x-tex">20\text{ ms}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.6444em;"></span><span class="mord">20</span><span class="mord text"><span class="mord">&nbsp;ms</span></span></span></span></span></span>. If frames are <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1000</mn><mtext>&nbsp;Bytes</mtext></mrow><annotation encoding="application/x-tex">1000\text{ Bytes}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord">1000</span><span class="mord text"><span class="mord">&nbsp;Bytes</span></span></span></span></span></span> and ACKs are negligible, calculate Stop-and-Wait ARQ efficiency.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="answer-body">
@@ -1305,12 +1391,11 @@
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 24 of 24</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

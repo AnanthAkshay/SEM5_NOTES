@@ -7,7 +7,7 @@
   {
     "id": "sec-core-concepts",
     "title": "2. Variables, Controls & Confounded Relationships",
-    "page": 3
+    "page": 2
   },
   {
     "id": "sec-principles-experiment",
@@ -37,26 +37,26 @@
   {
     "id": "sec-sample-size",
     "title": "8. Sample Size Determination",
-    "page": 10
+    "page": 9
   },
   {
     "id": "sec-numericals",
     "title": "9. Solved Problems & ANOVA Layouts",
-    "page": 11
+    "page": 10
   },
   {
     "id": "revision-sheet",
     "title": "10. Quick Revision Sheet",
-    "page": 15
+    "page": 13
   },
   {
     "id": "exam-questions",
     "title": "Authentic Exam Archive & Model Solutions",
-    "page": 16
+    "page": 14
   },
   {
     "id": "sec-references",
     "title": "12. Prescribed References",
-    "page": 24
+    "page": 20
   }
 ]

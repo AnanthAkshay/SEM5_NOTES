@@ -12,46 +12,46 @@
   {
     "id": "sec-props-vs-state",
     "title": "3. Props vs. State (Comparative Analysis)",
-    "page": 5
+    "page": 4
   },
   {
     "id": "sec-react-fragments",
     "title": "4. React Fragments (<>...</>)",
-    "page": 6
+    "page": 5
   },
   {
     "id": "sec-props-children",
     "title": "5. Component Composition & props.children",
-    "page": 7
+    "page": 6
   },
   {
     "id": "sec-usestate-hook",
     "title": "6. State Management with the useState Hook",
-    "page": 8
+    "page": 7
   },
   {
     "id": "sec-state-immutability",
     "title": "7. Immutable State Updates (Objects & Arrays)",
-    "page": 10
+    "page": 9
   },
   {
     "id": "sec-code-demos",
     "title": "8. Tested Component Implementations",
-    "page": 12
+    "page": 10
   },
   {
     "id": "revision-sheet",
     "title": "9. Quick Revision Sheet",
-    "page": 14
+    "page": 12
   },
   {
     "id": "exam-questions",
     "title": "10. Important Exam Questions & Practice",
-    "page": 15
+    "page": 13
   },
   {
     "id": "sec-references",
     "title": "11. Prescribed References",
-    "page": 25
+    "page": 22
   }
 ]

@@ -17,41 +17,41 @@
   {
     "id": "sec-4",
     "title": "Simplification of Context-Free Grammars",
-    "page": 7
+    "page": 6
   },
   {
     "id": "sec-5",
     "title": "Chomsky Normal Form (CNF)",
-    "page": 9
+    "page": 8
   },
   {
     "id": "sec-6",
     "title": "Pushdown Automata (PDA)",
-    "page": 12
+    "page": 11
   },
   {
     "id": "sec-7",
     "title": "DPDA vs NPDA & Worked PDA Designs",
-    "page": 15
+    "page": 13
   },
   {
     "id": "revision-sheet",
     "title": "One-Page Rapid Revision Sheet",
-    "page": 18
+    "page": 15
   },
   {
     "id": "important-questions",
     "title": "Important Examination Questions",
-    "page": 18
+    "page": 16
   },
   {
     "id": "questions-asked-before",
     "title": "Solved Questions from Past CIE-2 & SEE Examination Papers",
-    "page": 21
+    "page": 19
   },
   {
     "id": "practice-problems",
     "title": "Practice Problems with Step-by-Step Solutions",
-    "page": 26
+    "page": 22
   }
 ]

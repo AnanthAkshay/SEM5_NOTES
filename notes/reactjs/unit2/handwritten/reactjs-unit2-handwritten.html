@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISAEC594 Unit 2 - Handwritten Notes</title>
   <link rel="stylesheet" href="../../../../fonts/fonts.css">
   <link rel="stylesheet" href="../../../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../../../css/handwritten.css">
   <style>
     :root {
-      --font-body: 'Architects Daughter', cursive, sans-serif;
-      --font-heading: 'Patrick Hand', cursive, sans-serif;
+      --font-body: 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
+      --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
       --ink-blue: #1e293b;
       --ink-dark: #0284c7;
     }
@@ -27,21 +26,111 @@
   <script src="../../../../js/rough.js"></script>
 </head>
 <body>
-  <div id="staging-container">
-    
-      <div class="staging-section" data-sec-id="sec-components-intro" data-sec-title="1. Functional vs. Class Components" data-sec-index="0">
-        <h2 id="sec-components-intro">1. Functional vs. Class Components</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
-          
-          <p>A <strong>React Component</strong> is a self-contained, reusable piece of user interface that accepts inputs (props) and returns a React element tree (JSX) describing what should appear on the screen.</p>
+  <div class="notebook-nav-bar">
+    <a href="../../../index.html#subject/reactjs" class="nav-btn">← Back to Course</a>
+    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">ISAEC594 Unit 2 · Handwritten Notebook</span>
+    <a href="reactjs-unit2-handwritten.pdf" download="" class="nav-btn nav-btn-primary">⬇ Download PDF</a>
+  </div>
+
+  
+  <div id="notebook-container"><div class="notebook-page" id="page-1">
+      <div class="punch-hole punch-top"></div>
+      <div class="punch-hole punch-mid"></div>
+      <div class="punch-hole punch-bot"></div>
+      <div class="cover-page">
+        <div class="cover-header">
+          <div class="cover-badge">ISAEC594 · ReactJS</div>
+          <h1 class="cover-title">Unit 2: Components, Props &amp; State</h1>
+          <div class="cover-subtitle">Handwritten Student Notebook</div>
         </div>
 
-        <h3 class="subsection-title">1.1 Functional Components (Modern Industry Standard)</h3>
-        <p>A functional component is simply a JavaScript function that accepts a single <code>props</code> object as an argument and returns JSX. With the introduction of React Hooks (React 16.8+), functional components possess all capabilities previously restricted to classes, including local state and lifecycle side-effects:</p>
-        <div class="code-block-wrapper">
+        <div class="cover-syllabus-card">
+          <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">OFFICIAL SYLLABUS TOPICS COVERED
+          
+          
+            Functional Components: Pure JavaScript functions, JSX return, rendering components
+          Class Components Overview: ES6 class syntax, `React.Component`, `render()` method, legacy lifecycle
+          Passing &amp; Accessing Props: Props as read-only obje...</p>
+        </div>
+
+        <div class="cover-toc-card">
+          <div class="cover-toc-title">Table of Contents</div>
+          <ul class="toc-list" id="cover-toc-list">
+        <li class="toc-item">
+          <span>1. Functional vs. Class Components</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 2</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>2. Passing &amp; Accessing Props</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 3</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>3. Props vs. State (Comparative Analysis)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 4</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>4. React Fragments (&lt;&gt;...)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 5</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>5. Component Composition &amp; props.children</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 6</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>6. State Management with the useState Hook</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 7</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>7. Immutable State Updates (Objects &amp; Arrays)</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 9</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>8. Tested Component Implementations</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 10</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>9. Quick Revision Sheet</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 12</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>10. Important Exam Questions &amp; Practice</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 13</span>
+        </li>
+      
+        <li class="toc-item">
+          <span>11. Prescribed References</span>
+          <span style="font-weight: 700; color: #1e3a8a;">p. 22</span>
+        </li>
+      </ul>
+        </div>
+
+        <div class="cover-footer">
+          <div>Department of Information Science &amp; Engineering · Semester V</div>
+          <div style="margin-top: 2px;">Handwritten-style notes (generated from unit notes) - verify with your textbook and faculty notes.</div>
+        </div>
+      </div>
+    </div><div class="notebook-page page-ruled" id="page-2">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">1. Functional vs. Class Components</span>
+        </div>
+        <div class="page-content"><h2 id="sec-components-intro">1. Functional vs. Class Components</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
+          
+          <p>A <strong>React Component</strong> is a self-contained, reusable piece of user interface that accepts inputs (props) and returns a React element tree (JSX) describing what should appear on the screen.</p>
+        </div><h3 class="subsection-title">1.1 Functional Components (Modern Industry Standard)</h3><p>A functional component is simply a JavaScript function that accepts a single <code>props</code> object as an argument and returns JSX. With the introduction of React Hooks (React 16.8+), functional components possess all capabilities previously restricted to classes, including local state and lifecycle side-effects:</p><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-fn-comp">Copy</button>
@@ -54,11 +143,7 @@ export default function WelcomeBanner({ username }) {
     &lt;/div&gt;
   );
 }</code></pre>
-        </div>
-
-        <h3 class="subsection-title">1.2 Class Components (Overview &amp; Legacy Codebases)</h3>
-        <p>Before React Hooks, class components were required whenever a component needed internal state or lifecycle methods. A class component extends <code>React.Component</code> and implements a mandatory <code>render()</code> method:</p>
-        <div class="code-block-wrapper">
+        </div><h3 class="subsection-title">1.2 Class Components (Overview &amp; Legacy Codebases)</h3><p>Before React Hooks, class components were required whenever a component needed internal state or lifecycle methods. A class component extends <code>React.Component</code> and implements a mandatory <code>render()</code> method:</p><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-class-comp">Copy</button>
@@ -77,75 +162,66 @@ class WelcomeBannerClass extends Component {
   }
 }
 export default WelcomeBannerClass;</code></pre>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 2 of 23</span>
         </div>
-
-        <div class="table-container">
-          <table class="notes-table hand-table">
-            <thead>
-              <tr>
+      </div><div class="notebook-page page-ruled" id="page-3">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">2. Passing &amp; Accessing Props</span>
+        </div>
+        <div class="page-content"><table class="notes-table hand-table"><tr>
                 <th>Feature</th>
                 <th>Functional Components</th>
                 <th>Class Components (Legacy)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Syntax</strong></td>
                 <td>Plain JavaScript function.</td>
                 <td>ES6 class extending <code>React.Component</code>.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Props Access</strong></td>
                 <td>Directly via function arguments: <code>props.name</code> or <code>({ name })</code>.</td>
                 <td>Via class instance: <code>this.props.name</code>.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>State Management</strong></td>
                 <td>Using the <code>useState</code> hook.</td>
                 <td>Via <code>this.state = {...}</code> and <code>this.setState()</code>.</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong><code>this</code> Keyword Binding</strong></td>
                 <td><strong>None</strong> (no <code>this</code> confusion!).</td>
                 <td>Requires manual method binding (<code>this.handleClick.bind(this)</code>).</td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Code Conciseness</strong></td>
                 <td>High (less boilerplate, easier to test and compose).</td>
                 <td>Low (verbose constructor, render method).</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+              </tr></table><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Functional components are plain JS functions returning JSX and managed via Hooks. Class components extend <code>React.Component</code>, access props via <code>this.props</code>, and require a <code>render()</code> method.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-props-fundamentals" data-sec-title="2. Passing &amp; Accessing Props" data-sec-index="1">
-        <h2 id="sec-props-fundamentals">2. Passing &amp; Accessing Props</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+        </div><h2 id="sec-props-fundamentals">2. Passing &amp; Accessing Props</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
           
           <p><strong>Props (short for Properties)</strong> are read-only configuration inputs passed from a parent component down to a child component, analogous to HTML attributes or function arguments.</p>
-        </div>
-
-        <h3 class="subsection-title">2.1 Pure Functions &amp; Props Immutability Rule</h3>
-        <div class="callout callout-warning hand-card card-warning"><div class="hand-badge">Fundamental Rule of React</div>
+        </div><h3 class="subsection-title">2.1 Pure Functions &amp; Props Immutability Rule</h3><div class="callout callout-warning hand-card card-warning"><div class="hand-label label-warning">Fundamental Rule of React:</div>
           
           <p><strong>All React components must act like pure functions with respect to their props.</strong> A component must NEVER mutate its own props (e.g. <code>props.score = 100</code> is strictly forbidden and triggers runtime errors or unpredictability).</p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 3 of 23</span>
         </div>
-
-        <h3 class="subsection-title">2.2 Destructuring Props with Default Values</h3>
-        <p>Instead of typing <code>props.title</code> throughout the component body, modern React idiomatically destructures props in the function parameter list with fallback default values:</p>
-        <div class="code-block-wrapper">
+      </div><div class="notebook-page page-ruled" id="page-4">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">3. Props vs. State (Comparative Analysis)</span>
+        </div>
+        <div class="page-content"><h3 class="subsection-title">2.2 Destructuring Props with Default Values</h3><p>Instead of typing <code>props.title</code> throughout the component body, modern React idiomatically destructures props in the function parameter list with fallback default values:</p><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-props-destruct">Copy</button>
@@ -180,25 +256,23 @@ function CourseCard({ title, code, credits = 3, isElective = false }) {
     &lt;/div&gt;
   );
 }</code></pre>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Props are immutable inputs passed from parent to child. Components must never mutate props. Destructure props in parameter lists with default values: <code>({ title, credits = 3 })</code>.</p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 4 of 23</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-5">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">4. React Fragments (&lt;&gt;...&lt;/&gt;)</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-props-vs-state" data-sec-title="3. Props vs. State (Comparative Analysis)" data-sec-index="2">
-        <h2 id="sec-props-vs-state">3. Props vs. State (Comparative Analysis)</h2>
-        <div class="staging-body">
-          
-        
-        <p>A classic exam question asks students to contrast Props and State across ownership, mutability, and architectural intent:</p>
-
-        <div class="table-container">
+        <div class="page-content"><h2 id="sec-props-vs-state">3. Props vs. State (Comparative Analysis)</h2><p>A classic exam question asks students to contrast Props and State across ownership, mutability, and architectural intent:</p><div class="table-container">
           <table class="notes-table hand-table">
             <thead>
               <tr>
@@ -235,29 +309,26 @@ function CourseCard({ title, code, credits = 3, isElective = false }) {
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Props = external, read-only data passed from parents. State = internal, dynamic data managed by the component itself via setter functions.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-react-fragments" data-sec-title="4. React Fragments (&lt;&gt;...&lt;/&gt;)" data-sec-index="3">
-        <h2 id="sec-react-fragments">4. React Fragments (&lt;&gt;...&lt;/&gt;)</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+        </div><h2 id="sec-react-fragments">4. React Fragments (&lt;&gt;...&lt;/&gt;)</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
           
           <p>A <strong>React Fragment</strong> allows a component to group a list of multiple adjacent children without adding extra wrapper nodes (such as unnecessary <code>&lt;div&gt;</code> elements) to the real DOM.</p>
+        </div><h3 class="subsection-title">4.1 Why Are Fragments Necessary?</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 5 of 23</span>
         </div>
-
-        <h3 class="subsection-title">4.1 Why Are Fragments Necessary?</h3>
-        <ul>
+      </div><div class="notebook-page page-ruled" id="page-6">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">5. Component Composition &amp; props.children</span>
+        </div>
+        <div class="page-content"><ul>
           <li><strong>Semantic HTML Integrity:</strong> Adding an extraneous <code>&lt;div&gt;</code> inside a table row (<code>&lt;tr&gt;</code>) or a flexbox/grid container breaks HTML validation and CSS layout flow:
           <div class="code-block-wrapper">
             <div class="code-header"><span class="code-lang">jsx</span></div>
@@ -283,29 +354,26 @@ function TableColumns() {
           </div>
           </li>
           <li><strong>Keyed Fragments:</strong> When mapping a list of fragments inside a loop, use the explicit <code>&lt;React.Fragment key={item.id}&gt;</code> syntax because the short syntax (<code>&lt;&gt;</code>) cannot take attributes.</li>
-        </ul>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </ul><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Fragments (<code>&lt;&gt;...&lt;/&gt;</code>) group children without inserting redundant wrapper elements into the DOM tree. Use <code>&lt;React.Fragment key={id}&gt;</code> when keys are required.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-props-children" data-sec-title="5. Component Composition &amp; props.children" data-sec-index="4">
-        <h2 id="sec-props-children">5. Component Composition &amp; props.children</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+        </div><h2 id="sec-props-children">5. Component Composition &amp; props.children</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
           
           <p><strong><code>props.children</code></strong> is a special built-in prop in React that represents whatever JSX markup or child components are nested between an opening and closing component tag.</p>
+        </div><p>React favors <strong>composition over inheritance</strong>. Instead of creating complex class inheritance hierarchies, developers create generic "box" or "container" components that receive nested content through <code>children</code>:</p></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 6 of 23</span>
         </div>
-        <p>React favors <strong>composition over inheritance</strong>. Instead of creating complex class inheritance hierarchies, developers create generic "box" or "container" components that receive nested content through <code>children</code>:</p>
-
-        <div class="code-block-wrapper">
+      </div><div class="notebook-page page-ruled" id="page-7">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">6. State Management with the useState Hook</span>
+        </div>
+        <div class="page-content"><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-props-children">Copy</button>
@@ -334,39 +402,31 @@ function Dashboard() {
     &lt;/Card&gt;
   );
 }</code></pre>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+        </div><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p><code>props.children</code> enables component composition: whatever JSX is nested inside <code>&lt;Component&gt;children here&lt;/Component&gt;</code> is accessible to the component via <code>props.children</code>.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-usestate-hook" data-sec-title="6. State Management with the useState Hook" data-sec-index="5">
-        <h2 id="sec-usestate-hook">6. State Management with the useState Hook</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-def hand-card card-def"><div class="hand-badge">Definition</div>
+        </div><h2 id="sec-usestate-hook">6. State Management with the useState Hook</h2><div class="callout callout-def hand-card card-def"><div class="hand-label label-def">Definition:</div>
           
           <p><strong><code>useState</code></strong> is the foundational React Hook that allows functional components to declare and retain local state variables across re-renders.</p>
-        </div>
-
-        <h3 class="subsection-title">6.1 Hook Syntax &amp; Array Destructuring</h3>
-        <p>The <code>useState</code> function returns an array containing exactly two items:</p>
-        <div class="formula-box">
+        </div><h3 class="subsection-title">6.1 Hook Syntax &amp; Array Destructuring</h3><p>The <code>useState</code> function returns an array containing exactly two items:</p><div class="formula-box">
           <span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">[</mo><mi mathvariant="bold">s</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">V</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">r</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">b</mi><mi mathvariant="bold">l</mi><mi mathvariant="bold">e</mi><mo separator="true">,</mo><mtext>&nbsp;</mtext><mi mathvariant="bold">s</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">s</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">V</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">r</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">b</mi><mi mathvariant="bold">l</mi><mi mathvariant="bold">e</mi><mo stretchy="false">]</mo><mo>=</mo><mtext>useState</mtext><mo stretchy="false">(</mo><mi mathvariant="bold">i</mi><mi mathvariant="bold">n</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">l</mi><mi mathvariant="bold">V</mi><mi mathvariant="bold">a</mi><mi mathvariant="bold">l</mi><mi mathvariant="bold">u</mi><mi mathvariant="bold">e</mi><mo stretchy="false">)</mo><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">\mathbf{[stateVariable, \ setstateVariable] = \text{useState}(initialValue);}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord"><span class="mopen">[</span><span class="mord mathbf">stateVariable</span><span class="mpunct">,</span><span class="mspace">&nbsp;</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathbf">setstateVariable</span><span class="mclose">]</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord text"><span class="mord">useState</span></span><span class="mopen">(</span><span class="mord mathbf">initialValue</span><span class="mclose">)</span><span class="mpunct">;</span></span></span></span></span></span></span>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 7 of 23</span>
         </div>
-        <ol>
+      </div><div class="notebook-page page-ruled" id="page-8">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">6. State Management with the useState Hook</span>
+        </div>
+        <div class="page-content"><ol>
           <li><code>stateVariable</code>: The current state value during this render.</li>
           <li><code>setstateVariable</code>: A setter function used to update the state and schedule a component re-render.</li>
-        </ol>
-
-        <h3 class="subsection-title">6.2 Direct Updates vs. Functional (Updater) Updates</h3>
-        <div class="code-block-wrapper">
+        </ol><h3 class="subsection-title">6.2 Direct Updates vs. Functional (Updater) Updates</h3><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-usestate-patterns">Copy</button>
@@ -404,26 +464,23 @@ function Counter() {
     &lt;/div&gt;
   );
 }</code></pre>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 8 of 23</span>
         </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+      </div><div class="notebook-page page-ruled" id="page-9">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">7. Immutable State Updates (Objects &amp; Arrays)</span>
+        </div>
+        <div class="page-content"><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p><code>const [state, setState] = useState(initial);</code>. Always use functional updates <code>setState(prev =&gt; prev + 1)</code> when the new state depends on the previous state to prevent stale batching bugs.</p>
-        </div>
-      
-        </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-state-immutability" data-sec-title="7. Immutable State Updates (Objects &amp; Arrays)" data-sec-index="6">
-        <h2 id="sec-state-immutability">7. Immutable State Updates (Objects &amp; Arrays)</h2>
-        <div class="staging-body">
-          
-        
-        <p>In React, state should be treated as <strong>strictly read-only</strong>. Never mutate objects or arrays in-place (e.g., <code>user.age = 22</code> or <code>items.push(newItem)</code>), because React performs an object reference identity check (<code>Object.is(oldState, newState)</code>). If the memory reference has not changed, React assumes nothing was modified and skips re-rendering!</p>
-
-        <h3 class="subsection-title">7.1 Updating Objects via the Spread Operator (<code>...</code>)</h3>
-        <div class="code-block-wrapper">
+        </div><h2 id="sec-state-immutability">7. Immutable State Updates (Objects &amp; Arrays)</h2><p>In React, state should be treated as <strong>strictly read-only</strong>. Never mutate objects or arrays in-place (e.g., <code>user.age = 22</code> or <code>items.push(newItem)</code>), because React performs an object reference identity check (<code>Object.is(oldState, newState)</code>). If the memory reference has not changed, React assumes nothing was modified and skips re-rendering!</p><h3 class="subsection-title">7.1 Updating Objects via the Spread Operator (<code>...</code>)</h3><div class="code-block-wrapper">
           <div class="code-header">
             <span class="code-lang">jsx</span>
             <button class="btn-copy" data-target="code-obj-update">Copy</button>
@@ -441,59 +498,60 @@ const updateCgpa = (newCgpa) =&gt; {
     cgpa: newCgpa        // Override the target property
   }));
 };</code></pre>
-        </div>
-
-        <h3 class="subsection-title">7.2 Updating Arrays Immutably</h3>
-        <div class="table-container">
-          <table class="notes-table hand-table">
-            <thead>
-              <tr>
+        </div><h3 class="subsection-title">7.2 Updating Arrays Immutably</h3><table class="notes-table hand-table"><tr>
                 <th>Operation</th>
                 <th>Mutating Method (DO NOT USE in React)</th>
                 <th>Immutable Idiomatic Replacement (USE THIS)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+              </tr><tr>
                 <td><strong>Add Item</strong></td>
                 <td><code>arr.push(item)</code>, <code>arr.unshift(item)</code></td>
                 <td>Spread syntax: <code>[...arr, item]</code> or <code>[item, ...arr]</code></td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Remove Item</strong></td>
                 <td><code>arr.splice(index, 1)</code>, <code>arr.pop()</code></td>
                 <td>Filter method: <code>arr.filter(item =&gt; item.id !== targetId)</code></td>
-              </tr>
-              <tr>
+              </tr></table></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 9 of 23</span>
+        </div>
+      </div><div class="notebook-page page-ruled" id="page-10">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">8. Tested Component Implementations</span>
+        </div>
+        <div class="page-content"><table class="notes-table hand-table"><tr>
+                <th>Operation</th>
+                <th>Mutating Method (DO NOT USE in React)</th>
+                <th>Immutable Idiomatic Replacement (USE THIS)</th>
+              </tr><tr>
                 <td><strong>Update Item</strong></td>
                 <td><code>arr[index] = newItem</code></td>
                 <td>Map method: <code>arr.map(item =&gt; item.id === targetId ? { ...item, done: true } : item)</code></td>
-              </tr>
-              <tr>
+              </tr><tr>
                 <td><strong>Sort / Reverse</strong></td>
                 <td><code>arr.sort()</code>, <code>arr.reverse()</code> (mutates original!)</td>
                 <td>Copy first: <code>[...arr].sort(...)</code></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout callout-summary hand-card card-def"><div class="hand-badge">Quick Recall</div>
+              </tr></table><div class="callout callout-summary hand-card card-def"><div class="hand-label label-def">Quick Recall:</div>
           
           <p>Never mutate state in-place. Copy objects using spread <code>{ ...prev, field: val }</code>. Modify arrays using immutable methods: spread to add, <code>.filter()</code> to delete, <code>.map()</code> to update.</p>
+        </div><h2 id="sec-code-demos">8. Tested Component Implementations</h2></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 10 of 23</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-11">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">8. Tested Component Implementations</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-code-demos" data-sec-title="8. Tested Component Implementations" data-sec-index="7">
-        <h2 id="sec-code-demos">8. Tested Component Implementations</h2>
-        <div class="staging-body">
-          
-        
-
-        <div class="callout callout-example hand-card card-example"><div class="hand-badge">Complete Tested Component: Study Task Tracker with Array State</div>
+        <div class="page-content"><div class="callout callout-example hand-card card-example"><div class="hand-label label-example">Complete Tested Component: Study Task Tracker with Array State:</div>
           
           <p>This runnable component demonstrates functional state management, array addition via spread, and deletion via <code>.filter()</code>:</p>
           <div class="code-block-wrapper">
@@ -560,11 +618,20 @@ export default function StudyTracker() {
             <li>User clicks "Add Task" → <code>handleAddTask</code> creates new object with <code>id: Date.now()</code> → <code>setTasks([...prev, newTask])</code> schedules re-render → list updates to 3 tasks.</li>
             <li>User clicks "✕ Done" on task 1 → <code>handleDeleteTask(1)</code> runs <code>filter(t =&gt; t.id !== 1)</code> → task 1 removed → state now contains remaining 2 tasks.</li>
           </ol>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 11 of 23</span>
         </div>
-      
-
-      <!-- Interactive React Component & useState Hook Studio -->
-      <div id="react-state-studio" class="interactive-widget-card" style="margin: 2.5rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+      </div><div class="notebook-page page-ruled" id="page-12">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">9. Quick Revision Sheet</span>
+        </div>
+        <div class="page-content"><div id="react-state-studio" class="interactive-widget-card" style="margin: 2.5rem 0; padding: 1.5rem; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
           <div>
             <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--brand); font-weight: 700; letter-spacing: 0.05em;">Interactive Lab Explorer</div>
@@ -706,20 +773,20 @@ export default function StudyTracker() {
             </div>
           </div>
         </div>
-      </div>
-
-
+      </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 12 of 23</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="revision-sheet" data-sec-title="9. Quick Revision Sheet" data-sec-index="8">
-        <h2 id="revision-sheet">9. Quick Revision Sheet</h2>
-        <div class="staging-body">
-          
-        
-
-        <div class="table-container">
+      </div><div class="notebook-page page-ruled" id="page-13">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><h2 id="revision-sheet">9. Quick Revision Sheet</h2><div class="table-container">
           <table class="notes-table hand-table">
             <thead>
               <tr>
@@ -761,32 +828,27 @@ export default function StudyTracker() {
               </tr>
             </tbody>
           </table>
+        </div><h2 id="exam-questions">10. Important Exam Questions &amp; Practice</h2><p class="section-lead">The following conceptual questions and verified code tracing problems cover essential university examination patterns for <strong>ISAEC594 (Front End Development using ReactJS)</strong>:</p><h3 class="subsection-title">2-Mark Conceptual Questions</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 13 of 23</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-14">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="exam-questions" data-sec-title="10. Important Exam Questions &amp; Practice" data-sec-index="9">
-        <h2 id="exam-questions">10. Important Exam Questions &amp; Practice</h2>
-        <div class="staging-body">
-          
-        
-        <p class="section-lead">The following conceptual questions and verified code tracing problems cover essential university examination patterns for <strong>ISAEC594 (Front End Development using ReactJS)</strong>:</p>
-
-        <h3 class="subsection-title">2-Mark Conceptual Questions</h3>
-
-        <!-- Q1 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">1. Differentiate between Props and State in React.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -798,19 +860,14 @@ export default function StudyTracker() {
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">2. What are React Fragments and why are they used?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -820,19 +877,14 @@ export default function StudyTracker() {
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q3 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">3. Explain the purpose of `props.children` with a brief example.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -842,19 +894,27 @@ export default function StudyTracker() {
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 14 of 23</span>
         </div>
-
-        <!-- Q4 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-15">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">4. State the two fundamental Rules of Hooks in React.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -866,19 +926,14 @@ export default function StudyTracker() {
           </div>
         </div>
           </div>
-        </div>
-
-        <!-- Q5 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+        </div><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">2 MARKS</span>
             <span class="q-title">5. Why should functional state updates `setState(prev =&gt; prev + 1)` be used instead of direct updates `setState(state + 1)`?</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -887,21 +942,27 @@ export default function StudyTracker() {
           </div>
         </div>
           </div>
+        </div><h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 15 of 23</span>
         </div>
-
-        <h3 class="subsection-title">5-Mark &amp; 10-Mark Model Questions</h3>
-
-        <!-- Q6 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-16">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">10 MARKS</span>
             <span class="q-title">6. Explain the `useState` hook in React with syntax, mechanics, and a complete working counter implementation.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -939,19 +1000,27 @@ export default function Counter() {
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 16 of 23</span>
         </div>
-
-        <!-- Q7 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
+      </div><div class="notebook-page page-ruled" id="page-17">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="practice-card">
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">
             <span class="q-badge">10 MARKS</span>
             <span class="q-title">7. Why is state immutability crucial in React? Explain how objects and arrays are immutably updated with clear code examples.</span>
           </div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
           
           <div class="qa-answer">
@@ -985,75 +1054,62 @@ setUser(prevUser =&gt; ({
           </div>
         </div>
           </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 17 of 23</span>
         </div>
-
-        <!-- Q8 -->
-        <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">
-            <span class="q-badge">5 MARKS</span>
-            <span class="q-title">8. Contrast Functional Components with Class Components in terms of syntax, state management, and lifecycle.</span>
-          </div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
-            <div>
-          
-          <div class="qa-answer">
-            <div class="table-container">
-              <table class="notes-table hand-table">
-                <thead>
-                  <tr>
+      </div><div class="notebook-page page-ruled" id="page-18">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><table class="notes-table hand-table"><tr>
                     <th>Dimension</th>
                     <th>Functional Components (Modern)</th>
                     <th>Class Components (Legacy)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
+                  </tr><tr>
                     <td><strong>Declaration</strong></td>
                     <td>Plain JavaScript function returning JSX</td>
                     <td>ES6 class extending <code>React.Component</code> with a <code>render()</code> method</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td><strong>`this` Keyword</strong></td>
                     <td>No <code>this</code> binding required; lexical scoping throughout</td>
                     <td>Requires explicit method binding in constructor or arrow functions</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td><strong>State Management</strong></td>
                     <td><code>useState</code> and other Hooks</td>
                     <td><code>this.state = {...}</code> in constructor; <code>this.setState()</code></td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td><strong>Lifecycle Logic</strong></td>
                     <td>Unified <code>useEffect</code> hook</td>
                     <td>Partitioned methods: <code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+                  </tr></table><h3 class="subsection-title">Verified Code Tracing &amp; Practice Problems</h3></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 18 of 23</span>
         </div>
-          </div>
+      </div><div class="notebook-page page-ruled" id="page-19">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
         </div>
-
-        <h3 class="subsection-title">Verified Code Tracing &amp; Practice Problems</h3>
-
-        <!-- Practice 1 -->
-        <div class="problem-card">
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 1 • PROPS DESTRUCTURING &amp; DEFAULTS</span>
           </div>
           <h4 class="problem-title">Trace the output of <code>UserBadge({ name: "Rohan", score: 95 })</code> when defined as: <code>function UserBadge({ name, role = "Student", score = 0 })</code>.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1075,21 +1131,29 @@ setUser(prevUser =&gt; ({
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 19 of 23</span>
         </div>
-
-        <!-- Practice 2 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-20">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 2 • PROPS.CHILDREN CONTAINER TRACE</span>
           </div>
           <h4 class="problem-title">Trace the output structure of <code>ModalCard</code> when passed title "Confirmation" and an array of 2 string children.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1105,21 +1169,16 @@ setUser(prevUser =&gt; ({
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- Practice 3 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 3 • SEQUENTIAL USESTATE CALLS &amp; UPDATERS</span>
           </div>
           <h4 class="problem-title">Trace the state transitions: initial value 0 → <code>setCount(c =&gt; c + 1)</code> → <code>setCount(c =&gt; c + 1)</code> → <code>setCount(5)</code>.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1135,21 +1194,29 @@ setUser(prevUser =&gt; ({
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 20 of 23</span>
         </div>
-
-        <!-- Practice 4 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-21">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">10. Important Exam Questions &amp; Practice</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 4 • OBJECT STATE IMMUTABILITY TRACE</span>
           </div>
           <h4 class="problem-title">Given state <code>user = { name: "Priya", age: 20 }</code>, write the immutable update that increments age to 21 while preserving name.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1167,21 +1234,29 @@ setUser(prevUser =&gt; ({
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 21 of 23</span>
         </div>
-
-        <!-- Practice 5 -->
-        <div class="problem-card">
+      </div><div class="notebook-page page-ruled" id="page-22">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">11. Prescribed References</span>
+        </div>
+        <div class="page-content"><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 5 • ARRAY STATE IMMUTABLE APPEND</span>
           </div>
           <h4 class="problem-title">Given state <code>todos = ["Read syllabus", "Write pilot"]</code>, show how to append "Pass exam" without mutating the original array.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1194,21 +1269,16 @@ setTodos(prev =&gt; [...prev, "Pass exam"]);</code></pre>
           </div>
           </div>
         </div>
-        </div>
-
-        <!-- Practice 6 -->
-        <div class="problem-card">
+        </div><div class="problem-card">
           <div class="problem-header">
             <span class="problem-tag">PRACTICE 6 • IMMUTABLE DELETION &amp; TOGGLE IN ARRAYS</span>
           </div>
           <h4 class="problem-title">Given task array <code>tasks = [{id: 1, done: false}, {id: 2, done: false}]</code>, write expressions to (a) delete task 1 and (b) toggle task 2 to done.</h4>
           <div class="practice-card">
-          <div style="font-family: var(--font-heading); font-weight: bold; margin-bottom: 4px; color: #1e3a8a;">
-            📝 Practice Problem:
-          </div>
-          <div style="margin-bottom: 6px;">Show Step-by-Step Solution</div>
+          <div class="practice-header">📝 Practice Problem:</div>
+          <div style="margin-bottom: 4px;">Show Step-by-Step Solution</div>
           <div class="practice-ans-box">
-            <span class="ans-badge">Ans</span>
+            <span class="ans-badge">Solution:</span>
             <div>
             
             <div class="qa-answer">
@@ -1226,18 +1296,20 @@ setTodos(prev =&gt; [...prev, "Pass exam"]);</code></pre>
           </div>
           </div>
         </div>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 22 of 23</span>
         </div>
-      
+      </div><div class="notebook-page page-ruled" id="page-23">
+        <div class="punch-hole punch-top"></div>
+        <div class="punch-hole punch-mid"></div>
+        <div class="punch-hole punch-bot"></div>
+        <div class="page-header">
+          <span class="header-left">ISAEC594 · Unit 2</span>
+          <span class="header-right">11. Prescribed References</span>
         </div>
-      </div>
-    
-
-      <div class="staging-section" data-sec-id="sec-references" data-sec-title="11. Prescribed References" data-sec-index="10">
-        <h2 id="sec-references">11. Prescribed References</h2>
-        <div class="staging-body">
-          
-        
-        <div class="callout callout-note hand-card card-example"><div class="hand-badge">Course Reference Literature</div>
+        <div class="page-content"><h2 id="sec-references">11. Prescribed References</h2><div class="callout callout-note hand-card card-example"><div class="hand-label label-example">Course Reference Literature:</div>
           
           <ol>
             <li><strong>Chris Minnick</strong>, <em>Beginning ReactJS Foundations: Building User Interfaces with ReactJS - An Approachable Guide</em>, Wiley, 2022. (Chapters 4, 5 &amp; 6).</li>
@@ -1245,12 +1317,11 @@ setTodos(prev =&gt; [...prev, "Pass exam"]);</code></pre>
             <li><strong>React Official Documentation</strong>: <a href="https://react.dev" target="_blank" rel="noopener">https://react.dev</a>.</li>
           </ol>
           <p class="exam-disclaimer"><em>AI-assisted study notes written from the official courseware. Verify against the prescribed textbook before the exam.</em></p>
+        </div></div>
+        <div class="page-footer">
+          <span>AI-assisted study notes - verify with your textbook and faculty notes.</span>
+          <span class="footer-page-num">Page 23 of 23</span>
         </div>
-      
-        </div>
-      </div>
-    
-  </div>
-  <div id="notebook-container"></div>
-</body>
-</html>
+      </div></div>
+
+</body></html>

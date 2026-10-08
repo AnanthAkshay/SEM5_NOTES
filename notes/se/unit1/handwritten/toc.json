@@ -12,12 +12,12 @@
   {
     "id": "sec-3",
     "title": "Three Landmark Case Studies (Sommerville)",
-    "page": 3
+    "page": 4
   },
   {
     "id": "sec-4",
     "title": "Software Process Models",
-    "page": 4
+    "page": 5
   },
   {
     "id": "sec-5",
@@ -32,12 +32,12 @@
   {
     "id": "sec-7",
     "title": "Agile Software Development & Extreme Programming (XP)",
-    "page": 9
+    "page": 10
   },
   {
     "id": "sec-8",
     "title": "The Scrum Framework, Sprint Velocity & Burndown",
-    "page": 10
+    "page": 11
   },
   {
     "id": "revision-sheet",
@@ -57,6 +57,6 @@
   {
     "id": "practice-problems",
     "title": "Verified High-Yield Practice Problems",
-    "page": 23
+    "page": 21
   }
 ]

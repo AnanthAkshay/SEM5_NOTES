@@ -12,22 +12,22 @@
   {
     "id": "sec-framework-comparison",
     "title": "3. React vs. Other Front-End Frameworks (Angular & Vue)",
-    "page": 4
+    "page": 3
   },
   {
     "id": "sec-vite-setup",
     "title": "4. Setting Up the React Environment with Vite",
-    "page": 5
+    "page": 4
   },
   {
     "id": "sec-project-structure",
     "title": "5. React Project Structure & Execution Lifecycle",
-    "page": 6
+    "page": 5
   },
   {
     "id": "sec-jsx-fundamentals",
     "title": "6. Introduction to JSX & Syntax Rules",
-    "page": 7
+    "page": 6
   },
   {
     "id": "sec-jsx-expressions",
@@ -42,26 +42,26 @@
   {
     "id": "sec-jsx-compilation",
     "title": "9. JSX Compilation Under the Hood",
-    "page": 10
+    "page": 9
   },
   {
     "id": "sec-code-demos",
     "title": "10. Complete Tested Code Demonstrations",
-    "page": 12
+    "page": 11
   },
   {
     "id": "revision-sheet",
     "title": "11. Quick Revision Sheet",
-    "page": 13
+    "page": 12
   },
   {
     "id": "exam-questions",
     "title": "12. Important Exam Questions & Practice",
-    "page": 14
+    "page": 13
   },
   {
     "id": "sec-references",
     "title": "13. Prescribed References",
-    "page": 26
+    "page": 24
   }
 ]
