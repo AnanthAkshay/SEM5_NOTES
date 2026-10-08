@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sec-1",
+    "title": "What is AI? The Four Historical Approaches",
+    "page": 2
+  },
+  {
+    "id": "sec-2",
+    "title": "Intelligent Agents and Environments",
+    "page": 4
+  },
+  {
+    "id": "sec-3",
+    "title": "The Concept of Rationality and Autonomy",
+    "page": 5
+  },
+  {
+    "id": "sec-4",
+    "title": "The PEAS Specification Framework",
+    "page": 6
+  },
+  {
+    "id": "sec-5",
+    "title": "Environment Classifications & Dimensions",
+    "page": 8
+  },
+  {
+    "id": "sec-6",
+    "title": "Internal Agent Architectures",
+    "page": 10
+  },
+  {
+    "id": "sec-7",
+    "title": "Problem Solving by Search & The 5 Components",
+    "page": 13
+  },
+  {
+    "id": "sec-8",
+    "title": "State Space Formulations for Toy & Real-World Problems",
+    "page": 14
+  },
+  {
+    "id": "revision-sheet",
+    "title": "One-Page Rapid Revision Sheet",
+    "page": 16
+  },
+  {
+    "id": "important-questions",
+    "title": "Important Examination Questions",
+    "page": 17
+  },
+  {
+    "id": "questions-asked-before",
+    "title": "Authentic Solved Questions from Past Ramaiah CIE & SEE Papers",
+    "page": 20
+  },
+  {
+    "id": "practice-problems",
+    "title": "Verified High-Yield Practice Problems",
+    "page": 26
+  }
+]

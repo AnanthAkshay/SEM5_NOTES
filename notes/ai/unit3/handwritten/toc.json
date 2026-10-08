@@ -1,0 +1,57 @@
+[
+  {
+    "id": "sec-1",
+    "title": "Games as Adversarial Search Problems",
+    "page": 2
+  },
+  {
+    "id": "sec-2",
+    "title": "The Minimax Algorithm",
+    "page": 2
+  },
+  {
+    "id": "sec-3",
+    "title": "Alpha-Beta Pruning",
+    "page": 3
+  },
+  {
+    "id": "sec-4",
+    "title": "Constraint Satisfaction Problems (CSP)",
+    "page": 7
+  },
+  {
+    "id": "sec-5",
+    "title": "Constraint Propagation & The AC-3 Arc Consistency Algorithm",
+    "page": 8
+  },
+  {
+    "id": "sec-6",
+    "title": "Backtracking Search & Intelligent Heuristics",
+    "page": 10
+  },
+  {
+    "id": "sec-7",
+    "title": "Forward Checking & Maintaining Arc Consistency (MAC)",
+    "page": 11
+  },
+  {
+    "id": "revision-sheet",
+    "title": "One-Page Rapid Revision Sheet",
+    "page": 12
+  },
+  {
+    "id": "important-questions",
+    "title": "Important Examination Questions",
+    "page": 13
+  },
+  {
+    "id": "questions-asked-before",
+    "title": "Authentic Solved Questions from Past Ramaiah CIE & SEE Papers",
+    "page": 15
+  },
+  {
+    "id": "practice-problems",
+    "title": "Verified High-Yield Practice Problems",
+    "page": 21
+  }
+]

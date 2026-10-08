@@ -1,0 +1,57 @@
+[
+  {
+    "id": "sec-1",
+    "title": "Uninformed (Blind) Search Strategies",
+    "page": 2
+  },
+  {
+    "id": "sec-2",
+    "title": "Comparative Evaluation Matrix of Search Strategies",
+    "page": 3
+  },
+  {
+    "id": "sec-3",
+    "title": "Informed Search & Heuristic Functions",
+    "page": 4
+  },
+  {
+    "id": "sec-4",
+    "title": "A∗A^*A∗ Search: Conditions for Optimality (Admissibility & Consistency)",
+    "page": 5
+  },
+  {
+    "id": "sec-5",
+    "title": "Heuristics for the 8-Puzzle & Heuristic Dominance",
+    "page": 9
+  },
+  {
+    "id": "sec-6",
+    "title": "Local Search Algorithms & Optimization",
+    "page": 10
+  },
+  {
+    "id": "sec-7",
+    "title": "Simulated Annealing & Genetic Algorithms",
+    "page": 12
+  },
+  {
+    "id": "revision-sheet",
+    "title": "One-Page Rapid Revision Sheet",
+    "page": 14
+  },
+  {
+    "id": "important-questions",
+    "title": "Important Examination Questions",
+    "page": 15
+  },
+  {
+    "id": "questions-asked-before",
+    "title": "Authentic Solved Questions from Past Ramaiah CIE & SEE Papers",
+    "page": 18
+  },
+  {
+    "id": "practice-problems",
+    "title": "Verified High-Yield Practice Problems",
+    "page": 25
+  }
+]
