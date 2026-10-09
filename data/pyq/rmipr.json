@@ -1,0 +1,478 @@
+{
+  "subject_id": "rmipr",
+  "subject_code": "24AL58",
+  "subject_name": "Research Methodology and IPR",
+  "cie1_exam_date": "2026-10-15",
+  "cie1_exam_time": "15:00\u201316:00",
+  "total_in_scope": 23,
+  "total_out_of_scope": 18,
+  "questions": [
+    {
+      "id": "rmipr-q01",
+      "unit": 1,
+      "section_id": "sec-meaning-research",
+      "question": "Explain the meaning of research. Discuss the objectives and motivations of research.",
+      "marks": 7,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q1a, 7M)",
+        "CIE-1 2023 (Q1a, 7M)",
+        "Important Question 2024 (Q3)",
+        "Assignment I (Q1)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 1, pp. 1\u20134; Thiel, Research Methods for Engineers, Ch. 1",
+      "answer": "<h4>1. Meaning of Research</h4>\n<p><strong>Research</strong> is a systematic, formal, and rigorous process of inquiry designed to discover new facts, verify existing knowledge, establish causal relationships, and derive general principles. In the words of Clifford Woody, research comprises <em>defining and redefining problems, formulating hypothesis or suggested solutions, collecting, organizing and evaluating data, making deductions and reaching conclusions, and carefully testing the conclusions to determine whether they fit the formulating hypothesis</em>.</p>\n<p>It is essentially an intellectual journey from the <strong>known to the unknown</strong> driven by inquisitiveness and structured scientific methodology.</p>\n\n<h4>2. Objectives of Research</h4>\n<p>The primary purpose of research is to discover answers to questions through the application of scientific procedures. Research objectives fall into four major categories:</p>\n<ul>\n  <li><strong>Exploratory / Formulative Objectives:</strong> To gain familiarity with an unexplored phenomenon or to achieve new insights into it (often used to clarify concepts and formulate precise hypotheses).</li>\n  <li><strong>Descriptive Objectives:</strong> To portray accurately the characteristics of a particular individual, situation, or group (e.g., census studies, socioeconomic profiles).</li>\n  <li><strong>Diagnostic Objectives:</strong> To determine the frequency with which something occurs or with which it is associated with something else (e.g., identifying causes of machine failure or disease incidence).</li>\n  <li><strong>Hypothesis-Testing (Causal) Objectives:</strong> To test a causal relationship between variables under controlled conditions (e.g., experimental testing of a new chemical catalyst or caching algorithm).</li>\n</ul>\n\n<h4>3. Motivations in Research</h4>\n<p>What drives a researcher to undertake an investigation? The key driving forces include:</p>\n<ol>\n  <li><strong>Desire to solve unsolved problems:</strong> Facing intellectual challenges in solving real-world technological, industrial, or social issues.</li>\n  <li><strong>Intellectual joy:</strong> The inherent creative pleasure of discovering something novel and expanding human knowledge.</li>\n  <li><strong>Desire to get an academic degree / professional recognition:</strong> Fulfilling degree requirements (M.Tech, Ph.D.) along with consequent career advancement.</li>\n  <li><strong>Service to society:</strong> Contributing to community welfare, healthcare improvements, or sustainable engineering technologies.</li>\n  <li><strong>Government / Institutional directives:</strong> Responding to national priorities, defense requirements, or sponsored industrial grants.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q02",
+      "unit": 1,
+      "section_id": "sec-types-research",
+      "question": "Describe and contrast the different types of research: (i) Descriptive vs. Analytical, (ii) Applied vs. Fundamental, (iii) Quantitative vs. Qualitative, (iv) Conceptual vs. Empirical.",
+      "marks": 10,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q2a, 7M)",
+        "CIE-1 2024 (Q1a, 6M)",
+        "CIE-1 2023 (Q3a, 8M)",
+        "SEE 2024 (Q1a, 10M)",
+        "SEE Jan 2026 (Q1a, 10M)",
+        "Makeup 2024 (Q1a, 10M)",
+        "Makeup 2025 (Q1a, 10M)",
+        "Important Question (Q2)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 1, pp. 2\u20135",
+      "answer": "<h4>Classification of Research Types</h4>\n<p>Research can be classified into fundamental complementary dichotomies based on goal, methodology, and philosophy:</p>\n\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Dichotomy</th>\n      <th>Type A</th>\n      <th>Type B</th>\n      <th>Key Differentiating Basis</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>1. Purpose</strong></td>\n      <td><strong>Descriptive Research:</strong> Includes surveys and fact-finding enquiries. The researcher describes state of affairs as it exists; has <em>no control over variables</em> (known as Ex Post Facto research in social sciences). Example: Measuring student attendance percentages or consumer buying habits.</td>\n      <td><strong>Analytical Research:</strong> The researcher uses facts or information already available and analyzes them to make a critical evaluation of material/performance. Example: Evaluating why a specific query optimization algorithm fails under skewed data distributions.</td>\n      <td>Control over variables and critical causal evaluation vs. factual reporting.</td>\n    </tr>\n    <tr>\n      <td><strong>2. Goal / Utility</strong></td>\n      <td><strong>Applied Research:</strong> Aims at finding an immediate solution for an urgent practical problem facing society or industry. Example: Developing an energy-efficient routing protocol for IoT edge nodes.</td>\n      <td><strong>Fundamental (Pure/Basic) Research:</strong> Mainly concerned with generalizations and formulation of theoretical principles without immediate commercial payoff. Example: Proving time complexity bounds for quantum polynomial-time factoring.</td>\n      <td>Immediate practical utility vs. broad theoretical knowledge expansion.</td>\n    </tr>\n    <tr>\n      <td><strong>3. Data Nature</strong></td>\n      <td><strong>Quantitative Research:</strong> Based on measurement of quantity or amount; expressed in terms of numbers, statistical metrics, and mathematical models. Employs structured surveys, sensor logs, and metrics.</td>\n      <td><strong>Qualitative Research:</strong> Concerned with qualitative phenomena relating to quality or kind (human behavior, motives, feelings). Employs in-depth interviews, focus groups, and thematic coding.</td>\n      <td>Numerical measurement and statistical inference vs. subjective thematic interpretation.</td>\n    </tr>\n    <tr>\n      <td><strong>4. Epistemology</strong></td>\n      <td><strong>Conceptual Research:</strong> Related to abstract ideas or theory. Used by philosophers and theorists to develop new concepts or reinterpret existing ones.</td>\n      <td><strong>Empirical Research:</strong> Relies on direct experience or observation without due regard for system and theory. It is <em>data-based research</em>, coming up with conclusions capable of being verified by observation or experiment.</td>\n      <td>Abstract intellectual modeling vs. experimentally verifiable observations.</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "rmipr-q03",
+      "unit": 1,
+      "section_id": "sec-meaning-research",
+      "question": "Analyse and list out the key differences between engineering research and research in other fields (pure sciences and social sciences).",
+      "marks": 4,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "CIE-1 2024 (Q1c, 4M)"
+      ],
+      "source_citation": "David V. Thiel, Research Methods for Engineers (Cambridge), Ch. 1, pp. 1\u201312",
+      "answer": "<h4>Engineering Research vs. Pure Sciences & Social Sciences</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Dimension</th>\n      <th>Engineering Research</th>\n      <th>Pure Sciences (Physics, Chemistry)</th>\n      <th>Social Sciences (Sociology, Mgmt)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Primary Goal</strong></td>\n      <td>Creation of functional artifacts, designs, systems, and practical optimization (<em>Design & Synthesis</em>).</td>\n      <td>Discovery of fundamental laws of nature and physical truth (<em>Discovery & Analysis</em>).</td>\n      <td>Understanding human behavior, societal patterns, and cultural dynamics.</td>\n    </tr>\n    <tr>\n      <td><strong>Driving Question</strong></td>\n      <td><em>\"How can we make it work faster, cheaper, and reliably?\"</em></td>\n      <td><em>\"Why does nature behave this way?\"</em></td>\n      <td><em>\"How do individuals and institutions interact?\"</em></td>\n    </tr>\n    <tr>\n      <td><strong>Constraints</strong></td>\n      <td>Bounded by strict trade-offs: cost, latency, energy, standards, safety, manufacturability.</td>\n      <td>Bounded by experimental precision and universal conservation laws.</td>\n      <td>Bounded by ethical guidelines, cultural contexts, and human subject protections.</td>\n    </tr>\n    <tr>\n      <td><strong>Validation</strong></td>\n      <td>Prototyping, bench testing, simulation, stress testing, and real-world deployment metrics.</td>\n      <td>Repeatable controlled laboratory experiments and mathematical proofs.</td>\n      <td>Statistical surveys, longitudinal observations, and case studies.</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "rmipr-q04",
+      "unit": 1,
+      "section_id": "sec-ethics-research",
+      "question": "Why is ethics important in research, and what are some key ethical considerations researchers should keep in mind?",
+      "marks": 6,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q2a, 6M)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 1; Thiel, Ch. 2, Research Ethics",
+      "answer": "<h4>1. Importance of Ethics in Research</h4>\n<p>Research ethics provides guidelines for the responsible conduct of research and ensures that scientific scholarship remains credible, reliable, and beneficial to society:</p>\n<ul>\n  <li><strong>Promotes Trust and Truth:</strong> Prohibits fabrication, falsification, and misrepresentation of data, ensuring that scientific literature remains dependable.</li>\n  <li><strong>Protects Human and Animal Subjects:</strong> Ensures voluntary informed consent, minimizes risks/harm, and protects privacy and confidentiality.</li>\n  <li><strong>Ensures Fair Credit and Collaboration:</strong> Establishes ethical guidelines for authorship, patent ownership, copyright adherence, and peer review confidentiality.</li>\n  <li><strong>Maintains Public Trust and Funding:</strong> Public funding relies on the confidence that tax revenues are utilized honestly without academic fraud.</li>\n</ul>\n\n<h4>2. Key Ethical Considerations for Researchers</h4>\n<ol>\n  <li><strong>Honesty and Objectivity:</strong> Report data, results, methods, and publication status honestly; avoid biases in experimental design, data analysis, and peer review.</li>\n  <li><strong>Integrity and Promises:</strong> Keep agreements and maintain consistency of thought and action.</li>\n  <li><strong>Carefulness:</strong> Avoid careless errors and negligence; examine your own work critically and keep thorough records of data collection.</li>\n  <li><strong>Openness and Data Sharing:</strong> Share data, results, ideas, tools, and resources once published, allowing independent verification.</li>\n  <li><strong>Respect for Intellectual Property:</strong> Honor patents, copyrights, and other forms of IP; never use unpublished data or methods without permission; give proper citations.</li>\n  <li><strong>Authorship Integrity:</strong> Include only individuals who made substantial intellectual contributions to the conception, design, execution, or interpretation. Avoid <em>gift authorship</em>, <em>ghost authorship</em>, and <em>honorary authorship</em>.</li>\n  <li><strong>Conflict of Interest Disclosure:</strong> Explicitly disclose financial, personal, or corporate relationships that could influence the outcome of the research.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q05",
+      "unit": 1,
+      "section_id": "sec-misconduct",
+      "question": "What do you mean by research misconduct? Briefly explain different types of research misconduct with emphasis on the FFP triad.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2024 (Q1a, 8M)",
+        "Assignment I (Q5)"
+      ],
+      "source_citation": "Thiel, Research Methods for Engineers, Ch. 2; Kothari, Ch. 1",
+      "answer": "<h4>1. Definition of Research Misconduct</h4>\n<p><strong>Research Misconduct</strong> is defined as <em>fabrication, falsification, or plagiarism in proposing, performing, or reviewing research, or in reporting research results</em>. It does not include honest error or differences of scientific opinion. It represents a deliberate violation of the fundamental ethical codes of scientific inquiry.</p>\n\n<h4>2. The Core FFP Triad</h4>\n<ul>\n  <li><strong>Fabrication (Making Up Data):</strong> Creating fictitious data, observations, or laboratory readings that were never actually measured, and reporting or recording them as genuine empirical results. Example: Filling in survey sheets or generating synthetic sensor logs without performing experiments.</li>\n  <li><strong>Falsification (Manipulating Data):</strong> Manipulating research materials, equipment, or processes, or changing/omitting data or results such that the research is not accurately represented in the research record. Example: Trimming outlier points to artificially lower variance or claiming a 99% accuracy by cherry-picking test sets.</li>\n  <li><strong>Plagiarism (Theft of Ideas/Words):</strong> The appropriation of another person's ideas, processes, results, or words without giving appropriate credit or formal citation.</li>\n</ul>\n\n<h4>3. Other Common Forms of Misconduct</h4>\n<ol>\n  <li><strong>Redundant / Duplicate Publication (Self-Plagiarism):</strong> Republishing the same manuscript, dataset, or substantial portion thereof across multiple journals without disclosure or cross-citation.</li>\n  <li><strong>Salami Slicing:</strong> Slicing a single comprehensive study into multiple minimally publishable units (MPUs) solely to artificially inflate one's publication count.</li>\n  <li><strong>Authorship Violations:</strong>\n    <ul>\n      <li><em>Ghost Authorship:</em> Excluding a researcher who contributed substantially.</li>\n      <li><em>Gift / Guest Authorship:</em> Including a senior faculty member or sponsor who made no intellectual contribution.</li>\n    </ul>\n  </li>\n  <li><strong>Breach of Peer Review Confidentiality:</strong> Appropriating ideas from a manuscript or grant proposal reviewed under confidential peer-review agreements.</li>\n  <li><strong>Data Mismanagement / Non-Retention:</strong> Failing to maintain and archive raw laboratory logs and code needed for independent verification and audit.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q06",
+      "unit": 1,
+      "section_id": "sec-misconduct",
+      "question": "What is plagiarism? Illustrate the different types of plagiarism encountered in technical publications.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3a, 8M)"
+      ],
+      "source_citation": "Thiel, Research Methods for Engineers, Ch. 2; IEEE Ethics Guidelines",
+      "answer": "<h4>1. Definition of Plagiarism</h4>\n<p><strong>Plagiarism</strong> is the unauthorized, uncredited use or imitation of the language, thoughts, datasets, diagrams, or ideas of another author and presenting them as one's own original work. In academic institutions (including VTU and Ramaiah), plagiarism violates academic integrity codes and attracts severe disciplinary sanctions ranging from paper retraction to degree cancellation.</p>\n\n<h4>2. Types of Plagiarism</h4>\n<ol>\n  <li><strong>Direct Plagiarism (Verbatim Copying):</strong> Word-for-word transcription of a section, paragraph, or page of another author's text without quotation marks and without attribution. This is the most blatant form of plagiarism.</li>\n  <li><strong>Mosaic / Patchwork Plagiarism:</strong> Copying sentences or phrases from multiple different sources, rearranging them, and interspersing them with a few original words to form a paragraph without proper citation.</li>\n  <li><strong>Paraphrasing Plagiarism:</strong> Rewording another author's original analysis, argument, or findings without quotation or formal citation. Even though the wording is changed, the underlying idea is stolen.</li>\n  <li><strong>Self-Plagiarism (Duplicate / Text Recycling):</strong> Re-using significant portions of one's own previously published papers, conference proceedings, or thesis without citation or journal copyright permissions.</li>\n  <li><strong>Idea Plagiarism:</strong> Adopting an innovative architectural concept, algorithmic workflow, or methodology invented by another researcher and claiming it as one's own novel contribution.</li>\n  <li><strong>Accidental / Inadvertent Plagiarism:</strong> Occurs when a researcher fails to cite a source, misquotes a citation, or unintentionally paraphrases without proper acknowledgment due to poor note-taking and citation management habits.</li>\n</ol>\n\n<h4>3. Detection and Prevention</h4>\n<p>Plagiarism is detected using automated similarity detection software such as <em>Turnitin</em>, <em>iThenticate</em>, and <em>Urkund</em>. Prevention requires systematic literature citation using reference managers (Mendeley, Zotero) and placing exact reproduced text in quotation marks with exact page citations.</p>"
+    },
+    {
+      "id": "rmipr-q07",
+      "unit": 1,
+      "section_id": "sec-databases-bibliometrics",
+      "question": "What are bibliographic databases? Explain the salient features and utilities of major bibliographic databases (IEEE Xplore, Scopus, Web of Science, Google Scholar).",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2024 (Q2a, 8M)",
+        "SEE Jan 2026 (Q2a, 8M)",
+        "Assignment I (Q4)"
+      ],
+      "source_citation": "Thiel, Ch. 3, Literature Review; Kothari, Ch. 2",
+      "answer": "<h4>1. Definition of Bibliographic Database</h4>\n<p>A <strong>bibliographic database</strong> is a structured, searchable electronic index of published academic literature (journal articles, conference proceedings, books, patents, and technical standards). It contains bibliographic metadata: paper title, author(s), institutional affiliation, abstract, keywords, publication venue, DOI, and cited reference lists.</p>\n\n<h4>2. Salient Features of Major Bibliographic Databases</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Database</th>\n      <th>Provider / Coverage Scope</th>\n      <th>Key Features & Strengths</th>\n      <th>Engineering Utility</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>IEEE Xplore</strong></td>\n      <td>Institute of Electrical and Electronics Engineers. Over 5 million full-text engineering documents.</td>\n      <td>High indexing precision for EE, CSE, and IT. Provides complete IEEE standards, transaction archives, and conference proceedings. Precise field search (author, affiliation, index terms).</td>\n      <td>Primary premier venue for CS and ISE systems, hardware, networks, and AI architectures.</td>\n    </tr>\n    <tr>\n      <td><strong>Scopus</strong></td>\n      <td>Elsevier. Over 80+ million curated records across science, technology, medicine, and social sciences.</td>\n      <td>Includes citation tracking, author profiles, Hirsch index ($h$-index) computation, CiteScore metrics, and institutional benchmarking. Strict peer-review quality filter.</td>\n      <td>Comprehensive bibliometric analysis, finding related co-citations, evaluating journal reputation.</td>\n    </tr>\n    <tr>\n      <td><strong>Web of Science (WoS)</strong></td>\n      <td>Clarivate Analytics. Oldest curated scientific citation index (formerly ISI Science Citation Index).</td>\n      <td>Calculates official <strong>Journal Impact Factor (JIF)</strong> via Journal Citation Reports (JCR). Provides cited reference searching (tracing backward and forward citations over decades).</td>\n      <td>Gold standard for prestigious high-impact publications and academic tenure evaluations.</td>\n    </tr>\n    <tr>\n      <td><strong>Google Scholar</strong></td>\n      <td>Google. Freely accessible web search engine indexing academic literature across all formats.</td>\n      <td>Broadest coverage (includes preprints on arXiv, technical reports, theses, patents). Automatic citation linking (\"Cited by X\"), \"Related articles\", and author profile generation. Highly tolerant of informal metadata.</td>\n      <td>Fast preliminary scoping, finding open-access PDF preprints, discoverability across disciplines.</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "rmipr-q08",
+      "unit": 1,
+      "section_id": "sec-citations-flow",
+      "question": "List and explain the main functions of citation. Describe how knowledge flows through citations with a conceptual illustration.",
+      "marks": 6,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q3a, 6M)",
+        "CIE-1 2023 (Q2a, 7M)",
+        "Important Question (Q5)",
+        "Makeup 2025 (Q2a, 8M)"
+      ],
+      "source_citation": "Thiel, Research Methods for Engineers, Ch. 3; Kothari, Ch. 2",
+      "answer": "<h4>1. Main Functions of Citation</h4>\n<p>Citations serve multiple essential intellectual, ethical, and organizational functions in academic research:</p>\n<ol>\n  <li><strong>Intellectual Attribution & Priority:</strong> Formally acknowledges the original creators of ideas, algorithms, datasets, and proofs, establishing who first discovered a concept.</li>\n  <li><strong>Verification and Evidence:</strong> Allows readers and reviewers to verify the claims, methodologies, and empirical baselines used in the paper.</li>\n  <li><strong>Contextualization (Literature Scoping):</strong> Locates the current investigation within the broader landscape of prior art, highlighting the gap being bridged.</li>\n  <li><strong>Navigation & Knowledge Network:</strong> Acts as an intellectual hyperlink, connecting related research across decades and disparate laboratories worldwide.</li>\n</ol>\n\n<h4>2. Knowledge Flow Through Citations</h4>\n<p>Knowledge advances incrementally. In engineering, new innovations build upon foundational mathematical theories, established architectures, and empirical datasets. Citations document this historical trajectory:</p>\n\n<pre style=\"background:var(--bg-card); padding:12px; border-radius:8px; border:1px solid var(--border-subtle); font-family:monospace;\">\n[Foundational Theory] (Shannon 1948 - Info Theory, Dijkstra 1959 - Graph Search)\n       \u2502\n       \u25bc (Cited by)\n[Methodological Innovation] (Hopcroft-Karp 1973, Viterbi 1967)\n       \u2502\n       \u25bc (Cited by)\n[Domain Adaptation / Architectural Advance] (Modern Deep Learning / SDN Protocols)\n       \u2502\n       \u25bc (Cited by)\n[Your Current Project / CIE-1 Paper] (Solves Specific Constrained Bottleneck)\n</pre>\n\n<p><strong>Two directional flows:</strong></p>\n<ul>\n  <li><strong>Backward Citation (Cited References):</strong> Looking backward in time to establish theoretical foundations and validated baselines.</li>\n  <li><strong>Forward Citation (\"Cited By\" Metrics):</strong> Looking forward in time to observe how subsequent researchers adopted, extended, or critiqued the original concept.</li>\n</ul>"
+    },
+    {
+      "id": "rmipr-q09",
+      "unit": 1,
+      "section_id": "sec-citations-flow",
+      "question": "What is the impact of article title and keywords on citation rates? What factors must a project team consider when framing a title for their research project?",
+      "marks": 6,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "Assignment I (Q3, 5M)",
+        "CIE-1 2024 (Q2c, 3M)"
+      ],
+      "source_citation": "Thiel, Research Methods for Engineers, Ch. 3; Assignment I model solution",
+      "answer": "<h4>1. Impact of Title and Keywords on Citation Rates</h4>\n<ul>\n  <li><strong>Search Engine & Database Discoverability:</strong> Modern researchers find literature via algorithmic queries in Scopus, IEEE Xplore, and Google Scholar. The search engine algorithms index titles and author keywords with heavy weighting. Specific, standard terms ensure high indexing ranking.</li>\n  <li><strong>Reader Attention and Click-Through Rate:</strong> A clear, informative title communicates the core contribution immediately in a list of search results. Ambiguous or overly poetic titles are passed over.</li>\n  <li><strong>Interdisciplinary Visibility:</strong> Accurate keywords bridge disciplinary silos, allowing researchers in related domains (e.g., ML applied to biomedical signals) to discover and cite the paper.</li>\n  <li><strong>Empirical Evidence:</strong> Studies in bibliometrics show that concise, informative titles that clearly specify the method, target problem, and outcome achieve statistically higher citation counts than vague titles.</li>\n</ul>\n\n<h4>2. Considerations When Framing a Research Project Title</h4>\n<ol>\n  <li><strong>Clarity and Precision:</strong> Avoid ambiguous jargon, vague adjectives (\"A Great Algorithm\"), and unexplained acronyms.</li>\n  <li><strong>Specification of Core Variables:</strong> The title should identify the independent variable (method/technique) and the dependent variable (problem/application).</li>\n  <li><strong>Conciseness (Word Budget):</strong> Keep length typically between 10 to 15 words\u2014sufficient to be descriptive without being cumbersome.</li>\n  <li><strong>Target Domain / Context:</strong> State the specific environment or platform (e.g., <em>\"Energy-Efficient Routing in Resource-Constrained Wireless Sensor Networks\"</em>).</li>\n  <li><strong>SEO & Keyword Alignment:</strong> Include the primary keywords that researchers in the field commonly type into search bars.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q10",
+      "unit": 1,
+      "section_id": "sec-reading-conceptualizing",
+      "question": "Compare Critical and Creative reading in technical research. Describe the necessary steps involved in the overall research process with a neat flow chart.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q3c, 3M)",
+        "SEE 2025 (Q1a, 10M)",
+        "Makeup 2024 (Q2a, 5M)"
+      ],
+      "source_citation": "Thiel, Research Methods for Engineers, Ch. 3; Kothari, Ch. 1, pp. 10\u201319",
+      "answer": "<h4>1. Critical Reading vs. Creative Reading</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Feature</th>\n      <th>Critical Reading (Analytical)</th>\n      <th>Creative Reading (Generative)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Objective</strong></td>\n      <td>Dissecting and evaluating the published paper for validity, logical consistency, methodological rigor, and empirical soundness.</td>\n      <td>Synthesizing ideas from the paper to generate new hypotheses, novel extensions, or unexpected cross-domain applications.</td>\n    </tr>\n    <tr>\n      <td><strong>Key Questions Asked</strong></td>\n      <td><em>\"Are the assumptions realistic? Is the sample size adequate? Does the conclusion truly follow from the data?\"</em></td>\n      <td><em>\"What if we applied this algorithm to a distributed edge network? How can this technique solve our bottleneck?\"</em></td>\n    </tr>\n    <tr>\n      <td><strong>Focus</strong></td>\n      <td>Finding flaws, unstated assumptions, biases, and methodological limitations.</td>\n      <td>Identifying opportunities, combining disparate techniques, and imagining future directions.</td>\n    </tr>\n    <tr>\n      <td><strong>Outcome</strong></td>\n      <td>Objective literature evaluation and risk assessment.</td>\n      <td>Formulation of novel research proposals and design breakthroughs.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4>2. The 8-Step Research Process Flowchart</h4>\n<pre style=\"background:var(--bg-card); padding:12px; border-radius:8px; border:1px solid var(--border-subtle); font-family:monospace;\">\n[1. Formulating the Research Problem]\n             \u2502\n             \u25bc\n[2. Extensive Literature Review (Prior Art Scoping)]\n             \u2502\n             \u25bc\n[3. Developing Working Hypothesis]\n             \u2502\n             \u25bc\n[4. Preparing Research Design (Experimental / Survey)]\n             \u2502\n             \u25bc\n[5. Determining Sample Design (Census vs. Sample)]\n             \u2502\n             \u25bc\n[6. Collecting Data (Observation, Survey, Experiment)]\n             \u2502\n             \u25bc\n[7. Analysis of Data & Hypothesis Testing (Parametric/Non-parametric)]\n             \u2502\n             \u25bc\n[8. Generalization, Interpretation & Report Preparation / Thesis]\n</pre>"
+    },
+    {
+      "id": "rmipr-q11",
+      "unit": 2,
+      "section_id": "sec-need-design",
+      "question": "What is a Research Design? What is the need for a research design? Discuss the features of a good research design.",
+      "marks": 10,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2025 (Q3a, 10M)",
+        "CIE-1 2023 (Q2b, 8M)",
+        "Important Question (Q1)",
+        "Makeup 2024 (Q3a, 8M)",
+        "Makeup 2025 (Q3a, 10M)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 31\u201333",
+      "answer": "<h4>1. Meaning of Research Design</h4>\n<p>A <strong>research design</strong> is the conceptual structure or blueprint within which research is conducted. It constitutes the blueprint for the collection, measurement, and analysis of data. As defined by Selltiz et al., <em>\"A research design is the arrangement of conditions for collection and analysis of data in a manner that aims to combine relevance to the research purpose with economy in procedure.\"</em></p>\n\n<h4>2. Need for Research Design</h4>\n<p>Research design is vital for several foundational reasons:</p>\n<ul>\n  <li><strong>Prevents Aimless Effort:</strong> Provides a systematic roadmap so that the investigator does not wander off track.</li>\n  <li><strong>Resource & Cost Optimization:</strong> Saves time, money, and computing/human resources by specifying exact sample sizes and experimental runs.</li>\n  <li><strong>Maximizes Reliability & Validity:</strong> Provides structures to eliminate or control extraneous variables that would otherwise corrupt conclusions.</li>\n  <li><strong>Facilitates Smooth Scaling:</strong> Enables other research team members to execute data collection and analysis seamlessly.</li>\n  <li><strong>Prerequisite for Funding Approval:</strong> Research grant committees and ethics review boards require a rigorous design blueprint before sanctioning projects.</li>\n</ul>\n\n<h4>3. Features of a Good Research Design</h4>\n<ol>\n  <li><strong>Appropriateness / Fitness to Purpose:</strong> Specifically tailored to the research objectives (an exploratory question needs a flexible design; a causal hypothesis requires a rigid experimental layout).</li>\n  <li><strong>Objectivity:</strong> Observational procedures and data extraction must yield identical results irrespective of who collects the data.</li>\n  <li><strong>Reliability:</strong> Consistency and stability of measurements across repeated trials.</li>\n  <li><strong>Validity:</strong>\n    <ul>\n      <li><em>Internal Validity:</em> Ensures the observed effect is truly caused by the independent variable, not by uncontrolled confounding factors.</li>\n      <li><em>External Validity (Generalizability):</em> Findings can be generalized across broader populations, operating conditions, or workloads.</li>\n    </ul>\n  </li>\n  <li><strong>Economy (Efficiency):</strong> Delivers the maximum statistical information per unit of cost, time, and experimental effort.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q12",
+      "unit": 2,
+      "section_id": "sec-core-concepts",
+      "question": "Define and explain the following core terms in the context of research design: (i) Independent Variable, (ii) Dependent Variable, (iii) Extraneous Variable, (iv) Confounded Relationship, (v) Control.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q1b, 5M)",
+        "Assignment I (Q6)",
+        "Important Question (Q7)",
+        "SEE 2024 (Q4a)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 33\u201336",
+      "answer": "<h4>Important Concepts in Research Design</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Term</th>\n      <th>Formal Definition</th>\n      <th>Concrete Engineering / Experimental Example</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Independent Variable (IV)</strong></td>\n      <td>The variable that is manipulated, antecedent, or systematically varied by the researcher to determine its effect on the outcome.</td>\n      <td>In an experiment testing network latency, <em>packet payload size</em> or <em>buffer queue capacity</em> is the IV.</td>\n    </tr>\n    <tr>\n      <td><strong>Dependent Variable (DV)</strong></td>\n      <td>The variable whose response, outcome, or variation is observed and measured as the consequence of changes in the independent variable.</td>\n      <td><em>End-to-end latency (ms)</em> or <em>throughput (Mbps)</em> measured under varying buffer sizes.</td>\n    </tr>\n    <tr>\n      <td><strong>Extraneous Variable (EV)</strong></td>\n      <td>Variables that are not of primary interest to the study but may influence the dependent variable and introduce noise/error.</td>\n      <td><em>Ambient CPU temperature</em> or <em>background operating system thread scheduling</em> while benchmarking execution time.</td>\n    </tr>\n    <tr>\n      <td><strong>Confounded Relationship</strong></td>\n      <td>Occurs when an extraneous variable is correlated with both the IV and DV, making it impossible to separate the true effect of the IV from the extraneous variable.</td>\n      <td>Testing an educational tutoring software where the treatment group happens to consist exclusively of high-IQ students; the software effect is confounded with intelligence.</td>\n    </tr>\n    <tr>\n      <td><strong>Control</strong></td>\n      <td>The technical measures adopted in the experimental design to minimize, eliminate, or hold constant the influence of extraneous variables.</td>\n      <td>Running all benchmark executions in an isolated docker container with pinned CPU cores and constant ambient temperature.</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "rmipr-q13",
+      "unit": 2,
+      "section_id": "sec-core-concepts",
+      "question": "What is a research hypothesis? Explain the essential components of a well-formulated hypothesis and distinguish between Null and Alternative hypotheses.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q1b, 8M)",
+        "Assignment I (Q8)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3 & Ch. 9",
+      "answer": "<h4>1. Definition of Research Hypothesis</h4>\n<p>A <strong>research hypothesis</strong> is a tentative, testable proposition regarding the relationship between two or more variables. It is an educated guess based on theoretical literature that provides guidance for empirical investigation. It transforms an open-ended research question into an operational, verifiable claim.</p>\n\n<h4>2. Essential Components of a Well-Formulated Hypothesis</h4>\n<ol>\n  <li><strong>Clarity and Precision:</strong> Free from ambiguous concepts and poetic expressions; terms are operationally defined.</li>\n  <li><strong>Testability:</strong> Must be capable of empirical verification through observable data and statistical tests.</li>\n  <li><strong>Falsifiability:</strong> Must be logically possible to produce empirical evidence that contradicts the hypothesis (Popper's demarcation criterion).</li>\n  <li><strong>Specific Scope:</strong> Confined to a defined population and set of operational variables rather than sweeping global claims.</li>\n  <li><strong>Consistency with Known Facts:</strong> Aligned with established theoretical laws unless the explicit objective is to refute a prevailing paradigm.</li>\n</ol>\n\n<h4>3. Null vs. Alternative Hypothesis</h4>\n<ul>\n  <li><strong>Null Hypothesis ($H_0$):</strong> A hypothesis of <em>no difference</em> or <em>no relationship</em>. It posits that any observed variation between sample groups is purely due to random chance or sampling fluctuation. Example: $H_0: \\mu_{\\text{new}} = \\mu_{\\text{baseline}}$.</li>\n  <li><strong>Alternative Hypothesis ($H_1$ or $H_a$):</strong> The researcher's active operational hypothesis stating that a real difference, relationship, or treatment effect exists. Example: $H_1: \\mu_{\\text{new}} > \\mu_{\\text{baseline}}$ (one-tailed directional).</li>\n</ul>"
+    },
+    {
+      "id": "rmipr-q14",
+      "unit": 2,
+      "section_id": "sec-principles-experiment",
+      "question": "Explain the three basic principles of experimental design formulated by Sir Ronald Fisher: (i) Principle of Replication, (ii) Principle of Randomization, (iii) Principle of Local Control.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3b, 7M)",
+        "Makeup 2024 (Q4a, 10M)",
+        "SEE 2024 (Q3a)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 39\u201341",
+      "answer": "<h4>The Three Fisherian Principles of Experimental Design</h4>\n<p>Formulated by Sir Ronald A. Fisher, these three foundational principles ensure the validity and statistical power of any scientific experiment:</p>\n\n<h4>1. Principle of Replication</h4>\n<p><strong>Concept:</strong> The experiment must be repeated more than once. Each treatment is applied to multiple experimental units.</p>\n<ul>\n  <li><strong>Purpose:</strong> A single observation cannot distinguish between treatment effect and random experimental error. Repeating trials provides an estimate of experimental error variance (Mean Squared Error, $MSE$).</li>\n  <li><strong>Statistical Benefit:</strong> The standard error of the sample mean decreases inversely with sample size: $SE = \\frac{\\sigma}{\\sqrt{n}}$. Increasing replications increases statistical power and confidence.</li>\n</ul>\n\n<h4>2. Principle of Randomization</h4>\n<p><strong>Concept:</strong> The allocation of treatments to experimental units must be conducted by a random procedure (e.g., lottery method or pseudorandom number generators), without systematic selection by the experimenter.</p>\n<ul>\n  <li><strong>Purpose:</strong> Randomization guarantees that extraneous variables and unrecognized systematic biases (e.g., soil fertility gradients, operator fatigue over time) affect all treatment groups with equal probability.</li>\n  <li><strong>Statistical Benefit:</strong> Validates the fundamental mathematical assumption of independent, identically distributed ($i.i.d.$) random errors necessary for ANOVA and significance testing.</li>\n</ul>\n\n<h4>3. Principle of Local Control</h4>\n<p><strong>Concept:</strong> The experimental units are grouped into homogeneous sub-groups called <em>blocks</em>, such that variation within each block is minimal, while variation between blocks can be measured and statistically subtracted.</p>\n<ul>\n  <li><strong>Purpose:</strong> While randomization neutralizes extraneous variation probabilistically, local control mechanically isolates known extraneous factors (e.g., blocking by time of day, hardware batch, or operator skill).</li>\n  <li><strong>Statistical Benefit:</strong> Drastically reduces the residual experimental error sum of squares ($SS_E$), thereby increasing the calculated $F$-ratio and test sensitivity.</li>\n</ul>"
+    },
+    {
+      "id": "rmipr-q15",
+      "unit": 2,
+      "section_id": "sec-crd",
+      "question": "Explain Completely Randomized Design (CRD). State its layout, mathematical model, merits, and demerits.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2023 (Q1b, 8M)",
+        "Important Question (Q4)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 41\u201342",
+      "answer": "<h4>1. Concept and Layout of CRD</h4>\n<p>A <strong>Completely Randomized Design (CRD)</strong> is the simplest formal experimental design. In CRD, the treatments are allocated to experimental units completely at random across the entire experimental material, without any grouping or blocking. It utilizes only two principles: <em>Replication</em> and <em>Randomization</em> (no local control).</p>\n\n<h4>2. Mathematical ANOVA Model</h4>\n<p>$$Y_{ij} = \\mu + \\tau_i + \\epsilon_{ij}$$</p>\n<p>Where:</p>\n<ul>\n  <li>$Y_{ij}$: The observed response of the $j$-th unit receiving the $i$-th treatment.</li>\n  <li>$\\mu$: The general overall mean.</li>\n  <li>$\\tau_i$: The true effect of the $i$-th treatment ($\\sum \\tau_i = 0$).</li>\n  <li>$\\epsilon_{ij}$: Random experimental error, assumed $\\epsilon_{ij} \\sim N(0, \\sigma^2)$ independent.</li>\n</ul>\n\n<h4>3. Merits (Advantages) of CRD</h4>\n<ol>\n  <li><strong>Maximum Simplicity:</strong> Extremely straightforward to plan, randomize, and execute.</li>\n  <li><strong>Flexibility in Replication:</strong> Different treatments can have unequal number of replications ($n_i \\neq n_k$) without complicating analysis.</li>\n  <li><strong>Maximum Error Degrees of Freedom:</strong> Since no degrees of freedom are spent on blocking, the error degrees of freedom ($N - k$) is maximized.</li>\n  <li><strong>Tolerant of Missing Data:</strong> Loss of experimental units does not destroy orthogonality or balance.</li>\n</ol>\n\n<h4>4. Demerits (Limitations) of CRD</h4>\n<ol>\n  <li><strong>Strict Homogeneity Requirement:</strong> Valid only when all experimental units are completely homogeneous (e.g., identical laboratory test tubes or uniform virtual machines).</li>\n  <li><strong>Low Precision in Heterogeneous Environments:</strong> If experimental units vary significantly, all unit-to-unit variation inflates the experimental error variance, severely reducing statistical sensitivity.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q16",
+      "unit": 2,
+      "section_id": "sec-rbd",
+      "question": "Explain Randomized Block Design (RBD). Sketch an RBD layout to study the effect of 3 new fertilizers (F1, F2, F3) on 3 different crops (Rice, Wheat, Jowar) with yield as outcome.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q3b, 6M)",
+        "SEE 2025 (Q4a, 10M)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 43\u201345",
+      "answer": "<h4>1. Concept of Randomized Block Design (RBD)</h4>\n<p><strong>Randomized Block Design (RBD)</strong> applies all three Fisherian principles: <em>Replication, Randomization, and Local Control</em>. Experimental units are stratified into homogeneous groups called <strong>blocks</strong> according to a known extraneous variable. Each block contains exactly one replication of each treatment, and treatments are assigned randomly within each block.</p>\n\n<h4>2. Experimental Layout for Fertilizer Experiment</h4>\n<p><strong>Problem Setup:</strong></p>\n<ul>\n  <li>Treatments (IV): 3 Fertilizers ($F_1, F_2, F_3$)</li>\n  <li>Extraneous Blocking Factor: Crop types (Block 1 = Rice, Block 2 = Wheat, Block 3 = Jowar)</li>\n  <li>Dependent Variable: Crop Yield (kg/hectare)</li>\n</ul>\n\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Block (Crop Type)</th>\n      <th>Plot 1</th>\n      <th>Plot 2</th>\n      <th>Plot 3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Block 1 (Rice)</strong></td>\n      <td>$F_2$ (randomized)</td>\n      <td>$F_1$</td>\n      <td>$F_3$</td>\n    </tr>\n    <tr>\n      <td><strong>Block 2 (Wheat)</strong></td>\n      <td>$F_3$</td>\n      <td>$F_2$</td>\n      <td>$F_1$</td>\n    </tr>\n    <tr>\n      <td><strong>Block 3 (Jowar)</strong></td>\n      <td>$F_1$</td>\n      <td>$F_3$</td>\n      <td>$F_2$</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4>3. Mathematical Model & Partitioning of Variation</h4>\n<p>$$Y_{ij} = \\mu + \\tau_i + \\beta_j + \\epsilon_{ij}$$</p>\n<p>Total Sum of Squares ($SS_T$) is partitioned into:</p>\n<p>$$SS_T = SS_{\\text{Treatments}} + SS_{\\text{Blocks}} + SS_{\\text{Error}}$$</p>\n<p><strong>Advantage:</strong> Because variation due to crop differences ($SS_{\\text{Blocks}}$) is isolated and subtracted, the residual error ($SS_{\\text{Error}}$) is significantly reduced compared to CRD.</p>"
+    },
+    {
+      "id": "rmipr-q17",
+      "unit": 2,
+      "section_id": "sec-lsd",
+      "question": "Explain Latin Square Design (LSD). Compare and contrast Randomized Block Design (RBD) and Latin Square Design (LSD) with their merits and demerits.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q2b, 8M)",
+        "CIE-1 2023 (Q3b, 7M)",
+        "Important Question (Q6)",
+        "Assignment I (Q7)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 45\u201348",
+      "answer": "<h4>1. Concept and Layout of Latin Square Design (LSD)</h4>\n<p>A <strong>Latin Square Design (LSD)</strong> is an advanced experimental design that controls for <strong>two independent sources of extraneous variation</strong> simultaneously (two-way blocking). Experimental units are arranged in an $m \\times m$ grid representing $m$ rows and $m$ columns. Exactly $m$ treatments are assigned such that <strong>each treatment appears once and only once in each row and in each column</strong>.</p>\n\n<p><em>Example 3x3 Latin Square Layout (Treatments A, B, C):</em></p>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Row / Factor 1</th>\n      <th>Column 1</th>\n      <th>Column 2</th>\n      <th>Column 3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Row 1</strong></td>\n      <td>A</td>\n      <td>B</td>\n      <td>C</td>\n    </tr>\n    <tr>\n      <td><strong>Row 2</strong></td>\n      <td>B</td>\n      <td>C</td>\n      <td>A</td>\n    </tr>\n    <tr>\n      <td><strong>Row 3</strong></td>\n      <td>C</td>\n      <td>A</td>\n      <td>B</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4>2. Comparison: RBD vs. Latin Square Design</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Parameter</th>\n      <th>Randomized Block Design (RBD)</th>\n      <th>Latin Square Design (LSD)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Extraneous Factors Controlled</strong></td>\n      <td>Controls <strong>one</strong> source of extraneous variability (one-way blocking).</td>\n      <td>Controls <strong>two</strong> independent sources of extraneous variability (two-way blocking: Rows and Columns).</td>\n    </tr>\n    <tr>\n      <td><strong>Dimensional Constraint</strong></td>\n      <td>Flexible; number of blocks does not need to equal number of treatments.</td>\n      <td>Strictly square: Number of rows = Number of columns = Number of treatments ($m \\times m$).</td>\n    </tr>\n    <tr>\n      <td><strong>Error Isolation</strong></td>\n      <td>$SS_T = SS_{\\text{Treat}} + SS_{\\text{Block}} + SS_E$.</td>\n      <td>$SS_T = SS_{\\text{Treat}} + SS_{\\text{Row}} + SS_{\\text{Col}} + SS_E$.</td>\n    </tr>\n    <tr>\n      <td><strong>Assumptions</strong></td>\n      <td>Assumes no treatment $\\times$ block interaction.</td>\n      <td>Assumes no interaction between treatments, rows, and columns (strictly additive model).</td>\n    </tr>\n    <tr>\n      <td><strong>Suitability</strong></td>\n      <td>Field experiments with a single directional gradient (e.g. soil fertility slope).</td>\n      <td>Experiments with two nuisance gradients (e.g. machine operator variability and day-of-week variability).</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "rmipr-q18",
+      "unit": 2,
+      "section_id": "sec-factorial",
+      "question": "In a $3 \\times 2 \\times 2$ factorial design examining 3 factors: Type of Therapy (CBT, Psychodynamic, Humanistic), Duration (Short vs. Long), and Therapist Gender (Male vs. Female), list all possible treatment combinations. Explain the key advantages of factorial designs in examining interaction effects.",
+      "marks": 6,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q2b, 6M)",
+        "Assignment I (Q10)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 48\u201351; CIE-1 2024 Question Paper",
+      "answer": "<h4>1. Treatment Combinations in the $3 \\times 2 \\times 2$ Factorial Design</h4>\n<p><strong>Factors and Levels:</strong></p>\n<ul>\n  <li>Factor A (Therapy Type, 3 levels): $A_1 = \\text{CBT}$, $A_2 = \\text{Psychodynamic}$, $A_3 = \\text{Humanistic}$</li>\n  <li>Factor B (Duration, 2 levels): $B_1 = \\text{Short}$, $B_2 = \\text{Long}$</li>\n  <li>Factor C (Therapist Gender, 2 levels): $C_1 = \\text{Male}$, $C_2 = \\text{Female}$</li>\n</ul>\n<p>Total treatment combinations = $3 \\times 2 \\times 2 = 12$ distinct groups:</p>\n\n<ol>\n  <li>$A_1 B_1 C_1$: CBT, Short, Male</li>\n  <li>$A_1 B_1 C_2$: CBT, Short, Female</li>\n  <li>$A_1 B_2 C_1$: CBT, Long, Male</li>\n  <li>$A_1 B_2 C_2$: CBT, Long, Female</li>\n  <li>$A_2 B_1 C_1$: Psychodynamic, Short, Male</li>\n  <li>$A_2 B_1 C_2$: Psychodynamic, Short, Female</li>\n  <li>$A_2 B_2 C_1$: Psychodynamic, Long, Male</li>\n  <li>$A_2 B_2 C_2$: Psychodynamic, Long, Female</li>\n  <li>$A_3 B_1 C_1$: Humanistic, Short, Male</li>\n  <li>$A_3 B_1 C_2$: Humanistic, Short, Female</li>\n  <li>$A_3 B_2 C_1$: Humanistic, Long, Male</li>\n  <li>$A_3 B_2 C_2$: Humanistic, Long, Female</li>\n</ol>\n\n<h4>2. Advantages of Factorial Design over One-Factor-at-a-Time (OFAT)</h4>\n<ol>\n  <li><strong>Detection of Interaction Effects:</strong> OFAT designs assume variables act independently. Factorial designs explicitly measure whether the effect of Factor A depends on the level of Factor B (e.g., CBT may be effective only in Short duration, while Psychodynamic requires Long duration).</li>\n  <li><strong>High Experimental Efficiency:</strong> Evaluates multiple factors within the same number of experimental units, achieving greater precision per trial.</li>\n  <li><strong>Broader Validity of Conclusions:</strong> The main effect of each factor is evaluated across varying levels of the other factors, ensuring conclusions are robust and generalizable.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q19",
+      "unit": 3,
+      "section_id": "sec-data-collection",
+      "question": "Compare and contrast the observation method and interview method of primary data collection. State their respective merits and limitations.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-2 2025 (Q1a, 8M)",
+        "SEE 2024 (Q5a, 8M)",
+        "SEE Jan 2026 (Q3a, 8M)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 6, pp. 96\u2013100",
+      "answer": "<h4>Comparison: Observation Method vs. Interview Method</h4>\n<p>Primary data collection methods capture first-hand evidence directly from subjects:</p>\n\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Dimension</th>\n      <th>Observation Method</th>\n      <th>Interview Method</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Mechanism</strong></td>\n      <td>Systematic viewing, recording, and analysis of subjects' behavior as it naturally occurs without asking questions.</td>\n      <td>Direct verbal interaction and question-and-answer exchange between the interviewer and respondent (personal or telephonic).</td>\n    </tr>\n    <tr>\n      <td><strong>Subject Cooperation</strong></td>\n      <td>Does not require verbal cooperation or willingness of respondents (unobtrusive).</td>\n      <td>Heavily depends on the active willingness and honesty of the interviewee.</td>\n    </tr>\n    <tr>\n      <td><strong>Subjective Bias</strong></td>\n      <td>Eliminates respondent recall bias; however, introduces <em>observer bias</em>.</td>\n      <td>Prone to respondent recall bias, social desirability bias, and interviewer bias.</td>\n    </tr>\n    <tr>\n      <td><strong>Depth & Hidden Motives</strong></td>\n      <td>Cannot capture past history, unexpressed feelings, attitudes, or internal motives.</td>\n      <td>Can probe deeply into personal reasons, attitudes, historical background, and nuanced reasoning.</td>\n    </tr>\n    <tr>\n      <td><strong>Cost & Speed</strong></td>\n      <td>Can be expensive and time-consuming; limited to present behavior.</td>\n      <td>Flexible; telephone interviews allow rapid, geographically dispersed data collection.</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "rmipr-q20",
+      "unit": 3,
+      "section_id": "sec-data-collection",
+      "question": "How do questionnaires and schedules differ in primary data collection? Outline the essential guidelines for constructing a successful questionnaire.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "Makeup 2025 (Q5a, 8M)",
+        "Kothari Ch. 6 Model Question"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 6, pp. 100\u2013104",
+      "answer": "<h4>1. Questionnaire vs. Schedule</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Criteria</th>\n      <th>Questionnaire</th>\n      <th>Schedule</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Administration</strong></td>\n      <td>Mailed or sent electronically directly to respondents to be filled out independently.</td>\n      <td>Carried and filled out personally by trained enumerators/investigators during direct interaction.</td>\n    </tr>\n    <tr>\n      <td><strong>Literacy Requirement</strong></td>\n      <td>Can be used only when respondents are literate and cooperative.</td>\n      <td>Can be used even when respondents are illiterate, as the enumerator translates and records answers.</td>\n    </tr>\n    <tr>\n      <td><strong>Response Rate</strong></td>\n      <td>Usually low response rate (often below 20\u201330% in postal surveys).</td>\n      <td>Very high response rate because enumerators personally collect the responses.</td>\n    </tr>\n    <tr>\n      <td><strong>Identity of Respondent</strong></td>\n      <td>Not always clear whether the intended respondent actually filled in the form.</td>\n      <td>Identity of respondent is known and verified on the spot.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4>2. Guidelines for Constructing a Questionnaire</h4>\n<ol>\n  <li><strong>Concise Length:</strong> Keep the questionnaire as short as possible. Unnecessarily long questionnaires cause respondent fatigue.</li>\n  <li><strong>Logical Sequence of Questions:</strong> Start with easy, non-threatening questions (general profile), progress to core specific topics, and place sensitive or demographic questions at the end.</li>\n  <li><strong>Clear and Simple Wording:</strong> Avoid ambiguous phrasing, double negatives, technical jargon, and colloquialisms.</li>\n  <li><strong>Avoid Leading / Loaded Questions:</strong> Questions must remain strictly neutral (do not prompt a desired answer).</li>\n  <li><strong>Pilot Study (Pre-testing):</strong> Always administer the draft questionnaire to a small pilot sample (15\u201320 subjects) to identify confusing wording and estimate completion time before full deployment.</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q21",
+      "unit": 3,
+      "section_id": "sec-data-collection",
+      "question": "Elaborate the steps involved in Secondary Data Collection. What precautions must a researcher observe before utilizing secondary data?",
+      "marks": 8,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "Makeup 2024 (Q5a, 10M)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 6, pp. 111\u2013112",
+      "answer": "<h4>1. Nature and Sources of Secondary Data</h4>\n<p><strong>Secondary data</strong> refers to information that has already been collected and compiled by another agency, investigator, or institution for a different primary purpose. Common sources include: Government census reports, RBI bulletins, corporate financial statements, public datasets (Kaggle, UCI), published journals, and technical whitepapers.</p>\n\n<h4>2. Essential Precautions Before Using Secondary Data</h4>\n<p>Secondary data must not be accepted at face value. The researcher must verify three critical criteria:</p>\n<ol>\n  <li><strong>Reliability of Data:</strong>\n    <ul>\n      <li><em>Who collected the data?</em> (Evaluating reputation, integrity, and competence of the originating organization).</li>\n      <li><em>What were the sources?</em> (Primary origin vs. third-hand compilations).</li>\n      <li><em>Were methods scientific?</em> (Assessing sample size, collection techniques, and margin of error).</li>\n    </ul>\n  </li>\n  <li><strong>Suitability of Data:</strong>\n    <ul>\n      <li>The data must match the operational definitions and scope of the current investigation. For example, if the current study investigates full-time software engineers, secondary data that lumps part-time interns together with seniors is unsuitable.</li>\n    </ul>\n  </li>\n  <li><strong>Adequacy of Data:</strong>\n    <ul>\n      <li>The dataset must have sufficient coverage, geographic breadth, and temporal relevance. If conditions have changed drastically (e.g., pre-COVID vs. post-COVID telemetry), historical data may be inadequate.</li>\n    </ul>\n  </li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q22",
+      "unit": 3,
+      "section_id": "sec-sampling-fundamentals",
+      "question": "Explain the steps involved in developing a sample design. Contrast the Census method with the Sample survey method.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-2 2025 (Q3b, 7M)",
+        "SEE Jan 2026 (Q6a, 8M)"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 4, pp. 55\u201358",
+      "answer": "<h4>1. Census vs. Sample Survey</h4>\n<ul>\n  <li><strong>Census Method:</strong> Complete enumeration of every single elementary unit in the universe/population. High accuracy if properly executed, but requires vast financial resources, time, and manpower. Impractical when population is infinite or testing is destructive (e.g., testing fuse lifespans).</li>\n  <li><strong>Sample Survey:</strong> Investigating a representative subset (sample) selected from the universe. Consumes less time and cost, enables deeper probing, and when designed scientifically, yields high precision with quantifiable margins of error.</li>\n</ul>\n\n<h4>2. Steps in Developing a Sample Design</h4>\n<ol>\n  <li><strong>Type of Universe:</strong> Clearly define whether the population is <em>finite</em> (e.g., students in a college) or <em>infinite</em> (e.g., packets passing through a router over an unbounded time horizon).</li>\n  <li><strong>Sampling Unit:</strong> Define the elementary unit of selection (e.g., individual student, family, cluster, city block).</li>\n  <li><strong>Source List (Sampling Frame):</strong> The comprehensive list containing names/addresses of all sampling units from which the sample is drawn. It must be exhaustive, up-to-date, and free from duplication.</li>\n  <li><strong>Size of Sample ($n$):</strong> Determine the number of units required to achieve target statistical power, balancing margin of error against budgetary constraints.</li>\n  <li><strong>Parameters of Interest:</strong> Identify whether the objective is to estimate population means, proportions, or variance.</li>\n  <li><strong>Budgetary Constraints:</strong> Determine feasible sample size under available funding and timeline.</li>\n  <li><strong>Sampling Procedure:</strong> Select the exact probability algorithm (Simple Random, Stratified, Systematic, or Cluster).</li>\n</ol>"
+    },
+    {
+      "id": "rmipr-q23",
+      "unit": 3,
+      "section_id": "sec-criteria-sample-design",
+      "question": "What are the characteristics of a good sample design? Explain the criteria and sources of bias that must be controlled when selecting a sampling procedure.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE Jan 2026 (Q6a, 8M)",
+        "Kothari Ch. 4 Model Question"
+      ],
+      "source_citation": "C.R. Kothari, Research Methodology (2e), Ch. 4, pp. 58\u201360",
+      "answer": "<h4>1. Characteristics of a Good Sample Design</h4>\n<p>A sound sample design must satisfy the following fundamental attributes:</p>\n<ol>\n  <li><strong>Representativeness:</strong> The sample must accurately reflect the diversity, distribution, and essential characteristics of the parent population.</li>\n  <li><strong>Small Sampling Error:</strong> Must produce parameter estimates with high statistical precision (narrow confidence intervals).</li>\n  <li><strong>Minimization of Systematic Bias:</strong> Design must eliminate structural tendencies that skew estimates systematically in one direction.</li>\n  <li><strong>Economic Feasibility:</strong> Delivers the required precision within available budgetary, computational, and human constraints.</li>\n  <li><strong>Generalizability:</strong> The sample findings must be safely applicable to the target universe with calculable confidence levels.</li>\n</ol>\n\n<h4>2. Criteria & Sources of Systematic Bias to Control</h4>\n<p>Systematic bias arises from errors in the sampling procedure that do not disappear even with large sample sizes. Key sources include:</p>\n<ul>\n  <li><strong>Inappropriate Sampling Frame:</strong> If the source list omits key segments of the universe (e.g., using a landline directory to sample mobile app users), the sample is systematically biased.</li>\n  <li><strong>Defective Measuring Device:</strong> Biased survey questions, malfunctioning laboratory instruments, or ambiguous scales.</li>\n  <li><strong>Non-Respondents:</strong> When individuals who refuse or fail to respond systematically differ from respondents (e.g., unhappy customers refusing feedback).</li>\n  <li><strong>Natural Bias in Reporting:</strong> Tendency of subjects to over-report socially desirable attributes (e.g., income, study hours) and under-report undesirable habits.</li>\n</ul>"
+    }
+  ],
+  "out_of_scope": [
+    {
+      "id": "rmipr-oos-01",
+      "unit": 3,
+      "topic": "Measurement and Scaling Techniques (Nominal, Ordinal, Interval, Ratio, Likert Scale)",
+      "reason": "Master Prompt boundary: Unit 3 stops at 'Characteristics of a Good Sample Design'. Measurement and scaling techniques occur later in Unit 3 and are excluded from CIE-1.",
+      "exam_paper": "SEE 2025 Q5a (Discuss different statistical measurement scales)"
+    },
+    {
+      "id": "rmipr-oos-02",
+      "unit": 3,
+      "topic": "Hypothesis Testing Protocol & Procedure",
+      "reason": "Master Prompt boundary: All hypothesis testing protocols and decision rules occur after sampling design and are excluded from CIE-1.",
+      "exam_paper": "SEE 2025 Q6a, Makeup 2025 Q6a (Procedure for hypothesis testing)"
+    },
+    {
+      "id": "rmipr-oos-03",
+      "unit": 3,
+      "topic": "Parametric Testing: One-sample & Two-sample Z-Test",
+      "reason": "Master Prompt boundary: Statistical hypothesis tests (z-test) occur in the second half of Unit 3.",
+      "exam_paper": "Quiz.pdf Q4, Q5, Q6; SEE 2024 Q6a (Mean production process z-test)"
+    },
+    {
+      "id": "rmipr-oos-04",
+      "unit": 3,
+      "topic": "Parametric Testing: Student's t-Test for small samples",
+      "reason": "Master Prompt boundary: Hypothesis testing numericals are excluded from CIE-1.",
+      "exam_paper": "Quiz.pdf Q1 (Weights of 10 individuals t-test); Makeup 2025 Q6a"
+    },
+    {
+      "id": "rmipr-oos-05",
+      "unit": 3,
+      "topic": "Proportion Z-Test",
+      "reason": "Master Prompt boundary: Hypothesis testing for sample proportions is excluded from CIE-1.",
+      "exam_paper": "Quiz.pdf Q2 (Process engineer claim p <= 0.05)"
+    },
+    {
+      "id": "rmipr-oos-06",
+      "unit": 3,
+      "topic": "Chi-Square Test of Independence & Goodness of Fit",
+      "reason": "Master Prompt boundary: Non-parametric tests are excluded from CIE-1.",
+      "exam_paper": "Unit 3 Syllabus late section"
+    },
+    {
+      "id": "rmipr-oos-07",
+      "unit": 3,
+      "topic": "Analysis of Variance (ANOVA) One-Way and Two-Way Computations",
+      "reason": "Master Prompt boundary: ANOVA calculations occur in Unit 3 data analysis and are excluded from CIE-1.",
+      "exam_paper": "Unit 3 Syllabus late section"
+    },
+    {
+      "id": "rmipr-oos-08",
+      "unit": 4,
+      "topic": "Introduction to IPR & Forms of IPR",
+      "reason": "Master Prompt boundary: Only Units 1, 2, and initial Unit 3 are in scope. Unit 4 (IPR) is excluded from CIE-1.",
+      "exam_paper": "Assignment II Q1, Q2; CIE-2 2025 Q2a; CIE-2 2024"
+    },
+    {
+      "id": "rmipr-oos-09",
+      "unit": 4,
+      "topic": "Patent Filing Procedure in India",
+      "reason": "Master Prompt boundary: Unit 4 Patents is excluded from CIE-1.",
+      "exam_paper": "Assignment II Q4; CIE-2 2025 Q1b; CIE-2 2024 Q1a; CIE-2 2023 Q3a"
+    },
+    {
+      "id": "rmipr-oos-10",
+      "unit": 4,
+      "topic": "Non-Patentable Inventions (Section 3 & 4 of Indian Patent Act)",
+      "reason": "Master Prompt boundary: Unit 4 Patents is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Q2a"
+    },
+    {
+      "id": "rmipr-oos-11",
+      "unit": 4,
+      "topic": "TRIPS Agreement of 1994 & Benefits",
+      "reason": "Master Prompt boundary: Unit 4 IPR international conventions is excluded from CIE-1.",
+      "exam_paper": "Assignment II Q5; CIE-2 2023 Q1a"
+    },
+    {
+      "id": "rmipr-oos-12",
+      "unit": 4,
+      "topic": "Basmati Rice Patent Dispute Case Study",
+      "reason": "Master Prompt boundary: Unit 4 Patent case studies are excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Q3a; CIE-2 2023 Q2a"
+    },
+    {
+      "id": "rmipr-oos-13",
+      "unit": 4,
+      "topic": "Industrial Designs & Distinction from Patents",
+      "reason": "Master Prompt boundary: Unit 4 Industrial designs is excluded from CIE-1.",
+      "exam_paper": "Assignment II Q3; CIE-2 2024 Q2b"
+    },
+    {
+      "id": "rmipr-oos-14",
+      "unit": 5,
+      "topic": "Trademarks: Rights Conferred & Protection in India",
+      "reason": "Master Prompt boundary: Unit 5 Trademarks is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2025 Q2b; CIE-2 2023 Q1b"
+    },
+    {
+      "id": "rmipr-oos-15",
+      "unit": 5,
+      "topic": "Copyright: Definition, Characteristics & Authorship",
+      "reason": "Master Prompt boundary: Unit 5 Copyrights is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Q1b; CIE-2 2023 Q2b"
+    },
+    {
+      "id": "rmipr-oos-16",
+      "unit": 5,
+      "topic": "Copyright Infringement & Statutory Remedies",
+      "reason": "Master Prompt boundary: Unit 5 Copyright litigation is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2025 Q3a; CIE-2 2024 Q3b; CIE-2 2023 Q3b"
+    },
+    {
+      "id": "rmipr-oos-17",
+      "unit": 5,
+      "topic": "Trade Secrets & Confidential Information",
+      "reason": "Master Prompt boundary: Unit 5 Trade secrets is excluded from CIE-1.",
+      "exam_paper": "Unit 5 Syllabus"
+    },
+    {
+      "id": "rmipr-oos-18",
+      "unit": 5,
+      "topic": "Geographical Indications (GI)",
+      "reason": "Master Prompt boundary: Unit 5 GI is excluded from CIE-1.",
+      "exam_paper": "Unit 5 Syllabus"
+    }
+  ]
+}

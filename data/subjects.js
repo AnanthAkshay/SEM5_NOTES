@@ -2620,7 +2620,11 @@ window.SEM5_DATA = {
     },
     {
       "id": "rmipr",
-      "code": "AL58",
+      "code": "24AL58",
+      "examDate": "2026-10-15",
+      "examTime": "15:00–16:00",
+      "examSchedule": "Thu 15-10-2026, 15:00–16:00",
+      "cie1Scope": "Unit 1, Unit 2, Unit 3 up to \"Characteristics of a Good Sample Design\" (inclusive)",
       "name": "Research Methodology and IPR",
       "shortName": "RM & IPR",
       "category": "HSMC",
@@ -2829,7 +2833,7 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 23,
-              "size": "0.83 MB",
+              "size": "0.86 MB",
               "sizeBytes": 868632,
               "previewImage": "notes/rmipr/unit1/handwritten/rmipr-unit1-preview.webp",
               "sourceHtml": "notes/rmipr/unit1/unit-1-notes.html"
@@ -2875,8 +2879,8 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 20,
-              "size": "0.70 MB",
+              "pages": 21,
+              "size": "0.77 MB",
               "sizeBytes": 733606,
               "previewImage": "notes/rmipr/unit2/handwritten/rmipr-unit2-preview.webp",
               "sourceHtml": "notes/rmipr/unit2/unit-2-notes.html"
@@ -2898,8 +2902,8 @@ window.SEM5_DATA = {
         {
           "id": "rmipr-unit3",
           "unitNumber": 3,
-          "title": "Unit 3: Data Collection, Sampling & Hypothesis Testing",
-          "topics": "Primary & Secondary Data, Measurement & Scaling (Stevens' 4 Scales), Sampling Designs, Hypothesis Testing (Z-test, t-test, Chi-square), ANOVA & ANOCOVA.",
+          "title": "Data Collection Methods & Sampling Design Fundamentals (CIE-1 Scope)",
+          "topics": "Methods of Data Collection (Primary vs Secondary, Observation, Interview, Questionnaires, Schedules, Secondary Sources & Precautions), Sampling Fundamentals (Census vs Sample Survey, Steps in Sample Design, Criteria for Selecting Sampling Procedure, Characteristics of a Good Sample Design). Hypothesis testing, measurement scales & IPR out of scope.",
           "isPractice": false,
           "files": [
             {
@@ -2922,14 +2926,47 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 22,
-              "size": "0.80 MB",
+              "pages": 10,
+              "size": "0.33 MB",
               "sizeBytes": 842355,
               "previewImage": "notes/rmipr/unit3/handwritten/rmipr-unit3-preview.webp",
               "sourceHtml": "notes/rmipr/unit3/unit-3-notes.html"
             }
           ],
           "isSyllabusOnly": false
+        },
+        {
+          "id": "rmipr-pyq",
+          "unitNumber": "PYQ",
+          "title": "CIE-1 PYQ Bank & Model Answers",
+          "topics": "23 Solved examination questions covering Research definitions & objectives, types of research, engineering research differences, research ethics & misconduct (FFP triad), plagiarism types, bibliographic databases, citations & knowledge flow, title/keyword framing, critical vs creative reading, research design need & features, variables & control, hypotheses, Fisher's 3 principles of experimental design, CRD, RBD (crop/fertilizer layout), Latin Square Design, 3x2x2 factorial combinations, primary data collection (observation vs interview, questionnaire guidelines), secondary data precautions, census vs sample, 7 steps in sample design, and characteristics of a good sample design.",
+          "isPractice": true,
+          "files": [
+            {
+              "id": "rmipr-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/rmipr/pyq/pyq-answers.html",
+              "type": "pyq",
+              "tag": "Solved PYQs",
+              "readingTime": "30 min read",
+              "size": "Interactive Model Answers",
+              "isConverted": false
+            },
+            {
+              "id": "rmipr-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "rmipr-pyq-handwritten.pdf",
+              "path": "notes/rmipr/pyq/handwritten/rmipr-pyq-handwritten.pdf",
+              "type": "handwritten",
+              "tag": "PDF Notebook",
+              "generated": true,
+              "pages": 25,
+              "size": "0.78 MB",
+              "previewImage": "notes/rmipr/pyq/handwritten/rmipr-pyq-preview.webp",
+              "sourceHtml": "notes/rmipr/pyq/pyq-answers.html"
+            }
+          ]
         },
         {
           "id": "rmipr-practice",

@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIE-1 PYQ Bank & Model Answers | Research Methodology and IPR (24AL58) | SEM 5 ISE</title>
+  <meta name="description" content="Official CIE-1 solved previous year question bank with step-by-step model answers, numerical solutions, diagrams, and textbook citations for Research Methodology and IPR (24AL58).">
+
+  <!-- Prevent Theme Flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('sem5_theme_v1');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Google Fonts Preconnect & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+
+  <!-- Single Shared Notes Stylesheet -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+  
+  <style>
+    .pyq-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+    }
+    .pyq-filter-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--surface-hover);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pyq-filter-btn:hover, .pyq-filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .pyq-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pyq-card:hover {
+      border-color: var(--accent);
+    }
+    .pyq-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.6rem;
+    }
+    .pyq-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pyq-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-unit { background: var(--surface-hover); color: var(--text-primary); }
+    .badge-marks { background: var(--green-tint); color: var(--green); }
+    .badge-high { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-med { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .pyq-years {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .year-chip {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--surface-hover);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .pyq-question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0.6rem 0 1rem 0;
+      line-height: 1.45;
+    }
+    .pyq-link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--surface-hover);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 0.75rem;
+    }
+    .pyq-link-chip:hover {
+      text-decoration: underline;
+    }
+    .pyq-answer-details {
+      border-top: 1px dashed var(--border-color);
+      padding-top: 0.8rem;
+    }
+    .pyq-answer-summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pyq-answer-body {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+    .pyq-citation {
+      margin-top: 0.8rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      background: var(--surface-hover);
+      border-left: 3px solid var(--accent);
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+    .cie1-banner {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.12));
+      border: 1.5px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .cie1-banner h3 {
+      margin: 0 0 0.4rem 0;
+      color: var(--text-primary);
+      font-size: 1.15rem;
+    }
+    .cie1-banner p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to question bank</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/rmipr" class="back-btn" title="Return to Research Methodology and IPR Overview">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>← 24AL58 Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/rmipr">Research Methodology and IPR</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">CIE-1 PYQ Bank</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="rmipr-pyq-notes" title="Mark this question bank as studied">
+          <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span class="btn-label-desktop">PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="notes-container">
+    <!-- Desktop Sticky Sidebar -->
+    <aside class="notes-sidebar" id="notes-sidebar" aria-label="Question Bank Navigation">
+      <div class="sidebar-header">
+        <span class="sidebar-label">PYQ Bank Navigation</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <ol class="toc-list">
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (10)</a></li>
+          <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (8)</a></li>
+          <li class="toc-item"><a href="#unit-3" class="toc-link">Unit 3 Questions (5)</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-content" id="main-content">
+      <!-- CIE-1 Scope Alert Banner -->
+      <div class="cie1-banner">
+        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
+        <p><strong>Course:</strong> Research Methodology and IPR (24AL58) &bull; <strong>Exam Schedule:</strong>  (60 Mins, 30 Marks)</p>
+        <p style="margin-top:0.4rem;">Contains <strong>23 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
+      </div>
+
+      <header class="notes-header" id="summary-overview">
+        <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
+        <h1 class="notes-title">Research Methodology and IPR PYQ Solutions</h1>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        
+        <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">23</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">0</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--green);">3</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">0</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Out-of-Scope Archived</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Quick Interactive Filter Pills -->
+      <div class="pyq-filter-bar">
+        <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
+        <button class="pyq-filter-btn active" data-filter="all">All (23)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (0)</button>
+        <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (10)</button>
+        <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (8)</button>
+        <button class="pyq-filter-btn" data-filter="unit-3">Unit 3 (5)</button>
+      </div>
+
+      <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
+        <div class="section-badge">UNIT 1</div>
+        <h2 class="section-title">Unit 1 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
+
+        <!-- Question rmipr-q01 -->
+        <article class="pyq-card" id="rmipr-q01" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-meaning-research" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; meaning-research</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the meaning of research. Discuss the objectives and motivations of research.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Meaning of Research</h4>
+<p><strong>Research</strong> is a systematic, formal, and rigorous process of inquiry designed to discover new facts, verify existing knowledge, establish causal relationships, and derive general principles. In the words of Clifford Woody, research comprises <em>defining and redefining problems, formulating hypothesis or suggested solutions, collecting, organizing and evaluating data, making deductions and reaching conclusions, and carefully testing the conclusions to determine whether they fit the formulating hypothesis</em>.</p>
+<p>It is essentially an intellectual journey from the <strong>known to the unknown</strong> driven by inquisitiveness and structured scientific methodology.</p>
+
+<h4>2. Objectives of Research</h4>
+<p>The primary purpose of research is to discover answers to questions through the application of scientific procedures. Research objectives fall into four major categories:</p>
+<ul>
+  <li><strong>Exploratory / Formulative Objectives:</strong> To gain familiarity with an unexplored phenomenon or to achieve new insights into it (often used to clarify concepts and formulate precise hypotheses).</li>
+  <li><strong>Descriptive Objectives:</strong> To portray accurately the characteristics of a particular individual, situation, or group (e.g., census studies, socioeconomic profiles).</li>
+  <li><strong>Diagnostic Objectives:</strong> To determine the frequency with which something occurs or with which it is associated with something else (e.g., identifying causes of machine failure or disease incidence).</li>
+  <li><strong>Hypothesis-Testing (Causal) Objectives:</strong> To test a causal relationship between variables under controlled conditions (e.g., experimental testing of a new chemical catalyst or caching algorithm).</li>
+</ul>
+
+<h4>3. Motivations in Research</h4>
+<p>What drives a researcher to undertake an investigation? The key driving forces include:</p>
+<ol>
+  <li><strong>Desire to solve unsolved problems:</strong> Facing intellectual challenges in solving real-world technological, industrial, or social issues.</li>
+  <li><strong>Intellectual joy:</strong> The inherent creative pleasure of discovering something novel and expanding human knowledge.</li>
+  <li><strong>Desire to get an academic degree / professional recognition:</strong> Fulfilling degree requirements (M.Tech, Ph.D.) along with consequent career advancement.</li>
+  <li><strong>Service to society:</strong> Contributing to community welfare, healthcare improvements, or sustainable engineering technologies.</li>
+  <li><strong>Government / Institutional directives:</strong> Responding to national priorities, defense requirements, or sponsored industrial grants.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 1, pp. 1–4; Thiel, Research Methods for Engineers, Ch. 1
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q02 -->
+        <article class="pyq-card" id="rmipr-q02" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-types-research" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; types-research</span>
+          </a>
+
+          <h3 class="pyq-question-text">Describe and contrast the different types of research: (i) Descriptive vs. Analytical, (ii) Applied vs. Fundamental, (iii) Quantitative vs. Qualitative, (iv) Conceptual vs. Empirical.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Classification of Research Types</h4>
+<p>Research can be classified into fundamental complementary dichotomies based on goal, methodology, and philosophy:</p>
+
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Dichotomy</th>
+      <th>Type A</th>
+      <th>Type B</th>
+      <th>Key Differentiating Basis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Purpose</strong></td>
+      <td><strong>Descriptive Research:</strong> Includes surveys and fact-finding enquiries. The researcher describes state of affairs as it exists; has <em>no control over variables</em> (known as Ex Post Facto research in social sciences). Example: Measuring student attendance percentages or consumer buying habits.</td>
+      <td><strong>Analytical Research:</strong> The researcher uses facts or information already available and analyzes them to make a critical evaluation of material/performance. Example: Evaluating why a specific query optimization algorithm fails under skewed data distributions.</td>
+      <td>Control over variables and critical causal evaluation vs. factual reporting.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Goal / Utility</strong></td>
+      <td><strong>Applied Research:</strong> Aims at finding an immediate solution for an urgent practical problem facing society or industry. Example: Developing an energy-efficient routing protocol for IoT edge nodes.</td>
+      <td><strong>Fundamental (Pure/Basic) Research:</strong> Mainly concerned with generalizations and formulation of theoretical principles without immediate commercial payoff. Example: Proving time complexity bounds for quantum polynomial-time factoring.</td>
+      <td>Immediate practical utility vs. broad theoretical knowledge expansion.</td>
+    </tr>
+    <tr>
+      <td><strong>3. Data Nature</strong></td>
+      <td><strong>Quantitative Research:</strong> Based on measurement of quantity or amount; expressed in terms of numbers, statistical metrics, and mathematical models. Employs structured surveys, sensor logs, and metrics.</td>
+      <td><strong>Qualitative Research:</strong> Concerned with qualitative phenomena relating to quality or kind (human behavior, motives, feelings). Employs in-depth interviews, focus groups, and thematic coding.</td>
+      <td>Numerical measurement and statistical inference vs. subjective thematic interpretation.</td>
+    </tr>
+    <tr>
+      <td><strong>4. Epistemology</strong></td>
+      <td><strong>Conceptual Research:</strong> Related to abstract ideas or theory. Used by philosophers and theorists to develop new concepts or reinterpret existing ones.</td>
+      <td><strong>Empirical Research:</strong> Relies on direct experience or observation without due regard for system and theory. It is <em>data-based research</em>, coming up with conclusions capable of being verified by observation or experiment.</td>
+      <td>Abstract intellectual modeling vs. experimentally verifiable observations.</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 1, pp. 2–5
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q03 -->
+        <article class="pyq-card" id="rmipr-q03" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-meaning-research" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; meaning-research</span>
+          </a>
+
+          <h3 class="pyq-question-text">Analyse and list out the key differences between engineering research and research in other fields (pure sciences and social sciences).</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Engineering Research vs. Pure Sciences & Social Sciences</h4>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Engineering Research</th>
+      <th>Pure Sciences (Physics, Chemistry)</th>
+      <th>Social Sciences (Sociology, Mgmt)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Primary Goal</strong></td>
+      <td>Creation of functional artifacts, designs, systems, and practical optimization (<em>Design & Synthesis</em>).</td>
+      <td>Discovery of fundamental laws of nature and physical truth (<em>Discovery & Analysis</em>).</td>
+      <td>Understanding human behavior, societal patterns, and cultural dynamics.</td>
+    </tr>
+    <tr>
+      <td><strong>Driving Question</strong></td>
+      <td><em>"How can we make it work faster, cheaper, and reliably?"</em></td>
+      <td><em>"Why does nature behave this way?"</em></td>
+      <td><em>"How do individuals and institutions interact?"</em></td>
+    </tr>
+    <tr>
+      <td><strong>Constraints</strong></td>
+      <td>Bounded by strict trade-offs: cost, latency, energy, standards, safety, manufacturability.</td>
+      <td>Bounded by experimental precision and universal conservation laws.</td>
+      <td>Bounded by ethical guidelines, cultural contexts, and human subject protections.</td>
+    </tr>
+    <tr>
+      <td><strong>Validation</strong></td>
+      <td>Prototyping, bench testing, simulation, stress testing, and real-world deployment metrics.</td>
+      <td>Repeatable controlled laboratory experiments and mathematical proofs.</td>
+      <td>Statistical surveys, longitudinal observations, and case studies.</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> David V. Thiel, Research Methods for Engineers (Cambridge), Ch. 1, pp. 1–12
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q04 -->
+        <article class="pyq-card" id="rmipr-q04" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-ethics-research" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; ethics-research</span>
+          </a>
+
+          <h3 class="pyq-question-text">Why is ethics important in research, and what are some key ethical considerations researchers should keep in mind?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Importance of Ethics in Research</h4>
+<p>Research ethics provides guidelines for the responsible conduct of research and ensures that scientific scholarship remains credible, reliable, and beneficial to society:</p>
+<ul>
+  <li><strong>Promotes Trust and Truth:</strong> Prohibits fabrication, falsification, and misrepresentation of data, ensuring that scientific literature remains dependable.</li>
+  <li><strong>Protects Human and Animal Subjects:</strong> Ensures voluntary informed consent, minimizes risks/harm, and protects privacy and confidentiality.</li>
+  <li><strong>Ensures Fair Credit and Collaboration:</strong> Establishes ethical guidelines for authorship, patent ownership, copyright adherence, and peer review confidentiality.</li>
+  <li><strong>Maintains Public Trust and Funding:</strong> Public funding relies on the confidence that tax revenues are utilized honestly without academic fraud.</li>
+</ul>
+
+<h4>2. Key Ethical Considerations for Researchers</h4>
+<ol>
+  <li><strong>Honesty and Objectivity:</strong> Report data, results, methods, and publication status honestly; avoid biases in experimental design, data analysis, and peer review.</li>
+  <li><strong>Integrity and Promises:</strong> Keep agreements and maintain consistency of thought and action.</li>
+  <li><strong>Carefulness:</strong> Avoid careless errors and negligence; examine your own work critically and keep thorough records of data collection.</li>
+  <li><strong>Openness and Data Sharing:</strong> Share data, results, ideas, tools, and resources once published, allowing independent verification.</li>
+  <li><strong>Respect for Intellectual Property:</strong> Honor patents, copyrights, and other forms of IP; never use unpublished data or methods without permission; give proper citations.</li>
+  <li><strong>Authorship Integrity:</strong> Include only individuals who made substantial intellectual contributions to the conception, design, execution, or interpretation. Avoid <em>gift authorship</em>, <em>ghost authorship</em>, and <em>honorary authorship</em>.</li>
+  <li><strong>Conflict of Interest Disclosure:</strong> Explicitly disclose financial, personal, or corporate relationships that could influence the outcome of the research.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 1; Thiel, Ch. 2, Research Ethics
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q05 -->
+        <article class="pyq-card" id="rmipr-q05" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-misconduct" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; misconduct</span>
+          </a>
+
+          <h3 class="pyq-question-text">What do you mean by research misconduct? Briefly explain different types of research misconduct with emphasis on the FFP triad.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Research Misconduct</h4>
+<p><strong>Research Misconduct</strong> is defined as <em>fabrication, falsification, or plagiarism in proposing, performing, or reviewing research, or in reporting research results</em>. It does not include honest error or differences of scientific opinion. It represents a deliberate violation of the fundamental ethical codes of scientific inquiry.</p>
+
+<h4>2. The Core FFP Triad</h4>
+<ul>
+  <li><strong>Fabrication (Making Up Data):</strong> Creating fictitious data, observations, or laboratory readings that were never actually measured, and reporting or recording them as genuine empirical results. Example: Filling in survey sheets or generating synthetic sensor logs without performing experiments.</li>
+  <li><strong>Falsification (Manipulating Data):</strong> Manipulating research materials, equipment, or processes, or changing/omitting data or results such that the research is not accurately represented in the research record. Example: Trimming outlier points to artificially lower variance or claiming a 99% accuracy by cherry-picking test sets.</li>
+  <li><strong>Plagiarism (Theft of Ideas/Words):</strong> The appropriation of another person's ideas, processes, results, or words without giving appropriate credit or formal citation.</li>
+</ul>
+
+<h4>3. Other Common Forms of Misconduct</h4>
+<ol>
+  <li><strong>Redundant / Duplicate Publication (Self-Plagiarism):</strong> Republishing the same manuscript, dataset, or substantial portion thereof across multiple journals without disclosure or cross-citation.</li>
+  <li><strong>Salami Slicing:</strong> Slicing a single comprehensive study into multiple minimally publishable units (MPUs) solely to artificially inflate one's publication count.</li>
+  <li><strong>Authorship Violations:</strong>
+    <ul>
+      <li><em>Ghost Authorship:</em> Excluding a researcher who contributed substantially.</li>
+      <li><em>Gift / Guest Authorship:</em> Including a senior faculty member or sponsor who made no intellectual contribution.</li>
+    </ul>
+  </li>
+  <li><strong>Breach of Peer Review Confidentiality:</strong> Appropriating ideas from a manuscript or grant proposal reviewed under confidential peer-review agreements.</li>
+  <li><strong>Data Mismanagement / Non-Retention:</strong> Failing to maintain and archive raw laboratory logs and code needed for independent verification and audit.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Thiel, Research Methods for Engineers, Ch. 2; Kothari, Ch. 1
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q06 -->
+        <article class="pyq-card" id="rmipr-q06" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-misconduct" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; misconduct</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is plagiarism? Illustrate the different types of plagiarism encountered in technical publications.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Plagiarism</h4>
+<p><strong>Plagiarism</strong> is the unauthorized, uncredited use or imitation of the language, thoughts, datasets, diagrams, or ideas of another author and presenting them as one's own original work. In academic institutions (including VTU and Ramaiah), plagiarism violates academic integrity codes and attracts severe disciplinary sanctions ranging from paper retraction to degree cancellation.</p>
+
+<h4>2. Types of Plagiarism</h4>
+<ol>
+  <li><strong>Direct Plagiarism (Verbatim Copying):</strong> Word-for-word transcription of a section, paragraph, or page of another author's text without quotation marks and without attribution. This is the most blatant form of plagiarism.</li>
+  <li><strong>Mosaic / Patchwork Plagiarism:</strong> Copying sentences or phrases from multiple different sources, rearranging them, and interspersing them with a few original words to form a paragraph without proper citation.</li>
+  <li><strong>Paraphrasing Plagiarism:</strong> Rewording another author's original analysis, argument, or findings without quotation or formal citation. Even though the wording is changed, the underlying idea is stolen.</li>
+  <li><strong>Self-Plagiarism (Duplicate / Text Recycling):</strong> Re-using significant portions of one's own previously published papers, conference proceedings, or thesis without citation or journal copyright permissions.</li>
+  <li><strong>Idea Plagiarism:</strong> Adopting an innovative architectural concept, algorithmic workflow, or methodology invented by another researcher and claiming it as one's own novel contribution.</li>
+  <li><strong>Accidental / Inadvertent Plagiarism:</strong> Occurs when a researcher fails to cite a source, misquotes a citation, or unintentionally paraphrases without proper acknowledgment due to poor note-taking and citation management habits.</li>
+</ol>
+
+<h4>3. Detection and Prevention</h4>
+<p>Plagiarism is detected using automated similarity detection software such as <em>Turnitin</em>, <em>iThenticate</em>, and <em>Urkund</em>. Prevention requires systematic literature citation using reference managers (Mendeley, Zotero) and placing exact reproduced text in quotation marks with exact page citations.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Thiel, Research Methods for Engineers, Ch. 2; IEEE Ethics Guidelines
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q07 -->
+        <article class="pyq-card" id="rmipr-q07" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-databases-bibliometrics" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; databases-bibliometrics</span>
+          </a>
+
+          <h3 class="pyq-question-text">What are bibliographic databases? Explain the salient features and utilities of major bibliographic databases (IEEE Xplore, Scopus, Web of Science, Google Scholar).</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Bibliographic Database</h4>
+<p>A <strong>bibliographic database</strong> is a structured, searchable electronic index of published academic literature (journal articles, conference proceedings, books, patents, and technical standards). It contains bibliographic metadata: paper title, author(s), institutional affiliation, abstract, keywords, publication venue, DOI, and cited reference lists.</p>
+
+<h4>2. Salient Features of Major Bibliographic Databases</h4>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Database</th>
+      <th>Provider / Coverage Scope</th>
+      <th>Key Features & Strengths</th>
+      <th>Engineering Utility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>IEEE Xplore</strong></td>
+      <td>Institute of Electrical and Electronics Engineers. Over 5 million full-text engineering documents.</td>
+      <td>High indexing precision for EE, CSE, and IT. Provides complete IEEE standards, transaction archives, and conference proceedings. Precise field search (author, affiliation, index terms).</td>
+      <td>Primary premier venue for CS and ISE systems, hardware, networks, and AI architectures.</td>
+    </tr>
+    <tr>
+      <td><strong>Scopus</strong></td>
+      <td>Elsevier. Over 80+ million curated records across science, technology, medicine, and social sciences.</td>
+      <td>Includes citation tracking, author profiles, Hirsch index ($h$-index) computation, CiteScore metrics, and institutional benchmarking. Strict peer-review quality filter.</td>
+      <td>Comprehensive bibliometric analysis, finding related co-citations, evaluating journal reputation.</td>
+    </tr>
+    <tr>
+      <td><strong>Web of Science (WoS)</strong></td>
+      <td>Clarivate Analytics. Oldest curated scientific citation index (formerly ISI Science Citation Index).</td>
+      <td>Calculates official <strong>Journal Impact Factor (JIF)</strong> via Journal Citation Reports (JCR). Provides cited reference searching (tracing backward and forward citations over decades).</td>
+      <td>Gold standard for prestigious high-impact publications and academic tenure evaluations.</td>
+    </tr>
+    <tr>
+      <td><strong>Google Scholar</strong></td>
+      <td>Google. Freely accessible web search engine indexing academic literature across all formats.</td>
+      <td>Broadest coverage (includes preprints on arXiv, technical reports, theses, patents). Automatic citation linking ("Cited by X"), "Related articles", and author profile generation. Highly tolerant of informal metadata.</td>
+      <td>Fast preliminary scoping, finding open-access PDF preprints, discoverability across disciplines.</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Thiel, Ch. 3, Literature Review; Kothari, Ch. 2
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q08 -->
+        <article class="pyq-card" id="rmipr-q08" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-citations-flow" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; citations-flow</span>
+          </a>
+
+          <h3 class="pyq-question-text">List and explain the main functions of citation. Describe how knowledge flows through citations with a conceptual illustration.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Main Functions of Citation</h4>
+<p>Citations serve multiple essential intellectual, ethical, and organizational functions in academic research:</p>
+<ol>
+  <li><strong>Intellectual Attribution & Priority:</strong> Formally acknowledges the original creators of ideas, algorithms, datasets, and proofs, establishing who first discovered a concept.</li>
+  <li><strong>Verification and Evidence:</strong> Allows readers and reviewers to verify the claims, methodologies, and empirical baselines used in the paper.</li>
+  <li><strong>Contextualization (Literature Scoping):</strong> Locates the current investigation within the broader landscape of prior art, highlighting the gap being bridged.</li>
+  <li><strong>Navigation & Knowledge Network:</strong> Acts as an intellectual hyperlink, connecting related research across decades and disparate laboratories worldwide.</li>
+</ol>
+
+<h4>2. Knowledge Flow Through Citations</h4>
+<p>Knowledge advances incrementally. In engineering, new innovations build upon foundational mathematical theories, established architectures, and empirical datasets. Citations document this historical trajectory:</p>
+
+<pre style="background:var(--bg-card); padding:12px; border-radius:8px; border:1px solid var(--border-subtle); font-family:monospace;">
+[Foundational Theory] (Shannon 1948 - Info Theory, Dijkstra 1959 - Graph Search)
+       │
+       ▼ (Cited by)
+[Methodological Innovation] (Hopcroft-Karp 1973, Viterbi 1967)
+       │
+       ▼ (Cited by)
+[Domain Adaptation / Architectural Advance] (Modern Deep Learning / SDN Protocols)
+       │
+       ▼ (Cited by)
+[Your Current Project / CIE-1 Paper] (Solves Specific Constrained Bottleneck)
+</pre>
+
+<p><strong>Two directional flows:</strong></p>
+<ul>
+  <li><strong>Backward Citation (Cited References):</strong> Looking backward in time to establish theoretical foundations and validated baselines.</li>
+  <li><strong>Forward Citation ("Cited By" Metrics):</strong> Looking forward in time to observe how subsequent researchers adopted, extended, or critiqued the original concept.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Thiel, Research Methods for Engineers, Ch. 3; Kothari, Ch. 2
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q09 -->
+        <article class="pyq-card" id="rmipr-q09" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-citations-flow" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; citations-flow</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is the impact of article title and keywords on citation rates? What factors must a project team consider when framing a title for their research project?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Impact of Title and Keywords on Citation Rates</h4>
+<ul>
+  <li><strong>Search Engine & Database Discoverability:</strong> Modern researchers find literature via algorithmic queries in Scopus, IEEE Xplore, and Google Scholar. The search engine algorithms index titles and author keywords with heavy weighting. Specific, standard terms ensure high indexing ranking.</li>
+  <li><strong>Reader Attention and Click-Through Rate:</strong> A clear, informative title communicates the core contribution immediately in a list of search results. Ambiguous or overly poetic titles are passed over.</li>
+  <li><strong>Interdisciplinary Visibility:</strong> Accurate keywords bridge disciplinary silos, allowing researchers in related domains (e.g., ML applied to biomedical signals) to discover and cite the paper.</li>
+  <li><strong>Empirical Evidence:</strong> Studies in bibliometrics show that concise, informative titles that clearly specify the method, target problem, and outcome achieve statistically higher citation counts than vague titles.</li>
+</ul>
+
+<h4>2. Considerations When Framing a Research Project Title</h4>
+<ol>
+  <li><strong>Clarity and Precision:</strong> Avoid ambiguous jargon, vague adjectives ("A Great Algorithm"), and unexplained acronyms.</li>
+  <li><strong>Specification of Core Variables:</strong> The title should identify the independent variable (method/technique) and the dependent variable (problem/application).</li>
+  <li><strong>Conciseness (Word Budget):</strong> Keep length typically between 10 to 15 words—sufficient to be descriptive without being cumbersome.</li>
+  <li><strong>Target Domain / Context:</strong> State the specific environment or platform (e.g., <em>"Energy-Efficient Routing in Resource-Constrained Wireless Sensor Networks"</em>).</li>
+  <li><strong>SEO & Keyword Alignment:</strong> Include the primary keywords that researchers in the field commonly type into search bars.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Thiel, Research Methods for Engineers, Ch. 3; Assignment I model solution
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q10 -->
+        <article class="pyq-card" id="rmipr-q10" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-reading-conceptualizing" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; reading-conceptualizing</span>
+          </a>
+
+          <h3 class="pyq-question-text">Compare Critical and Creative reading in technical research. Describe the necessary steps involved in the overall research process with a neat flow chart.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Critical Reading vs. Creative Reading</h4>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Critical Reading (Analytical)</th>
+      <th>Creative Reading (Generative)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Objective</strong></td>
+      <td>Dissecting and evaluating the published paper for validity, logical consistency, methodological rigor, and empirical soundness.</td>
+      <td>Synthesizing ideas from the paper to generate new hypotheses, novel extensions, or unexpected cross-domain applications.</td>
+    </tr>
+    <tr>
+      <td><strong>Key Questions Asked</strong></td>
+      <td><em>"Are the assumptions realistic? Is the sample size adequate? Does the conclusion truly follow from the data?"</em></td>
+      <td><em>"What if we applied this algorithm to a distributed edge network? How can this technique solve our bottleneck?"</em></td>
+    </tr>
+    <tr>
+      <td><strong>Focus</strong></td>
+      <td>Finding flaws, unstated assumptions, biases, and methodological limitations.</td>
+      <td>Identifying opportunities, combining disparate techniques, and imagining future directions.</td>
+    </tr>
+    <tr>
+      <td><strong>Outcome</strong></td>
+      <td>Objective literature evaluation and risk assessment.</td>
+      <td>Formulation of novel research proposals and design breakthroughs.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>2. The 8-Step Research Process Flowchart</h4>
+<pre style="background:var(--bg-card); padding:12px; border-radius:8px; border:1px solid var(--border-subtle); font-family:monospace;">
+[1. Formulating the Research Problem]
+             │
+             ▼
+[2. Extensive Literature Review (Prior Art Scoping)]
+             │
+             ▼
+[3. Developing Working Hypothesis]
+             │
+             ▼
+[4. Preparing Research Design (Experimental / Survey)]
+             │
+             ▼
+[5. Determining Sample Design (Census vs. Sample)]
+             │
+             ▼
+[6. Collecting Data (Observation, Survey, Experiment)]
+             │
+             ▼
+[7. Analysis of Data & Hypothesis Testing (Parametric/Non-parametric)]
+             │
+             ▼
+[8. Generalization, Interpretation & Report Preparation / Thesis]
+</pre>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Thiel, Research Methods for Engineers, Ch. 3; Kothari, Ch. 1, pp. 10–19
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
+        <div class="section-badge">UNIT 2</div>
+        <h2 class="section-title">Unit 2 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
+
+        <!-- Question rmipr-q11 -->
+        <article class="pyq-card" id="rmipr-q11" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-need-design" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; need-design</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is a Research Design? What is the need for a research design? Discuss the features of a good research design.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Meaning of Research Design</h4>
+<p>A <strong>research design</strong> is the conceptual structure or blueprint within which research is conducted. It constitutes the blueprint for the collection, measurement, and analysis of data. As defined by Selltiz et al., <em>"A research design is the arrangement of conditions for collection and analysis of data in a manner that aims to combine relevance to the research purpose with economy in procedure."</em></p>
+
+<h4>2. Need for Research Design</h4>
+<p>Research design is vital for several foundational reasons:</p>
+<ul>
+  <li><strong>Prevents Aimless Effort:</strong> Provides a systematic roadmap so that the investigator does not wander off track.</li>
+  <li><strong>Resource & Cost Optimization:</strong> Saves time, money, and computing/human resources by specifying exact sample sizes and experimental runs.</li>
+  <li><strong>Maximizes Reliability & Validity:</strong> Provides structures to eliminate or control extraneous variables that would otherwise corrupt conclusions.</li>
+  <li><strong>Facilitates Smooth Scaling:</strong> Enables other research team members to execute data collection and analysis seamlessly.</li>
+  <li><strong>Prerequisite for Funding Approval:</strong> Research grant committees and ethics review boards require a rigorous design blueprint before sanctioning projects.</li>
+</ul>
+
+<h4>3. Features of a Good Research Design</h4>
+<ol>
+  <li><strong>Appropriateness / Fitness to Purpose:</strong> Specifically tailored to the research objectives (an exploratory question needs a flexible design; a causal hypothesis requires a rigid experimental layout).</li>
+  <li><strong>Objectivity:</strong> Observational procedures and data extraction must yield identical results irrespective of who collects the data.</li>
+  <li><strong>Reliability:</strong> Consistency and stability of measurements across repeated trials.</li>
+  <li><strong>Validity:</strong>
+    <ul>
+      <li><em>Internal Validity:</em> Ensures the observed effect is truly caused by the independent variable, not by uncontrolled confounding factors.</li>
+      <li><em>External Validity (Generalizability):</em> Findings can be generalized across broader populations, operating conditions, or workloads.</li>
+    </ul>
+  </li>
+  <li><strong>Economy (Efficiency):</strong> Delivers the maximum statistical information per unit of cost, time, and experimental effort.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 31–33
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q12 -->
+        <article class="pyq-card" id="rmipr-q12" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-core-concepts" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; core-concepts</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define and explain the following core terms in the context of research design: (i) Independent Variable, (ii) Dependent Variable, (iii) Extraneous Variable, (iv) Confounded Relationship, (v) Control.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Important Concepts in Research Design</h4>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Formal Definition</th>
+      <th>Concrete Engineering / Experimental Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Independent Variable (IV)</strong></td>
+      <td>The variable that is manipulated, antecedent, or systematically varied by the researcher to determine its effect on the outcome.</td>
+      <td>In an experiment testing network latency, <em>packet payload size</em> or <em>buffer queue capacity</em> is the IV.</td>
+    </tr>
+    <tr>
+      <td><strong>Dependent Variable (DV)</strong></td>
+      <td>The variable whose response, outcome, or variation is observed and measured as the consequence of changes in the independent variable.</td>
+      <td><em>End-to-end latency (ms)</em> or <em>throughput (Mbps)</em> measured under varying buffer sizes.</td>
+    </tr>
+    <tr>
+      <td><strong>Extraneous Variable (EV)</strong></td>
+      <td>Variables that are not of primary interest to the study but may influence the dependent variable and introduce noise/error.</td>
+      <td><em>Ambient CPU temperature</em> or <em>background operating system thread scheduling</em> while benchmarking execution time.</td>
+    </tr>
+    <tr>
+      <td><strong>Confounded Relationship</strong></td>
+      <td>Occurs when an extraneous variable is correlated with both the IV and DV, making it impossible to separate the true effect of the IV from the extraneous variable.</td>
+      <td>Testing an educational tutoring software where the treatment group happens to consist exclusively of high-IQ students; the software effect is confounded with intelligence.</td>
+    </tr>
+    <tr>
+      <td><strong>Control</strong></td>
+      <td>The technical measures adopted in the experimental design to minimize, eliminate, or hold constant the influence of extraneous variables.</td>
+      <td>Running all benchmark executions in an isolated docker container with pinned CPU cores and constant ambient temperature.</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 33–36
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q13 -->
+        <article class="pyq-card" id="rmipr-q13" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-core-concepts" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; core-concepts</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is a research hypothesis? Explain the essential components of a well-formulated hypothesis and distinguish between Null and Alternative hypotheses.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Research Hypothesis</h4>
+<p>A <strong>research hypothesis</strong> is a tentative, testable proposition regarding the relationship between two or more variables. It is an educated guess based on theoretical literature that provides guidance for empirical investigation. It transforms an open-ended research question into an operational, verifiable claim.</p>
+
+<h4>2. Essential Components of a Well-Formulated Hypothesis</h4>
+<ol>
+  <li><strong>Clarity and Precision:</strong> Free from ambiguous concepts and poetic expressions; terms are operationally defined.</li>
+  <li><strong>Testability:</strong> Must be capable of empirical verification through observable data and statistical tests.</li>
+  <li><strong>Falsifiability:</strong> Must be logically possible to produce empirical evidence that contradicts the hypothesis (Popper's demarcation criterion).</li>
+  <li><strong>Specific Scope:</strong> Confined to a defined population and set of operational variables rather than sweeping global claims.</li>
+  <li><strong>Consistency with Known Facts:</strong> Aligned with established theoretical laws unless the explicit objective is to refute a prevailing paradigm.</li>
+</ol>
+
+<h4>3. Null vs. Alternative Hypothesis</h4>
+<ul>
+  <li><strong>Null Hypothesis ($H_0$):</strong> A hypothesis of <em>no difference</em> or <em>no relationship</em>. It posits that any observed variation between sample groups is purely due to random chance or sampling fluctuation. Example: $H_0: \mu_{\text{new}} = \mu_{\text{baseline}}$.</li>
+  <li><strong>Alternative Hypothesis ($H_1$ or $H_a$):</strong> The researcher's active operational hypothesis stating that a real difference, relationship, or treatment effect exists. Example: $H_1: \mu_{\text{new}} > \mu_{\text{baseline}}$ (one-tailed directional).</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3 & Ch. 9
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q14 -->
+        <article class="pyq-card" id="rmipr-q14" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-principles-experiment" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; principles-experiment</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the three basic principles of experimental design formulated by Sir Ronald Fisher: (i) Principle of Replication, (ii) Principle of Randomization, (iii) Principle of Local Control.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>The Three Fisherian Principles of Experimental Design</h4>
+<p>Formulated by Sir Ronald A. Fisher, these three foundational principles ensure the validity and statistical power of any scientific experiment:</p>
+
+<h4>1. Principle of Replication</h4>
+<p><strong>Concept:</strong> The experiment must be repeated more than once. Each treatment is applied to multiple experimental units.</p>
+<ul>
+  <li><strong>Purpose:</strong> A single observation cannot distinguish between treatment effect and random experimental error. Repeating trials provides an estimate of experimental error variance (Mean Squared Error, $MSE$).</li>
+  <li><strong>Statistical Benefit:</strong> The standard error of the sample mean decreases inversely with sample size: $SE = \frac{\sigma}{\sqrt{n}}$. Increasing replications increases statistical power and confidence.</li>
+</ul>
+
+<h4>2. Principle of Randomization</h4>
+<p><strong>Concept:</strong> The allocation of treatments to experimental units must be conducted by a random procedure (e.g., lottery method or pseudorandom number generators), without systematic selection by the experimenter.</p>
+<ul>
+  <li><strong>Purpose:</strong> Randomization guarantees that extraneous variables and unrecognized systematic biases (e.g., soil fertility gradients, operator fatigue over time) affect all treatment groups with equal probability.</li>
+  <li><strong>Statistical Benefit:</strong> Validates the fundamental mathematical assumption of independent, identically distributed ($i.i.d.$) random errors necessary for ANOVA and significance testing.</li>
+</ul>
+
+<h4>3. Principle of Local Control</h4>
+<p><strong>Concept:</strong> The experimental units are grouped into homogeneous sub-groups called <em>blocks</em>, such that variation within each block is minimal, while variation between blocks can be measured and statistically subtracted.</p>
+<ul>
+  <li><strong>Purpose:</strong> While randomization neutralizes extraneous variation probabilistically, local control mechanically isolates known extraneous factors (e.g., blocking by time of day, hardware batch, or operator skill).</li>
+  <li><strong>Statistical Benefit:</strong> Drastically reduces the residual experimental error sum of squares ($SS_E$), thereby increasing the calculated $F$-ratio and test sensitivity.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 39–41
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q15 -->
+        <article class="pyq-card" id="rmipr-q15" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-crd" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; crd</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain Completely Randomized Design (CRD). State its layout, mathematical model, merits, and demerits.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Concept and Layout of CRD</h4>
+<p>A <strong>Completely Randomized Design (CRD)</strong> is the simplest formal experimental design. In CRD, the treatments are allocated to experimental units completely at random across the entire experimental material, without any grouping or blocking. It utilizes only two principles: <em>Replication</em> and <em>Randomization</em> (no local control).</p>
+
+<h4>2. Mathematical ANOVA Model</h4>
+<p>$$Y_{ij} = \mu + \tau_i + \epsilon_{ij}$$</p>
+<p>Where:</p>
+<ul>
+  <li>$Y_{ij}$: The observed response of the $j$-th unit receiving the $i$-th treatment.</li>
+  <li>$\mu$: The general overall mean.</li>
+  <li>$\tau_i$: The true effect of the $i$-th treatment ($\sum \tau_i = 0$).</li>
+  <li>$\epsilon_{ij}$: Random experimental error, assumed $\epsilon_{ij} \sim N(0, \sigma^2)$ independent.</li>
+</ul>
+
+<h4>3. Merits (Advantages) of CRD</h4>
+<ol>
+  <li><strong>Maximum Simplicity:</strong> Extremely straightforward to plan, randomize, and execute.</li>
+  <li><strong>Flexibility in Replication:</strong> Different treatments can have unequal number of replications ($n_i \neq n_k$) without complicating analysis.</li>
+  <li><strong>Maximum Error Degrees of Freedom:</strong> Since no degrees of freedom are spent on blocking, the error degrees of freedom ($N - k$) is maximized.</li>
+  <li><strong>Tolerant of Missing Data:</strong> Loss of experimental units does not destroy orthogonality or balance.</li>
+</ol>
+
+<h4>4. Demerits (Limitations) of CRD</h4>
+<ol>
+  <li><strong>Strict Homogeneity Requirement:</strong> Valid only when all experimental units are completely homogeneous (e.g., identical laboratory test tubes or uniform virtual machines).</li>
+  <li><strong>Low Precision in Heterogeneous Environments:</strong> If experimental units vary significantly, all unit-to-unit variation inflates the experimental error variance, severely reducing statistical sensitivity.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 41–42
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q16 -->
+        <article class="pyq-card" id="rmipr-q16" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-rbd" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; rbd</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain Randomized Block Design (RBD). Sketch an RBD layout to study the effect of 3 new fertilizers (F1, F2, F3) on 3 different crops (Rice, Wheat, Jowar) with yield as outcome.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Concept of Randomized Block Design (RBD)</h4>
+<p><strong>Randomized Block Design (RBD)</strong> applies all three Fisherian principles: <em>Replication, Randomization, and Local Control</em>. Experimental units are stratified into homogeneous groups called <strong>blocks</strong> according to a known extraneous variable. Each block contains exactly one replication of each treatment, and treatments are assigned randomly within each block.</p>
+
+<h4>2. Experimental Layout for Fertilizer Experiment</h4>
+<p><strong>Problem Setup:</strong></p>
+<ul>
+  <li>Treatments (IV): 3 Fertilizers ($F_1, F_2, F_3$)</li>
+  <li>Extraneous Blocking Factor: Crop types (Block 1 = Rice, Block 2 = Wheat, Block 3 = Jowar)</li>
+  <li>Dependent Variable: Crop Yield (kg/hectare)</li>
+</ul>
+
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Block (Crop Type)</th>
+      <th>Plot 1</th>
+      <th>Plot 2</th>
+      <th>Plot 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Block 1 (Rice)</strong></td>
+      <td>$F_2$ (randomized)</td>
+      <td>$F_1$</td>
+      <td>$F_3$</td>
+    </tr>
+    <tr>
+      <td><strong>Block 2 (Wheat)</strong></td>
+      <td>$F_3$</td>
+      <td>$F_2$</td>
+      <td>$F_1$</td>
+    </tr>
+    <tr>
+      <td><strong>Block 3 (Jowar)</strong></td>
+      <td>$F_1$</td>
+      <td>$F_3$</td>
+      <td>$F_2$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>3. Mathematical Model & Partitioning of Variation</h4>
+<p>$$Y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij}$$</p>
+<p>Total Sum of Squares ($SS_T$) is partitioned into:</p>
+<p>$$SS_T = SS_{\text{Treatments}} + SS_{\text{Blocks}} + SS_{\text{Error}}$$</p>
+<p><strong>Advantage:</strong> Because variation due to crop differences ($SS_{\text{Blocks}}$) is isolated and subtracted, the residual error ($SS_{\text{Error}}$) is significantly reduced compared to CRD.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 43–45
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q17 -->
+        <article class="pyq-card" id="rmipr-q17" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-lsd" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; lsd</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain Latin Square Design (LSD). Compare and contrast Randomized Block Design (RBD) and Latin Square Design (LSD) with their merits and demerits.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Concept and Layout of Latin Square Design (LSD)</h4>
+<p>A <strong>Latin Square Design (LSD)</strong> is an advanced experimental design that controls for <strong>two independent sources of extraneous variation</strong> simultaneously (two-way blocking). Experimental units are arranged in an $m \times m$ grid representing $m$ rows and $m$ columns. Exactly $m$ treatments are assigned such that <strong>each treatment appears once and only once in each row and in each column</strong>.</p>
+
+<p><em>Example 3x3 Latin Square Layout (Treatments A, B, C):</em></p>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Row / Factor 1</th>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Row 1</strong></td>
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td><strong>Row 2</strong></td>
+      <td>B</td>
+      <td>C</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td><strong>Row 3</strong></td>
+      <td>C</td>
+      <td>A</td>
+      <td>B</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>2. Comparison: RBD vs. Latin Square Design</h4>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Randomized Block Design (RBD)</th>
+      <th>Latin Square Design (LSD)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Extraneous Factors Controlled</strong></td>
+      <td>Controls <strong>one</strong> source of extraneous variability (one-way blocking).</td>
+      <td>Controls <strong>two</strong> independent sources of extraneous variability (two-way blocking: Rows and Columns).</td>
+    </tr>
+    <tr>
+      <td><strong>Dimensional Constraint</strong></td>
+      <td>Flexible; number of blocks does not need to equal number of treatments.</td>
+      <td>Strictly square: Number of rows = Number of columns = Number of treatments ($m \times m$).</td>
+    </tr>
+    <tr>
+      <td><strong>Error Isolation</strong></td>
+      <td>$SS_T = SS_{\text{Treat}} + SS_{\text{Block}} + SS_E$.</td>
+      <td>$SS_T = SS_{\text{Treat}} + SS_{\text{Row}} + SS_{\text{Col}} + SS_E$.</td>
+    </tr>
+    <tr>
+      <td><strong>Assumptions</strong></td>
+      <td>Assumes no treatment $\times$ block interaction.</td>
+      <td>Assumes no interaction between treatments, rows, and columns (strictly additive model).</td>
+    </tr>
+    <tr>
+      <td><strong>Suitability</strong></td>
+      <td>Field experiments with a single directional gradient (e.g. soil fertility slope).</td>
+      <td>Experiments with two nuisance gradients (e.g. machine operator variability and day-of-week variability).</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 45–48
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q18 -->
+        <article class="pyq-card" id="rmipr-q18" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-factorial" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; factorial</span>
+          </a>
+
+          <h3 class="pyq-question-text">In a $3 \times 2 \times 2$ factorial design examining 3 factors: Type of Therapy (CBT, Psychodynamic, Humanistic), Duration (Short vs. Long), and Therapist Gender (Male vs. Female), list all possible treatment combinations. Explain the key advantages of factorial designs in examining interaction effects.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Treatment Combinations in the $3 \times 2 \times 2$ Factorial Design</h4>
+<p><strong>Factors and Levels:</strong></p>
+<ul>
+  <li>Factor A (Therapy Type, 3 levels): $A_1 = \text{CBT}$, $A_2 = \text{Psychodynamic}$, $A_3 = \text{Humanistic}$</li>
+  <li>Factor B (Duration, 2 levels): $B_1 = \text{Short}$, $B_2 = \text{Long}$</li>
+  <li>Factor C (Therapist Gender, 2 levels): $C_1 = \text{Male}$, $C_2 = \text{Female}$</li>
+</ul>
+<p>Total treatment combinations = $3 \times 2 \times 2 = 12$ distinct groups:</p>
+
+<ol>
+  <li>$A_1 B_1 C_1$: CBT, Short, Male</li>
+  <li>$A_1 B_1 C_2$: CBT, Short, Female</li>
+  <li>$A_1 B_2 C_1$: CBT, Long, Male</li>
+  <li>$A_1 B_2 C_2$: CBT, Long, Female</li>
+  <li>$A_2 B_1 C_1$: Psychodynamic, Short, Male</li>
+  <li>$A_2 B_1 C_2$: Psychodynamic, Short, Female</li>
+  <li>$A_2 B_2 C_1$: Psychodynamic, Long, Male</li>
+  <li>$A_2 B_2 C_2$: Psychodynamic, Long, Female</li>
+  <li>$A_3 B_1 C_1$: Humanistic, Short, Male</li>
+  <li>$A_3 B_1 C_2$: Humanistic, Short, Female</li>
+  <li>$A_3 B_2 C_1$: Humanistic, Long, Male</li>
+  <li>$A_3 B_2 C_2$: Humanistic, Long, Female</li>
+</ol>
+
+<h4>2. Advantages of Factorial Design over One-Factor-at-a-Time (OFAT)</h4>
+<ol>
+  <li><strong>Detection of Interaction Effects:</strong> OFAT designs assume variables act independently. Factorial designs explicitly measure whether the effect of Factor A depends on the level of Factor B (e.g., CBT may be effective only in Short duration, while Psychodynamic requires Long duration).</li>
+  <li><strong>High Experimental Efficiency:</strong> Evaluates multiple factors within the same number of experimental units, achieving greater precision per trial.</li>
+  <li><strong>Broader Validity of Conclusions:</strong> The main effect of each factor is evaluated across varying levels of the other factors, ensuring conclusions are robust and generalizable.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 3, pp. 48–51; CIE-1 2024 Question Paper
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-3" class="note-section pyq-unit-section" data-unit="unit-3">
+        <div class="section-badge">UNIT 3</div>
+        <h2 class="section-title">Unit 3 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 3 past exam questions.</p>
+
+        <!-- Question rmipr-q19 -->
+        <article class="pyq-card" id="rmipr-q19" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-data-collection" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; data-collection</span>
+          </a>
+
+          <h3 class="pyq-question-text">Compare and contrast the observation method and interview method of primary data collection. State their respective merits and limitations.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Comparison: Observation Method vs. Interview Method</h4>
+<p>Primary data collection methods capture first-hand evidence directly from subjects:</p>
+
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Observation Method</th>
+      <th>Interview Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mechanism</strong></td>
+      <td>Systematic viewing, recording, and analysis of subjects' behavior as it naturally occurs without asking questions.</td>
+      <td>Direct verbal interaction and question-and-answer exchange between the interviewer and respondent (personal or telephonic).</td>
+    </tr>
+    <tr>
+      <td><strong>Subject Cooperation</strong></td>
+      <td>Does not require verbal cooperation or willingness of respondents (unobtrusive).</td>
+      <td>Heavily depends on the active willingness and honesty of the interviewee.</td>
+    </tr>
+    <tr>
+      <td><strong>Subjective Bias</strong></td>
+      <td>Eliminates respondent recall bias; however, introduces <em>observer bias</em>.</td>
+      <td>Prone to respondent recall bias, social desirability bias, and interviewer bias.</td>
+    </tr>
+    <tr>
+      <td><strong>Depth & Hidden Motives</strong></td>
+      <td>Cannot capture past history, unexpressed feelings, attitudes, or internal motives.</td>
+      <td>Can probe deeply into personal reasons, attitudes, historical background, and nuanced reasoning.</td>
+    </tr>
+    <tr>
+      <td><strong>Cost & Speed</strong></td>
+      <td>Can be expensive and time-consuming; limited to present behavior.</td>
+      <td>Flexible; telephone interviews allow rapid, geographically dispersed data collection.</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 6, pp. 96–100
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q20 -->
+        <article class="pyq-card" id="rmipr-q20" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-data-collection" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; data-collection</span>
+          </a>
+
+          <h3 class="pyq-question-text">How do questionnaires and schedules differ in primary data collection? Outline the essential guidelines for constructing a successful questionnaire.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Questionnaire vs. Schedule</h4>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Criteria</th>
+      <th>Questionnaire</th>
+      <th>Schedule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Administration</strong></td>
+      <td>Mailed or sent electronically directly to respondents to be filled out independently.</td>
+      <td>Carried and filled out personally by trained enumerators/investigators during direct interaction.</td>
+    </tr>
+    <tr>
+      <td><strong>Literacy Requirement</strong></td>
+      <td>Can be used only when respondents are literate and cooperative.</td>
+      <td>Can be used even when respondents are illiterate, as the enumerator translates and records answers.</td>
+    </tr>
+    <tr>
+      <td><strong>Response Rate</strong></td>
+      <td>Usually low response rate (often below 20–30% in postal surveys).</td>
+      <td>Very high response rate because enumerators personally collect the responses.</td>
+    </tr>
+    <tr>
+      <td><strong>Identity of Respondent</strong></td>
+      <td>Not always clear whether the intended respondent actually filled in the form.</td>
+      <td>Identity of respondent is known and verified on the spot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>2. Guidelines for Constructing a Questionnaire</h4>
+<ol>
+  <li><strong>Concise Length:</strong> Keep the questionnaire as short as possible. Unnecessarily long questionnaires cause respondent fatigue.</li>
+  <li><strong>Logical Sequence of Questions:</strong> Start with easy, non-threatening questions (general profile), progress to core specific topics, and place sensitive or demographic questions at the end.</li>
+  <li><strong>Clear and Simple Wording:</strong> Avoid ambiguous phrasing, double negatives, technical jargon, and colloquialisms.</li>
+  <li><strong>Avoid Leading / Loaded Questions:</strong> Questions must remain strictly neutral (do not prompt a desired answer).</li>
+  <li><strong>Pilot Study (Pre-testing):</strong> Always administer the draft questionnaire to a small pilot sample (15–20 subjects) to identify confusing wording and estimate completion time before full deployment.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 6, pp. 100–104
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q21 -->
+        <article class="pyq-card" id="rmipr-q21" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-data-collection" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; data-collection</span>
+          </a>
+
+          <h3 class="pyq-question-text">Elaborate the steps involved in Secondary Data Collection. What precautions must a researcher observe before utilizing secondary data?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Nature and Sources of Secondary Data</h4>
+<p><strong>Secondary data</strong> refers to information that has already been collected and compiled by another agency, investigator, or institution for a different primary purpose. Common sources include: Government census reports, RBI bulletins, corporate financial statements, public datasets (Kaggle, UCI), published journals, and technical whitepapers.</p>
+
+<h4>2. Essential Precautions Before Using Secondary Data</h4>
+<p>Secondary data must not be accepted at face value. The researcher must verify three critical criteria:</p>
+<ol>
+  <li><strong>Reliability of Data:</strong>
+    <ul>
+      <li><em>Who collected the data?</em> (Evaluating reputation, integrity, and competence of the originating organization).</li>
+      <li><em>What were the sources?</em> (Primary origin vs. third-hand compilations).</li>
+      <li><em>Were methods scientific?</em> (Assessing sample size, collection techniques, and margin of error).</li>
+    </ul>
+  </li>
+  <li><strong>Suitability of Data:</strong>
+    <ul>
+      <li>The data must match the operational definitions and scope of the current investigation. For example, if the current study investigates full-time software engineers, secondary data that lumps part-time interns together with seniors is unsuitable.</li>
+    </ul>
+  </li>
+  <li><strong>Adequacy of Data:</strong>
+    <ul>
+      <li>The dataset must have sufficient coverage, geographic breadth, and temporal relevance. If conditions have changed drastically (e.g., pre-COVID vs. post-COVID telemetry), historical data may be inadequate.</li>
+    </ul>
+  </li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 6, pp. 111–112
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q22 -->
+        <article class="pyq-card" id="rmipr-q22" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-sampling-fundamentals" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; sampling-fundamentals</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the steps involved in developing a sample design. Contrast the Census method with the Sample survey method.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Census vs. Sample Survey</h4>
+<ul>
+  <li><strong>Census Method:</strong> Complete enumeration of every single elementary unit in the universe/population. High accuracy if properly executed, but requires vast financial resources, time, and manpower. Impractical when population is infinite or testing is destructive (e.g., testing fuse lifespans).</li>
+  <li><strong>Sample Survey:</strong> Investigating a representative subset (sample) selected from the universe. Consumes less time and cost, enables deeper probing, and when designed scientifically, yields high precision with quantifiable margins of error.</li>
+</ul>
+
+<h4>2. Steps in Developing a Sample Design</h4>
+<ol>
+  <li><strong>Type of Universe:</strong> Clearly define whether the population is <em>finite</em> (e.g., students in a college) or <em>infinite</em> (e.g., packets passing through a router over an unbounded time horizon).</li>
+  <li><strong>Sampling Unit:</strong> Define the elementary unit of selection (e.g., individual student, family, cluster, city block).</li>
+  <li><strong>Source List (Sampling Frame):</strong> The comprehensive list containing names/addresses of all sampling units from which the sample is drawn. It must be exhaustive, up-to-date, and free from duplication.</li>
+  <li><strong>Size of Sample ($n$):</strong> Determine the number of units required to achieve target statistical power, balancing margin of error against budgetary constraints.</li>
+  <li><strong>Parameters of Interest:</strong> Identify whether the objective is to estimate population means, proportions, or variance.</li>
+  <li><strong>Budgetary Constraints:</strong> Determine feasible sample size under available funding and timeline.</li>
+  <li><strong>Sampling Procedure:</strong> Select the exact probability algorithm (Simple Random, Stratified, Systematic, or Cluster).</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 4, pp. 55–58
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question rmipr-q23 -->
+        <article class="pyq-card" id="rmipr-q23" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-criteria-sample-design" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; criteria-sample-design</span>
+          </a>
+
+          <h3 class="pyq-question-text">What are the characteristics of a good sample design? Explain the criteria and sources of bias that must be controlled when selecting a sampling procedure.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Characteristics of a Good Sample Design</h4>
+<p>A sound sample design must satisfy the following fundamental attributes:</p>
+<ol>
+  <li><strong>Representativeness:</strong> The sample must accurately reflect the diversity, distribution, and essential characteristics of the parent population.</li>
+  <li><strong>Small Sampling Error:</strong> Must produce parameter estimates with high statistical precision (narrow confidence intervals).</li>
+  <li><strong>Minimization of Systematic Bias:</strong> Design must eliminate structural tendencies that skew estimates systematically in one direction.</li>
+  <li><strong>Economic Feasibility:</strong> Delivers the required precision within available budgetary, computational, and human constraints.</li>
+  <li><strong>Generalizability:</strong> The sample findings must be safely applicable to the target universe with calculable confidence levels.</li>
+</ol>
+
+<h4>2. Criteria & Sources of Systematic Bias to Control</h4>
+<p>Systematic bias arises from errors in the sampling procedure that do not disappear even with large sample sizes. Key sources include:</p>
+<ul>
+  <li><strong>Inappropriate Sampling Frame:</strong> If the source list omits key segments of the universe (e.g., using a landline directory to sample mobile app users), the sample is systematically biased.</li>
+  <li><strong>Defective Measuring Device:</strong> Biased survey questions, malfunctioning laboratory instruments, or ambiguous scales.</li>
+  <li><strong>Non-Respondents:</strong> When individuals who refuse or fail to respond systematically differ from respondents (e.g., unhappy customers refusing feedback).</li>
+  <li><strong>Natural Bias in Reporting:</strong> Tendency of subjects to over-report socially desirable attributes (e.g., income, study hours) and under-report undesirable habits.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> C.R. Kothari, Research Methodology (2e), Ch. 4, pp. 58–60
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+
+      <!-- Unit Navigation Footer -->
+      <footer class="unit-nav-footer">
+        <a href="../../../index.html#subject/rmipr" class="nav-arrow-btn nav-back-center" style="text-align: center;">
+          <span class="nav-arrow-sub">Course Portal</span>
+          <span class="nav-arrow-title">24AL58 Overview</span>
+        </a>
+        <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
+          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-title">Unit 1 Notes</span>
+        </a>
+      </footer>
+
+      <!-- Prescribed Syllabus Disclaimer -->
+      <p class="reference-disclaimer">
+        CIE-1 Examination Model Answers derived from official syllabus guidelines and textbooks. Verify with faculty problem sets before writing the exam.
+      </p>
+    </main>
+  </div>
+
+  <!-- Shared Scripts: KaTeX Auto-Render & Notes Client Engine -->
+  <script src="../../../assets/katex/katex.min.js"></script>
+  <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script src="../../../js/notes.js"></script>
+  <script>
+    // Quick Interactive Filter logic
+    document.querySelectorAll('.pyq-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pyq-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.getAttribute('data-filter');
+
+        document.querySelectorAll('.pyq-card').forEach(card => {
+          if (f === 'all') {
+            card.style.display = 'block';
+          } else if (f === 'high') {
+            card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
+          } else if (f.startsWith('unit-')) {
+            card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
