@@ -67,7 +67,7 @@ window.SEM5_DATA = {
       },
       {
         "slNo": 4,
-        "code": "IS54",
+        "code": "24IS54",
         "name": "Theory of Computation",
         "dept": "ISE",
         "category": "PCC",
@@ -1741,7 +1741,11 @@ window.SEM5_DATA = {
     },
     {
       "id": "toc",
-      "code": "IS54",
+      "code": "24IS54",
+      "examDate": "2026-10-16",
+      "examTime": "13:30–14:30",
+      "examSchedule": "Fri 16-10-2026, 13:30–14:30",
+      "cie1Scope": "Unit 1, Unit 2 (Full)",
       "name": "Theory of Computation",
       "shortName": "TOC",
       "category": "PCC",
@@ -2047,117 +2051,37 @@ window.SEM5_DATA = {
           "isSyllabusOnly": false
         },
         {
-          "id": "toc-unit3",
-          "unitNumber": 3,
-          "title": "Unit 3: Context-Free Grammars & Pushdown Automata",
-          "topics": "Context free grammars, Parse trees: Constructing parse trees, The yield of a parse tree, Applications, Ambiguity in grammars and Languages, Normal forms for CFGs.",
-          "isPractice": false,
+          "id": "toc-pyq",
+          "unitNumber": "PYQ",
+          "title": "CIE-1 PYQ Bank & Model Answers",
+          "topics": "20 Solved examination questions covering DFA/NFA designs, Subset Construction (NFA to DFA), Regular Expressions, Thompson's Construction, State Elimination, Arden's Theorem, Myhill-Nerode Table-Filling Minimization, Pumping Lemma proofs, and Closure Properties.",
+          "isPractice": true,
           "files": [
             {
-              "id": "toc-u3-notes",
-              "title": "Unit 3: Interactive Notes",
-              "originalName": "unit-3-notes.html",
-              "path": "notes/toc/unit3/unit-3-notes.html",
-              "originalPath": null,
-              "type": "notes",
-              "tag": "Interactive notes",
-              "readingTime": "42 min read",
-              "size": "Interactive Notes",
+              "id": "toc-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/toc/pyq/pyq-answers.html",
+              "type": "pyq",
+              "tag": "Solved PYQs",
+              "readingTime": "35 min read",
+              "size": "Interactive Model Answers",
               "isConverted": false
             },
             {
-              "id": "toc-u3-handwritten-pdf",
-              "title": "Handwritten notebook (PDF)",
-              "originalName": "toc-unit3-handwritten.pdf",
-              "path": "notes/toc/unit3/handwritten/toc-unit3-handwritten.pdf",
+              "id": "toc-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "toc-pyq-handwritten.pdf",
+              "path": "notes/toc/pyq/handwritten/toc-pyq-handwritten.pdf",
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 26,
-              "size": "0.85 MB",
-              "sizeBytes": 895543,
-              "previewImage": "notes/toc/unit3/handwritten/toc-unit3-preview.webp",
-              "sourceHtml": "notes/toc/unit3/unit-3-notes.html"
+              "pages": 20,
+              "size": "0.67 MB",
+              "sizeBytes": 698781,
+              "previewImage": "notes/toc/pyq/handwritten/toc-pyq-preview.webp",
+              "sourceHtml": "notes/toc/pyq/pyq-answers.html"
             },
-            {
-              "id": "toc-u3-main",
-              "title": "Unit 3: CFGs & Pushdown Automata (Comprehensive)",
-              "originalName": "Unit 3.pdf",
-              "path": "notes/toc/unit3/unit-3.pdf",
-              "originalPath": null,
-              "type": "pdf",
-              "size": "23.56 MB",
-              "sizeBytes": 24704030,
-              "isConverted": false,
-              "isAlternate": false
-            },
-            {
-              "id": "toc-u3-alt",
-              "title": "Unit 3: Alternate / Condensed Notes",
-              "originalName": "TOC_ unit3.pdf",
-              "path": "notes/toc/unit3/toc-unit3-alternate.pdf",
-              "originalPath": null,
-              "type": "pdf",
-              "size": "2.65 MB",
-              "sizeBytes": 2781833,
-              "isConverted": false,
-              "isAlternate": true,
-              "alternateLabel": "Alternate / Condensed Notes"
-            }
-          ],
-          "isSyllabusOnly": false
-        },
-        {
-          "id": "toc-unit4",
-          "unitNumber": 4,
-          "title": "Unit 4: Properties of CFLs & Pushdown Automata",
-          "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA\u2019s and CFG\u2019s, Deterministic Pushdown Automata.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "toc-u4-main",
-              "title": "Unit 4: Pushdown Automata (Comprehensive)",
-              "originalName": "Unit 4.pdf",
-              "path": "notes/toc/unit4/unit-4.pdf",
-              "originalPath": null,
-              "type": "pdf",
-              "size": "2.62 MB",
-              "sizeBytes": 2743614,
-              "isConverted": false,
-              "isAlternate": false
-            }
-          ],
-          "isSyllabusOnly": true
-        },
-        {
-          "id": "toc-unit5",
-          "unitNumber": 5,
-          "title": "Unit 5: Introduction to Turing Machines & NP Completeness",
-          "topics": "The Turning Machine, Programming Techniques for Turning Machines, Extensions to the Basic Turning Machines, Turing Machine and Computers. Introduction to NP Hard and NP complete.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "toc-u5-main",
-              "title": "Unit 5: Turing Machines & Complexity (Comprehensive)",
-              "originalName": "Unit 5.pdf",
-              "path": "notes/toc/unit5/unit-5.pdf",
-              "originalPath": null,
-              "type": "pdf",
-              "size": "4.24 MB",
-              "sizeBytes": 4446567,
-              "isConverted": false,
-              "isAlternate": false
-            }
-          ],
-          "isSyllabusOnly": true
-        },
-        {
-          "id": "toc-practice",
-          "unitNumber": "Practice",
-          "title": "Practice & Examination Question Papers",
-          "topics": "Official test papers, portion reviews, Bloom's taxonomy distribution, and question formats.",
-          "isPractice": true,
-          "files": [
             {
               "id": "toc-cie-see-bundle",
               "title": "Theory of Computation IS54 CIE-1, CIE-2 & Semester End Exam (SEE) Question Papers (2025)",
@@ -2172,9 +2096,9 @@ window.SEM5_DATA = {
           ]
         }
       ],
-      "fileCount": 14,
-      "totalSizeBytes": 78860324,
-      "totalSize": "75.2 MB"
+      "fileCount": 10,
+      "totalSizeBytes": 43987518,
+      "totalSize": "41.9 MB"
     },
     {
       "id": "ai",

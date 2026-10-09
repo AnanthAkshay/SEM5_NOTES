@@ -1,0 +1,418 @@
+{
+  "subject_id": "toc",
+  "subject_code": "24IS54",
+  "subject_name": "Theory of Computation",
+  "cie1_exam_date": "2026-10-16",
+  "cie1_exam_time": "13:30\u201314:30",
+  "total_in_scope": 20,
+  "total_out_of_scope": 18,
+  "questions": [
+    {
+      "id": "toc-q01",
+      "unit": 1,
+      "section_id": "sec-central-concepts",
+      "question": "Define the central concepts of automata theory with suitable examples: (i) Alphabet ($\\Sigma$), (ii) String ($w$) & String length ($|w|$), (iii) Empty string ($\\epsilon$), (iv) Kleene Star ($\\Sigma^*$) & Positive Closure ($\\Sigma^+$), (v) Language ($L$), (vi) Finite Automata.",
+      "marks": 7,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q1a, 7M)",
+        "SEE Jan 2026 (Q1a, 4M)",
+        "Hopcroft, Motwani & Ullman (3e), Ch. 1"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Introduction to Automata Theory, Languages, and Computation (3e), Ch. 1, pp. 28\u201332",
+      "answer": "<h4>1. Central Concepts of Automata Theory</h4>\n<ul>\n  <li><strong>(i) Alphabet ($\\Sigma$):</strong> A non-empty, finite set of symbols. Example: Binary alphabet $\\Sigma = \\{0, 1\\}$, English lowercase letters $\\Sigma = \\{a, b, \\dots, z\\}$.</li>\n  <li><strong>(ii) String (Word, $w$):</strong> A finite sequence of symbols chosen from an alphabet $\\Sigma$. The <strong>length of a string</strong> ($|w|$) is the number of symbol positions in $w$. Example: If $w = 0110$, then $|w| = 4$.</li>\n  <li><strong>(iii) Empty String ($\\epsilon$ or $\\lambda$):</strong> The unique string containing zero symbols. Its length is $|\\epsilon| = 0$. For any string $w$, $\\epsilon w = w \\epsilon = w$.</li>\n  <li><strong>(iv) Kleene Star ($\\Sigma^*$) & Positive Closure ($\\Sigma^+$):</strong>\n    <ul>\n      <li><strong>Kleene Star ($\\Sigma^*$):</strong> The set of all strings of all possible lengths over $\\Sigma$, including the empty string $\\epsilon$. $\\Sigma^* = \\Sigma^0 \\cup \\Sigma^1 \\cup \\Sigma^2 \\cup \\dots = \\bigcup_{i=0}^{\\infty} \\Sigma^i$. For $\\Sigma = \\{0, 1\\}$, $\\Sigma^* = \\{\\epsilon, 0, 1, 00, 01, 10, 11, \\dots\\}$.</li>\n      <li><strong>Positive Closure ($\\Sigma^+$):</strong> The set of all strings over $\\Sigma$ excluding $\\epsilon$. $\\Sigma^+ = \\bigcup_{i=1}^{\\infty} \\Sigma^i = \\Sigma^* \\setminus \\{\\epsilon\\}$.</li>\n    </ul>\n  </li>\n  <li><strong>(v) Language ($L$):</strong> A set of strings all chosen from some $\\Sigma^*$. $L \\subseteq \\Sigma^*$. Can be finite ($L = \\{0, 01, 11\\}$) or infinite ($L = \\{0^n 1^n \\mid n \\ge 1\\}$). The empty language is denoted $\\emptyset = \\{\\}$.</li>\n  <li><strong>(vi) Finite Automata (FA):</strong> An abstract mathematical model of a computing device with finite internal memory, consisting of states, input symbols, and transition rules that read an input string symbol-by-symbol and decide whether to accept or reject it.</li>\n</ul>"
+    },
+    {
+      "id": "toc-q02",
+      "unit": 1,
+      "section_id": "sec-dfa",
+      "question": "Define Deterministic Finite Automata (DFA). Discuss its 5-tuple components $(Q, \\Sigma, \\delta, q_0, F)$ and the extended transition function $\\hat{\\delta}$ with an illustrative example.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE Jan 2026 (Q1c, 8M)",
+        "SEE 2025 (Q2a, 5M)",
+        "Hopcroft & Ullman Ch. 2"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 2, pp. 45\u201348",
+      "answer": "<h4>1. Formal 5-Tuple Definition of a DFA</h4>\n<p>A <strong>Deterministic Finite Automaton (DFA)</strong> is formally defined as a 5-tuple:</p>\n<p>$$M = (Q, \\Sigma, \\delta, q_0, F)$$</p>\n<ol>\n  <li>$Q$: A finite, non-empty set of internal <strong>states</strong>.</li>\n  <li>$\\Sigma$: A finite set of <strong>input symbols</strong> (alphabet).</li>\n  <li>$\\delta$: The <strong>transition function</strong> mapping a state and an input symbol to exactly one next state: $$\\delta: Q \\times \\Sigma \\rightarrow Q$$</li>\n  <li>$q_0$: The unique <strong>start state</strong> (initial state), where $q_0 \\in Q$.</li>\n  <li>$F$: The set of <strong>final (accepting) states</strong>, where $F \\subseteq Q$.</li>\n</ol>\n\n<h4>2. Extended Transition Function ($\\hat{\\delta}$)</h4>\n<p>The extended transition function $\\hat{\\delta}: Q \\times \\Sigma^* \\rightarrow Q$ tracks the state reached after reading an entire string $w$:</p>\n<ul>\n  <li><strong>Basis:</strong> $\\hat{\\delta}(q, \\epsilon) = q$ (reading no symbol leaves the machine in state $q$).</li>\n  <li><strong>Induction:</strong> For any string $w = xa$ (where $x \\in \\Sigma^*$ and $a \\in \\Sigma$): $$\\hat{\\delta}(q, xa) = \\delta(\\hat{\\delta}(q, x), a)$$</li>\n</ul>\n<p><strong>Language Accepted:</strong> $L(M) = \\{w \\in \\Sigma^* \\mid \\hat{\\delta}(q_0, w) \\in F\\}$.</p>"
+    },
+    {
+      "id": "toc-q03",
+      "unit": 1,
+      "section_id": "sec-dfa-design",
+      "question": "Construct a Deterministic Finite Automaton (DFA) accepting the set of all binary strings over $\\{0, 1\\}$ that, when interpreted as a binary number, are divisible by 5.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2024 (Q1a, 8M)"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 2; Standard Automata Arithmetic",
+      "answer": "<h4>1. Arithmetic Formulation (Modulo 5 DFA)</h4>\n<p>When processing a binary number from left to right, if the current value is $v$ and the next incoming bit is $b \\in \\{0, 1\\}$, the updated value is:</p>\n<p>$$v_{\\text{new}} = 2v + b$$</p>\n<p>Taking modulo 5: $$\\text{remainder}_{\\text{new}} = (2 \\times \\text{remainder} + b) \\pmod 5$$</p>\n<p>Hence, the DFA requires 5 states representing remainders $\\{0, 1, 2, 3, 4\\}$: $Q = \\{q_0, q_1, q_2, q_3, q_4\\}$.</p>\n<ul>\n  <li>Start state: $q_0$ (value 0).</li>\n  <li>Accept state: $F = \\{q_0\\}$ (divisible by 5 with remainder 0).</li>\n</ul>\n\n<h4>2. Transition Table</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Current State ($r$)</th>\n      <th>Input 0: $(2r + 0) \\pmod 5$</th>\n      <th>Input 1: $(2r + 1) \\pmod 5$</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>$\\rightarrow *q_0$ (rem 0)</td>\n      <td>$q_0$ ($(0 \\times 2 + 0) \\% 5 = 0$)</td>\n      <td>$q_1$ ($(0 \\times 2 + 1) \\% 5 = 1$)</td>\n    </tr>\n    <tr>\n      <td>$q_1$ (rem 1)</td>\n      <td>$q_2$ ($(1 \\times 2 + 0) \\% 5 = 2$)</td>\n      <td>$q_3$ ($(1 \\times 2 + 1) \\% 5 = 3$)</td>\n    </tr>\n    <tr>\n      <td>$q_2$ (rem 2)</td>\n      <td>$q_4$ ($(2 \\times 2 + 0) \\% 5 = 4$)</td>\n      <td>$q_0$ ($(2 \\times 2 + 1) \\% 5 = 0$)</td>\n    </tr>\n    <tr>\n      <td>$q_3$ (rem 3)</td>\n      <td>$q_1$ ($(3 \\times 2 + 0) \\% 5 = 1$)</td>\n      <td>$q_2$ ($(3 \\times 2 + 1) \\% 5 = 2$)</td>\n    </tr>\n    <tr>\n      <td>$q_4$ (rem 4)</td>\n      <td>$q_3$ ($(4 \\times 2 + 0) \\% 5 = 3$)</td>\n      <td>$q_4$ ($(4 \\times 2 + 1) \\% 5 = 4$)</td>\n    </tr>\n  </tbody>\n</table>\n\n<p><strong>Verification:</strong> String $1010_2 = 10_{10}$ (divisible by 5):<br>\n$\\delta(q_0, 1) = q_1 \\rightarrow \\delta(q_1, 0) = q_2 \\rightarrow \\delta(q_2, 1) = q_0 \\rightarrow \\delta(q_0, 0) = q_0 \\in F$. Accepted!</p>"
+    },
+    {
+      "id": "toc-q04",
+      "unit": 1,
+      "section_id": "sec-dfa-design",
+      "question": "Construct a DFA to accept strings over $\\{a, b\\}$ having an even number of a's and an even number of b's. Show the state transitions and trace the input string 'aabbbb'.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2025 (Q1a, 10M)",
+        "SEE Jan 2026 (Q1b, 8M)"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 2, pp. 46\u201347",
+      "answer": "<h4>1. State Definitions (Modulo 2 Product Automaton)</h4>\n<p>Parity of $a$'s and parity of $b$'s each have 2 states: $\\{Even, Odd\\}$. Total states = $2 \\times 2 = 4$ states:</p>\n<ul>\n  <li>$q_{ee}$: Even $a$'s, Even $b$'s (Start & Final state)</li>\n  <li>$q_{oe}$: Odd $a$'s, Even $b$'s</li>\n  <li>$q_{eo}$: Even $a$'s, Odd $b$'s</li>\n  <li>$q_{oo}$: Odd $a$'s, Odd $b$'s</li>\n</ul>\n\n<h4>2. Transition Table</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>State</th>\n      <th>Input $a$ (toggles $a$-parity)</th>\n      <th>Input $b$ (toggles $b$-parity)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>$\\rightarrow *q_{ee}$</td>\n      <td>$q_{oe}$</td>\n      <td>$q_{eo}$</td>\n    </tr>\n    <tr>\n      <td>$q_{oe}$</td>\n      <td>$q_{ee}$</td>\n      <td>$q_{oo}$</td>\n    </tr>\n    <tr>\n      <td>$q_{eo}$</td>\n      <td>$q_{oo}$</td>\n      <td>$q_{ee}$</td>\n    </tr>\n    <tr>\n      <td>$q_{oo}$</td>\n      <td>$q_{eo}$</td>\n      <td>$q_{oe}$</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4>3. Validation Trace for String 'aabbbb'</h4>\n<ul>\n  <li>$\\hat{\\delta}(q_{ee}, \\epsilon) = q_{ee}$</li>\n  <li>$\\delta(q_{ee}, a) = q_{oe}$</li>\n  <li>$\\delta(q_{oe}, a) = q_{ee}$</li>\n  <li>$\\delta(q_{ee}, b) = q_{eo}$</li>\n  <li>$\\delta(q_{eo}, b) = q_{ee}$</li>\n  <li>$\\delta(q_{ee}, b) = q_{eo}$</li>\n  <li>$\\delta(q_{eo}, b) = q_{ee} \\in F$</li>\n</ul>\n<p>Since the final state $q_{ee} \\in F$, the string <strong>'aabbbb' is valid and accepted</strong> (contains 2 $a$'s and 4 $b$'s, both even).</p>"
+    },
+    {
+      "id": "toc-q05",
+      "unit": 1,
+      "section_id": "sec-dfa-design",
+      "question": "Construct DFAs for the following languages over $\\{0, 1\\}$ and $\\{a, b\\}$:\n(i) Strings containing three consecutive 0's ('000') as a substring.\n(ii) Strings of a's and b's except those having the substring 'aab'.\n(iii) Strings starting and ending with the same symbol over $\\{a, b, c\\}$.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2024 (Q1b, 8M)",
+        "SEE Jan 2026 (Q1b, 8M)"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 2; TOC Notes",
+      "answer": "<h4>(i) Substring '000' over $\\{0, 1\\}$</h4>\n<ul>\n  <li>States: $q_0$ (no trailing 0), $q_1$ (one trailing 0), $q_2$ (two trailing 0's), $q_3$ (seen '000', accept/trap state).</li>\n  <li>Transitions:\n    <ul>\n      <li>$q_0 \\xrightarrow{0} q_1$, $q_0 \\xrightarrow{1} q_0$</li>\n      <li>$q_1 \\xrightarrow{0} q_2$, $q_1 \\xrightarrow{1} q_0$</li>\n      <li>$q_2 \\xrightarrow{0} q_3$, $q_2 \\xrightarrow{1} q_0$</li>\n      <li>$q_3 \\xrightarrow{0, 1} q_3$ (accepting trap state)</li>\n    </ul>\n  </li>\n</ul>\n\n<h4>(ii) Complement of Substring 'aab'</h4>\n<p>First construct standard DFA for substring 'aab' with trap state $q_3$, then swap accepting and non-accepting states ($F' = Q \\setminus F$):</p>\n<ul>\n  <li>States: $q_0$ (start, accept), $q_1$ (seen 'a', accept), $q_2$ (seen 'aa', accept), $q_3$ (seen 'aab', reject trap state).</li>\n  <li>Transitions:\n    <ul>\n      <li>$q_0 \\xrightarrow{a} q_1$, $q_0 \\xrightarrow{b} q_0$</li>\n      <li>$q_1 \\xrightarrow{a} q_2$, $q_1 \\xrightarrow{b} q_0$</li>\n      <li>$q_2 \\xrightarrow{a} q_2$, $q_2 \\xrightarrow{b} q_3$</li>\n      <li>$q_3 \\xrightarrow{a, b} q_3$ (dead reject state)</li>\n    </ul>\n  </li>\n  <li>Accepting States: $F = \\{q_0, q_1, q_2\\}$.</li>\n</ul>\n\n<h4>(iii) Starts and Ends with Same Symbol over $\\{a, b, c\\}$</h4>\n<ul>\n  <li>Start state $q_0$. Branch on first input symbol:\n    <ul>\n      <li>If first symbol is $a$: branch to sub-automaton tracking whether last seen symbol was $a$ (accept $q_a$) or non-$a$ (reject $q_{a}'$).</li>\n      <li>If first symbol is $b$: branch to $q_b$ (accept) and $q_b'$ (reject).</li>\n      <li>If first symbol is $c$: branch to $q_c$ (accept) and $q_c'$ (reject).</li>\n    </ul>\n  </li>\n  <li>Total states: 1 (start) + 3 pairs = 7 states.</li>\n</ul>"
+    },
+    {
+      "id": "toc-q06",
+      "unit": 1,
+      "section_id": "sec-nfa",
+      "question": "Define Nondeterministic Finite Automata (NFA). Explain why swapping the accept and non-accept states in an NFA does not necessarily produce an NFA that recognizes the complement language $\\overline{L}$.",
+      "marks": 6,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "SEE 2024 (Q1c, 4M)",
+        "SEE Jan 2026 (Q2c, 8M)"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 2, pp. 55\u201360",
+      "answer": "<h4>1. Formal Definition of NFA</h4>\n<p>An <strong>NFA</strong> is a 5-tuple $M = (Q, \\Sigma, \\delta, q_0, F)$ where:</p>\n<p>$$\\delta: Q \\times \\Sigma \\rightarrow 2^Q$$</p>\n<p>For any state and input symbol, the transition function outputs a <em>subset of states</em> (which may be empty $\\emptyset$ or contain multiple possible next states). An input string $w$ is accepted if <strong>at least one computational branch</strong> reaches a final state in $F$.</p>\n\n<h4>2. Why Complementing NFA by Swapping States Fails</h4>\n<p>In a DFA, each string $w$ has exactly one unique computational path. Thus, swapping $F$ and $Q \\setminus F$ strictly partitions $\\Sigma^*$ into strings that landed in $F$ vs. those that did not.</p>\n<p>In an NFA, a string $w$ can branch into <strong>multiple concurrent computational paths</strong>:</p>\n<ul>\n  <li>Suppose string $w$ has two computation paths: Path 1 ends in accepting state $f \\in F$, while Path 2 ends in non-accepting state $r \\notin F$.</li>\n  <li>In the original NFA, $w$ is <strong>accepted</strong> because Path 1 reached $F$.</li>\n  <li>If we simply swap states so that $F' = Q \\setminus F$, then Path 2 now ends in an accepting state ($r \\in F'$).</li>\n  <li>Therefore, the modified machine <strong>still accepts $w$</strong>! It does not reject $w$.</li>\n</ul>\n<p><strong>Correct Complementation Protocol:</strong> One must first convert the NFA to an equivalent DFA using subset construction, complete all missing transitions to a dead state, and <em>then</em> swap the accepting and non-accepting states.</p>"
+    },
+    {
+      "id": "toc-q07",
+      "unit": 1,
+      "section_id": "sec-epsilon-nfa",
+      "question": "Consider the following $\\epsilon$-NFA:\nStates: $p$ (start), $q$, $r$ (accept).\nTransitions: $\\delta(p, \\epsilon) = \\{r\\}, \\delta(p, a) = \\{q\\}, \\delta(p, b) = \\{p, r\\}$; $\\delta(q, \\epsilon) = \\emptyset, \\delta(q, a) = \\{p\\}, \\delta(q, b) = \\emptyset$; $\\delta(r, \\epsilon) = \\{p, q\\}, \\delta(r, a) = \\{r\\}, \\delta(r, b) = \\{p\\}$.\n(i) Compute the $\\epsilon$-closure of each state.\n(ii) Convert the $\\epsilon$-NFA into its equivalent DFA using Lazy (Subset) construction.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q2a, 8M)",
+        "SEE 2025 (Q2c, 10M)",
+        "SEE Jan 2026 (Q2a, 4M)"
+      ],
+      "source_citation": "Faculty Question Paper CIE-1 2025; Hopcroft & Ullman Ch. 2",
+      "answer": "<h4>1. Computation of $\\epsilon$-Closure</h4>\n<p>The $\\epsilon$-closure of a state $s$, denoted $\\text{E-CLOSE}(s)$, is the set of all states reachable from $s$ by following zero or more $\\epsilon$-transitions:</p>\n<ul>\n  <li>$\\text{E-CLOSE}(p)$: From $p$, we have $p \\xrightarrow{\\epsilon} r$. From $r$, we have $r \\xrightarrow{\\epsilon} \\{p, q\\}$. Thus: $$\\text{E-CLOSE}(p) = \\{p, q, r\\}$$</li>\n  <li>$\\text{E-CLOSE}(q)$: State $q$ has no outgoing $\\epsilon$-transitions: $$\\text{E-CLOSE}(q) = \\{q\\}$$</li>\n  <li>$\\text{E-CLOSE}(r)$: From $r$, $r \\xrightarrow{\\epsilon} \\{p, q\\}$. From $p$, $p \\xrightarrow{\\epsilon} r$. Thus: $$\\text{E-CLOSE}(r) = \\{p, q, r\\}$$</li>\n</ul>\n\n<h4>2. Subset Construction to Equivalent DFA</h4>\n<p>Start State of DFA: $A = \\text{E-CLOSE}(p) = \\{p, q, r\\}$. Since $r \\in A$, state $A$ is an <strong>accepting state</strong>.</p>\n\n<p><strong>Transitions for State $A = \\{p, q, r\\}$:</strong></p>\n<ul>\n  <li>On symbol $a$:\n    $$\\delta(p, a) \\cup \\delta(q, a) \\cup \\delta(r, a) = \\{q\\} \\cup \\{p\\} \\cup \\{r\\} = \\{p, q, r\\}$$\n    $$\\delta_D(A, a) = \\text{E-CLOSE}(\\{p, q, r\\}) = \\{p, q, r\\} = A$$\n  </li>\n  <li>On symbol $b$:\n    $$\\delta(p, b) \\cup \\delta(q, b) \\cup \\delta(r, b) = \\{p, r\\} \\cup \\emptyset \\cup \\{p\\} = \\{p, r\\}$$\n    $$\\delta_D(A, b) = \\text{E-CLOSE}(\\{p, r\\}) = \\{p, q, r\\} \\cup \\{p, q, r\\} = \\{p, q, r\\} = A$$\n  </li>\n</ul>\n\n<p><strong>Resulting DFA:</strong> A single state $A = \\{p, q, r\\}$ that loops to itself on both $a$ and $b$, and is an accepting state! Language accepted is $\\Sigma^* = (a+b)^*$.</p>"
+    },
+    {
+      "id": "toc-q08",
+      "unit": 2,
+      "section_id": "sec-1",
+      "question": "Define Regular Expressions. State the algebraic operators and operator precedence. Write regular expressions for:\n(i) $L = \\{a^n b^m \\mid n \\ge 4, m \\le 3\\}$\n(ii) $L = \\{a^m b^{2n} \\mid m, n \\ge 0\\}$\n(iii) Strings containing not more than three a's over $\\{a, b\\}$.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE Jan 2026 (Q4a, 6M)",
+        "SEE 2025 (Q3a, 10M)",
+        "CIE-1 2025"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 3, pp. 85\u201392",
+      "answer": "<h4>1. Formal Recursive Definition of Regular Expression (RE)</h4>\n<p>Given alphabet $\\Sigma$:</p>\n<ol>\n  <li><strong>Constants:</strong> $\\emptyset$ (denotes $\\emptyset$), $\\epsilon$ (denotes $\\{\\epsilon\\}$), and for each $a \\in \\Sigma$, $a$ (denotes $\\{a\\}$) are primitive REs.</li>\n  <li><strong>Operators:</strong> If $R_1$ and $R_2$ are REs denoting languages $L_1$ and $L_2$:\n    <ul>\n      <li><strong>Union:</strong> $R_1 + R_2$ (or $R_1 | R_2$) denotes $L_1 \\cup L_2$.</li>\n      <li><strong>Concatenation:</strong> $R_1 R_2$ denotes $L_1 L_2$.</li>\n      <li><strong>Kleene Closure:</strong> $R_1^*$ denotes $L_1^*$.</li>\n    </ul>\n  </li>\n  <li><strong>Operator Precedence:</strong> Star ($^*$) highest $\\rightarrow$ Concatenation ($\\cdot$) intermediate $\\rightarrow$ Union ($+$) lowest.</li>\n</ol>\n\n<h4>2. Formulated Regular Expressions</h4>\n<ul>\n  <li><strong>(i) $L = \\{a^n b^m \\mid n \\ge 4, m \\le 3\\}$:</strong>\n    <p>At least 4 $a$'s followed by at most 3 $b$'s ($m \\in \\{0, 1, 2, 3\\}$):</p>\n    $$\\mathbf{a^4 a^* (\\epsilon + b + bb + bbb)}$$\n  </li>\n  <li><strong>(ii) $L = \\{a^m b^{2n} \\mid m, n \\ge 0\\}$:</strong>\n    <p>Any number of $a$'s followed by an even number of $b$'s ($b^{2n} = (bb)^n$):</p>\n    $$\\mathbf{a^* (bb)^*}$$ \n  </li>\n  <li><strong>(iii) Strings containing not more than three a's:</strong>\n    <p>May contain 0, 1, 2, or 3 $a$'s separated by any number of $b$'s:</p>\n    $$\\mathbf{b^* (\\epsilon + a) b^* (\\epsilon + a) b^* (\\epsilon + a) b^*}$$\n  </li>\n</ul>"
+    },
+    {
+      "id": "toc-q09",
+      "unit": 2,
+      "section_id": "sec-2",
+      "question": "Explain Thompson's Construction Algorithm to convert a regular expression into an $\\epsilon$-NFA. Construct the $\\epsilon$-NFA for the regular expression $(a+b)^*ab$.",
+      "marks": 7,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE Jan 2026 (Q3a, 5M)",
+        "CIE-1 2025 (Q2b, 7M)",
+        "Hopcroft & Ullman Ch. 3"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 3, pp. 100\u2013104",
+      "answer": "<h4>1. Thompson's Construction Principles</h4>\n<p>Ken Thompson's algorithm inductively builds an $\\epsilon$-NFA having <strong>exactly one start state and exactly one accept state</strong> with no transitions entering the start state or leaving the accept state:</p>\n<ul>\n  <li><strong>Base Symbol $a$:</strong> $q_0 \\xrightarrow{a} q_1$.</li>\n  <li><strong>Union ($R_1 + R_2$):</strong> Create new start state $S$ branching with $\\epsilon$ to $start(R_1)$ and $start(R_2)$. Both $accept(R_1)$ and $accept(R_2)$ branch with $\\epsilon$ to a new single accept state $F$.</li>\n  <li><strong>Concatenation ($R_1 R_2$):</strong> Connect $accept(R_1)$ directly to $start(R_2)$ via an $\\epsilon$-transition (or merge states).</li>\n  <li><strong>Kleene Star ($R^*$):</strong> Create new start state $S$ and accept state $F$. Connect $S \\xrightarrow{\\epsilon} start(R)$ and $S \\xrightarrow{\\epsilon} F$ (for zero occurrences). Connect $accept(R) \\xrightarrow{\\epsilon} start(R)$ (loopback) and $accept(R) \\xrightarrow{\\epsilon} F$.</li>\n</ul>\n\n<h4>2. Construction for $(a+b)^*ab$</h4>\n<ol>\n  <li>Construct sub-NFA for $(a+b)$: States for $a$ ($1 \\xrightarrow{a} 2$) and $b$ ($3 \\xrightarrow{b} 4$), flanked by new start state $0 \\xrightarrow{\\epsilon} 1, 3$ and accept state $5$ with $2, 4 \\xrightarrow{\\epsilon} 5$.</li>\n  <li>Add star loop for $(a+b)^*$: State $S_0 \\xrightarrow{\\epsilon} 0$, $S_0 \\xrightarrow{\\epsilon} 6$, $5 \\xrightarrow{\\epsilon} 0$, $5 \\xrightarrow{\\epsilon} 6$.</li>\n  <li>Concatenate symbol $a$: $6 \\xrightarrow{a} 7$.</li>\n  <li>Concatenate symbol $b$: $7 \\xrightarrow{b} 8$ (final accepting state).</li>\n</ol>"
+    },
+    {
+      "id": "toc-q10",
+      "unit": 2,
+      "section_id": "sec-3",
+      "question": "Explain the State Elimination Method to convert a Finite Automaton to a Regular Expression. Apply state elimination on a 3-state automaton to derive the regular expression.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3b, 8M)",
+        "SEE Jan 2026 (Q3c, 5M)",
+        "Hopcroft & Ullman Ch. 3"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 3, pp. 96\u2013100",
+      "answer": "<h4>1. State Elimination Protocol (GNFA Method)</h4>\n<ol>\n  <li>Add a new start state $q_{\\text{start}}$ with an $\\epsilon$-transition to the original start state $q_0$.</li>\n  <li>Add a new final state $q_{\\text{final}}$ with $\\epsilon$-transitions from all original final states $f \\in F$.</li>\n  <li>Eliminate states one by one (excluding $q_{\\text{start}}$ and $q_{\\text{final}}$). When eliminating state $s$:\n    <p>For every pair of states $p$ (incoming) and $q$ (outgoing) passing through $s$:</p>\n    $$R_{\\text{new}}(p, q) = R(p, q) + R(p, s) \\cdot [R(s, s)]^* \\cdot R(s, q)$$\n  </li>\n  <li>When all intermediate states are eliminated, the regular expression on the single remaining arrow $q_{\\text{start}} \\rightarrow q_{\\text{final}}$ is the final equivalent RE.</li>\n</ol>\n\n<h4>2. Application to Automaton with States $q_0 \\rightarrow q_1 \\rightarrow q_2$</h4>\n<p>Suppose $q_0$ is start state, $q_1$ has loop $b$ and transitions to $q_2$, and accept state is $q_1$. Eliminating state $q_2$ and substituting loops directly yields: $$\\mathbf{R = b^* a (b + a b^* a)^*}$$</p>"
+    },
+    {
+      "id": "toc-q11",
+      "unit": 2,
+      "section_id": "sec-7",
+      "question": "Explain the Table-Filling Algorithm (Myhill-Nerode Minimization) to find the minimum-state DFA. Minimize the following DFA with states $A$ to $H$ on inputs $\\{0, 1\\}$:\nStart state: A; Final state: D.\nTransitions: $A(B, A), B(A, C), C(D, B), D(D, A), E(D, F), F(G, E), G(F, G), H(G, D)$.",
+      "marks": 10,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE Jan 2026 (Q3b, 10M)",
+        "CIE-1 2025 (Q1b, 8M)",
+        "SEE 2025 (Q4b, 10M)"
+      ],
+      "source_citation": "SEE Jan 2026 Question Paper; Hopcroft, Motwani & Ullman, Ch. 4, pp. 154\u2013159",
+      "answer": "<h4>1. Algorithm Principles (Table-Filling Method)</h4>\n<ol>\n  <li>Construct a lower-triangular matrix of pairs $\\{p, q\\}$ for all $p \\neq q$.</li>\n  <li><strong>Basis Step:</strong> Mark all pairs $\\{p, q\\}$ where one state is accepting ($p \\in F$) and the other is non-accepting ($q \\notin F$). They are 0-distinguishable.</li>\n  <li><strong>Inductive Step:</strong> For all unmarked pairs $\\{p, q\\}$, inspect their transitions on every input $a \\in \\Sigma$. If $\\{\\delta(p, a), \\delta(q, a)\\}$ is already marked for some $a$, mark $\\{p, q\\}$. Repeat until a full pass makes no new marks.</li>\n  <li><strong>Equivalence Classes:</strong> All remaining unmarked pairs represent equivalent (indistinguishable) states ($p \\equiv q$). Merge them into single compound states.</li>\n</ol>\n\n<h4>2. Step-by-Step Execution on States A\u2013H</h4>\n<ul>\n  <li>States: Non-final = $\\{A, B, C, E, F, G, H\\}$; Final = $\\{D\\}$.</li>\n  <li><strong>Basis:</strong> Mark all pairs involving $D$: $\\{A, D\\}, \\{B, D\\}, \\{C, D\\}, \\{E, D\\}, \\{F, D\\}, \\{G, D\\}, \\{H, D\\}$.</li>\n  <li><strong>Inductive Pass:</strong>\n    <ul>\n      <li>Pair $\\{C, E\\}$: $\\delta(C, 0) = D$, $\\delta(E, 0) = D$ (unmarked); $\\delta(C, 1) = B$, $\\delta(E, 1) = F$. Inspect $\\{B, F\\}$.</li>\n      <li>Pair $\\{F, G\\}$: $\\delta(F, 0)=G, \\delta(G, 0)=F$ (pair $\\{F, G\\}$); $\\delta(F, 1)=E, \\delta(G, 1)=G$. On further inspection, states $F$ and $G$ mirror each other.</li>\n      <li>Pair $\\{A, E\\}$: $\\delta(A, 0) = B$, $\\delta(E, 0) = D$ (marked!). Thus $\\{A, E\\}$ is marked.</li>\n    </ul>\n  </li>\n  <li><strong>Final Equivalence Sets:</strong> Unmarked equivalent pairs merge into equivalence classes: $\\{A, B\\}$, $\\{C, E\\}$, $\\{F, G\\}$, and distinct states $\\{D\\}, \\{H\\}$.</li>\n  <li>The original 8-state DFA is reduced to a <strong>minimal 5-state DFA</strong>.</li>\n</ul>"
+    },
+    {
+      "id": "toc-q12",
+      "unit": 2,
+      "section_id": "sec-4",
+      "question": "State the Pumping Lemma for regular languages. Prove that the language $L = \\{0^n 1^n \\mid n \\ge 1\\}$ is not regular using the Pumping Lemma.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2024; Hopcroft & Ullman Ch. 4; Unit 2 Core Syllabus"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 4, pp. 126\u2013130",
+      "answer": "<h4>1. Formal Statement of Pumping Lemma</h4>\n<p>Let $L$ be a regular language. Then there exists a constant integer $p \\ge 1$ (the <strong>pumping length</strong>) such that for any string $w \\in L$ with $|w| \\ge p$, $w$ can be partitioned into three substrings:</p>\n<p>$$w = xyz$$</p>\n<p>satisfying the three mandatory conditions:</p>\n<ol>\n  <li>$|y| > 0$ (the pumped substring $y$ is non-empty)</li>\n  <li>$|xy| \\le p$ (the repetition occurs within the first $p$ symbols)</li>\n  <li>For all $i \\ge 0$, $x y^i z \\in L$ (pumping $y$ $i$ times must remain within $L$)</li>\n</ol>\n\n<h4>2. Proof that $L = \\{0^n 1^n \\mid n \\ge 1\\}$ is Not Regular</h4>\n<p><strong>Proof by Contradiction:</strong></p>\n<ol>\n  <li>Assume $L$ is regular. Then the Pumping Lemma holds with some pumping length $p$.</li>\n  <li>Choose the target string $w = 0^p 1^p$. Clearly, $w \\in L$ and $|w| = 2p \\ge p$.</li>\n  <li>By Condition 2, $|xy| \\le p$. Since $w$ begins with $p$ zeros, both $x$ and $y$ must consist <strong>entirely of zeros</strong>. Thus: $$x = 0^k, \\quad y = 0^m \\quad (m > 0), \\quad z = 0^{p - k - m} 1^p$$</li>\n  <li>By Condition 3, $x y^i z \\in L$ for all $i \\ge 0$. Let us \"pump down\" with $i = 0$ (or pump up with $i = 2$):\n    $$w' = x y^2 z = 0^k 0^{2m} 0^{p - k - m} 1^p = 0^{p + m} 1^p$$\n  </li>\n  <li>In string $w'$, the number of zeros is $p + m$, while the number of ones remains $p$. Since $m > 0$, $p + m \\neq p$.</li>\n  <li>Therefore, $w' \\notin L$, which directly <strong>contradicts</strong> the Pumping Lemma condition $x y^2 z \\in L$.</li>\n  <li>Hence, our assumption was false: <strong>$L = \\{0^n 1^n \\mid n \\ge 1\\}$ is not a regular language</strong>.</li>\n</ol>"
+    },
+    {
+      "id": "toc-q13",
+      "unit": 2,
+      "section_id": "sec-5",
+      "question": "State and prove the Closure Properties of Regular Languages under (i) Union, (ii) Intersection, (iii) Complement.",
+      "marks": 8,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2025; Hopcroft & Ullman Ch. 4"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 4, pp. 131\u2013138",
+      "answer": "<h4>Closure Properties of Regular Languages</h4>\n<p>A class of languages is closed under an operation if applying that operation to languages in the class always produces another language in the same class.</p>\n\n<h4>1. Closure under Union ($L_1 \\cup L_2$)</h4>\n<p><strong>Proof via Regular Expressions:</strong> If $L_1$ and $L_2$ are regular, they have regular expressions $R_1$ and $R_2$. By definition of REs, $R_1 + R_2$ is a valid regular expression that denotes $L_1 \\cup L_2$. Thus $L_1 \\cup L_2$ is regular.</p>\n\n<h4>2. Closure under Complement ($\\overline{L} = \\Sigma^* \\setminus L$)</h4>\n<p><strong>Proof via DFA:</strong> Since $L$ is regular, it is recognized by a complete DFA $M = (Q, \\Sigma, \\delta, q_0, F)$. Construct $M' = (Q, \\Sigma, \\delta, q_0, Q \\setminus F)$ by swapping accepting and non-accepting states. For any $w \\in \\Sigma^*$, $\\hat{\\delta}(q_0, w) \\in (Q \\setminus F) \\iff \\hat{\\delta}(q_0, w) \\notin F \\iff w \\notin L \\iff w \\in \\overline{L}$. Thus $\\overline{L} = L(M')$ is regular.</p>\n\n<h4>3. Closure under Intersection ($L_1 \\cap L_2$)</h4>\n<p><strong>Proof 1 (De Morgan's Laws):</strong> $L_1 \\cap L_2 = \\overline{\\overline{L_1} \\cup \\overline{L_2}}$. Since regular languages are closed under complement and union, they are closed under intersection.</p>\n<p><strong>Proof 2 (Cross-Product Construction):</strong> Let $M_1 = (Q_1, \\Sigma, \\delta_1, q_{01}, F_1)$ and $M_2 = (Q_2, \\Sigma, \\delta_2, q_{02}, F_2)$. Construct product DFA $M = (Q_1 \\times Q_2, \\Sigma, \\delta, (q_{01}, q_{02}), F_1 \\times F_2)$ where $\\delta((p, q), a) = (\\delta_1(p, a), \\delta_2(q, a))$. String $w$ is accepted iff both $M_1$ and $M_2$ accept $w$. Thus $L(M) = L_1 \\cap L_2$ is regular.</p>"
+    },
+    {
+      "id": "toc-q14",
+      "unit": 2,
+      "section_id": "sec-6",
+      "question": "Explain the major Decision Properties of Regular Languages: (i) Emptiness test, (ii) Finiteness test, (iii) Equivalence test.",
+      "marks": 6,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "Hopcroft & Ullman Ch. 4; TOC Unit 2 Notes"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 4, pp. 150\u2013154",
+      "answer": "<h4>Decision Properties of Regular Languages</h4>\n<p>A property is decidable if there exists an algorithm that always halts and outputs a definite YES or NO answer.</p>\n\n<ol>\n  <li><strong>Emptiness Testing ($L(M) \\stackrel{?}{=} \\emptyset$):</strong>\n    <ul>\n      <li><em>Algorithm:</em> Use Breadth-First Search (BFS) or Depth-First Search (DFS) on the transition graph of DFA $M$ starting from $q_0$.</li>\n      <li><em>Decision Rule:</em> If any state $f \\in F$ is reachable from $q_0$, then $L(M) \\neq \\emptyset$. If no final state is reachable, $L(M) = \\emptyset$. Complexity: $O(|Q| + |\\delta|)$.</li>\n    </ul>\n  </li>\n  <li><strong>Finiteness Testing ($|L(M)| < \\infty$):</strong>\n    <ul>\n      <li><em>Algorithm:</em> Eliminate all states that cannot reach any final state in $F$. In the remaining active subgraph, check for the presence of directed cycles using cycle detection (DFS back-edges).</li>\n      <li><em>Decision Rule:</em> If a directed cycle exists on a path from $q_0$ to $F$, then by pumping along the cycle, infinitely many strings can be generated ($|L| = \\infty$). If no cycles exist, $L(M)$ is finite.</li>\n    </ul>\n  </li>\n  <li><strong>Equivalence Testing ($L(M_1) \\stackrel{?}{=} L(M_2)$):</strong>\n    <ul>\n      <li><em>Algorithm:</em> Construct the symmetric difference automaton $M_{\\text{diff}} = (L(M_1) \\cap \\overline{L(M_2)}) \\cup (\\overline{L(M_1)} \\cap L(M_2))$.</li>\n      <li><em>Decision Rule:</em> Apply the emptiness test to $M_{\\text{diff}}$. If $L(M_{\\text{diff}}) = \\emptyset$, then $L(M_1) = L(M_2)$ (equivalent). Alternatively, minimize both DFAs; if their transition graphs are isomorphic after renaming states, they are equivalent.</li>\n    </ul>\n  </li>\n</ol>"
+    },
+    {
+      "id": "toc-q15",
+      "unit": 1,
+      "section_id": "sec-fa-applications",
+      "question": "Discuss two real-world computer science applications of finite automata and regular expressions (Lexical analysis and String pattern searching).",
+      "marks": 5,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3b, 8M)",
+        "Hopcroft & Ullman Ch. 2"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 2, pp. 68\u201372; Aho & Ullman Compilers",
+      "answer": "<h4>Real-World Applications of Finite Automata & Regular Expressions</h4>\n<ol>\n  <li><strong>Lexical Analysis in Compilers (Lex / Flex):</strong>\n    <ul>\n      <li>In modern compilers (GCC, Clang, Java compiler), the lexical analyzer (lexer) reads source code characters and groups them into meaningful grammatical tokens (identifiers, keywords, integer literals, operators).</li>\n      <li>Each token type is formally defined by a Regular Expression (e.g., Identifier: <code>[a-zA-Z_][a-zA-Z0-9_]*</code>).</li>\n      <li>The Lex generator compiles these REs into an $\\epsilon$-NFA using Thompson's algorithm, converts to a DFA via subset construction, minimizes it, and generates high-speed C table lookup code to tokenize files in $O(N)$ linear time.</li>\n    </ul>\n  </li>\n  <li><strong>Text Pattern Searching (Grep / Network Intrusion Detection):</strong>\n    <ul>\n      <li>Unix utilities (<code>grep</code>, <code>sed</code>, <code>awk</code>) and Network Intrusion Detection Systems (Snort, Suricata) scan gigabytes of packet streams to detect malicious signatures or regex patterns.</li>\n      <li>Using the Aho-Corasick or Thompson-DFA algorithm, pattern matching operates with linear time complexity independent of pattern complexity, preventing catastrophic backtracking.</li>\n    </ul>\n  </li>\n</ol>"
+    },
+    {
+      "id": "toc-q16",
+      "unit": 2,
+      "section_id": "sec-7",
+      "question": "What are indistinguishable states? Define state equivalence formally and explain how indistinguishable states are identified.",
+      "marks": 5,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "SEE Jan 2026 (Q4c, 5M)",
+        "Hopcroft & Ullman Ch. 4"
+      ],
+      "source_citation": "Hopcroft, Motwani & Ullman, Ch. 4, pp. 154\u2013156",
+      "answer": "<h4>1. Formal Definition of Indistinguishable (Equivalent) States</h4>\n<p>Two states $p$ and $q$ in a DFA are said to be <strong>indistinguishable</strong> (written $p \\equiv q$) if for <strong>all possible input strings $w \\in \\Sigma^*$</strong>:</p>\n<p>$$\\hat{\\delta}(p, w) \\in F \\iff \\hat{\\delta}(q, w) \\in F$$</p>\n<p>That is, starting in state $p$ or state $q$, reading any string $w$ will either lead to an accepting state in both cases or lead to a non-accepting state in both cases. No input string can distinguish them.</p>\n\n<h4>2. Distinguishable States</h4>\n<p>States $p$ and $q$ are <strong>distinguishable</strong> if there exists at least one witness string $w \\in \\Sigma^*$ such that one of $\\hat{\\delta}(p, w)$ and $\\hat{\\delta}(q, w)$ is in $F$ while the other is not.</p>\n\n<h4>3. Significance in Automata Theory</h4>\n<p>Indistinguishable states are functionally redundant. The Myhill-Nerode theorem proves that merging all pairs of indistinguishable states yields the unique minimal DFA for that regular language.</p>"
+    },
+    {
+      "id": "toc-q17",
+      "unit": 2,
+      "section_id": "sec-3",
+      "question": "State Arden's Theorem. Prove the theorem and show how it is used to solve regular expression equations of the form $R = Q + RP$.",
+      "marks": 6,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "TOC Notes Unit 2; SEE Jan 2026 Q4b"
+      ],
+      "source_citation": "Hopcroft & Ullman Ch. 3; Arden's Rule Theorem",
+      "answer": "<h4>1. Statement of Arden's Theorem</h4>\n<p>Let $P$ and $Q$ be two regular expressions over alphabet $\\Sigma$. If $\\epsilon \\notin P$ (i.e., $P$ does not contain the null string), then the linear equation:</p>\n<p>$$R = Q + RP$$</p>\n<p>has a <strong>unique solution</strong> given by:</p>\n<p>$$R = QP^*$$</p>\n\n<h4>2. Proof of Existence</h4>\n<p>Substitute $R = QP^*$ into the right-hand side of $R = Q + RP$:</p>\n<p>$$\\text{RHS} = Q + (QP^*)P = Q(\\epsilon + P^*P)$$\nBy the algebraic property of Kleene star, $\\epsilon + P^*P = P^*$. Thus:\n$$\\text{RHS} = QP^* = R = \\text{LHS}$$\nHence, $R = QP^*$ is indeed a valid solution.</p>\n\n<h4>3. Proof of Uniqueness</h4>\n<p>Repeatedly substitute $R = Q + RP$ into itself:\n$$R = Q + (Q + RP)P = Q + QP + RP^2 = Q(\\epsilon + P + P^2 + \\dots + P^k) + RP^{k+1}$$\nAs $k \\rightarrow \\infty$, any string generated from $RP^{k+1}$ has length exceeding any finite string since $\\epsilon \\notin P$. Hence, the only solution generating finite regular strings is $R = QP^*$.</p>"
+    },
+    {
+      "id": "toc-q18",
+      "unit": 1,
+      "section_id": "sec-dfa-design",
+      "question": "Construct a DFA to accept the language $L = \\{w \\in \\{0, 1\\}^* \\mid w \\text{ does not end with } 00 \\text{ or } 11\\}$.",
+      "marks": 7,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3a, 7M)"
+      ],
+      "source_citation": "CIE-1 2025 Paper; Hopcroft & Ullman Ch. 2",
+      "answer": "<h4>1. Language Analysis</h4>\n<p>A string is rejected if its last two bits are $00$ or $11$. It is accepted if $|w| < 2$ or its last two bits are $01$ or $10$.</p>\n\n<h4>2. State Design</h4>\n<ul>\n  <li>$q_0$: Start state (empty string $\\epsilon$, accepted).</li>\n  <li>$q_1$: Single bit 0 seen (accepted).</li>\n  <li>$q_2$: Single bit 1 seen (accepted).</li>\n  <li>$q_{00}$: Last two bits are 00 (REJECT state).</li>\n  <li>$q_{11}$: Last two bits are 11 (REJECT state).</li>\n  <li>$q_{01}$: Last two bits are 01 (ACCEPT state).</li>\n  <li>$q_{10}$: Last two bits are 10 (ACCEPT state).</li>\n</ul>\n\n<h4>3. Transitions</h4>\n<ul>\n  <li>From $q_0$: on 0 $\\rightarrow q_1$; on 1 $\\rightarrow q_2$.</li>\n  <li>From $q_1$: on 0 $\\rightarrow q_{00}$; on 1 $\\rightarrow q_{01}$.</li>\n  <li>From $q_2$: on 0 $\\rightarrow q_{10}$; on 1 $\\rightarrow q_{11}$.</li>\n  <li>From $q_{01}$: on 0 $\\rightarrow q_{10}$; on 1 $\\rightarrow q_{11}$.</li>\n  <li>From $q_{10}$: on 0 $\\rightarrow q_{00}$; on 1 $\\rightarrow q_{01}$.</li>\n  <li>From $q_{00}$: on 0 $\\rightarrow q_{00}$; on 1 $\\rightarrow q_{01}$.</li>\n  <li>From $q_{11}$: on 0 $\\rightarrow q_{10}$; on 1 $\\rightarrow q_{11}$.</li>\n</ul>\n<p><strong>Accepting States:</strong> $F = \\{q_0, q_1, q_2, q_{01}, q_{10}\\}$. Non-accepting: $\\{q_{00}, q_{11}\\}$.</p>"
+    },
+    {
+      "id": "toc-q19",
+      "unit": 1,
+      "section_id": "sec-dfa-design",
+      "question": "Construct a DFA to accept the language $L = \\{w \\in \\{a, b\\}^* \\mid \\text{No two consecutive characters are the same}\\}$.",
+      "marks": 5,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3a, 7M)"
+      ],
+      "source_citation": "CIE-1 2025 Paper",
+      "answer": "<h4>1. Language Analysis</h4>\n<p>Strings in $L$ alternate strictly: $\\{\\epsilon, a, b, ab, ba, aba, bab, abab, baba, \\dots\\}$. Any occurrence of 'aa' or 'bb' triggers permanent rejection.</p>\n\n<h4>2. States and Transitions</h4>\n<ul>\n  <li>$q_0$: Start state ($\\epsilon$, accepted).</li>\n  <li>$q_a$: Last symbol was $a$ (accepted).</li>\n  <li>$q_b$: Last symbol was $b$ (accepted).</li>\n  <li>$q_{\\text{trap}}$: Dead trap state (seen 'aa' or 'bb', rejected).</li>\n</ul>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>State</th>\n      <th>Input $a$</th>\n      <th>Input $b$</th>\n      <th>Accept?</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>$\\rightarrow *q_0$</td>\n      <td>$q_a$</td>\n      <td>$q_b$</td>\n      <td>Yes</td>\n    </tr>\n    <tr>\n      <td>$*q_a$</td>\n      <td>$q_{\\text{trap}}$ (consecutive 'aa')</td>\n      <td>$q_b$</td>\n      <td>Yes</td>\n    </tr>\n    <tr>\n      <td>$*q_b$</td>\n      <td>$q_a$</td>\n      <td>$q_{\\text{trap}}$ (consecutive 'bb')</td>\n      <td>Yes</td>\n    </tr>\n    <tr>\n      <td>$q_{\\text{trap}}$</td>\n      <td>$q_{\\text{trap}}$</td>\n      <td>$q_{\\text{trap}}$</td>\n      <td>No</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "toc-q20",
+      "unit": 1,
+      "section_id": "sec-subset-construction",
+      "question": "Design a DFA for the NFA language $L = \\{w \\in \\{0, 1\\}^* \\mid w \\text{ ends in } 01\\}$ using Lazy Evaluation (Subset Construction).",
+      "marks": 6,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE Jan 2026 (Q2b, 8M)"
+      ],
+      "source_citation": "SEE Jan 2026 Paper; Hopcroft & Ullman Ch. 2",
+      "answer": "<h4>1. NFA Definition for Ending with '01'</h4>\n<ul>\n  <li>$Q = \\{q_0, q_1, q_2\\}$, $\\Sigma = \\{0, 1\\}$, Start: $q_0$, Accept: $F = \\{q_2\\}$.</li>\n  <li>Transitions: $\\delta(q_0, 0) = \\{q_0, q_1\\}, \\delta(q_0, 1) = \\{q_0\\}$; $\\delta(q_1, 1) = \\{q_2\\}$; all other transitions $\\emptyset$.</li>\n</ul>\n\n<h4>2. Lazy Subset Construction</h4>\n<ol>\n  <li><strong>Start State:</strong> $A = [q_0]$</li>\n  <li>On 0: $\\delta_D(A, 0) = \\delta(q_0, 0) = \\{q_0, q_1\\} = B$ (New State)</li>\n  <li>On 1: $\\delta_D(A, 1) = \\delta(q_0, 1) = \\{q_0\\} = A$</li>\n  <li><strong>For State $B = [q_0, q_1]$:</strong>\n    <ul>\n      <li>On 0: $\\delta(q_0, 0) \\cup \\delta(q_1, 0) = \\{q_0, q_1\\} \\cup \\emptyset = \\{q_0, q_1\\} = B$</li>\n      <li>On 1: $\\delta(q_0, 1) \\cup \\delta(q_1, 1) = \\{q_0\\} \\cup \\{q_2\\} = \\{q_0, q_2\\} = C$ (New State, Accepting since $q_2 \\in C$)</li>\n    </ul>\n  </li>\n  <li><strong>For State $C = [q_0, q_2]$:</strong>\n    <ul>\n      <li>On 0: $\\delta(q_0, 0) \\cup \\delta(q_2, 0) = \\{q_0, q_1\\} \\cup \\emptyset = \\{q_0, q_1\\} = B$</li>\n      <li>On 1: $\\delta(q_0, 1) \\cup \\delta(q_2, 1) = \\{q_0\\} \\cup \\emptyset = \\{q_0\\} = A$</li>\n    </ul>\n  </li>\n</ol>\n<p><strong>Resulting DFA:</strong> Exactly 3 states: $A$ (start), $B$, and $C$ (accept). Minimal and complete!</p>"
+    }
+  ],
+  "out_of_scope": [
+    {
+      "id": "toc-oos-01",
+      "unit": 3,
+      "topic": "Context-Free Grammars (CFG) Design for balanced parentheses and equal a's and b's",
+      "reason": "Master Prompt boundary: TOC CIE-1 scope includes Units 1 and 2 only. CFG is Unit 3.",
+      "exam_paper": "CIE-2 2025 Q1a; SEE 2024 Q5a"
+    },
+    {
+      "id": "toc-oos-02",
+      "unit": 3,
+      "topic": "Chomsky Normal Form (CNF) Conversion & Elimination of epsilon, unit, and useless productions",
+      "reason": "Master Prompt boundary: CNF is Unit 3.",
+      "exam_paper": "CIE-2 2025 Q2a; SEE Jan 2026 Q5a; SEE 2024 Q6a; SEE 2025 Q6b"
+    },
+    {
+      "id": "toc-oos-03",
+      "unit": 3,
+      "topic": "Leftmost & Rightmost Derivations (LMD & RMD) and Parse Trees",
+      "reason": "Master Prompt boundary: Derivation trees are Unit 3.",
+      "exam_paper": "CIE-2 2025 Q3a; SEE 2025 Q5b; SEE Jan 2026 Q6c"
+    },
+    {
+      "id": "toc-oos-04",
+      "unit": 3,
+      "topic": "Ambiguous Grammars & Proving Ambiguity",
+      "reason": "Master Prompt boundary: Ambiguity is Unit 3.",
+      "exam_paper": "SEE Jan 2026 Q5c; SEE 2025 Q5b"
+    },
+    {
+      "id": "toc-oos-05",
+      "unit": 3,
+      "topic": "Elimination of Useless Symbols (Generating & Reachable symbols)",
+      "reason": "Master Prompt boundary: CFG simplification is Unit 3.",
+      "exam_paper": "SEE 2024 Q6b; SEE Jan 2026 Q6b"
+    },
+    {
+      "id": "toc-oos-06",
+      "unit": 4,
+      "topic": "Pushdown Automata (PDA) Design for a^n b^n and equal a's and b's",
+      "reason": "Master Prompt boundary: Pushdown Automata is Unit 4.",
+      "exam_paper": "CIE-2 2025 Q1b; SEE 2024 Q7a"
+    },
+    {
+      "id": "toc-oos-07",
+      "unit": 4,
+      "topic": "PDA Design for a^n b^3n and palindrome wCw^R",
+      "reason": "Master Prompt boundary: PDA is Unit 4.",
+      "exam_paper": "SEE Jan 2026 Q7a; SEE 2025 Q7c"
+    },
+    {
+      "id": "toc-oos-08",
+      "unit": 4,
+      "topic": "PDA Acceptance by Final State vs Acceptance by Empty Stack",
+      "reason": "Master Prompt boundary: PDA acceptance mechanisms are Unit 4.",
+      "exam_paper": "SEE 2024 Q8a; SEE 2025 Q7b; SEE Jan 2026 Q7b"
+    },
+    {
+      "id": "toc-oos-09",
+      "unit": 4,
+      "topic": "Deterministic PDA (DPDA) vs Nondeterministic PDA (NPDA)",
+      "reason": "Master Prompt boundary: DPDA is Unit 4.",
+      "exam_paper": "CIE-2 2025 Q2b; SEE 2024 Q8b; SEE 2025 Q8b"
+    },
+    {
+      "id": "toc-oos-10",
+      "unit": 4,
+      "topic": "Equivalence of PDA and CFG (Converting CFG to PDA)",
+      "reason": "Master Prompt boundary: CFG to PDA conversion is Unit 4.",
+      "exam_paper": "CIE-2 2025 Q3b; SEE 2024 Q8c; SEE 2025 Q8c; SEE Jan 2026 Q8c"
+    },
+    {
+      "id": "toc-oos-11",
+      "unit": 4,
+      "topic": "Instantaneous Descriptions (IDs) in Pushdown Automata",
+      "reason": "Master Prompt boundary: PDA IDs are Unit 4.",
+      "exam_paper": "SEE 2024 Q7c; SEE Jan 2026 Q7a"
+    },
+    {
+      "id": "toc-oos-12",
+      "unit": 5,
+      "topic": "Turing Machine Design for a^n b^n c^n and 0^n 1^n",
+      "reason": "Master Prompt boundary: Turing Machines is Unit 5.",
+      "exam_paper": "SEE 2024 Q9b; SEE Jan 2026 Q10a"
+    },
+    {
+      "id": "toc-oos-13",
+      "unit": 5,
+      "topic": "Turing Machine for Monus / Subtraction Operation",
+      "reason": "Master Prompt boundary: TM computation is Unit 5.",
+      "exam_paper": "CIE-2 2025 Q3c; SEE 2025 Q9b, Q10b"
+    },
+    {
+      "id": "toc-oos-14",
+      "unit": 5,
+      "topic": "Multitape Turing Machines and Equivalence to Standard TM",
+      "reason": "Master Prompt boundary: Multitape TM is Unit 5.",
+      "exam_paper": "CIE-2 2025 Q1c; SEE Jan 2026 Q9a"
+    },
+    {
+      "id": "toc-oos-15",
+      "unit": 5,
+      "topic": "Halting Problem in Turing Machines & Undecidability",
+      "reason": "Master Prompt boundary: Halting problem is Unit 5.",
+      "exam_paper": "SEE 2025 Q9a; SEE Jan 2026 Q10c"
+    },
+    {
+      "id": "toc-oos-16",
+      "unit": 5,
+      "topic": "NP-Hard and NP-Complete Complexity Classes",
+      "reason": "Master Prompt boundary: NP complexity is Unit 5.",
+      "exam_paper": "CIE-2 2025 Q2c; SEE 2024 Q10a; SEE 2025 Q9c; SEE Jan 2026 Q9b"
+    },
+    {
+      "id": "toc-oos-17",
+      "unit": 5,
+      "topic": "Programming Techniques & Extensions for Turing Machines",
+      "reason": "Master Prompt boundary: TM techniques are Unit 5.",
+      "exam_paper": "SEE 2024 Q9a, Q10c"
+    },
+    {
+      "id": "toc-oos-18",
+      "unit": 5,
+      "topic": "Storage in the State in Turing Machines",
+      "reason": "Master Prompt boundary: TM storage is Unit 5.",
+      "exam_paper": "SEE Jan 2026 Q9c"
+    }
+  ]
+}
