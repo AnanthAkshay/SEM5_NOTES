@@ -173,8 +173,9 @@ async function httpCheck(targetUrl, method = 'HEAD') {
     page.on('console', msg => {
       if (msg.type() === 'error') {
         const text = msg.text();
+        const loc = msg.location ? msg.location().url : '';
         if (!text.includes('attribute height: Expected length, "auto"')) {
-          consoleErrors.push(text);
+          consoleErrors.push(loc ? `${text} [${loc}]` : text);
         }
       }
     });
@@ -233,17 +234,35 @@ async function httpCheck(targetUrl, method = 'HEAD') {
     ];
 
     for (const sample of sampleNotes) {
-      consoleErrors.length = 0;
-      failedNetwork.length = 0;
+      const notePage = await browser.newPage();
+      const noteConsoleErrors = [];
+      const noteFailedNetwork = [];
+
+      notePage.on('console', msg => {
+        if (msg.type() === 'error') {
+          const text = msg.text();
+          const loc = msg.location ? msg.location().url : '';
+          if (!text.includes('attribute height: Expected length, "auto"')) {
+            noteConsoleErrors.push(loc ? `${text} [${loc}]` : text);
+          }
+        }
+      });
+
+      notePage.on('response', resp => {
+        if (resp.status() >= 400) {
+          noteFailedNetwork.push(`${resp.status()} on ${resp.url()}`);
+        }
+      });
+
       const noteUrl = `${targetBase}/notes/${sample.sub}/unit${sample.u}/unit-${sample.u}-notes.html`;
       try {
-        const resp = await page.goto(noteUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
+        const resp = await notePage.goto(noteUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
         // Check for PDF link card
-        const hasPdfCard = await page.evaluate(() => {
+        const hasPdfCard = await notePage.evaluate(() => {
           const links = Array.from(document.querySelectorAll('a[href*="-handwritten.pdf"]'));
           return links.length > 0;
         });
-        const allErrors = [...consoleErrors, ...failedNetwork];
+        const allErrors = [...noteConsoleErrors, ...noteFailedNetwork];
         record(
           `Notes Runtime: ${sample.sub.toUpperCase()} Unit ${sample.u} loads with 0 errors & PDF link card`,
           resp && resp.status() === 200 && allErrors.length === 0 && hasPdfCard,
@@ -251,6 +270,8 @@ async function httpCheck(targetUrl, method = 'HEAD') {
         );
       } catch (e) {
         record(`Notes Runtime: ${sample.sub} Unit ${sample.u}`, false, e.message);
+      } finally {
+        await notePage.close();
       }
     }
 
