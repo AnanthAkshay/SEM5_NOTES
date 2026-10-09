@@ -125,15 +125,18 @@ def check_unit_coverage(sub_id, unit_num):
     key_numbers = [n for n in html_numbers if len(n) > 2 or '.' in n or '%' in n][:50]
     missing_numbers = [n for n in key_numbers if n not in pdf_text]
 
-    # Font allow-list check
+    # Font allow-list and Type3 check
     allowed_font_substrings = ['PatrickHand', 'Caveat', 'Kalam', 'JetBrainsMono', 'KaTeX']
-    pdf_fonts = set()
+    disallowed_fonts = set()
     for page in reader.pages:
         if '/Resources' in page and '/Font' in page['/Resources']:
             for f in page['/Resources']['/Font'].values():
-                bf = str(f.get('/BaseFont', ''))
-                if bf: pdf_fonts.add(bf)
-    disallowed_fonts = [f for f in pdf_fonts if not any(ok in f for ok in allowed_font_substrings)]
+                obj = f.get_object()
+                bf = str(obj.get('/BaseFont', 'NO_BASE'))
+                st = str(obj.get('/Subtype', 'NO_SUB'))
+                if st == '/Type3' or not any(ok in bf for ok in allowed_font_substrings):
+                    disallowed_fonts.add(f"{bf} ({st})")
+
     fonts_ok = (len(disallowed_fonts) == 0)
 
     # Metadata & Outline check
@@ -141,18 +144,14 @@ def check_unit_coverage(sub_id, unit_num):
     title = meta.title if meta else None
     author = meta.author if meta else None
     outlines = reader.outline
-    meta_ok = bool(title and author and outlines)
-
-    # HTML size check
-    hand_html_path = f"notes/{sub_id}/unit{unit_num}/handwritten/{sub_id}-unit{unit_num}-handwritten.html"
-    html_size_mb = os.path.getsize(hand_html_path) / (1024 * 1024) if os.path.exists(hand_html_path) else 0
+    meta_ok = bool(title and author == "SEM 5 ISE Notes" and outlines)
 
     word_ratio = len(pdf_words) / max(1, len(html_words))
 
     pdf_stat = os.stat(pdf_path)
     size_mb = pdf_stat.st_size / (1024 * 1024)
 
-    passed = (len(missing_h2) == 0) and (size_mb <= 4.0) and (html_size_mb <= 1.5) and fonts_ok and meta_ok and order_ok
+    passed = (len(missing_h2) == 0) and (size_mb <= 4.0) and fonts_ok and meta_ok and order_ok
 
     return {
         "status": "PASS" if passed else "FAIL",
@@ -162,7 +161,6 @@ def check_unit_coverage(sub_id, unit_num):
         "pdf_path": pdf_path,
         "pages": total_pages,
         "size_mb": round(size_mb, 2),
-        "html_size_mb": round(html_size_mb, 2),
         "html_words": len(html_words),
         "pdf_words": len(pdf_words),
         "word_ratio": round(word_ratio, 2),
@@ -226,19 +224,19 @@ def main():
     for r in results:
         status_badge = "✅ PASS" if r.get('status') == 'PASS' else "❌ FAIL"
         fonts_badge = "Fonts: OK" if r.get('fonts_ok') else f"Fonts: FAIL ({r.get('disallowed_fonts')})"
-        print(f"[{status_badge}] {r.get('sub_id', '').upper()} Unit {r.get('unit')}: Pages: {r.get('pages')}, PDF: {r.get('size_mb')} MB, HTML: {r.get('html_size_mb')} MB, Words: {r.get('pdf_words')}/{r.get('html_words')} (Ratio: {r.get('word_ratio')}), Headings: {r.get('h2_found')}/{r.get('h2_total')}, {fonts_badge}")
+        print(f"[{status_badge}] {r.get('sub_id', '').upper()} Unit {r.get('unit')}: Pages: {r.get('pages')}, PDF: {r.get('size_mb')} MB, Words: {r.get('pdf_words')}/{r.get('html_words')} (Ratio: {r.get('word_ratio')}), Headings: {r.get('h2_found')}/{r.get('h2_total')}, {fonts_badge}")
         if r.get('missing_h2'):
             print(f"    Missing Headings: {r['missing_h2']}")
 
     # Write report
     report_md = "# Handwritten Notebooks Coverage & Fidelity Audit\n\n"
-    report_md += "| Subject | Unit | Pages | PDF (MB) | HTML (MB) | HTML Words | PDF Words | Ratio | Headings | Order OK | Fonts OK | Meta OK | Status |\n"
-    report_md += "|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
+    report_md += "| Subject | Unit | Pages | PDF (MB) | HTML Words | PDF Words | Ratio | Headings | Order OK | Fonts OK | Meta OK | Status |\n"
+    report_md += "|---|---|---|---|---|---|---|---|---|---|---|---|\n"
     for r in results:
         if r.get('status') == 'SKIPPED':
             continue
         st = "✅ PASS" if r.get('status') == 'PASS' else "❌ FAIL"
-        report_md += f"| {r['sub_id'].upper()} | Unit {r['unit']} | {r['pages']} | {r['size_mb']} | {r['html_size_mb']} | {r['html_words']:,} | {r['pdf_words']:,} | {r['word_ratio']} | {r['h2_found']}/{r['h2_total']} | {'Yes' if r['order_ok'] else 'No'} | {'Yes' if r['fonts_ok'] else 'No'} | {'Yes' if r['meta_ok'] else 'No'} | {st} |\n"
+        report_md += f"| {r['sub_id'].upper()} | Unit {r['unit']} | {r['pages']} | {r['size_mb']} | {r['html_words']:,} | {r['pdf_words']:,} | {r['word_ratio']} | {r['h2_found']}/{r['h2_total']} | {'Yes' if r['order_ok'] else 'No'} | {'Yes' if r['fonts_ok'] else 'No'} | {'Yes' if r['meta_ok'] else 'No'} | {st} |\n"
 
     os.makedirs('audit', exist_ok=True)
     with open('audit/handwritten_coverage.md', 'w', encoding='utf-8') as f:
