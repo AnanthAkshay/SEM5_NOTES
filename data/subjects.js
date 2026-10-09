@@ -6,15 +6,18 @@
 
 window.SEM5_DATA = {
   "meta": {
-    "siteTitle": "SEM 5 · ISE Notes",
+    "siteTitle": "SEM 5 \u00b7 ISE Notes",
     "tagline": "Department of Information Science & Engineering",
     "semester": "Semester V",
-    "batch": "2024 Batch (Academic Year 2026–2027)",
+    "batch": "2024 Batch (Academic Year 2026\u20132027)",
     "totalCredits": 22,
-    "academicYear": "2026–2027",
+    "academicYear": "2026\u20132027",
     "lastUpdated": "October 2026",
     "repositoryName": "SEM5_NOTES",
-    "studentDegree": "B.E. Information Science & Engineering"
+    "studentDegree": "B.E. Information Science & Engineering",
+    "totalFiles": 100,
+    "totalSizeBytes": 156368693,
+    "totalSize": "149.1 MB"
   },
   "scheme": {
     "title": "Scheme of Teaching & Evaluation - V Semester (2024 Batch)",
@@ -210,7 +213,7 @@ window.SEM5_DATA = {
         "status": "Available for All Subjects",
         "statusBadge": "Completed",
         "pdfUrl": "notes/ai/practice/ai-cie-1-and-2.pdf",
-        "dateRange": "Term Sep–Dec 2025",
+        "dateRange": "Term Sep\u2013Dec 2025",
         "description": "Official CIE-1 and CIE-2 question papers available under Practice tabs for AI, CN, EVS, ML, RMIPR, SE, and TOC."
       },
       {
@@ -374,8 +377,8 @@ window.SEM5_DATA = {
         "units": [
           {
             "unitNumber": 1,
-            "title": "Unit I: Introduction & Understanding Data – 1",
-            "topics": "Introduction: Need for Machine Learning, Machine Learning Explained, Machine Learning in Relation to other Fields, Types of Machine Learning, Challenges of Machine Learning, Machine Learning Process, Machine Learning Applications. Understanding Data – 1: Introduction, Big Data Analysis Framework, Descriptive Statistics, Univariate Data Analysis and Visualization, Bivariate Data and Multivariate Data, Multivariate Statistics",
+            "title": "Unit I: Introduction & Understanding Data \u2013 1",
+            "topics": "Introduction: Need for Machine Learning, Machine Learning Explained, Machine Learning in Relation to other Fields, Types of Machine Learning, Challenges of Machine Learning, Machine Learning Process, Machine Learning Applications. Understanding Data \u2013 1: Introduction, Big Data Analysis Framework, Descriptive Statistics, Univariate Data Analysis and Visualization, Bivariate Data and Multivariate Data, Multivariate Statistics",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -386,8 +389,8 @@ window.SEM5_DATA = {
           },
           {
             "unitNumber": 2,
-            "title": "Unit II: Understanding Data – 2 & Basic Learning Theory",
-            "topics": "Understanding Data – 2: Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques. Basic Learning Theory: Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, learning Frameworks.",
+            "title": "Unit II: Understanding Data \u2013 2 & Basic Learning Theory",
+            "topics": "Understanding Data \u2013 2: Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques. Basic Learning Theory: Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, learning Frameworks.",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -423,7 +426,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Rule Based Learning, Bayesian Learning & Artificial Neural Networks",
-            "topics": "Rule Based Learning: Introduction, Sequential Covering Algorithm, First order Rule Learning, Association Rule Mining. Bayesian Learning: Introduction to Probability-based Learning, Fundamentals of Bayes Theorem, Classification Using Bayes Model, Naïve Bayes Algorithm for Continuous Attributes. Artificial Neural Networks: Introduction, Biological Neurons, Artificial Neurons, Perceptron and Learning Theory, Types of Artificial Neural Networks, Popular Applications of Artificial Neural Networks, Advantages and Disadvantages of ANN, Challenges of ANN",
+            "topics": "Rule Based Learning: Introduction, Sequential Covering Algorithm, First order Rule Learning, Association Rule Mining. Bayesian Learning: Introduction to Probability-based Learning, Fundamentals of Bayes Theorem, Classification Using Bayes Model, Na\u00efve Bayes Algorithm for Continuous Attributes. Artificial Neural Networks: Introduction, Biological Neurons, Artificial Neurons, Perceptron and Learning Theory, Types of Artificial Neural Networks, Popular Applications of Artificial Neural Networks, Advantages and Disadvantages of ANN, Challenges of ANN",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -507,7 +510,7 @@ window.SEM5_DATA = {
             "tasks": [
               "Analyze and visualize the dataset to understand relationship between physicochemical features and wine quality.",
               "Build a regression model using Linear Regression and Ridge Regression.",
-              "Evaluate and interpret model performance using R², RMSE, and MAE metrics."
+              "Evaluate and interpret model performance using R\u00b2, RMSE, and MAE metrics."
             ]
           },
           {
@@ -522,7 +525,7 @@ window.SEM5_DATA = {
           },
           {
             "slNo": 3,
-            "title": "Parkinson’s Disease Dataset KNN & Weighted KNN",
+            "title": "Parkinson\u2019s Disease Dataset KNN & Weighted KNN",
             "dataset": "https://archive.ics.uci.edu/ml/datasets/parkinsons",
             "tasks": [
               "Explore correlations among speech and biomedical features related to Parkinson's disease.",
@@ -552,11 +555,11 @@ window.SEM5_DATA = {
           },
           {
             "slNo": 6,
-            "title": "Spambase Dataset Email Filtering with Gaussian Naïve Bayes",
+            "title": "Spambase Dataset Email Filtering with Gaussian Na\u00efve Bayes",
             "dataset": "https://archive.ics.uci.edu/ml/datasets/spambase",
             "tasks": [
               "Analyze word frequency, character frequency, and capital run length distributions.",
-              "Build a classification model using Naïve Bayes and Gaussian Naïve Bayes.",
+              "Build a classification model using Na\u00efve Bayes and Gaussian Na\u00efve Bayes.",
               "Evaluate using Accuracy, Precision, Recall, and F1-score."
             ]
           },
@@ -625,22 +628,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 35,
-              "size": "3.61 MB",
-              "sizeBytes": 3784783,
-              "previewImage": "notes/ml/unit1/handwritten/ml-unit1-preview.webp",
-              "sourceHtml": "notes/ml/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "ml-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "ml-unit1-handwritten.html",
-              "path": "notes/ml/unit1/handwritten/ml-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 35,
-              "size": "Web Edition (834 KB)",
-              "sizeBytes": 854345,
+              "size": "1.15 MB",
+              "sizeBytes": 1206028,
               "previewImage": "notes/ml/unit1/handwritten/ml-unit1-preview.webp",
               "sourceHtml": "notes/ml/unit1/unit-1-notes.html"
             },
@@ -655,7 +644,8 @@ window.SEM5_DATA = {
               "sizeBytes": 2508842,
               "isConverted": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "ml-unit2",
@@ -684,23 +674,9 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 31,
-              "size": "3.17 MB",
-              "sizeBytes": 3328713,
-              "previewImage": "notes/ml/unit2/handwritten/ml-unit2-preview.webp",
-              "sourceHtml": "notes/ml/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "ml-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "ml-unit2-handwritten.html",
-              "path": "notes/ml/unit2/handwritten/ml-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 31,
-              "size": "Web Edition (1013 KB)",
-              "sizeBytes": 1037160,
+              "pages": 32,
+              "size": "1.04 MB",
+              "sizeBytes": 1091766,
               "previewImage": "notes/ml/unit2/handwritten/ml-unit2-preview.webp",
               "sourceHtml": "notes/ml/unit2/unit-2-notes.html"
             },
@@ -715,7 +691,8 @@ window.SEM5_DATA = {
               "sizeBytes": 2132489,
               "isConverted": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "ml-unit3",
@@ -745,22 +722,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 28,
-              "size": "2.84 MB",
-              "sizeBytes": 2976446,
-              "previewImage": "notes/ml/unit3/handwritten/ml-unit3-preview.webp",
-              "sourceHtml": "notes/ml/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "ml-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "ml-unit3-handwritten.html",
-              "path": "notes/ml/unit3/handwritten/ml-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 28,
-              "size": "Web Edition (1046 KB)",
-              "sizeBytes": 1071584,
+              "size": "0.94 MB",
+              "sizeBytes": 990838,
               "previewImage": "notes/ml/unit3/handwritten/ml-unit3-preview.webp",
               "sourceHtml": "notes/ml/unit3/unit-3-notes.html"
             },
@@ -786,7 +749,8 @@ window.SEM5_DATA = {
               "sizeBytes": 91608,
               "isConverted": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "ml-practice",
@@ -819,7 +783,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 12,
+      "totalSizeBytes": 13999811,
+      "totalSize": "13.4 MB"
     },
     {
       "id": "se",
@@ -853,7 +820,7 @@ window.SEM5_DATA = {
         },
         "referenceBooks": [
           {
-            "title": "Software Engineering: A Practitioner’s Approach",
+            "title": "Software Engineering: A Practitioner\u2019s Approach",
             "edition": "9th Edition (2020)",
             "authors": "Roger S. Pressman and Bruce R. Maxim",
             "publisher": "McGraw-Hill"
@@ -1076,22 +1043,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 27,
-              "size": "2.89 MB",
-              "sizeBytes": 3029165,
-              "previewImage": "notes/se/unit1/handwritten/se-unit1-preview.webp",
-              "sourceHtml": "notes/se/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "se-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "se-unit1-handwritten.html",
-              "path": "notes/se/unit1/handwritten/se-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 27,
-              "size": "Web Edition (117 KB)",
-              "sizeBytes": 119859,
+              "size": "0.89 MB",
+              "sizeBytes": 931410,
               "previewImage": "notes/se/unit1/handwritten/se-unit1-preview.webp",
               "sourceHtml": "notes/se/unit1/unit-1-notes.html"
             },
@@ -1128,7 +1081,8 @@ window.SEM5_DATA = {
               "sizeBytes": 550417,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "se-unit2",
@@ -1158,22 +1112,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 17,
-              "size": "2.10 MB",
-              "sizeBytes": 2200857,
-              "previewImage": "notes/se/unit2/handwritten/se-unit2-preview.webp",
-              "sourceHtml": "notes/se/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "se-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "se-unit2-handwritten.html",
-              "path": "notes/se/unit2/handwritten/se-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 17,
-              "size": "Web Edition (90 KB)",
-              "sizeBytes": 91967,
+              "size": "0.61 MB",
+              "sizeBytes": 639359,
               "previewImage": "notes/se/unit2/handwritten/se-unit2-preview.webp",
               "sourceHtml": "notes/se/unit2/unit-2-notes.html"
             },
@@ -1199,7 +1139,8 @@ window.SEM5_DATA = {
               "sizeBytes": 1218536,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "se-unit3",
@@ -1229,26 +1170,13 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 17,
-              "size": "2.11 MB",
-              "sizeBytes": 2217702,
-              "previewImage": "notes/se/unit3/handwritten/se-unit3-preview.webp",
-              "sourceHtml": "notes/se/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "se-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "se-unit3-handwritten.html",
-              "path": "notes/se/unit3/handwritten/se-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 17,
-              "size": "Web Edition (68 KB)",
-              "sizeBytes": 69818,
+              "size": "0.56 MB",
+              "sizeBytes": 585288,
               "previewImage": "notes/se/unit3/handwritten/se-unit3-preview.webp",
               "sourceHtml": "notes/se/unit3/unit-3-notes.html"
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "se-practice",
@@ -1259,7 +1187,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "se-cie1-2",
-              "title": "Software Engineering CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
+              "title": "Software Engineering CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
               "originalName": "CIE 1 & 2.pdf",
               "path": "notes/se/practice/se-cie-1-and-2.pdf",
               "originalPath": null,
@@ -1270,7 +1198,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 12,
+      "totalSizeBytes": 5716232,
+      "totalSize": "5.5 MB"
     },
     {
       "id": "cn",
@@ -1304,7 +1235,7 @@ window.SEM5_DATA = {
         },
         "referenceBooks": [
           {
-            "title": "Communication Networks – Fundamental Concepts and Key architectures",
+            "title": "Communication Networks \u2013 Fundamental Concepts and Key architectures",
             "edition": "Second Edition",
             "authors": "Alberto Leon-Garcia and Indra Widjaja",
             "publisher": "Tata McGraw-Hill"
@@ -1471,7 +1402,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 5,
             "title": "Unit V: Transport Services, UDP, TCP & DNS",
-            "topics": "Transport Layer: Services, Port Numbers, User Datagram Protocol (UDP) – user datagram, services and applications, Transmission control Protocol (FSMs excluded): TCP Services and features, Segment, TCP Connection, Error control, and TCP Congestion control; Domain Name System (DNS) – Purpose and Resolution.",
+            "topics": "Transport Layer: Services, Port Numbers, User Datagram Protocol (UDP) \u2013 user datagram, services and applications, Transmission control Protocol (FSMs excluded): TCP Services and features, Segment, TCP Connection, Error control, and TCP Congestion control; Domain Name System (DNS) \u2013 Purpose and Resolution.",
             "pedagogy": "Chalk & talk, Power Point and Multimedia Presentation",
             "links": [
               {
@@ -1606,22 +1537,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 33,
-              "size": "3.04 MB",
-              "sizeBytes": 3182836,
-              "previewImage": "notes/cn/unit1/handwritten/cn-unit1-preview.webp",
-              "sourceHtml": "notes/cn/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "cn-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "cn-unit1-handwritten.html",
-              "path": "notes/cn/unit1/handwritten/cn-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 33,
-              "size": "Web Edition (517 KB)",
-              "sizeBytes": 529415,
+              "size": "1.02 MB",
+              "sizeBytes": 1070505,
               "previewImage": "notes/cn/unit1/handwritten/cn-unit1-preview.webp",
               "sourceHtml": "notes/cn/unit1/unit-1-notes.html"
             },
@@ -1636,7 +1553,8 @@ window.SEM5_DATA = {
               "sizeBytes": 12266281,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "cn-unit2",
@@ -1666,22 +1584,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 24,
-              "size": "3.00 MB",
-              "sizeBytes": 3148325,
-              "previewImage": "notes/cn/unit2/handwritten/cn-unit2-preview.webp",
-              "sourceHtml": "notes/cn/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "cn-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "cn-unit2-handwritten.html",
-              "path": "notes/cn/unit2/handwritten/cn-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 24,
-              "size": "Web Edition (360 KB)",
-              "sizeBytes": 368985,
+              "size": "0.81 MB",
+              "sizeBytes": 853372,
               "previewImage": "notes/cn/unit2/handwritten/cn-unit2-preview.webp",
               "sourceHtml": "notes/cn/unit2/unit-2-notes.html"
             },
@@ -1696,7 +1600,8 @@ window.SEM5_DATA = {
               "sizeBytes": 10268479,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "cn-unit3",
@@ -1726,26 +1631,13 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 31,
-              "size": "3.10 MB",
-              "sizeBytes": 3255648,
-              "previewImage": "notes/cn/unit3/handwritten/cn-unit3-preview.webp",
-              "sourceHtml": "notes/cn/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "cn-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "cn-unit3-handwritten.html",
-              "path": "notes/cn/unit3/handwritten/cn-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 31,
-              "size": "Web Edition (384 KB)",
-              "sizeBytes": 392888,
+              "size": "0.99 MB",
+              "sizeBytes": 1040496,
               "previewImage": "notes/cn/unit3/handwritten/cn-unit3-preview.webp",
               "sourceHtml": "notes/cn/unit3/unit-3-notes.html"
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "cn-practice",
@@ -1756,7 +1648,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "cn-cie1-2",
-              "title": "Computer Networks IS53 CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
+              "title": "Computer Networks IS53 CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
               "originalName": "CIE 1 & 2.pdf",
               "path": "notes/cn/practice/cn-cie-1-and-2.pdf",
               "originalPath": null,
@@ -1767,7 +1659,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 9,
+      "totalSizeBytes": 25805309,
+      "totalSize": "24.6 MB"
     },
     {
       "id": "toc",
@@ -1935,7 +1830,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Pushdown Automata",
-            "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA’s and CFG’s, Deterministic Pushdown Automata.",
+            "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA\u2019s and CFG\u2019s, Deterministic Pushdown Automata.",
             "pedagogy": "Chalk-and-talk",
             "links": [
               {
@@ -1994,23 +1889,9 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 16,
-              "size": "1.97 MB",
-              "sizeBytes": 2066750,
-              "previewImage": "notes/toc/unit1/handwritten/toc-unit1-preview.webp",
-              "sourceHtml": "notes/toc/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "toc-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "toc-unit1-handwritten.html",
-              "path": "notes/toc/unit1/handwritten/toc-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 16,
-              "size": "Web Edition (474 KB)",
-              "sizeBytes": 485714,
+              "pages": 17,
+              "size": "0.61 MB",
+              "sizeBytes": 643126,
               "previewImage": "notes/toc/unit1/handwritten/toc-unit1-preview.webp",
               "sourceHtml": "notes/toc/unit1/unit-1-notes.html"
             },
@@ -2039,7 +1920,8 @@ window.SEM5_DATA = {
               "isAlternate": true,
               "alternateLabel": "Alternate / Condensed Notes"
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "toc-unit2",
@@ -2068,23 +1950,9 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 26,
-              "size": "2.60 MB",
-              "sizeBytes": 2727514,
-              "previewImage": "notes/toc/unit2/handwritten/toc-unit2-preview.webp",
-              "sourceHtml": "notes/toc/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "toc-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "toc-unit2-handwritten.html",
-              "path": "notes/toc/unit2/handwritten/toc-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 26,
-              "size": "Web Edition (981 KB)",
-              "sizeBytes": 1004517,
+              "pages": 27,
+              "size": "0.89 MB",
+              "sizeBytes": 931891,
               "previewImage": "notes/toc/unit2/handwritten/toc-unit2-preview.webp",
               "sourceHtml": "notes/toc/unit2/unit-2-notes.html"
             },
@@ -2100,7 +1968,8 @@ window.SEM5_DATA = {
               "isConverted": false,
               "isAlternate": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "toc-unit3",
@@ -2130,22 +1999,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 26,
-              "size": "2.57 MB",
-              "sizeBytes": 2692071,
-              "previewImage": "notes/toc/unit3/handwritten/toc-unit3-preview.webp",
-              "sourceHtml": "notes/toc/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "toc-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "toc-unit3-handwritten.html",
-              "path": "notes/toc/unit3/handwritten/toc-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 26,
-              "size": "Web Edition (741 KB)",
-              "sizeBytes": 758907,
+              "size": "0.85 MB",
+              "sizeBytes": 895543,
               "previewImage": "notes/toc/unit3/handwritten/toc-unit3-preview.webp",
               "sourceHtml": "notes/toc/unit3/unit-3-notes.html"
             },
@@ -2174,13 +2029,14 @@ window.SEM5_DATA = {
               "isAlternate": true,
               "alternateLabel": "Alternate / Condensed Notes"
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "toc-unit4",
           "unitNumber": 4,
           "title": "Unit 4: Properties of CFLs & Pushdown Automata",
-          "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA’s and CFG’s, Deterministic Pushdown Automata.",
+          "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA\u2019s and CFG\u2019s, Deterministic Pushdown Automata.",
           "isPractice": false,
           "files": [
             {
@@ -2240,7 +2096,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 14,
+      "totalSizeBytes": 78860324,
+      "totalSize": "75.2 MB"
     },
     {
       "id": "ai",
@@ -2282,7 +2141,7 @@ window.SEM5_DATA = {
           {
             "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
             "edition": "3rd Edition (2022)",
-            "authors": "Aurélien Géron",
+            "authors": "Aur\u00e9lien G\u00e9ron",
             "publisher": "O'Reilly Media"
           },
           {
@@ -2420,7 +2279,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Uncertainty in AI & Generative AI",
-            "topics": "Uncertainty in AI: Sources of uncertainty, probability basics, conditional probability, Bayes' theorem, Bayesian reasoning, introduction to Bayesian Networks. Generative AI: Introduction to Generative AI, generative versus discriminative AI, Large Language Models, Transformer architecture – high-level understanding, foundation models, multimodal AI, AI assistants.",
+            "topics": "Uncertainty in AI: Sources of uncertainty, probability basics, conditional probability, Bayes' theorem, Bayesian reasoning, introduction to Bayesian Networks. Generative AI: Introduction to Generative AI, generative versus discriminative AI, Large Language Models, Transformer architecture \u2013 high-level understanding, foundation models, multimodal AI, AI assistants.",
             "pedagogy": "Theoretical foundation paired with contemporary Generative AI architectures.",
             "links": [
               {
@@ -2480,22 +2339,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 28,
-              "size": "3.35 MB",
-              "sizeBytes": 3508788,
-              "previewImage": "notes/ai/unit1/handwritten/ai-unit1-preview.webp",
-              "sourceHtml": "notes/ai/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "ai-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "ai-unit1-handwritten.html",
-              "path": "notes/ai/unit1/handwritten/ai-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 28,
-              "size": "Web Edition (218 KB)",
-              "sizeBytes": 223404,
+              "size": "0.93 MB",
+              "sizeBytes": 979699,
               "previewImage": "notes/ai/unit1/handwritten/ai-unit1-preview.webp",
               "sourceHtml": "notes/ai/unit1/unit-1-notes.html"
             },
@@ -2534,7 +2379,8 @@ window.SEM5_DATA = {
               "sizeBytes": 419163,
               "isConverted": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "ai-unit2",
@@ -2563,23 +2409,9 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 26,
-              "size": "2.18 MB",
-              "sizeBytes": 2288386,
-              "previewImage": "notes/ai/unit2/handwritten/ai-unit2-preview.webp",
-              "sourceHtml": "notes/ai/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "ai-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "ai-unit2-handwritten.html",
-              "path": "notes/ai/unit2/handwritten/ai-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 26,
-              "size": "Web Edition (555 KB)",
-              "sizeBytes": 568376,
+              "pages": 27,
+              "size": "0.87 MB",
+              "sizeBytes": 907383,
               "previewImage": "notes/ai/unit2/handwritten/ai-unit2-preview.webp",
               "sourceHtml": "notes/ai/unit2/unit-2-notes.html"
             },
@@ -2616,7 +2448,8 @@ window.SEM5_DATA = {
               "sizeBytes": 174371,
               "isConverted": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "ai-unit3",
@@ -2646,22 +2479,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 23,
-              "size": "2.42 MB",
-              "sizeBytes": 2536810,
-              "previewImage": "notes/ai/unit3/handwritten/ai-unit3-preview.webp",
-              "sourceHtml": "notes/ai/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "ai-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "ai-unit3-handwritten.html",
-              "path": "notes/ai/unit3/handwritten/ai-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 23,
-              "size": "Web Edition (441 KB)",
-              "sizeBytes": 451246,
+              "size": "0.78 MB",
+              "sizeBytes": 814438,
               "previewImage": "notes/ai/unit3/handwritten/ai-unit3-preview.webp",
               "sourceHtml": "notes/ai/unit3/unit-3-notes.html"
             },
@@ -2676,7 +2495,8 @@ window.SEM5_DATA = {
               "sizeBytes": 194418,
               "isConverted": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "ai-syllabus-unit",
@@ -2717,7 +2537,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "ai-cie1-2",
-              "title": "AI Internal Assessment CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
+              "title": "AI Internal Assessment CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
               "originalName": "AI cie 1 & 2.pdf",
               "path": "notes/ai/practice/ai-cie-1-and-2.pdf",
               "originalPath": null,
@@ -2728,7 +2548,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 16,
+      "totalSizeBytes": 6742032,
+      "totalSize": "6.4 MB"
     },
     {
       "id": "rmipr",
@@ -2755,7 +2578,7 @@ window.SEM5_DATA = {
       "description": "Meaning of research, objectives, ethics, literature review & citations, experimental design, sampling & hypothesis testing (ANOVA, Chi-square), patents, TRIPS agreement, designs, trademarks, and copyrights.",
       "syllabus": {
         "textbook": {
-          "title": "Research Methodology – Methods and Techniques",
+          "title": "Research Methodology \u2013 Methods and Techniques",
           "edition": "Recent Edition",
           "authors": "C. R Kothari, Gourav Garg",
           "publisher": "New Age International Publishers"
@@ -2940,23 +2763,9 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 22,
-              "size": "2.48 MB",
-              "sizeBytes": 2595740,
-              "previewImage": "notes/rmipr/unit1/handwritten/rmipr-unit1-preview.webp",
-              "sourceHtml": "notes/rmipr/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "rmipr-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "rmipr-unit1-handwritten.html",
-              "path": "notes/rmipr/unit1/handwritten/rmipr-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 22,
-              "size": "Web Edition (219 KB)",
-              "sizeBytes": 224276,
+              "pages": 23,
+              "size": "0.83 MB",
+              "sizeBytes": 868632,
               "previewImage": "notes/rmipr/unit1/handwritten/rmipr-unit1-preview.webp",
               "sourceHtml": "notes/rmipr/unit1/unit-1-notes.html"
             },
@@ -2971,7 +2780,8 @@ window.SEM5_DATA = {
               "sizeBytes": 674560,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "rmipr-unit2",
@@ -3001,22 +2811,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 20,
-              "size": "2.08 MB",
-              "sizeBytes": 2178193,
-              "previewImage": "notes/rmipr/unit2/handwritten/rmipr-unit2-preview.webp",
-              "sourceHtml": "notes/rmipr/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "rmipr-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "rmipr-unit2-handwritten.html",
-              "path": "notes/rmipr/unit2/handwritten/rmipr-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 20,
-              "size": "Web Edition (384 KB)",
-              "sizeBytes": 393062,
+              "size": "0.70 MB",
+              "sizeBytes": 733606,
               "previewImage": "notes/rmipr/unit2/handwritten/rmipr-unit2-preview.webp",
               "sourceHtml": "notes/rmipr/unit2/unit-2-notes.html"
             },
@@ -3031,7 +2827,8 @@ window.SEM5_DATA = {
               "sizeBytes": 1319874,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "rmipr-unit3",
@@ -3060,27 +2857,14 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 20,
-              "size": "2.04 MB",
-              "sizeBytes": 2143754,
-              "previewImage": "notes/rmipr/unit3/handwritten/rmipr-unit3-preview.webp",
-              "sourceHtml": "notes/rmipr/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "rmipr-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "rmipr-unit3-handwritten.html",
-              "path": "notes/rmipr/unit3/handwritten/rmipr-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 20,
-              "size": "Web Edition (562 KB)",
-              "sizeBytes": 575196,
+              "pages": 22,
+              "size": "0.80 MB",
+              "sizeBytes": 842355,
               "previewImage": "notes/rmipr/unit3/handwritten/rmipr-unit3-preview.webp",
               "sourceHtml": "notes/rmipr/unit3/unit-3-notes.html"
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "rmipr-practice",
@@ -3091,7 +2875,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "rmipr-cie1-2",
-              "title": "Research Methodology & IPR AL58 CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
+              "title": "Research Methodology & IPR AL58 CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
               "originalName": "CIE 1 & 2.pdf",
               "path": "notes/rmipr/practice/rmipr-cie-1-and-2.pdf",
               "originalPath": null,
@@ -3113,7 +2897,7 @@ window.SEM5_DATA = {
             },
             {
               "id": "rmipr-see-backlog",
-              "title": "Research Methodology & IPR AL58 SEE / Backlog Examination Question Paper (Feb–March 2025, SEE-3)",
+              "title": "Research Methodology & IPR AL58 SEE / Backlog Examination Question Paper (Feb\u2013March 2025, SEE-3)",
               "originalName": "SEE-3.pdf",
               "path": "notes/rmipr/practice/rmipr-see-feb-mar-2025.pdf",
               "originalPath": null,
@@ -3124,7 +2908,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 11,
+      "totalSizeBytes": 4935615,
+      "totalSize": "4.7 MB"
     },
     {
       "id": "reactjs",
@@ -3366,23 +3153,9 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 24,
-              "size": "2.31 MB",
-              "sizeBytes": 2424111,
-              "previewImage": "notes/reactjs/unit1/handwritten/reactjs-unit1-preview.webp",
-              "sourceHtml": "notes/reactjs/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "reactjs-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "reactjs-unit1-handwritten.html",
-              "path": "notes/reactjs/unit1/handwritten/reactjs-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 24,
-              "size": "Web Edition (93 KB)",
-              "sizeBytes": 95379,
+              "pages": 25,
+              "size": "0.98 MB",
+              "sizeBytes": 1026568,
               "previewImage": "notes/reactjs/unit1/handwritten/reactjs-unit1-preview.webp",
               "sourceHtml": "notes/reactjs/unit1/unit-1-notes.html"
             },
@@ -3397,7 +3170,8 @@ window.SEM5_DATA = {
               "sizeBytes": 1968713,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "reactjs-unit2",
@@ -3426,27 +3200,14 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 23,
-              "size": "1.96 MB",
-              "sizeBytes": 2059570,
-              "previewImage": "notes/reactjs/unit2/handwritten/reactjs-unit2-preview.webp",
-              "sourceHtml": "notes/reactjs/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "reactjs-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "reactjs-unit2-handwritten.html",
-              "path": "notes/reactjs/unit2/handwritten/reactjs-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 23,
-              "size": "Web Edition (80 KB)",
-              "sizeBytes": 82352,
+              "pages": 24,
+              "size": "1.02 MB",
+              "sizeBytes": 1069213,
               "previewImage": "notes/reactjs/unit2/handwritten/reactjs-unit2-preview.webp",
               "sourceHtml": "notes/reactjs/unit2/unit-2-notes.html"
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "reactjs-unit3",
@@ -3476,26 +3237,13 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 20,
-              "size": "2.13 MB",
-              "sizeBytes": 2235435,
-              "previewImage": "notes/reactjs/unit3/handwritten/reactjs-unit3-preview.webp",
-              "sourceHtml": "notes/reactjs/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "reactjs-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "reactjs-unit3-handwritten.html",
-              "path": "notes/reactjs/unit3/handwritten/reactjs-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 20,
-              "size": "Web Edition (81 KB)",
-              "sizeBytes": 82679,
+              "size": "0.87 MB",
+              "sizeBytes": 911857,
               "previewImage": "notes/reactjs/unit3/handwritten/reactjs-unit3-preview.webp",
               "sourceHtml": "notes/reactjs/unit3/unit-3-notes.html"
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "react-syllabus-unit",
@@ -3516,7 +3264,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 8,
+      "totalSizeBytes": 5468460,
+      "totalSize": "5.2 MB"
     },
     {
       "id": "evs",
@@ -3639,23 +3390,9 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 20,
-              "size": "2.09 MB",
-              "sizeBytes": 2186801,
-              "previewImage": "notes/evs/unit1/handwritten/evs-unit1-preview.webp",
-              "sourceHtml": "notes/evs/unit1/unit-1-notes.html"
-            },
-            {
-              "id": "evs-u1-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "evs-unit1-handwritten.html",
-              "path": "notes/evs/unit1/handwritten/evs-unit1-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 20,
-              "size": "Web Edition (218 KB)",
-              "sizeBytes": 223545,
+              "pages": 21,
+              "size": "0.75 MB",
+              "sizeBytes": 789934,
               "previewImage": "notes/evs/unit1/handwritten/evs-unit1-preview.webp",
               "sourceHtml": "notes/evs/unit1/unit-1-notes.html"
             },
@@ -3670,7 +3407,8 @@ window.SEM5_DATA = {
               "sizeBytes": 2256187,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "evs-unit2",
@@ -3700,22 +3438,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 20,
-              "size": "1.69 MB",
-              "sizeBytes": 1772134,
-              "previewImage": "notes/evs/unit2/handwritten/evs-unit2-preview.webp",
-              "sourceHtml": "notes/evs/unit2/unit-2-notes.html"
-            },
-            {
-              "id": "evs-u2-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "evs-unit2-handwritten.html",
-              "path": "notes/evs/unit2/handwritten/evs-unit2-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 20,
-              "size": "Web Edition (224 KB)",
-              "sizeBytes": 228986,
+              "size": "0.71 MB",
+              "sizeBytes": 746242,
               "previewImage": "notes/evs/unit2/handwritten/evs-unit2-preview.webp",
               "sourceHtml": "notes/evs/unit2/unit-2-notes.html"
             },
@@ -3785,7 +3509,8 @@ window.SEM5_DATA = {
               "sizeBytes": 299829,
               "isConverted": false
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "evs-unit3",
@@ -3815,22 +3540,8 @@ window.SEM5_DATA = {
               "tag": "PDF Notebook",
               "generated": true,
               "pages": 19,
-              "size": "1.91 MB",
-              "sizeBytes": 2003735,
-              "previewImage": "notes/evs/unit3/handwritten/evs-unit3-preview.webp",
-              "sourceHtml": "notes/evs/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "evs-u3-handwritten-web",
-              "title": "Handwritten notebook (web)",
-              "originalName": "evs-unit3-handwritten.html",
-              "path": "notes/evs/unit3/handwritten/evs-unit3-handwritten.html",
-              "type": "handwritten-web",
-              "tag": "Web Notebook",
-              "generated": true,
-              "pages": 19,
-              "size": "Web Edition (203 KB)",
-              "sizeBytes": 207920,
+              "size": "0.67 MB",
+              "sizeBytes": 703719,
               "previewImage": "notes/evs/unit3/handwritten/evs-unit3-preview.webp",
               "sourceHtml": "notes/evs/unit3/unit-3-notes.html"
             },
@@ -3845,7 +3556,8 @@ window.SEM5_DATA = {
               "sizeBytes": 1783149,
               "isConverted": true
             }
-          ]
+          ],
+          "isSyllabusOnly": false
         },
         {
           "id": "evs-unit4",
@@ -3898,7 +3610,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "evs-cie-1-2025",
-              "title": "Environmental Studies HS 510 CIE-1 Question Paper (Term Sep–Dec 2025)",
+              "title": "Environmental Studies HS 510 CIE-1 Question Paper (Term Sep\u2013Dec 2025)",
               "originalName": "cie 1.pdf",
               "path": "notes/evs/practice/evs-cie-1.pdf",
               "originalPath": null,
@@ -3909,7 +3621,7 @@ window.SEM5_DATA = {
             },
             {
               "id": "evs-cie1-qp",
-              "title": "EVS CIE-1 Internal Assessment Question Paper (2024–2025)",
+              "title": "EVS CIE-1 Internal Assessment Question Paper (2024\u20132025)",
               "originalName": "EVS_CIE1_QP-2024 (1).docx",
               "path": "notes/evs/practice/evs-cie1-qp-2024.pdf",
               "originalPath": "notes/evs/practice/evs-cie1-qp-2024.docx",
@@ -3920,7 +3632,10 @@ window.SEM5_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "fileCount": 18,
+      "totalSizeBytes": 14840910,
+      "totalSize": "14.2 MB"
     }
   ]
 };

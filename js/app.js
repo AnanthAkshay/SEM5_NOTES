@@ -615,15 +615,13 @@
     const isDone = !!state.progress[file.id];
     const isNotes = file.type === 'notes';
     const isHandwrittenPdf = file.type === 'handwritten';
-    const isHandwrittenWeb = file.type === 'handwritten-web';
-    const isWebHtml = isNotes || isHandwrittenWeb || (file.path && file.path.endsWith('.html'));
+    const isWebHtml = isNotes || (file.path && file.path.endsWith('.html'));
     const isLarge = file.sizeBytes && file.sizeBytes > 20000000;
     const largeNote = isLarge ? `(~${Math.round(file.sizeBytes / 1048576)} MB)` : '';
 
     let pillLabel = file.type.toUpperCase();
     if (isNotes) pillLabel = 'NOTES';
     else if (isHandwrittenPdf) pillLabel = 'NOTEBOOK (PDF)';
-    else if (isHandwrittenWeb) pillLabel = 'NOTEBOOK (WEB)';
 
     return `
       <div class="file-row ${isDone ? 'is-done' : ''}" id="file-row-${file.id}">
@@ -632,12 +630,12 @@
             <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${file.id}')" aria-label="Mark ${escapeHtml(file.title)} as studied" />
           </label>
 
-          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''} ${(isHandwrittenPdf || isHandwrittenWeb) ? 'file-type-handwritten' : ''}">${pillLabel}</span>
+          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''} ${isHandwrittenPdf ? 'file-type-handwritten' : ''}">${pillLabel}</span>
 
           <div class="file-details-col">
             <div class="file-title-wrap">
               <span class="file-title">${escapeHtml(file.title)}</span>
-              ${file.tag ? `<span class="${(isHandwrittenPdf || isHandwrittenWeb) ? 'pill-tag-purple' : 'pill-tag-green'}" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
+              ${file.tag ? `<span class="${isHandwrittenPdf ? 'pill-tag-purple' : 'pill-tag-green'}" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
               ${file.isAlternate ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">Condensed</span>` : ''}
               ${file.isConverted ? `<span class="file-tag-converted">(Converted for preview)</span>` : ''}
               ${isLarge ? `<span class="kbd-shortcut" title="Consider alternate notes on mobile data">${largeNote}</span>` : ''}
@@ -653,17 +651,12 @@
 
         <div class="file-actions-group">
           ${isWebHtml ? `
-            <a href="${file.path}" class="pill-btn-green pill-btn-sm view-btn" title="Read interactive / web handwritten notebook">
+            <a href="${file.path}" class="pill-btn-green pill-btn-sm view-btn" title="Read interactive unit notes">
               ${ICONS.eye} <span>READ</span>
             </a>
             <a href="${file.path}" target="_blank" rel="noopener" class="pill-btn-outline pill-btn-sm" title="Open notes in new browser tab">
               ${ICONS.externalLink} <span>NEW TAB</span>
             </a>
-            ${isHandwrittenWeb ? `
-              <a href="${file.path.replace('-handwritten.html', '-handwritten.pdf')}" download class="pill-btn-outline pill-btn-sm" title="Download handwritten PDF">
-                ${ICONS.download} <span>PDF</span>
-              </a>
-            ` : ''}
           ` : `
             <button class="pill-btn-green pill-btn-sm view-btn" onclick="window.SEM5_APP.openViewer('${file.id}')" title="Read in built-in PDF viewer">
               ${ICONS.eye} <span>VIEW</span>
@@ -1266,7 +1259,7 @@
                             file.originalName.toLowerCase().includes(state.searchQuery) ||
                             (file.tag && file.tag.toLowerCase().includes(state.searchQuery)) ||
                             (file.type && file.type.toLowerCase().includes(state.searchQuery)) ||
-                            (state.searchQuery.includes('handwritten') && (file.type === 'handwritten' || file.type === 'handwritten-web'));
+                            (state.searchQuery.includes('handwritten') && file.type === 'handwritten');
           if (fileMatch) {
             results.push({
               type: 'file',

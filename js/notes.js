@@ -380,19 +380,25 @@
       card.innerHTML = `
         <div class="handwritten-card-inner">
           <div class="handwritten-card-info">
-            <span class="handwritten-card-tag">HANDWRITTEN EDITION</span>
-            <h3 class="handwritten-card-title">Handwritten-style Notes (Generated from Unit Notes)</h3>
-            <p class="handwritten-card-desc">Prefer reading offline with lined paper aesthetics? Download the complete vector notebook PDF with authentic handwriting fonts, KaTeX math formulas, and interactive diagrams in blue ink.</p>
+            <span class="handwritten-card-tag">HANDWRITTEN NOTEBOOK</span>
+            <h3 class="handwritten-card-title">Handwritten Notebook (PDF)</h3>
+            <p class="handwritten-card-desc">Prefer reading with authentic student handwriting and lined paper aesthetics? Open or download the vector notebook PDF with hand-drawn diagrams, KaTeX formulas, and ruled notebook pages.</p>
           </div>
           <div class="handwritten-card-actions">
-            <a href="handwritten/${subject}-unit${unit}-handwritten.html" class="pill-action-btn" title="Open responsive web notebook">
-              <span>WEB NOTEBOOK</span>
-            </a>
-            <a href="${pdfPath}" target="_blank" rel="noopener" class="pill-action-btn" title="Open PDF in new tab">
+            <a href="${pdfPath}" target="_blank" rel="noopener" class="pill-action-btn" title="View handwritten notebook PDF in new tab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
               <span>VIEW PDF</span>
             </a>
-            <a href="${pdfPath}" download="${pdfName}" class="pill-action-btn active-done" title="Download PDF copy">
-              <span>DOWNLOAD PDF</span>
+            <a href="${pdfPath}" download="${pdfName}" class="pill-action-btn active-done" title="Download handwritten notebook PDF">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>DOWNLOAD</span>
             </a>
           </div>
         </div>
