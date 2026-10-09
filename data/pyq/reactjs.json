@@ -1,0 +1,451 @@
+{
+  "subject_id": "reactjs",
+  "subject_name": "Frontend Development using React JS",
+  "subject_code": "24ISAEC594",
+  "exam_datetime": "2026-10-13T13:30:00+05:30",
+  "total_questions_extracted": 31,
+  "in_scope_count": 21,
+  "out_of_scope_count": 10,
+  "unverified_count": 0,
+  "questions": [
+    {
+      "id": "react-q01",
+      "unit": 1,
+      "section_id": "sec-1",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q1a)",
+      "question": "Explain the role of ReactDOM in connecting React components with the browser DOM.",
+      "answer": "<h4>1. Role of ReactDOM</h4><p><strong>ReactDOM</strong> acts as the bridge or rendering engine between React's declarative component tree (Virtual DOM) and the actual browser Document Object Model (Real DOM).</p><ul><li><strong>Root Creation and Mounting:</strong> In modern React 18+, <code>ReactDOM.createRoot(container)</code> initializes a React root on an existing HTML container node (usually <code>&lt;div id=\"root\"&gt;&lt;/div&gt;</code>).</li><li><strong>Rendering Virtual Trees:</strong> <code>root.render(&lt;App /&gt;)</code> takes the top-level React element, evaluates its component tree, and builds the in-memory Virtual DOM representation.</li><li><strong>DOM Reconciliation & Commit:</strong> When state changes, ReactDOM receives the reconciliation diff from React and efficiently performs the minimum necessary DOM mutations (insertions, updates, deletions) using browser DOM APIs (like <code>document.createElement</code>, <code>appendChild</code>).</li><li><strong>Portals Support:</strong> <code>ReactDOM.createPortal(child, domNode)</code> allows rendering components into a DOM node outside the parent component's DOM hierarchy (critical for modals, tooltips, dialogs).</li></ul><pre class=\"code-block\"><code>import React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport App from './App';\n\nconst root = ReactDOM.createRoot(document.getElementById('root'));\nroot.render(&lt;App /&gt;);</code></pre>",
+      "source_citation": "React Official Docs; Unit 1 Slides (UNIT-1 ReactJS.pptx, slide 8)"
+    },
+    {
+      "id": "react-q02",
+      "unit": 1,
+      "section_id": "sec-1",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q1b)",
+      "question": "Discuss declarative and imperative programming with examples.",
+      "answer": "<h4>1. Declarative vs Imperative Programming</h4><table class=\"table-clean\"><thead><tr><th>Parameter</th><th>Imperative Programming (Vanilla JS)</th><th>Declarative Programming (React)</th></tr></thead><tbody><tr><td><strong>Philosophy</strong></td><td>Describes <em>HOW</em> to achieve a result step-by-step.</td><td>Describes <em>WHAT</em> the UI should look like for a given state.</td></tr><tr><td><strong>DOM Handling</strong></td><td>Direct manual DOM manipulation (<code>getElementById</code>, <code>innerHTML</code>).</td><td>Virtual DOM automatically manages mutations based on state.</td></tr><tr><td><strong>State Sync</strong></td><td>Error-prone; state and DOM easily desynchronize.</td><td>Predictable; UI is a pure function of state: $UI = f(\\text{state})$.</td></tr></tbody></table><h4>2. Code Examples</h4><p><strong>Imperative Approach (Vanilla JS):</strong></p><pre class=\"code-block\"><code>// Manual step-by-step DOM manipulation\nconst btn = document.createElement('button');\nbtn.innerText = 'Count: 0';\nlet count = 0;\nbtn.addEventListener('click', () => {\n  count++;\n  btn.innerText = 'Count: ' + count;\n});\ndocument.body.appendChild(btn);</code></pre><p><strong>Declarative Approach (React):</strong></p><pre class=\"code-block\"><code>// Developer declares what the UI looks like for count state\nfunction Counter() {\n  const [count, setCount] = React.useState(0);\n  return &lt;button onClick={() => setCount(count + 1)}&gt;Count: {count}&lt;/button&gt;;\n}</code></pre>",
+      "source_citation": "React Official Docs; Unit 1 Slides (UNIT-1 ReactJS.pptx, slide 12)"
+    },
+    {
+      "id": "react-q03",
+      "unit": 1,
+      "section_id": "sec-3",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q2a)",
+      "question": "Explain how JSX is compiled internally with Babel transformations.",
+      "answer": "<h4>1. JSX Compilation Process</h4><p>Browsers cannot understand JSX directly because it is not standard ECMAScript. During the build process, a JavaScript compiler such as <strong>Babel</strong> transforms JSX into plain JavaScript function calls.</p><h4>2. Classic Runtime: <code>React.createElement</code></h4><p>Each JSX tag compiles into a call to <code>React.createElement(type, props, ...children)</code>:</p><ul><li><strong>Type:</strong> A string for HTML tags (<code>'div'</code>, <code>'h1'</code>) or a function/class reference for custom components (<code>App</code>).</li><li><strong>Props:</strong> An object containing all attributes and event handlers (or <code>null</code> if none).</li><li><strong>Children:</strong> Any nested JSX elements, text strings, or expressions passed as rest parameters.</li></ul><h4>3. Transformation Example:</h4><p><strong>Input JSX:</strong></p><pre class=\"code-block\"><code>const element = (\n  &lt;div className=\"card\"&gt;\n    &lt;h1&gt;Welcome&lt;/h1&gt;\n    &lt;p&gt;Hello Aki&lt;/p&gt;\n  &lt;/div&gt;\n);</code></pre><p><strong>Babel Transpiled Output:</strong></p><pre class=\"code-block\"><code>const element = React.createElement(\n  'div',\n  { className: 'card' },\n  React.createElement('h1', null, 'Welcome'),\n  React.createElement('p', null, 'Hello Aki')\n);</code></pre><p>This produces a lightweight Virtual DOM JavaScript object with properties: <code>{ $$typeof: Symbol(react.element), type: 'div', props: { className: 'card', children: [...] } }</code>.</p>",
+      "source_citation": "React Official Docs; Unit 1 Slides (UNIT-1 ReactJS.pptx, slide 18)"
+    },
+    {
+      "id": "react-q04",
+      "unit": 1,
+      "section_id": "sec-3",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q2b)",
+      "question": "Discuss JSX syntax rules with suitable examples.",
+      "answer": "<h4>Fundamental Rules of JSX Syntax</h4><ol><li><strong>Single Root Element:</strong> Every JSX expression must return a single top-level parent element. Multiple sibling elements must be wrapped in a container tag (e.g. <code>&lt;div&gt;</code>) or a React Fragment (<code>&lt;&gt;...&lt;/&gt;</code>):<pre class=\"code-block\"><code>// Correct:\nreturn (\n  &lt;&gt;\n    &lt;h1&gt;Header&lt;/h1&gt;\n    &lt;p&gt;Paragraph&lt;/p&gt;\n  &lt;/&gt;\n);</code></pre></li><li><strong>Close All Tags:</strong> All elements must be explicitly closed. Self-closing tags must end with <code>/&gt;</code>:<pre class=\"code-block\"><code>&lt;img src=\"logo.png\" alt=\"Logo\" /&gt;\n&lt;input type=\"text\" /&gt;\n&lt;br /&gt;</code></pre></li><li><strong>camelCase Property Naming:</strong> Because JSX compiles to JavaScript objects, HTML attribute names that collide with JS reserved words use camelCase:<ul><li><code>class</code> $\\rightarrow$ <code>className</code></li><li><code>for</code> $\\rightarrow$ <code>htmlFor</code></li><li><code>tabindex</code> $\\rightarrow$ <code>tabIndex</code></li><li><code>onclick</code> $\\rightarrow$ <code>onClick</code></li></ul></li><li><strong>JavaScript Expressions in Curly Braces:</strong> Any valid JavaScript variable, function call, or expression can be embedded inside <code>{ }</code>:<pre class=\"code-block\"><code>const user = 'Aki';\nreturn &lt;h2&gt;Hello, {user.toUpperCase()}!&lt;/h2&gt;;</code></pre></li><li><strong>Inline Style Objects:</strong> Styles are written as JavaScript objects with camelCase keys:<pre class=\"code-block\"><code>&lt;div style={{ backgroundColor: '#1e293b', padding: '10px' }}&gt;Card&lt;/div&gt;</code></pre></li></ol>",
+      "source_citation": "React Official Docs; Unit 1 Slides (UNIT-1 ReactJS.pptx, slides 20\u201324)"
+    },
+    {
+      "id": "react-q05",
+      "unit": 1,
+      "section_id": "sec-5",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q3a)",
+      "question": "Write a functional component that accepts props for name and marks and displays grade.",
+      "answer": "<h4>1. Component Implementation</h4><pre class=\"code-block\"><code>import React from 'react';\n\nfunction StudentReport({ name, marks }) {\n  // Calculate letter grade based on marks\n  let grade = 'F';\n  if (marks >= 90) grade = 'A+';\n  else if (marks >= 80) grade = 'A';\n  else if (marks >= 70) grade = 'B';\n  else if (marks >= 60) grade = 'C';\n  else if (marks >= 50) grade = 'D';\n\n  const isPass = marks >= 50;\n\n  return (\n    &lt;div style={{\n      border: '1px solid #cbd5e1',\n      borderRadius: '8px',\n      padding: '16px',\n      maxWidth: '300px',\n      fontFamily: 'sans-serif'\n    }}&gt;\n      &lt;h3 style={{ margin: '0 0 8px 0', color: '#0f172a' }}&gt;Student Report&lt;/h3&gt;\n      &lt;p&gt;&lt;strong&gt;Name:&lt;/strong&gt; {name}&lt;/p&gt;\n      &lt;p&gt;&lt;strong&gt;Marks:&lt;/strong&gt; {marks} / 100&lt;/p&gt;\n      &lt;p&gt;\n        &lt;strong&gt;Grade:&lt;/strong&gt;{' '}\n        &lt;span style={{ color: isPass ? '#16a34a' : '#dc2626', fontWeight: 'bold' }}&gt;\n          {grade} ({isPass ? 'Passed' : 'Failed'})\n        &lt;/span&gt;\n      &lt;/p&gt;\n    &lt;/div&gt;\n  );\n}\n\n// Usage example:\n// &lt;StudentReport name=\"Aki\" marks={88} /&gt;\nexport default StudentReport;</code></pre><h4>2. Explanation</h4><ul><li>The component destructures <code>name</code> and <code>marks</code> directly from its <code>props</code> parameter.</li><li>A clean conditional evaluation assigns letter grades (<code>A+</code>, <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>, <code>F</code>).</li><li>Conditional inline styling dynamically highlights pass/fail status in green or red.</li></ul>",
+      "source_citation": "React Official Docs (Components and Props); Unit 1 Slides (UNIT-1 ReactJS.pptx, slide 32)"
+    },
+    {
+      "id": "react-q06",
+      "unit": 1,
+      "section_id": "sec-5",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q3b)",
+      "question": "Write differences between props.children and normal props with an example.",
+      "answer": "<h4>1. Comparison: Normal Props vs <code>props.children</code></h4><table class=\"table-clean\"><thead><tr><th>Feature</th><th>Normal Props (Attributes)</th><th><code>props.children</code></th></tr></thead><tbody><tr><td><strong>Syntax</strong></td><td>Passed as named attributes: <code>&lt;Component title=\"Hello\" /&gt;</code></td><td>Passed as nested elements between open/closing tags: <code>&lt;Card&gt;&lt;p&gt;Body&lt;/p&gt;&lt;/Card&gt;</code></td></tr><tr><td><strong>Access</strong></td><td>Accessed via property name: <code>props.title</code></td><td>Accessed via special reserved property: <code>props.children</code></td></tr><tr><td><strong>Content Flexibility</strong></td><td>Typically strings, numbers, booleans, objects, or callbacks.</td><td>Accepts arbitrary nested JSX structures, text, or multiple components (component composition).</td></tr><tr><td><strong>Primary Use Case</strong></td><td>Configuration and parameterized data.</td><td>Layout wrappers, modals, containers, and card shells.</td></tr></tbody></table><h4>2. Code Example: Wrapper Component</h4><pre class=\"code-block\"><code>// Container component using props.children and normal title prop\nfunction ModalDialog({ title, isOpen, children }) {\n  if (!isOpen) return null;\n  return (\n    &lt;div className=\"modal-backdrop\"&gt;\n      &lt;div className=\"modal-box\"&gt;\n        &lt;h2&gt;{title}&lt;/h2&gt; {/* Normal Prop */}\n        &lt;div className=\"modal-content\"&gt;\n          {children}    {/* props.children: arbitrary content */}\n        &lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  );\n}\n\n// Usage:\nfunction App() {\n  return (\n    &lt;ModalDialog title=\"Confirm Action\" isOpen={true}&gt;\n      &lt;p&gt;Are you sure you want to submit your CIE-1 paper?&lt;/p&gt;\n      &lt;button&gt;Yes, Submit&lt;/button&gt;\n    &lt;/ModalDialog&gt;\n  );\n}</code></pre>",
+      "source_citation": "React Official Docs (Composition vs Inheritance); Unit 1 Slides (UNIT-1 ReactJS.pptx, slide 38)"
+    },
+    {
+      "id": "react-q07",
+      "unit": 1,
+      "section_id": "sec-5",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q4a)",
+      "question": "Write a Parent and Child component where parent passes a message through props.",
+      "answer": "<h4>1. Implementation Code</h4><pre class=\"code-block\"><code>import React from 'react';\n\n// Child Component: receives message via props and displays it\nfunction MessageBanner({ message, sender }) {\n  return (\n    &lt;div style={{\n      padding: '12px',\n      backgroundColor: '#f0fdf4',\n      border: '1px solid #86efac',\n      borderRadius: '6px',\n      margin: '8px 0'\n    }}&gt;\n      &lt;h4 style={{ margin: '0 0 4px 0', color: '#166534' }}&gt;From: {sender}&lt;/h4&gt;\n      &lt;p style={{ margin: 0, color: '#14532d' }}&gt;{message}&lt;/p&gt;\n    &lt;/div&gt;\n  );\n}\n\n// Parent Component: defines state/data and passes to child\nfunction Dashboard() {\n  const welcomeMsg = 'Welcome to Semester V CIE-1 Preparation Portal!';\n  const faculty = 'ISE Department';\n\n  return (\n    &lt;div style={{ padding: '20px', fontFamily: 'sans-serif' }}&gt;\n      &lt;h2&gt;Parent Dashboard&lt;/h2&gt;\n      {/* Passing data down to Child via props */}\n      &lt;MessageBanner message={welcomeMsg} sender={faculty} /&gt;\n    &lt;/div&gt;\n  );\n}\n\nexport default Dashboard;</code></pre><h4>2. Explanation</h4><ul><li>In React, data flows unidirectionally from parent to child (Top-Down data flow).</li><li>The parent <code>Dashboard</code> passes <code>message</code> and <code>sender</code> as attributes.</li><li>The child <code>MessageBanner</code> receives them as immutable arguments (<code>props</code>) and renders them.</li></ul>",
+      "source_citation": "React Official Docs (Passing Props to a Component); Unit 1 Slides (UNIT-1 ReactJS.pptx, slide 35)"
+    },
+    {
+      "id": "react-q08",
+      "unit": 1,
+      "section_id": "sec-6",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q4b)",
+      "question": "Explain how state flows inside a React application with an example.",
+      "answer": "<h4>1. One-Way Data Flow (Unidirectional Flow)</h4><p>In React, state follows a strict <strong>top-down (unidirectional) data flow</strong>:</p><ul><li><strong>Single Source of Truth:</strong> State is owned and maintained by a specific component.</li><li><strong>Downward Flow:</strong> State is passed down to child components exclusively via <strong>props</strong>. Child components cannot directly alter parent state.</li><li><strong>Upward Communication via Callbacks:</strong> If a child needs to trigger a state change, the parent passes down a callback function via props. The child invokes the callback with updated values, allowing the parent to update its own state, triggering a clean re-render cycle.</li></ul><h4>2. Illustrative Example</h4><pre class=\"code-block\"><code>import React, { useState } from 'react';\n\n// Child component receives value and update handler\nfunction ToggleButton({ isOn, onToggle }) {\n  return (\n    &lt;button onClick={onToggle}&gt;\n      Status: {isOn ? 'ACTIVE' : 'INACTIVE'}\n    &lt;/button&gt;\n  );\n}\n\n// Parent holds state and passes it down\nfunction App() {\n  const [isActive, setIsActive] = useState(false);\n\n  const handleToggle = () => {\n    setIsActive(prev => !prev); // Parent updates state\n  };\n\n  return (\n    &lt;div&gt;\n      &lt;h3&gt;Parent State: {isActive ? 'Running' : 'Stopped'}&lt;/h3&gt;\n      &lt;ToggleButton isOn={isActive} onToggle={handleToggle} /&gt;\n    &lt;/div&gt;\n  );\n}</code></pre>",
+      "source_citation": "React Official Docs (State: A Component's Memory); Unit 1 Slides (UNIT-1 ReactJS.pptx, slide 42)"
+    },
+    {
+      "id": "react-q09",
+      "unit": 1,
+      "section_id": "sec-2",
+      "marks": 5,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026",
+        "CIE-1 2025"
+      ],
+      "exam_type": "SEE & CIE",
+      "source_file": "ISAEC594 - React/Recent Notes/UNIT-1 ReactJS.pptx",
+      "question": "What is the Virtual DOM in React? Explain how the Reconciliation Diffing algorithm optimizes UI performance.",
+      "answer": "<h4>1. Definition of Virtual DOM</h4><p>The <strong>Virtual DOM (VDOM)</strong> is a lightweight, in-memory JavaScript object representation of the real browser DOM. Directly manipulating the real DOM is slow and expensive because each mutation triggers layout recalculation, style recalculation, and page re-rendering (reflow and repaint).</p><h4>2. The Reconciliation Diffing Algorithm ($O(n)$)</h4><p>When component state changes, React creates a new Virtual DOM snapshot and compares it with the previous snapshot. React achieves an $O(n)$ heuristic comparison based on two key assumptions:</p><ol><li><strong>Different Element Types Produce Different Trees:</strong> If a root element changes type (e.g. from <code>&lt;div&gt;</code> to <code>&lt;span&gt;</code>), React unmounts the entire old tree and mounts a new tree from scratch without attempting to diff children.</li><li><strong>Keys Identify Stable Children:</strong> When list items change, React uses unique <code>key</code> props to match children across renders, determining whether an item was inserted, deleted, or reordered without tearing down all nodes.</li></ol><h4>3. Batching & Patching</h4><p>React calculates the minimal set of changes (the \"diff\") and applies them in a single batched update to the real DOM, ensuring 60 FPS UI responsiveness.</p>",
+      "source_citation": "React Official Docs (Reconciliation); Unit 1 Slides (UNIT-1 ReactJS.pptx, slides 14\u201317)"
+    },
+    {
+      "id": "react-q10",
+      "unit": 1,
+      "section_id": "sec-7",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026",
+        "CIE-1 2025"
+      ],
+      "exam_type": "SEE & CIE",
+      "source_file": "ISAEC594 - React/Recent Notes/UNIT-1 ReactJS.pptx",
+      "question": "Explain the three phases of the React Component Lifecycle and compare Class Lifecycle methods with their modern React Hook equivalents.",
+      "answer": "<h4>1. Three Lifecycle Phases</h4><ol><li><strong>Mounting:</strong> When a component instance is being created and inserted into the DOM.</li><li><strong>Updating:</strong> When a component re-renders due to changes in <code>props</code> or <code>state</code>.</li><li><strong>Unmounting:</strong> When a component is removed from the DOM and destroyed.</li></ol><h4>2. Comparison: Class Methods vs Functional Hooks</h4><table class=\"table-clean\"><thead><tr><th>Lifecycle Phase</th><th>Class Component Method</th><th>Functional Component Hook Equivalent</th><th>Typical Purpose</th></tr></thead><tbody><tr><td><strong>Mounting</strong></td><td><code>componentDidMount()</code></td><td><code>useEffect(() => { ... }, [])</code> (empty dependency array)</td><td>API network calls, setting up WebSocket listeners, DOM measurements.</td></tr><tr><td><strong>Updating</strong></td><td><code>componentDidUpdate(prevProps, prevState)</code></td><td><code>useEffect(() => { ... }, [dep1, dep2])</code></td><td>Responding to prop/state updates (e.g. re-fetching data on user ID change).</td></tr><tr><td><strong>Unmounting</strong></td><td><code>componentWillUnmount()</code></td><td><code>useEffect(() => { return () => { cleanup(); } }, [])</code></td><td>Clearing interval timers, canceling pending network requests, removing event listeners.</td></tr></tbody></table>",
+      "source_citation": "React Official Docs; Unit 1 Slides (UNIT-1 ReactJS.pptx, slides 45\u201350)"
+    },
+    {
+      "id": "react-mcq01",
+      "unit": 1,
+      "section_id": "sec-4",
+      "marks": 1,
+      "priority": "Medium",
+      "years": [
+        "SEE JAN 2026 (Part A Q1)"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf",
+      "question": "React favors Composition over Inheritance. This means that instead of extending classes, UI parts are built by: (a) Combining reusable components, (b) Using imperative DOM updates, (c) Directly manipulating real DOM, (d) Writing new button elements.",
+      "answer": "<p><strong>Correct Answer:</strong> <code>(a) Combining reusable components</code></p><p><strong>Justification:</strong> React recommends using composition (nesting components and passing components as props/children) to reuse code and behavior between components rather than class inheritance hierarchies.</p>",
+      "source_citation": "React Official Docs (Composition vs Inheritance); JAN 2026 Q1"
+    },
+    {
+      "id": "react-mcq02",
+      "unit": 1,
+      "section_id": "sec-3",
+      "marks": 1,
+      "priority": "Medium",
+      "years": [
+        "SEE JAN 2026 (Part A Q2)"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf",
+      "question": "The process of converting JSX code into calls to React.createElement() is known as the: (a) Diffing Algorithm, (b) Change Detection, (c) JSX Transform, (d) Virtual DOM Sync.",
+      "answer": "<p><strong>Correct Answer:</strong> <code>(c) JSX Transform</code></p><p><strong>Justification:</strong> Compilers like Babel perform the JSX Transform to convert JSX syntax into standard JavaScript function invocations.</p>",
+      "source_citation": "React Official Docs (Introducing JSX); JAN 2026 Q2"
+    },
+    {
+      "id": "react-mcq03",
+      "unit": 1,
+      "section_id": "sec-7",
+      "marks": 1,
+      "priority": "Medium",
+      "years": [
+        "SEE JAN 2026 (Part A Q3)"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf",
+      "question": "Which lifecycle method is used to call APIs? (a) constructor, (b) render, (c) componentDidMount, (d) componentWillUnmount.",
+      "answer": "<p><strong>Correct Answer:</strong> <code>(c) componentDidMount</code></p><p><strong>Justification:</strong> Side-effects such as remote data fetching must occur after the component has mounted to the DOM so state updates can safely trigger re-renders.</p>",
+      "source_citation": "React Official Docs (State and Lifecycle); JAN 2026 Q3"
+    },
+    {
+      "id": "react-mcq04",
+      "unit": 1,
+      "section_id": "sec-7",
+      "marks": 1,
+      "priority": "Medium",
+      "years": [
+        "SEE JAN 2026 (Part A Q4)"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf",
+      "question": "getSnapshotBeforeUpdate is used in the: (a) Mounting phase, (b) Updating phase, (c) Unmounting, (d) Error handling.",
+      "answer": "<p><strong>Correct Answer:</strong> <code>(b) Updating phase</code></p><p><strong>Justification:</strong> <code>getSnapshotBeforeUpdate</code> is invoked right before the most recently rendered output is committed to the DOM in the updating phase (e.g. to capture scroll position).</p>",
+      "source_citation": "React Official Docs (Component Specs); JAN 2026 Q4"
+    },
+    {
+      "id": "react-q11",
+      "unit": 2,
+      "section_id": "sec-4",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q5a)",
+      "question": "Describe event bubbling in React with an example.",
+      "answer": "<h4>1. Event Bubbling in React & SyntheticEvent</h4><p>In standard DOM event propagation, an event triggered on a deeply nested element bubbles up through its ancestors in the DOM tree. React implements a cross-browser wrapper called <strong>SyntheticEvent</strong> and attaches top-level event listeners to the root container.</p><ul><li>When an event fires on a child (e.g. button click), the event bubbles upwards through React's Virtual DOM hierarchy.</li><li>Parent handlers on the path are invoked unless explicitly stopped via <code>e.stopPropagation()</code>.</li></ul><h4>2. Code Example</h4><pre class=\"code-block\"><code>import React from 'react';\n\nfunction BubblingDemo() {\n  const handleParentClick = () => {\n    alert('Parent DIV clicked (Bubbled up)!');\n  };\n\n  const handleChildClick = (e) => {\n    alert('Child BUTTON clicked!');\n    // Uncomment line below to prevent event from bubbling to parent:\n    // e.stopPropagation();\n  };\n\n  return (\n    &lt;div onClick={handleParentClick} style={{ padding: '20px', background: '#e2e8f0' }}&gt;\n      &lt;p&gt;Parent Container&lt;/p&gt;\n      &lt;button onClick={handleChildClick}&gt;Click Me&lt;/button&gt;\n    &lt;/div&gt;\n  );\n}</code></pre><p>Clicking the button triggers <em>\"Child BUTTON clicked!\"</em> first, followed by <em>\"Parent DIV clicked (Bubbled up)!\"</em>.</p>",
+      "source_citation": "React Official Docs (Responding to Events); Unit 2 Slides (Unit-2.pdf, page 14)"
+    },
+    {
+      "id": "react-q12",
+      "unit": 2,
+      "section_id": "sec-5",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q5b)",
+      "question": "Build a functional component where users can type into an input box, and the app displays the current character count below it.",
+      "answer": "<h4>1. Component Implementation</h4><pre class=\"code-block\"><code>import React, { useState } from 'react';\n\nfunction CharacterCounter() {\n  const [text, setText] = useState('');\n  const maxLimit = 100;\n\n  const handleChange = (e) => {\n    setText(e.target.value);\n  };\n\n  const charCount = text.length;\n  const isOverLimit = charCount > maxLimit;\n\n  return (\n    &lt;div style={{ maxWidth: '400px', padding: '16px', fontFamily: 'sans-serif' }}&gt;\n      &lt;label htmlFor=\"user-input\" style={{ fontWeight: 'bold', display: 'block', marginBottom: '6px' }}&gt;\n        Enter your text:\n      &lt;/label&gt;\n      &lt;input\n        id=\"user-input\"\n        type=\"text\"\n        value={text}\n        onChange={handleChange}\n        placeholder=\"Type something...\"\n        style={{\n          width: '100%',\n          padding: '8px 12px',\n          borderRadius: '6px',\n          border: `1px solid ${isOverLimit ? '#ef4444' : '#cbd5e1'}`,\n          boxSizing: 'border-box'\n        }}\n      /&gt;\n      &lt;div style={{\n        marginTop: '8px',\n        fontSize: '0.88rem',\n        color: isOverLimit ? '#ef4444' : '#64748b',\n        display: 'flex',\n        justifyContent: 'space-between'\n      }}&gt;\n        &lt;span&gt;Characters: &lt;strong&gt;{charCount}&lt;/strong&gt;&lt;/span&gt;\n        &lt;span&gt;Remaining: &lt;strong&gt;{maxLimit - charCount}&lt;/strong&gt;&lt;/span&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  );\n}\n\nexport default CharacterCounter;</code></pre><h4>2. Key Mechanics</h4><ul><li>The <code>text</code> state is bound directly to the input's <code>value</code> (Controlled Input).</li><li>The <code>onChange</code> listener extracts <code>e.target.value</code> and updates state on every keystroke.</li><li>The character count is derived reactively via <code>text.length</code> without needing duplicate state.</li></ul>",
+      "source_citation": "React Official Docs (Sharing State Between Components); Unit 2 Slides (Unit-2.pdf, page 22)"
+    },
+    {
+      "id": "react-q13",
+      "unit": 2,
+      "section_id": "sec-5",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q6a)",
+      "question": "Discuss handling inputs like checkbox, and textarea with examples.",
+      "answer": "<h4>1. Handling Diverse Form Inputs in React</h4><p>In React, all form inputs become <strong>controlled components</strong> when their display value is tied to React state and updated via an <code>onChange</code> handler.</p><ul><li><strong>Textarea:</strong> In HTML, <code>&lt;textarea&gt;</code> takes text between tags. In React, it uses a <code>value</code> prop identically to single-line text inputs.</li><li><strong>Checkbox:</strong> Controlled using the <code>checked</code> boolean attribute (not <code>value</code>) and checked state is accessed via <code>e.target.checked</code>.</li></ul><h4>2. Multi-Input Form Code Example</h4><pre class=\"code-block\"><code>import React, { useState } from 'react';\n\nfunction FeedbackForm() {\n  const [formData, setFormData] = useState({\n    feedback: '',\n    subscribe: false\n  });\n\n  const handleChange = (e) => {\n    const { name, type, checked, value } = e.target;\n    setFormData(prev => ({\n      ...prev,\n      [name]: type === 'checkbox' ? checked : value\n    }));\n  };\n\n  return (\n    &lt;form onSubmit={e => e.preventDefault()}&gt;\n      &lt;label&gt;Your Comments:&lt;/label&gt;\n      &lt;textarea\n        name=\"feedback\"\n        value={formData.feedback}\n        onChange={handleChange}\n        rows=\"3\"\n      /&gt;\n\n      &lt;label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px' }}&gt;\n        &lt;input\n          type=\"checkbox\"\n          name=\"subscribe\"\n          checked={formData.subscribe}\n          onChange={handleChange}\n        /&gt;\n        Receive exam notifications by email\n      &lt;/label&gt;\n    &lt;/form&gt;\n  );\n}</code></pre>",
+      "source_citation": "React Official Docs (Forms); Unit 2 Slides (Unit-2.pdf, pages 25\u201328)"
+    },
+    {
+      "id": "react-q14",
+      "unit": 2,
+      "section_id": "sec-6",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q6b)",
+      "question": "Why is lifting state up required? Provide a real-time example.",
+      "answer": "<h4>1. Why Lifting State Up is Required</h4><p>Often, two or more sibling components need to share or react to the same changing data. In React's unidirectional data flow, sibling components cannot pass state directly sideways to each other. To keep data synchronized, developers <strong>lift state up</strong> to their closest common ancestor component.</p><h4>2. Real-Time Example: Temperature Converter (Celsius & Fahrenheit)</h4><pre class=\"code-block\"><code>import React, { useState } from 'react';\n\n// Child Component: Reusable Temperature Input\nfunction TemperatureInput({ scale, temperature, onTemperatureChange }) {\n  return (\n    &lt;fieldset style={{ margin: '8px 0' }}&gt;\n      &lt;legend&gt;Enter temperature in {scale === 'c' ? 'Celsius' : 'Fahrenheit'}:&lt;/legend&gt;\n      &lt;input\n        value={temperature}\n        onChange={e => onTemperatureChange(e.target.value)}\n        type=\"number\"\n      /&gt;\n    &lt;/fieldset&gt;\n  );\n}\n\n// Common Parent: Holds shared state and performs synchronization\nfunction Calculator() {\n  const [temperature, setTemperature] = useState('');\n  const [scale, setScale] = useState('c');\n\n  const handleCelsiusChange = (val) => {\n    setScale('c');\n    setTemperature(val);\n  };\n\n  const handleFahrenheitChange = (val) => {\n    setScale('f');\n    setTemperature(val);\n  };\n\n  const celsius = scale === 'f' && temperature !== ''\n    ? ((parseFloat(temperature) - 32) * 5 / 9).toFixed(1)\n    : temperature;\n  const fahrenheit = scale === 'c' && temperature !== ''\n    ? ((parseFloat(temperature) * 9 / 5) + 32).toFixed(1)\n    : temperature;\n\n  return (\n    &lt;div&gt;\n      &lt;h3&gt;Lifting State Up Calculator&lt;/h3&gt;\n      &lt;TemperatureInput scale=\"c\" temperature={celsius} onTemperatureChange={handleCelsiusChange} /&gt;\n      &lt;TemperatureInput scale=\"f\" temperature={fahrenheit} onTemperatureChange={handleFahrenheitChange} /&gt;\n    &lt;/div&gt;\n  );\n}</code></pre>",
+      "source_citation": "React Official Docs (Lifting State Up); Unit 2 Slides (Unit-2.pdf, pages 30\u201334)"
+    },
+    {
+      "id": "react-q15",
+      "unit": 2,
+      "section_id": "sec-2",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q10a)",
+      "question": "Explain useState with an example of updating state objects and arrays.",
+      "answer": "<h4>1. The <code>useState</code> Hook & Immutability</h4><p>The <code>useState</code> hook lets functional components declare state variables. In React, <strong>state must be treated as immutable</strong>. Mutating an object or array in place (e.g. <code>arr.push()</code> or <code>obj.name = 'X'</code>) does not change the object's reference memory address, causing React to miss the update and fail to re-render.</p><h4>2. Correct Immutable Update Patterns</h4><pre class=\"code-block\"><code>import React, { useState } from 'react';\n\nfunction ProfileEditor() {\n  // 1. Object State\n  const [user, setUser] = useState({ name: 'Aki', sem: 5, college: 'MSRIT' });\n\n  // 2. Array State\n  const [courses, setCourses] = useState(['CN', 'ReactJS', 'AI']);\n\n  // Updating Object: Use Object Spread (...)\n  const updateCollege = () => {\n    setUser(prev => ({\n      ...prev,           // Copy existing properties\n      college: 'Ramaiah Institute of Technology'\n    }));\n  };\n\n  // Updating Array: Use Array Spread (...) or filter/map\n  const addCourse = () => {\n    setCourses(prev => [...prev, 'SE']); // Append without mutating original\n  };\n\n  const removeCourse = (courseToRemove) => {\n    setCourses(prev => prev.filter(c => c !== courseToRemove)); // Return new array\n  };\n\n  return (\n    &lt;div&gt;\n      &lt;h4&gt;User: {user.name} ({user.college})&lt;/h4&gt;\n      &lt;button onClick={updateCollege}&gt;Update College&lt;/button&gt;\n      &lt;h5&gt;Courses:&lt;/h5&gt;\n      &lt;ul&gt;{courses.map(c => &lt;li key={c}&gt;{c}&lt;/li&gt;)}&lt;/ul&gt;\n      &lt;button onClick={addCourse}&gt;Add SE&lt;/button&gt;\n    &lt;/div&gt;\n  );\n}</code></pre>",
+      "source_citation": "React Official Docs (Updating Objects and Arrays in State); Unit 2 Slides (Unit-2.pdf, pages 8\u201311)"
+    },
+    {
+      "id": "react-q16",
+      "unit": 2,
+      "section_id": "sec-2",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf (Q10b)",
+      "question": "Create a component that shows current time and updates every second using useEffect.",
+      "answer": "<h4>1. Implementation Code: Live Clock with Interval Cleanup</h4><pre class=\"code-block\"><code>import React, { useState, useEffect } from 'react';\n\nfunction DigitalClock() {\n  const [time, setTime] = useState(new Date().toLocaleTimeString());\n\n  useEffect(() => {\n    // Setup: start 1-second interval timer when component mounts\n    const timerId = setInterval(() => {\n      setTime(new Date().toLocaleTimeString());\n    }, 1000);\n\n    // Cleanup: clear timer when component unmounts to prevent memory leak\n    return () => {\n      clearInterval(timerId);\n    };\n  }, []); // Empty dependency array [] = run effect once on mount\n\n  return (\n    &lt;div style={{\n      display: 'inline-block',\n      padding: '16px 24px',\n      backgroundColor: '#0f172a',\n      color: '#38bdf8',\n      borderRadius: '8px',\n      fontFamily: 'monospace',\n      fontSize: '1.5rem',\n      boxShadow: '0 4px 6px rgba(0,0,0,0.1)'\n    }}&gt;\n      &lt;div style={{ fontSize: '0.8rem', color: '#94a3b8', textTransform: 'uppercase' }}&gt;\n        Live Time\n      &lt;/div&gt;\n      &lt;div&gt;{time}&lt;/div&gt;\n    &lt;/div&gt;\n  );\n}\n\nexport default DigitalClock;</code></pre><h4>2. Explanation</h4><ul><li><strong>Dependency Array <code>[]</code>:</strong> Guarantees the interval timer starts exactly once on mount.</li><li><strong>Cleanup Function:</strong> The returned function <code>() => clearInterval(timerId)</code> is invoked automatically by React when the component unmounts, preventing memory leaks and zombie intervals.</li></ul>",
+      "source_citation": "React Official Docs (Synchronizing with Effects); Unit 2 Slides (Unit-2.pdf, pages 16\u201318)"
+    },
+    {
+      "id": "react-q17",
+      "unit": 2,
+      "section_id": "sec-1",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025"
+      ],
+      "exam_type": "CIE",
+      "source_file": "ISAEC594 - React/Recent Notes/Unit-2.pdf",
+      "question": "State the two Rules of Hooks in React and explain why these rules must be strictly followed.",
+      "answer": "<h4>1. The Two Golden Rules of Hooks</h4><ol><li><strong>Only Call Hooks at the Top Level:</strong> Do not call hooks inside loops, conditions, or nested functions. Always use Hooks at the top level of your React function component before any early returns.</li><li><strong>Only Call Hooks from React Functions:</strong> Only call Hooks from React function components or from custom Hooks. Do not call Hooks from regular JavaScript functions.</li></ol><h4>2. Rationale: Hook Call Order Preservation</h4><ul><li>React does not rely on variable names to identify state. Instead, React maintains an <strong>internal linked-list / array of hook state cells</strong> for each component instance.</li><li>React relies on the exact <strong>order</strong> in which Hooks are called on every single render to match each Hook call with its corresponding internal state slot.</li><li>If a Hook is placed inside an <code>if</code> condition that evaluates to false on a subsequent render, the Hook call order is shifted, destroying state synchronization and causing runtime crashes.</li></ul>",
+      "source_citation": "React Official Docs (Rules of Hooks); Unit 2 Slides (Unit-2.pdf, page 5)"
+    },
+    {
+      "id": "react-q18",
+      "unit": 2,
+      "section_id": "sec-3",
+      "marks": 5,
+      "priority": "Medium",
+      "years": [
+        "CIE-1 2025"
+      ],
+      "exam_type": "CIE",
+      "source_file": "ISAEC594 - React/Recent Notes/Unit-2.pdf",
+      "question": "What is Prop Drilling? How does the useContext hook solve this problem?",
+      "answer": "<h4>1. Prop Drilling Problem</h4><p><strong>Prop drilling</strong> occurs when data must be passed from a high-level parent component to a deeply nested child component through multiple intermediate components that do not actually need the data themselves, acting solely as pass-through conduits.</p><h4>2. Solution: React Context & <code>useContext</code></h4><p>Context provides a way to pass data through the component tree without having to pass props down manually at every level.</p><pre class=\"code-block\"><code>import React, { createContext, useContext, useState } from 'react';\n\n// 1. Create Context\nconst ThemeContext = createContext('light');\n\n// 2. Provider Component\nfunction App() {\n  const [theme, setTheme] = useState('dark');\n  return (\n    &lt;ThemeContext.Provider value={theme}&gt;\n      &lt;PageLayout /&gt; {/* Intermediate component does not pass theme */}\n    &lt;/ThemeContext.Provider&gt;\n  );\n}\n\n// 3. Deep Consumer Component\nfunction ThemedButton() {\n  // Access theme directly without prop drilling!\n  const theme = useContext(ThemeContext);\n  return &lt;button className={`btn-${theme}`}&gt;Current Theme: {theme}&lt;/button&gt;;\n}</code></pre>",
+      "source_citation": "React Official Docs (Passing Data Deeply with Context); Unit 2 Slides (Unit-2.pdf, pages 19\u201321)"
+    },
+    {
+      "id": "react-q19",
+      "unit": 2,
+      "section_id": "sec-5",
+      "marks": 4,
+      "priority": "Medium",
+      "years": [
+        "CIE-1 2025"
+      ],
+      "exam_type": "CIE",
+      "source_file": "ISAEC594 - React/Recent Notes/Unit-2.pdf",
+      "question": "Differentiate between Controlled and Uncontrolled Components in React.",
+      "answer": "<h4>Comparison: Controlled vs Uncontrolled Components</h4><table class=\"table-clean\"><thead><tr><th>Parameter</th><th>Controlled Components (Recommended)</th><th>Uncontrolled Components</th></tr></thead><tbody><tr><td><strong>State Source</strong></td><td>Managed directly by React state (<code>useState</code>).</td><td>Managed by the DOM itself (internal DOM state).</td></tr><tr><td><strong>Value Access</strong></td><td>Values accessed via React state variables.</td><td>Values accessed via <code>useRef()</code> DOM reference.</td></tr><tr><td><strong>Form Validation</strong></td><td>Instant real-time validation on every keystroke.</td><td>Validation typically performed only at form submission.</td></tr><tr><td><strong>Example Syntax</strong></td><td><code>&lt;input value={val} onChange={e =&gt; setVal(e.target.value)} /&gt;</code></td><td><code>&lt;input type=\"text\" ref={inputRef} defaultValue=\"Initial\" /&gt;</code></td></tr></tbody></table>",
+      "source_citation": "React Official Docs (Uncontrolled Components); Unit 2 Slides (Unit-2.pdf, pages 23\u201324)"
+    },
+    {
+      "id": "react-mcq05",
+      "unit": 2,
+      "section_id": "sec-4",
+      "marks": 1,
+      "priority": "Medium",
+      "years": [
+        "SEE JAN 2026 (Part A Q5)"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf",
+      "question": "Inline event handlers are: (a) Recommended for reusable logic, (b) Good for small actions, (c) Not allowed, (d) Replace addEventListener.",
+      "answer": "<p><strong>Correct Answer:</strong> <code>(b) Good for small actions</code></p><p><strong>Justification:</strong> Arrow function inline handlers like <code>onClick={() =&gt; setCount(c + 1)}</code> are concise and ideal for quick single-line state mutations.</p>",
+      "source_citation": "React Official Docs (Responding to Events); JAN 2026 Q5"
+    },
+    {
+      "id": "react-mcq06",
+      "unit": 2,
+      "section_id": "sec-5",
+      "marks": 1,
+      "priority": "Medium",
+      "years": [
+        "SEE JAN 2026 (Part A Q6)"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf",
+      "question": "Which of the following is a controlled component? (a) <input defaultValue=\"abc\" />, (b) <input value={x} onChange={f} />, (c) <input type=\"file\" />, (d) <textarea></textarea>.",
+      "answer": "<p><strong>Correct Answer:</strong> <code>(b) &lt;input value={x} onChange={f} /&gt;</code></p><p><strong>Justification:</strong> In a controlled component, the input value is bound to a state variable <code>x</code> and modified via an event handler <code>f</code>.</p>",
+      "source_citation": "React Official Docs (Controlled Components); JAN 2026 Q6"
+    }
+  ],
+  "out_of_scope_questions": [
+    {
+      "id": "react-out-01",
+      "question": "useParams returns: (a) URL parameters, (b) Query string, (c) Location object, (d) Component props.",
+      "paper": "SEE JAN 2026 Part A Q7",
+      "reason": "useParams is part of React Router (Unit 4 / Unit 3 in older scheme), out of CIE-1 scope."
+    },
+    {
+      "id": "react-out-02",
+      "question": "Link component prevents: (a) JSX errors, (b) Page reload, (c) DOM mutation, (d) API calls.",
+      "paper": "SEE JAN 2026 Part A Q8",
+      "reason": "React Router <Link> is out of CIE-1 scope."
+    },
+    {
+      "id": "react-out-03",
+      "question": "Environment variables in React must start with: (a) VAR_, (b) ENV_, (c) REACT_APP_, (d) APP_ENV_.",
+      "paper": "SEE JAN 2026 Part A Q9",
+      "reason": "Production build and deployment configuration belongs to Unit 5."
+    },
+    {
+      "id": "react-out-04",
+      "question": "Which step generates optimized JavaScript/CSS files? (a) Development mode, (b) Production build, (c) Testing mode, (d) Node server.",
+      "paper": "SEE JAN 2026 Part A Q10",
+      "reason": "Webpack / Vite production build optimization is part of Unit 5."
+    },
+    {
+      "id": "react-out-05",
+      "question": "Discuss performance optimization using React DevTools Profiler.",
+      "paper": "SEE JAN 2026 Q7a",
+      "reason": "React DevTools Profiler belongs to Unit 4."
+    },
+    {
+      "id": "react-out-06",
+      "question": "Create a multi-page app with Home, Services, Contact pages using Routes.",
+      "paper": "SEE JAN 2026 Q7b",
+      "reason": "Multi-page client-side routing with react-router-dom belongs to Unit 4."
+    },
+    {
+      "id": "react-out-07",
+      "question": "Create a navigation bar that highlights the active page using NavLink.",
+      "paper": "SEE JAN 2026 Q8a",
+      "reason": "NavLink active styles belong to React Router in Unit 4."
+    },
+    {
+      "id": "react-out-08",
+      "question": "Explain how dynamic routing works using :id parameters.",
+      "paper": "SEE JAN 2026 Q8b",
+      "reason": "Dynamic route parameters belong to React Router in Unit 4."
+    },
+    {
+      "id": "react-out-09",
+      "question": "Explain the purpose of .env file and how environment variables are used in React.",
+      "paper": "SEE JAN 2026 Q9a",
+      "reason": ".env configuration belongs to Unit 5."
+    },
+    {
+      "id": "react-out-10",
+      "question": "Create a card layout where top-level styles are global but component styles use CSS Modules.",
+      "paper": "SEE JAN 2026 Q9b",
+      "reason": "CSS Modules and styling architecture belongs to Unit 5."
+    }
+  ]
+}

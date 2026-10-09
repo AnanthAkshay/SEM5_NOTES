@@ -112,6 +112,17 @@
     <main class="notes-main" id="main-content">
       <!-- Unit Header Hero Card -->
       <header class="notes-header-card" id="hero">
+
+        <!-- CIE-1 Official Scope Alert Banner -->
+        <div class="cie1-scope-alert" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.12)); border: 1.5px solid var(--accent); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
+          <div style="font-weight: 800; font-size: 0.92rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">
+            🎯 CIE-1 Official Examination Scope: Unit 1, Unit 2 (Full)
+          </div>
+          <div style="font-size: 0.86rem; color: var(--text-secondary);">
+            <strong>Exam Schedule:</strong> Tuesday 13-10-2026, 13:30–14:30 (1 Hour · 30 Marks) &bull; <a href="../pyq/pyq-answers.html" style="color:var(--accent); font-weight:700; text-decoration:underline;">View All CIE-1 Solved PYQs →</a>
+          </div>
+        </div>
+
         <div class="header-mono-label">ISAEC594 · UNIT 1 · ~32 min read</div>
         <h1 class="notes-headline">Introduction to React, Vite &amp; JSX</h1>
         <p class="notes-subheadline">React philosophy, component-based declarative UI, Virtual DOM &amp; reconciliation, Vite tooling, project architecture, JSX rules, expressions, and conditional rendering.</p>
@@ -158,6 +169,7 @@
 
       <!-- Exact Article Content Sections (preserved byte-for-byte) -->
       <section id="sec-react-philosophy" class="content-section">
+        <div class="section-source-tag" data-sec="sec-react-philosophy" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev; Chris Minnick, Ch. 1; UNIT-1 ReactJS.pptx slides 3–13</div>
         <h2 class="section-title">1. What is React? &amp; Core Philosophy</h2>
         <div class="callout callout-def">
           <span class="callout-label">Definition</span>
@@ -183,6 +195,7 @@
       </section>
 
       <section id="sec-virtual-dom" class="content-section">
+        <div class="section-source-tag" data-sec="sec-virtual-dom" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Reconciliation); UNIT-1 ReactJS.pptx slides 14–17</div>
         <h2 class="section-title">2. The Virtual DOM &amp; Reconciliation</h2>
         <h3 class="subsection-title">2.1 Why the Real Browser DOM is Slow</h3>
         <p>The native Browser Document Object Model (DOM) is a tree-like object structure representing HTML elements. Direct DOM manipulation is computationally expensive because altering a single node frequently forces the browser layout engine to trigger:</p>
@@ -249,6 +262,7 @@
       </section>
 
       <section id="sec-framework-comparison" class="content-section">
+        <div class="section-source-tag" data-sec="sec-framework-comparison" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: Chris Minnick, Ch. 2; UNIT-1 ReactJS.pptx slides 18–25</div>
         <h2 class="section-title">3. React vs. Other Front-End Frameworks (Angular &amp; Vue)</h2>
         <div class="table-container">
           <table class="notes-table">
@@ -302,6 +316,7 @@
       </section>
 
       <section id="sec-vite-setup" class="content-section">
+        <div class="section-source-tag" data-sec="sec-vite-setup" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: Vitejs.dev; UNIT-1 ReactJS.pptx slides 26–30</div>
         <h2 class="section-title">4. Setting Up the React Environment with Vite</h2>
         <h3 class="subsection-title">4.1 Why Vite Over Create React App (CRA)?</h3>
         <p>The legacy <em>Create React App (CRA)</em> utility relied on Webpack, which bundles the entire application codebase in memory before serving, leading to sluggish server start times and slow rebuilds as projects grew. <strong>Vite</strong> revolutionizes frontend tooling:</p>
@@ -337,6 +352,7 @@ npm run dev</code></pre>
       </section>
 
       <section id="sec-project-structure" class="content-section">
+        <div class="section-source-tag" data-sec="sec-project-structure" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev; UNIT-1 ReactJS.pptx slides 31–36</div>
         <h2 class="section-title">5. React Project Structure &amp; Execution Lifecycle</h2>
         <div class="code-block-wrapper">
           <div class="code-header">
@@ -382,6 +398,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </section>
 
       <section id="sec-jsx-fundamentals" class="content-section">
+        <div class="section-source-tag" data-sec="sec-jsx-fundamentals" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Writing Markup with JSX); UNIT-1 ReactJS.pptx slides 37–45</div>
         <h2 class="section-title">6. Introduction to JSX &amp; Syntax Rules</h2>
         <div class="callout callout-def">
           <span class="callout-label">Definition</span>
@@ -409,6 +426,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </section>
 
       <section id="sec-jsx-expressions" class="content-section">
+        <div class="section-source-tag" data-sec="sec-jsx-expressions" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (JavaScript in JSX); UNIT-1 ReactJS.pptx slides 46–55</div>
         <h2 class="section-title">7. Embedding Expressions &amp; Evaluation in JSX</h2>
         <p>You can embed any valid JavaScript <strong>expression</strong> inside JSX markup by enclosing it in curly braces <code>{ }</code>:</p>
         <div class="code-block-wrapper">
@@ -453,6 +471,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </section>
 
       <section id="sec-conditional-lists" class="content-section">
+        <div class="section-source-tag" data-sec="sec-conditional-lists" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Conditional Rendering, Rendering Lists); slides 56–65</div>
         <h2 class="section-title">8. Conditional &amp; List Rendering in JSX</h2>
 
         <h3 class="subsection-title">8.1 Idiomatic Conditional Rendering Patterns</h3>
@@ -506,6 +525,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </section>
 
       <section id="sec-jsx-compilation" class="content-section">
+        <div class="section-source-tag" data-sec="sec-jsx-compilation" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: Babeljs.io; React.createElement; UNIT-1 ReactJS.pptx slides 66–75</div>
         <h2 class="section-title">9. JSX Compilation Under the Hood</h2>
         <p>Browsers cannot execute JSX directly. Build tools like Babel or esbuild compile JSX into pure JavaScript before execution.</p>
 

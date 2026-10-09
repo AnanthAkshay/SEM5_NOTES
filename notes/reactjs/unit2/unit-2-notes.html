@@ -110,6 +110,17 @@
     <main class="notes-main" id="main-content">
       <!-- Unit Header Hero Card -->
       <header class="notes-header-card" id="hero">
+
+        <!-- CIE-1 Official Scope Alert Banner -->
+        <div class="cie1-scope-alert" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.12)); border: 1.5px solid var(--accent); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
+          <div style="font-weight: 800; font-size: 0.92rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">
+            🎯 CIE-1 Official Examination Scope: Unit 1, Unit 2 (Full)
+          </div>
+          <div style="font-size: 0.86rem; color: var(--text-secondary);">
+            <strong>Exam Schedule:</strong> Tuesday 13-10-2026, 13:30–14:30 (1 Hour · 30 Marks) &bull; <a href="../pyq/pyq-answers.html" style="color:var(--accent); font-weight:700; text-decoration:underline;">View All CIE-1 Solved PYQs →</a>
+          </div>
+        </div>
+
         <div class="header-mono-label">ISAEC594 · UNIT 2 · ~32 min read</div>
         <h1 class="notes-headline">Components, Props &amp; State</h1>
         <p class="notes-subheadline">Functional components, class components overview, passing &amp; destructuring props, props vs state comparison, React Fragments, props.children composition, and the useState hook.</p>
@@ -156,6 +167,7 @@
 
       <!-- Exact Article Content Sections (preserved byte-for-byte) -->
       <section id="sec-components-intro" class="content-section">
+        <div class="section-source-tag" data-sec="sec-components-intro" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Your First Component); Unit-2.pdf slides 1–10</div>
         <h2 class="section-title">1. Functional vs. Class Components</h2>
         <div class="callout callout-def">
           <span class="callout-label">Definition</span>
@@ -248,6 +260,7 @@ export default WelcomeBannerClass;</code></pre>
       </section>
 
       <section id="sec-props-fundamentals" class="content-section">
+        <div class="section-source-tag" data-sec="sec-props-fundamentals" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Passing Props to a Component); Unit-2.pdf slides 11–20</div>
         <h2 class="section-title">2. Passing &amp; Accessing Props</h2>
         <div class="callout callout-def">
           <span class="callout-label">Definition</span>
@@ -306,6 +319,7 @@ function CourseCard({ title, code, credits = 3, isElective = false }) {
       </section>
 
       <section id="sec-props-vs-state" class="content-section">
+        <div class="section-source-tag" data-sec="sec-props-vs-state" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (State: A Component Memory); Unit-2.pdf slides 21–28</div>
         <h2 class="section-title">3. Props vs. State (Comparative Analysis)</h2>
         <p>A classic exam question asks students to contrast Props and State across ownership, mutability, and architectural intent:</p>
 
@@ -355,6 +369,7 @@ function CourseCard({ title, code, credits = 3, isElective = false }) {
       </section>
 
       <section id="sec-react-fragments" class="content-section">
+        <div class="section-source-tag" data-sec="sec-react-fragments" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Fragment); Unit-2.pdf slides 29–35</div>
         <h2 class="section-title">4. React Fragments (<code>&lt;&gt;...&lt;/&gt;</code>)</h2>
         <div class="callout callout-def">
           <span class="callout-label">Definition</span>
@@ -397,6 +412,7 @@ function TableColumns() {
       </section>
 
       <section id="sec-props-children" class="content-section">
+        <div class="section-source-tag" data-sec="sec-props-children" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Passing JSX as children); Unit-2.pdf slides 36–42</div>
         <h2 class="section-title">5. Component Composition &amp; <code>props.children</code></h2>
         <div class="callout callout-def">
           <span class="callout-label">Definition</span>
@@ -442,6 +458,7 @@ function Dashboard() {
       </section>
 
       <section id="sec-usestate-hook" class="content-section">
+        <div class="section-source-tag" data-sec="sec-usestate-hook" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (useState); Unit-2.pdf slides 43–52</div>
         <h2 class="section-title">6. State Management with the <code>useState</code> Hook</h2>
         <div class="callout callout-def">
           <span class="callout-label">Definition</span>
@@ -506,6 +523,7 @@ function Counter() {
       </section>
 
       <section id="sec-state-immutability" class="content-section">
+        <div class="section-source-tag" data-sec="sec-state-immutability" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: React.dev (Updating Objects/Arrays in State); Unit-2.pdf slides 53–60</div>
         <h2 class="section-title">7. Immutable State Updates (Objects &amp; Arrays)</h2>
         <p>In React, state should be treated as <strong>strictly read-only</strong>. Never mutate objects or arrays in-place (e.g., <code>user.age = 22</code> or <code>items.push(newItem)</code>), because React performs an object reference identity check (<code>Object.is(oldState, newState)</code>). If the memory reference has not changed, React assumes nothing was modified and skips re-rendering!</p>
 
@@ -1195,9 +1213,9 @@ setTodos(prev => [...prev, "Pass exam"]);</code></pre>
           <span class="nav-arrow-sub">Course Portal</span>
           <span class="nav-arrow-title">ISAEC594 Overview</span>
         </a>
-        <a href="../unit3/unit-3-notes.html" class="nav-arrow-btn" style="text-align: right;">
+        <a href="../pyq/pyq-answers.html" class="nav-arrow-btn" style="text-align: right;">
           <span class="nav-arrow-sub">Next →</span>
-          <span class="nav-arrow-title">Unit 3 Notes</span>
+          <span class="nav-arrow-title">CIE-1 PYQ Bank</span>
         </a>
       </footer>
 
