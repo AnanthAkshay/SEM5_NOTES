@@ -55,22 +55,23 @@
   --hl-blue: rgba(186, 230, 253, 0.45);
 
   /* Font Stacks - Strictly NO generic 'cursive', Arial, Times, or Consolas fallbacks */
-  --font-body: 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
-  --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
-  --font-kalam: 'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono';
-  --font-mono: 'JetBrains Mono', 'KaTeX_Typewriter';
+  --font-body: 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif;
+  --font-heading: 'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif;
+  --font-kalam: 'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif;
+  --font-mono: 'JetBrains Mono', 'KaTeX_Main', 'KaTeX_Math', 'KaTeX_AMS', sans-serif;
+  --font-display: var(--font-heading);
 }
 
 button, input, select, textarea, optgroup, option {
   font-family: inherit !important;
 }
 
-code, pre, kbd, samp, tt {
+code, pre, kbd, samp, tt, .code, .mono, .section-badge {
   font-family: var(--font-mono) !important;
 }
 
 svg text, text.st-txt, text.el-txt {
-  font-family: var(--font-heading), 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono' !important;
+  font-family: var(--font-heading), var(--font-body), sans-serif !important;
 }
 
 @page {
@@ -91,6 +92,20 @@ html, body {
   font-size: 18px; /* Readable, comfortable handwriting scale */
   line-height: var(--rule-height);
   -webkit-font-smoothing: antialiased;
+}
+
+em, i {
+  font-style: normal !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  color: var(--ink-dark);
+}
+
+strong, b {
+  font-family: var(--font-kalam) !important;
+  font-weight: 700 !important;
+  color: var(--ink-dark);
 }
 
 @media print {
@@ -249,7 +264,7 @@ html, body {
 }
 
 .page-header .header-right {
-  font-style: italic;
+  font-style: normal;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -284,7 +299,7 @@ html, body {
   display: flex;
   flex-direction: column;
   z-index: 4;
-  padding-top: 1px; /* Align text baseline directly onto the ruled lines */
+  padding-top: 3px; /* Exact baseline calibration for 28px ruled lines */
 }
 
 /* Typography Locked to 28px Grid Multiples */
@@ -384,8 +399,9 @@ li {
 
 /* Authentic Student Callout Blocks */
 .hand-card {
-  margin: 10px 0;
-  padding: 6px 14px;
+  position: relative;
+  margin: 14px 0;
+  padding: 7px 14px;
   background-color: rgba(255, 255, 255, 0.7);
   border-left: 3.5px solid var(--ink-blue);
   border-radius: 2px;
@@ -462,8 +478,9 @@ li {
 
 /* Practice Problem Cards */
 .practice-card, .problem-card {
-  margin: 10px 0;
-  padding: 6px 14px;
+  position: relative;
+  margin: 14px 0;
+  padding: 7px 14px;
   background-color: rgba(239, 246, 255, 0.45);
   border-left: 3.5px solid #2563eb;
   border-radius: 2px;
@@ -492,9 +509,38 @@ li {
   margin-right: 6px;
 }
 
+/* Rough.js Vector Overlays */
+.card-rough-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-content-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.h2-rough-line {
+  display: block;
+  width: 100%;
+  height: 6px;
+  margin-top: 2px;
+  pointer-events: none;
+}
+
 /* KaTeX Equations in Notebook (Royal Blue Ink) */
 .katex {
+  font-family: KaTeX_Main, KaTeX_Math, KaTeX_AMS, 'Patrick Hand', sans-serif !important;
   color: #1a365d !important;
+}
+
+.katex .mathrm, .katex .text {
+  font-family: KaTeX_Main, 'Patrick Hand', sans-serif !important;
 }
 
 .katex-display {
@@ -513,7 +559,7 @@ li {
 
 /* Hand-ruled Student Tables */
 .hand-table-wrap {
-  margin: 10px 0;
+  margin: 14px 0;
   overflow-x: auto;
 }
 

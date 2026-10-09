@@ -1,7 +1,7 @@
 /**
- * SEM 5 · ISE Notes - Handwritten-Style Notebook Generator (Refactored)
+ * SEM 5 · ISE Notes - Handwritten-Style Notebook Generator
  * Converts complete HTML unit notes page into an authentic handwritten notebook PDF.
- * Uses Playwright, KaTeX, local OFL Google Fonts, and exact A4 pagination.
+ * Uses Playwright, KaTeX, local OFL Google Fonts, Rough.js, and exact A4 pagination.
  */
 
 const { chromium } = require('playwright');
@@ -17,8 +17,8 @@ const SUBJECT_CONFIGS = {
   toc: {
     code: 'IS54',
     name: 'Theory of Computation',
-    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#163660',
     inkDark: '#0f172a',
     inkAccent: '#6b21a8'
@@ -26,8 +26,8 @@ const SUBJECT_CONFIGS = {
   cn: {
     code: 'IS53',
     name: 'Computer Networks',
-    fontBody: "'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#1b3252',
     inkDark: '#0a0f1d',
     inkAccent: '#1d4ed8'
@@ -35,8 +35,8 @@ const SUBJECT_CONFIGS = {
   ai: {
     code: 'ISE552',
     name: 'Artificial Intelligence',
-    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#1e3a8a',
     inkDark: '#111827',
     inkAccent: '#7c3aed'
@@ -44,8 +44,8 @@ const SUBJECT_CONFIGS = {
   ml: {
     code: 'IS51',
     name: 'Machine Learning',
-    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#163e54',
     inkDark: '#0f172a',
     inkAccent: '#0369a1'
@@ -53,8 +53,8 @@ const SUBJECT_CONFIGS = {
   reactjs: {
     code: 'ISAEC594',
     name: 'ReactJS',
-    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#1e293b',
     inkDark: '#0284c7',
     inkAccent: '#0284c7'
@@ -62,8 +62,8 @@ const SUBJECT_CONFIGS = {
   rmipr: {
     code: 'AL58',
     name: 'Research Methodology & IPR',
-    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#1e3a5f',
     inkDark: '#111827',
     inkAccent: '#b45309'
@@ -71,8 +71,8 @@ const SUBJECT_CONFIGS = {
   se: {
     code: 'IS52',
     name: 'Software Engineering',
-    fontBody: "'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Kalam', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#172554',
     inkDark: '#0f172a',
     inkAccent: '#2563eb'
@@ -80,8 +80,8 @@ const SUBJECT_CONFIGS = {
   evs: {
     code: 'HS510',
     name: 'Environmental Studies',
-    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
-    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono'",
+    fontBody: "'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
+    fontHeading: "'Caveat', 'Patrick Hand', 'KaTeX_Math', 'KaTeX_Main', 'KaTeX_AMS', 'JetBrains Mono', sans-serif",
     inkBlue: '#14532d',
     inkDark: '#064e3b',
     inkAccent: '#15803d'
@@ -104,19 +104,25 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
     return null;
   }
 
+  // Published output directory (PDF and preview image only, no published HTML)
   const outDir = path.join(REPO_ROOT, `notes/${subId}/unit${unitNum}/handwritten`);
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
+  // Intermediate build directory (git-ignored)
+  const buildDir = path.join(REPO_ROOT, 'build/handwritten');
+  if (!fs.existsSync(buildDir)) fs.mkdirSync(buildDir, { recursive: true });
 
   const pdfName = `${subId}-unit${unitNum}-handwritten.pdf`;
   const pdfPath = path.join(outDir, pdfName);
   const previewPath = path.join(outDir, `${subId}-unit${unitNum}-preview.webp`);
-  const finalHtmlPath = path.join(outDir, `${subId}-unit${unitNum}-handwritten.html`);
-  const tocJsonPath = path.join(outDir, 'toc.json');
+  const stagingHtmlPath = path.join(buildDir, `${subId}-unit${unitNum}-staging.html`);
+  const finalHtmlPath = path.join(buildDir, `${subId}-unit${unitNum}.html`);
+  const tocJsonPath = path.join(buildDir, `${subId}-unit${unitNum}-toc.json`);
 
   console.log(`\n===============================================================`);
-  console.log(`BUILDING HANDWRITTEN NOTEBOOK: ${cfg.code} Unit ${unitNum}`);
+  console.log(`BUILDING HANDWRITTEN NOTEBOOK PDF: ${cfg.code} Unit ${unitNum}`);
   console.log(`Source: ${htmlRelPath}`);
-  console.log(`Output: ${pdfPath}`);
+  console.log(`Output PDF: ${pdfPath}`);
   console.log(`===============================================================`);
 
   const page = await browser.newPage({
@@ -175,11 +181,13 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
         const card = document.createElement('div');
         card.className = 'practice-card';
         card.innerHTML = `
-          <div class="practice-header">📝 Practice Problem:</div>
-          <div style="margin-bottom: 4px;">${qText}</div>
-          <div class="practice-ans-box">
-            <span class="ans-badge">Solution:</span>
-            <div>${aHtml}</div>
+          <div class="card-content-inner">
+            <div class="practice-header">Practice Problem:</div>
+            <div style="margin-bottom: 4px;">${qText}</div>
+            <div class="practice-ans-box">
+              <span class="ans-badge">Solution:</span>
+              <div>${aHtml}</div>
+            </div>
           </div>
         `;
         det.replaceWith(card);
@@ -193,37 +201,45 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
         const note = document.createElement('div');
         note.className = 'interactive-note';
         note.innerHTML = `
-          <span>💻 <strong>Interactive Tool Available Online:</strong> ${toolTitle}. Explore the step-by-step calculator and visualizer on the live site notes page.</span>
+          <span><strong>[Interactive Visualizer Online]:</strong> ${toolTitle}. Explore the step-by-step visualizer on the live course notes page.</span>
         `;
         ic.replaceWith(note);
       });
 
-      // Pre-sanitize and mark diagrams/SVGs as atomic
+      // Pre-sanitize and mark diagrams/SVGs as atomic, isolating diagram text
       const diagWrappers = Array.from(clone.querySelectorAll('.diagram-wrapper, .diagram-card, .diagram-container, figure'));
       diagWrappers.forEach(dw => {
         dw.setAttribute('data-atomic', 'true');
         dw.querySelectorAll('svg text').forEach(t => {
           let text = t.textContent;
-          text = text.replace(/\$H_0\$/g, 'H₀')
-                     .replace(/\$H_1\$/g, 'H₁')
+          text = text.replace(/\$H_0\$/g, 'H0')
+                     .replace(/\$H_1\$/g, 'H1')
                      .replace(/\$O\(n\)\$/g, 'O(n)')
-                     .replace(/\$O\(n\^3\)\$/g, 'O(n³)')
-                     .replace(/\$q_0\$/g, 'q₀')
-                     .replace(/\$q_1\$/g, 'q₁')
-                     .replace(/\$q_2\$/g, 'q₂')
-                     .replace(/\$q_k\$/g, 'q_k')
+                     .replace(/\$O\(n\^3\)\$/g, 'O(n^3)')
+                     .replace(/\$q_0\$/g, 'q0')
+                     .replace(/\$q_1\$/g, 'q1')
+                     .replace(/\$q_2\$/g, 'q2')
+                     .replace(/\$q_k\$/g, 'qk')
                      .replace(/\$r\$/g, 'r')
                      .replace(/\$\\theta\$/g, 'θ')
                      .replace(/\$\\epsilon\$/g, 'ϵ')
                      .replace(/\$/g, '')
-                     .replace(/\u1d40/g, '^T')
-                     .replace(/\u1d62/g, '_i')
-                     .replace(/\u2c7c/g, '_j')
-                     .replace(/\u2096/g, '_k')
-                     .replace(/\u2071/g, '^i')
-                     .replace(/\u2092/g, '_0')
-                     .replace(/\u1d34/g, '^H')
-                     .replace(/\u1d30/g, '^A');
+                     .replace(/\u2080/g, '0')
+                     .replace(/\u2081/g, '1')
+                     .replace(/\u2082/g, '2')
+                     .replace(/\u2083/g, '3')
+                     .replace(/\u2084/g, '4')
+                     .replace(/\u2085/g, '5')
+                     .replace(/\u2086/g, '6')
+                     .replace(/\u2087/g, '7')
+                     .replace(/\u1d40/g, 'T')
+                     .replace(/\u1d62/g, 'i')
+                     .replace(/\u2c7c/g, 'j')
+                     .replace(/\u2096/g, 'k')
+                     .replace(/\u2071/g, 'i')
+                     .replace(/\u2092/g, '0')
+                     .replace(/\u1d34/g, 'H')
+                     .replace(/\u1d30/g, 'A');
           t.textContent = text;
         });
       });
@@ -243,15 +259,24 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
 
         const existingLabel = c.querySelector('.callout-label, .callout-tag');
         if (existingLabel) {
-          badge = existingLabel.innerText.trim();
+          const raw = existingLabel.innerText.trim().replace(/[∇★✦❖■▲▼⚡💻📝📌🎯💡⚠✓✗✕]/gu, '').trim();
+          if (raw) badge = raw;
           existingLabel.remove();
         }
 
-        c.classList.add('hand-card', `card-${type}`);
-        const labelEl = document.createElement('div');
-        labelEl.className = `hand-label label-${type}`;
-        labelEl.textContent = badge + ':';
-        c.insertBefore(labelEl, c.firstChild);
+        const innerContent = c.innerHTML;
+        c.className = `hand-card card-${type}`;
+        c.innerHTML = `
+          <div class="card-content-inner">
+            <div class="hand-label label-${type}">${badge}:</div>
+            ${innerContent}
+          </div>
+        `;
+      });
+
+      // Clean section badges
+      clone.querySelectorAll('.section-badge').forEach(b => {
+        b.textContent = b.textContent.replace(/[∇★✦❖■▲▼⚡💻📝📌🎯💡⚠✓✗✕]/gu, '').trim();
       });
 
       // Style tables
@@ -270,6 +295,7 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
 
       const sanitizedHtml = clone.innerHTML
         .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, ' ')
+        .replace(/\u2588/g, '')
         .replace(/\u1d40/g, '<sup>T</sup>')
         .replace(/\u1d62/g, '<sub>i</sub>')
         .replace(/\u2c7c/g, '<sub>j</sub>')
@@ -277,7 +303,29 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
         .replace(/\u2071/g, '<sup>i</sup>')
         .replace(/\u2092/g, '<sub>o</sub>')
         .replace(/\u1d34/g, '<sup>H</sup>')
-        .replace(/\u1d30/g, '<sup>A</sup>');
+        .replace(/\u1d30/g, '<sup>A</sup>')
+        .replace(/\u2080/g, '<sub>0</sub>')
+        .replace(/\u2081/g, '<sub>1</sub>')
+        .replace(/\u2082/g, '<sub>2</sub>')
+        .replace(/\u2083/g, '<sub>3</sub>')
+        .replace(/\u2084/g, '<sub>4</sub>')
+        .replace(/\u2085/g, '<sub>5</sub>')
+        .replace(/\u2086/g, '<sub>6</sub>')
+        .replace(/\u2087/g, '<sub>7</sub>')
+        .replace(/\u2088/g, '<sub>8</sub>')
+        .replace(/\u2089/g, '<sub>9</sub>')
+        .replace(/\u2207/g, 'del')
+        .replace(/\u2500/g, '-')
+        .replace(/\u2502/g, '|')
+        .replace(/\u251c/g, '|')
+        .replace(/\u2514/g, '`')
+        .replace(/\u250c/g, '+')
+        .replace(/\u2510/g, '+')
+        .replace(/\u2524/g, '|')
+        .replace(/\u252c/g, '+')
+        .replace(/\u2534/g, '+')
+        .replace(/\u253c/g, '+')
+        .replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '');
 
       return {
         id: secId,
@@ -295,20 +343,19 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
     };
   });
 
-  // Relative asset URLs
-  const fontsCssPath = path.relative(outDir, path.join(REPO_ROOT, 'fonts/fonts.css')).replace(/\\/g, '/');
-  const katexCssPath = path.relative(outDir, path.join(REPO_ROOT, 'assets/katex/katex.min.css')).replace(/\\/g, '/');
-  const katexJsPath = path.relative(outDir, path.join(REPO_ROOT, 'assets/katex/katex.min.js')).replace(/\\/g, '/');
-  const katexAutoPath = path.relative(outDir, path.join(REPO_ROOT, 'assets/katex/contrib/auto-render.min.js')).replace(/\\/g, '/');
-  const handCssPath = path.relative(outDir, path.join(REPO_ROOT, 'css/handwritten.css')).replace(/\\/g, '/');
-  const roughJsPath = path.relative(outDir, path.join(REPO_ROOT, 'js/rough.js')).replace(/\\/g, '/');
+  // Asset URLs relative to buildDir
+  const fontsCssPath = path.relative(buildDir, path.join(REPO_ROOT, 'fonts/fonts.css')).replace(/\\/g, '/');
+  const katexCssPath = path.relative(buildDir, path.join(REPO_ROOT, 'assets/katex/katex.min.css')).replace(/\\/g, '/');
+  const katexJsPath = path.relative(buildDir, path.join(REPO_ROOT, 'assets/katex/katex.min.js')).replace(/\\/g, '/');
+  const katexAutoPath = path.relative(buildDir, path.join(REPO_ROOT, 'assets/katex/contrib/auto-render.min.js')).replace(/\\/g, '/');
+  const handCssPath = path.relative(buildDir, path.join(REPO_ROOT, 'css/handwritten.css')).replace(/\\/g, '/');
+  const roughJsPath = path.relative(buildDir, path.join(REPO_ROOT, 'js/rough.js')).replace(/\\/g, '/');
 
   // Build the staging HTML shell
   const stagingHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(cfg.code)} Unit ${unitNum} - Handwritten Notes</title>
   <link rel="stylesheet" href="${fontsCssPath}">
   <link rel="stylesheet" href="${katexCssPath}">
@@ -334,12 +381,6 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
   <script src="${roughJsPath}"></script>
 </head>
 <body>
-  <div class="notebook-nav-bar">
-    <a href="../../../index.html#subject/${subId}" class="nav-btn">← Back to Course</a>
-    <span style="font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: #f8fafc;">${escapeHtml(cfg.code)} Unit ${unitNum} · Handwritten Notebook</span>
-    <a href="${pdfName}" download class="nav-btn nav-btn-primary">⬇ Download PDF</a>
-  </div>
-
   <div id="staging-container">
     ${pageData.sections.map((sec, idx) => `
       <div class="staging-section" data-sec-id="${escapeHtml(sec.id)}" data-sec-title="${escapeHtml(sec.title)}" data-sec-index="${idx}">
@@ -354,22 +395,28 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
 </body>
 </html>`;
 
-  const tempStagingPath = path.join(outDir, `${subId}-unit${unitNum}-staging.html`);
-  fs.writeFileSync(tempStagingPath, stagingHtml, 'utf8');
+  fs.writeFileSync(stagingHtmlPath, stagingHtml, 'utf8');
 
-  // Load staging page
-  const debugFileUrl = 'file:///' + tempStagingPath.replace(/\\/g, '/');
-  await page.goto(debugFileUrl, { waitUntil: 'load' });
+  // Load staging page in Chrome
+  const stagingFileUrl = 'file:///' + stagingHtmlPath.replace(/\\/g, '/');
+  await page.goto(stagingFileUrl, { waitUntil: 'load' });
 
-  // Execute in-page font validation and advanced pagination
   const paginationResult = await page.evaluate(async ({ pageData, cfg, unitNum }) => {
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
     // 1. Font Validation Gate: Ensure handwriting fonts are fully loaded
     await document.fonts.ready;
     const requiredFonts = [
-      '18px "Patrick Hand"',
+      '400 18px "Patrick Hand"',
       '700 24px "Caveat"',
-      '18px "Kalam"',
-      '14px "JetBrains Mono"'
+      '400 24px "Caveat"',
+      '400 18px "Kalam"',
+      '700 18px "Kalam"',
+      '400 14px "JetBrains Mono"',
+      '700 14px "JetBrains Mono"'
     ];
     for (const f of requiredFonts) {
       await document.fonts.load(f);
@@ -378,18 +425,22 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
       }
     }
 
-    // 2. KaTeX Render: strictly IGNORE svg elements so diagrams never leak
+    // 2. KaTeX Render: strictly IGNORE svg and diagrams so formulas never leak into diagrams
     if (window.renderMathInElement) {
       renderMathInElement(document.getElementById('staging-container'), {
+        output: 'html',
         delimiters: [
           { left: '$$', right: '$$', display: true },
           { left: '$', right: '$', display: false },
           { left: '\\[', right: '\\]', display: true },
           { left: '\\(', right: '\\)', display: false }
         ],
-        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'annotation', 'annotation-xml', 'svg'],
+        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'annotation', 'annotation-xml', 'svg', 'figure'],
+        ignoredClasses: ['diagram-wrapper', 'diagram-card', 'diagram-container', 'svg-diagram'],
         throwOnError: false
       });
+      // Remove hidden MathML nodes so system math fonts (Cambria, Times) are never invoked
+      document.querySelectorAll('.katex-mathml').forEach(el => el.remove());
     }
 
     const container = document.getElementById('notebook-container');
@@ -416,14 +467,14 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
       <div class="punch-hole punch-bot"></div>
       <div class="cover-page">
         <div class="cover-header">
-          <div class="cover-badge">${cfg.code} · ${cfg.name}</div>
-          <h1 class="cover-title">Unit ${unitNum}: ${cleanTitle}</h1>
+          <div class="cover-badge">${escapeHtml(cfg.code)} · ${escapeHtml(cfg.name)}</div>
+          <h1 class="cover-title">Unit ${unitNum}: ${escapeHtml(cleanTitle)}</h1>
           <div class="cover-subtitle">Handwritten Student Notebook</div>
         </div>
 
         <div class="cover-syllabus-card">
           <strong style="color: #0f172a; font-family: var(--font-heading); font-size: 18px;">Syllabus Topics Covered:</strong>
-          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">${syllabusShort}</p>
+          <p style="margin: 4px 0 0 0; color: #334155; line-height: 24px;">${escapeHtml(syllabusShort)}</p>
         </div>
 
         <div class="cover-toc-card">
@@ -450,8 +501,8 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
         <div class="punch-hole punch-mid"></div>
         <div class="punch-hole punch-bot"></div>
         <div class="page-header">
-          <span class="header-left">${cfg.code} · Unit ${unitNum}</span>
-          <span class="header-right">${topic || ''}</span>
+          <span class="header-left">${escapeHtml(cfg.code)} · Unit ${unitNum}</span>
+          <span class="header-right">${escapeHtml(topic || '')}</span>
         </div>
         <div class="page-content"></div>
         <div class="page-footer">
@@ -462,7 +513,7 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
       container.appendChild(p);
       const contentEl = p.querySelector('.page-content');
       pages.push({ el: p, contentEl, topic });
-      return { pageEl: p, contentEl };
+      return { pageEl: p, contentEl, topic };
     }
 
     let currentRuled = createRuledPage('Overview');
@@ -480,8 +531,12 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
         page: pageNum
       });
 
-      const headerRight = currentRuled.pageEl.querySelector('.header-right');
-      if (headerRight) headerRight.textContent = secTitle;
+      // Update header topic only if starting a fresh page
+      if (currentHeight === 0) {
+        const headerRight = currentRuled.pageEl.querySelector('.header-right');
+        if (headerRight) headerRight.textContent = secTitle;
+        currentRuled.topic = secTitle;
+      }
 
       const h2El = sec.querySelector('h2');
       const bodyEl = sec.querySelector('.staging-body');
@@ -491,13 +546,13 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
         const item = items[i];
         const isHeading = ['H1', 'H2', 'H3', 'H4'].includes(item.tagName) || item.classList.contains('subsection-title');
 
-        // Lookahead heading orphan prevention:
-        // A heading MUST NEVER be placed alone without at least the next element
+        // Heading orphan prevention:
+        // A heading must never be placed alone at the bottom without its subsequent content
         if (isHeading) {
           const nextItem = (i + 1 < items.length) ? items[i + 1] : null;
           const nextH = nextItem ? (nextItem.offsetHeight || 60) : 60;
           const headingH = item.offsetHeight || 36;
-          if (currentHeight + headingH + Math.min(nextH, 120) > MAX_PAGE_HEIGHT_PX && currentHeight > 80) {
+          if (currentHeight + headingH + Math.min(nextH, 140) > MAX_PAGE_HEIGHT_PX && currentHeight > 60) {
             currentRuled = createRuledPage(secTitle);
             currentHeight = 0;
           }
@@ -567,7 +622,7 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
           continue;
         }
 
-        // 2. Tables with multiple rows
+        // 2. Tables with multiple rows: repeat thead
         const table = item.tagName === 'TABLE' ? item : item.querySelector('table');
         if (table && table.rows.length > 3 && !item.hasAttribute('data-atomic')) {
           const rows = Array.from(table.rows);
@@ -629,14 +684,89 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
           continue;
         }
 
-        // 3. For any other item that doesn't fit, break page
-        if (currentHeight > 80) {
+        // 3. For any other item that doesn't fit (including callouts & figures), break page
+        if (currentHeight > 60) {
           currentRuled = createRuledPage(secTitle);
           currentHeight = 0;
         }
         currentRuled.contentEl.appendChild(item.cloneNode(true));
         currentHeight += itemH;
       }
+    }
+
+    // 3. Vector Rough.js hand-drawn styling pass
+    if (window.rough) {
+      document.querySelectorAll('.hand-card, .practice-card').forEach((card, idx) => {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'card-rough-svg');
+        svg.style.position = 'absolute';
+        svg.style.top = '0';
+        svg.style.left = '0';
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+        svg.style.pointerEvents = 'none';
+        svg.style.zIndex = '0';
+        card.style.position = 'relative';
+        card.style.borderLeft = 'none';
+        card.insertBefore(svg, card.firstChild);
+
+        const w = card.offsetWidth || 500;
+        const h = card.offsetHeight || 60;
+        svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+        const rc = rough.svg(svg, { options: { seed: 1000 + idx } });
+
+        let strokeColor = '#163660';
+        let fillColor = 'rgba(240, 249, 255, 0.4)';
+        if (card.classList.contains('card-def')) {
+          strokeColor = '#15803d';
+          fillColor = 'rgba(240, 253, 244, 0.45)';
+        } else if (card.classList.contains('card-tip')) {
+          strokeColor = '#b91c1c';
+          fillColor = 'rgba(254, 242, 242, 0.45)';
+        } else if (card.classList.contains('card-formula')) {
+          strokeColor = '#6b21a8';
+          fillColor = 'rgba(250, 245, 255, 0.45)';
+        } else if (card.classList.contains('card-example')) {
+          strokeColor = '#b45309';
+          fillColor = 'rgba(254, 243, 199, 0.45)';
+        } else if (card.classList.contains('card-warning')) {
+          strokeColor = '#c2410c';
+          fillColor = 'rgba(255, 247, 237, 0.45)';
+        } else if (card.classList.contains('practice-card')) {
+          strokeColor = '#1d4ed8';
+          fillColor = 'rgba(239, 246, 255, 0.45)';
+        }
+
+        const rectNode = rc.rectangle(2, 2, w - 4, h - 4, {
+          stroke: strokeColor,
+          strokeWidth: 1.5,
+          roughness: 1.1,
+          fill: fillColor,
+          fillStyle: 'solid'
+        });
+        svg.appendChild(rectNode);
+      });
+
+      document.querySelectorAll('.page-ruled h2').forEach((h2, idx) => {
+        h2.style.borderBottom = 'none';
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'h2-rough-line');
+        svg.style.display = 'block';
+        svg.style.width = '100%';
+        svg.style.height = '6px';
+        svg.style.marginTop = '1px';
+        h2.parentNode.insertBefore(svg, h2.nextSibling);
+
+        const w = Math.min(Math.max(h2.offsetWidth || 300, 200), 650);
+        svg.setAttribute('viewBox', `0 0 ${w} 6`);
+        const rc = rough.svg(svg, { options: { seed: 2000 + idx } });
+        const lineNode = rc.line(0, 3, w, 3, {
+          stroke: '#0f172a',
+          strokeWidth: 1.8,
+          roughness: 1.3
+        });
+        svg.appendChild(lineNode);
+      });
     }
 
     // Populate Cover Table of Contents
@@ -668,11 +798,11 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
   console.log(`Pagination completed! Total Pages: ${paginationResult.totalPages}`);
   console.log(`TOC Sections: ${paginationResult.tocEntries.length}`);
 
-  // Save the complete serialized paginated DOM back to disk!
+  // Save intermediate serialized HTML into git-ignored build directory
   const finalHtml = await page.content();
   fs.writeFileSync(finalHtmlPath, finalHtml, 'utf8');
-  if (fs.existsSync(tempStagingPath)) fs.unlinkSync(tempStagingPath);
-  console.log(`Saved responsive paginated HTML: ${finalHtmlPath}`);
+  if (fs.existsSync(stagingHtmlPath)) fs.unlinkSync(stagingHtmlPath);
+  console.log(`Saved intermediate build HTML: ${finalHtmlPath}`);
 
   // Write TOC json for postprocessing
   fs.writeFileSync(tocJsonPath, JSON.stringify(paginationResult.tocEntries, null, 2), 'utf8');
@@ -731,7 +861,8 @@ async function main() {
 
   const browser = await chromium.launch({
     executablePath: CHROME_PATH,
-    headless: true
+    headless: true,
+    args: ['--allow-file-access-from-files']
   });
 
   try {

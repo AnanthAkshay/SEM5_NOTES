@@ -36,10 +36,11 @@ def main():
     # Set metadata
     writer.add_metadata({
         '/Title': title,
-        '/Author': 'SEM 5 · ISE Notes',
+        '/Author': 'SEM 5 ISE Notes',
         '/Subject': subject,
         '/Creator': 'Antigravity Handwritten Notebook Generator',
-        '/Producer': 'Playwright & pypdf'
+        '/Producer': 'Playwright & pypdf',
+        '/Lang': 'en'
     })
 
     # Add outline bookmarks
