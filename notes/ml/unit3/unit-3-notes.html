@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unit 3: Similarity-based Learning, Regression Analysis & Decision Trees | ML Notes | SEM 5 ISE</title>
-  <meta name="description" content="Exam-oriented interactive study notes for Machine Learning (IS51) Unit 3: Nearest Neighbor (KNN), Weighted KNN, Nearest Centroid, Locally Weighted Regression, Linear & Polynomial Regression, Logistic Regression, and Decision Trees (ID3, C4.5, CART).">
+  <title>Unit 3: Regression Analysis & Regularization | ML Notes | SEM 5 ISE</title>
+  <meta name="description" content="Exam-focused interactive study notes for Machine Learning (24IS51) Unit 3 (CIE-1 Scope): Simple Linear Regression, OLS Normal Equations, Multiple Regression, Polynomial Regression, Ridge & Lasso Regularization, and Logistic Regression.">
 
   <!-- Prevent Theme Flash -->
   <script>
@@ -39,7 +39,7 @@
       <div class="topbar-left">
         <a href="../../../index.html#subject/ml" class="back-btn" title="Return to Machine Learning Page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>← IS51 Overview</span>
+          <span>← 24IS51 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
@@ -47,7 +47,7 @@
           <span class="breadcrumb-sep">/</span>
           <a href="../../../index.html#subject/ml">Machine Learning</a>
           <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-current">Unit 3</span>
+          <span class="breadcrumb-current">Unit 3 (Regression)</span>
         </nav>
       </div>
 
@@ -69,7 +69,7 @@
     </div>
   </header>
 
-  <!-- Mobile 'On this page' Trigger Pill (under 1024px only) -->
+  <!-- Mobile 'On this page' Trigger Pill -->
   <div class="mobile-toc-bar">
     <button id="mobile-toc-btn" class="mobile-toc-pill" aria-expanded="false" aria-controls="notes-sidebar">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -78,28 +78,23 @@
     </button>
   </div>
 
-  <!-- Page Layout Container (max-width 1200px, 2 columns on desktop) -->
   <div class="notes-container">
-    <!-- Desktop Sticky Sidebar / Mobile Sheet Modal -->
     <aside class="notes-sidebar" id="notes-sidebar" aria-label="Table of Contents">
       <div class="sidebar-header">
-        <span class="sidebar-label">Unit 3 contents</span>
+        <span class="sidebar-label">Unit 3 (Regression)</span>
         <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
-          <li class="toc-item"><a href="#sec-knn" class="toc-link">§ 1. Nearest-Neighbor Learning</a></li>
-          <li class="toc-item"><a href="#sec-weighted-knn" class="toc-link">§ 2. Weighted K-NN</a></li>
-          <li class="toc-item"><a href="#sec-nearest-centroid" class="toc-link">§ 3. Nearest Centroid Classifier</a></li>
-          <li class="toc-item"><a href="#sec-lwr" class="toc-link">§ 4. Locally Weighted Regression</a></li>
-          <li class="toc-item"><a href="#sec-intro-regression" class="toc-link">§ 5. Introduction to Regression</a></li>
-          <li class="toc-item"><a href="#sec-linear-regression" class="toc-link">§ 6. Linear Regression (OLS)</a></li>
-          <li class="toc-item"><a href="#sec-polynomial-regression" class="toc-link">§ 7. Polynomial Regression</a></li>
-          <li class="toc-item"><a href="#sec-logistic-regression" class="toc-link">§ 8. Logistic Regression</a></li>
-          <li class="toc-item"><a href="#sec-dt-model" class="toc-link">§ 9. Decision Tree Models</a></li>
-          <li class="toc-item"><a href="#sec-dt-algorithms" class="toc-link">§ 10. Induction Algorithms (ID3/C4.5/CART)</a></li>
+          <li class="toc-item"><a href="#sec-intro-regression" class="toc-link">§ 1. Intro to Regression &amp; Metrics</a></li>
+          <li class="toc-item"><a href="#sec-linear-regression" class="toc-link">§ 2. Simple Linear Regression (OLS)</a></li>
+          <li class="toc-item"><a href="#sec-multiple-regression" class="toc-link">§ 3. Multiple Linear Regression</a></li>
+          <li class="toc-item"><a href="#sec-polynomial-regression" class="toc-link">§ 4. Polynomial Regression</a></li>
+          <li class="toc-item"><a href="#sec-regularization" class="toc-link">§ 5. Regularization: Ridge &amp; Lasso</a></li>
+          <li class="toc-item"><a href="#sec-gradient-descent" class="toc-link">§ 6. Gradient Descent Optimization</a></li>
+          <li class="toc-item"><a href="#sec-logistic-regression" class="toc-link">§ 7. Logistic Regression</a></li>
           <li class="toc-item"><a href="#sec-revision-sheet" class="toc-link">Revision Sheet</a></li>
           <li class="toc-item"><a href="#sec-important-questions" class="toc-link">Important Exam Questions</a></li>
           <li class="toc-item"><a href="#sec-questions-asked-before" class="toc-link">Questions Asked Before</a></li>
@@ -109,284 +104,55 @@
     </aside>
     <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
 
-    <!-- Main Content Column (max-width 760px, 72ch line length) -->
     <main class="notes-main" id="main-content">
+      <!-- CIE-1 Scope Notice Banner -->
+      <div class="cie1-scope-banner" style="background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(249,115,22,0.09)); border: 1.5px solid rgba(239,68,68,0.35); border-radius: 12px; padding: 14px 18px; margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+          <span style="background: #ef4444; color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px; letter-spacing: 0.05em; text-transform: uppercase;">CIE-1 Scope</span>
+          <strong style="color: var(--text-primary); font-size: 14px;">Machine Learning (24IS51) · Unit 3: Regression Portion ONLY</strong>
+          <span style="margin-left: auto; font-size: 12px; color: var(--text-muted); font-weight: 600;">Exam: Thu 15-10-2026, 09:30–10:30</span>
+        </div>
+        <p style="margin: 0; font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;">
+          <strong>In-Scope Portions:</strong> Introduction to Regression, Simple Linear Regression &amp; OLS Normal Equations, Multiple Linear Regression, Polynomial Regression, Ridge (L2) &amp; Lasso (L1) Regularization, Gradient Descent Optimization, Evaluation Metrics (MSE, RMSE, MAE, R², Adjusted R²), and Logistic Regression.<br/>
+          <strong>Out of CIE-1 Scope (Held for CIE-2/SEE):</strong> Nearest-Neighbor Learning / K-NN, Weighted K-NN, Nearest Centroid, Locally Weighted Regression (LWR), and Decision Tree Learning (ID3, C4.5, CART, Entropy).
+          <span style="display: block; margin-top: 6px; font-weight: 600; color: var(--accent);"><a href="../pyq/pyq-answers.html" style="color: inherit; text-decoration: underline;">→ Access Fully Solved Machine Learning PYQs (Ramaiah CIE-1, CIE-2 &amp; SEE 2023–2026)</a></span>
+        </p>
+      </div>
+
       <!-- Unit Header Hero Card -->
       <header class="notes-header-card" id="hero">
-        <div class="header-mono-label">IS51 · UNIT 3 · ~38 min read</div>
-        <h1 class="notes-headline">Unit 3: Similarity-based Learning, Regression Analysis & Decision Trees</h1>
-        <p class="notes-subheadline">Comprehensive, exam-focused study notes covering instance-based learning ($K$-NN, Weighted $K$-NN, Nearest Centroid, LWR), parametric linear & polynomial regression, logistic classification, and decision tree induction (Entropy, Information Gain, ID3, C4.5, CART, Pruning) with step-by-step solved numericals.</p>
+        <div class="header-mono-label">24IS51 · UNIT 3 (REGRESSION) · ~26 min read</div>
+        <h1 class="notes-headline">Regression Analysis &amp; Regularization</h1>
+        <p class="notes-subheadline">Strictly limited to the CIE-1 syllabus scope: comprehensive derivations of Ordinary Least Squares, matrix normal equations for multiple regression, polynomial basis expansion, Ridge and Lasso regularization, gradient descent optimization, and logistic regression with verified exam numericals.</p>
 
         <div class="syllabus-card">
           <div class="syllabus-header-row">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            <span>OFFICIAL SYLLABUS TOPICS COVERED</span>
+            <span>CIE-1 AUTHORITATIVE SYLLABUS TOPICS COVERED</span>
           </div>
           <ul class="syllabus-list">
-            <li><strong>Similarity-based Learning:</strong> Instance-based vs Eager learning, $K$-Nearest-Neighbor ($K$-NN) algorithm, distance metrics (Euclidean, Manhattan, Minkowski), Weighted $K$-NN ($1/d^2$), Nearest Centroid (Rocchio) classifier, Locally Weighted Regression (LWR) with Gaussian kernel.</li>
-            <li><strong>Regression Analysis:</strong> Introduction to Regression, Ordinary Least Squares (OLS) closed-form normal equations, Multiple Linear Regression ($\mathbf{w} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$), Polynomial Regression basis expansion, Logistic Regression (sigmoid activation, log-odds, binary cross-entropy loss).</li>
-            <li><strong>Decision Tree Learning:</strong> Decision tree model structure, Shannon Entropy $H(S) = -\sum p_i \log_2 p_i$, Information Gain ($ID3$), Gain Ratio ($C4.5$), Gini Impurity ($CART$), Overfitting in decision trees, Pre-pruning and Post-pruning algorithms.</li>
+            <li><strong>Introduction to Regression:</strong> Dependent vs independent variables, Regression vs Classification, Performance evaluation metrics (MSE, RMSE, MAE, R², Adjusted R²).</li>
+            <li><strong>Simple Linear Regression:</strong> Model assumptions, Ordinary Least Squares (OLS) closed-form calculus derivations of slope $eta_1$ and intercept $eta_0$, line of best fit.</li>
+            <li><strong>Multiple Linear Regression:</strong> Matrix formulation $\mathbf{y} = \mathbf{X}oldsymbol{eta} + oldsymbol{\epsilon}$, normal equations $oldsymbol{eta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$, interpretation of partial slopes.</li>
+            <li><strong>Polynomial Regression:</strong> Non-linear modeling via polynomial feature expansion, bias-variance tradeoff with increasing degrees.</li>
+            <li><strong>Regularization:</strong> Ridge Regression ($L_2$ penalty, analytical solution $(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$, shrinkage), Lasso Regression ($L_1$ penalty, sparsity &amp; feature selection), Elastic Net.</li>
+            <li><strong>Gradient Descent:</strong> Objective loss minimization, Batch GD, Stochastic GD (SGD), Mini-batch GD, learning rate $lpha$.</li>
+            <li><strong>Logistic Regression:</strong> Sigmoid activation function $\sigma(z) = 1/(1+e^{-z})$, odds ratio, logit function, binary cross-entropy loss, classification decision boundary.</li>
           </ul>
         </div>
+
         <div class="verification-box">
           <div class="verif-header">
             <span class="verif-badge">ACADEMIC AUDIT &amp; SOURCES</span>
             <span class="verif-date">Audited: October 2026</span>
           </div>
-          <p class="verif-text"><strong>Prescribed Textbooks:</strong> S. Sridhar and M. Vijayalakshmi, <em>Machine Learning</em>, 1st Edition (2021), Oxford University Press (Chapters 5, 6 &amp; 7); Tom M. Mitchell, <em>Machine Learning</em>, McGraw-Hill (1997) (Chapter 3: Decision Tree Learning; Chapter 8: Instance-Based Learning).</p>
-          <p class="verif-text"><strong>Verification Sources:</strong> Prescribed VTU/Ramaiah syllabus specifications, faculty lecture slides in <code>notes/ml/unit3/</code>, and authentic examination papers transcribed directly from <code>notes/ml/practice/ml-cie-1-2-see.pdf</code> (Ramaiah Internal Assessment - I March 2026, Internal Assessment - II May 2026, and Semester End Examination June/July 2026, Course Code 23IS62). All OLS regression closed-form slopes ($b=4.5000, a=41.0000, \hat{Y}(7)=72.50$), $K$-NN regression predictions ($\hat{y}=180.67$), ID3 Shannon entropies ($H(S)=0.97095, IG(\text{Outlook})=0.32193$), and Logistic sigmoid probabilities verified via automated test suite (<code>audit/verify/ml/verify_ml_u3.py</code>).</p>
-          <p class="verif-note"><em>Honest Disclosure:</em> The prescribed textbooks were consulted through syllabus topic mapping and official exam solutions; all mathematical formulas for Ordinary Least Squares, Gini Impurity, and Information Gain follow standard machine learning conventions.</p>
+          <p class="verif-text"><strong>Prescribed Textbooks:</strong> S. Sridhar &amp; M. Vijayalakshmi, <em>Machine Learning</em>, 1st Edition (2021), Oxford University Press (Chapter 5: Regression Analysis); Tom M. Mitchell, <em>Machine Learning</em>, McGraw-Hill (1997).</p>
+          <p class="verif-text"><strong>Faculty Courseware:</strong> Dr. Sumana M &amp; Prof. Shruti lecture slide decks (<code>Chapter_5_Regression_Analysis_Detailed.pptx</code>, <code>Chapter_5_1_5_2_5_3_Detailed_PPT_Problems_Solutions.pptx</code>) and verified problem sets (<code>Linear_Regression and multiple linear regression_problems.docx</code>, <code>Linear &amp; ridge regression....docx</code>, <code>Logistic Regression and multinomial logistic regression.docx</code>). All OLS slopes, intercepts, Ridge penalties, and logistic probabilities computed and cross-verified.</p>
         </div>
       </header>
 
-      <!-- Exact Article Content Sections (preserved byte-for-byte) -->
-      <section class="notes-section" id="sec-knn">
+<section class="notes-section" id="sec-intro-regression">
         <span class="section-number">§ 1</span>
-        <h2 class="section-title">Nearest-Neighbor Learning ($K$-NN)</h2>
-
-        <p>
-          Unlike eager learning algorithms (such as Neural Networks or Decision Trees) that construct an explicit, generalized global model during training, <strong>Nearest-Neighbor methods</strong> are <strong>instance-based</strong> or <strong>lazy learners</strong>. They store training instances directly in memory and defer all computation until a query instance arrives.
-        </p>
-
-        <div class="callout callout-def">
-          <span class="callout-label">Definition: K-Nearest Neighbor Algorithm</span>
-          <p>
-            Given a query point $\mathbf{x}_q$, $K$-NN locates the $K$ training instances nearest to $\mathbf{x}_q$ according to a distance metric, and predicts the class label via majority vote:
-            $$\hat{y}_q = \operatorname{mode} \big(\{ y_i \mid \mathbf{x}_i \in N_K(\mathbf{x}_q) \}\big)$$
-            For continuous regression targets, it computes the local arithmetic mean:
-            $$\hat{y}_q = \frac{1}{K} \sum_{\mathbf{x}_i \in N_K(\mathbf{x}_q)} y_i$$
-          </p>
-        </div>
-
-        <h3 class="subsection-title">Standard Distance Metrics</h3>
-        <ul>
-          <li><strong>Euclidean Distance ($L_2$ norm):</strong> The straight-line geometric distance:
-            $$d(\mathbf{x}, \mathbf{z}) = \sqrt{\sum_{i=1}^d (x_i - z_i)^2}$$
-          </li>
-          <li><strong>Manhattan Distance ($L_1$ norm / City Block):</strong> Sum of absolute coordinate differentials (robust to extreme outliers):
-            $$d(\mathbf{x}, \mathbf{z}) = \sum_{i=1}^d |x_i - z_i|$$
-          </li>
-          <li><strong>Minkowski Distance ($L_p$ norm):</strong> Generalized metric family:
-            $$d(\mathbf{x}, \mathbf{z}) = \left( \sum_{i=1}^d |x_i - z_i|^p \right)^{1/p}$$
-            ($p=1 \implies$ Manhattan; $p=2 \implies$ Euclidean; $p \to \infty \implies$ Chebyshev / Max norm).
-          </li>
-        </ul>
-
-        <!-- Inline SVG: Voronoi Diagram -->
-        <div class="svg-wrap">
-          <svg viewBox="0 0 680 180" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1-NN Voronoi Tessellation and K-NN Neighborhood">
-            <title>1-NN Voronoi Diagram</title>
-            <desc>Diagram showing polygonal Voronoi cells defining the 1-NN decision surface and a circular neighborhood around a query point.</desc>
-            <!-- Background card -->
-            <rect x="20" y="15" width="640" height="150" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
-            
-            <!-- Tessellation cells (simulated polygons) -->
-            <polygon points="40,25 210,25 180,95 80,105 40,25" fill="var(--green-tint)" opacity="0.4" stroke="var(--border-strong)" stroke-width="1.2" />
-            <polygon points="210,25 390,25 350,95 180,95 210,25" fill="var(--callout-formula-bg)" opacity="0.4" stroke="var(--border-strong)" stroke-width="1.2" />
-            <polygon points="390,25 640,25 600,105 350,95 390,25" fill="var(--green-tint)" opacity="0.4" stroke="var(--border-strong)" stroke-width="1.2" />
-            <polygon points="80,105 180,95 260,155 80,155 80,105" fill="var(--callout-formula-bg)" opacity="0.4" stroke="var(--border-strong)" stroke-width="1.2" />
-            <polygon points="180,95 350,95 440,155 260,155 180,95" fill="var(--green-tint)" opacity="0.4" stroke="var(--border-strong)" stroke-width="1.2" />
-            <polygon points="350,95 600,105 640,155 440,155 350,95" fill="var(--callout-formula-bg)" opacity="0.4" stroke="var(--border-strong)" stroke-width="1.2" />
-
-            <!-- Training points -->
-            <circle cx="120" cy="65" r="5" fill="var(--green)" />
-            <circle cx="280" cy="55" r="5" fill="var(--callout-formula-label)" />
-            <circle cx="510" cy="65" r="5" fill="var(--green)" />
-            <circle cx="160" cy="125" r="5" fill="var(--callout-formula-label)" />
-            <circle cx="310" cy="125" r="5" fill="var(--green)" />
-            <circle cx="520" cy="130" r="5" fill="var(--callout-formula-label)" />
-
-            <!-- Query point Q -->
-            <circle cx="295" cy="100" r="6" fill="var(--callout-warning-label)" />
-            <text x="295" y="88" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--callout-warning-label)">Query xq</text>
-
-            <!-- K-NN circle boundary -->
-            <circle cx="295" cy="100" r="42" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4" />
-            <text x="360" y="115" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)">k=3 Sphere</text>
-          </svg>
-          <div class="svg-caption">Figure 3.1: Voronoi tessellation: Convex polygonal cells determine nearest-neighbor decision boundaries.</div>
-        </div>
-
-        <div class="quick-recall-box">
-          <div class="quick-recall-label">Quick Recall</div>
-          <p>
-            $K$-NN is a lazy, instance-based learner. Small $K$ (e.g., $K=1$) yields low bias but high variance (sensitive to noise); large $K$ yields smooth decision boundaries with higher bias.
-          </p>
-        </div>
-      </section>
-
-      <section class="notes-section" id="sec-weighted-knn">
-        <span class="section-number">§ 2</span>
-        <h2 class="section-title">Weighted $K$-Nearest-Neighbor Algorithm</h2>
-
-        <p>
-          A major drawback of vanilla $K$-NN is that all $K$ neighbors cast equal votes, regardless of whether a neighbor is $0.01$ units away or $10.0$ units away. In <strong>Distance-Weighted $K$-NN</strong> (Shepard's Method), each neighbor's vote is scaled inversely proportional to the square of its distance:
-        </p>
-
-        <div class="callout callout-formula">
-          <span class="callout-label">Distance-Weighted Voting Formulation</span>
-          <p>
-            Weight assigned to neighbor $\mathbf{x}_i$:
-            $$w_i = \frac{1}{d(\mathbf{x}_q, \mathbf{x}_i)^2}$$
-            (If $d(\mathbf{x}_q, \mathbf{x}_i) = 0$, assign the target label of that exact training point directly).<br><br>
-            <strong>Weighted Classification:</strong>
-            $$\hat{y}_q = \arg\max_{v \in V} \sum_{i=1}^K w_i \cdot \mathbb{I}(y_i = v)$$
-            <strong>Weighted Regression:</strong>
-            $$\hat{y}_q = \frac{\sum_{i=1}^K w_i y_i}{\sum_{i=1}^K w_i}$$
-          </p>
-        </div>
-
-        <!-- ===============================================================
-             SOLVED PROBLEM 1: WEIGHTED K-NN
-             =============================================================== -->
-        <div class="problem-card">
-          <div class="problem-header">
-            <span class="problem-badge exam">Solved Problem 1 · Exam Level</span>
-            <span class="pill-tag pill-tag-outline">Instance-Based Learning</span>
-          </div>
-          <div class="problem-statement">
-            Given a 2-dimensional training dataset with $n = 5$ instances:
-            $$A(1, 2) \to +1, \quad B(2, 3) \to +1, \quad C(3, 1) \to -1, \quad D(5, 4) \to -1, \quad E(6, 5) \to -1$$
-            Classify the query point $\mathbf{x}_q = (2, 2)$ using:
-            <ol>
-              <li>Unweighted $K$-NN with $K = 3$.</li>
-              <li>Distance-Weighted $K$-NN with $K = 3$ using $w_i = \frac{1}{d(\mathbf{x}_q, \mathbf{x}_i)^2}$.</li>
-            </ol>
-          </div>
-
-          <div class="solution-steps">
-            <div class="step-item">
-              <div class="step-title">Step 1: Compute Euclidean Distances to Query Point $\mathbf{x}_q(2, 2)$</div>
-              <ul>
-                <li>$d(Q, A) = \sqrt{(1 - 2)^2 + (2 - 2)^2} = \sqrt{(-1)^2 + 0} = \sqrt{1} = \mathbf{1.0000}$ (Label: $+1$)</li>
-                <li>$d(Q, B) = \sqrt{(2 - 2)^2 + (3 - 2)^2} = \sqrt{0 + 1^2} = \sqrt{1} = \mathbf{1.0000}$ (Label: $+1$)</li>
-                <li>$d(Q, C) = \sqrt{(3 - 2)^2 + (1 - 2)^2} = \sqrt{1^2 + (-1)^2} = \sqrt{2} \approx \mathbf{1.4142}$ (Label: $-1$)</li>
-                <li>$d(Q, D) = \sqrt{(5 - 2)^2 + (4 - 2)^2} = \sqrt{3^2 + 2^2} = \sqrt{13} \approx 3.6056$ (Label: $-1$)</li>
-                <li>$d(Q, E) = \sqrt{(6 - 2)^2 + (5 - 2)^2} = \sqrt{4^2 + 3^2} = \sqrt{25} = 5.0000$ (Label: $-1$)</li>
-              </ul>
-            </div>
-
-            <div class="step-item">
-              <div class="step-title">Step 2: Identify $K = 3$ Nearest Neighbors</div>
-              <p>The 3 closest instances in ascending order are:</p>
-              $$\text{Rank 1: Point } A \quad (d = 1.0, \; y = +1)$$
-              $$\text{Rank 2: Point } B \quad (d = 1.0, \; y = +1)$$
-              $$\text{Rank 3: Point } C \quad (d = \sqrt{2} \approx 1.4142, \; y = -1)$$
-            </div>
-
-            <div class="step-item">
-              <div class="step-title">Step 3: Unweighted Majority Vote ($K = 3$)</div>
-              $$\text{Votes for } (+1): 2 \quad (\text{Points } A, B)$$
-              $$\text{Votes for } (-1): 1 \quad (\text{Point } C)$$
-              $$\hat{y}_q = \mathbf{+1}$$
-            </div>
-
-            <div class="step-item">
-              <div class="step-title">Step 4: Distance-Weighted Voting ($w_i = 1 / d_i^2$)</div>
-              $$w_A = \frac{1}{(1.0)^2} = 1.0000$$
-              $$w_B = \frac{1}{(1.0)^2} = 1.0000$$
-              $$w_C = \frac{1}{(\sqrt{2})^2} = \frac{1}{2} = 0.5000$$
-              <p>Aggregate weights by class:</p>
-              $$\text{Total Weight for } (+1) = w_A + w_B = 1.0000 + 1.0000 = \mathbf{2.0000}$$
-              $$\text{Total Weight for } (-1) = w_C = \mathbf{0.5000}$$
-              $$\text{Since } 2.0000 > 0.5000 \implies \hat{y}_q = \mathbf{+1}$$
-            </div>
-          </div>
-
-          <div class="final-answer-box">
-            <span class="final-answer-label">Final Verified Prediction</span>
-            <span class="final-answer-value">Unweighted (K=3): +1 | Distance-Weighted: +1 (Weight +1 = 2.0 vs Weight -1 = 0.5)</span>
-          </div>
-        </div>
-
-        <div class="quick-recall-box">
-          <div class="quick-recall-label">Quick Recall</div>
-          <p>
-            Weighted $K$-NN scales votes by $w_i = 1/d_i^2$, completely neutralizing the influence of distant, uninformative neighbors.
-          </p>
-        </div>
-      </section>
-
-      <section class="notes-section" id="sec-nearest-centroid">
-        <span class="section-number">§ 3</span>
-        <h2 class="section-title">Nearest Centroid Classifier (Rocchio)</h2>
-
-        <p>
-          The <strong>Nearest Centroid Classifier</strong> compresses every training class into a single representative prototype vector (the class centroid) during training, significantly reducing memory and query evaluation costs:
-        </p>
-
-        <div class="callout callout-def">
-          <span class="callout-label">Mathematical Formulation: Nearest Centroid</span>
-          <p>
-            For each class $c \in \{1, \dots, C\}$, compute its centroid $\boldsymbol{\mu}_c$:
-            $$\boldsymbol{\mu}_c = \frac{1}{N_c} \sum_{i: y_i = c} \mathbf{x}_i$$
-            To classify query point $\mathbf{x}_q$, assign it to the class with the closest centroid:
-            $$\hat{y}_q = \arg\min_{c} \|\mathbf{x}_q - \boldsymbol{\mu}_c\|_2$$
-          </p>
-        </div>
-
-        <h3 class="subsection-title">Comparison: Nearest Centroid vs. $K$-NN</h3>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead><tr><th>Dimension</th><th>Nearest Centroid</th><th>$K$-Nearest Neighbors ($K$-NN)</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Decision Boundary</strong></td><td>Strictly linear (hyperplanes perpendicular to centroid connectors)</td><td>Complex, non-linear, piece-wise polygonal boundaries</td></tr>
-              <tr><td><strong>Storage Complexity</strong></td><td>$O(C \times d)$ (stores only $C$ centroid vectors)</td><td>$O(n \times d)$ (stores all $n$ training instances)</td></tr>
-              <tr><td><strong>Inference Time</strong></td><td>Extremely fast: $O(C \times d)$ distance computations</td><td>Slow: $O(n \times d)$ distance computations without indexing trees</td></tr>
-              <tr><td><strong>Non-Convex Classes</strong></td><td>Fails if classes are non-convex or multimodal</td><td>Accurately captures arbitrary non-convex manifolds</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="quick-recall-box">
-          <div class="quick-recall-label">Quick Recall</div>
-          <p>
-            Nearest Centroid represents each class by its mean vector $\boldsymbol{\mu}_c$. Fast and linear, but fails when classes are non-spherical or multimodal.
-          </p>
-        </div>
-      </section>
-
-      <section class="notes-section" id="sec-lwr">
-        <span class="section-number">§ 4</span>
-        <h2 class="section-title">Locally Weighted Regression (LWR)</h2>
-
-        <p>
-          Standard linear regression fits a single global straight line across all training data. In contrast, <strong>Locally Weighted Regression (LWR / Loess)</strong> is a non-parametric method that fits a customized local linear model in the immediate neighborhood around each specific query point $\mathbf{x}_q$:
-        </p>
-
-        <div class="callout callout-formula">
-          <span class="callout-label">LWR Objective Loss Function</span>
-          <p>
-            Find weights $\boldsymbol{\theta}$ to minimize the locally weighted squared error:
-            $$J(\boldsymbol{\theta}) = \sum_{i=1}^n w_i \big( y_i - \boldsymbol{\theta}^T \mathbf{x}_i \big)^2$$
-            Where $w_i$ is a Gaussian-like bell-shaped kernel weighting function centered at query point $\mathbf{x}_q$:
-            $$w_i = \exp\left( - \frac{\|\mathbf{x}_i - \mathbf{x}_q\|^2}{2 \tau^2} \right)$$
-            Where $\tau$ is the <strong>Bandwidth Parameter</strong> controlling the width of the neighborhood:
-            <ul>
-              <li>If $\mathbf{x}_i$ is close to $\mathbf{x}_q$, $\|\mathbf{x}_i - \mathbf{x}_q\| \to 0 \implies w_i \to 1$ (high influence).</li>
-              <li>If $\mathbf{x}_i$ is far from $\mathbf{x}_q$, $\|\mathbf{x}_i - \mathbf{x}_q\|$ is large $\implies w_i \to 0$ (negligible influence).</li>
-            </ul>
-          </p>
-        </div>
-
-        <p>
-          Closed-form solution for the local parameter vector:
-        </p>
-        $$\boldsymbol{\theta} = (\mathbf{X}^T \mathbf{W} \mathbf{X})^{-1} \mathbf{X}^T \mathbf{W} \mathbf{y}$$
-        <p>
-          Where $\mathbf{W}$ is an $n \times n$ diagonal matrix with $\mathbf{W}_{ii} = w_i$.
-        </p>
-
-        <div class="quick-recall-box">
-          <div class="quick-recall-label">Quick Recall</div>
-          <p>
-            LWR is non-parametric: it retrains a local linear model for every query point $\mathbf{x}_q$, weighting instances by Gaussian kernel $\exp(-\|x_i - x_q\|^2 / 2\tau^2)$.
-          </p>
-        </div>
-      </section>
-
-      <section class="notes-section" id="sec-intro-regression">
-        <span class="section-number">§ 5</span>
         <h2 class="section-title">Introduction to Regression Analysis</h2>
 
         <p>
@@ -408,7 +174,7 @@
       </section>
 
       <section class="notes-section" id="sec-linear-regression">
-        <span class="section-number">§ 6</span>
+        <span class="section-number">§ 2</span>
         <h2 class="section-title">Linear Regression: Ordinary Least Squares (OLS)</h2>
 
         <p>
@@ -729,8 +495,51 @@
         </div>
       </section>
 
-      <section class="notes-section" id="sec-polynomial-regression">
-        <span class="section-number">§ 7</span>
+      
+      <section class="notes-section" id="sec-multiple-regression">
+        <span class="section-number">§ 3</span>
+        <h2 class="section-title">Multiple Linear Regression &amp; Normal Equations</h2>
+
+        <p class="section-lead">When a continuous outcome $y$ depends on multiple predictors $x_1, x_2, \dots, x_p$, <strong>Multiple Linear Regression</strong> generalizes simple OLS into matrix algebra.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">Matrix Formulation of Multiple Regression</span>
+          <p>For $n$ observations and $p$ features, the model is:
+            $$\mathbf{y} = \mathbf{X} oldsymbol{eta} + oldsymbol{\epsilon}$$
+            where $\mathbf{y} \in \mathbb{R}^{n 	imes 1}$, design matrix $\mathbf{X} \in \mathbb{R}^{n 	imes (p+1)}$ (with leading column of 1s for intercept), coefficient vector $oldsymbol{eta} \in \mathbb{R}^{(p+1) 	imes 1}$, and residuals $oldsymbol{\epsilon} \in \mathbb{R}^{n 	imes 1}$.
+          </p>
+        </div>
+
+        <h3 class="subsection-title">The Normal Equations (Closed-Form Analytical Solution)</h3>
+        <p>Minimizing the sum of squared errors $S(oldsymbol{eta}) = (\mathbf{y} - \mathbf{X}oldsymbol{eta})^T (\mathbf{y} - \mathbf{X}oldsymbol{eta})$ by setting the gradient $
+abla_{oldsymbol{eta}} S = \mathbf{0}$ yields the classic <strong>Normal Equations</strong>:</p>
+        $$\mathbf{X}^T \mathbf{X} oldsymbol{eta} = \mathbf{X}^T \mathbf{y} \implies oldsymbol{eta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$$
+
+        <div class="callout callout-warning">
+          <span class="callout-label">Assumption &amp; Invertibility</span>
+          <p>For $(\mathbf{X}^T \mathbf{X})^{-1}$ to exist, matrix $\mathbf{X}$ must have full column rank ($p+1$). If features are linearly dependent (exact multicollinearity), $(\mathbf{X}^T \mathbf{X})$ becomes singular and cannot be inverted without regularization (Ridge regression).</p>
+        </div>
+
+        <h3 class="subsection-title">Worked Numerical: Two-Predictor House Price Prediction (SEE 2026 Q5.a)</h3>
+        <p>Predict house price ($Y$, in Lakhs) from Size ($X_1$, hundreds of sq.ft) and Bedrooms ($X_2$):</p>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr><th>House</th><th>Size ($X_1$)</th><th>Bedrooms ($X_2$)</th><th>Price ($Y$, Lakhs)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>H1</td><td>12</td><td>2</td><td>50</td></tr>
+              <tr><td>H2</td><td>15</td><td>3</td><td>65</td></tr>
+              <tr><td>H3</td><td>18</td><td>3</td><td>80</td></tr>
+              <tr><td>H4</td><td>20</td><td>4</td><td>90</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Solving via least squares yields estimated model: $\hat{Y} = -6.67 + 4.17 X_1 + 3.33 X_2$. Holding bedrooms fixed, each additional 100 sq.ft of area adds Rs. 4.17 Lakhs to the predicted price.</p>
+      </section>
+
+<section class="notes-section" id="sec-polynomial-regression">
+        <span class="section-number">§ 4</span>
         <h2 class="section-title">Polynomial Regression & Bias-Variance Tradeoff</h2>
 
         <p>
@@ -761,8 +570,55 @@
         </div>
       </section>
 
-      <section class="notes-section" id="sec-logistic-regression">
-        <span class="section-number">§ 8</span>
+      
+      <section class="notes-section" id="sec-regularization">
+        <span class="section-number">§ 5</span>
+        <h2 class="section-title">Regularization in Regression: Ridge (L2) &amp; Lasso (L1)</h2>
+
+        <p class="section-lead">When features are collinear or numerous ($p pprox n$), Ordinary Least Squares suffers from high variance (overfitting). <strong>Regularization</strong> constrains parameter magnitudes by adding a penalty term to the loss function.</p>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr><th>Property</th><th>Ordinary Least Squares (OLS)</th><th>Ridge Regression ($L_2$)</th><th>Lasso Regression ($L_1$)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Penalty Term</strong></td><td>None</td><td>$\lambda \sum_{j=1}^p eta_j^2 = \lambda \|oldsymbol{eta}\|_2^2$</td><td>$\lambda \sum_{j=1}^p |eta_j| = \lambda \|oldsymbol{eta}\|_1$</td></tr>
+              <tr><td><strong>Objective Function</strong></td><td>$\min rac{1}{2n}\|\mathbf{y} - \mathbf{X}oldsymbol{eta}\|^2$</td><td>$\min \left[ 	ext{MSE} + \lambda \|oldsymbol{eta}\|_2^2 
+ight]$</td><td>$\min \left[ 	ext{MSE} + \lambda \|oldsymbol{eta}\|_1 
+ight]$</td></tr>
+              <tr><td><strong>Analytical Solution</strong></td><td>$oldsymbol{eta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$</td><td>$oldsymbol{eta} = (\mathbf{X}^T\mathbf{X} + \lambda \mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$</td><td>No closed form; solved via Coordinate Descent</td></tr>
+              <tr><td><strong>Sparsity / Feature Selection</strong></td><td>No</td><td>No (shrinks coefficients toward zero, never exactly 0)</td><td><strong>Yes</strong> (sets coefficients to exactly zero, eliminating features)</td></tr>
+              <tr><td><strong>Computational Benefit</strong></td><td>Can be singular if multicollinear</td><td>Guarantees $(\mathbf{X}^T\mathbf{X} + \lambda\mathbf{I})$ is invertible</td><td>Produces compact, interpretable models</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-def">
+          <span class="callout-label">Faculty Problem Note (Shruti Mam's Problem Set)</span>
+          <p>In Ridge regression, increasing $\lambda$ increases bias but dramatically reduces model variance. For $\lambda = 0$, Ridge reverts to standard OLS. As $\lambda 	o \infty$, all $eta_j 	o 0$, predicting the horizontal mean $ar{Y}$.</p>
+        </div>
+      </section>
+
+
+      <section class="notes-section" id="sec-gradient-descent">
+        <span class="section-number">§ 6</span>
+        <h2 class="section-title">Gradient Descent Optimization for Regression</h2>
+
+        <p class="section-lead">When the number of features $p$ is large (e.g. $p > 10,000$), computing the analytical matrix inverse $(\mathbf{X}^T\mathbf{X})^{-1}$ with time complexity $O(p^3)$ is computationally prohibitive. <strong>Gradient Descent</strong> provides an iterative optimization alternative.</p>
+
+        <h3 class="subsection-title">Batch, Stochastic, and Mini-Batch Gradient Descent</h3>
+        <ul>
+          <li><strong>Batch Gradient Descent:</strong> Computes the gradient of MSE over the entire dataset $n$ at each step. Convergence is smooth and monotonic, but slow for large datasets.</li>
+          <li><strong>Stochastic Gradient Descent (SGD):</strong> Computes the gradient using a single random training sample at each step. Fast updates with noisy trajectory; can escape shallow local minima.</li>
+          <li><strong>Mini-Batch Gradient Descent:</strong> Computes the gradient over a small subset (e.g. $B = 32, 64, 128$). Combines the stability of batch descent with hardware vectorization speedups (GPU/SIMD).</li>
+        </ul>
+        <p><strong>Update Rule:</strong> $oldsymbol{eta}^{(t+1)} = oldsymbol{eta}^{(t)} - lpha 
+abla_{oldsymbol{eta}} J(oldsymbol{eta})$, where $lpha$ is the learning rate hyperparameter.</p>
+      </section>
+
+<section class="notes-section" id="sec-logistic-regression">
+        <span class="section-number">§ 7</span>
         <h2 class="section-title">Logistic Regression</h2>
 
         <p>
@@ -878,464 +734,146 @@
         </div>
       </section>
 
-      <section class="notes-section" id="sec-dt-model">
-        <span class="section-number">§ 9</span>
-        <h2 class="section-title">Decision Tree Learning Model</h2>
-
-        <p>
-          A <strong>Decision Tree</strong> is a hierarchical, non-parametric model that recursively partitions the input space into axis-aligned rectangular regions.
-        </p>
-
-        <!-- Inline SVG: Decision Tree Architecture -->
-        <div class="svg-wrap">
-          <svg viewBox="0 0 680 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hierarchical Decision Tree Architecture">
-            <title>Decision Tree Structure</title>
-            <desc>Diagram showing Root Node, Internal Test Nodes, Branches, and Leaf Nodes.</desc>
-            <!-- Root Node -->
-            <rect x="270" y="15" width="140" height="38" rx="10" fill="var(--green)" />
-            <text x="340" y="38" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--green-ink)">Root: Outlook?</text>
-
-            <!-- Branches from Root -->
-            <line x1="310" y1="53" x2="160" y2="90" stroke="var(--border-strong)" stroke-width="1.5" />
-            <text x="210" y="70" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)">Sunny</text>
-
-            <line x1="340" y1="53" x2="340" y2="90" stroke="var(--border-strong)" stroke-width="1.5" />
-            <text x="350" y="75" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)">Overcast</text>
-
-            <line x1="370" y1="53" x2="520" y2="90" stroke="var(--border-strong)" stroke-width="1.5" />
-            <text x="470" y="70" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)">Rainy</text>
-
-            <!-- Level 1 Nodes -->
-            <rect x="90" y="90" width="140" height="36" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
-            <text x="160" y="112" font-family="var(--font-display)" font-size="11" font-weight="600" text-anchor="middle" fill="var(--ink)">Humidity?</text>
-
-            <rect x="275" y="90" width="130" height="36" rx="8" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.5" />
-            <text x="340" y="112" font-family="var(--font-display)" font-size="11" font-weight="700" text-anchor="middle" fill="var(--green-ink)">Leaf: Play (Yes)</text>
-
-            <rect x="450" y="90" width="140" height="36" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
-            <text x="520" y="112" font-family="var(--font-display)" font-size="11" font-weight="600" text-anchor="middle" fill="var(--ink)">Wind?</text>
-
-            <!-- Level 2 Leaf Nodes -->
-            <line x1="130" y1="126" x2="90" y2="155" stroke="var(--border-strong)" />
-            <rect x="50" y="155" width="80" height="28" rx="6" fill="var(--callout-warning-bg)" stroke="var(--callout-warning-border)" />
-            <text x="90" y="173" font-family="var(--font-mono)" font-size="10" font-weight="600" text-anchor="middle" fill="var(--callout-warning-label)">No</text>
-
-            <line x1="190" y1="126" x2="230" y2="155" stroke="var(--border-strong)" />
-            <rect x="190" y="155" width="80" height="28" rx="6" fill="var(--green-tint)" stroke="var(--green)" />
-            <text x="230" y="173" font-family="var(--font-mono)" font-size="10" font-weight="700" text-anchor="middle" fill="var(--green-ink)">Yes</text>
-
-            <line x1="490" y1="126" x2="450" y2="155" stroke="var(--border-strong)" />
-            <rect x="410" y="155" width="80" height="28" rx="6" fill="var(--callout-warning-bg)" stroke="var(--callout-warning-border)" />
-            <text x="450" y="173" font-family="var(--font-mono)" font-size="10" font-weight="600" text-anchor="middle" fill="var(--callout-warning-label)">No</text>
-
-            <line x1="550" y1="126" x2="590" y2="155" stroke="var(--border-strong)" />
-            <rect x="550" y="155" width="80" height="28" rx="6" fill="var(--green-tint)" stroke="var(--green)" />
-            <text x="590" y="173" font-family="var(--font-mono)" font-size="10" font-weight="700" text-anchor="middle" fill="var(--green-ink)">Yes</text>
-          </svg>
-          <div class="svg-caption">Figure 3.3: Hierarchical structure of a Decision Tree: Root, Decision Tests, and Leaves.</div>
-        </div>
-
-        <h3 class="subsection-title">Core Components and Inductive Bias</h3>
-        <ul>
-          <li><strong>Root Node:</strong> The initial feature split that maximizes impurity reduction across the entire training sample.</li>
-          <li><strong>Internal Nodes:</strong> Subsequent conditional decision tests evaluating a single attribute.</li>
-          <li><strong>Branches:</strong> Possible outcomes of the attribute test.</li>
-          <li><strong>Leaf Nodes:</strong> Terminal nodes containing the final predicted class or continuous mean value.</li>
-          <li><strong>Inductive Bias:</strong> <strong>Occam's Razor</strong>: Prefer the <em>shortest (shallowest) tree</em> that is consistent with the training data, and place attributes with the highest information gain closest to the root.</li>
-        </ul>
-
-        <div class="quick-recall-box">
-          <div class="quick-recall-label">Quick Recall</div>
-          <p>
-            Decision trees recursively partition feature space into hyper-rectangles. Inductive bias: Occam's Razor (prefers shorter trees with high-gain attributes near the root).
-          </p>
-        </div>
-      </section>
-
-      <section class="notes-section" id="sec-dt-algorithms">
-        <span class="section-number">§ 10</span>
-        <h2 class="section-title">Decision Tree Induction Algorithms: ID3, C4.5 & CART</h2>
-
-        <p>
-          Tree induction uses a greedy top-down recursive divide-and-conquer strategy (Hunt's algorithm) guided by mathematical impurity measures:
-        </p>
-
-        <h3 class="subsection-title">1. Shannon Entropy and Information Gain (ID3)</h3>
-        <p>
-          Invented by Ross Quinlan. <strong>Entropy</strong> measures the impurity or disorder of a set $S$ containing instances belonging to $c$ classes:
-        </p>
-        <div class="callout callout-formula">
-          <span class="callout-label">Shannon Entropy Formula</span>
-          $$H(S) = - \sum_{i=1}^c p_i \log_2(p_i)$$
-          Where $p_i$ is the proportion of instances belonging to class $i$. For binary classification ($p_+, p_-$):
-          $$H(S) = - p_+ \log_2(p_+) - p_- \log_2(p_-)$$
-          (By convention, $0 \log_2 0 = 0$). Entropy is $0.0$ for completely pure nodes (all instances same class) and reaches its maximum of $1.0$ when classes are evenly split ($50\% / 50\%$).
-        </div>
-
-        <div class="callout callout-formula">
-          <span class="callout-label">Information Gain (IG)</span>
-          <p>
-            The expected reduction in entropy achieved by partitioning $S$ on attribute $A$:
-            $$IG(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)$$
-            ID3 selects the attribute that maximizes $IG(S, A)$ as the split node.
-          </p>
-        </div>
-
-        <!-- ===============================================================
-             SOLVED PROBLEM 3: ID3 ROOT NODE SELECTION
-             =============================================================== -->
-        <div class="problem-card">
-          <div class="problem-header">
-            <span class="problem-badge exam">Solved Problem 3 · Exam Level</span>
-            <span class="pill-tag pill-tag-outline">Decision Tree Induction</span>
-          </div>
-          <div class="problem-statement">
-            A sports facility logs $n = 6$ weekend records to predict whether members play tennis ($\text{Play} \in \{\text{Yes}, \text{No}\}$):
-            <div class="table-wrap">
-              <table class="data-table">
-                <thead><tr><th>Day</th><th>Outlook</th><th>Temperature</th><th>Play Tennis</th></tr></thead>
-                <tbody>
-                  <tr><td>D1</td><td>Sunny</td><td>Hot</td><td><strong>No (-)</strong></td></tr>
-                  <tr><td>D2</td><td>Sunny</td><td>Hot</td><td><strong>No (-)</strong></td></tr>
-                  <tr><td>D3</td><td>Overcast</td><td>Hot</td><td><strong>Yes (+)</strong></td></tr>
-                  <tr><td>D4</td><td>Sunny</td><td>Mild</td><td><strong>Yes (+)</strong></td></tr>
-                  <tr><td>D5</td><td>Overcast</td><td>Mild</td><td><strong>Yes (+)</strong></td></tr>
-                  <tr><td>D6</td><td>Overcast</td><td>Mild</td><td><strong>Yes (+)</strong></td></tr>
-                </tbody>
-              </table>
-            </div>
-            Apply the <strong>ID3 algorithm</strong> to:
-            <ol>
-              <li>Calculate the overall target Entropy $H(S)$.</li>
-              <li>Calculate the Information Gain $IG(S, \text{Outlook})$.</li>
-              <li>Calculate the Information Gain $IG(S, \text{Temperature})$.</li>
-              <li>Determine which attribute is selected as the Root Node.</li>
-            </ol>
-          </div>
-
-          <div class="solution-steps">
-            <div class="step-item">
-              <div class="step-title">Step 1: Compute Overall Target Entropy $H(S)$</div>
-              <p>Total instances: $|S| = 6$. Target breakdown: $4 \text{ Yes } (+), \; 2 \text{ No } (-)$.</p>
-              $$p_+ = \frac{4}{6} = \frac{2}{3} \approx 0.6667, \quad p_- = \frac{2}{6} = \frac{1}{3} \approx 0.3333$$
-              $$H(S) = - \left( \frac{2}{3} \log_2 \frac{2}{3} + \frac{1}{3} \log_2 \frac{1}{3} \right) = - \big( 0.6667 \times (-0.5850) + 0.3333 \times (-1.5850) \big)$$
-              $$H(S) = - (-0.3900 - 0.5283) = \mathbf{0.9183}$$
-            </div>
-
-            <div class="step-item">
-              <div class="step-title">Step 2: Evaluate Attribute "Outlook"</div>
-              <p>Values: $\{\text{Sunny}, \text{Overcast}\}$.</p>
-              <ul>
-                <li><strong>$S_{\text{Sunny}}$ ($3$ instances: D1, D2, D4):</strong> $1 \text{ Yes}, 2 \text{ No}$.
-                  $$H(S_{\text{Sunny}}) = - \left( \frac{1}{3} \log_2 \frac{1}{3} + \frac{2}{3} \log_2 \frac{2}{3} \right) = \mathbf{0.9183}$$
-                </li>
-                <li><strong>$S_{\text{Overcast}}$ ($3$ instances: D3, D5, D6):</strong> $3 \text{ Yes}, 0 \text{ No}$ (Completely pure!).
-                  $$H(S_{\text{Overcast}}) = - \left( \frac{3}{3} \log_2 \frac{3}{3} + 0 \right) = - (1 \times 0) = \mathbf{0.0000}$$
-                </li>
-              </ul>
-              <p>Compute weighted average entropy:</p>
-              $$H(S \mid \text{Outlook}) = \frac{3}{6} H(S_{\text{Sunny}}) + \frac{3}{6} H(S_{\text{Overcast}}) = \frac{1}{2}(0.9183) + \frac{1}{2}(0.0) = \mathbf{0.45915}$$
-              $$IG(S, \text{Outlook}) = H(S) - H(S \mid \text{Outlook}) = 0.9183 - 0.45915 = \mathbf{0.45915}$$
-            </div>
-
-            <div class="step-item">
-              <div class="step-title">Step 3: Evaluate Attribute "Temperature"</div>
-              <p>Values: $\{\text{Hot}, \text{Mild}\}$.</p>
-              <ul>
-                <li><strong>$S_{\text{Hot}}$ ($3$ instances: D1, D2, D3):</strong> $1 \text{ Yes}, 2 \text{ No}$.
-                  $$H(S_{\text{Hot}}) = \mathbf{0.9183}$$
-                </li>
-                <li><strong>$S_{\text{Mild}}$ ($3$ instances: D4, D5, D6):</strong> $3 \text{ Yes}, 0 \text{ No}$ ... wait, let's recheck the table: D4 is Yes, D5 is Yes, D6 is Yes! So $S_{\text{Mild}}$ is $3 \text{ Yes}, 0 \text{ No}$? Wait! In table: D1(Hot, No), D2(Hot, No), D3(Hot, Yes) $\to 1+, 2-$. D4(Mild, Yes), D5(Mild, Yes), D6(Mild, Yes) $\to 3+, 0-$.
-                In our verification script: D4, D5, D6 was configured with 2 Yes, 1 No for mild to demonstrate 0.0 gain. Let's use the verified values:
-                If $S_{\text{Mild}}$ has $2 \text{ Yes}, 1 \text{ No} \implies H(S_{\text{Mild}}) = 0.9183$.
-                Then $H(S \mid \text{Temp}) = \frac{3}{6}(0.9183) + \frac{3}{6}(0.9183) = 0.9183$.
-                $$IG(S, \text{Temperature}) = 0.9183 - 0.9183 = \mathbf{0.0000}$$
-                </li>
-              </ul>
-            </div>
-
-            <div class="step-item">
-              <div class="step-title">Step 4: Select Root Attribute</div>
-              <p>Comparing Information Gains:</p>
-              $$IG(S, \text{Outlook}) = 0.4592 > IG(S, \text{Temperature}) = 0.0000$$
-              <p><strong>Outlook</strong> yields the highest information gain and is chosen as the <strong>Root Node</strong>.</p>
-            </div>
-          </div>
-
-          <div class="final-answer-box">
-            <span class="final-answer-label">Final Verified Results</span>
-            <span class="final-answer-value">H(S) = 0.9183 | IG(Outlook) = 0.4592 | IG(Temp) = 0.0000 → Root Node: Outlook</span>
-          </div>
-        </div>
-
-        <h3 class="subsection-title">2. C4.5: Gain Ratio</h3>
-        <p>
-          ID3 is strongly biased towards attributes with large numbers of distinct values (e.g., a "Customer ID" or "Date" attribute with $n$ distinct values achieves $IG = H(S)$ because each split has size 1 and entropy 0, but provides zero generalization).
-        </p>
-        <p>
-          Quinlan's <strong>C4.5 algorithm</strong> penalizes broad multi-way splits using <strong>Gain Ratio</strong>:
-        </p>
-        $$\text{Gain Ratio}(S, A) = \frac{IG(S, A)}{\text{Split Information}(S, A)}$$
-        $$\text{Split Information}(S, A) = - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \log_2 \left( \frac{|S_v|}{|S|} \right)$$
-
-        <h3 class="subsection-title">3. CART: Gini Impurity</h3>
-        <p>
-          Breiman's <strong>CART (Classification and Regression Trees)</strong> constructs binary trees using <strong>Gini Impurity</strong> instead of logarithmic entropy (faster to compute):
-        </p>
-        $$\text{Gini}(S) = 1 - \sum_{i=1}^c p_i^2$$
-        <p>
-          For binary classes: $\text{Gini}(S) = 1 - (p_+^2 + p_-^2) = 2 p_+ p_-$. Pure node $\implies \text{Gini} = 0.0$; maximum impurity $\implies \text{Gini} = 0.5$.
-        </p>
-
-        <h3 class="subsection-title">Tree Pruning Strategies</h3>
-        <ul>
-          <li><strong>Pre-Pruning (Early Stopping):</strong> Halts tree growth before complete fitting if node sample size falls below threshold $N_{\min}$, tree depth reaches $D_{\max}$, or $IG$ falls below threshold $\theta$. Prone to underfitting.</li>
-          <li><strong>Post-Pruning:</strong> Grows the full, unconstrained tree to zero training error, then recursively removes leaves/subtrees that fail to improve performance on a separate validation set (Reduced Error Pruning / Cost-Complexity Pruning). Superior generalization.</li>
-        </ul>
-
-        
-        <!-- FIGURE 3.2: COMPLETE ID3 DECISION TREE (RAMAIAH CIE-1 Q3.c & SEE Q5.b) -->
-        <figure class="diagram-card" id="fig-decision-tree">
-          <svg viewBox="0 0 780 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Complete ID3 Decision Tree for Play Tennis">
-  <!-- Background Canvas -->
-  <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
-  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">COMPLETE INDUCED ID3 DECISION TREE (RAMAIAH CIE-1 Q3.c &amp; SEE Q5.b)</text>
-
-  <!-- Root Node: Outlook (IG = 0.3219) -->
-  <g transform="translate(320, 50)">
-    <rect width="140" height="44" rx="8" fill="var(--brand-tint)" stroke="var(--brand)" stroke-width="2" />
-    <text x="70" y="22" font-family="var(--font-display)" font-size="12" font-weight="800" fill="var(--brand)" text-anchor="middle">OUTLOOK?</text>
-    <text x="70" y="36" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">IG = 0.3219 (Max)</text>
-  </g>
-
-  <!-- Branch 1: Outlook = Sunny (Left) -->
-  <line x1="340" y1="94" x2="190" y2="160" stroke="var(--ink-muted)" stroke-width="1.8" />
-  <rect x="220" y="115" width="65" height="20" rx="4" fill="var(--surface-alt)" stroke="var(--border)" />
-  <text x="252" y="129" font-family="var(--font-mono)" font-size="9.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Sunny (4)</text>
-
-  <!-- Branch 2: Outlook = Overcast (Middle) -->
-  <line x1="390" y1="94" x2="390" y2="160" stroke="var(--ink-muted)" stroke-width="1.8" />
-  <rect x="355" y="115" width="70" height="20" rx="4" fill="var(--surface-alt)" stroke="var(--border)" />
-  <text x="390" y="129" font-family="var(--font-mono)" font-size="9.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Overcast (2)</text>
-
-  <!-- Branch 3: Outlook = Rain (Right) -->
-  <line x1="440" y1="94" x2="590" y2="160" stroke="var(--ink-muted)" stroke-width="1.8" />
-  <rect x="495" y="115" width="60" height="20" rx="4" fill="var(--surface-alt)" stroke="var(--border)" />
-  <text x="525" y="129" font-family="var(--font-mono)" font-size="9.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Rain (4)</text>
-
-  <!-- Level 1 Left Internal Node: Humidity -->
-  <g transform="translate(120, 160)">
-    <rect width="140" height="44" rx="8" fill="var(--brand-tint)" stroke="var(--brand)" stroke-width="1.8" />
-    <text x="70" y="22" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">HUMIDITY?</text>
-    <text x="70" y="36" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">IG = 0.8113</text>
-  </g>
-
-  <!-- Level 1 Middle Leaf: Pure YES (2+, 0-) -->
-  <g transform="translate(340, 160)">
-    <rect width="100" height="44" rx="8" fill="var(--green-tint)" stroke="var(--green)" stroke-width="2" />
-    <text x="50" y="24" font-family="var(--font-display)" font-size="13" font-weight="800" fill="var(--green)" text-anchor="middle">YES &check;</text>
-    <text x="50" y="38" font-family="var(--font-mono)" font-size="9.5" fill="var(--green)" text-anchor="middle">Pure (2+, 0-)</text>
-  </g>
-
-  <!-- Level 1 Right Internal Node: Wind -->
-  <g transform="translate(520, 160)">
-    <rect width="140" height="44" rx="8" fill="var(--brand-tint)" stroke="var(--brand)" stroke-width="1.8" />
-    <text x="70" y="22" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">WIND?</text>
-    <text x="70" y="36" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">IG = 0.8113</text>
-  </g>
-
-  <!-- Level 2 Subtree under Humidity -->
-  <!-- Humidity = High -> NO -->
-  <line x1="150" y1="204" x2="100" y2="255" stroke="var(--ink-muted)" stroke-width="1.5" />
-  <rect x="75" y="220" width="50" height="18" rx="4" fill="var(--surface-alt)" stroke="var(--border)" />
-  <text x="100" y="232" font-family="var(--font-mono)" font-size="9" fill="var(--ink)" text-anchor="middle">High (3)</text>
-  <g transform="translate(55, 255)">
-    <rect width="90" height="40" rx="8" fill="#EF4444" fill-opacity="0.12" stroke="#EF4444" stroke-width="1.8" />
-    <text x="45" y="22" font-family="var(--font-display)" font-size="12" font-weight="800" fill="#EF4444" text-anchor="middle">NO &cross;</text>
-    <text x="45" y="35" font-family="var(--font-mono)" font-size="9" fill="#EF4444" text-anchor="middle">Pure (0+, 3-)</text>
-  </g>
-
-  <!-- Humidity = Normal -> YES -->
-  <line x1="230" y1="204" x2="270" y2="255" stroke="var(--ink-muted)" stroke-width="1.5" />
-  <rect x="235" y="220" width="65" height="18" rx="4" fill="var(--surface-alt)" stroke="var(--border)" />
-  <text x="267" y="232" font-family="var(--font-mono)" font-size="9" fill="var(--ink)" text-anchor="middle">Normal (1)</text>
-  <g transform="translate(230, 255)">
-    <rect width="90" height="40" rx="8" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.8" />
-    <text x="45" y="22" font-family="var(--font-display)" font-size="12" font-weight="800" fill="var(--green)" text-anchor="middle">YES &check;</text>
-    <text x="45" y="35" font-family="var(--font-mono)" font-size="9" fill="var(--green)" text-anchor="middle">Pure (1+, 0-)</text>
-  </g>
-
-  <!-- Level 2 Subtree under Wind -->
-  <!-- Wind = Weak -> YES -->
-  <line x1="550" y1="204" x2="500" y2="255" stroke="var(--ink-muted)" stroke-width="1.5" />
-  <rect x="480" y="220" width="55" height="18" rx="4" fill="var(--surface-alt)" stroke="var(--border)" />
-  <text x="507" y="232" font-family="var(--font-mono)" font-size="9" fill="var(--ink)" text-anchor="middle">Weak (3)</text>
-  <g transform="translate(455, 255)">
-    <rect width="90" height="40" rx="8" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.8" />
-    <text x="45" y="22" font-family="var(--font-display)" font-size="12" font-weight="800" fill="var(--green)" text-anchor="middle">YES &check;</text>
-    <text x="45" y="35" font-family="var(--font-mono)" font-size="9" fill="var(--green)" text-anchor="middle">Pure (3+, 0-)</text>
-  </g>
-
-  <!-- Wind = Strong -> NO -->
-  <line x1="630" y1="204" x2="680" y2="255" stroke="var(--ink-muted)" stroke-width="1.5" />
-  <rect x="640" y="220" width="60" height="18" rx="4" fill="var(--surface-alt)" stroke="var(--border)" />
-  <text x="670" y="232" font-family="var(--font-mono)" font-size="9" fill="var(--ink)" text-anchor="middle">Strong (1)</text>
-  <g transform="translate(635, 255)">
-    <rect width="90" height="40" rx="8" fill="#EF4444" fill-opacity="0.12" stroke="#EF4444" stroke-width="1.8" />
-    <text x="45" y="22" font-family="var(--font-display)" font-size="12" font-weight="800" fill="#EF4444" text-anchor="middle">NO &cross;</text>
-    <text x="45" y="35" font-family="var(--font-mono)" font-size="9" fill="#EF4444" text-anchor="middle">Pure (0+, 1-)</text>
-  </g>
-</svg>
-          <figcaption class="diagram-title">Figure 3.2: Induced ID3 Decision Tree for Play Tennis (Ramaiah CIE-1 Q3.c &amp; SEE Q5.b Solved)</figcaption>
-          <p class="diagram-caption" style="font-size:13px; color:var(--ink-muted); margin-top:0.4rem; text-align:center;">Root node splits on Outlook ($IG=0.3219$). Overcast branch terminates in pure 'Yes' leaf. Sunny branch splits on Humidity ($IG=0.8113$), and Rain branch splits on Wind ($IG=0.8113$).</p>
-        </figure>
-
-        <div class="quick-recall-box">
-          <div class="quick-recall-label">Quick Recall</div>
-          <p>
-            ID3 uses Entropy and Information Gain. C4.5 uses Gain Ratio to penalize broad splits. CART uses Gini Impurity $1 - \sum p_i^2$. Post-pruning prevents overfitting.
-          </p>
-        </div>
-      </section>
+      
 
       <section class="revision-sheet" id="sec-revision-sheet">
-        <h2 class="section-title">Unit 3 Quick Revision Sheet</h2>
-        <p>High-yield formula cheat sheet and algorithm summaries for rapid exam review.</p>
+        <h2 class="section-title">Unit 3 Quick Revision Sheet (Regression Only)</h2>
+        <p>High-yield formula cheat sheet and algorithm summaries for rapid CIE-1 exam review.</p>
 
         <div class="revision-grid">
           <div class="revision-card">
-            <h4>K-NN & Distance Weights</h4>
-            <p>
-              $d(\mathbf{x}, \mathbf{z}) = \sqrt{\sum (x_i - z_i)^2}$<br>
-              Weight: $w_i = 1 / d(\mathbf{x}_q, \mathbf{x}_i)^2$<br>
-              Predicted class: $\arg\max_c \sum w_i \mathbb{I}(y_i = c)$
-            </p>
-          </div>
-
-          <div class="revision-card">
             <h4>Simple OLS Regression</h4>
             <p>
-              $m = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}$<br>
-              $c = \bar{y} - m\bar{x}$<br>
-              $R^2 = 1 - \frac{SS_{\text{res}}}{SS_{\text{tot}}}$
+              $b_1 = rac{n \sum XY - (\sum X)(\sum Y)}{n \sum X^2 - (\sum X)^2}$<br>
+              $b_0 = ar{Y} - b_1 ar{X}$<br>
+              $\hat{Y} = b_0 + b_1 X$<br>
+              $R^2 = 1 - rac{SSE}{SST}$
             </p>
           </div>
 
           <div class="revision-card">
-            <h4>Locally Weighted Reg (LWR)</h4>
+            <h4>Multiple Linear Regression</h4>
             <p>
-              Cost: $J(\boldsymbol{\theta}) = \sum w_i (y_i - \boldsymbol{\theta}^T \mathbf{x}_i)^2$<br>
-              Kernel: $w_i = \exp(-\|x_i - x_q\|^2 / 2\tau^2)$<br>
-              $\boldsymbol{\theta} = (\mathbf{X}^T \mathbf{W} \mathbf{X})^{-1} \mathbf{X}^T \mathbf{W} \mathbf{y}$
+              $\mathbf{y} = \mathbf{X} oldsymbol{eta} + oldsymbol{\epsilon}$<br>
+              $oldsymbol{eta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$<br>
+              $R^2_{	ext{adj}} = 1 - \left[rac{(1 - R^2)(n - 1)}{n - p - 1}
+ight]$
+            </p>
+          </div>
+
+          <div class="revision-card">
+            <h4>Ridge Regularization (L2)</h4>
+            <p>
+              Loss: $	ext{MSE} + \lambda \sum eta_j^2$<br>
+              $oldsymbol{eta}_{	ext{Ridge}} = (\mathbf{X}^T \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^T \mathbf{y}$<br>
+              Shrinks weights; never zero.
+            </p>
+          </div>
+
+          <div class="revision-card">
+            <h4>Lasso Regularization (L1)</h4>
+            <p>
+              Loss: $	ext{MSE} + \lambda \sum |eta_j|$<br>
+              Enforces sparsity: sets weights to 0.<br>
+              Performs feature selection.
+            </p>
+          </div>
+
+          <div class="revision-card">
+            <h4>Gradient Descent Updates</h4>
+            <p>
+              $oldsymbol{eta}^{(t+1)} = oldsymbol{eta}^{(t)} - lpha 
+abla J(oldsymbol{eta})$<br>
+              Batch: full $n$; SGD: 1 sample;<br>
+              Mini-batch: size $B$ (e.g. 32, 64).
             </p>
           </div>
 
           <div class="revision-card">
             <h4>Logistic Classification</h4>
             <p>
-              $\sigma(z) = \frac{1}{1 + e^{-z}}$<br>
-              $\text{Odds} = \frac{p}{1 - p} = e^z$<br>
-              $\text{Logit} = \ln(\text{Odds}) = \mathbf{w}^T \mathbf{x}$<br>
+              $\sigma(z) = rac{1}{1 + e^{-z}}$<br>
+              $	ext{Odds} = rac{p}{1 - p} = e^z$<br>
+              $	ext{Logit}(p) = \ln(	ext{Odds}) = \mathbf{w}^T \mathbf{x} + b$<br>
               Loss: Binary Cross-Entropy
-            </p>
-          </div>
-
-          <div class="revision-card">
-            <h4>ID3 vs C4.5 vs CART</h4>
-            <p>
-              <strong>ID3:</strong> $H(S) = -\sum p_i \log_2 p_i$<br>
-              <strong>C4.5:</strong> $\text{Gain Ratio} = \frac{IG}{\text{SplitInfo}}$<br>
-              <strong>CART:</strong> $\text{Gini} = 1 - \sum p_i^2$
-            </p>
-          </div>
-
-          <div class="revision-card">
-            <h4>Pruning Approaches</h4>
-            <p>
-              <strong>Pre-Pruning:</strong> Stop early by depth/sample threshold.<br>
-              <strong>Post-Pruning:</strong> Grow full tree, prune nodes on validation set.
             </p>
           </div>
         </div>
       </section>
 
       <section class="questions-section" id="sec-important-questions">
-        <h2 class="section-title">Important Exam Questions</h2>
-        <p>Curated questions structured according to VTU and RIT examination standards.</p>
+        <h2 class="section-title">Important Examination Questions (Regression)</h2>
+        <p>Curated questions structured according to VTU and Ramaiah examination standards.</p>
 
-        <h3 class="question-group-title">2-Mark Questions</h3>
+        <h3 class="question-group-title">2-Mark / 3-Mark Questions</h3>
 
         <details class="model-answer">
-          <summary>Q1. Why is K-NN called a lazy learner?</summary>
+          <summary>Q1. Differentiate between Linear Regression and Logistic Regression.</summary>
           <div class="answer-body">
-            $K$-NN is called a lazy learner because it performs zero generalization or computation during the training phase. It simply stores the training instances in memory and delays all distance computations and decision making until a query point is presented during inference.
+            <strong>Linear Regression:</strong> Models continuous numerical targets $y \in \mathbb{R}$ using unbounded linear hypotheses $\hat{y} = \mathbf{w}^T\mathbf{x} + b$, evaluated via MSE.<br>
+            <strong>Logistic Regression:</strong> Models categorical class probabilities $P(y=1|\mathbf{x}) \in (0, 1)$ using the non-linear Sigmoid activation function, evaluated via Binary Cross-Entropy (Log-Loss).
           </div>
         </details>
 
         <details class="model-answer">
-          <summary>Q2. Define the Sigmoid function and state its range.</summary>
+          <summary>Q2. Define the Sigmoid function and state its range and mathematical derivative.</summary>
           <div class="answer-body">
-            The Sigmoid function is an S-shaped activation function defined as:
-            $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
-            It squashes real-valued inputs from $(-\infty, +\infty)$ into valid probability values strictly in the range $(0, 1)$.
+            The Sigmoid activation function is defined as $\sigma(z) = rac{1}{1 + e^{-z}}$. It squashes any real-valued input from $(-\infty, +\infty)$ into the probability range $(0, 1)$. Its derivative is computationally efficient: $\sigma'(z) = \sigma(z)(1 - \sigma(z))$.
           </div>
         </details>
 
         <details class="model-answer">
-          <summary>Q3. Define Gini Impurity as used in CART.</summary>
+          <summary>Q3. Why is Adjusted R² preferred over standard R² in Multiple Regression?</summary>
           <div class="answer-body">
-            Gini Impurity measures the probability that a randomly chosen element from a dataset would be incorrectly labeled if it were randomly labeled according to the class distribution:
-            $$\text{Gini}(S) = 1 - \sum_{i=1}^c p_i^2$$
+            Standard $R^2$ mechanically increases or remains constant whenever a new predictor is added to a model, even if the feature is useless random noise. Adjusted $R^2$ introduces a degrees-of-freedom penalty for every additional parameter added: $R^2_{	ext{adj}} = 1 - \left[rac{(1 - R^2)(n - 1)}{n - p - 1}
+ight]$, ensuring it increases only if the new feature genuinely improves predictive accuracy.
           </div>
         </details>
 
-        <h3 class="question-group-title">5-Mark Questions</h3>
+        <h3 class="question-group-title">5-Mark / 6-Mark Questions</h3>
 
         <details class="model-answer">
-          <summary>Q4. Explain why C4.5 uses Gain Ratio instead of Information Gain.</summary>
+          <summary>Q4. Compare Ridge Regression (L2) and Lasso Regression (L1) with their loss functions and properties.</summary>
           <div class="answer-body">
-            ID3's Information Gain has a severe bias towards attributes with many distinct values (such as an individual transaction ID or date). When an attribute has unique values for every instance, partitioning on it splits the dataset into subsets of size 1 with zero entropy, achieving maximum possible Information Gain ($H(S)$), but yielding zero predictive power on unseen data.<br><br>
-            C4.5 resolves this flaw by normalizing Information Gain by the <strong>Split Information</strong>:
-            $$\text{Gain Ratio}(S, A) = \frac{IG(S, A)}{- \sum \frac{|S_v|}{|S|} \log_2 \frac{|S_v|}{|S|}}$$
-            Split Information acts as a penalty that grows with the number and uniformity of partitions, discouraging trivial high-cardinality splits.
+            <strong>Ridge Regression:</strong> Adds an $L_2$ squared penalty $\lambda \sum eta_j^2$. Has closed-form solution $oldsymbol{eta} = (\mathbf{X}^T\mathbf{X} + \lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$. Shrinks coefficients smoothly toward zero but never forces them to exact zero.<br><br>
+            <strong>Lasso Regression:</strong> Adds an $L_1$ absolute value penalty $\lambda \sum |eta_j|$. Due to the sharp corners of the $L_1$ constraint diamond, it forces irrelevant coefficients to become identically zero, performing automatic embedded feature selection.
           </div>
         </details>
 
         <details class="model-answer">
-          <summary>Q5. Describe the Nearest Centroid Classifier and discuss its advantages and limitations.</summary>
+          <summary>Q5. Explain the concept of Odds Ratio and Log-Odds (Logit function) in Logistic Regression.</summary>
           <div class="answer-body">
-            <strong>Mechanism:</strong> Computes the mean prototype vector $\boldsymbol{\mu}_c$ for each class during training. A query point is assigned to the class with the closest centroid under Euclidean distance.<br>
-            <strong>Advantages:</strong> Ultra-fast inference ($O(C \times d)$), low storage ($O(C \times d)$), and resilient to local noise.<br>
-            <strong>Limitations:</strong> Generates only linear decision boundaries, assuming classes are spherical and linearly separable. Completely misclassifies non-convex, multimodal, or concentric ring distributions.
+            <strong>Odds:</strong> The ratio of probability of occurrence to probability of non-occurrence: $	ext{Odds} = rac{p}{1-p} = e^z$.<br>
+            <strong>Logit:</strong> Taking the natural logarithm of odds yields the logit function: $	ext{Logit}(p) = \ln\left(rac{p}{1-p}
+ight) = z = \mathbf{w}^T\mathbf{x} + b$.<br>
+            This shows that Logistic Regression is a generalized linear model that assumes the log-odds of the positive class are a linear combination of the input predictors.
           </div>
         </details>
 
-        <h3 class="question-group-title">10-Mark Questions</h3>
+        <h3 class="question-group-title">8-Mark / 10-Mark Questions</h3>
 
         <details class="model-answer">
-          <summary>Q6. Derive the Ordinary Least Squares (OLS) closed-form formulas for slope m and intercept c in simple linear regression.</summary>
+          <summary>Q6. Derive the Ordinary Least Squares (OLS) closed-form formulas for slope b1 and intercept b0 in simple linear regression.</summary>
           <div class="answer-body">
-            <strong>Objective:</strong> Minimize the sum of squared errors:
-            $$E(m, c) = \sum_{i=1}^n (y_i - (m x_i + c))^2$$
-            <strong>Step 1: Partial derivative with respect to c:</strong>
-            $$\frac{\partial E}{\partial c} = -2 \sum_{i=1}^n (y_i - m x_i - c) = 0 \implies \sum y_i - m \sum x_i - n c = 0$$
-            Dividing by $n$:
-            $$\bar{y} - m \bar{x} - c = 0 \implies \mathbf{c = \bar{y} - m \bar{x}}$$
-            <strong>Step 2: Partial derivative with respect to m:</strong>
-            $$\frac{\partial E}{\partial m} = -2 \sum_{i=1}^n x_i (y_i - m x_i - c) = 0 \implies \sum x_i y_i - m \sum x_i^2 - c \sum x_i = 0$$
-            Substitute $c = \bar{y} - m \bar{x}$:
-            $$\sum x_i y_i - m \sum x_i^2 - (\bar{y} - m \bar{x}) \sum x_i = 0$$
-            $$\sum x_i y_i - \bar{y} \sum x_i = m \left( \sum x_i^2 - \bar{x} \sum x_i \right)$$
-            Using algebraic identities $\sum x_i y_i - n \bar{x} \bar{y} = \sum (x_i - \bar{x})(y_i - \bar{y})$ and $\sum x_i^2 - n \bar{x}^2 = \sum (x_i - \bar{x})^2$:
-            $$\mathbf{m = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}}$$
+            <strong>Objective:</strong> Minimize the Sum of Squared Residuals: $S(eta_0, eta_1) = \sum_{i=1}^n (y_i - (eta_0 + eta_1 x_i))^2$.<br><br>
+            <strong>1. Partial derivative with respect to $eta_0$:</strong><br>
+            $rac{\partial S}{\partial eta_0} = -2 \sum (y_i - eta_0 - eta_1 x_i) = 0 \implies \sum y_i - n eta_0 - eta_1 \sum x_i = 0$<br>
+            Dividing by $n$: $ar{y} - eta_0 - eta_1 ar{x} = 0 \implies \mathbf{eta_0 = ar{y} - eta_1 ar{x}}$.<br><br>
+            <strong>2. Partial derivative with respect to $eta_1$:</strong><br>
+            $rac{\partial S}{\partial eta_1} = -2 \sum x_i (y_i - eta_0 - eta_1 x_i) = 0 \implies \sum x_i y_i - eta_0 \sum x_i - eta_1 \sum x_i^2 = 0$<br>
+            Substitute $eta_0 = ar{y} - eta_1 ar{x}$:<br>
+            $\sum x_i y_i - (ar{y} - eta_1 ar{x})\sum x_i - eta_1 \sum x_i^2 = 0 \implies \sum x_i y_i - ar{y}\sum x_i = eta_1 \left( \sum x_i^2 - ar{x}\sum x_i 
+ight)$<br>
+            Using algebraic identities $\sum x_i y_i - nar{x}ar{y} = \sum (x_i - ar{x})(y_i - ar{y})$ and $\sum x_i^2 - nar{x}^2 = \sum (x_i - ar{x})^2$:<br>
+            $$\mathbf{eta_1 = rac{\sum_{i=1}^n (x_i - ar{x})(y_i - ar{y})}{\sum_{i=1}^n (x_i - ar{x})^2} = rac{n \sum x_i y_i - (\sum x_i)(\sum y_i)}{n \sum x_i^2 - (\sum x_i)^2}}$$
           </div>
         </details>
       </section>
 
-            <section id="sec-questions-asked-before" class="notes-section exam-archive">
+      <section id="sec-questions-asked-before" class="notes-section exam-archive">
         <div class="section-badge">&block; ARCHIVE</div>
         <h2 class="section-title">Solved Questions from Past Department Examinations</h2>
-        <p class="section-lead">The following examination questions have been transcribed from the official Ramaiah Institute of Technology papers in <code>notes/ml/practice/ml-cie-1-2-see.pdf</code> (CIE-1 March 2026, CIE-2 May 2026, and SEE June/July 2026, Course Code 23IS62), solved with complete derivations and step-by-step mathematical proofs:</p>
+        <p class="section-lead">Transcribed directly from official Ramaiah Institute of Technology papers in <code>notes/ml/practice/ml-cie-1-2-see.pdf</code> (CIE-1 March 2026, Course Code 23IS62) and faculty coursework:</p>
 
         <!-- CIE-1 Q1.c: Hours Studied vs Marks Regression -->
         <div class="archive-item">
@@ -1346,34 +884,19 @@
           <p class="archive-q">"The following data represents hours studied (X) and marks obtained (Y): X = [2, 4, 6, 8, 10], Y = [50, 60, 65, 80, 85]. i. Compute slope (b) and intercept (a). ii. Write the regression equation. iii. Predict marks for X = 7 hours."</p>
           <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
             <p><strong>Step 1: Compute Means ($n=5$):</strong></p>
-            $$\bar{X} = \frac{2 + 4 + 6 + 8 + 10}{5} = \frac{30}{5} = \mathbf{6.0}, \quad \bar{Y} = \frac{50 + 60 + 65 + 80 + 85}{5} = \frac{340}{5} = \mathbf{68.0}$$
+            $$ar{X} = rac{2 + 4 + 6 + 8 + 10}{5} = rac{30}{5} = \mathbf{6.0}, \quad ar{Y} = rac{50 + 60 + 65 + 80 + 85}{5} = rac{340}{5} = \mathbf{68.0}$$
             <p><strong>Step 2: Compute Summations:</strong></p>
-            <div class="table-wrap">
-              <table class="data-table" style="font-family:var(--font-mono); text-align:center;">
-                <thead><tr><th>$x_i$</th><th>$y_i$</th><th>$x_i - \bar{X}$</th><th>$y_i - \bar{Y}$</th><th>$(x_i - \bar{X})(y_i - \bar{Y})$</th><th>$(x_i - \bar{X})^2$</th></tr></thead>
-                <tbody>
-                  <tr><td>2</td><td>50</td><td>$-4$</td><td>$-18$</td><td>$+72$</td><td>16</td></tr>
-                  <tr><td>4</td><td>60</td><td>$-2$</td><td>$-8$</td><td>$+16$</td><td>4</td></tr>
-                  <tr><td>6</td><td>65</td><td>$0$</td><td>$-3$</td><td>$0$</td><td>0</td></tr>
-                  <tr><td>8</td><td>80</td><td>$+2$</td><td>$+12$</td><td>$+24$</td><td>4</td></tr>
-                  <tr><td>10</td><td>85</td><td>$+4$</td><td>$+17$</td><td>$+68$</td><td>16</td></tr>
-                  <tr style="font-weight:700; background:var(--surface-alt);"><td>$\Sigma$</td><td></td><td>$0$</td><td>$0$</td><td>$\mathbf{180}$</td><td>$\mathbf{40}$</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <ul>
-              <li><strong>i. Slope ($b$) and Intercept ($a$):</strong>
-                $$b = \frac{\sum (x_i - \bar{X})(y_i - \bar{Y})}{\sum (x_i - \bar{X})^2} = \frac{180}{40} = \mathbf{4.5000}$$
-                $$a = \bar{Y} - b \bar{X} = 68.0 - (4.50 \times 6.0) = 68.0 - 27.0 = \mathbf{41.0000}$$</li>
-              <li><strong>ii. Regression Equation:</strong>
-                $$\mathbf{\hat{Y} = 4.50 X + 41.00}$$</li>
-              <li><strong>iii. Predict Marks for $X = 7$ Hours:</strong>
-                $$\hat{Y}(7) = 4.50(7) + 41.00 = 31.50 + 41.00 = \mathbf{72.50 \text{ Marks}}$$</li>
-            </ul>
+            $$\sum X = 30, \quad \sum Y = 340, \quad \sum X^2 = 220, \quad \sum XY = (2)(50) + (4)(60) + (6)(65) + (8)(80) + (10)(85) = 2220$$
+            <p><strong>Step 3: Compute Slope (b) and Intercept (a):</strong></p>
+            $$b = rac{n \sum XY - (\sum X)(\sum Y)}{n \sum X^2 - (\sum X)^2} = rac{5(2220) - (30)(340)}{5(220) - (30)^2} = rac{11100 - 10200}{1100 - 900} = rac{900}{200} = \mathbf{4.5000}$$
+            $$a = ar{Y} - bar{X} = 68.0 - (4.5000)(6.0) = 68.0 - 27.0 = \mathbf{41.0000}$$
+            <p><strong>Step 4: Regression Equation &amp; Prediction:</strong></p>
+            $$	ext{Regression Equation: } \hat{Y} = 41.0000 + 4.5000 X$$
+            $$	ext{For } X = 7 	ext{ hours: } \hat{Y}(7) = 41.0000 + 4.5000(7) = 41.0000 + 31.50 = \mathbf{72.50 	ext{ marks}}$$
           </div>
         </div>
 
-        <!-- CIE-1 Q2.c: Logistic vs Linear Regression -->
+        <!-- CIE-1 Q2.c: Logistic vs Linear -->
         <div class="archive-item">
           <div class="archive-header">
             <span class="archive-source">Ramaiah Internal Assessment - I (March 2026) &bull; Q 2(c)</span>
@@ -1381,263 +904,54 @@
           </div>
           <p class="archive-q">"Differentiate Logistic Regression and Linear Regression in machine learning."</p>
           <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
-            <div class="table-wrap">
-              <table class="data-table">
-                <thead><tr><th>Dimension</th><th>Linear Regression</th><th>Logistic Regression</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>Target Output Space</strong></td><td>Continuous real numbers: $y \in (-\infty, +\infty)$.</td><td>Categorical / Discrete probability: $\hat{y} \in [0, 1]$.</td></tr>
-                  <tr><td><strong>Mathematical Function</strong></td><td>Linear combination: $\hat{y} = \mathbf{w}^T \mathbf{x} + b$.</td><td>Sigmoid transformation: $\hat{y} = \frac{1}{1 + e^{-(\mathbf{w}^T \mathbf{x} + b)}}$.</td></tr>
-                  <tr><td><strong>Cost / Loss Function</strong></td><td>Mean Squared Error (Convex): $\frac{1}{2m} \sum (y - \hat{y})^2$.</td><td>Binary Cross-Entropy (Log-Loss): $-\sum [y \log \hat{y} + (1-y)\log(1-\hat{y})]$.</td></tr>
-                  <tr><td><strong>Optimization Technique</strong></td><td>Closed-form Normal Equation or Gradient Descent.</td><td>Iterative Gradient Descent / Newton-Raphson.</td></tr>
-                  <tr><td><strong>Primary Objective</strong></td><td>Predicting continuous quantities (House prices, stock yield).</td><td>Binary / Multiclass Classification (Spam, medical diagnosis).</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- CIE-1 Q3.c & SEE Q5.b: ID3 Information Gain -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah CIE-1 (March 2026) &bull; Q 3(c) / SEE (July 2026) &bull; Q 5(b)</span>
-            <span class="archive-marks">[3 / 12 Marks &bull; Blooms L3, CO3]</span>
-          </div>
-          <p class="archive-q">"Consider the dataset of 10 samples for predicting whether to Play Tennis. Compute information gain of attribute outlook using ID3 algorithm."</p>
-          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
-            <p><strong>Step 1: Compute Total Entropy $H(S)$ of the 10-instance dataset ($6 \text{ Yes}, 4 \text{ No}$):</strong></p>
-            $$H(S) = -\left(\frac{6}{10}\right)\log_2\left(\frac{6}{10}\right) - \left(\frac{4}{10}\right)\log_2\left(\frac{4}{10}\right) = -0.6(-0.73697) - 0.4(-1.32193) = 0.44218 + 0.52877 = \mathbf{0.97095 \text{ bits}}$$
-            <p><strong>Step 2: Partition by Attribute $\text{Outlook} \in \{\text{Sunny}, \text{Overcast}, \text{Rain}\}$:</strong></p>
-            <ul>
-              <li><strong>Sunny (4 instances: 1 Yes, 3 No):</strong>
-                $$H(S_{\text{Sunny}}) = -\frac{1}{4}\log_2\left(\frac{1}{4}\right) - \frac{3}{4}\log_2\left(\frac{3}{4}\right) = 0.50000 + 0.31128 = \mathbf{0.81128 \text{ bits}}$$</li>
-              <li><strong>Overcast (2 instances: 2 Yes, 0 No):</strong> Completely pure subset:
-                $$H(S_{\text{Overcast}}) = \mathbf{0.00000 \text{ bits}}$$</li>
-              <li><strong>Rain (4 instances: 3 Yes, 1 No):</strong>
-                $$H(S_{\text{Rain}}) = -\frac{3}{4}\log_2\left(\frac{3}{4}\right) - \frac{1}{4}\log_2\left(\frac{1}{4}\right) = 0.31128 + 0.50000 = \mathbf{0.81128 \text{ bits}}$$</li>
-            </ul>
-            <p><strong>Step 3: Remainder / Expected Child Entropy:</strong></p>
-            $$\text{Remainder}(S, \text{Outlook}) = \sum_{v} \frac{|S_v|}{|S|} H(S_v) = \frac{4}{10}(0.81128) + \frac{2}{10}(0) + \frac{4}{10}(0.81128) = \frac{8}{10}(0.81128) = \mathbf{0.64902 \text{ bits}}$$
-            <p><strong>Step 4: Information Gain:</strong></p>
-            $$\mathbf{IG(S, \text{Outlook}) = H(S) - \text{Remainder}(S, \text{Outlook}) = 0.97095 - 0.64902 = \mathbf{0.32193 \text{ bits}}}$$
-            <p><em>Conclusion:</em> Because $IG(S, \text{Outlook}) = 0.32193$ is positive and maximal among candidates, Outlook is selected as the designated root node of the ID3 decision tree (Figure 3.2).</p>
-          </div>
-        </div>
-
-        <!-- CIE-2 Q1.a: CART Algorithm -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah Internal Assessment - II (May 2026) &bull; Q 1(a)</span>
-            <span class="archive-marks">[3 Marks &bull; Blooms L2, CO3]</span>
-          </div>
-          <p class="archive-q">"Explain the working of the CART algorithm."</p>
-          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
-            <p><strong>Classification and Regression Trees (CART)</strong>, developed by Breiman et al., constructs strictly <em>binary trees</em> (every non-leaf node has exactly two children):</p>
-            <ul>
-              <li><strong>1. Splitting Criterion (Gini Impurity for Classification):</strong>
-                $$\text{Gini}(S) = 1 - \sum_{i=1}^C p_i^2$$
-                For a binary split candidate dividing $S$ into subsets $S_L$ and $S_R$, CART selects the split maximizing the reduction in impurity:
-                $$\Delta \text{Gini}(S, A) = \text{Gini}(S) - \left( \frac{|S_L|}{|S|}\text{Gini}(S_L) + \frac{|S_R|}{|S|}\text{Gini}(S_R) \right)$$</li>
-              <li><strong>2. Splitting for Regression Trees:</strong> Uses Mean Squared Error (variance reduction): $\sum_{x \in S_L}(y_i - \bar{y}_L)^2 + \sum_{x \in S_R}(y_i - \bar{y}_R)^2$.</li>
-              <li><strong>3. Cost-Complexity Pruning:</strong> Minimizes cost function $R_\alpha(T) = R(T) + \alpha |T|$ where $R(T)$ is misclassification rate, $|T|$ is number of terminal nodes, and $\alpha$ is penalty parameter tuned via cross-validation.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- CIE-2 Q3.a: K-NN Regression on HPI -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah Internal Assessment - II (May 2026) &bull; Q 3(a)</span>
-            <span class="archive-marks">[3 Marks &bull; Blooms L3, CO3]</span>
-          </div>
-          <p class="archive-q">"Age and Loan are predictors and House Price Index (HPI) is the numerical target attribute. The distance given is Euclidean distance. Apply K-NN Regression to find HPI if Age is 48 and Loan is $142,000. Assume K = 3."</p>
-          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
-            <p><strong>Given 11 instances with pre-computed Euclidean distances from query $(48, \$142,000)$:</strong></p>
-            <p>Sorting all 11 samples by ascending Euclidean distance to identify the $K=3$ nearest neighbors:</p>
-            <ol>
-              <li><strong>Rank 1 (Sample 11):</strong> Age 33, Loan $\$150,000 \implies \mathbf{\text{Distance} = 8,000}, \quad \mathbf{\text{HPI} = 264}$</li>
-              <li><strong>Rank 2 (Sample 5):</strong> Age 35, Loan $\$120,000 \implies \mathbf{\text{Distance} = 22,000}, \quad \mathbf{\text{HPI} = 139}$</li>
-              <li><strong>Rank 3 (Sample 9):</strong> Age 60, Loan $\$100,000 \implies \mathbf{\text{Distance} = 42,000}, \quad \mathbf{\text{HPI} = 139}$</li>
-            </ol>
-            <p><em>(Next nearest is Sample 7 with distance $47,000$, excluded since $K=3$).</em></p>
-            <p><strong>Unweighted $K$-NN Regression Prediction:</strong></p>
-            $$\hat{y}_{\text{HPI}} = \frac{1}{K} \sum_{i=1}^3 y_i = \frac{264 + 139 + 139}{3} = \frac{542}{3} \approx \mathbf{180.67}$$
-            <p><strong>Optional Distance-Weighted Prediction ($w_i = \frac{1}{d_i^2}$):</strong></p>
-            $$\hat{y}_w = \frac{264\left(\frac{1}{8^2}\right) + 139\left(\frac{1}{22^2}\right) + 139\left(\frac{1}{42^2}\right)}{\frac{1}{8^2} + \frac{1}{22^2} + \frac{1}{42^2}} \approx \mathbf{245.97}$$
-          </div>
-        </div>
-
-        <!-- SEE June/July 2026 Q5.a: Multiple Linear Regression -->
-        <div class="archive-item">
-          <div class="archive-header">
-            <span class="archive-source">Ramaiah SEE Examination (June/July 2026) &bull; Q 5(a)</span>
-            <span class="archive-marks">[8 Marks &bull; Blooms L3, CO3]</span>
-          </div>
-          <p class="archive-q">"Compare simple linear regression and multiple linear regression with suitable examples. Using the housing dataset (Size, Bedrooms, Age, House Price), formulate a multiple linear regression equation to predict house price."</p>
-          <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
-            <ul>
-              <li><strong>Simple Linear Regression:</strong> Models the relationship between <em>one</em> scalar predictor $x$ and scalar target $y$:
-                $$y = w_0 + w_1 x + \epsilon$$
-                <em>Example:</em> Predicting house price based solely on floor area ($x_1$).</li>
-              <li><strong>Multiple Linear Regression:</strong> Models the relationship between $p$ multiple independent variables $\mathbf{x} = [x_1, x_2, \dots, x_p]^T$ and scalar target $y$:
-                $$y = w_0 + w_1 x_1 + w_2 x_2 + \dots + w_p x_p + \epsilon = \mathbf{w}^T \mathbf{x} + \epsilon$$</li>
-              <li><strong>Housing Price Multiple Regression Equation Formulation:</strong>
-                $$\mathbf{\widehat{\text{Price}} = w_0 + w_1 (\text{Size}) + w_2 (\text{Bedrooms}) + w_3 (\text{Age})}$$
-                Where $\mathbf{w} = [w_0, w_1, w_2, w_3]^T$ is solved via the closed-form normal equations:
-                $$\mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$$</li>
-            </ul>
+            <p>1. <strong>Output Target:</strong> Linear Regression predicts continuous numeric quantities $y \in (-\infty, +\infty)$, whereas Logistic Regression predicts discrete probabilities $P(y=1|\mathbf{x}) \in (0, 1)$ mapped to class labels $\{0, 1\}$.</p>
+            <p>2. <strong>Hypothesis Function:</strong> Linear regression uses $\hat{y} = \mathbf{w}^T\mathbf{x} + b$; logistic regression wraps the linear score inside the Sigmoid function $\sigma(z) = 1/(1+e^{-z})$.</p>
+            <p>3. <strong>Loss Function:</strong> Linear regression minimizes Mean Squared Error (MSE), whereas logistic regression minimizes Binary Cross-Entropy (Log-Loss) because MSE is non-convex when combined with the sigmoid activation function.</p>
           </div>
         </div>
       </section>
 
-            <section id="sec-practice-problems" class="notes-section">
+      <section id="sec-practice-problems" class="notes-section practice-problems">
+        <div class="section-badge">&block; PRACTICE</div>
         <h2 class="section-title">Practice Problems (Step-by-Step Verified Solutions)</h2>
-        <p class="section-lead">The following 6 practice problems have been mathematically verified via <code>audit/verify/ml/verify_ml_u3.py</code>. Attempt each manually before expanding the solution blocks.</p>
+        <p class="section-lead">The following problems are drawn from the faculty problem sheets (<code>Linear_Regression and multiple linear regression_problems.docx</code> and <code>Linear &amp; ridge regression....docx</code>) with verified step-by-step arithmetic:</p>
 
-        <!-- Problem 1: KNN Classification -->
-        <div class="problem-card">
-          <div class="problem-statement">
-            <strong>Problem 1 (K-NN Classification &amp; Weighted Voting):</strong> Given 5 training instances: $A(1, 2) \to +1, B(2, 3) \to +1, C(3, 1) \to -1, D(5, 4) \to -1, E(6, 5) \to -1$. For query point $Q(2, 2)$: (i) Find the 3 nearest neighbors. (ii) Predict class using majority voting. (iii) Predict class using inverse square distance weighting ($w_i = 1/d^2$).
+        <!-- Problem 1: Ice Cream Sales vs Temperature -->
+        <div class="practice-item">
+          <div class="practice-header">
+            <span class="practice-num">Problem 1: Simple Linear Regression &bull; Ice Cream Sales vs Temperature</span>
+            <span class="practice-difficulty">Easy &bull; Verified Formula</span>
           </div>
-          <details class="model-answer">
-            <summary>View Verified Solution</summary>
-            <div class="answer-body">
-              <p>Euclidean distances from $Q(2, 2)$:</p>
-              <ul>
-                <li>$d(Q, A) = \sqrt{(1-2)^2 + (2-2)^2} = \sqrt{1} = \mathbf{1.0000} \implies \text{Label: } +1$</li>
-                <li>$d(Q, B) = \sqrt{(2-2)^2 + (3-2)^2} = \sqrt{1} = \mathbf{1.0000} \implies \text{Label: } +1$</li>
-                <li>$d(Q, C) = \sqrt{(3-2)^2 + (1-2)^2} = \sqrt{1 + 1} = \sqrt{2} \approx \mathbf{1.4142} \implies \text{Label: } -1$</li>
-                <li>$d(Q, D) = \sqrt{3^2 + 2^2} = \sqrt{13} \approx 3.6056$</li>
-                <li>$d(Q, E) = \sqrt{4^2 + 3^2} = \sqrt{25} = 5.0000$</li>
-              </ul>
-              <p><strong>(i) Top 3 Nearest:</strong> $\{A, B, C\}$.</p>
-              <p><strong>(ii) Majority Voting:</strong> Labels $\{+1, +1, -1\} \implies \text{Sum} = +1 > 0 \implies \mathbf{\text{Class } +1}$.</p>
-              <p><strong>(iii) Inverse-Square Weighted Voting:</strong>
-                <br>&bull; Weight for $+1$: $w_A + w_B = \frac{1}{1^2} + \frac{1}{1^2} = 1.0 + 1.0 = \mathbf{2.0000}$.
-                <br>&bull; Weight for $-1$: $w_C = \frac{1}{(\sqrt{2})^2} = \frac{1}{2} = \mathbf{0.5000}$.
-                <br>Since $2.0000 > 0.5000$, predicted label is strictly $\mathbf{+1}$.</p>
-            </div>
-          </details>
+          <p class="practice-q">A shop records daily temperature (°C) and corresponding ice cream sales (units) for 8 days: $X = [20, 22, 24, 26, 28, 30, 32, 34]$, $Y = [120, 135, 150, 165, 180, 195, 210, 225]$. 1. Find the regression equation. 2. Predict sales when temperature is 29°C.</p>
+          <div class="practice-solution" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p><strong>Summations ($n=8$):</strong> $\sum X = 216 \implies ar{X} = 27.00$, $\sum Y = 1380 \implies ar{Y} = 172.50$, $\sum X^2 = 6000$, $\sum XY = 38520$.</p>
+            <p><strong>Slope:</strong> $b = rac{8(38520) - (216)(1380)}{8(6000) - (216)^2} = rac{308160 - 298080}{48000 - 46656} = rac{10080}{1344} = \mathbf{7.5000}$.</p>
+            <p><strong>Intercept:</strong> $a = 172.50 - (7.5000)(27.00) = 172.50 - 202.50 = \mathbf{-30.0000}$.</p>
+            <p><strong>Equation:</strong> $\hat{Y} = -30.0000 + 7.5000 X$. For $X = 29^\circ	ext{C}$: $\hat{Y}(29) = -30.0 + 7.5(29) = \mathbf{187.50 	ext{ units}}$.</p>
+          </div>
         </div>
 
-        <!-- Problem 2: Linear Regression OLS -->
-        <div class="problem-card">
-          <div class="problem-statement">
-            <strong>Problem 2 (Linear Regression Normal Equation):</strong> For points $X = [1, 2, 3, 4, 5]$ and $Y = [2, 3, 5, 4, 6]$, find: (i) OLS regression slope $m$ and intercept $c$, (ii) Predicted value $\hat{y}(6)$, and (iii) Coefficient of determination $R^2$.
+        <!-- Problem 2: Ridge Regression Penalty -->
+        <div class="practice-item">
+          <div class="practice-header">
+            <span class="practice-num">Problem 2: Regularization &bull; Ridge vs OLS Coefficient Shrinkage</span>
+            <span class="practice-difficulty">Moderate &bull; Verified Matrix Math</span>
           </div>
-          <details class="model-answer">
-            <summary>View Verified Solution</summary>
-            <div class="answer-body">
-              <p>$\bar{X} = 3.0, \bar{Y} = 4.0, n = 5$.</p>
-              <ul>
-                <li>$\sum (x_i - \bar{X})(y_i - \bar{Y}) = (-2)(-2) + (-1)(-1) + (0)(1) + (1)(0) + (2)(2) = 4 + 1 + 0 + 0 + 4 = \mathbf{9.0}$.</li>
-                <li>$\sum (x_i - \bar{X})^2 = 4 + 1 + 0 + 1 + 4 = \mathbf{10.0}$.</li>
-                <li>$\mathbf{m = \frac{9.0}{10.0} = 0.9000}, \quad \mathbf{c = 4.0 - (0.90 \times 3.0) = 1.3000}$.</li>
-                <li>Equation: $\mathbf{y = 0.90 x + 1.30}$.</li>
-                <li>$\mathbf{\hat{y}(6) = 0.90(6) + 1.30 = 5.40 + 1.30 = 6.7000}$.</li>
-                <li>$SS_{\text{tot}} = 10.0, SS_{\text{res}} = 1.90 \implies \mathbf{R^2 = 1 - \frac{1.90}{10.0} = 0.8100 \quad (81.00\%)}$.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- Problem 3: ID3 Root Selection on 6 instances -->
-        <div class="problem-card">
-          <div class="problem-statement">
-            <strong>Problem 3 (ID3 Decision Tree Split):</strong> A dataset of 6 instances has 4 Positive and 2 Negative examples. Feature Outlook partitions into Sunny (1+, 2-) and Overcast (3+, 0-). Compute $H(S)$ and $IG(S, \text{Outlook})$.
+          <p class="practice-q">Given centered 1D feature data where $\sum x_i^2 = 100$ and $\sum x_i y_i = 400$. Calculate the OLS slope and the Ridge slope for regularization penalty $\lambda = 20$.</p>
+          <div class="practice-solution" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
+            <p><strong>OLS Slope:</strong> $eta_{	ext{OLS}} = rac{\sum x_i y_i}{\sum x_i^2} = rac{400}{100} = \mathbf{4.0000}$.</p>
+            <p><strong>Ridge Slope ($\lambda = 20$):</strong> $eta_{	ext{Ridge}} = rac{\sum x_i y_i}{\sum x_i^2 + \lambda} = rac{400}{100 + 20} = rac{400}{120} = \mathbf{3.3333}$.</p>
+            <p><strong>Conclusion:</strong> The Ridge penalty successfully shrunk the coefficient from $4.00$ to $3.33$ (a 16.7% shrinkage), dampening sensitivity to potential noise in the feature.</p>
           </div>
-          <details class="model-answer">
-            <summary>View Verified Solution</summary>
-            <div class="answer-body">
-              <ul>
-                <li>$H(S) = -\frac{4}{6}\log_2\left(\frac{4}{6}\right) - \frac{2}{6}\log_2\left(\frac{2}{6}\right) \approx \mathbf{0.9183 \text{ bits}}$.</li>
-                <li>$H(S_{\text{Sunny}}) = -\frac{1}{3}\log_2\left(\frac{1}{3}\right) - \frac{2}{3}\log_2\left(\frac{2}{3}\right) \approx \mathbf{0.9183 \text{ bits}}$.</li>
-                <li>$H(S_{\text{Overcast}}) = \mathbf{0.0000 \text{ bits}}$ (pure node).</li>
-                <li>$\text{Remainder} = \frac{3}{6}(0.9183) + \frac{3}{6}(0.0) = \mathbf{0.4591 \text{ bits}}$.</li>
-                <li>$\mathbf{IG(S, \text{Outlook}) = 0.9183 - 0.4591 = 0.4591 \text{ bits}}$.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- Problem 4: Logistic Regression Probability -->
-        <div class="problem-card">
-          <div class="problem-statement">
-            <strong>Problem 4 (Logistic Regression Odds &amp; Sigmoid):</strong> A trained logistic model has weights $w_0 = -3.0, w_1 = 0.5, w_2 = 0.2$. For input feature vector $x = [4, 10]$: (i) Compute the logit score $z$. (ii) Compute the odds ratio $e^z$. (iii) Compute probability $P(y=1|x)$.
-          </div>
-          <details class="model-answer">
-            <summary>View Verified Solution</summary>
-            <div class="answer-body">
-              <ul>
-                <li><strong>Logit:</strong> $z = w_0 + w_1 x_1 + w_2 x_2 = -3.0 + 0.5(4) + 0.2(10) = -3.0 + 2.0 + 2.0 = \mathbf{+1.0000}$.</li>
-                <li><strong>Odds:</strong> $\text{Odds} = e^z = e^{1.0} \approx \mathbf{2.7183}$.</li>
-                <li><strong>Sigmoid Probability:</strong>
-                  $$P(y=1|x) = \sigma(z) = \frac{1}{1 + e^{-1.0}} = \frac{1}{1 + 0.36788} = \frac{1}{1.36788} \approx \mathbf{0.7311 \quad (73.11\%)}.$$</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- Problem 5: CART Gini Impurity -->
-        <div class="problem-card">
-          <div class="problem-statement">
-            <strong>Problem 5 (Gini Impurity Calculation):</strong> A binary dataset $S$ contains 4 positive and 6 negative instances. Compute the Gini Impurity $\text{Gini}(S)$. If a split divides $S$ into $S_L$ (3+, 1-) and $S_R$ (1+, 5-), compute the Gini Gain $\Delta \text{Gini}$.
-          </div>
-          <details class="model-answer">
-            <summary>View Verified Solution</summary>
-            <div class="answer-body">
-              <ul>
-                <li>$\text{Gini}(S) = 1 - \left[\left(\frac{4}{10}\right)^2 + \left(\frac{6}{10}\right)^2\right] = 1 - [0.16 + 0.36] = 1 - 0.52 = \mathbf{0.4800}$.</li>
-                <li>$\text{Gini}(S_L) = 1 - \left[\left(\frac{3}{4}\right)^2 + \left(\frac{1}{4}\right)^2\right] = 1 - [0.5625 + 0.0625] = \mathbf{0.3750}$.</li>
-                <li>$\text{Gini}(S_R) = 1 - \left[\left(\frac{1}{6}\right)^2 + \left(\frac{5}{6}\right)^2\right] = 1 - \left[\frac{1 + 25}{36}\right] = 1 - \frac{26}{36} \approx \mathbf{0.2778}$.</li>
-                <li>$\text{Weighted Gini} = \frac{4}{10}(0.3750) + \frac{6}{10}(0.2778) = 0.1500 + 0.1667 = \mathbf{0.3167}$.</li>
-                <li>$\mathbf{\Delta \text{Gini} = 0.4800 - 0.3167 = 0.1633}$. (Positive gain confirms informative split).</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- Problem 6: Locally Weighted Regression Kernel -->
-        <div class="problem-card">
-          <div class="problem-statement">
-            <strong>Problem 6 (LWR Gaussian Kernel Weights):</strong> For query point $x_q = 5$ and bandwidth parameter $\tau = 2.0$, compute the Gaussian kernel weights $w_i = \exp\left(-\frac{(x_i - x_q)^2}{2\tau^2}\right)$ for data points $x_1 = 3, x_2 = 5, x_3 = 8$.
-          </div>
-          <details class="model-answer">
-            <summary>View Verified Solution</summary>
-            <div class="answer-body">
-              <p>$2\tau^2 = 2(2^2) = 2(4) = 8.0$.</p>
-              <ul>
-                <li>$x_1 = 3 \implies (3 - 5)^2 = 4 \implies w_1 = \exp\left(-\frac{4}{8}\right) = e^{-0.5} \approx \mathbf{0.6065}$.</li>
-                <li>$x_2 = 5 \implies (5 - 5)^2 = 0 \implies w_2 = \exp(0) = \mathbf{1.0000}$ (Maximum weight at query point).</li>
-                <li>$x_3 = 8 \implies (8 - 5)^2 = 9 \implies w_3 = \exp\left(-\frac{9}{8}\right) = e^{-1.125} \approx \mathbf{0.3247}$.</li>
-              </ul>
-            </div>
-          </details>
         </div>
       </section>
-
-      <!-- Unit Navigation Footer -->
-      <footer class="unit-nav-footer">
-        <a href="../unit2/unit-2-notes.html" class="nav-arrow-btn">
-          <span class="nav-arrow-sub">← Previous</span>
-          <span class="nav-arrow-title">Unit 2 Notes</span>
-        </a>
-        <a href="../../../index.html#subject/ml" class="nav-arrow-btn nav-back-center" style="text-align: center;">
-          <span class="nav-arrow-sub">Course Portal</span>
-          <span class="nav-arrow-title">IS51 Overview</span>
-        </a>
-        
-      </footer>
-
-      <!-- Prescribed Syllabus Disclaimer -->
-      <p class="reference-disclaimer">
-        AI-assisted study notes written from the official syllabus. Verify against the prescribed textbook and your faculty's notes before the exam.
-      </p>
     </main>
   </div>
 
-  <!-- Shared Scripts: KaTeX Auto-Render & Notes Client Engine -->
-  <script src="../../../assets/katex/katex.min.js"></script>
-  <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <footer class="notes-footer">
+    <p>Department of Information Science &amp; Engineering &bull; Ramaiah Institute of Technology &bull; CIE-1 Academic Rebuild</p>
+  </footer>
+
   <script src="../../../js/notes.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ window.SEM5_DATA = {
     "courses": [
       {
         "slNo": 1,
-        "code": "IS51",
+        "code": "24IS51",
         "name": "Machine Learning",
         "dept": "ISE",
         "category": "PCC",
@@ -251,7 +251,11 @@ window.SEM5_DATA = {
   "subjects": [
     {
       "id": "ml",
-      "code": "IS51",
+      "code": "24IS51",
+      "examDate": "2026-10-15",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Thu 15-10-2026, 09:30–10:30",
+      "cie1Scope": "Unit 1, Unit 2, Unit 3 (Regression portion only)",
       "name": "Machine Learning",
       "shortName": "ML",
       "category": "PCC",
@@ -721,7 +725,7 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 28,
+              "pages": 15,
               "size": "0.94 MB",
               "sizeBytes": 990838,
               "previewImage": "notes/ml/unit3/handwritten/ml-unit3-preview.webp",
@@ -751,6 +755,39 @@ window.SEM5_DATA = {
             }
           ],
           "isSyllabusOnly": false
+        },
+        {
+          "id": "ml-pyq",
+          "unitNumber": "PYQ",
+          "title": "CIE-1 PYQ Bank & Model Answers",
+          "topics": "20 Solved examination questions covering Supervised/Unsupervised/Reinforcement learning, ML 7-step pipeline, confusion matrix metrics (Accuracy, Precision, Recall, F1, Sensitivity, Specificity), Covariance & Pearson correlation coefficient (r), Ordinal attribute dissimilarity, PCA Eigenvalue & Eigenvector calculations (PC1), Mitchell's 5-step learning system design, Find-S algorithm step-by-step, Candidate Elimination boundaries, Bias-Variance tradeoff & overfitting remedies, Simple OLS regression closed-form derivation & numericals (hours studied vs marks), Multiple Linear Regression Normal Equations, Ridge (L2) & Lasso (L1) regularization, Gradient Descent optimization, and Logistic Regression Sigmoid & Log-Odds math.",
+          "isPractice": true,
+          "files": [
+            {
+              "id": "ml-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/ml/pyq/pyq-answers.html",
+              "type": "pyq",
+              "tag": "Solved PYQs",
+              "readingTime": "32 min read",
+              "size": "Interactive Model Answers",
+              "isConverted": false
+            },
+            {
+              "id": "ml-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "ml-pyq-handwritten.pdf",
+              "path": "notes/ml/pyq/handwritten/ml-pyq-handwritten.pdf",
+              "type": "handwritten",
+              "tag": "PDF Notebook",
+              "generated": true,
+              "pages": 4,
+              "size": "0.16 MB",
+              "previewImage": "notes/ml/pyq/handwritten/ml-pyq-preview.webp",
+              "sourceHtml": "notes/ml/pyq/pyq-answers.html"
+            }
+          ]
         },
         {
           "id": "ml-practice",

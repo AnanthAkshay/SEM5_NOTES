@@ -1,0 +1,853 @@
+{
+  "subject": {
+    "id": "ml",
+    "code": "24IS51",
+    "name": "Machine Learning",
+    "short_name": "ML",
+    "scheme": "2024 Scheme (AY 2026-27 Syllabus)",
+    "coordinator": "Dr. Sumana M",
+    "textbooks": "S. Sridhar & M. Vijayalakshmi, Machine Learning, Oxford University Press, 2021; Tom M. Mitchell, Machine Learning, McGraw-Hill, 1997",
+    "cie1_date": "Thu 15-10-2026, 09:30\u201310:30",
+    "scope_description": "Unit 1 (Introduction & Data Analysis Part 1), Unit 2 (Data Analysis Part 2 & Learning Theory), Unit 3 (Regression Analysis portion ONLY)"
+  },
+  "summary": {
+    "total_questions_extracted": 38,
+    "in_scope_answered": 20,
+    "out_of_scope_archived": 18,
+    "unverified_count": 0
+  },
+  "in_scope_questions": [
+    {
+      "id": "ml-q01",
+      "unit": 1,
+      "section_id": "sec-1",
+      "section_title": "Introduction to Machine Learning",
+      "question": "Explain the difference between Supervised and Unsupervised Learning with suitable examples. Compare them with Reinforcement Learning.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2026 Q1.a (6M)",
+        "SEE June/July 2026 Q2.a (7M)",
+        "SEE May 2023 Q1 (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 1 (pp. 12-18); Mitchell Ch. 1",
+      "answer": {
+        "definitions": {
+          "supervised": "<strong>Supervised Learning:</strong> The algorithm is provided with a labeled dataset $\\mathcal{D} = \\{(\\mathbf{x}_i, y_i)\\}_{i=1}^N$, where each input vector $\\mathbf{x}_i$ is paired with a known ground-truth target label $y_i$. The goal is to learn a mapping function $f: \\mathcal{X} \to \\mathcal{Y}$ that generalizes accurately to unseen test instances.",
+          "unsupervised": "<strong>Unsupervised Learning:</strong> The algorithm is provided with unlabeled data $\\mathcal{D} = \\{\\mathbf{x}_i\\}_{i=1}^N$ without target annotations. The objective is to discover underlying patterns, intrinsic structures, clusters, or probability distributions.",
+          "reinforcement": "<strong>Reinforcement Learning:</strong> An autonomous agent interacts with an environment through trial-and-error actions $a_t$, observing state transitions $s_{t+1}$ and scalar reward signals $r_t$. The goal is to learn an optimal policy $\\pi^*(s)$ that maximizes cumulative expected long-term discounted reward."
+        },
+        "comparison_table": {
+          "headers": [
+            "Attribute",
+            "Supervised Learning",
+            "Unsupervised Learning",
+            "Reinforcement Learning"
+          ],
+          "rows": [
+            [
+              "Training Data",
+              "Input data paired with explicit ground-truth labels $(\\mathbf{x}, y)$.",
+              "Input data only $\\mathbf{x}$; no labels or supervision.",
+              "No fixed dataset; dynamic state-action-reward interactions."
+            ],
+            [
+              "Core Tasks",
+              "Classification (discrete labels) & Regression (continuous values).",
+              "Clustering, Dimensionality Reduction, Density Estimation.",
+              "Sequential decision-making, Game playing, Robotics control."
+            ],
+            [
+              "Feedback Mechanism",
+              "Direct error signal $(y - \\hat{y})$ per training sample.",
+              "No external feedback; relies on internal similarity/variance.",
+              "Delayed scalar numerical rewards/penalties after action sequences."
+            ],
+            [
+              "Examples",
+              "Spam filtering, House price prediction, Medical diagnosis.",
+              "Customer segmentation (K-Means), PCA visualization.",
+              "Self-driving navigation, Chess/Go (AlphaGo), Drone control."
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "ml-q02",
+      "unit": 1,
+      "section_id": "sec-1",
+      "section_title": "Machine Learning Process",
+      "question": "Describe the complete 7-step Machine Learning process pipeline with a neat diagram.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "SEE June/July 2026 Q1.a (6M)",
+        "SEE July 2024 Q1 (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 1 (pp. 20-25)",
+      "answer": {
+        "overview": "The machine learning process is a disciplined engineering workflow transforming raw domain data into a reliable, deployed predictive model.",
+        "seven_steps": [
+          "<strong>1. Data Collection:</strong> Gather raw data from diverse sources (databases, APIs, IoT sensors, web scraping).",
+          "<strong>2. Data Preparation & Cleaning:</strong> Handle missing values, remove noise/outliers, normalize features, split data into Train (70%), Validation (15%), and Test (15%) subsets.",
+          "<strong>3. Model Selection:</strong> Choose suitable candidate model families (e.g., Linear Regression, Logistic Regression, Random Forest) based on data size, type, and complexity.",
+          "<strong>4. Model Training:</strong> Optimize model parameters $\\mathbf{w}$ using training data by minimizing an objective loss function via Gradient Descent or closed-form OLS.",
+          "<strong>5. Model Evaluation:</strong> Benchmark the model against unseen validation data using objective metrics (MSE, $R^2$, Accuracy, F1-Score, ROC-AUC).",
+          "<strong>6. Hyperparameter Tuning:</strong> Optimize non-trainable hyperparameters (learning rate $\\alpha$, regularization strength $\\lambda$) using grid search or cross-validation.",
+          "<strong>7. Deployment & Monitoring:</strong> Deploy model as a REST API or microservice; continuously monitor data drift, latency, and predictive performance in production."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 620 110' style='width:100%;max-width:580px;margin:12px auto;display:block;' aria-label='ML 7-step Pipeline'><rect x='10' y='35' width='75' height='40' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='1.5'/><text x='47' y='59' fill='#93c5fd' font-size='9' font-family='sans-serif' font-weight='700' text-anchor='middle'>1. Collection</text><rect x='95' y='35' width='75' height='40' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='1.5'/><text x='132' y='59' fill='#93c5fd' font-size='9' font-family='sans-serif' font-weight='700' text-anchor='middle'>2. Prep &amp; Clean</text><rect x='180' y='35' width='75' height='40' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='1.5'/><text x='217' y='59' fill='#93c5fd' font-size='9' font-family='sans-serif' font-weight='700' text-anchor='middle'>3. Selection</text><rect x='265' y='35' width='75' height='40' rx='6' fill='#1e293b' stroke='#10b981' stroke-width='1.5'/><text x='302' y='59' fill='#6ee7b7' font-size='9' font-family='sans-serif' font-weight='700' text-anchor='middle'>4. Training</text><rect x='350' y='35' width='75' height='40' rx='6' fill='#1e293b' stroke='#10b981' stroke-width='1.5'/><text x='387' y='59' fill='#6ee7b7' font-size='9' font-family='sans-serif' font-weight='700' text-anchor='middle'>5. Evaluation</text><rect x='435' y='35' width='75' height='40' rx='6' fill='#1e293b' stroke='#f59e0b' stroke-width='1.5'/><text x='472' y='59' fill='#fcd34d' font-size='9' font-family='sans-serif' font-weight='700' text-anchor='middle'>6. Tuning</text><rect x='520' y='35' width='85' height='40' rx='6' fill='#1e293b' stroke='#8b5cf6' stroke-width='1.5'/><text x='562' y='59' fill='#c4b5fd' font-size='9' font-family='sans-serif' font-weight='700' text-anchor='middle'>7. Deployment</text><path d='M85 55 L95 55' stroke='#64748b' stroke-width='1.5'/><path d='M170 55 L180 55' stroke='#64748b' stroke-width='1.5'/><path d='M255 55 L265 55' stroke='#64748b' stroke-width='1.5'/><path d='M340 55 L350 55' stroke='#64748b' stroke-width='1.5'/><path d='M425 55 L435 55' stroke='#64748b' stroke-width='1.5'/><path d='M510 55 L520 55' stroke='#64748b' stroke-width='1.5'/><path d='M425 40 Q302 5 265 40' fill='none' stroke='#ef4444' stroke-width='1' stroke-dasharray='3,3'/><text x='302' y='18' fill='#f87171' font-size='8' font-family='sans-serif' text-anchor='middle'>Iterative Retraining Loop</text></svg>"
+      }
+    },
+    {
+      "id": "ml-q03",
+      "unit": 1,
+      "section_id": "sec-1",
+      "section_title": "Model Evaluation Metrics",
+      "question": "A binary classifier produces the following confusion matrix: TP = 70, TN = 50, FP = 20, FN = 10. Compute Accuracy, Precision, Recall, F1-Score, Sensitivity, and Specificity. Discuss suitability for medical diagnosis.",
+      "marks": 8,
+      "bloom_level": "L3",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2026 Q2.a (6M)",
+        "SEE June/July 2026 Q1.b (8M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 1 (pp. 25-28)",
+      "answer": {
+        "given": "TP = 70, TN = 50, FP = 20, FN = 10. Total instances $N = 70 + 50 + 20 + 10 = 150$.",
+        "computations": [
+          "<strong>1. Accuracy:</strong> Proportion of total correct predictions.<br/>$$\\text{Accuracy} = \\frac{TP + TN}{TP + TN + FP + FN} = \\frac{70 + 50}{150} = \\frac{120}{150} = \\mathbf{0.8000 \\; (80.00\\%)}$$",
+          "<strong>2. Precision:</strong> Proportion of predicted positives that are actually positive.<br/>$$\\text{Precision} = \\frac{TP}{TP + FP} = \\frac{70}{70 + 20} = \\frac{70}{90} = \\mathbf{0.7778 \\; (77.78\\%)}$$",
+          "<strong>3. Recall / Sensitivity:</strong> Proportion of actual positives identified.<br/>$$\\text{Recall} = \\frac{TP}{TP + FN} = \\frac{70}{70 + 10} = \\frac{70}{80} = \\mathbf{0.8750 \\; (87.50\\%)}$$",
+          "<strong>4. Specificity (True Negative Rate):</strong> Proportion of actual negatives correctly identified.<br/>$$\\text{Specificity} = \\frac{TN}{TN + FP} = \\frac{50}{50 + 20} = \\frac{50}{70} = \\mathbf{0.7143 \\; (71.43\\%)}$$",
+          "<strong>5. F1-Score:</strong> Harmonic mean of Precision and Recall.<br/>$$F_1 = \\frac{2 \\times \\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}} = \\frac{2 \\times 0.7778 \\times 0.8750}{0.7778 + 0.8750} = \\frac{1.36115}{1.6528} = \\mathbf{0.8235 \\; (82.35\\%)}$$"
+        ],
+        "medical_suitability_commentary": "<strong>Critical Application Analysis:</strong> In life-threatening medical diagnosis (e.g., malignant tumor detection), <strong>False Negatives (FN = 10)</strong> are disastrous because sick patients are sent home untreated. While Recall is respectable at 87.5%, an FN rate of 12.5% is unacceptable for clinical screening. The decision threshold must be adjusted to prioritize <strong>near-100% Recall (Sensitivity)</strong>, even at the cost of lower precision (more false alarms sent for follow-up biopsy)."
+      }
+    },
+    {
+      "id": "ml-q04",
+      "unit": 1,
+      "section_id": "sec-1",
+      "section_title": "Descriptive & Multivariate Statistics",
+      "question": "Define Covariance and Pearson's Correlation Coefficient. The following data show hours studied (X) and marks obtained (Y) by four students: X = [2, 4, 6, 8], Y = [50, 60, 70, 80]. Calculate Covariance and Pearson's r with step-by-step verification.",
+      "marks": 6,
+      "bloom_level": "L3",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "Shruti mam Docx Problem 1 & 3",
+        "Unit-1 QB (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 2.5 (pp. 58-64); 6_Correlation_and_Covariance_Problems_with_Solutions.docx",
+      "answer": {
+        "definitions": [
+          "<strong>Sample Covariance:</strong> Measures the directional joint variability of two random variables:<br/>$$\\operatorname{Cov}(X, Y) = \\frac{\\sum_{i=1}^n (X_i - \\bar{X})(Y_i - \\bar{Y})}{n - 1}$$",
+          "<strong>Pearson's Correlation Coefficient (r):</strong> Scale-invariant measure of linear association normalized between $[-1, +1]$:<br/>$$r = \\frac{\\operatorname{Cov}(X, Y)}{s_X s_Y} = \\frac{\\sum (X_i - \\bar{X})(Y_i - \\bar{Y})}{\\sqrt{\\sum (X_i - \\bar{X})^2 \\sum (Y_i - \\bar{Y})^2}}$$"
+        ],
+        "given_data": "$n = 4$. $X = [2, 4, 6, 8]$, $Y = [50, 60, 70, 80]$.",
+        "step_by_step": [
+          "1. <strong>Compute Means:</strong><br/>$$\\bar{X} = \\frac{2+4+6+8}{4} = 5.0, \\quad \\bar{Y} = \\frac{50+60+70+80}{4} = 65.0$$",
+          "2. <strong>Deviations & Products:</strong><br/>- $i=1$: $(2-5)=-3$, $(50-65)=-15$, product $= 45$, $(-3)^2 = 9$, $(-15)^2 = 225$<br/>- $i=2$: $(4-5)=-1$, $(60-65)=-5$, product $= 5$, $(-1)^2 = 1$, $(-5)^2 = 25$<br/>- $i=3$: $(6-5)=+1$, $(70-65)=+5$, product $= 5$, $(+1)^2 = 1$, $(+5)^2 = 25$<br/>- $i=4$: $(8-5)=+3$, $(80-65)=+15$, product $= 45$, $(+3)^2 = 9$, $(+15)^2 = 225$",
+          "3. <strong>Summations:</strong><br/>$$\\sum (X_i - \\bar{X})(Y_i - \\bar{Y}) = 45 + 5 + 5 + 45 = 100$$<br/>$$\\sum (X_i - \\bar{X})^2 = 9 + 1 + 1 + 9 = 20, \\quad \\sum (Y_i - \\bar{Y})^2 = 225 + 25 + 25 + 225 = 500$$",
+          "4. <strong>Sample Covariance ($n-1 = 3$):</strong><br/>$$\\operatorname{Cov}(X, Y) = \\frac{100}{3} = \\mathbf{33.3333}$$",
+          "5. <strong>Pearson's Correlation Coefficient:</strong><br/>$$r = \\frac{100}{\\sqrt{20 \\times 500}} = \\frac{100}{\\sqrt{10000}} = \\frac{100}{100} = \\mathbf{+1.0000}$$"
+        ],
+        "interpretation": "A perfect positive linear correlation ($r = +1.0$) exists: for every 1-hour increase in study time, marks increase by exactly 5.0 points."
+      }
+    },
+    {
+      "id": "ml-q05",
+      "unit": 2,
+      "section_id": "sec-1",
+      "section_title": "Distance Metrics & Ordinal Dissimilarity",
+      "question": "Explain how dissimilarity is computed for Ordinal attributes. Given four objects with test results: Object 1 = Excellent, Object 2 = Fair, Object 3 = Good, Object 4 = Excellent. Rank order: Fair < Good < Excellent. Compute the normalized values and the pairwise dissimilarity matrix using step-by-step formulas.",
+      "marks": 6,
+      "bloom_level": "L3",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2026 Q1.b (6M)",
+        "SEE June/July 2026 Q3.a (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 2.3 (pp. 45-48)",
+      "answer": {
+        "formula_explanation": [
+          "<strong>Step 1: Replace with Rank:</strong> For an ordinal attribute $f$ with $M_f$ ordered states, assign each state an integer rank $r_{if} \\in \\{1, 2, \\dots, M_f\\}$.",
+          "<strong>Step 2: Map to Normalized Interval $[0, 1]$:</strong> Apply the formula:<br/>$$z_{if} = \\frac{r_{if} - 1}{M_f - 1}$$",
+          "<strong>Step 3: Compute Pairwise Dissimilarity:</strong> For single attribute, dissimilarity is the absolute difference:<br/>$$d(i, j) = |z_{if} - z_{jf}|$$"
+        ],
+        "step_by_step_calculation": [
+          "States: $M = 3$ (Fair = 1, Good = 2, Excellent = 3). Range $M - 1 = 2$.",
+          "Normalized Scores $z_i$:<br/>- Object 1 (Excellent): $r_1 = 3 \\implies z_1 = (3-1)/2 = \\mathbf{1.0}$<br/>- Object 2 (Fair): $r_2 = 1 \\implies z_2 = (1-1)/2 = \\mathbf{0.0}$<br/>- Object 3 (Good): $r_3 = 2 \\implies z_3 = (2-1)/2 = \\mathbf{0.5}$<br/>- Object 4 (Excellent): $r_4 = 3 \\implies z_4 = (3-1)/2 = \\mathbf{1.0}$",
+          "Pairwise Dissimilarities $d(i, j) = |z_i - z_j|$:<br/>- $d(1, 1) = 0.0$<br/>- $d(2, 1) = |0.0 - 1.0| = 1.0$<br/>- $d(3, 1) = |0.5 - 1.0| = 0.5, \\quad d(3, 2) = |0.5 - 0.0| = 0.5$<br/>- $d(4, 1) = |1.0 - 1.0| = 0.0, \\quad d(4, 2) = |1.0 - 0.0| = 1.0, \\quad d(4, 3) = |1.0 - 0.5| = 0.5$"
+        ],
+        "dissimilarity_matrix": "Pairwise Dissimilarity Matrix $\\mathbf{D}$:<br/>$$\\mathbf{D} = \\begin{bmatrix} 0 & & & \\\\ 1.0 & 0 & & \\\\ 0.5 & 0.5 & 0 & \\\\ 0.0 & 1.0 & 0.5 & 0 \\end{bmatrix}$$"
+      }
+    },
+    {
+      "id": "ml-q06",
+      "unit": 2,
+      "section_id": "sec-4",
+      "section_title": "Dimensionality Reduction: PCA",
+      "question": "Using the covariance matrix $C = \\begin{bmatrix} 4 & 2 \\\\ 2 & 4 \\end{bmatrix}$, apply Principal Component Analysis (PCA): 1. Find the Eigenvalues, 2. Find the normalized Eigenvectors, 3. Identify the First Principal Component (PC1) and calculate the proportion of total variance it explains.",
+      "marks": 6,
+      "bloom_level": "L3",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-2 2026 Q2.c (6M)",
+        "SEE June/July 2026 Q9.a (7M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 2.8 (pp. 72-78)",
+      "answer": {
+        "given": "Covariance matrix $\\mathbf{C} = \\begin{bmatrix} 4 & 2 \\\\ 2 & 4 \\end{bmatrix}$.",
+        "step_1_eigenvalues": [
+          "Solve characteristic equation $\\det(\\mathbf{C} - \\lambda \\mathbf{I}) = 0$:",
+          "$$\\det\\begin{pmatrix} 4-\\lambda & 2 \\\\ 2 & 4-\\lambda \\end{pmatrix} = (4 - \\lambda)^2 - (2)(2) = 0$$",
+          "$$\\lambda^2 - 8\\lambda + 16 - 4 = 0 \\implies \\lambda^2 - 8\\lambda + 12 = 0$$",
+          "$$(\\lambda - 6)(\\lambda - 2) = 0 \\implies \\mathbf{\\lambda_1 = 6, \\quad \\lambda_2 = 2}$$"
+        ],
+        "step_2_eigenvectors": [
+          "<strong>For $\\lambda_1 = 6$:</strong> $(\\mathbf{C} - 6\\mathbf{I})\\mathbf{v}_1 = \\mathbf{0}$:<br/>$$\\begin{bmatrix} -2 & 2 \\\\ 2 & -2 \\end{bmatrix} \\begin{bmatrix} v_{11} \\\\ v_{12} \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 0 \\end{bmatrix} \\implies -2v_{11} + 2v_{12} = 0 \\implies v_{11} = v_{12}$$<br/>Unnormalized: $\\mathbf{v}_1 = [1, 1]^T$. Length $= \\sqrt{1^2 + 1^2} = \\sqrt{2}$.<br/>Normalized: $\\mathbf{u}_1 = \\begin{bmatrix} 1/\\sqrt{2} \\\\ 1/\\sqrt{2} \\end{bmatrix} \\approx \\begin{bmatrix} 0.7071 \\\\ 0.7071 \\end{bmatrix}$.",
+          "<strong>For $\\lambda_2 = 2$:</strong> $(\\mathbf{C} - 2\\mathbf{I})\\mathbf{v}_2 = \\mathbf{0}$:<br/>$$\\begin{bmatrix} 2 & 2 \\\\ 2 & 2 \\end{bmatrix} \\begin{bmatrix} v_{21} \\\\ v_{22} \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 0 \\end{bmatrix} \\implies 2v_{21} + 2v_{22} = 0 \\implies v_{21} = -v_{22}$$<br/>Normalized: $\\mathbf{u}_2 = \\begin{bmatrix} -1/\\sqrt{2} \\\\ 1/\\sqrt{2} \\end{bmatrix} \\approx \\begin{bmatrix} -0.7071 \\\\ 0.7071 \\end{bmatrix}$."
+        ],
+        "step_3_pc1_and_variance": [
+          "The largest eigenvalue is $\\lambda_1 = 6$, so the <strong>First Principal Component (PC1)</strong> corresponds to eigenvector $\\mathbf{u}_1 = [0.7071, 0.7071]^T$.",
+          "Total Variance $= \\lambda_1 + \\lambda_2 = 6 + 2 = 8$.",
+          "Proportion of Variance Explained by PC1:<br/>$$\\text{Explained Ratio} = \\frac{\\lambda_1}{\\lambda_1 + \\lambda_2} = \\frac{6}{8} = \\mathbf{0.7500 \\; (75.00\\%)}$$"
+        ]
+      }
+    },
+    {
+      "id": "ml-q07",
+      "unit": 2,
+      "section_id": "sec-2",
+      "section_title": "Design of a Learning System",
+      "question": "Describe the five-step methodology for designing a learning system from Tom Mitchell. Illustrate each step using the Checkers Learning Problem.",
+      "marks": 10,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Unit-1 QB Q2.a & Q2.b (10M)",
+        "SEE May 2023 Q2 (10M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Tom Mitchell, Machine Learning Ch. 1.2 (pp. 2-12)",
+      "answer": {
+        "mitchell_definition": "A computer program is said to learn from <strong>Experience E</strong> with respect to some class of <strong>Tasks T</strong> and <strong>Performance measure P</strong>, if its performance at tasks in T, as measured by P, improves with experience E.",
+        "five_steps": [
+          "<strong>1. Choosing the Training Experience:</strong> Select source and feedback type (Direct vs Indirect; Teacher-guided vs Self-play games). In Checkers: Self-play games provide indirect feedback (win/loss signal only at game end).",
+          "<strong>2. Choosing the Target Function:</strong> Formalize what knowledge to learn. In Checkers: Function $V: B \\to \\mathbb{R}$ mapping any board state $b \\in B$ to a real evaluation score (+100 for win, -100 for loss, intermediate values for board advantage).",
+          "<strong>3. Choosing a Representation for Target Function:</strong> Select mathematical hypothesis representation. In Checkers: Linear combination of board features: $\\hat{V}(b) = w_0 + w_1 x_1 + w_2 x_2 + w_3 x_3 + w_4 x_4 + w_5 x_5 + w_6 x_6$, where $x_1$ = black pieces, $x_2$ = red pieces, $x_3$ = black kings, etc.",
+          "<strong>4. Choosing a Function Approximation Algorithm:</strong> Select learning rule to adjust weights $w_i$. In Checkers: LMS (Least Mean Squares) weight update rule: $w_i \\leftarrow w_i + \\eta (V_{\\text{train}}(b) - \\hat{V}(b)) x_i$.",
+          "<strong>5. Final System Architecture:</strong> Compose four core operational modules: Complete System = Performance System (plays game) + Critic (generates training pairs) + Generalizer (computes LMS updates) + Experiment Generator (proposes novel exploratory moves)."
+        ]
+      }
+    },
+    {
+      "id": "ml-q08",
+      "unit": 2,
+      "section_id": "sec-3",
+      "section_title": "Concept Learning & Find-S Algorithm",
+      "question": "Explain Concept Learning and the Find-S Algorithm. Consider a 4-attribute dataset for Buys_Computer (Age, Income, Student, Credit_Rating). Initialize the most specific hypothesis and trace Find-S step by step across positive examples to derive the final hypothesis.",
+      "marks": 6,
+      "bloom_level": "L3",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2026 Q2.b (6M)",
+        "SEE June/July 2026 Q4.b (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Tom Mitchell Ch. 2.3 & 2.4 (pp. 22-29)",
+      "answer": {
+        "concept_learning_def": "<strong>Concept Learning</strong> is acquiring the definition of a general category given a sample of positive and negative training examples of the category. It is equivalent to searching through a predefined hypothesis space $H$ for a hypothesis consistent with training examples.",
+        "find_s_rules": [
+          "1. Initialize hypothesis $h$ to the most specific hypothesis in $H$: $h = \\langle \\emptyset, \\emptyset, \\dots, \\emptyset \\rangle$.",
+          "2. For each positive training instance $x$:",
+          "&nbsp;&nbsp;&nbsp;&nbsp;For each attribute constraint $a_i$ in $h$:",
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If $a_i$ is satisfied by $x$, do nothing.",
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else, replace $a_i$ in $h$ by the next more general constraint that is satisfied by $x$ (e.g. replace specific value with '?' wildcard).",
+          "3. Negative training instances are completely ignored by Find-S.",
+          "4. Output final hypothesis $h$."
+        ],
+        "step_by_step_trace": [
+          "<strong>Initialization:</strong> $h_0 = \\langle \\emptyset, \\emptyset, \\emptyset, \\emptyset \\rangle$",
+          "<strong>Instance 1:</strong> $\\langle \\text{Youth, High, No, Fair} \\rangle \\to \\text{No}$ (Negative $\\implies$ IGNORE):<br/>$h_1 = \\langle \\emptyset, \\emptyset, \\emptyset, \\emptyset \\rangle$",
+          "<strong>Instance 2:</strong> $\\langle \\text{Senior, Low, Yes, Fair} \\rangle \\to \\text{Yes}$ (Positive! First update):<br/>$h_2 = \\langle \\text{Senior, Low, Yes, Fair} \\rangle$",
+          "<strong>Instance 3:</strong> $\\langle \\text{Middle, Low, Yes, Excellent} \\rangle \\to \\text{Yes}$ (Positive!):<br/>- Age: Senior vs Middle $\\to$ generalized to '?'<br/>- Income: Low vs Low $\\to$ remains 'Low'<br/>- Student: Yes vs Yes $\\to$ remains 'Yes'<br/>- Credit: Fair vs Excellent $\\to$ generalized to '?'<br/>$h_3 = \\langle ?, \\text{Low, Yes}, ? \\rangle$",
+          "<strong>Instance 4:</strong> $\\langle \\text{Senior, Medium, Yes, Fair} \\rangle \\to \\text{Yes}$ (Positive!):<br/>- Income: Low vs Medium $\\to$ generalized to '?'<br/>$h_4 = \\langle ?, ?, \\text{Yes}, ? \\rangle$"
+        ],
+        "final_hypothesis": "<strong>Final Learned Hypothesis:</strong> $h = \\langle ?, ?, \\mathbf{Yes}, ? \\rangle$.<br/><strong>Interpretation:</strong> The learned concept is: 'If Student = Yes, then Buys_Computer = Yes, regardless of Age, Income, or Credit Rating'."
+      }
+    },
+    {
+      "id": "ml-q09",
+      "unit": 2,
+      "section_id": "sec-3",
+      "section_title": "Concept Learning & Candidate Elimination",
+      "question": "Explain the Candidate Elimination Algorithm in Concept Learning. Describe how the Specific boundary (S) and General boundary (G) are updated for positive and negative examples.",
+      "marks": 8,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2026 Q3.b (6M)",
+        "SEE June/July 2026 Q3.b (8M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Tom Mitchell Ch. 2.5 (pp. 29-37)",
+      "answer": {
+        "overview": "The <strong>Candidate-Elimination Algorithm</strong> computes the entire Version Space (set of all hypotheses consistent with training examples) by maintaining two compact boundary sets: the <strong>Specific boundary ($S$)</strong> and the <strong>General boundary ($G$)</strong>.",
+        "boundary_definitions": [
+          "<strong>Specific Boundary $S$:</strong> Set of minimally general (most specific) hypotheses consistent with all observed instances. Initialized to $S_0 = \\{\\langle \\emptyset, \\emptyset, \\dots \\rangle\\}$.",
+          "<strong>General Boundary $G$:</strong> Set of maximally general hypotheses consistent with all observed instances. Initialized to $G_0 = \\{\\langle ?, ?, \\dots \\rangle\\}$."
+        ],
+        "update_rules": [
+          "<strong>For a POSITIVE training example $d = (x, +)$:</strong><br/>1. Remove any hypothesis from $G$ that is not consistent with $d$.<br/>2. For each hypothesis $s \\in S$ not consistent with $d$: remove $s$ and add all minimal generalizations $h$ of $s$ such that $h$ is consistent with $d$ and some member of $G$ is more general than $h$.<br/>3. Remove from $S$ any hypothesis that is more general than another hypothesis in $S$.",
+          "<strong>For a NEGATIVE training example $d = (x, -)$:</strong><br/>1. Remove any hypothesis from $S$ that is consistent with $d$.<br/>2. For each hypothesis $g \\in G$ that is consistent with $d$: remove $g$ and add all minimal specializations $h$ of $g$ such that $h$ is not consistent with $d$ and some member of $S$ is more specific than $h$.<br/>3. Remove from $G$ any hypothesis that is more specific than another hypothesis in $G$."
+        ],
+        "stopping_condition": "When the algorithm converges ($S = G = \\{c\\}$), the target concept $c$ is uniquely learned. If $S$ and $G$ become empty, the training data is noisy or inconsistent with hypothesis space $H$."
+      }
+    },
+    {
+      "id": "ml-q10",
+      "unit": 2,
+      "section_id": "sec-4",
+      "section_title": "Modeling & Bias-Variance Tradeoff",
+      "question": "Explain how Bias and Variance change with model complexity. A model achieves Training Accuracy = 98% and Validation Accuracy = 72%. Diagnose whether this is overfitting or underfitting, suggest two methods to improve it, and explain the roles of train, val, and test datasets.",
+      "marks": 7,
+      "bloom_level": "L3",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "SEE June/July 2026 Q1.c (6M)",
+        "SEE June/July 2026 Q2.b (7M)",
+        "Ramaiah CIE-1 2026 Q3.a (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 3.5; Mitchell Ch. 2",
+      "answer": {
+        "bias_variance_definitions": [
+          "<strong>Bias (Underfitting Error):</strong> Error introduced by approximating a complex real-world problem with an overly simplistic model (e.g. fitting linear line to quadratic data). High bias models fail to learn underlying structure.",
+          "<strong>Variance (Overfitting Error):</strong> Sensitivity of model predictions to fluctuations/noise in training set. High variance models memorize training data and fail to generalize to unseen test instances.",
+          "<strong>Total Error:</strong> $\\text{Expected Error} = \\text{Bias}^2 + \\text{Variance} + \\sigma^2_{\\text{irreducible}}$."
+        ],
+        "scenario_diagnosis": "<strong>Diagnosis: OVERFITTING (High Variance).</strong><br/>A large performance discrepancy between near-perfect Training Accuracy (98%) and degraded Validation Accuracy (72%) is the classic hallmark of overfitting. The model has memorized idiosyncrasies and random noise in the training set instead of learning true underlying relationships.",
+        "two_remedies": [
+          "<strong>1. Regularization (L2 Ridge / L1 Lasso / Dropout):</strong> Penalize large parameter weights $\\lambda \\sum w_j^2$, shrinking model complexity and smoothing decision boundaries.",
+          "<strong>2. Early Stopping & Pruning / Feature Reduction:</strong> Stop training before over-optimization, use PCA/Lasso to prune redundant input features, or gather additional diverse training samples."
+        ],
+        "dataset_roles": [
+          "<strong>Training Set (70%):</strong> Used by the optimization algorithm to update model weights/coefficients directly.",
+          "<strong>Validation Set (15%):</strong> Used during development to tune hyperparameters (learning rate, polynomial degree, regularization strength $\\lambda$) and detect overfitting.",
+          "<strong>Test Set (15%):</strong> Completely held-out pristine set used once at the very end to obtain an unbiased estimate of real-world generalization performance."
+        ]
+      }
+    },
+    {
+      "id": "ml-q11",
+      "unit": 3,
+      "section_id": "sec-linear-regression",
+      "section_title": "Simple Linear Regression: OLS",
+      "question": "The following data represents hours studied (X) and marks obtained (Y) by five students: X = [2, 4, 6, 8, 10], Y = [50, 60, 65, 80, 85]. i. Compute slope (b) and intercept (a) using Ordinary Least Squares (OLS). ii. Write the regression equation. iii. Predict marks for X = 7 hours. iv. Compute the Coefficient of Determination (R^2).",
+      "marks": 8,
+      "bloom_level": "L3",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2026 Q1.c (3M)",
+        "Faculty docx Problem 1",
+        "SEE May 2023 Q1 (8M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.1 & 5.2 (pp. 142-148); Linear_Regression and multiple linear regression_problems.docx",
+      "answer": {
+        "given_data": "Five data points ($n=5$):<br/>$X = [2, 4, 6, 8, 10]$, $Y = [50, 60, 65, 80, 85]$.",
+        "step_1_summations": [
+          "$\\sum X = 2 + 4 + 6 + 8 + 10 = 30 \\implies \\bar{X} = 30 / 5 = 6.0$",
+          "$\\sum Y = 50 + 60 + 65 + 80 + 85 = 340 \\implies \\bar{Y} = 340 / 5 = 68.0$",
+          "$\\sum X^2 = 2^2 + 4^2 + 6^2 + 8^2 + 10^2 = 4 + 16 + 36 + 64 + 100 = 220$",
+          "$\\sum XY = (2)(50) + (4)(60) + (6)(65) + (8)(80) + (10)(85) = 100 + 240 + 390 + 640 + 850 = 2220$"
+        ],
+        "step_2_slope_and_intercept": [
+          "<strong>Slope ($b_1$ or $b$):</strong><br/>$$b = \\frac{n \\sum XY - (\\sum X)(\\sum Y)}{n \\sum X^2 - (\\sum X)^2} = \\frac{5(2220) - (30)(340)}{5(220) - (30)^2} = \\frac{11100 - 10200}{1100 - 900} = \\frac{900}{200} = \\mathbf{4.5000}$$",
+          "<strong>Intercept ($b_0$ or $a$):</strong><br/>$$a = \\bar{Y} - b\\bar{X} = 68.0 - (4.5000)(6.0) = 68.0 - 27.0 = \\mathbf{41.0000}$$"
+        ],
+        "step_3_equation_and_prediction": [
+          "<strong>Regression Equation:</strong><br/>$$\\hat{Y} = 41.0 + 4.5 X$$",
+          "<strong>Prediction for $X = 7$ hours:</strong><br/>$$\\hat{Y}(7) = 41.0 + 4.5(7) = 41.0 + 31.5 = \\mathbf{72.50 \\text{ marks}}$$"
+        ],
+        "step_4_r2_score": [
+          "Fitted values $\\hat{Y}$: $[50.0, 59.0, 68.0, 77.0, 86.0]$",
+          "Residuals $Y - \\hat{Y}$: $[0.0, +1.0, -3.0, +3.0, -1.0]$",
+          "$SSE = 0^2 + 1^2 + (-3)^2 + 3^2 + (-1)^2 = 0 + 1 + 9 + 9 + 1 = 20.0$",
+          "$SST = \\sum (Y_i - \\bar{Y})^2 = (50-68)^2 + (60-68)^2 + (65-68)^2 + (80-68)^2 + (85-68)^2 = 324 + 64 + 9 + 144 + 289 = 830.0$",
+          "$$R^2 = 1 - \\frac{SSE}{SST} = 1 - \\frac{20}{830} = 1 - 0.0241 = \\mathbf{0.9759 \\; (97.59\\%)}$$"
+        ],
+        "interpretation": "97.59% of total variance in exam marks is directly explained by study hours under this linear model."
+      }
+    },
+    {
+      "id": "ml-q12",
+      "unit": 3,
+      "section_id": "sec-linear-regression",
+      "section_title": "Simple Linear Regression: OLS",
+      "question": "Derive the closed-form formulas for slope (b1) and intercept (b0) in Simple Linear Regression using Ordinary Least Squares (OLS) calculus minimization.",
+      "marks": 8,
+      "bloom_level": "L2",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "SEE May 2023 Q1 (10M)",
+        "Faculty PPT Chapter 5.1"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.2 (pp. 144-147)",
+      "answer": {
+        "model_equation": "Simple linear regression model: $y_i = \\beta_0 + \\beta_1 x_i + \\epsilon_i$. Fitted value $\\hat{y}_i = \\beta_0 + \\beta_1 x_i$.",
+        "objective": "Minimize the Sum of Squared Residuals (Residual Sum of Squares, RSS / SSE):<br/>$$S(\\beta_0, \\beta_1) = \\sum_{i=1}^n (y_i - \\hat{y}_i)^2 = \\sum_{i=1}^n (y_i - \\beta_0 - \\beta_1 x_i)^2$$",
+        "derivation_beta0": [
+          "Differentiate $S$ partially with respect to $\\beta_0$ and set to zero:<br/>$$\\frac{\\partial S}{\\partial \\beta_0} = -2 \\sum_{i=1}^n (y_i - \\beta_0 - \\beta_1 x_i) = 0$$",
+          "$$\\sum y_i - n \\beta_0 - \\beta_1 \\sum x_i = 0 \\implies n \\beta_0 = \\sum y_i - \\beta_1 \\sum x_i$$",
+          "Divide by $n$:<br/>$$\\mathbf{\\beta_0 = \\bar{y} - \\beta_1 \\bar{x}}$$"
+        ],
+        "derivation_beta1": [
+          "Differentiate $S$ partially with respect to $\\beta_1$ and set to zero:<br/>$$\\frac{\\partial S}{\\partial \\beta_1} = -2 \\sum_{i=1}^n x_i (y_i - \\beta_0 - \\beta_1 x_i) = 0$$",
+          "$$\\sum x_i y_i - \\beta_0 \\sum x_i - \\beta_1 \\sum x_i^2 = 0$$",
+          "Substitute $\\beta_0 = \\bar{y} - \\beta_1 \\bar{x}$:<br/>$$\\sum x_i y_i - (\\bar{y} - \\beta_1 \\bar{x}) \\sum x_i - \\beta_1 \\sum x_i^2 = 0$$",
+          "$$\\sum x_i y_i - \\bar{y} \\sum x_i = \\beta_1 \\left( \\sum x_i^2 - \\bar{x} \\sum x_i \\right)$$",
+          "Since $\\sum x_i = n\\bar{x}$ and $\\sum x_i y_i - n\\bar{x}\\bar{y} = \\sum (x_i - \\bar{x})(y_i - \\bar{y})$ and $\\sum x_i^2 - n\\bar{x}^2 = \\sum (x_i - \\bar{x})^2$:<br/>$$\\mathbf{\\beta_1 = \\frac{\\sum_{i=1}^n (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^n (x_i - \\bar{x})^2} = \\frac{n \\sum x_i y_i - (\\sum x_i)(\\sum y_i)}{n \\sum x_i^2 - (\\sum x_i)^2}}$$"
+        ]
+      }
+    },
+    {
+      "id": "ml-q13",
+      "unit": 3,
+      "section_id": "sec-multiple-regression",
+      "section_title": "Multiple Linear Regression",
+      "question": "Formulate the Multiple Linear Regression model in matrix notation. State the closed-form Normal Equations solution. How are partial regression coefficients interpreted?",
+      "marks": 8,
+      "bloom_level": "L2",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "SEE June/July 2026 Q5.a (8M)",
+        "Faculty docx Problem 1"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.3 (pp. 149-153)",
+      "answer": {
+        "matrix_formulation": [
+          "For $n$ observations and $p$ predictor variables:<br/>$$y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_i$$",
+          "In compact matrix notation:<br/>$$\\mathbf{Y} = \\mathbf{X} \\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}$$",
+          "where $\\mathbf{Y} \\in \\mathbb{R}^{n \\times 1}$, $\\mathbf{X} \\in \\mathbb{R}^{n \\times (p+1)}$ (with leading column of ones for intercept), $\\boldsymbol{\\beta} \\in \\mathbb{R}^{(p+1) \\times 1}$, and error $\\boldsymbol{\\epsilon} \\in \\mathbb{R}^{n \\times 1}$."
+        ],
+        "normal_equations": [
+          "To minimize residual sum of squares $S(\\boldsymbol{\\beta}) = (\\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta})^T (\\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta})$:",
+          "$$\\nabla_{\\boldsymbol{\\beta}} S = -2 \\mathbf{X}^T (\\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}) = \\mathbf{0} \\implies \\mathbf{X}^T \\mathbf{X} \\boldsymbol{\\beta} = \\mathbf{X}^T \\mathbf{Y}$$",
+          "Provided $(\\mathbf{X}^T \\mathbf{X})$ is non-singular (no exact multicollinearity):<br/>$$\\mathbf{\\boldsymbol{\\beta} = (\\mathbf{X}^T \\mathbf{X})^{-1} \\mathbf{X}^T \\mathbf{Y}}$$"
+        ],
+        "partial_slope_interpretation": "Each coefficient $\\beta_j$ represents the expected change in response variable $Y$ for a one-unit increase in predictor $X_j$, <strong>holding all other predictor variables constant</strong> ('ceteris paribus')."
+      }
+    },
+    {
+      "id": "ml-q14",
+      "unit": 3,
+      "section_id": "sec-regularization",
+      "section_title": "Regularization in Regression: Ridge & Lasso",
+      "question": "Explain the need for Regularization in regression. Differentiate between Ridge Regression (L2) and Lasso Regression (L1) with their loss functions, mathematical solutions, and feature selection properties.",
+      "marks": 8,
+      "bloom_level": "L2",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "Faculty docx Linear & ridge regression.docx",
+        "Faculty PPT Ch. 5.4",
+        "NPTEL Week 2"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.4; Linear & ridge regression....docx",
+      "answer": {
+        "need_for_regularization": "When predictors are highly correlated (multicollinearity) or the number of features $p$ is large relative to sample size $n$, OLS regression coefficients exhibit explosive variance, leading to extreme overfitting. Regularization introduces an explicit penalty on coefficient magnitude to shrink weights and enforce generalization.",
+        "ridge_regression": [
+          "<strong>Loss Function (L2 Penalty):</strong><br/>$$J_{\\text{Ridge}}(\\boldsymbol{\\beta}) = \\frac{1}{2n} \\|\\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}\\|^2_2 + \\lambda \\sum_{j=1}^p \\beta_j^2$$",
+          "<strong>Closed-Form Solution:</strong><br/>$$\\mathbf{\\boldsymbol{\\beta}_{\\text{Ridge}} = (\\mathbf{X}^T \\mathbf{X} + \\lambda \\mathbf{I})^{-1} \\mathbf{X}^T \\mathbf{Y}}$$",
+          "Adds $\\lambda > 0$ along the diagonal, guaranteeing invertibility even when $\\mathbf{X}^T\\mathbf{X}$ is ill-conditioned.",
+          "<strong>Coefficient Behavior:</strong> As $\\lambda \\to \\infty$, coefficients shrink smoothly toward zero, but <em>never reach exactly zero</em>. Does not perform feature selection."
+        ],
+        "lasso_regression": [
+          "<strong>Loss Function (L1 Penalty):</strong><br/>$$J_{\\text{Lasso}}(\\boldsymbol{\\beta}) = \\frac{1}{2n} \\|\\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}\\|^2_2 + \\lambda \\sum_{j=1}^p |\\beta_j|$$",
+          "<strong>Sparsity Property:</strong> The sharp corners of the L1 diamond constraint boundary cause contours of the MSE loss ellipse to hit axes directly, forcing irrelevant feature coefficients to become <strong>identically zero</strong> ($w_j = 0$).",
+          "<strong>Feature Selection:</strong> Automatically performs embedded subset selection, producing compact, interpretable models."
+        ],
+        "elastic_net": "Combines both penalties: $\\lambda_1 \\|\\boldsymbol{\\beta}\\|_1 + \\lambda_2 \\|\\boldsymbol{\\beta}\\|_2^2$, handling correlated feature groups while maintaining sparsity."
+      }
+    },
+    {
+      "id": "ml-q15",
+      "unit": 3,
+      "section_id": "sec-logistic-regression",
+      "section_title": "Logistic Regression vs Linear Regression",
+      "question": "Differentiate Logistic Regression and Linear Regression in machine learning. Why is Linear Regression unsuitable for classification problems?",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2026 Q2.c (3M)",
+        "Faculty docx Logistic Regression.docx",
+        "SEE May 2023 Q1 (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.5 (pp. 160-165); Logistic Regression and multinomial logistic regression.docx",
+      "answer": {
+        "why_linear_fails_classification": [
+          "<strong>1. Unbounded Output:</strong> Linear regression produces predictions in $(-\\infty, +\\infty)$, violating the mathematical constraint that probabilities must lie strictly in $[0, 1]$.",
+          "<strong>2. Sensitivity to Extreme Outliers:</strong> An extreme positive point far to the right pulls the OLS regression slope down, inadvertently shifting the decision boundary and causing false negatives.",
+          "<strong>3. Non-Normal, Heteroscedastic Errors:</strong> Binary classification residuals violate Gauss-Markov assumptions (residuals can only be $1 - \\hat{y}$ or $-\\hat{y}$, having variance that depends on $\\hat{y}$)."
+        ],
+        "comparison_table": {
+          "headers": [
+            "Feature",
+            "Linear Regression",
+            "Logistic Regression"
+          ],
+          "rows": [
+            [
+              "Target Variable Type",
+              "Continuous numerical variable $y \\in \\mathbb{R}$.",
+              "Discrete categorical variable $y \\in \\{0, 1\\}$."
+            ],
+            [
+              "Hypothesis Function",
+              "Linear: $\\hat{y} = \\mathbf{w}^T \\mathbf{x} + b$",
+              "Sigmoid activation: $P(y=1|\\mathbf{x}) = \\frac{1}{1 + e^{-(\\mathbf{w}^T\\mathbf{x}+b)}}$"
+            ],
+            [
+              "Output Range",
+              "Real line $(-\\infty, +\\infty)$",
+              "Probability strictly in $(0, 1)$"
+            ],
+            [
+              "Cost Function",
+              "Mean Squared Error (convex for linear): $\\frac{1}{2n}\\sum(y-\\hat{y})^2$",
+              "Binary Cross-Entropy / Log-Loss: $-\\frac{1}{n}\\sum[y\\ln\\hat{y} + (1-y)\\ln(1-\\hat{y})]$"
+            ],
+            [
+              "Decision Boundary",
+              "N/A (regression line/plane)",
+              "Hyperplane at $P(y=1|\\mathbf{x}) = 0.5 \\iff \\mathbf{w}^T\\mathbf{x}+b = 0$"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "ml-q16",
+      "unit": 3,
+      "section_id": "sec-logistic-regression",
+      "section_title": "Logistic Regression Math & Odds Ratio",
+      "question": "Explain the Sigmoid function, Odds Ratio, and Logit (Log-Odds) formulation in Logistic Regression. A logistic model produces linear score z = 1.386 for an input. Calculate: i. The odds, ii. The predicted probability P(Y=1), iii. Final classification with threshold 0.5.",
+      "marks": 6,
+      "bloom_level": "L3",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "Faculty docx Logistic Regression.docx",
+        "NPTEL Regression Week 3 Assignment"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.5; Logistic Regression and multinomial logistic regression.docx",
+      "answer": {
+        "mathematical_foundations": [
+          "<strong>Sigmoid Activation Function:</strong><br/>$$\\sigma(z) = \\frac{1}{1 + e^{-z}} = \\frac{e^z}{1 + e^z}$$<br/>Maps any input $z \\in (-\\infty, +\\infty)$ to probability $p \\in (0, 1)$. Derivative: $\\sigma'(z) = \\sigma(z)(1 - \\sigma(z))$.",
+          "<strong>Odds Ratio:</strong> Ratio of probability of success to probability of failure:<br/>$$\\text{Odds} = \\frac{p}{1 - p} = \\frac{\\sigma(z)}{1 - \\sigma(z)} = e^z$$",
+          "<strong>Logit (Log-Odds) Function:</strong> Natural logarithm of odds:<br/>$$\\text{Logit}(p) = \\ln\\left(\\frac{p}{1 - p}\\right) = \\ln(e^z) = z = \\mathbf{w}^T \\mathbf{x} + b$$<br/>Demonstrates that Logistic Regression is a generalized linear model where the <em>log-odds</em> are linearly related to predictors."
+        ],
+        "given_calculation": "Given linear score $z = 1.386$ (note: $\\ln 4 \\approx 1.38629$):",
+        "steps": [
+          "<strong>i. Calculate Odds:</strong><br/>$$\\text{Odds} = e^{1.386} \\approx 3.9988 \\approx \\mathbf{4.0}$$",
+          "<strong>ii. Calculate Predicted Probability $P(Y=1)$:</strong><br/>$$P(Y=1) = \\frac{1}{1 + e^{-1.386}} = \\frac{1}{1 + 0.25007} = \\frac{1}{1.25007} = \\mathbf{0.79995 \\approx 0.80 \\; (80.0\\%)}$$",
+          "<strong>iii. Classification Decision:</strong><br/>Since $P(Y=1) = 0.80 > 0.50$ (decision threshold), the instance is classified into **Class 1**."
+        ]
+      }
+    },
+    {
+      "id": "ml-q17",
+      "unit": 3,
+      "section_id": "sec-polynomial-regression",
+      "section_title": "Polynomial Regression",
+      "question": "What is Polynomial Regression? How is it implemented using linear regression techniques? Discuss the risks associated with selecting very high polynomial degrees.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "Faculty PPT Chapter 5.3",
+        "SEE July 2024 Q3"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.3 (pp. 154-158)",
+      "answer": {
+        "definition": "<strong>Polynomial Regression</strong> is a form of regression analysis in which the relationship between the independent variable $x$ and dependent variable $y$ is modeled as an $d$-th degree polynomial:<br/>$$y = \\beta_0 + \\beta_1 x + \\beta_2 x^2 + \\beta_3 x^3 + \\dots + \\beta_d x^d + \\epsilon$$",
+        "implementation_as_linear_model": [
+          "Although the relationship between $y$ and $x$ is non-linear, the model is strictly <strong>linear in its parameters $\\boldsymbol{\\beta}$</strong>.",
+          "It is solved directly by defining transformed feature vectors: $z_1 = x, z_2 = x^2, \\dots, z_d = x^d$.",
+          "The transformed design matrix $\\mathbf{X}_{\\text{poly}}$ is fed directly into the standard OLS Normal Equation: $\\boldsymbol{\\beta} = (\\mathbf{X}_{\\text{poly}}^T \\mathbf{X}_{\\text{poly}})^{-1} \\mathbf{X}_{\\text{poly}}^T \\mathbf{Y}$."
+        ],
+        "high_degree_risks": [
+          "<strong>1. Severe Overfitting (Runge's Phenomenon):</strong> High-degree polynomials oscillate wildly near the boundaries of the data interval, achieving near-zero training error but catastrophic test error.",
+          "<strong>2. Extreme Multicollinearity:</strong> As powers $x^k$ increase, columns of $\\mathbf{X}_{\\text{poly}}$ become nearly collinear, causing $(\\mathbf{X}^T\\mathbf{X})$ to become ill-conditioned and numerical solutions to become unstable.",
+          "<strong>Remedy:</strong> Use Cross-Validation to select degree $d$ (typically $d \\le 3$) and apply Ridge regularization."
+        ]
+      }
+    },
+    {
+      "id": "ml-q18",
+      "unit": 3,
+      "section_id": "sec-gradient-descent",
+      "section_title": "Gradient Descent Optimization",
+      "question": "Explain Gradient Descent optimization for Linear Regression. Compare Batch Gradient Descent, Stochastic Gradient Descent (SGD), and Mini-Batch Gradient Descent.",
+      "marks": 7,
+      "bloom_level": "L2",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "Faculty PPT Chapter 5.2",
+        "NPTEL Week 1"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.2 (pp. 147-151)",
+      "answer": {
+        "gradient_descent_overview": "Gradient Descent is a first-order iterative optimization algorithm to find the parameter vector $\\mathbf{w}$ that minimizes cost function $J(\\mathbf{w})$. Parameters are updated opposite to the gradient:<br/>$$\\mathbf{w} \\leftarrow \\mathbf{w} - \\alpha \\nabla_{\\mathbf{w}} J(\\mathbf{w})$$<br/>where $\\alpha$ is the learning rate hyperparameter.",
+        "mse_gradient_computation": "For MSE cost $J(\\mathbf{w}) = \\frac{1}{2n}\\sum_{i=1}^n (\\mathbf{w}^T \\mathbf{x}_i - y_i)^2$, the partial derivative is:<br/>$$\\frac{\\partial J}{\\partial w_j} = \\frac{1}{n} \\sum_{i=1}^n (\\mathbf{w}^T \\mathbf{x}_i - y_i) x_{ij}$$",
+        "comparison_table": {
+          "headers": [
+            "Algorithm",
+            "Samples Per Update",
+            "Convergence Behavior",
+            "Computational Efficiency"
+          ],
+          "rows": [
+            [
+              "Batch Gradient Descent",
+              "Entire training set ($n$ samples).",
+              "Smooth, monotonic descent to global minimum.",
+              "Very slow on large datasets ($O(n \\cdot d)$ per step)."
+            ],
+            [
+              "Stochastic GD (SGD)",
+              "1 single random sample.",
+              "Noisy, erratic path; can jump out of shallow local minima.",
+              "Fastest per step ($O(d)$); poor vectorization efficiency."
+            ],
+            [
+              "Mini-Batch GD",
+              "Small batch $B$ (e.g. 32, 64, 128).",
+              "Balanced stability and stochastic exploration.",
+              "Optimal: leverages GPU hardware vectorization; gold standard in modern ML."
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "ml-q19",
+      "unit": 3,
+      "section_id": "sec-regularization",
+      "section_title": "Regression Model Evaluation Metrics",
+      "question": "Define and compare the following regression evaluation metrics: Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and Coefficient of Determination (R^2). Why is Adjusted R^2 preferred in multiple regression?",
+      "marks": 7,
+      "bloom_level": "L2",
+      "course_outcome": "CO3",
+      "exam_occurrences": [
+        "SEE May 2023 Q1 (7M)",
+        "Faculty PPT Chapter 5.4"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 5.4 (pp. 158-160)",
+      "answer": {
+        "definitions": [
+          "<strong>Mean Squared Error (MSE):</strong> Average squared difference between actual and predicted values:<br/>$$\\text{MSE} = \\frac{1}{n} \\sum_{i=1}^n (y_i - \\hat{y}_i)^2$$<br/>Penalizes large errors heavily due to squaring; units are squared.",
+          "<strong>Root Mean Squared Error (RMSE):</strong> Square root of MSE:<br/>$$\\text{RMSE} = \\sqrt{\\frac{1}{n} \\sum_{i=1}^n (y_i - \\hat{y}_i)^2}$$<br/>In same measurement units as target $y$; highly sensitive to outliers.",
+          "<strong>Mean Absolute Error (MAE):</strong> Average absolute difference:<br/>$$\\text{MAE} = \\frac{1}{n} \\sum_{i=1}^n |y_i - \\hat{y}_i|$$<br/>Linear penalty, robust to extreme outliers.",
+          "<strong>Coefficient of Determination ($R^2$ Score):</strong> Proportion of variance explained by model:<br/>$$R^2 = 1 - \\frac{SS_{\\text{res}}}{SS_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$$"
+        ],
+        "why_adjusted_r2": "In Multiple Regression, adding any new predictor variable\u2014even complete random noise\u2014always mechanically increases or holds constant the standard $R^2$ because $SS_{\\text{res}}$ cannot increase. This misleads model selection into adding useless features.<br/><br/><strong>Adjusted $R^2$</strong> introduces a degrees-of-freedom penalty for every additional feature added:<br/>$$R^2_{\\text{adj}} = 1 - \\left[ \\frac{(1 - R^2)(n - 1)}{n - p - 1} \\right]$$<br/>$R^2_{\\text{adj}}$ increases <em>only if the new variable enhances model explanatory power more than would be expected by random chance</em>."
+      }
+    },
+    {
+      "id": "ml-q20",
+      "unit": 1,
+      "section_id": "sec-1",
+      "section_title": "Descriptive Statistics: Box Plots & IQR",
+      "question": "Explain the Five-Number Summary and Outlier Detection using the 1.5 * IQR rule with Box Plots.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "Sridhar & Vijayalakshmi Ch. 2.4",
+        "Unit-1 QB (6M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sridhar & Vijayalakshmi Ch. 2.4 (pp. 52-56)",
+      "answer": {
+        "five_number_summary": [
+          "<strong>1. Minimum:</strong> Lowest data value excluding outliers ($Q_1 - 1.5 \\times \\text{IQR}$).",
+          "<strong>2. First Quartile ($Q_1$ / 25th Percentile):</strong> Median of the lower half of sorted data.",
+          "<strong>3. Median ($Q_2$ / 50th Percentile):</strong> Middle value dividing data into two equal halves.",
+          "<strong>4. Third Quartile ($Q_3$ / 75th Percentile):</strong> Median of the upper half of sorted data.",
+          "<strong>5. Maximum:</strong> Highest data value excluding outliers ($Q_3 + 1.5 \\times \\text{IQR}$)."
+        ],
+        "iqr_outlier_rule": [
+          "<strong>Interquartile Range:</strong> $\\text{IQR} = Q_3 - Q_1$, representing the spread of the middle 50% of observations.",
+          "<strong>Inner Fences for Outliers:</strong><br/>- Lower Fence $= Q_1 - 1.5 \\times \\text{IQR}$<br/>- Upper Fence $= Q_3 + 1.5 \\times \\text{IQR}$",
+          "Any data point $x < \\text{Lower Fence}$ or $x > \\text{Upper Fence}$ is flagged as a statistical outlier and plotted as an individual point beyond the whiskers in a Box Plot."
+        ]
+      }
+    }
+  ],
+  "out_of_scope_questions": [
+    {
+      "paper": "Ramaiah CIE-1 2026 (Portions L1-L13)",
+      "question_number": "3.c",
+      "marks": 3,
+      "question": "Consider dataset of 10 samples for predicting whether to Play Tennis. Compute information gain of attribute outlook using ID3 algorithm.",
+      "unit": 3,
+      "reason": "Decision Tree Learning (ID3, Entropy, Information Gain) is out of CIE-1 scope. ML Unit 3 scope is strictly limited to Regression."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2026 (Portions L15-L28)",
+      "question_number": "1.a",
+      "marks": 3,
+      "question": "Explain the working of the CART algorithm.",
+      "unit": 3,
+      "reason": "CART Decision Tree Induction is out of CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2026 (Portions L15-L28)",
+      "question_number": "1.b",
+      "marks": 6,
+      "question": "Apply AGNES Algorithm for distance matrix clustering.",
+      "unit": 4,
+      "reason": "Hierarchical Clustering belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2026 (Portions L15-L28)",
+      "question_number": "2.a",
+      "marks": 3,
+      "question": "Apply Naive Bayes classification algorithm for Outlook/Play dataset.",
+      "unit": 4,
+      "reason": "Bayesian Learning belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2026 (Portions L15-L28)",
+      "question_number": "2.b",
+      "marks": 6,
+      "question": "Explain the Elbow Method used for selecting the optimal value of k in clustering.",
+      "unit": 4,
+      "reason": "K-Means Clustering belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2026 (Portions L15-L28)",
+      "question_number": "3.a",
+      "marks": 3,
+      "question": "Age and Loan predictors in dataset. Apply K-NN Regression to find House Price Index (HPI) for Age=48, Loan=$142,000 for K=3.",
+      "unit": 3,
+      "reason": "Similarity-based learning (K-NN regression) is excluded from CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2026 (Portions L15-L28)",
+      "question_number": "3.b",
+      "marks": 6,
+      "question": "Illustrate with an example DBSCAN clustering algorithm: core, border, noise points.",
+      "unit": 4,
+      "reason": "Density-based clustering belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2026 (Portions L15-L28)",
+      "question_number": "3.c",
+      "marks": 6,
+      "question": "Explain the working of Random Forest and AdaBoost algorithms with suitable examples.",
+      "unit": 5,
+      "reason": "Ensemble Learning belongs to Unit 5, outside CIE-1 scope."
+    },
+    {
+      "paper": "SEE June/July 2026",
+      "question_number": "5.b",
+      "marks": 12,
+      "question": "For the Play-Tennis dataset, build the complete ID3 Decision Tree showing Entropy and Information Gain at each level.",
+      "unit": 3,
+      "reason": "Decision Tree ID3 is out of CIE-1 scope."
+    },
+    {
+      "paper": "SEE June/July 2026",
+      "question_number": "6.a, 6.b",
+      "marks": 20,
+      "question": "Naive Bayes classifier for Flu prediction; Linear SVM boundary and support vectors for bank fraud.",
+      "unit": 4,
+      "reason": "Bayesian Learning and Support Vector Machines belong to Units 4 & 5."
+    },
+    {
+      "paper": "SEE June/July 2026",
+      "question_number": "7.a, 7.b, 7.c",
+      "marks": 20,
+      "question": "K-Means clustering algorithm, DBSCAN core/border/noise, Elbow method for k.",
+      "unit": 4,
+      "reason": "Clustering belongs to Unit 4."
+    },
+    {
+      "paper": "SEE June/July 2026",
+      "question_number": "8.a, 8.b, 8.c",
+      "marks": 20,
+      "question": "DIANA hierarchical clustering, Single-linkage clustering, Expectation Maximization (EM).",
+      "unit": 4,
+      "reason": "Clustering & EM belong to Unit 4."
+    },
+    {
+      "paper": "SEE June/July 2026",
+      "question_number": "9.b, 9.c, 10.a, 10.b, 10.c",
+      "marks": 33,
+      "question": "Bagging vs Boosting, Feature subset selection, Model selection using hypothesis tests.",
+      "unit": 5,
+      "reason": "Ensemble learning belongs to Unit 5."
+    },
+    {
+      "paper": "SEE July 2024",
+      "question_number": "Q4, Q5, Q6",
+      "marks": 30,
+      "question": "ID3 Decision Tree with Gain Ratio; Naive Bayes with Laplacian correction.",
+      "unit": 3,
+      "reason": "Decision trees and Bayes classifiers are out of CIE-1 scope."
+    },
+    {
+      "paper": "SEE July 2024",
+      "question_number": "Q7, Q8, Q9, Q10",
+      "marks": 40,
+      "question": "K-Means, Agglomerative Hierarchical, Perceptron, Backpropagation in Multilayer Neural Networks.",
+      "unit": 4,
+      "reason": "Clustering and Neural Networks belong to Units 4 & 5."
+    },
+    {
+      "paper": "SEE May 2023",
+      "question_number": "Q3, Q4",
+      "marks": 20,
+      "question": "Decision Tree C4.5 split info; KNN classification with distance weights.",
+      "unit": 3,
+      "reason": "Similarity-based learning and Decision trees are excluded from CIE-1 scope."
+    },
+    {
+      "paper": "SEE May 2023",
+      "question_number": "Q5, Q6, Q7, Q8",
+      "marks": 40,
+      "question": "Naive Bayes document classification, SVM dual formulation, K-Means clustering, Backpropagation.",
+      "unit": 4,
+      "reason": "Bayesian, SVM, and Neural Networks belong to Units 4 & 5."
+    },
+    {
+      "paper": "MAKEUP 2024 & SUPPLE 2025",
+      "question_number": "Various",
+      "marks": 50,
+      "question": "Ensemble AdaBoost, Random Forests, K-Means, Perceptron algorithm.",
+      "unit": 5,
+      "reason": "Ensembles, Neural Networks, and Clustering belong to Units 4 & 5."
+    }
+  ]
+}
