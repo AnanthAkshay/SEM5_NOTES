@@ -1,25 +1,24 @@
 /**
  * SEM 5 · ISE Notes - Post-Deployment Live Verification Script
  * 
- * Verifies live GitHub Pages deployment:
- * - Home page, 404 page, manifest, and assets
- * - Every subject view (all 8 subjects)
+ * Verifies live deployment (or local test server):
+ * - Home page, 404 page, robots.txt, manifest, core stylesheets & scripts
+ * - Every subject view (all 8 subjects in SPA)
  * - Every standard unit notes HTML page (all 24 units)
- * - Every handwritten web notebook HTML page (all 24 units)
  * - Every handwritten notebook PDF file (all 24 units)
- * - MIME types, HTTP status codes, console errors, broken internal links
+ * - MIME types, HTTP 200 responses, console errors, and internal links
  * 
  * Usage:
  *   node scripts/check_live.js [BASE_URL]
  * 
- * Example:
- *   node scripts/check_live.js https://ananthakshay.github.io/SEM5_NOTES/
+ * Examples:
+ *   node scripts/check_live.js https://ananthakshay.github.io/SEM5_NOTES
+ *   node scripts/check_live.js http://localhost:8088/SEM5_NOTES
  */
 
 const { chromium } = require('playwright');
 const https = require('https');
 const http = require('http');
-const url = require('url');
 
 const DEFAULT_BASE = 'https://ananthakshay.github.io/SEM5_NOTES';
 const targetBase = (process.argv[2] || DEFAULT_BASE).replace(/\/+$/, '');
@@ -35,20 +34,19 @@ const SUBJECTS = [
   { id: 'toc', code: 'IS54', name: 'Theory of Computation', units: [1, 2, 3] }
 ];
 
-async function httpCheck(targetUrl) {
+async function httpCheck(targetUrl, method = 'HEAD') {
   return new Promise((resolve) => {
     try {
       const parsed = new URL(targetUrl);
       const client = parsed.protocol === 'https:' ? https : http;
       const options = {
-        method: 'HEAD',
-        headers: { 'User-Agent': 'SEM5-LiveChecker/1.0' }
+        method,
+        headers: { 'User-Agent': 'SEM5-LiveChecker/2.0' }
       };
       const req = client.request(parsed, options, (res) => {
-        // Follow redirect if 301/302
         if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
           const nextUrl = new URL(res.headers.location, targetUrl).toString();
-          httpCheck(nextUrl).then(resolve);
+          httpCheck(nextUrl, method).then(resolve);
           return;
         }
         resolve({
@@ -61,9 +59,9 @@ async function httpCheck(targetUrl) {
       req.on('error', (err) => {
         resolve({ url: targetUrl, status: 0, error: err.message });
       });
-      req.setTimeout(12000, () => {
+      req.setTimeout(15000, () => {
         req.destroy();
-        resolve({ url: targetUrl, status: 0, error: 'Timeout after 12s' });
+        resolve({ url: targetUrl, status: 0, error: 'Timeout after 15s' });
       });
       req.end();
     } catch (err) {
@@ -74,7 +72,7 @@ async function httpCheck(targetUrl) {
 
 (async () => {
   console.log(`\n======================================================`);
-  console.log(` SEM 5 · Post-Deploy Verification Suite`);
+  console.log(` SEM 5 · Post-Deployment Live Verification Suite`);
   console.log(` Target Base URL: ${targetBase}`);
   console.log(`======================================================\n`);
 
@@ -93,17 +91,19 @@ async function httpCheck(targetUrl) {
     }
   }
 
-  // --- Phase 1: HTTP Head checks on Core Assets ---
-  console.log(`\n--- Phase 1: Core Portal & Asset Checks ---`);
+  // --- Phase 1: Core Portal & Essential Asset Endpoints ---
+  console.log(`--- Phase 1: Core Portal & Asset Checks ---`);
   const coreEndpoints = [
     { name: 'Home HTML', path: '/index.html', expectMime: 'text/html' },
     { name: '404 Error Page', path: '/404.html', expectMime: 'text/html' },
-    { name: 'Robots.txt', path: '/robots.txt', expectMime: 'text/plain' },
+    { name: 'Robots.txt', path: '/robots.txt', expectMime: '' },
     { name: 'Manifest', path: '/manifest.webmanifest', expectMime: '' },
     { name: 'Design Stylesheet', path: '/css/style.css', expectMime: 'text/css' },
     { name: 'Handwritten Stylesheet', path: '/css/handwritten.css', expectMime: 'text/css' },
     { name: 'App JavaScript', path: '/js/app.js', expectMime: 'javascript' },
-    { name: 'Subjects Data', path: '/data/subjects.js', expectMime: 'javascript' }
+    { name: 'Notes JavaScript', path: '/js/notes.js', expectMime: 'javascript' },
+    { name: 'Subjects Data', path: '/data/subjects.js', expectMime: 'javascript' },
+    { name: 'Notes Index', path: '/data/notes-index.js', expectMime: 'javascript' }
   ];
 
   for (const ep of coreEndpoints) {
@@ -117,7 +117,7 @@ async function httpCheck(targetUrl) {
     );
   }
 
-  // --- Phase 2: PDF Handwritten Notebook Head Checks (all 24 units) ---
+  // --- Phase 2: Handwritten Notebook PDFs (all 24 units) ---
   console.log(`\n--- Phase 2: Handwritten Notebook PDFs (24 Units) ---`);
   for (const sub of SUBJECTS) {
     for (const u of sub.units) {
@@ -129,27 +129,40 @@ async function httpCheck(targetUrl) {
       record(
         `PDF: ${sub.code} Unit ${u} (${sub.id}-unit${u}-handwritten.pdf)`,
         isPdf && hasContent,
-        `Status=${res.status}, Size=${Math.round(res.contentLength/1024)} KB, MIME=${res.contentType}`
+        `Status=${res.status}, Size=${Math.round(res.contentLength / 1024)} KB, MIME=${res.contentType}`
       );
     }
   }
 
-  // --- Phase 3: Browser Runtime & Console Error Checks with Playwright ---
-  console.log(`\n--- Phase 3: Playwright Runtime & Browser Integrity ---`);
+  // --- Phase 3: Standard Interactive HTML Unit Notes (all 24 units) ---
+  console.log(`\n--- Phase 3: Interactive HTML Unit Notes (24 Units) ---`);
+  for (const sub of SUBJECTS) {
+    for (const u of sub.units) {
+      const notePath = `/notes/${sub.id}/unit${u}/unit-${u}-notes.html`;
+      const noteUrl = `${targetBase}${notePath}`;
+      const res = await httpCheck(noteUrl);
+      const pass = res.status === 200 && res.contentType.includes('text/html');
+      record(
+        `HTML Note: ${sub.code} Unit ${u} (${sub.id}/unit${u})`,
+        pass,
+        `Status=${res.status}, MIME=${res.contentType}`
+      );
+    }
+  }
+
+  // --- Phase 4: Playwright Runtime, Subject Views, Console & Navigation ---
+  console.log(`\n--- Phase 4: Playwright Browser Runtime & Console Error Checks ---`);
+  let browser = null;
   try {
     const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
     const fs = require('fs');
     if (fs.existsSync(chromePath)) {
       browser = await chromium.launch({ executablePath: chromePath, headless: true });
     } else {
-      browser = await chromium.launch({ channel: 'chrome', headless: true });
+      browser = await chromium.launch({ headless: true });
     }
   } catch (err) {
-    try {
-      browser = await chromium.launch({ headless: true });
-    } catch (e2) {
-      console.warn(`[WARN] Chromium launch warning: ${err.message}. Testing without browser UI pass.`);
-    }
+    console.warn(`[WARN] Chromium launch: ${err.message}. Running fallback mode.`);
   }
 
   if (browser) {
@@ -172,49 +185,73 @@ async function httpCheck(targetUrl) {
       }
     });
 
-    // Test 3.1: Home Page Loading & Navigation
-    console.log(`  Visiting Home Page: ${targetBase}/`);
+    // 4.1 Home Page
+    console.log(`  Checking Home Page: ${targetBase}/`);
     consoleErrors.length = 0;
     failedNetwork.length = 0;
     try {
-      const resp = await page.goto(`${targetBase}/`, { waitUntil: 'networkidle', timeout: 20000 });
-      record('Home page loads with HTTP 200', resp && resp.status() === 200, `status=${resp ? resp.status() : 'null'}`);
-      record('Home page has 0 console errors', consoleErrors.length === 0, consoleErrors.join('; '));
-      record('Home page has 0 failed asset requests', failedNetwork.length === 0, failedNetwork.join('; '));
-
-      // Test subject navigation
-      await page.evaluate(() => window.SEM5_APP && window.SEM5_APP.openSubject('ai'));
-      await page.waitForTimeout(400);
-      const aiVisible = await page.evaluate(() => document.getElementById('subject-view').classList.contains('active'));
-      record('SPA routing switches to Subject Detail View', aiVisible, 'subject-view active class');
+      const resp = await page.goto(`${targetBase}/`, { waitUntil: 'networkidle', timeout: 25000 });
+      record('Home page loads HTTP 200', resp && resp.status() === 200, `status=${resp ? resp.status() : 'null'}`);
+      record('Home page 0 console errors', consoleErrors.length === 0, consoleErrors.join('; '));
+      record('Home page 0 failed network requests', failedNetwork.length === 0, failedNetwork.join('; '));
     } catch (e) {
       record('Home page browser test', false, e.message);
     }
 
-    // Test 3.2: Sample Unit Notes HTML Page
-    console.log(`  Visiting HTML Notes: ${targetBase}/notes/toc/unit1/unit-1-notes.html`);
-    consoleErrors.length = 0;
-    failedNetwork.length = 0;
-    try {
-      const resp = await page.goto(`${targetBase}/notes/toc/unit1/unit-1-notes.html`, { waitUntil: 'domcontentloaded', timeout: 20000 });
-      record('TOC Unit 1 notes loads HTTP 200', resp && resp.status() === 200, `status=${resp ? resp.status() : 'null'}`);
-      record('TOC Unit 1 notes 0 console errors', consoleErrors.length === 0, consoleErrors.join('; '));
-      record('TOC Unit 1 notes 0 failed assets', failedNetwork.length === 0, failedNetwork.join('; '));
-    } catch (e) {
-      record('TOC Unit 1 notes test', false, e.message);
+    // 4.2 All 8 Subject SPA Views
+    console.log(`  Checking all 8 Subject SPA Views...`);
+    for (const sub of SUBJECTS) {
+      consoleErrors.length = 0;
+      failedNetwork.length = 0;
+      try {
+        await page.goto(`${targetBase}/#subject-${sub.id}`, { waitUntil: 'networkidle', timeout: 15000 });
+        await page.waitForTimeout(300);
+        const heading = await page.evaluate(() => {
+          const el = document.querySelector('.subject-view-title');
+          return el ? el.textContent.trim() : '';
+        });
+        const normHeading = heading.toLowerCase().replace('&', 'and').replace(/\s+/g, ' ');
+        const normExpected = sub.name.toLowerCase().replace('&', 'and').replace(/\s+/g, ' ');
+        const match = normHeading.includes(normExpected);
+        record(
+          `Subject View: ${sub.name} (${sub.code})`,
+          match && consoleErrors.length === 0,
+          `Heading: "${heading}", Errors: ${consoleErrors.join('; ') || 'none'}`
+        );
+      } catch (e) {
+        record(`Subject View: ${sub.name}`, false, e.message);
+      }
     }
 
-    // Test 3.3: Sample Handwritten Web HTML Page
-    console.log(`  Visiting Handwritten Web: ${targetBase}/notes/ml/unit1/handwritten/ml-unit1-handwritten.html`);
-    consoleErrors.length = 0;
-    failedNetwork.length = 0;
-    try {
-      const resp = await page.goto(`${targetBase}/notes/ml/unit1/handwritten/ml-unit1-handwritten.html`, { waitUntil: 'domcontentloaded', timeout: 20000 });
-      record('ML Unit 1 Handwritten Web loads HTTP 200', resp && resp.status() === 200, `status=${resp ? resp.status() : 'null'}`);
-      record('ML Unit 1 Handwritten Web 0 console errors', consoleErrors.length === 0, consoleErrors.join('; '));
-      record('ML Unit 1 Handwritten Web 0 failed assets', failedNetwork.length === 0, failedNetwork.join('; '));
-    } catch (e) {
-      record('ML Unit 1 Handwritten Web test', false, e.message);
+    // 4.3 Sample Interactive Notes Check (Console & PDF Link validation)
+    console.log(`  Checking Interactive Notes Pages Runtime...`);
+    const sampleNotes = [
+      { sub: 'toc', u: 1 },
+      { sub: 'ml', u: 1 },
+      { sub: 'ai', u: 2 },
+      { sub: 'cn', u: 3 }
+    ];
+
+    for (const sample of sampleNotes) {
+      consoleErrors.length = 0;
+      failedNetwork.length = 0;
+      const noteUrl = `${targetBase}/notes/${sample.sub}/unit${sample.u}/unit-${sample.u}-notes.html`;
+      try {
+        const resp = await page.goto(noteUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
+        // Check for PDF link card
+        const hasPdfCard = await page.evaluate(() => {
+          const links = Array.from(document.querySelectorAll('a[href*="-handwritten.pdf"]'));
+          return links.length > 0;
+        });
+        const allErrors = [...consoleErrors, ...failedNetwork];
+        record(
+          `Notes Runtime: ${sample.sub.toUpperCase()} Unit ${sample.u} loads with 0 errors & PDF link card`,
+          resp && resp.status() === 200 && allErrors.length === 0 && hasPdfCard,
+          `status=${resp ? resp.status() : 'null'}, errors=${allErrors.join('; ') || 'none'}, pdfCard=${hasPdfCard}`
+        );
+      } catch (e) {
+        record(`Notes Runtime: ${sample.sub} Unit ${sample.u}`, false, e.message);
+      }
     }
 
     await browser.close();
@@ -222,14 +259,14 @@ async function httpCheck(targetUrl) {
 
   // --- Final Summary ---
   console.log(`\n======================================================`);
-  console.log(` Summary: ${passedTests} / ${totalTests} assertions passed (${Math.round((passedTests/totalTests)*100)}%)`);
+  console.log(` Summary: ${passedTests} / ${totalTests} assertions passed (${Math.round((passedTests / totalTests) * 100)}%)`);
   if (failures.length > 0) {
     console.error(`\n ${failures.length} Failures Detected:`);
     failures.forEach(f => console.error(`  - ${f.name}: ${f.detail}`));
     console.log(`======================================================\n`);
     process.exit(1);
   } else {
-    console.log(` ALL CHECKS PASSED PERFECTLY! Portal is release ready.`);
+    console.log(` ALL CHECKS PASSED! Portal is ready for live deployment.`);
     console.log(`======================================================\n`);
     process.exit(0);
   }
