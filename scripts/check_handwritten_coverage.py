@@ -74,9 +74,9 @@ def check_unit_coverage(sub_id, unit_num):
     pdf_path = f"notes/{sub_id}/unit{unit_num}/handwritten/{sub_id}-unit{unit_num}-handwritten.pdf"
 
     if not os.path.exists(html_path):
-        return {"status": "SKIPPED", "reason": f"HTML not found: {html_path}"}
+        return {"status": "SKIPPED", "sub_id": sub_id, "unit": unit_num, "reason": f"HTML not found: {html_path}"}
     if not os.path.exists(pdf_path):
-        return {"status": "FAIL", "reason": f"PDF not found: {pdf_path}"}
+        return {"status": "FAIL", "sub_id": sub_id, "unit": unit_num, "reason": f"PDF not found: {pdf_path}"}
 
     with open(html_path, 'r', encoding='utf-8') as f:
         html_content = f.read()
@@ -194,19 +194,30 @@ def main():
     ALL_SUBS = ['cn', 'toc', 'ml', 'ai', 'se', 'rmipr', 'reactjs', 'evs']
     units_to_check = []
 
+    # Read in-scope units from data/scope.json
+    scope_units = {}
+    if os.path.exists('data/scope.json'):
+        try:
+            with open('data/scope.json', 'r', encoding='utf-8') as f:
+                sc = json.load(f)
+                for sid, sdata in sc.get('subjects', {}).items():
+                    scope_units[sid] = sdata.get('in_scope_units', [1, 2, 3])
+        except Exception:
+            pass
+
     if check_all:
         for s in ALL_SUBS:
-            for u in [1, 2, 3]:
+            for u in scope_units.get(s, [1, 2, 3]):
                 units_to_check.append((s, u))
     elif target_sub and target_unit:
         units_to_check.append((target_sub, target_unit))
     elif target_sub:
-        for u in [1, 2, 3]:
+        for u in scope_units.get(target_sub, [1, 2, 3]):
             units_to_check.append((target_sub, u))
     else:
         # Check all existing PDFs or pilot
         for s in ALL_SUBS:
-            for u in [1, 2, 3]:
+            for u in scope_units.get(s, [1, 2, 3]):
                 pdf_p = f"notes/{s}/unit{u}/handwritten/{s}-unit{u}-handwritten.pdf"
                 if os.path.exists(pdf_p):
                     units_to_check.append((s, u))
@@ -222,6 +233,8 @@ def main():
     print("HANDWRITTEN NOTEBOOK COVERAGE & GATES AUDIT REPORT")
     print("=======================================================")
     for r in results:
+        if r.get('status') == 'SKIPPED':
+            continue
         status_badge = "✅ PASS" if r.get('status') == 'PASS' else "❌ FAIL"
         fonts_badge = "Fonts: OK" if r.get('fonts_ok') else f"Fonts: FAIL ({r.get('disallowed_fonts')})"
         print(f"[{status_badge}] {r.get('sub_id', '').upper()} Unit {r.get('unit')}: Pages: {r.get('pages')}, PDF: {r.get('size_mb')} MB, Words: {r.get('pdf_words')}/{r.get('html_words')} (Ratio: {r.get('word_ratio')}), Headings: {r.get('h2_found')}/{r.get('h2_total')}, {fonts_badge}")

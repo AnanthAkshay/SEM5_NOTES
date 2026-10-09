@@ -133,7 +133,7 @@ window.SEM5_DATA = {
       },
       {
         "slNo": 10,
-        "code": "HS510",
+        "code": "24HS510",
         "name": "Environmental Studies",
         "dept": "Civil / H&S",
         "category": "NCMC",
@@ -3374,7 +3374,11 @@ window.SEM5_DATA = {
     },
     {
       "id": "evs",
-      "code": "HS510",
+      "code": "24HS510",
+      "examDate": "2026-10-16",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Fri 16-10-2026, 09:30–10:30",
+      "cie1Scope": "Unit 1, Unit 2 (Full)",
       "name": "Environmental Studies",
       "shortName": "EVS",
       "category": "NCMC",
@@ -3615,54 +3619,7 @@ window.SEM5_DATA = {
           ],
           "isSyllabusOnly": false
         },
-        {
-          "id": "evs-unit3",
-          "unitNumber": 3,
-          "title": "Unit 3: Environmental Pollution & Control",
-          "topics": "Causes, effects and control of air, water, soil, marine, noise, and thermal pollution. Solid waste management and disaster management.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "evs-u3-notes",
-              "title": "Unit 3: Interactive Notes",
-              "originalName": "unit-3-notes.html",
-              "path": "notes/evs/unit3/unit-3-notes.html",
-              "originalPath": null,
-              "type": "notes",
-              "tag": "Interactive notes",
-              "readingTime": "40 min read",
-              "size": "Interactive Notes",
-              "isConverted": false
-            },
-            {
-              "id": "evs-u3-handwritten-pdf",
-              "title": "Handwritten notebook (PDF)",
-              "originalName": "evs-unit3-handwritten.pdf",
-              "path": "notes/evs/unit3/handwritten/evs-unit3-handwritten.pdf",
-              "type": "handwritten",
-              "tag": "PDF Notebook",
-              "generated": true,
-              "pages": 19,
-              "size": "0.67 MB",
-              "sizeBytes": 703719,
-              "previewImage": "notes/evs/unit3/handwritten/evs-unit3-preview.webp",
-              "sourceHtml": "notes/evs/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "evs-u3-pdf",
-              "title": "Unit 3: Environmental Pollution & Control Presentation Notes",
-              "originalName": "Unit-3.pptx",
-              "path": "notes/evs/unit3/unit-3.pdf",
-              "originalPath": "notes/evs/unit3/unit-3.pptx",
-              "type": "pdf",
-              "size": "1.70 MB",
-              "sizeBytes": 1783149,
-              "isConverted": true
-            }
-          ],
-          "isSyllabusOnly": false
-        },
-        {
+         {
           "id": "evs-unit4",
           "unitNumber": 4,
           "title": "Unit 4: Social Issues & The Environment",
@@ -3682,6 +3639,39 @@ window.SEM5_DATA = {
             }
           ],
           "isSyllabusOnly": true
+        },
+        {
+          "id": "evs-pyq",
+          "unitNumber": "PYQ",
+          "title": "CIE-1 PYQ Bank & Model Answers",
+          "topics": "25 Solved examination questions covering Definition of environment & 4 domains (atmosphere, hydrosphere, lithosphere, biosphere), multidisciplinary nature & public awareness, energy flow laws & Lindeman's 10% law, food chains & food webs, ecological pyramids, biodiversity (HIPPO framework), sustainable development, ecological importance of forests (Earth's lungs) & deforestation, water resources global distribution & aquifer depletion, mineral extraction & AMD impacts, modern agriculture effects (eutrophication, blue baby syndrome, waterlogging, salinization), soil erosion types & conservation methods, desertification, energy sources, and comprehensive solved MCQs with rationale.",
+          "isPractice": true,
+          "files": [
+            {
+              "id": "evs-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/evs/pyq/pyq-answers.html",
+              "type": "pyq",
+              "tag": "Solved PYQs",
+              "readingTime": "28 min read",
+              "size": "Interactive Model Answers",
+              "isConverted": false
+            },
+            {
+              "id": "evs-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "evs-pyq-handwritten.pdf",
+              "path": "notes/evs/pyq/handwritten/evs-pyq-handwritten.pdf",
+              "type": "handwritten",
+              "tag": "PDF Notebook",
+              "generated": true,
+              "pages": 22,
+              "size": "0.70 MB",
+              "previewImage": "notes/evs/pyq/handwritten/evs-pyq-preview.webp",
+              "sourceHtml": "notes/evs/pyq/pyq-answers.html"
+            }
+          ]
         },
         {
           "id": "evs-unit5",

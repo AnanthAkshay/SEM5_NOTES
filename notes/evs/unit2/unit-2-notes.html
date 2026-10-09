@@ -68,6 +68,17 @@
       </div>
     </div>
   </header>
+      <div class="cie1-scope-banner" style="background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(249,115,22,0.09)); border: 1.5px solid rgba(239,68,68,0.35); border-radius: 12px; padding: 14px 18px; margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+          <span style="background: #ef4444; color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px; letter-spacing: 0.05em; text-transform: uppercase;">CIE-1 Scope</span>
+          <strong style="color: var(--text-primary); font-size: 14px;">Environmental Studies (24HS510) &bull; Unit 2 (Full Unit In Scope)</strong>
+          <span style="margin-left: auto; font-size: 12px; color: var(--text-muted); font-weight: 600;">Exam: Fri 16-10-2026, 09:30–10:30</span>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+          <strong>CIE-1 Syllabus Scope:</strong> Natural Resources & Sustainability, Forest Resources (Ecological Importance, Earth's Lungs, Deforestation), Water Resources (Global Distribution, Over-utilization, Aquifer Depletion), Mineral Resources (Mining Environmental Impacts, AMD), Food Resources & Modern Agriculture (Fertilizers, Pesticides, Waterlogging, Salinization), Land Resources & Soil Erosion, Desertification, Energy Resources Overview.
+        </p>
+      </div>
+
 
   <!-- Mobile 'On this page' Trigger Pill (under 1024px only) -->
   <div class="mobile-toc-bar">
@@ -135,27 +146,6 @@
         <a href="../unit2/unit-2-water-resources.pdf" class="source-link" target="_blank" rel="noopener">💧 Water Resources (PDF)</a>
         <a href="../unit2/unit-2-forest-resources.pdf" class="source-link" target="_blank" rel="noopener">🌲 Forest Resources (PDF)</a>
         <a href="../unit2/unit-2-energy-resources.pdf" class="source-link" target="_blank" rel="noopener">⚡ Energy Resources (PDF)</a>
-        </div>
-
-        <!-- Academic Verification & Syllabus Mapping Card -->
-        <div class="academic-verification-box" style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: var(--surface-alt); border-left: 4px solid var(--brand); border-radius: 8px; font-size: 0.92rem; line-height: 1.6;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--brand);"></span>
-            <strong style="color: var(--brand); font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.82rem;">Academic Verification &amp; Authentic Exam Alignment</strong>
-          </div>
-          <p style="margin: 0 0 0.5rem 0; color: var(--ink);">
-            <strong>Prescribed References:</strong> Erach Bharucha, <em>Textbook of Environmental Studies for Undergraduate Courses</em>, Universities Press / UGC India (Chapter 2: Natural Resources); Benny Joseph, <em>Environmental Studies</em>, McGraw-Hill; R. Rajagopalan, <em>Environmental Studies: From Crisis to Cure</em>, Oxford University Press.
-          </p>
-          <p style="margin: 0 0 0.5rem 0; color: var(--ink);">
-            <strong>Authentic Examination Papers Solved:</strong> Transcribed directly from official department paper in <code>notes/evs/practice/evs-cie1-qp-2024.docx</code> (Ramaiah Continuous Internal Evaluation - I, Course Code <strong>HS 510: Environmental Studies</strong>):
-          </p>
-          <ul style="margin: 0 0 0.5rem 0; padding-left: 1.2rem; color: var(--ink-muted); font-size: 0.88rem;">
-            <li><strong>Part A (1 Mark Each):</strong> Q4 Adverse impacts of mining; Q5 Types of soil erosion by wind (Saltation, creep, suspension); Q7 Afforestation; Q8 Resource sustainability criteria; Q9 Organic farming; Q10 Definition of minerals.</li>
-            <li><strong>Part B (5 Marks Each):</strong> Q1.b Environmental effects of using fossil fuels ($CO_2$, acid rain, smog); Q2.b Effects of overuse of freshwater and water resource problems (Groundwater depletion, saltwater intrusion, subsidence, Cauvery dispute); Q3.b Conventional vs. Renewable energy sources.</li>
-          </ul>
-          <p style="margin: 0; color: var(--ink-muted); font-size: 0.88rem;">
-            <strong>Mathematical &amp; Code Verification:</strong> Rooftop rainwater harvesting yield ($150\text{ m}^2 \times 0.9\text{ m} \times 0.85 = 114.75\text{ m}^3 = 114,750\text{ Litres}$) and solar PV carbon offset ($8,212.5\text{ kWh} \times 0.82 = 6,734.25\text{ kg CO}_2 = 6.734\text{ metric tons}$) verified via automated unit test suite (<code>audit/verify/evs/verify_evs_u2.py</code>).
-          </p>
         </div>
       </header>
 
@@ -962,115 +952,5 @@
   <script src="../../../assets/katex/katex.min.js"></script>
   <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
   <script src="../../../js/notes.js"></script>
-
-  <!-- Interactive EVS Unit 2 Water Harvesting & Solar Studio Engine -->
-  <script>
-  (function() {
-    // Tab switching
-    var tabRain = document.getElementById('tab-btn-rain');
-    var tabSolar = document.getElementById('tab-btn-solar');
-    var panelRain = document.getElementById('panel-rain');
-    var panelSolar = document.getElementById('panel-solar');
-
-    if (tabRain && tabSolar && panelRain && panelSolar) {
-      tabRain.addEventListener('click', function() {
-        tabRain.style.borderColor = 'var(--brand)';
-        tabRain.style.color = 'var(--brand)';
-        tabRain.style.opacity = '1';
-        tabRain.setAttribute('aria-selected', 'true');
-
-        tabSolar.style.borderColor = 'var(--border)';
-        tabSolar.style.color = 'var(--ink)';
-        tabSolar.style.opacity = '0.7';
-        tabSolar.setAttribute('aria-selected', 'false');
-
-        panelRain.style.display = 'block';
-        panelSolar.style.display = 'none';
-      });
-
-      tabSolar.addEventListener('click', function() {
-        tabSolar.style.borderColor = 'var(--brand)';
-        tabSolar.style.color = 'var(--brand)';
-        tabSolar.style.opacity = '1';
-        tabSolar.setAttribute('aria-selected', 'true');
-
-        tabRain.style.borderColor = 'var(--border)';
-        tabRain.style.color = 'var(--ink)';
-        tabRain.style.opacity = '0.7';
-        tabRain.setAttribute('aria-selected', 'false');
-
-        panelSolar.style.display = 'block';
-        panelRain.style.display = 'none';
-      });
-    }
-
-    // Panel 1: Rainwater Harvesting Engine
-    var inpArea = document.getElementById('input-roof-area');
-    var inpRain = document.getElementById('input-rainfall-mm');
-    var selCoeff = document.getElementById('select-roof-coeff');
-    var outLitres = document.getElementById('res-rain-litres');
-    var outM3 = document.getElementById('res-rain-m3');
-    var outDays = document.getElementById('res-water-days');
-
-    function updateRain() {
-      var a = parseFloat(inpArea ? inpArea.value : "150");
-      var rMm = parseFloat(inpRain ? inpRain.value : "900");
-      var c = parseFloat(selCoeff ? selCoeff.value : "0.85");
-
-      if (Number.isNaN(a) || Number.isNaN(rMm) || Number.isNaN(c) || a <= 0 || rMm <= 0) return;
-
-      var rM = rMm / 1000.0;
-      var vM3 = a * rM * c;
-      var vLitres = vM3 * 1000.0;
-
-      if (outLitres) outLitres.textContent = Math.round(vLitres).toLocaleString('en-US');
-      if (outM3) outM3.textContent = 'Volume: ' + vM3.toFixed(2) + ' m³ (' + a + ' × ' + rM.toFixed(2) + ' × ' + c + ')';
-
-      if (outDays) {
-        var dailyUse = 4 * 135; // 540 L/day
-        var days = (vLitres / dailyUse).toFixed(1);
-        outDays.innerHTML = 'Supplies a 4-person household (at 135 L/capita/day = 540 L/day) for <strong>' + days + ' days</strong> of clean domestic use!';
-      }
-    }
-
-    if (inpArea) inpArea.addEventListener('input', updateRain);
-    if (inpRain) inpRain.addEventListener('input', updateRain);
-    if (selCoeff) selCoeff.addEventListener('change', updateRain);
-
-    // Panel 2: Solar PV & Carbon Engine
-    var inpCap = document.getElementById('input-solar-cap');
-    var inpYield = document.getElementById('input-solar-yield');
-    var inpGrid = document.getElementById('input-grid-factor');
-    var outKwh = document.getElementById('res-solar-kwh');
-    var outFormula = document.getElementById('res-solar-formula');
-    var outOffsetKg = document.getElementById('res-solar-offset-kg');
-    var outOffsetTons = document.getElementById('res-solar-offset-tons');
-    var outTrees = document.getElementById('res-solar-trees');
-
-    function updateSolar() {
-      var cap = parseFloat(inpCap ? inpCap.value : "5.0");
-      var y = parseFloat(inpYield ? inpYield.value : "4.5");
-      var factor = parseFloat(inpGrid ? inpGrid.value : "0.82");
-
-      if (Number.isNaN(cap) || Number.isNaN(y) || Number.isNaN(factor) || cap <= 0 || y <= 0) return;
-
-      var kwh = cap * y * 365;
-      var offsetKg = kwh * factor;
-      var offsetTons = offsetKg / 1000.0;
-      var trees = Math.round(offsetKg / 22.0);
-
-      if (outKwh) outKwh.textContent = kwh.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' kWh';
-      if (outFormula) outFormula.textContent = cap.toFixed(1) + ' × ' + y.toFixed(1) + ' × 365 = ' + kwh.toFixed(1) + ' kWh/yr';
-      if (outOffsetKg) outOffsetKg.textContent = offsetKg.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' kg CO₂';
-      if (outOffsetTons) outOffsetTons.textContent = 'Equivalent to ' + offsetTons.toFixed(3) + ' Metric Tons of CO₂ Abated';
-      if (outTrees) outTrees.textContent = 'Equivalent to planting ~' + trees + ' mature tree seedlings!';
-    }
-
-    if (inpCap) inpCap.addEventListener('input', updateSolar);
-    if (inpYield) inpYield.addEventListener('input', updateSolar);
-    if (inpGrid) inpGrid.addEventListener('input', updateSolar);
-  })();
-  </script>
-
 </body>
 </html>

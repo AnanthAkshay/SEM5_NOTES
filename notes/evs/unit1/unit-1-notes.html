@@ -68,6 +68,17 @@
       </div>
     </div>
   </header>
+      <div class="cie1-scope-banner" style="background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(249,115,22,0.09)); border: 1.5px solid rgba(239,68,68,0.35); border-radius: 12px; padding: 14px 18px; margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+          <span style="background: #ef4444; color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px; letter-spacing: 0.05em; text-transform: uppercase;">CIE-1 Scope</span>
+          <strong style="color: var(--text-primary); font-size: 14px;">Environmental Studies (24HS510) &bull; Unit 1 (Full Unit In Scope)</strong>
+          <span style="margin-left: auto; font-size: 12px; color: var(--text-muted); font-weight: 600;">Exam: Fri 16-10-2026, 09:30–10:30</span>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+          <strong>CIE-1 Syllabus Scope:</strong> Scope & Domains of the Environment (Atmosphere, Hydrosphere, Lithosphere, Biosphere), Ecosystem Concept & Components, Energy Flow & Lindeman's 10% Law, Food Chains & Food Webs, Ecological Pyramids, Major Ecosystems, Ecological Succession, Biogeochemical Cycles, Biodiversity.
+        </p>
+      </div>
+
 
   <!-- Mobile 'On this page' Trigger Pill (under 1024px only) -->
   <div class="mobile-toc-bar">
@@ -136,27 +147,6 @@
         <a href="../unit1/unit-1.pdf" class="source-link" target="_blank" rel="noopener">📄 Unit 1 Slides (PDF)</a>
         <a href="../unit1/unit-1.pptx" class="source-link" target="_blank" rel="noopener">📊 Unit 1 Presentation (PPTX)</a>
         <a href="../practice/evs-cie1-qp-2024.pdf" class="source-link" target="_blank" rel="noopener">📝 CIE 1 Question Paper (2024)</a>
-        </div>
-
-        <!-- Academic Verification & Syllabus Mapping Card -->
-        <div class="academic-verification-box" style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: var(--surface-alt); border-left: 4px solid var(--brand); border-radius: 8px; font-size: 0.92rem; line-height: 1.6;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--brand);"></span>
-            <strong style="color: var(--brand); font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.82rem;">Academic Verification &amp; Authentic Exam Alignment</strong>
-          </div>
-          <p style="margin: 0 0 0.5rem 0; color: var(--ink);">
-            <strong>Prescribed References:</strong> Erach Bharucha, <em>Textbook of Environmental Studies for Undergraduate Courses</em>, Universities Press / UGC India (Chapters 1, 2 &amp; 3); Benny Joseph, <em>Environmental Studies</em>, McGraw-Hill; R. Rajagopalan, <em>Environmental Studies: From Crisis to Cure</em>, Oxford University Press.
-          </p>
-          <p style="margin: 0 0 0.5rem 0; color: var(--ink);">
-            <strong>Authentic Examination Papers Solved:</strong> Transcribed directly from official department paper in <code>notes/evs/practice/evs-cie1-qp-2024.docx</code> (Ramaiah Continuous Internal Evaluation - I, Course Code <strong>HS 510: Environmental Studies</strong>):
-          </p>
-          <ul style="margin: 0 0 0.5rem 0; padding-left: 1.2rem; color: var(--ink-muted); font-size: 0.88rem;">
-            <li><strong>Part A (1 Mark Each):</strong> Q1 Food chain vs. Food web; Q2 Domains of the environment; Q3 Natural vs. Man-made ecosystems; Q6 Blue baby syndrome (Nitrate contamination).</li>
-            <li><strong>Part B (5 Marks Each):</strong> Q1.a Definition of environment and its four domains (Atmosphere, Hydrosphere, Lithosphere, Biosphere); Q2.a Scope &amp; multidisciplinary nature; Q3.a Energy flow &amp; biogeochemical cycles.</li>
-          </ul>
-          <p style="margin: 0; color: var(--ink-muted); font-size: 0.88rem;">
-            <strong>Mathematical &amp; Code Verification:</strong> Lindeman 10% law energy degradation ($25,000 	o 2,500 	o 250 	o 25	ext{ kcal}$), Rule of 70 doubling time ($T = 70 / 1.75 = 40	ext{ years}$), and trophic transfer efficiency ($132 / 1200 	imes 100 = 11.0\%$) verified via automated unit test suite (<code>audit/verify/evs/verify_evs_u1.py</code>).
-          </p>
         </div>
       </header>
 
@@ -1055,140 +1045,5 @@
   <script src="../../../assets/katex/katex.min.js"></script>
   <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
   <script src="../../../js/notes.js"></script>
-
-  <!-- Interactive EVS Unit 1 Ecological Energy Studio Engine -->
-  <script>
-  (function() {
-    // Tab switching
-    var tabPyramid = document.getElementById('tab-btn-pyramid');
-    var tabCalc = document.getElementById('tab-btn-calc');
-    var panelPyramid = document.getElementById('panel-pyramid');
-    var panelCalc = document.getElementById('panel-calc');
-
-    if (tabPyramid && tabCalc && panelPyramid && panelCalc) {
-      tabPyramid.addEventListener('click', function() {
-        tabPyramid.style.borderColor = 'var(--brand)';
-        tabPyramid.style.color = 'var(--brand)';
-        tabPyramid.style.opacity = '1';
-        tabPyramid.setAttribute('aria-selected', 'true');
-
-        tabCalc.style.borderColor = 'var(--border)';
-        tabCalc.style.color = 'var(--ink)';
-        tabCalc.style.opacity = '0.7';
-        tabCalc.setAttribute('aria-selected', 'false');
-
-        panelPyramid.style.display = 'block';
-        panelCalc.style.display = 'none';
-      });
-
-      tabCalc.addEventListener('click', function() {
-        tabCalc.style.borderColor = 'var(--brand)';
-        tabCalc.style.color = 'var(--brand)';
-        tabCalc.style.opacity = '1';
-        tabCalc.setAttribute('aria-selected', 'true');
-
-        tabPyramid.style.borderColor = 'var(--border)';
-        tabPyramid.style.color = 'var(--ink)';
-        tabPyramid.style.opacity = '0.7';
-        tabPyramid.setAttribute('aria-selected', 'false');
-
-        panelCalc.style.display = 'block';
-        panelPyramid.style.display = 'none';
-      });
-    }
-
-    // Panel 1: Energy Pyramid Engine
-    var inpNpp = document.getElementById('input-npp');
-    var outT1 = document.getElementById('tier-1-val');
-    var outT2 = document.getElementById('tier-2-val');
-    var outT3 = document.getElementById('tier-3-val');
-    var outT4 = document.getElementById('tier-4-val');
-
-    function updatePyramid(val) {
-      var npp = parseFloat(val);
-      if (Number.isNaN(npp) || npp <= 0) return;
-
-      var t1 = npp;
-      var t2 = t1 * 0.10;
-      var t3 = t2 * 0.10;
-      var t4 = t3 * 0.10;
-
-      if (outT1) outT1.textContent = t1.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' kcal';
-      if (outT2) outT2.textContent = t2.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' kcal';
-      if (outT3) outT3.textContent = t3.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' kcal';
-      if (outT4) outT4.textContent = t4.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' kcal';
-    }
-
-    if (inpNpp) {
-      inpNpp.addEventListener('input', function() {
-        updatePyramid(inpNpp.value);
-      });
-    }
-
-    function applyPreset(nppVal, activeId) {
-      if (inpNpp) inpNpp.value = nppVal;
-      updatePyramid(nppVal);
-      ['preset-grassland', 'preset-forest', 'preset-desert'].forEach(function(id) {
-        var btn = document.getElementById(id);
-        if (btn) {
-          if (id === activeId) {
-            btn.style.borderColor = 'var(--brand)';
-            btn.style.color = 'var(--brand)';
-          } else {
-            btn.style.borderColor = 'var(--border)';
-            btn.style.color = 'var(--ink)';
-          }
-        }
-      });
-    }
-
-    var btnGrass = document.getElementById('preset-grassland');
-    var btnForest = document.getElementById('preset-forest');
-    var btnDesert = document.getElementById('preset-desert');
-
-    if (btnGrass) btnGrass.addEventListener('click', function() { applyPreset(25000, 'preset-grassland'); });
-    if (btnForest) btnForest.addEventListener('click', function() { applyPreset(40000, 'preset-forest'); });
-    if (btnDesert) btnDesert.addEventListener('click', function() { applyPreset(2000, 'preset-desert'); });
-
-    // Panel 2: Rule of 70 & Efficiency Engine
-    var inpGrowth = document.getElementById('input-growth-rate');
-    var outDoubling = document.getElementById('res-doubling-years');
-
-    function updateDoubling() {
-      var r = parseFloat(inpGrowth ? inpGrowth.value : "1.75");
-      if (outDoubling) {
-        if (!Number.isNaN(r) && r > 0) {
-          var t = 70.0 / r;
-          outDoubling.textContent = t.toFixed(2) + ' yrs';
-        } else {
-          outDoubling.textContent = '--';
-        }
-      }
-    }
-
-    if (inpGrowth) inpGrowth.addEventListener('input', updateDoubling);
-
-    var inpEin = document.getElementById('input-energy-in');
-    var inpEout = document.getElementById('input-energy-out');
-    var outEff = document.getElementById('res-trophic-eff');
-
-    function updateEff() {
-      var ein = parseFloat(inpEin ? inpEin.value : "1200");
-      var eout = parseFloat(inpEout ? inpEout.value : "132");
-      if (outEff) {
-        if (!Number.isNaN(ein) && !Number.isNaN(eout) && ein > 0) {
-          var eff = (eout / ein) * 100.0;
-          outEff.textContent = eff.toFixed(2) + '%';
-        } else {
-          outEff.textContent = '--';
-        }
-      }
-    }
-
-    if (inpEin) inpEin.addEventListener('input', updateEff);
-    if (inpEout) inpEout.addEventListener('input', updateEff);
-  })();
-  </script>
-
 </body>
 </html>

@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIE-1 PYQ Bank & Model Answers | Environmental Studies (24HS510) | SEM 5 ISE</title>
+  <meta name="description" content="Official CIE-1 solved previous year question bank with step-by-step model answers, numerical solutions, diagrams, and textbook citations for Environmental Studies (24HS510).">
+
+  <!-- Prevent Theme Flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('sem5_theme_v1');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Google Fonts Preconnect & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+
+  <!-- Single Shared Notes Stylesheet -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+  
+  <style>
+    .pyq-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+    }
+    .pyq-filter-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--surface-hover);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pyq-filter-btn:hover, .pyq-filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .pyq-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pyq-card:hover {
+      border-color: var(--accent);
+    }
+    .pyq-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.6rem;
+    }
+    .pyq-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pyq-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-unit { background: var(--surface-hover); color: var(--text-primary); }
+    .badge-marks { background: var(--green-tint); color: var(--green); }
+    .badge-high { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-med { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .pyq-years {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .year-chip {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--surface-hover);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .pyq-question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0.6rem 0 1rem 0;
+      line-height: 1.45;
+    }
+    .pyq-link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--surface-hover);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 0.75rem;
+    }
+    .pyq-link-chip:hover {
+      text-decoration: underline;
+    }
+    .pyq-answer-details {
+      border-top: 1px dashed var(--border-color);
+      padding-top: 0.8rem;
+    }
+    .pyq-answer-summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pyq-answer-body {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+    .pyq-citation {
+      margin-top: 0.8rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      background: var(--surface-hover);
+      border-left: 3px solid var(--accent);
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+    .cie1-banner {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.12));
+      border: 1.5px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .cie1-banner h3 {
+      margin: 0 0 0.4rem 0;
+      color: var(--text-primary);
+      font-size: 1.15rem;
+    }
+    .cie1-banner p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to question bank</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/evs" class="back-btn" title="Return to Environmental Studies Overview">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>← 24HS510 Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/evs">Environmental Studies</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">CIE-1 PYQ Bank</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="evs-pyq-notes" title="Mark this question bank as studied">
+          <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span class="btn-label-desktop">PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="notes-container">
+    <!-- Desktop Sticky Sidebar -->
+    <aside class="notes-sidebar" id="notes-sidebar" aria-label="Question Bank Navigation">
+      <div class="sidebar-header">
+        <span class="sidebar-label">PYQ Bank Navigation</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <ol class="toc-list">
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (10)</a></li>
+          <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (15)</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-content" id="main-content">
+      <!-- CIE-1 Scope Alert Banner -->
+      <div class="cie1-banner">
+        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
+        <p><strong>Course:</strong> Environmental Studies (24HS510) &bull; <strong>Exam Schedule:</strong>  (60 Mins, 30 Marks)</p>
+        <p style="margin-top:0.4rem;">Contains <strong>25 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
+      </div>
+
+      <header class="notes-header" id="summary-overview">
+        <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
+        <h1 class="notes-title">Environmental Studies PYQ Solutions</h1>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        
+        <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">25</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">0</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--green);">2</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">0</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Out-of-Scope Archived</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Quick Interactive Filter Pills -->
+      <div class="pyq-filter-bar">
+        <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
+        <button class="pyq-filter-btn active" data-filter="all">All (25)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (0)</button>
+        <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (10)</button>
+        <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (15)</button>
+      </div>
+
+      <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
+        <div class="section-badge">UNIT 1</div>
+        <h2 class="section-title">Unit 1 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
+
+        <!-- Question evs-q01 -->
+        <article class="pyq-card" id="evs-q01" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-env-scope" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; env-scope</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define Environment. Explain the four major domains/components of the environment and their interactions.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Environment</h4>
+<p>The word <strong>Environment</strong> is derived from the French word <em>'Environner'</em> meaning to encircle or surround. It represents the sum total of all external biotic (living) and abiotic (non-living) conditions and influences that surround and affect the life, development, and survival of an organism.</p>
+
+<h4>2. Four Major Domains/Components of Environment</h4>
+<ul>
+  <li><strong>1. Atmosphere (Gaseous Blanket):</strong> The protective gaseous layer surrounding the Earth held by gravity. Extends up to ~500 km. Divided into Troposphere (where weather occurs), Stratosphere (contains protective Ozone layer $O_3$), Mesosphere, and Thermosphere. Composed of $78\% \text{ } N_2$, $21\% \text{ } O_2$, $0.93\% \text{ } Ar$, and $0.04\% \text{ } CO_2$.</li>
+  <li><strong>2. Hydrosphere (Water Domain):</strong> Comprises all water resources on, under, and above the Earth's surface in liquid, frozen, and vapor forms. Covers approximately $71\%$ of the Earth's surface ($97.5\%$ saline ocean water, $2.5\%$ fresh water).</li>
+  <li><strong>3. Lithosphere (Outer Solid Crust):</strong> The rigid outer crust and upper mantle of the Earth consisting of rocks, minerals, and the weathered thin layer of soil supporting terrestrial life and agriculture.</li>
+  <li><strong>4. Biosphere (Zone of Life):</strong> The narrow global zone of intersection where the atmosphere, hydrosphere, and lithosphere interact to support life. Extends from deep ocean trenches (~10 km) to mountain peaks (~8 km).</li>
+</ul>
+
+<h4>3. Environmental Component Interactions</h4>
+<p>These four spheres constantly interact through <strong>biogeochemical cycles</strong> (hydrological, carbon, and nitrogen cycles) and <strong>energy flow</strong>. For example, rainfall from the atmosphere weathers rocks in the lithosphere, carrying dissolved minerals into the hydrosphere, which are then absorbed by plants in the biosphere.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra, Environmental Studies Unit 1 Notes, pp. 1–4; VTU Curriculum
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q02 -->
+        <article class="pyq-card" id="evs-q02" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-env-scope" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; env-scope</span>
+          </a>
+
+          <h3 class="pyq-question-text">Describe the multidisciplinary nature of Environmental Studies. Explain why public awareness is essential for environmental conservation.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Multidisciplinary Nature of Environmental Studies</h4>
+<p>Environmental Studies is inherently multidisciplinary because environmental issues are complex and cannot be resolved through any single scientific branch. It integrates:</p>
+<ul>
+  <li><strong>Biological Sciences (Biology, Ecology, Botany, Zoology):</strong> To understand species biodiversity, food webs, ecosystem dynamics, and habitat conservation.</li>
+  <li><strong>Physical & Chemical Sciences (Physics, Chemistry, Atmospheric Science):</strong> To analyze thermodynamics of energy transfer, chemical transformations of pollutants, greenhouse gases, and acid rain.</li>
+  <li><strong>Earth & Geosciences (Geology, Hydrology, Soil Science):</strong> To evaluate mineral reserves, groundwater aquifers, soil erosion, and natural disasters.</li>
+  <li><strong>Engineering & Technology (Civil, Environmental, Mechanical, IT):</strong> To engineer wastewater treatment plants, solid waste recycling systems, air scrubbers, renewable energy systems, and IoT sensor monitoring.</li>
+  <li><strong>Social Sciences & Economics (Law, Sociology, Economics, Policy):</strong> For environmental legislation (EPA), environmental impact assessment (EIA), carbon tax credits, and resource economics.</li>
+</ul>
+
+<h4>2. Need for Public Awareness</h4>
+<p>Government regulations alone cannot succeed without active grassroots citizen participation:</p>
+<ol>
+  <li><strong>Community Action:</strong> Sustainable management of commons (forests, water bodies) requires local community stewardship (e.g., Chipko movement, community rainwater harvesting).</li>
+  <li><strong>Consumer Lifestyle Modification:</strong> Educating the public drives reduction of single-use plastics, water conservation, and adoption of energy-efficient star-rated appliances.</li>
+  <li><strong>Democratic Accountability:</strong> An environmentally literate public holds corporations and municipalities accountable for industrial effluent disposal and air quality standards.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra, Unit 1 Notes, pp. 2–5
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q03 -->
+        <article class="pyq-card" id="evs-q03" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-energy-flow" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; energy-flow</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the concept of energy flow in an ecosystem. State Lindeman's 10% Law of energy transfer with an example.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Energy Flow Principles</h4>
+<p>Solar radiation is the primary energy source for all ecosystems. The flow of energy through an ecosystem obeys the universal laws of thermodynamics:</p>
+<ol>
+  <li><strong>First Law of Thermodynamics (Conservation):</strong> Energy can neither be created nor destroyed, only transformed. Green plants (autotrophs) transform radiant solar energy into chemical bond energy (glucose) via photosynthesis.</li>
+  <li><strong>Second Law of Thermodynamics (Entropy):</strong> Energy transformations are never $100\%$ efficient. Every energy transfer is accompanied by dissipation of heat energy into the surrounding environment, increasing entropy.</li>
+  <li><strong>Unidirectional Flow:</strong> Unlike chemical nutrients which cycle indefinitely, <strong>energy flow is strictly unidirectional</strong> (Sun $\rightarrow$ Producers $\rightarrow$ Herbivores $\rightarrow$ Carnivores $\rightarrow$ Apex Predators). Dissipated respiratory heat cannot be reused by plants.</li>
+</ol>
+
+<h4>2. Lindeman's 10% Law (Raymond Lindeman, 1942)</h4>
+<p><em>"During transfer of organic food energy from one trophic level to the next higher level, only about $10\%$ of the transferred energy is stored as new flesh/biomass; the remaining $90\%$ is lost to respiration, metabolic heat, and non-consumed waste."</em></p>
+
+<p><strong>Numerical Example (Grassland Food Chain):</strong></p>
+<ul>
+  <li>Sunlight captured by Grass (Producers, $T_1$): $10,000 \text{ kcal}$</li>
+  <li>Stored in Grasshoppers (Primary Consumers / Herbivores, $T_2$): $10,000 \times 0.10 = 1,000 \text{ kcal}$</li>
+  <li>Stored in Frogs (Secondary Consumers / Carnivores, $T_3$): $1,000 \times 0.10 = 100 \text{ kcal}$</li>
+  <li>Stored in Snakes (Tertiary Consumers, $T_4$): $100 \times 0.10 = 10 \text{ kcal}$</li>
+  <li>Stored in Hawk (Apex Predator, $T_5$): $10 \times 0.10 = 1 \text{ kcal}$</li>
+</ul>
+<p>Because energy attenuates exponentially, food chains are rarely longer than 4 to 5 trophic levels.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra, Unit 1 Notes, pp. 8–10; Odum Fundamentals of Ecology
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q04 -->
+        <article class="pyq-card" id="evs-q04" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-food-chains-webs" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; food-chains-webs</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain Food Chain and Food Web with suitable examples. Compare Grazing and Detritus food chains.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Food Chain</h4>
+<p>A <strong>Food Chain</strong> is a linear sequence of organisms through which nutrients and energy pass as one organism eats another. Each step represents a distinct <strong>trophic level</strong> ($T_1, T_2, \dots$).</p>
+<p><em>Example:</em> $\text{Grass } (T_1) \rightarrow \text{Grasshopper } (T_2) \rightarrow \text{Frog } (T_3) \rightarrow \text{Snake } (T_4) \rightarrow \text{Hawk } (T_5)$.</p>
+
+<h4>2. Food Web</h4>
+<p>A <strong>Food Web</strong> is an interconnected, complex network of multiple food chains operating simultaneously within an ecological community. In nature, linear food chains rarely exist in isolation because most organisms feed on multiple species and are preyed upon by multiple predators.</p>
+<p><strong>Significance:</strong> Food webs provide stability to ecosystems. If one prey species undergoes a population crash, predators switch to alternate prey pathways, maintaining ecological equilibrium.</p>
+
+<h4>3. Grazing vs. Detritus Food Chains</h4>
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Grazing Food Chain (GFC)</th>
+      <th>Detritus Food Chain (DFC)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Starting Point</strong></td>
+      <td>Starts with living green photosynthetic plants (Autotrophs, $T_1$).</td>
+      <td>Starts with dead organic matter, fallen leaves, and animal carcasses (Detritus).</td>
+    </tr>
+    <tr>
+      <td><strong>Primary Energy Source</strong></td>
+      <td>Direct solar radiation.</td>
+      <td>Chemical bond energy trapped in decaying detritus.</td>
+    </tr>
+    <tr>
+      <td><strong>Primary Consumers</strong></td>
+      <td>Herbivores (deer, cattle, caterpillars).</td>
+      <td>Decomposers and detritivores (fungi, bacteria, earthworms).</td>
+    </tr>
+    <tr>
+      <td><strong>Predominance</strong></td>
+      <td>Dominant energy pathway in open aquatic (oceanic, lake) ecosystems.</td>
+      <td>Dominant energy pathway in terrestrial forest and mangrove ecosystems.</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra, Unit 1 Notes, pp. 6–8
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q05 -->
+        <article class="pyq-card" id="evs-q05" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-ecological-pyramids" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; ecological-pyramids</span>
+          </a>
+
+          <h3 class="pyq-question-text">What are Ecological Pyramids? Explain the three types: Pyramid of Numbers, Biomass, and Energy with neat sketches and inverted cases.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Concept of Ecological Pyramids (Eltonian Pyramids)</h4>
+<p>An <strong>Ecological Pyramid</strong> is a graphical representation of ecological parameters (numbers, biomass, or energy) across successive trophic levels, with producers at the base and apex predators at the top.</p>
+
+<h4>2. Three Types of Pyramids</h4>
+<ol>
+  <li><strong>Pyramid of Numbers:</strong> Represents the total count of individual organisms at each trophic level.
+    <ul>
+      <li><em>Upright:</em> Grassland ecosystem (Millions of grass blades $\rightarrow$ Thousands of herbivores $\rightarrow$ Few carnivores).</li>
+      <li><em>Inverted:</em> Tree/Parasitic ecosystem (1 single large oak tree $\rightarrow$ Hundreds of herbivorous birds $\rightarrow$ Thousands of parasitic lice and fleas).</li>
+    </ul>
+  </li>
+  <li><strong>Pyramid of Biomass:</strong> Represents the total dry weight of living organic matter ($g/m^2$ or $kg/ha$) present at each trophic level.
+    <ul>
+      <li><em>Upright:</em> Terrestrial forest and grassland ecosystems (Forest biomass of trees $\gg$ herbivore biomass $\gg$ carnivore biomass).</li>
+      <li><em>Inverted:</em> Marine/Aquatic ecosystems (Phytoplankton base has small standing biomass at any instant, supporting a larger biomass of zooplankton and huge whales because of high phytoplankton turnover and rapid reproduction).</li>
+    </ul>
+  </li>
+  <li><strong>Pyramid of Energy:</strong> Represents the rate of energy flow or productivity ($kcal/m^2/yr$) at each level.
+    <ul>
+      <li><strong>ALWAYS UPRIGHT:</strong> Without exception in all ecosystems. By the Second Law of Thermodynamics and the 10% law, usable energy decreases at each progressive trophic level. It can <em>never</em> be inverted.</li>
+    </ul>
+  </li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra, Unit 1 Notes, pp. 10–13
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q06 -->
+        <article class="pyq-card" id="evs-q06" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-major-ecosystems" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; major-ecosystems</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is biodiversity? Explain its levels, values, and major threats (HIPPO framework).</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition and Levels of Biodiversity</h4>
+<p><strong>Biodiversity (Biological Diversity)</strong> refers to the variety and variability of all life forms on Earth, including terrestrial, marine, and other aquatic ecosystems and the ecological complexes of which they are a part. It exists at three hierarchical levels:</p>
+<ul>
+  <li><strong>1. Genetic Diversity:</strong> Variation of genes within a single species (e.g., thousands of distinct rice varieties, human genetic variation).</li>
+  <li><strong>2. Species Diversity:</strong> Variety of species within a given habitat or ecosystem (species richness and evenness).</li>
+  <li><strong>3. Ecosystem Diversity:</strong> Diversity of habitats, biotic communities, and ecological processes (e.g., mangroves, coral reefs, temperate forests, deserts).</li>
+</ul>
+
+<h4>2. Values of Biodiversity</h4>
+<ul>
+  <li><strong>Consumptive Use Value:</strong> Direct utilization of biological resources harvested and consumed locally (firewood, wild fruits, medicinal herbs).</li>
+  <li><strong>Productive Use Value:</strong> Commercially harvested products sold in national and international markets (timber, silk, pharmaceuticals, fish).</li>
+  <li><strong>Ecological / Ecosystem Service Value:</strong> Maintenance of climate, oxygen generation, carbon sequestration, watershed protection, pollination of agricultural crops.</li>
+</ul>
+
+<h4>3. Major Threats to Biodiversity (HIPPO Framework)</h4>
+<ol>
+  <li><strong>H - Habitat Destruction & Fragmentation:</strong> Deforestation, highway construction, and urban encroachment (the leading cause of species extinction).</li>
+  <li><strong>I - Invasive Alien Species:</strong> Non-native species outcompeting endemic species (e.g., Water Hyacinth, Lantana camara).</li>
+  <li><strong>P - Pollution:</strong> Pesticide biomagnification, acid rain, ocean plastic debris.</li>
+  <li><strong>P - Population Growth:</strong> Exponential human population driving unsustainable consumption.</li>
+  <li><strong>O - Overexploitation & Poaching:</strong> Commercial overfishing, illegal wildlife trade (elephant ivory, tiger skins).</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra, Unit 1 Notes; E.O. Wilson Biodiversity Studies
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q16 -->
+        <article class="pyq-card" id="evs-q16" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-food-chains-webs" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; food-chains-webs</span>
+          </a>
+
+          <h3 class="pyq-question-text">A linear network of links in a food web starting from producers to apex predators is called:
+(a) Food Web  (b) Food chain  (c) Ecological chain  (d) None of the above</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (b) Food chain</strong></p>
+<p><em>Justification:</em> A food chain is by definition a linear unidirectional sequence of trophic links showing who eats whom, from primary autotrophs to apex predators.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. Raghavendra Notes; CIE-1 2024 QP
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q17 -->
+        <article class="pyq-card" id="evs-q17" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-env-scope" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; env-scope</span>
+          </a>
+
+          <h3 class="pyq-question-text">The four fundamental domains of the environment are:
+(a) Lithosphere and hydrosphere
+(b) Hydrosphere, lithosphere and atmosphere
+(c) Atmosphere, lithosphere and biosphere
+(d) Lithosphere, hydrosphere, atmosphere and biosphere</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (d) Lithosphere, hydrosphere, atmosphere and biosphere</strong></p>
+<p><em>Justification:</em> The total Earth system consists of the three abiotic spheres (land, water, air) and the biotic zone of life (biosphere).</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. Raghavendra Notes; CIE-1 2024 QP
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q18 -->
+        <article class="pyq-card" id="evs-q18" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-energy-flow" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; energy-flow</span>
+          </a>
+
+          <h3 class="pyq-question-text">In an ecosystem, the flow of energy is always:
+(a) Bidirectional  (b) Cyclic  (c) Multidirectional  (d) Unidirectional</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (d) Unidirectional</strong></p>
+<p><em>Justification:</em> Energy flows strictly from Sun $\rightarrow$ Producers $\rightarrow$ Consumers; respiratory heat dissipated into the environment cannot be chemically re-assimilated by plants.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. Raghavendra Notes; Odum Ecology
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q25 -->
+        <article class="pyq-card" id="evs-q25" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-env-scope" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; env-scope</span>
+          </a>
+
+          <h3 class="pyq-question-text">World Environment Day is celebrated globally every year on:
+(a) 5th June  (b) 20th July  (c) 22nd March  (d) 5th September</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (a) 5th June</strong></p>
+<p><em>Justification:</em> Designated by the UN General Assembly in 1972 on the opening day of the Stockholm Conference on the Human Environment.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> UNEP Official Calendar; Dr. Raghavendra Notes
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
+        <div class="section-badge">UNIT 2</div>
+        <h2 class="section-title">Unit 2 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
+
+        <!-- Question evs-q07 -->
+        <article class="pyq-card" id="evs-q07" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-resource-foundations" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; resource-foundations</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define Sustainable Development. What are its core objectives and key principles?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Sustainable Development</h4>
+<p>According to the 1987 UN World Commission on Environment and Development (Brundtland Commission):<br>
+<em>"Sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs."</em></p>
+
+<h4>2. Three Pillars of Sustainability</h4>
+<ul>
+  <li><strong>Economic Sustainability:</strong> Growth that creates prosperity and equitable wealth without resource depletion.</li>
+  <li><strong>Environmental Sustainability:</strong> Conserving natural capital, protecting ecological integrity, and operating within planetary boundaries.</li>
+  <li><strong>Social Sustainability:</strong> Ensuring equity, public health, human rights, and social justice across communities.</li>
+</ul>
+
+<h4>3. Core Principles & Steps for Implementation</h4>
+<ol>
+  <li><strong>Conservation of Non-Renewable Resources:</strong> Minimizing fossil fuel burning and mineral depletion through recycling and substitution.</li>
+  <li><strong>Sustainable Harvest of Renewables:</strong> Ensuring rate of harvesting groundwater, forests, and fisheries does not exceed natural regeneration rates ($Harvest \le Regeneration$).</li>
+  <li><strong>Inter-Generational Equity:</strong> Passing on a healthy, biodiverse biosphere to posterity.</li>
+  <li><strong>Adoption of Clean Technologies:</strong> Transition to solar, wind, circular economy, and green chemistry.</li>
+  <li><strong>Polluter Pays Principle:</strong> Holding polluters economically responsible for environmental damage caused.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Brundtland Report (Our Common Future, 1987); Dr. H U Raghavendra Unit 2 Notes
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q08 -->
+        <article class="pyq-card" id="evs-q08" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-forest-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; forest-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Bring out the ecological and commercial importance of forest resources. Why are forests referred to as 'Earth's Lungs'?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Ecological Functions of Forests (Why Forests are 'Earth's Lungs')</h4>
+<p>Forests are called <strong>Earth's Lungs</strong> because through photosynthetic gas exchange, dense forest canopies absorb massive volumes of carbon dioxide ($CO_2$) and release oxygen ($O_2$) vital for aerobic life:</p>
+<ul>
+  <li><strong>Carbon Sink & Climate Regulation:</strong> Forests sequester over $45\%$ of terrestrial carbon. They act as thermal buffers and regulate precipitation through evapotranspiration.</li>
+  <li><strong>Soil Conservation:</strong> Tree canopies intercept severe rain droplets, while root networks bind topsoil, preventing soil erosion, flash floods, and landslides.</li>
+  <li><strong>Hydrological Regulation:</strong> Sponge-like forest litter promotes rainwater percolation, recharging groundwater aquifers and maintaining perennial river flows.</li>
+  <li><strong>Biodiversity Sanctuary:</strong> Forests house more than $80\%$ of terrestrial species of animals, plants, and insects.</li>
+</ul>
+
+<h4>2. Productive / Commercial Functions of Forests</h4>
+<ul>
+  <li><strong>Timber & Wood Pulp:</strong> Hardwoods and softwoods for construction, furniture, railway sleepers, and paper manufacturing.</li>
+  <li><strong>Non-Timber Forest Products (NTFPs):</strong> Bamboo, canes, natural resins, tannins, gums, essential oils, and wild honey.</li>
+  <li><strong>Medicinal Resources:</strong> Over $25\%$ of modern pharmaceuticals are derived from tropical forest plants (e.g., Quinine, Taxol, digitalis).</li>
+  <li><strong>Fuelwood & Fodder:</strong> Lifeline for millions of rural and indigenous tribal communities for domestic cooking and livestock grazing.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Recent Notes - 1. Unit-2 Forest resources; Dr. H U Raghavendra
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q09 -->
+        <article class="pyq-card" id="evs-q09" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-forest-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; forest-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Write a note on deforestation. Explain its major causes, ecological consequences, and preventive measures.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition and Major Causes of Deforestation</h4>
+<p><strong>Deforestation</strong> refers to the permanent removal and clearing of forest stands for non-forest land uses. Key causes include:</p>
+<ol>
+  <li><strong>Expansion of Agriculture:</strong> Clearing virgin forests for commercial cash crops (soy, oil palm) and cattle ranching (responsible for over $70\%$ of tropical deforestation).</li>
+  <li><strong>Commercial Logging:</strong> Indiscriminate timber felling for paper, packaging, and furniture.</li>
+  <li><strong>Infrastructure Projects:</strong> Construction of highways, large hydroelectric dams (submerging river valleys), and transmission lines.</li>
+  <li><strong>Mining Activities:</strong> Surface opencast mining for coal, iron ore, and bauxite in ecologically fragile forested hills.</li>
+  <li><strong>Overgrazing & Forest Fires:</strong> Livestock trampling seedlings and natural or human-induced wildfires.</li>
+</ol>
+
+<h4>2. Ecological Consequences</h4>
+<ul>
+  <li><strong>Accelerated Climate Change:</strong> Burning and decaying felled trees releases stored carbon into the atmosphere, contributing to global warming.</li>
+  <li><strong>Loss of Topsoil & Desertification:</strong> Bare slopes undergo severe gully and rill erosion.</li>
+  <li><strong>Aggravated Floods & Droughts:</strong> Loss of water retention capacity causes sudden flash floods in monsoons followed by severe summer river dry-outs.</li>
+  <li><strong>Extinction of Endemic Species & Human-Wildlife Conflict:</strong> Displacement of elephants, tigers, and leopards into adjoining villages.</li>
+</ul>
+
+<h4>3. Preventive Measures</h4>
+<p>Large-scale <strong>Afforestation</strong> (planting new forests on degraded land), <strong>Reforestation</strong>, promotion of Joint Forest Management (JFM), strict enforcement of Forest Conservation Act, and adopting eco-friendly timber alternatives.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra Unit 2 Notes; Recent Notes PDF 1
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q10 -->
+        <article class="pyq-card" id="evs-q10" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-water-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; water-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain global water resources distribution. Discuss the problems associated with over-utilization of surface and groundwater.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Global Distribution of Water Resources</h4>
+<p>Water covers approximately $71\%$ of the Earth's total surface area, but freshwater availability is extremely scarce:</p>
+<ul>
+  <li><strong>Total Earth Water:</strong> $97.5\%$ is saline ocean water; only $2.5\%$ is Fresh Water.</li>
+  <li><strong>Breakdown of the $2.5\%$ Fresh Water:</strong>
+    <ul>
+      <li>$68.7\%$ is locked in polar ice caps and continental glaciers (Greenland, Antarctica).</li>
+      <li>$30.1\%$ is Groundwater stored in deep underground aquifers.</li>
+      <li>$0.9\%$ is permafrost and soil moisture.</li>
+      <li><strong>Only $0.3\%$ is accessible surface freshwater</strong> in lakes ($87\%$), swamps ($11\%$), and rivers ($2\%$).</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>2. Problems of Over-utilization of Water Resources</h4>
+<ol>
+  <li><strong>Aquifer Depletion & Falling Water Tables:</strong> Unrestricted borewell pumping for water-intensive cash crops lowers water tables by several meters annually, causing tube-wells to run dry.</li>
+  <li><strong>Land Subsidence:</strong> Excessive groundwater withdrawal causes compaction of subterranean clay and rock layers, leading to ground sinking (e.g., Mexico City, Jakarta).</li>
+  <li><strong>Saline Water Intrusion:</strong> Over-pumping in coastal aquifers reverses hydraulic gradients, drawing seawater into coastal drinking water wells.</li>
+  <li><strong>Interstate & Transboundary Water Disputes:</strong> Diminishing river flow triggers bitter conflicts between riparian states (e.g., Cauvery water dispute between Karnataka and Tamil Nadu).</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Recent Notes - 2. Unit-2 Water resources; USGS Water Data
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q11 -->
+        <article class="pyq-card" id="evs-q11" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-mineral-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; mineral-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Discuss the environmental impacts of extracting and processing mineral resources (Mining impacts).</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Environmental Impacts of Mining and Mineral Extraction</h4>
+<p>Mineral extraction through open-cast and underground mining generates severe, long-lasting environmental disruption across all ecological spheres:</p>
+
+<ol>
+  <li><strong>Land Degradation & Landscape Spoilage:</strong> Open-cast mining excavates vast pits, strips fertile topsoil, and deposits toxic mine overburden and tailings heaps, turning green terrain into barren moonscapes.</li>
+  <li><strong>Deforestation & Habitat Loss:</strong> Most mineral deposits (iron ore, bauxite, coal) occur under biodiversity-rich forest hills. Mining mandates extensive tree felling, fragmenting wildlife corridors.</li>
+  <li><strong>Acid Mine Drainage (AMD):</strong> When sulfide-bearing ores (pyrite $FeS_2$) are exposed to atmospheric air and water, chemical oxidation generates dilute sulfuric acid ($H_2SO_4$). This acidic runoff leaches heavy metals (arsenic, cadmium, lead) into nearby streams, sterilizing aquatic life.</li>
+  <li><strong>Air Pollution:</strong> Blasting, haul-truck traffic, crushing, and smelting release massive volumes of particulate matter ($PM_{2.5}, PM_{10}$), sulfur dioxide ($SO_2$), and carbon monoxide ($CO$), causing respiratory illnesses among miners and surrounding villagers.</li>
+  <li><strong>Ground Subsidence:</strong> Underground mining without proper backfilling creates subterranean voids that collapse, causing surface land sinking, building damage, and altered surface drainage patterns.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Recent Notes - 3. Unit-2 Mineral resources; Dr. H U Raghavendra
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q12 -->
+        <article class="pyq-card" id="evs-q12" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-food-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; food-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Discuss the environmental impacts of Modern Agriculture. Explain issues related to fertilizers, pesticides, waterlogging, and salinization.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Impacts of Modern Agriculture on the Environment</h4>
+<p>While the Green Revolution increased agricultural productivity through High Yielding Varieties (HYV), it introduced severe ecological consequences:</p>
+
+<table class="notes-table">
+  <thead>
+    <tr>
+      <th>Domain</th>
+      <th>Environmental Problem</th>
+      <th>Ecological & Health Mechanism</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Chemical Fertilizers</strong></td>
+      <td><strong>Eutrophication & Blue Baby Syndrome</strong></td>
+      <td>Excess nitrogen ($N$) and phosphorus ($P$) fertilizer runoff enters ponds and lakes, causing explosive algal blooms that deplete dissolved oxygen ($DO$), killing fish. Nitrate percolation into well-water causes <em>Methemoglobinemia (Blue Baby Syndrome)</em> in infants by reducing oxygen-carrying blood capacity.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Chemical Pesticides</strong></td>
+      <td><strong>Biomagnification & Pest Resistance</strong></td>
+      <td>Non-biodegradable synthetic organochlorines (e.g., DDT) accumulate in fatty tissues. Their concentration multiplies exponentially up successive trophic levels (<em>Biomagnification</em>), causing eggshell thinning in predatory birds. Overuse also produces pesticide-resistant "super-pests".</td>
+    </tr>
+    <tr>
+      <td><strong>3. Over-Irrigation</strong></td>
+      <td><strong>Waterlogging</strong></td>
+      <td>Excessive irrigation water saturates the soil root zone. Air pockets in the soil are displaced by water, depriving plant roots of oxygen and stunting crop respiration.</td>
+    </tr>
+    <tr>
+      <td><strong>4. Soil Chemistry</strong></td>
+      <td><strong>Soil Salinization</strong></td>
+      <td>In arid regions, over-irrigation raises the subterranean water table. Saline groundwater evaporates at the surface through capillary action, leaving a white crust of toxic salts (NaCl, $Na_2SO_4$), turning fertile land sterile.</td>
+    </tr>
+  </tbody>
+</table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Recent Notes - 4. Unit-2 Food resources; Dr. H U Raghavendra
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q13 -->
+        <article class="pyq-card" id="evs-q13" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-land-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; land-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define Soil Erosion. Explain the different types of soil erosion by water and wind, and list methods of soil conservation.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Soil Erosion</h4>
+<p><strong>Soil Erosion</strong> is the detachment, transportation, and washing away of the fertile upper topsoil layer by natural agents like running water, wind, gravity, or human mismanagement. Because $1 \text{ cm}$ of topsoil requires 200–400 years to form naturally, unchecked erosion causes rapid land degradation.</p>
+
+<h4>2. Types of Soil Erosion</h4>
+<ul>
+  <li><strong>Water Erosion:</strong>
+    <ul>
+      <li><em>Sheet Erosion:</em> Uniform, thin, progressive removal of topsoil across an entire field by sheet flow of rainwater. Highly insidious because it occurs unnoticed.</li>
+      <li><em>Rill Erosion:</em> Rainwater runoff carves numerous tiny finger-like micro-channels (rills) across the soil surface.</li>
+      <li><em>Gully Erosion:</em> Advanced stage where rills deepen and widen into massive canyons/ravines, rendering land unplowable (e.g., Chambal ravines).</li>
+    </ul>
+  </li>
+  <li><strong>Wind Erosion:</strong> Prevalent in arid and semi-arid tracts:
+    <ul>
+      <li><em>Saltation:</em> Bouncing and hopping of intermediate soil grains ($0.1 - 0.5 \text{ mm}$). Accounts for 50–70% of wind erosion.</li>
+      <li><em>Surface Creep:</em> Rolling of heavier soil grains along the surface ($0.5 - 1.0 \text{ mm}$).</li>
+      <li><em>Suspension:</em> Lifting of ultra-fine particles ($&lt; 0.1 \text{ mm}$) into high atmospheric air streams, carried over hundreds of kilometers as dust storms.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>3. Soil Conservation Methods</h4>
+<ol>
+  <li><strong>Contour Bunding & Terracing:</strong> Carving stepped terraces and earthen bunds across slope contours to reduce water runoff velocity.</li>
+  <li><strong>Shelterbelts / Windbreaks:</strong> Planting dense rows of tall trees perpendicular to prevailing winds to decelerate wind velocity in desert borders.</li>
+  <li><strong>Cover Cropping & Mulching:</strong> Keeping land vegetated year-round using legumes to anchor topsoil.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Recent Notes - 5. Unit-2 Land resources; Dr. H U Raghavendra
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q14 -->
+        <article class="pyq-card" id="evs-q14" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-land-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; land-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is Desertification? Explain its primary causes and preventive strategies.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Desertification</h4>
+<p><strong>Desertification</strong> is the persistent degradation of dryland ecosystems (arid, semi-arid, and sub-humid lands) resulting from human activities and climatic variations. It involves the loss of biological and economic productivity of land, effectively transforming fertile soil into barren desert terrain.</p>
+
+<h4>2. Primary Causes of Desertification</h4>
+<ol>
+  <li><strong>Overgrazing:</strong> Excessive livestock density strips vegetative ground cover, destroying root mats and exposing bare soil to severe wind and water erosion.</li>
+  <li><strong>Deforestation for Firewood & Agriculture:</strong> Removal of dryland tree species eliminates natural windbreaks and lowers groundwater levels.</li>
+  <li><strong>Poor Irrigation Management:</strong> Over-irrigation without adequate drainage induces severe soil salinization and alkalinization.</li>
+  <li><strong>Recurrent Droughts:</strong> Prolonged rainfall deficits combined with intensive human exploitation prevent natural ecological regeneration.</li>
+</ol>
+
+<h4>3. Preventive & Remedial Strategies</h4>
+<ul>
+  <li><strong>Afforestation & Sand Dune Stabilization:</strong> Planting drought-tolerant indigenous species (e.g., Acacia, Prosopis cineraria) and erecting physical fences to arrest shifting sand dunes.</li>
+  <li><strong>Regulated Grazing:</strong> Adopting rotational grazing to allow grass root regeneration.</li>
+  <li><strong>Micro-Irrigation:</strong> Transitioning from flood irrigation to drip and sprinkler systems to prevent salinization.</li>
+  <li><strong>Watershed Management & Rainwater Harvesting:</strong> Constructing check dams to elevate local groundwater tables.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Recent Notes - 5. Unit-2 Land resources; UNCCD Guidelines
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q15 -->
+        <article class="pyq-card" id="evs-q15" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-energy-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; energy-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Write a note on Energy Resources. Compare Conventional (Fossil) and Non-Conventional (Renewable) energy sources, highlighting the environmental effects of using fossil fuels.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Classification of Energy Sources</h4>
+<ul>
+  <li><strong>Conventional / Non-Renewable Energy:</strong> Traditional energy sources formed over millions of years through geological processes with finite global reserves (Coal, Petroleum, Natural Gas, Uranium). Once consumed, they cannot be replenished on a human timescale.</li>
+  <li><strong>Non-Conventional / Renewable Energy:</strong> Clean, naturally replenishing energy flows derived from continuous solar and planetary phenomena (Solar photovoltaic, Wind power, Hydroelectric, Biomass, Geothermal, Ocean/Tidal energy).</li>
+</ul>
+
+<h4>2. Environmental Effects of Fossil Fuel Combustion</h4>
+<ol>
+  <li><strong>Greenhouse Gas Emissions & Global Warming:</strong> Burning coal, diesel, and petrol produces massive quantities of $CO_2$, the primary driver of anthropogenic climate change.</li>
+  <li><strong>Acid Rain Formation:</strong> Combustion of sulfur-rich coal and oil emits sulfur dioxide ($SO_2$) and nitrogen oxides ($NO_x$), which react with atmospheric water vapor to produce sulfuric acid ($H_2SO_4$) and nitric acid ($HNO_3$), corroding buildings and acidifying lakes.</li>
+  <li><strong>Photochemical Smog & Particulate Pollution:</strong> Unburnt hydrocarbons and particulate matter ($PM_{2.5}$) trigger severe urban smog, asthma, and chronic bronchitis.</li>
+  <li><strong>Fly Ash and Oil Spills:</strong> Coal thermal plants generate mountains of hazardous fly ash, while marine petroleum shipping risks catastrophic ocean tanker spills.</li>
+</ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Dr. H U Raghavendra, Unit 2 Notes, Energy Resources Section
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q19 -->
+        <article class="pyq-card" id="evs-q19" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-food-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; food-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Blue baby syndrome (Methemoglobinemia) in human infants is caused by high concentrations of:
+(a) Arsenic  (b) Nitrates  (c) Phosphates  (d) Sulphates</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (b) Nitrates</strong></p>
+<p><em>Justification:</em> Excess nitrate ($NO_3^-$) from chemical fertilizer leaching into drinking water reacts with hemoglobin in infants to form methemoglobin, inhibiting blood oxygen transport.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Food Resources Notes; WHO Guidelines
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q20 -->
+        <article class="pyq-card" id="evs-q20" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-forest-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; forest-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Extensive planting of trees to increase forest cover on non-forest or deforested land is called:
+(a) Afforestation  (b) Agro forestation  (c) Deforestation  (d) Social forestry</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (a) Afforestation</strong></p>
+<p><em>Justification:</em> Afforestation is the establishment of a forest or stand of trees in an area where there was no previous tree cover.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Forest Resources Notes
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q21 -->
+        <article class="pyq-card" id="evs-q21" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-water-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; water-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">The largest share of global freshwater on Earth is found in:
+(a) Rivers  (b) Underground aquifers  (c) Glaciers and ice caps  (d) Lakes</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (c) Glaciers and ice caps</strong></p>
+<p><em>Justification:</em> Polar ice caps and glaciers store $68.7\%$ of total global freshwater, followed by groundwater ($30.1\%$); rivers and lakes together constitute less than $0.3\%$.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Water Resources Notes; USGS Water Data
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q22 -->
+        <article class="pyq-card" id="evs-q22" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-food-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; food-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Eutrophication of water bodies is primarily caused by increased levels of:
+(a) Fertilizers  (b) Mining  (c) Salinization  (d) None of these</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (a) Fertilizers</strong></p>
+<p><em>Justification:</em> Agricultural runoff rich in nitrogen and phosphorus fertilizers causes nutrient hyper-enrichment (eutrophication), triggering algal blooms and deoxygenation.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Food Resources Notes
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q23 -->
+        <article class="pyq-card" id="evs-q23" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-food-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; food-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Waterlogging is a phenomenon in which:
+(a) Crop patterns are rotated
+(b) Soil root zone becomes saturated due to over irrigation
+(c) Erosion of soil occurs
+(d) None of the above</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (b) Soil root zone becomes saturated due to over irrigation</strong></p>
+<p><em>Justification:</em> Over-irrigation raises subterranean water levels into the root zone, displacing air pockets and asphyxiating crop root respiration.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Food Resources Notes
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question evs-q24 -->
+        <article class="pyq-card" id="evs-q24" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">1 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-forest-resources" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; forest-resources</span>
+          </a>
+
+          <h3 class="pyq-question-text">Which of the following natural systems is referred to as 'Earth's Lungs'?
+(a) Mines  (b) Water sources  (c) Carbon cycles  (d) Forests</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Correct Answer: (d) Forests</strong></p>
+<p><em>Justification:</em> Dense global forests absorb massive volumes of carbon dioxide and produce oxygen through photosynthetic respiration, maintaining global atmospheric balance.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> HS510 Forest Resources Notes
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+
+      <!-- Unit Navigation Footer -->
+      <footer class="unit-nav-footer">
+        <a href="../../../index.html#subject/evs" class="nav-arrow-btn nav-back-center" style="text-align: center;">
+          <span class="nav-arrow-sub">Course Portal</span>
+          <span class="nav-arrow-title">24HS510 Overview</span>
+        </a>
+        <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
+          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-title">Unit 1 Notes</span>
+        </a>
+      </footer>
+
+      <!-- Prescribed Syllabus Disclaimer -->
+      <p class="reference-disclaimer">
+        CIE-1 Examination Model Answers derived from official syllabus guidelines and textbooks. Verify with faculty problem sets before writing the exam.
+      </p>
+    </main>
+  </div>
+
+  <!-- Shared Scripts: KaTeX Auto-Render & Notes Client Engine -->
+  <script src="../../../assets/katex/katex.min.js"></script>
+  <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script src="../../../js/notes.js"></script>
+  <script>
+    // Quick Interactive Filter logic
+    document.querySelectorAll('.pyq-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pyq-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.getAttribute('data-filter');
+
+        document.querySelectorAll('.pyq-card').forEach(card => {
+          if (f === 'all') {
+            card.style.display = 'block';
+          } else if (f === 'high') {
+            card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
+          } else if (f.startsWith('unit-')) {
+            card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

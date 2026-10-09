@@ -1,0 +1,479 @@
+{
+  "subject_id": "evs",
+  "subject_code": "24HS510",
+  "subject_name": "Environmental Studies",
+  "cie1_exam_date": "2026-10-16",
+  "cie1_exam_time": "09:30\u201310:30",
+  "total_in_scope": 25,
+  "total_out_of_scope": 15,
+  "questions": [
+    {
+      "id": "evs-q01",
+      "unit": 1,
+      "section_id": "sec-env-scope",
+      "question": "Define Environment. Explain the four major domains/components of the environment and their interactions.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (Q1a, 5M)",
+        "CIE-1 2023 (Q3a, 5M)",
+        "SEE 2025 (Q1b)",
+        "Vercel Unit 1 Notes"
+      ],
+      "source_citation": "Dr. H U Raghavendra, Environmental Studies Unit 1 Notes, pp. 1\u20134; VTU Curriculum",
+      "answer": "<h4>1. Definition of Environment</h4>\n<p>The word <strong>Environment</strong> is derived from the French word <em>'Environner'</em> meaning to encircle or surround. It represents the sum total of all external biotic (living) and abiotic (non-living) conditions and influences that surround and affect the life, development, and survival of an organism.</p>\n\n<h4>2. Four Major Domains/Components of Environment</h4>\n<ul>\n  <li><strong>1. Atmosphere (Gaseous Blanket):</strong> The protective gaseous layer surrounding the Earth held by gravity. Extends up to ~500 km. Divided into Troposphere (where weather occurs), Stratosphere (contains protective Ozone layer $O_3$), Mesosphere, and Thermosphere. Composed of $78\\% \\text{ } N_2$, $21\\% \\text{ } O_2$, $0.93\\% \\text{ } Ar$, and $0.04\\% \\text{ } CO_2$.</li>\n  <li><strong>2. Hydrosphere (Water Domain):</strong> Comprises all water resources on, under, and above the Earth's surface in liquid, frozen, and vapor forms. Covers approximately $71\\%$ of the Earth's surface ($97.5\\%$ saline ocean water, $2.5\\%$ fresh water).</li>\n  <li><strong>3. Lithosphere (Outer Solid Crust):</strong> The rigid outer crust and upper mantle of the Earth consisting of rocks, minerals, and the weathered thin layer of soil supporting terrestrial life and agriculture.</li>\n  <li><strong>4. Biosphere (Zone of Life):</strong> The narrow global zone of intersection where the atmosphere, hydrosphere, and lithosphere interact to support life. Extends from deep ocean trenches (~10 km) to mountain peaks (~8 km).</li>\n</ul>\n\n<h4>3. Environmental Component Interactions</h4>\n<p>These four spheres constantly interact through <strong>biogeochemical cycles</strong> (hydrological, carbon, and nitrogen cycles) and <strong>energy flow</strong>. For example, rainfall from the atmosphere weathers rocks in the lithosphere, carrying dissolved minerals into the hydrosphere, which are then absorbed by plants in the biosphere.</p>"
+    },
+    {
+      "id": "evs-q02",
+      "unit": 1,
+      "section_id": "sec-env-scope",
+      "question": "Describe the multidisciplinary nature of Environmental Studies. Explain why public awareness is essential for environmental conservation.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q1a & Q2a, 5M)",
+        "CIE-1 2024 Docx (Q2a, 5M)",
+        "CIE-1 2024 (Q1a, 5M)"
+      ],
+      "source_citation": "Dr. H U Raghavendra, Unit 1 Notes, pp. 2\u20135",
+      "answer": "<h4>1. Multidisciplinary Nature of Environmental Studies</h4>\n<p>Environmental Studies is inherently multidisciplinary because environmental issues are complex and cannot be resolved through any single scientific branch. It integrates:</p>\n<ul>\n  <li><strong>Biological Sciences (Biology, Ecology, Botany, Zoology):</strong> To understand species biodiversity, food webs, ecosystem dynamics, and habitat conservation.</li>\n  <li><strong>Physical & Chemical Sciences (Physics, Chemistry, Atmospheric Science):</strong> To analyze thermodynamics of energy transfer, chemical transformations of pollutants, greenhouse gases, and acid rain.</li>\n  <li><strong>Earth & Geosciences (Geology, Hydrology, Soil Science):</strong> To evaluate mineral reserves, groundwater aquifers, soil erosion, and natural disasters.</li>\n  <li><strong>Engineering & Technology (Civil, Environmental, Mechanical, IT):</strong> To engineer wastewater treatment plants, solid waste recycling systems, air scrubbers, renewable energy systems, and IoT sensor monitoring.</li>\n  <li><strong>Social Sciences & Economics (Law, Sociology, Economics, Policy):</strong> For environmental legislation (EPA), environmental impact assessment (EIA), carbon tax credits, and resource economics.</li>\n</ul>\n\n<h4>2. Need for Public Awareness</h4>\n<p>Government regulations alone cannot succeed without active grassroots citizen participation:</p>\n<ol>\n  <li><strong>Community Action:</strong> Sustainable management of commons (forests, water bodies) requires local community stewardship (e.g., Chipko movement, community rainwater harvesting).</li>\n  <li><strong>Consumer Lifestyle Modification:</strong> Educating the public drives reduction of single-use plastics, water conservation, and adoption of energy-efficient star-rated appliances.</li>\n  <li><strong>Democratic Accountability:</strong> An environmentally literate public holds corporations and municipalities accountable for industrial effluent disposal and air quality standards.</li>\n</ol>"
+    },
+    {
+      "id": "evs-q03",
+      "unit": 1,
+      "section_id": "sec-energy-flow",
+      "question": "Explain the concept of energy flow in an ecosystem. State Lindeman's 10% Law of energy transfer with an example.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (Q3a, 5M)",
+        "SEE 2025 (Q3a)",
+        "Makeup 2024 (Q3a)"
+      ],
+      "source_citation": "Dr. H U Raghavendra, Unit 1 Notes, pp. 8\u201310; Odum Fundamentals of Ecology",
+      "answer": "<h4>1. Energy Flow Principles</h4>\n<p>Solar radiation is the primary energy source for all ecosystems. The flow of energy through an ecosystem obeys the universal laws of thermodynamics:</p>\n<ol>\n  <li><strong>First Law of Thermodynamics (Conservation):</strong> Energy can neither be created nor destroyed, only transformed. Green plants (autotrophs) transform radiant solar energy into chemical bond energy (glucose) via photosynthesis.</li>\n  <li><strong>Second Law of Thermodynamics (Entropy):</strong> Energy transformations are never $100\\%$ efficient. Every energy transfer is accompanied by dissipation of heat energy into the surrounding environment, increasing entropy.</li>\n  <li><strong>Unidirectional Flow:</strong> Unlike chemical nutrients which cycle indefinitely, <strong>energy flow is strictly unidirectional</strong> (Sun $\\rightarrow$ Producers $\\rightarrow$ Herbivores $\\rightarrow$ Carnivores $\\rightarrow$ Apex Predators). Dissipated respiratory heat cannot be reused by plants.</li>\n</ol>\n\n<h4>2. Lindeman's 10% Law (Raymond Lindeman, 1942)</h4>\n<p><em>\"During transfer of organic food energy from one trophic level to the next higher level, only about $10\\%$ of the transferred energy is stored as new flesh/biomass; the remaining $90\\%$ is lost to respiration, metabolic heat, and non-consumed waste.\"</em></p>\n\n<p><strong>Numerical Example (Grassland Food Chain):</strong></p>\n<ul>\n  <li>Sunlight captured by Grass (Producers, $T_1$): $10,000 \\text{ kcal}$</li>\n  <li>Stored in Grasshoppers (Primary Consumers / Herbivores, $T_2$): $10,000 \\times 0.10 = 1,000 \\text{ kcal}$</li>\n  <li>Stored in Frogs (Secondary Consumers / Carnivores, $T_3$): $1,000 \\times 0.10 = 100 \\text{ kcal}$</li>\n  <li>Stored in Snakes (Tertiary Consumers, $T_4$): $100 \\times 0.10 = 10 \\text{ kcal}$</li>\n  <li>Stored in Hawk (Apex Predator, $T_5$): $10 \\times 0.10 = 1 \\text{ kcal}$</li>\n</ul>\n<p>Because energy attenuates exponentially, food chains are rarely longer than 4 to 5 trophic levels.</p>"
+    },
+    {
+      "id": "evs-q04",
+      "unit": 1,
+      "section_id": "sec-food-chains-webs",
+      "question": "Explain Food Chain and Food Web with suitable examples. Compare Grazing and Detritus food chains.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q3a, 5M)",
+        "CIE-1 2023 (Q1a, 5M)",
+        "SEE 2024 (Q2a)"
+      ],
+      "source_citation": "Dr. H U Raghavendra, Unit 1 Notes, pp. 6\u20138",
+      "answer": "<h4>1. Food Chain</h4>\n<p>A <strong>Food Chain</strong> is a linear sequence of organisms through which nutrients and energy pass as one organism eats another. Each step represents a distinct <strong>trophic level</strong> ($T_1, T_2, \\dots$).</p>\n<p><em>Example:</em> $\\text{Grass } (T_1) \\rightarrow \\text{Grasshopper } (T_2) \\rightarrow \\text{Frog } (T_3) \\rightarrow \\text{Snake } (T_4) \\rightarrow \\text{Hawk } (T_5)$.</p>\n\n<h4>2. Food Web</h4>\n<p>A <strong>Food Web</strong> is an interconnected, complex network of multiple food chains operating simultaneously within an ecological community. In nature, linear food chains rarely exist in isolation because most organisms feed on multiple species and are preyed upon by multiple predators.</p>\n<p><strong>Significance:</strong> Food webs provide stability to ecosystems. If one prey species undergoes a population crash, predators switch to alternate prey pathways, maintaining ecological equilibrium.</p>\n\n<h4>3. Grazing vs. Detritus Food Chains</h4>\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Feature</th>\n      <th>Grazing Food Chain (GFC)</th>\n      <th>Detritus Food Chain (DFC)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Starting Point</strong></td>\n      <td>Starts with living green photosynthetic plants (Autotrophs, $T_1$).</td>\n      <td>Starts with dead organic matter, fallen leaves, and animal carcasses (Detritus).</td>\n    </tr>\n    <tr>\n      <td><strong>Primary Energy Source</strong></td>\n      <td>Direct solar radiation.</td>\n      <td>Chemical bond energy trapped in decaying detritus.</td>\n    </tr>\n    <tr>\n      <td><strong>Primary Consumers</strong></td>\n      <td>Herbivores (deer, cattle, caterpillars).</td>\n      <td>Decomposers and detritivores (fungi, bacteria, earthworms).</td>\n    </tr>\n    <tr>\n      <td><strong>Predominance</strong></td>\n      <td>Dominant energy pathway in open aquatic (oceanic, lake) ecosystems.</td>\n      <td>Dominant energy pathway in terrestrial forest and mangrove ecosystems.</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "evs-q05",
+      "unit": 1,
+      "section_id": "sec-ecological-pyramids",
+      "question": "What are Ecological Pyramids? Explain the three types: Pyramid of Numbers, Biomass, and Energy with neat sketches and inverted cases.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "SEE 2025 (Q2a)",
+        "Makeup 2025 (Q2a)",
+        "Dr. Raghavendra Notes"
+      ],
+      "source_citation": "Dr. H U Raghavendra, Unit 1 Notes, pp. 10\u201313",
+      "answer": "<h4>1. Concept of Ecological Pyramids (Eltonian Pyramids)</h4>\n<p>An <strong>Ecological Pyramid</strong> is a graphical representation of ecological parameters (numbers, biomass, or energy) across successive trophic levels, with producers at the base and apex predators at the top.</p>\n\n<h4>2. Three Types of Pyramids</h4>\n<ol>\n  <li><strong>Pyramid of Numbers:</strong> Represents the total count of individual organisms at each trophic level.\n    <ul>\n      <li><em>Upright:</em> Grassland ecosystem (Millions of grass blades $\\rightarrow$ Thousands of herbivores $\\rightarrow$ Few carnivores).</li>\n      <li><em>Inverted:</em> Tree/Parasitic ecosystem (1 single large oak tree $\\rightarrow$ Hundreds of herbivorous birds $\\rightarrow$ Thousands of parasitic lice and fleas).</li>\n    </ul>\n  </li>\n  <li><strong>Pyramid of Biomass:</strong> Represents the total dry weight of living organic matter ($g/m^2$ or $kg/ha$) present at each trophic level.\n    <ul>\n      <li><em>Upright:</em> Terrestrial forest and grassland ecosystems (Forest biomass of trees $\\gg$ herbivore biomass $\\gg$ carnivore biomass).</li>\n      <li><em>Inverted:</em> Marine/Aquatic ecosystems (Phytoplankton base has small standing biomass at any instant, supporting a larger biomass of zooplankton and huge whales because of high phytoplankton turnover and rapid reproduction).</li>\n    </ul>\n  </li>\n  <li><strong>Pyramid of Energy:</strong> Represents the rate of energy flow or productivity ($kcal/m^2/yr$) at each level.\n    <ul>\n      <li><strong>ALWAYS UPRIGHT:</strong> Without exception in all ecosystems. By the Second Law of Thermodynamics and the 10% law, usable energy decreases at each progressive trophic level. It can <em>never</em> be inverted.</li>\n    </ul>\n  </li>\n</ol>"
+    },
+    {
+      "id": "evs-q06",
+      "unit": 1,
+      "section_id": "sec-major-ecosystems",
+      "question": "What is biodiversity? Explain its levels, values, and major threats (HIPPO framework).",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3b, 5M)",
+        "SEE 2025 (Q1a)",
+        "Dr. Raghavendra Notes"
+      ],
+      "source_citation": "Dr. H U Raghavendra, Unit 1 Notes; E.O. Wilson Biodiversity Studies",
+      "answer": "<h4>1. Definition and Levels of Biodiversity</h4>\n<p><strong>Biodiversity (Biological Diversity)</strong> refers to the variety and variability of all life forms on Earth, including terrestrial, marine, and other aquatic ecosystems and the ecological complexes of which they are a part. It exists at three hierarchical levels:</p>\n<ul>\n  <li><strong>1. Genetic Diversity:</strong> Variation of genes within a single species (e.g., thousands of distinct rice varieties, human genetic variation).</li>\n  <li><strong>2. Species Diversity:</strong> Variety of species within a given habitat or ecosystem (species richness and evenness).</li>\n  <li><strong>3. Ecosystem Diversity:</strong> Diversity of habitats, biotic communities, and ecological processes (e.g., mangroves, coral reefs, temperate forests, deserts).</li>\n</ul>\n\n<h4>2. Values of Biodiversity</h4>\n<ul>\n  <li><strong>Consumptive Use Value:</strong> Direct utilization of biological resources harvested and consumed locally (firewood, wild fruits, medicinal herbs).</li>\n  <li><strong>Productive Use Value:</strong> Commercially harvested products sold in national and international markets (timber, silk, pharmaceuticals, fish).</li>\n  <li><strong>Ecological / Ecosystem Service Value:</strong> Maintenance of climate, oxygen generation, carbon sequestration, watershed protection, pollination of agricultural crops.</li>\n</ul>\n\n<h4>3. Major Threats to Biodiversity (HIPPO Framework)</h4>\n<ol>\n  <li><strong>H - Habitat Destruction & Fragmentation:</strong> Deforestation, highway construction, and urban encroachment (the leading cause of species extinction).</li>\n  <li><strong>I - Invasive Alien Species:</strong> Non-native species outcompeting endemic species (e.g., Water Hyacinth, Lantana camara).</li>\n  <li><strong>P - Pollution:</strong> Pesticide biomagnification, acid rain, ocean plastic debris.</li>\n  <li><strong>P - Population Growth:</strong> Exponential human population driving unsustainable consumption.</li>\n  <li><strong>O - Overexploitation & Poaching:</strong> Commercial overfishing, illegal wildlife trade (elephant ivory, tiger skins).</li>\n</ol>"
+    },
+    {
+      "id": "evs-q07",
+      "unit": 2,
+      "section_id": "sec-resource-foundations",
+      "question": "Define Sustainable Development. What are its core objectives and key principles?",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q1b, 5M)",
+        "CIE-1 2023 (Q1b, 5M)",
+        "SEE Jan 2026 (Q3b)"
+      ],
+      "source_citation": "Brundtland Report (Our Common Future, 1987); Dr. H U Raghavendra Unit 2 Notes",
+      "answer": "<h4>1. Definition of Sustainable Development</h4>\n<p>According to the 1987 UN World Commission on Environment and Development (Brundtland Commission):<br>\n<em>\"Sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs.\"</em></p>\n\n<h4>2. Three Pillars of Sustainability</h4>\n<ul>\n  <li><strong>Economic Sustainability:</strong> Growth that creates prosperity and equitable wealth without resource depletion.</li>\n  <li><strong>Environmental Sustainability:</strong> Conserving natural capital, protecting ecological integrity, and operating within planetary boundaries.</li>\n  <li><strong>Social Sustainability:</strong> Ensuring equity, public health, human rights, and social justice across communities.</li>\n</ul>\n\n<h4>3. Core Principles & Steps for Implementation</h4>\n<ol>\n  <li><strong>Conservation of Non-Renewable Resources:</strong> Minimizing fossil fuel burning and mineral depletion through recycling and substitution.</li>\n  <li><strong>Sustainable Harvest of Renewables:</strong> Ensuring rate of harvesting groundwater, forests, and fisheries does not exceed natural regeneration rates ($Harvest \\le Regeneration$).</li>\n  <li><strong>Inter-Generational Equity:</strong> Passing on a healthy, biodiverse biosphere to posterity.</li>\n  <li><strong>Adoption of Clean Technologies:</strong> Transition to solar, wind, circular economy, and green chemistry.</li>\n  <li><strong>Polluter Pays Principle:</strong> Holding polluters economically responsible for environmental damage caused.</li>\n</ol>"
+    },
+    {
+      "id": "evs-q08",
+      "unit": 2,
+      "section_id": "sec-forest-resources",
+      "question": "Bring out the ecological and commercial importance of forest resources. Why are forests referred to as 'Earth's Lungs'?",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q2b, 5M)",
+        "CIE-1 2023 (Q2b, 5M)",
+        "Recent Notes PDF 1",
+        "Vercel Unit 2 Notes"
+      ],
+      "source_citation": "HS510 Recent Notes - 1. Unit-2 Forest resources; Dr. H U Raghavendra",
+      "answer": "<h4>1. Ecological Functions of Forests (Why Forests are 'Earth's Lungs')</h4>\n<p>Forests are called <strong>Earth's Lungs</strong> because through photosynthetic gas exchange, dense forest canopies absorb massive volumes of carbon dioxide ($CO_2$) and release oxygen ($O_2$) vital for aerobic life:</p>\n<ul>\n  <li><strong>Carbon Sink & Climate Regulation:</strong> Forests sequester over $45\\%$ of terrestrial carbon. They act as thermal buffers and regulate precipitation through evapotranspiration.</li>\n  <li><strong>Soil Conservation:</strong> Tree canopies intercept severe rain droplets, while root networks bind topsoil, preventing soil erosion, flash floods, and landslides.</li>\n  <li><strong>Hydrological Regulation:</strong> Sponge-like forest litter promotes rainwater percolation, recharging groundwater aquifers and maintaining perennial river flows.</li>\n  <li><strong>Biodiversity Sanctuary:</strong> Forests house more than $80\\%$ of terrestrial species of animals, plants, and insects.</li>\n</ul>\n\n<h4>2. Productive / Commercial Functions of Forests</h4>\n<ul>\n  <li><strong>Timber & Wood Pulp:</strong> Hardwoods and softwoods for construction, furniture, railway sleepers, and paper manufacturing.</li>\n  <li><strong>Non-Timber Forest Products (NTFPs):</strong> Bamboo, canes, natural resins, tannins, gums, essential oils, and wild honey.</li>\n  <li><strong>Medicinal Resources:</strong> Over $25\\%$ of modern pharmaceuticals are derived from tropical forest plants (e.g., Quinine, Taxol, digitalis).</li>\n  <li><strong>Fuelwood & Fodder:</strong> Lifeline for millions of rural and indigenous tribal communities for domestic cooking and livestock grazing.</li>\n</ul>"
+    },
+    {
+      "id": "evs-q09",
+      "unit": 2,
+      "section_id": "sec-forest-resources",
+      "question": "Write a note on deforestation. Explain its major causes, ecological consequences, and preventive measures.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q2a, 5M)",
+        "SEE 2025 (Q2b)",
+        "Makeup 2024 (Q2b)"
+      ],
+      "source_citation": "Dr. H U Raghavendra Unit 2 Notes; Recent Notes PDF 1",
+      "answer": "<h4>1. Definition and Major Causes of Deforestation</h4>\n<p><strong>Deforestation</strong> refers to the permanent removal and clearing of forest stands for non-forest land uses. Key causes include:</p>\n<ol>\n  <li><strong>Expansion of Agriculture:</strong> Clearing virgin forests for commercial cash crops (soy, oil palm) and cattle ranching (responsible for over $70\\%$ of tropical deforestation).</li>\n  <li><strong>Commercial Logging:</strong> Indiscriminate timber felling for paper, packaging, and furniture.</li>\n  <li><strong>Infrastructure Projects:</strong> Construction of highways, large hydroelectric dams (submerging river valleys), and transmission lines.</li>\n  <li><strong>Mining Activities:</strong> Surface opencast mining for coal, iron ore, and bauxite in ecologically fragile forested hills.</li>\n  <li><strong>Overgrazing & Forest Fires:</strong> Livestock trampling seedlings and natural or human-induced wildfires.</li>\n</ol>\n\n<h4>2. Ecological Consequences</h4>\n<ul>\n  <li><strong>Accelerated Climate Change:</strong> Burning and decaying felled trees releases stored carbon into the atmosphere, contributing to global warming.</li>\n  <li><strong>Loss of Topsoil & Desertification:</strong> Bare slopes undergo severe gully and rill erosion.</li>\n  <li><strong>Aggravated Floods & Droughts:</strong> Loss of water retention capacity causes sudden flash floods in monsoons followed by severe summer river dry-outs.</li>\n  <li><strong>Extinction of Endemic Species & Human-Wildlife Conflict:</strong> Displacement of elephants, tigers, and leopards into adjoining villages.</li>\n</ul>\n\n<h4>3. Preventive Measures</h4>\n<p>Large-scale <strong>Afforestation</strong> (planting new forests on degraded land), <strong>Reforestation</strong>, promotion of Joint Forest Management (JFM), strict enforcement of Forest Conservation Act, and adopting eco-friendly timber alternatives.</p>"
+    },
+    {
+      "id": "evs-q10",
+      "unit": 2,
+      "section_id": "sec-water-resources",
+      "question": "Explain global water resources distribution. Discuss the problems associated with over-utilization of surface and groundwater.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (Q2b, 5M)",
+        "Recent Notes PDF 2",
+        "Vercel Unit 2 Notes"
+      ],
+      "source_citation": "HS510 Recent Notes - 2. Unit-2 Water resources; USGS Water Data",
+      "answer": "<h4>1. Global Distribution of Water Resources</h4>\n<p>Water covers approximately $71\\%$ of the Earth's total surface area, but freshwater availability is extremely scarce:</p>\n<ul>\n  <li><strong>Total Earth Water:</strong> $97.5\\%$ is saline ocean water; only $2.5\\%$ is Fresh Water.</li>\n  <li><strong>Breakdown of the $2.5\\%$ Fresh Water:</strong>\n    <ul>\n      <li>$68.7\\%$ is locked in polar ice caps and continental glaciers (Greenland, Antarctica).</li>\n      <li>$30.1\\%$ is Groundwater stored in deep underground aquifers.</li>\n      <li>$0.9\\%$ is permafrost and soil moisture.</li>\n      <li><strong>Only $0.3\\%$ is accessible surface freshwater</strong> in lakes ($87\\%$), swamps ($11\\%$), and rivers ($2\\%$).</li>\n    </ul>\n  </li>\n</ul>\n\n<h4>2. Problems of Over-utilization of Water Resources</h4>\n<ol>\n  <li><strong>Aquifer Depletion & Falling Water Tables:</strong> Unrestricted borewell pumping for water-intensive cash crops lowers water tables by several meters annually, causing tube-wells to run dry.</li>\n  <li><strong>Land Subsidence:</strong> Excessive groundwater withdrawal causes compaction of subterranean clay and rock layers, leading to ground sinking (e.g., Mexico City, Jakarta).</li>\n  <li><strong>Saline Water Intrusion:</strong> Over-pumping in coastal aquifers reverses hydraulic gradients, drawing seawater into coastal drinking water wells.</li>\n  <li><strong>Interstate & Transboundary Water Disputes:</strong> Diminishing river flow triggers bitter conflicts between riparian states (e.g., Cauvery water dispute between Karnataka and Tamil Nadu).</li>\n</ol>"
+    },
+    {
+      "id": "evs-q11",
+      "unit": 2,
+      "section_id": "sec-mineral-resources",
+      "question": "Discuss the environmental impacts of extracting and processing mineral resources (Mining impacts).",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q3a, 5M)",
+        "CIE-1 2023 (Q2a, 5M)",
+        "Recent Notes PDF 3"
+      ],
+      "source_citation": "HS510 Recent Notes - 3. Unit-2 Mineral resources; Dr. H U Raghavendra",
+      "answer": "<h4>Environmental Impacts of Mining and Mineral Extraction</h4>\n<p>Mineral extraction through open-cast and underground mining generates severe, long-lasting environmental disruption across all ecological spheres:</p>\n\n<ol>\n  <li><strong>Land Degradation & Landscape Spoilage:</strong> Open-cast mining excavates vast pits, strips fertile topsoil, and deposits toxic mine overburden and tailings heaps, turning green terrain into barren moonscapes.</li>\n  <li><strong>Deforestation & Habitat Loss:</strong> Most mineral deposits (iron ore, bauxite, coal) occur under biodiversity-rich forest hills. Mining mandates extensive tree felling, fragmenting wildlife corridors.</li>\n  <li><strong>Acid Mine Drainage (AMD):</strong> When sulfide-bearing ores (pyrite $FeS_2$) are exposed to atmospheric air and water, chemical oxidation generates dilute sulfuric acid ($H_2SO_4$). This acidic runoff leaches heavy metals (arsenic, cadmium, lead) into nearby streams, sterilizing aquatic life.</li>\n  <li><strong>Air Pollution:</strong> Blasting, haul-truck traffic, crushing, and smelting release massive volumes of particulate matter ($PM_{2.5}, PM_{10}$), sulfur dioxide ($SO_2$), and carbon monoxide ($CO$), causing respiratory illnesses among miners and surrounding villagers.</li>\n  <li><strong>Ground Subsidence:</strong> Underground mining without proper backfilling creates subterranean voids that collapse, causing surface land sinking, building damage, and altered surface drainage patterns.</li>\n</ol>"
+    },
+    {
+      "id": "evs-q12",
+      "unit": 2,
+      "section_id": "sec-food-resources",
+      "question": "Discuss the environmental impacts of Modern Agriculture. Explain issues related to fertilizers, pesticides, waterlogging, and salinization.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (Q1b, 5M)",
+        "CIE-1 2024 (Q2b, 5M)",
+        "CIE-1 2023 (Q3b, 5M)",
+        "Recent Notes PDF 4"
+      ],
+      "source_citation": "HS510 Recent Notes - 4. Unit-2 Food resources; Dr. H U Raghavendra",
+      "answer": "<h4>Impacts of Modern Agriculture on the Environment</h4>\n<p>While the Green Revolution increased agricultural productivity through High Yielding Varieties (HYV), it introduced severe ecological consequences:</p>\n\n<table class=\"notes-table\">\n  <thead>\n    <tr>\n      <th>Domain</th>\n      <th>Environmental Problem</th>\n      <th>Ecological & Health Mechanism</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>1. Chemical Fertilizers</strong></td>\n      <td><strong>Eutrophication & Blue Baby Syndrome</strong></td>\n      <td>Excess nitrogen ($N$) and phosphorus ($P$) fertilizer runoff enters ponds and lakes, causing explosive algal blooms that deplete dissolved oxygen ($DO$), killing fish. Nitrate percolation into well-water causes <em>Methemoglobinemia (Blue Baby Syndrome)</em> in infants by reducing oxygen-carrying blood capacity.</td>\n    </tr>\n    <tr>\n      <td><strong>2. Chemical Pesticides</strong></td>\n      <td><strong>Biomagnification & Pest Resistance</strong></td>\n      <td>Non-biodegradable synthetic organochlorines (e.g., DDT) accumulate in fatty tissues. Their concentration multiplies exponentially up successive trophic levels (<em>Biomagnification</em>), causing eggshell thinning in predatory birds. Overuse also produces pesticide-resistant \"super-pests\".</td>\n    </tr>\n    <tr>\n      <td><strong>3. Over-Irrigation</strong></td>\n      <td><strong>Waterlogging</strong></td>\n      <td>Excessive irrigation water saturates the soil root zone. Air pockets in the soil are displaced by water, depriving plant roots of oxygen and stunting crop respiration.</td>\n    </tr>\n    <tr>\n      <td><strong>4. Soil Chemistry</strong></td>\n      <td><strong>Soil Salinization</strong></td>\n      <td>In arid regions, over-irrigation raises the subterranean water table. Saline groundwater evaporates at the surface through capillary action, leaving a white crust of toxic salts (NaCl, $Na_2SO_4$), turning fertile land sterile.</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "id": "evs-q13",
+      "unit": 2,
+      "section_id": "sec-land-resources",
+      "question": "Define Soil Erosion. Explain the different types of soil erosion by water and wind, and list methods of soil conservation.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (Q3b, 5M)",
+        "Recent Notes PDF 5",
+        "Vercel Unit 2 Notes"
+      ],
+      "source_citation": "HS510 Recent Notes - 5. Unit-2 Land resources; Dr. H U Raghavendra",
+      "answer": "<h4>1. Definition of Soil Erosion</h4>\n<p><strong>Soil Erosion</strong> is the detachment, transportation, and washing away of the fertile upper topsoil layer by natural agents like running water, wind, gravity, or human mismanagement. Because $1 \\text{ cm}$ of topsoil requires 200\u2013400 years to form naturally, unchecked erosion causes rapid land degradation.</p>\n\n<h4>2. Types of Soil Erosion</h4>\n<ul>\n  <li><strong>Water Erosion:</strong>\n    <ul>\n      <li><em>Sheet Erosion:</em> Uniform, thin, progressive removal of topsoil across an entire field by sheet flow of rainwater. Highly insidious because it occurs unnoticed.</li>\n      <li><em>Rill Erosion:</em> Rainwater runoff carves numerous tiny finger-like micro-channels (rills) across the soil surface.</li>\n      <li><em>Gully Erosion:</em> Advanced stage where rills deepen and widen into massive canyons/ravines, rendering land unplowable (e.g., Chambal ravines).</li>\n    </ul>\n  </li>\n  <li><strong>Wind Erosion:</strong> Prevalent in arid and semi-arid tracts:\n    <ul>\n      <li><em>Saltation:</em> Bouncing and hopping of intermediate soil grains ($0.1 - 0.5 \\text{ mm}$). Accounts for 50\u201370% of wind erosion.</li>\n      <li><em>Surface Creep:</em> Rolling of heavier soil grains along the surface ($0.5 - 1.0 \\text{ mm}$).</li>\n      <li><em>Suspension:</em> Lifting of ultra-fine particles ($&lt; 0.1 \\text{ mm}$) into high atmospheric air streams, carried over hundreds of kilometers as dust storms.</li>\n    </ul>\n  </li>\n</ul>\n\n<h4>3. Soil Conservation Methods</h4>\n<ol>\n  <li><strong>Contour Bunding & Terracing:</strong> Carving stepped terraces and earthen bunds across slope contours to reduce water runoff velocity.</li>\n  <li><strong>Shelterbelts / Windbreaks:</strong> Planting dense rows of tall trees perpendicular to prevailing winds to decelerate wind velocity in desert borders.</li>\n  <li><strong>Cover Cropping & Mulching:</strong> Keeping land vegetated year-round using legumes to anchor topsoil.</li>\n</ol>"
+    },
+    {
+      "id": "evs-q14",
+      "unit": 2,
+      "section_id": "sec-land-resources",
+      "question": "What is Desertification? Explain its primary causes and preventive strategies.",
+      "marks": 5,
+      "frequency": "Medium",
+      "exam_appearances": [
+        "CIE-1 2025 (MCQ 10 & 5M)",
+        "Recent Notes PDF 5"
+      ],
+      "source_citation": "HS510 Recent Notes - 5. Unit-2 Land resources; UNCCD Guidelines",
+      "answer": "<h4>1. Definition of Desertification</h4>\n<p><strong>Desertification</strong> is the persistent degradation of dryland ecosystems (arid, semi-arid, and sub-humid lands) resulting from human activities and climatic variations. It involves the loss of biological and economic productivity of land, effectively transforming fertile soil into barren desert terrain.</p>\n\n<h4>2. Primary Causes of Desertification</h4>\n<ol>\n  <li><strong>Overgrazing:</strong> Excessive livestock density strips vegetative ground cover, destroying root mats and exposing bare soil to severe wind and water erosion.</li>\n  <li><strong>Deforestation for Firewood & Agriculture:</strong> Removal of dryland tree species eliminates natural windbreaks and lowers groundwater levels.</li>\n  <li><strong>Poor Irrigation Management:</strong> Over-irrigation without adequate drainage induces severe soil salinization and alkalinization.</li>\n  <li><strong>Recurrent Droughts:</strong> Prolonged rainfall deficits combined with intensive human exploitation prevent natural ecological regeneration.</li>\n</ol>\n\n<h4>3. Preventive & Remedial Strategies</h4>\n<ul>\n  <li><strong>Afforestation & Sand Dune Stabilization:</strong> Planting drought-tolerant indigenous species (e.g., Acacia, Prosopis cineraria) and erecting physical fences to arrest shifting sand dunes.</li>\n  <li><strong>Regulated Grazing:</strong> Adopting rotational grazing to allow grass root regeneration.</li>\n  <li><strong>Micro-Irrigation:</strong> Transitioning from flood irrigation to drip and sprinkler systems to prevent salinization.</li>\n  <li><strong>Watershed Management & Rainwater Harvesting:</strong> Constructing check dams to elevate local groundwater tables.</li>\n</ul>"
+    },
+    {
+      "id": "evs-q15",
+      "unit": 2,
+      "section_id": "sec-energy-resources",
+      "question": "Write a note on Energy Resources. Compare Conventional (Fossil) and Non-Conventional (Renewable) energy sources, highlighting the environmental effects of using fossil fuels.",
+      "marks": 5,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (Q1b & Q3b, 5M)",
+        "CIE-1 2024 (Q1a)",
+        "Dr. Raghavendra Notes"
+      ],
+      "source_citation": "Dr. H U Raghavendra, Unit 2 Notes, Energy Resources Section",
+      "answer": "<h4>1. Classification of Energy Sources</h4>\n<ul>\n  <li><strong>Conventional / Non-Renewable Energy:</strong> Traditional energy sources formed over millions of years through geological processes with finite global reserves (Coal, Petroleum, Natural Gas, Uranium). Once consumed, they cannot be replenished on a human timescale.</li>\n  <li><strong>Non-Conventional / Renewable Energy:</strong> Clean, naturally replenishing energy flows derived from continuous solar and planetary phenomena (Solar photovoltaic, Wind power, Hydroelectric, Biomass, Geothermal, Ocean/Tidal energy).</li>\n</ul>\n\n<h4>2. Environmental Effects of Fossil Fuel Combustion</h4>\n<ol>\n  <li><strong>Greenhouse Gas Emissions & Global Warming:</strong> Burning coal, diesel, and petrol produces massive quantities of $CO_2$, the primary driver of anthropogenic climate change.</li>\n  <li><strong>Acid Rain Formation:</strong> Combustion of sulfur-rich coal and oil emits sulfur dioxide ($SO_2$) and nitrogen oxides ($NO_x$), which react with atmospheric water vapor to produce sulfuric acid ($H_2SO_4$) and nitric acid ($HNO_3$), corroding buildings and acidifying lakes.</li>\n  <li><strong>Photochemical Smog & Particulate Pollution:</strong> Unburnt hydrocarbons and particulate matter ($PM_{2.5}$) trigger severe urban smog, asthma, and chronic bronchitis.</li>\n  <li><strong>Fly Ash and Oil Spills:</strong> Coal thermal plants generate mountains of hazardous fly ash, while marine petroleum shipping risks catastrophic ocean tanker spills.</li>\n</ol>"
+    },
+    {
+      "id": "evs-q16",
+      "unit": 1,
+      "section_id": "sec-food-chains-webs",
+      "question": "A linear network of links in a food web starting from producers to apex predators is called:\n(a) Food Web  (b) Food chain  (c) Ecological chain  (d) None of the above",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (MCQ 1)"
+      ],
+      "source_citation": "Dr. Raghavendra Notes; CIE-1 2024 QP",
+      "answer": "<p><strong>Correct Answer: (b) Food chain</strong></p>\n<p><em>Justification:</em> A food chain is by definition a linear unidirectional sequence of trophic links showing who eats whom, from primary autotrophs to apex predators.</p>"
+    },
+    {
+      "id": "evs-q17",
+      "unit": 1,
+      "section_id": "sec-env-scope",
+      "question": "The four fundamental domains of the environment are:\n(a) Lithosphere and hydrosphere\n(b) Hydrosphere, lithosphere and atmosphere\n(c) Atmosphere, lithosphere and biosphere\n(d) Lithosphere, hydrosphere, atmosphere and biosphere",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (MCQ 2)"
+      ],
+      "source_citation": "Dr. Raghavendra Notes; CIE-1 2024 QP",
+      "answer": "<p><strong>Correct Answer: (d) Lithosphere, hydrosphere, atmosphere and biosphere</strong></p>\n<p><em>Justification:</em> The total Earth system consists of the three abiotic spheres (land, water, air) and the biotic zone of life (biosphere).</p>"
+    },
+    {
+      "id": "evs-q18",
+      "unit": 1,
+      "section_id": "sec-energy-flow",
+      "question": "In an ecosystem, the flow of energy is always:\n(a) Bidirectional  (b) Cyclic  (c) Multidirectional  (d) Unidirectional",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2023 (MCQ 1)",
+        "SEE 2025"
+      ],
+      "source_citation": "Dr. Raghavendra Notes; Odum Ecology",
+      "answer": "<p><strong>Correct Answer: (d) Unidirectional</strong></p>\n<p><em>Justification:</em> Energy flows strictly from Sun $\\rightarrow$ Producers $\\rightarrow$ Consumers; respiratory heat dissipated into the environment cannot be chemically re-assimilated by plants.</p>"
+    },
+    {
+      "id": "evs-q19",
+      "unit": 2,
+      "section_id": "sec-food-resources",
+      "question": "Blue baby syndrome (Methemoglobinemia) in human infants is caused by high concentrations of:\n(a) Arsenic  (b) Nitrates  (c) Phosphates  (d) Sulphates",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (MCQ 6)",
+        "CIE-1 2024 (MCQ 6)"
+      ],
+      "source_citation": "HS510 Food Resources Notes; WHO Guidelines",
+      "answer": "<p><strong>Correct Answer: (b) Nitrates</strong></p>\n<p><em>Justification:</em> Excess nitrate ($NO_3^-$) from chemical fertilizer leaching into drinking water reacts with hemoglobin in infants to form methemoglobin, inhibiting blood oxygen transport.</p>"
+    },
+    {
+      "id": "evs-q20",
+      "unit": 2,
+      "section_id": "sec-forest-resources",
+      "question": "Extensive planting of trees to increase forest cover on non-forest or deforested land is called:\n(a) Afforestation  (b) Agro forestation  (c) Deforestation  (d) Social forestry",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 Docx (MCQ 7)",
+        "CIE-1 2023 (MCQ 2)"
+      ],
+      "source_citation": "HS510 Forest Resources Notes",
+      "answer": "<p><strong>Correct Answer: (a) Afforestation</strong></p>\n<p><em>Justification:</em> Afforestation is the establishment of a forest or stand of trees in an area where there was no previous tree cover.</p>"
+    },
+    {
+      "id": "evs-q21",
+      "unit": 2,
+      "section_id": "sec-water-resources",
+      "question": "The largest share of global freshwater on Earth is found in:\n(a) Rivers  (b) Underground aquifers  (c) Glaciers and ice caps  (d) Lakes",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2025 (MCQ 7)"
+      ],
+      "source_citation": "HS510 Water Resources Notes; USGS Water Data",
+      "answer": "<p><strong>Correct Answer: (c) Glaciers and ice caps</strong></p>\n<p><em>Justification:</em> Polar ice caps and glaciers store $68.7\\%$ of total global freshwater, followed by groundwater ($30.1\\%$); rivers and lakes together constitute less than $0.3\\%$.</p>"
+    },
+    {
+      "id": "evs-q22",
+      "unit": 2,
+      "section_id": "sec-food-resources",
+      "question": "Eutrophication of water bodies is primarily caused by increased levels of:\n(a) Fertilizers  (b) Mining  (c) Salinization  (d) None of these",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (MCQ 7)"
+      ],
+      "source_citation": "HS510 Food Resources Notes",
+      "answer": "<p><strong>Correct Answer: (a) Fertilizers</strong></p>\n<p><em>Justification:</em> Agricultural runoff rich in nitrogen and phosphorus fertilizers causes nutrient hyper-enrichment (eutrophication), triggering algal blooms and deoxygenation.</p>"
+    },
+    {
+      "id": "evs-q23",
+      "unit": 2,
+      "section_id": "sec-food-resources",
+      "question": "Waterlogging is a phenomenon in which:\n(a) Crop patterns are rotated\n(b) Soil root zone becomes saturated due to over irrigation\n(c) Erosion of soil occurs\n(d) None of the above",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (MCQ 8)"
+      ],
+      "source_citation": "HS510 Food Resources Notes",
+      "answer": "<p><strong>Correct Answer: (b) Soil root zone becomes saturated due to over irrigation</strong></p>\n<p><em>Justification:</em> Over-irrigation raises subterranean water levels into the root zone, displacing air pockets and asphyxiating crop root respiration.</p>"
+    },
+    {
+      "id": "evs-q24",
+      "unit": 2,
+      "section_id": "sec-forest-resources",
+      "question": "Which of the following natural systems is referred to as 'Earth's Lungs'?\n(a) Mines  (b) Water sources  (c) Carbon cycles  (d) Forests",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2023 (MCQ 10)"
+      ],
+      "source_citation": "HS510 Forest Resources Notes",
+      "answer": "<p><strong>Correct Answer: (d) Forests</strong></p>\n<p><em>Justification:</em> Dense global forests absorb massive volumes of carbon dioxide and produce oxygen through photosynthetic respiration, maintaining global atmospheric balance.</p>"
+    },
+    {
+      "id": "evs-q25",
+      "unit": 1,
+      "section_id": "sec-env-scope",
+      "question": "World Environment Day is celebrated globally every year on:\n(a) 5th June  (b) 20th July  (c) 22nd March  (d) 5th September",
+      "marks": 1,
+      "frequency": "High",
+      "exam_appearances": [
+        "CIE-1 2024 (MCQ 2)",
+        "CIE-1 2023 (MCQ 3)"
+      ],
+      "source_citation": "UNEP Official Calendar; Dr. Raghavendra Notes",
+      "answer": "<p><strong>Correct Answer: (a) 5th June</strong></p>\n<p><em>Justification:</em> Designated by the UN General Assembly in 1972 on the opening day of the Stockholm Conference on the Human Environment.</p>"
+    }
+  ],
+  "out_of_scope": [
+    {
+      "id": "evs-oos-01",
+      "unit": 3,
+      "topic": "Renewable Energy Technologies: Detailed Solar Cells, Wind Turbines, Geothermal and OTEC",
+      "reason": "Master Prompt boundary: EVS CIE-1 scope includes Units 1 and 2 only. Unit 3 deep energy engineering is excluded.",
+      "exam_paper": "CIE-2 2024 MCQ 1; CIE-2 2023 MCQ 1"
+    },
+    {
+      "id": "evs-oos-02",
+      "unit": 3,
+      "topic": "Anaerobic Digestion, Biogas & Biofuel Production Chemistry",
+      "reason": "Master Prompt boundary: Unit 3 biofuels are excluded from CIE-1.",
+      "exam_paper": "CIE-2 2023 MCQ 4; CIE-2 2024 MCQ 7"
+    },
+    {
+      "id": "evs-oos-03",
+      "unit": 4,
+      "topic": "Air Pollution Control Equipment: Cyclones, ESP, Venturi Scrubbers, Bag Filters",
+      "reason": "Master Prompt boundary: Unit 4 Pollution is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Q2a"
+    },
+    {
+      "id": "evs-oos-04",
+      "unit": 4,
+      "topic": "Air Pollution Primary and Secondary Pollutants & Photochemical Smog",
+      "reason": "Master Prompt boundary: Unit 4 Air Pollution is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Part B"
+    },
+    {
+      "id": "evs-oos-05",
+      "unit": 4,
+      "topic": "Water Pollution Parameters: Biochemical Oxygen Demand (BOD) & Chemical Oxygen Demand (COD)",
+      "reason": "Master Prompt boundary: Unit 4 Water Pollution chemistry is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Q1; SEE 2025 Unit 4"
+    },
+    {
+      "id": "evs-oos-06",
+      "unit": 4,
+      "topic": "Fluoride Pollution and Health Impacts (Fluorosis of Teeth and Bones)",
+      "reason": "Master Prompt boundary: Unit 4 Pollutants is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2023 MCQ 2"
+    },
+    {
+      "id": "evs-oos-07",
+      "unit": 4,
+      "topic": "Sewage Treatment Plant (STP) Layout: Primary, Secondary and Tertiary Treatment",
+      "reason": "Master Prompt boundary: Unit 4 Wastewater engineering is excluded from CIE-1.",
+      "exam_paper": "SEE 2024 Unit 4"
+    },
+    {
+      "id": "evs-oos-08",
+      "unit": 4,
+      "topic": "Municipal Solid Waste Management: Incineration, Composting, Sanitary Landfilling",
+      "reason": "Master Prompt boundary: Unit 4 Solid waste is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 MCQ 7, MCQ 8"
+    },
+    {
+      "id": "evs-oos-09",
+      "unit": 4,
+      "topic": "Noise Pollution, Measurement (dB), and Acoustic Control Barriers",
+      "reason": "Master Prompt boundary: Unit 4 Noise pollution is excluded from CIE-1.",
+      "exam_paper": "SEE Jan 2026 Unit 4"
+    },
+    {
+      "id": "evs-oos-10",
+      "unit": 5,
+      "topic": "Environmental Protection Act (EPA) 1986 Provisions and Penalties",
+      "reason": "Master Prompt boundary: Unit 5 Environmental legislation is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2023 MCQ 6"
+    },
+    {
+      "id": "evs-oos-11",
+      "unit": 5,
+      "topic": "Central and State Pollution Control Boards (CPCB & SPCB) Statutory Functions",
+      "reason": "Master Prompt boundary: Unit 5 Environmental governance is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Q3a"
+    },
+    {
+      "id": "evs-oos-12",
+      "unit": 5,
+      "topic": "Intergovernmental Panel on Climate Change (IPCC) Role and Reports",
+      "reason": "Master Prompt boundary: Unit 5 Global climate governance is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 MCQ 9"
+    },
+    {
+      "id": "evs-oos-13",
+      "unit": 5,
+      "topic": "Global Warming Mechanisms, Greenhouse Effect and Sea Level Rise",
+      "reason": "Master Prompt boundary: Unit 5 Climate change is excluded from CIE-1.",
+      "exam_paper": "CIE-2 2024 Q3b; CIE-2 2023 MCQ 3"
+    },
+    {
+      "id": "evs-oos-14",
+      "unit": 5,
+      "topic": "Ozone Layer Depletion, Chapman Cycle, and Montreal Protocol",
+      "reason": "Master Prompt boundary: Unit 5 Atmospheric depletion is excluded from CIE-1.",
+      "exam_paper": "SEE 2025 Unit 5"
+    },
+    {
+      "id": "evs-oos-15",
+      "unit": 5,
+      "topic": "Rainwater Harvesting Techniques and Watershed Management Engineering",
+      "reason": "Master Prompt boundary: Unit 5 Water conservation engineering is excluded from CIE-1.",
+      "exam_paper": "SEE Jan 2026 Unit 5"
+    }
+  ]
+}
