@@ -1,0 +1,874 @@
+{
+  "subject": {
+    "id": "se",
+    "code": "24IS52",
+    "name": "Software Engineering",
+    "short_name": "SE",
+    "scheme": "2024 Scheme (AY 2026-27 Syllabus)",
+    "coordinator": "Dr. Krishna Raj RM",
+    "textbook": "Ian Sommerville, Software Engineering, 10th Edition, Pearson, 2016",
+    "cie1_date": "Wed 14-10-2026, 13:30\u201314:30",
+    "scope_description": "Unit 1 (Professional Software Development, Processes & Agile) and Unit 2 (Requirements Engineering & System Modeling)"
+  },
+  "summary": {
+    "total_questions_extracted": 38,
+    "in_scope_answered": 20,
+    "out_of_scope_archived": 18,
+    "unverified_count": 0
+  },
+  "in_scope_questions": [
+    {
+      "id": "se-q01",
+      "unit": 1,
+      "section_id": "sec-1",
+      "section_title": "Professional Software Development & Essential Attributes",
+      "question": "Define Software Engineering. How is it more than 'just programming'? Consider a client has a vague idea of their requirements and expects them to change frequently. Which process model would you recommend and why?",
+      "marks": 8,
+      "bloom_level": "L3",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2025 Q1.a (8M)",
+        "SEE Feb/Mar 2025(O) Q1.a (10M)",
+        "SEE Jan 2026 Q1.b (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 1 (pp. 18-24) & Chapter 2 (pp. 44-50)",
+      "answer": {
+        "definition": "<strong>Software Engineering</strong> is an engineering discipline concerned with all aspects of software production from the earliest stages of system specification through to maintaining and evolving the system after it has gone into use (Sommerville, Ch. 1).",
+        "why_more_than_programming": [
+          "<strong>Systematic Lifecycle:</strong> Programming is merely the coding phase. Software engineering encompasses requirements analysis, architectural design, verification & validation, deployment, configuration management, and ongoing software evolution.",
+          "<strong>Socio-Technical & Economic Constraints:</strong> Professional software must be developed on schedule, within organizational budgets, and adhere to strict quality attributes (maintainability, dependability, efficiency, and usability).",
+          "<strong>Team-Based & Industrial Scale:</strong> Programming is often individual or small-scale; software engineering provides the organizational framework, version control, automated testing, and governance needed for large teams building complex, long-lived systems."
+        ],
+        "recommendation_case": {
+          "scenario": "Client with vague, emerging requirements expecting frequent changes.",
+          "recommended_model": "<strong>Agile Incremental Development / Extreme Programming (XP) or Scrum</strong> (or Evolutionary Prototyping).",
+          "justification": [
+            "<strong>Rapid Feedback Cycles:</strong> Developing in small 1\u20132 week sprints/iterations allows the customer to interact with working software increments, helping them clarify their vague vision early.",
+            "<strong>Low Cost of Change:</strong> In waterfall, changing requirements mid-stream causes catastrophic rework of specification and architecture documents. In agile, the Product Backlog is reprioritized at every sprint boundary without penalty.",
+            "<strong>Customer Collaboration over Contract Negotiation:</strong> Continuous customer involvement ensures that as the client's understanding evolves, the software directly aligns with actual business needs.",
+            "<strong>Continuous Integration & Automated Testing:</strong> Ensures regression defects are caught immediately as features are adapted."
+          ]
+        }
+      }
+    },
+    {
+      "id": "se-q02",
+      "unit": 1,
+      "section_id": "sec-4",
+      "section_title": "Software Process Models",
+      "question": "With a neat diagram, explain in detail about the Waterfall process model for software development. Identify its advantages and limitations.",
+      "marks": 8,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2025 Q2.a (8M)",
+        "SEE Feb/Mar 2025 Q1.a (8M)",
+        "SEE Feb 2024 Q1.c (8M)",
+        "SEE Jan 2026 Q1.a (8M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 2.1 (pp. 44-46)",
+      "answer": {
+        "definition": "The <strong>Waterfall Model</strong> (Classic Life Cycle) is a plan-driven software process model where each fundamental process activity is organized into separate, sequential phases, with the output of one phase serving as the formal baselined input to the next.",
+        "phases": [
+          "<strong>1. Requirements Definition:</strong> System services, constraints, and goals are established in consultation with stakeholders and formally documented in an SRS.",
+          "<strong>2. System and Software Design:</strong> Allocates requirements to hardware/software systems; establishes overall software architecture and data structures.",
+          "<strong>3. Implementation and Unit Testing:</strong> Software design is realized as sets of programs or program units; verified through unit testing.",
+          "<strong>4. Integration and System Testing:</strong> Individual program units are integrated and tested as a complete system to ensure software requirements are met; followed by acceptance testing.",
+          "<strong>5. Operation and Maintenance:</strong> The system is deployed into operational use; includes bug fixes, enhancing capabilities, and adapting to new hardware."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 620 220' style='width:100%;max-width:560px;margin:12px auto;display:block;' aria-label='Waterfall Model Phases'><rect x='20' y='20' width='160' height='32' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='100' y='41' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Requirements Definition</text><path d='M100 52 L100 70 L140 70 L140 70' fill='none' stroke='#64748b' stroke-width='1.5' marker-end='url(#arrow)'/><rect x='110' y='60' width='160' height='32' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='190' y='81' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>System &amp; Software Design</text><rect x='200' y='100' width='160' height='32' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='280' y='121' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Implementation &amp; Unit Test</text><rect x='290' y='140' width='160' height='32' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='370' y='161' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Integration &amp; System Test</text><rect x='380' y='180' width='160' height='32' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='460' y='201' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Operation &amp; Maintenance</text><defs><marker id='arrow' viewBox='0 0 10 10' refX='6' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M 0 1 L 8 5 L 0 9 z' fill='#64748b'/></marker></defs><path d='M190 92 L190 110 L200 110' fill='none' stroke='#64748b' stroke-width='1.5' marker-end='url(#arrow)'/><path d='M280 132 L280 150 L290 150' fill='none' stroke='#64748b' stroke-width='1.5' marker-end='url(#arrow)'/><path d='M370 172 L370 190 L380 190' fill='none' stroke='#64748b' stroke-width='1.5' marker-end='url(#arrow)'/></svg>",
+        "advantages": [
+          "Clear, disciplined milestones and deliverables at each stage make project management and progress tracking straightforward.",
+          "Extensive upfront documentation ensures team members have a shared understanding and facilitates knowledge transfer.",
+          "Well suited for stable, well-understood systems (e.g. large infrastructure, aerospace, defense contracts)."
+        ],
+        "limitations": [
+          "<strong>Inflexible Partitioning:</strong> Difficult to accommodate changing customer requirements once an earlier stage is frozen.",
+          "<strong>Late Software Delivery:</strong> Working software is produced only late in the lifecycle; major design errors may remain hidden until integration.",
+          "<strong>High Cost of Rework:</strong> An error in requirements discovered during system testing costs up to 100x more to fix than if identified early."
+        ]
+      }
+    },
+    {
+      "id": "se-q03",
+      "unit": 1,
+      "section_id": "sec-4",
+      "section_title": "Software Process Models",
+      "question": "Describe and elaborate the four distinct phases of the Rational Unified Process (RUP), with a neat diagram.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2025 Q3.a (6M)",
+        "SEE Feb/Mar 2025 Q2.a (6M)",
+        "SEE Jan 2026 Q2.a (8M)",
+        "SEE Feb 2024 Q2.b (6M)",
+        "SEE Feb/Mar 2025(O) Q1.b (10M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 2.4 (pp. 57-60)",
+      "answer": {
+        "definition": "The <strong>Rational Unified Process (RUP)</strong> is a modern generic process framework that combines elements of all generic process models. It has two dimensions: dynamic (lifecycle phases over time) and static (workflows/disciplines across iterations).",
+        "four_phases": [
+          "<strong>1. Inception Phase:</strong> Establish the business case, project scope, identify all external entities (actors), define major use cases at a high level, and assess business viability and financial risks.",
+          "<strong>2. Elaboration Phase:</strong> Deepen understanding of problem domain; establish an architectural baseline; identify and eliminate the highest project risks; produce the executable architecture.",
+          "<strong>3. Construction Phase:</strong> System design, programming, and unit/integration testing. Components are implemented, integrated into the architecture, and tested against use cases; produces the first external beta release.",
+          "<strong>4. Transition Phase:</strong> Move system from development environment to operational user environment. Involves beta testing, user training, defect correction, and product rollout."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 600 130' style='width:100%;max-width:540px;margin:12px auto;display:block;' aria-label='RUP 4 Phases'><rect x='20' y='30' width='120' height='50' rx='6' fill='#1e293b' stroke='#10b981' stroke-width='2'/><text x='80' y='55' fill='#6ee7b7' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>INCEPTION</text><text x='80' y='70' fill='#94a3b8' font-size='10' font-family='sans-serif' text-anchor='middle'>Scope &amp; Business Case</text><rect x='160' y='30' width='130' height='50' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='225' y='55' fill='#93c5fd' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>ELABORATION</text><text x='225' y='70' fill='#94a3b8' font-size='10' font-family='sans-serif' text-anchor='middle'>Architecture &amp; Risks</text><rect x='310' y='30' width='140' height='50' rx='6' fill='#1e293b' stroke='#f59e0b' stroke-width='2'/><text x='380' y='55' fill='#fcd34d' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>CONSTRUCTION</text><text x='380' y='70' fill='#94a3b8' font-size='10' font-family='sans-serif' text-anchor='middle'>Implementation &amp; Build</text><rect x='470' y='30' width='110' height='50' rx='6' fill='#1e293b' stroke='#8b5cf6' stroke-width='2'/><text x='525' y='55' fill='#c4b5fd' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>TRANSITION</text><text x='525' y='70' fill='#94a3b8' font-size='10' font-family='sans-serif' text-anchor='middle'>Deployment &amp; Beta</text><line x1='140' y1='55' x2='160' y2='55' stroke='#64748b' stroke-width='2'/><line x1='290' y1='55' x2='310' y2='55' stroke='#64748b' stroke-width='2'/><line x1='450' y1='55' x2='470' y2='55' stroke='#64748b' stroke-width='2'/><text x='300' y='110' fill='#64748b' font-size='11' font-family='sans-serif' text-anchor='middle'>Iterations occur continuously across all 4 phases</text></svg>",
+        "key_practices": [
+          "Develop iteratively with user feedback.",
+          "Manage requirements through use case driven models.",
+          "Use component-based architectures.",
+          "Visually model software using Unified Modeling Language (UML).",
+          "Continuously verify quality and manage changes."
+        ]
+      }
+    },
+    {
+      "id": "se-q04",
+      "unit": 1,
+      "section_id": "sec-7",
+      "section_title": "Agile Software Development & Extreme Programming",
+      "question": "Compare and contrast plan-driven processes and agile processes with a suitable use case. Demonstrate how they can be combined in a hybrid model.",
+      "marks": 7,
+      "bloom_level": "L3",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "SEE Feb/Mar 2025 Q1.b (7M)",
+        "SEE Jan 2026 Q2.b (6M)",
+        "SEE Feb 2024 Q2.a (8M)",
+        "SEE Feb/Mar 2025(O) Q2.a (10M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 3.1 & 3.4 (pp. 74-88)",
+      "answer": {
+        "comparison_table": {
+          "headers": [
+            "Attribute",
+            "Plan-Driven Development",
+            "Agile Development"
+          ],
+          "rows": [
+            [
+              "Philosophy",
+              "Anticipate changes upfront; extensive formal planning and architecture.",
+              "Embrace change; adapt iteratively through customer collaboration."
+            ],
+            [
+              "Documentation",
+              "Comprehensive, heavy documentation (SRS, SDD, traceability matrices).",
+              "Working software prioritized over comprehensive documentation; user stories."
+            ],
+            [
+              "Customer Involvement",
+              "Formal involvement during requirements and acceptance sign-offs.",
+              "Continuous, embedded customer collaboration throughout development."
+            ],
+            [
+              "Testing Strategy",
+              "Formal V-Model testing following implementation phase.",
+              "Test-Driven Development (TDD) and continuous automated integration."
+            ],
+            [
+              "Team Structure",
+              "Hierarchical, specialized functional teams with strict governance.",
+              "Cross-functional, self-organizing teams with high tacit communication."
+            ],
+            [
+              "Suitability",
+              "Safety-critical systems, aerospace, large distributed teams, stable domains.",
+              "Fast-evolving business apps, web/mobile software, startups, uncertain domains."
+            ]
+          ]
+        },
+        "use_case_comparison": "<strong>Use Case: Electronic Health Record (EHR) System vs. Clinic Booking Mobile App:</strong><br/>- EHR Core: Requires strict regulatory compliance (HIPAA, HL7), high reliability, and formal safety audits. A <em>plan-driven</em> approach is mandatory.<br/>- Mobile Booking App: Dynamic patient UI, frequently changing booking rules and UX features. An <em>agile</em> approach delivers rapid iterations.",
+        "hybrid_approach": "<strong>Large-Scale / Real-Time Systems Hybrid Model:</strong><br/>- Upfront Plan-Driven Phase: Establish system architectural framework, safety-critical subsystem interfaces, and regulatory baseline requirements.<br/>- Agile Incremental Phase: User-facing modules, peripheral services, and application workflows are developed using agile sprints (Scrum/XP) within the architectural constraints."
+      }
+    },
+    {
+      "id": "se-q05",
+      "unit": 1,
+      "section_id": "sec-7",
+      "section_title": "Agile Software Development & Extreme Programming",
+      "question": "What is the need for Extreme Programming (XP)? Draw and describe the Extreme Programming release/iteration cycle, highlighting key XP practices.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "SEE Feb/Mar 2025 Q2.c (6M)",
+        "SEE Jan 2026 Q2.c (6M)",
+        "SEE Feb 2024 Q2.c (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 3.2 (pp. 77-83)",
+      "answer": {
+        "need_for_xp": "Traditional methods assumed changes late in development were prohibitively expensive. <strong>Extreme Programming (XP)</strong> was created by Kent Beck to take recognized good development practices (e.g. testing, reviews, integration) and push them to 'extreme' levels to make software development highly responsive to customer needs while maintaining code quality.",
+        "xp_cycle_description": [
+          "<strong>1. User Stories:</strong> Customer requirements are written on story cards by the customer.",
+          "<strong>2. Release Planning:</strong> Team and customer prioritize stories into the next release schedule and break stories into developmental tasks.",
+          "<strong>3. Iteration Development:</strong> In 1-2 week cycles, developers implement tasks using Pair Programming and Test-Driven Development.",
+          "<strong>4. Acceptance Tests:</strong> Customer-defined automated tests verify completed stories.",
+          "<strong>5. Software Release:</strong> Delivered frequently to users; feedback immediately feeds next user stories."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 540 180' style='width:100%;max-width:500px;margin:12px auto;display:block;' aria-label='XP Cycle'><circle cx='100' cy='90' r='55' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='100' y='85' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>User Stories &amp;</text><text x='100' y='100' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Release Plan</text><circle cx='270' cy='90' r='55' fill='#1e293b' stroke='#10b981' stroke-width='2'/><text x='270' y='85' fill='#6ee7b7' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Iteration &amp;</text><text x='270' y='100' fill='#6ee7b7' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>TDD / Pair Dev</text><circle cx='440' cy='90' r='55' fill='#1e293b' stroke='#f59e0b' stroke-width='2'/><text x='440' y='85' fill='#fcd34d' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Acceptance Test</text><text x='440' y='100' fill='#fcd34d' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>&amp; Release</text><path d='M155 90 L215 90' fill='none' stroke='#64748b' stroke-width='2' marker-end='url(#arrow)'/><path d='M325 90 L385 90' fill='none' stroke='#64748b' stroke-width='2' marker-end='url(#arrow)'/><path d='M440 35 Q270 -20 100 35' fill='none' stroke='#ef4444' stroke-width='1.5' stroke-dasharray='4,4' marker-end='url(#arrow)'/><text x='270' y='20' fill='#f87171' font-size='10' font-family='sans-serif' text-anchor='middle'>Customer Feedback &amp; Next Stories</text></svg>",
+        "core_practices": [
+          "<strong>Test-Driven Development (TDD):</strong> Tests are written *before* code; code is only written to make tests pass.",
+          "<strong>Pair Programming:</strong> Two programmers work together at one workstation (driver and navigator), providing continuous code review and shared ownership.",
+          "<strong>Refactoring:</strong> Continually improving system structure without altering external behavior.",
+          "<strong>Continuous Integration:</strong> Code is checked in and integrated multiple times a day with automated regression suites."
+        ]
+      }
+    },
+    {
+      "id": "se-q06",
+      "unit": 1,
+      "section_id": "sec-2",
+      "section_title": "Software Engineering Ethics",
+      "question": "List out the different ethical responsibilities of the software engineering profession. State the eight principles of the ACM/IEEE-CS Code of Ethics.",
+      "marks": 6,
+      "bloom_level": "L1",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "SEE Feb/Mar 2025 Q1.c (5M)",
+        "SEE Jan 2026 Q1.c (6M)",
+        "SEE Jan 2023 Q1 (5M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 1.3 (pp. 28-31)",
+      "answer": {
+        "overview": "Software engineers must behave in an honest and ethically responsible manner, not merely follow the law. Technical competence must be joined with ethical integrity because software systems directly impact public safety, privacy, and economic well-being.",
+        "professional_responsibilities": [
+          "<strong>Confidentiality:</strong> Respect client/employer confidentiality regardless of whether a formal non-disclosure agreement was signed.",
+          "<strong>Competence:</strong> Do not misrepresent level of competence; do not knowingly accept work outside personal competence.",
+          "<strong>Intellectual Property Rights:</strong> Respect patents, copyrights, and open-source licenses; never use unauthorized software.",
+          "<strong>Computer Misuse:</strong> Never use technical abilities to breach security, deploy malware, or access private systems unauthorized."
+        ],
+        "eight_principles": [
+          "<strong>1. PUBLIC:</strong> Act consistently with the public interest as paramount.",
+          "<strong>2. CLIENT AND EMPLOYER:</strong> Act in a manner that is in the best interests of client and employer, consistent with public interest.",
+          "<strong>3. PRODUCT:</strong> Ensure products and related modifications meet the highest professional standards possible.",
+          "<strong>4. JUDGMENT:</strong> Maintain integrity and independence in professional judgment.",
+          "<strong>5. MANAGEMENT:</strong> Managers and leaders shall subscribe to and promote an ethical approach to software management.",
+          "<strong>6. PROFESSION:</strong> Advance the integrity and reputation of the profession consistent with public interest.",
+          "<strong>7. COLLEAGUES:</strong> Be fair to and supportive of colleagues.",
+          "<strong>8. SELF:</strong> Participate in lifelong learning regarding the practice of their profession and promote an ethical approach."
+        ]
+      }
+    },
+    {
+      "id": "se-q07",
+      "unit": 1,
+      "section_id": "sec-5",
+      "section_title": "Coping with Change & Boehm's Spiral Model",
+      "question": "With a neat diagram explain Boehm's Spiral Model. Discuss its risk-driven nature, four quadrants, and its advantages over the waterfall model.",
+      "marks": 8,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "SEE Jan 2026 Q1.a (8M)",
+        "SEE Jan 2023 Q1 (8M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 2.3.2 (pp. 55-57)",
+      "answer": {
+        "definition": "<strong>Boehm's Spiral Model</strong> is a risk-driven software process framework where the development lifecycle is represented as a spiral, rather than a sequence of activities with backtracking. Each loop represents a phase of the process.",
+        "four_quadrants": [
+          "<strong>1. Objective Setting (Quadrant 1):</strong> Specific objectives for the phase are identified. Constraints on processes and products are defined, and a detailed management plan is drawn up.",
+          "<strong>2. Risk Assessment and Reduction (Quadrant 2):</strong> For each identified project risk, a detailed analysis is carried out. Steps are taken to reduce risks (e.g. prototyping, simulations, benchmarking).",
+          "<strong>3. Development and Validation (Quadrant 3):</strong> A development model for the system is chosen based on remaining risks (e.g. waterfall if low risk, evolutionary prototype if UX risk, etc.). The increment is built and validated.",
+          "<strong>4. Planning (Quadrant 4):</strong> The project is reviewed and a decision is made whether to continue with a further loop of the spiral. Plans are drawn up for the next phase."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 500 200' style='width:100%;max-width:460px;margin:12px auto;display:block;' aria-label='Spiral Model Quadrants'><line x1='50' y1='100' x2='450' y2='100' stroke='#64748b' stroke-width='2'/><line x1='250' y1='20' x2='250' y2='180' stroke='#64748b' stroke-width='2'/><text x='150' y='60' fill='#38bdf8' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Q1: Determine Objectives</text><text x='350' y='60' fill='#f87171' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Q2: Evaluate &amp; Resolve Risks</text><text x='150' y='145' fill='#c084fc' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Q4: Plan Next Phases</text><text x='350' y='145' fill='#4ade80' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Q3: Develop &amp; Verify</text><path d='M250 100 A 30 30 0 0 1 280 100 A 50 50 0 0 1 230 100 A 70 70 0 0 1 320 100' fill='none' stroke='#f59e0b' stroke-width='2.5' stroke-dasharray='4,2'/></svg>",
+        "advantages_over_waterfall": [
+          "Explicit risk management avoids unexpected project catastrophes.",
+          "Accommodates evolving requirements through successive spiral loops.",
+          "Allows different sub-models to be selected within different phases."
+        ]
+      }
+    },
+    {
+      "id": "se-q08",
+      "unit": 1,
+      "section_id": "sec-3",
+      "section_title": "Three Landmark Case Studies",
+      "question": "With a neat diagram, explain the activity model of the Insulin Pump control system. Why is this considered a safety-critical system?",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO1",
+      "exam_occurrences": [
+        "SEE Feb 2024 Q1.a (6M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 1.4 (pp. 31-34)",
+      "answer": {
+        "overview": "The <strong>Insulin Pump</strong> is a safety-critical embedded system used to regulate blood sugar in patients with Type 1 diabetes. It measures micro-current blood glucose levels, computes insulin requirement, and drives a pump micro-motor.",
+        "safety_critical_nature": "It is safety-critical because failure can cause death: delivering too little insulin leads to hyper-glycaemic coma; delivering an overdose leads to fatal hypo-glycaemia. The system must never fail silently and must run fail-safe self-diagnostics.",
+        "activity_steps": [
+          "1. Read blood sensor output.",
+          "2. Calculate blood sugar level and rate of change.",
+          "3. Compute required insulin dose.",
+          "4. Run safety check: ensure dose <= maximum safe single bolus.",
+          "5. Command needle pump actuator to deliver computed units.",
+          "6. Log delivery timestamp and insulin remaining.",
+          "7. Wait for scheduled sampling interval (e.g. 10 minutes)."
+        ]
+      }
+    },
+    {
+      "id": "se-q09",
+      "unit": 2,
+      "section_id": "sec-1",
+      "section_title": "Functional vs Non-Functional Requirements",
+      "question": "Differentiate between Functional and Non-Functional Requirements (NFRs). Provide two examples of each for an e-commerce website and develop a list of NFRs for a real-time banking application.",
+      "marks": 7,
+      "bloom_level": "L3",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2025 Q1.b (7M)",
+        "SEE Feb/Mar 2025 Q3.b (6M)",
+        "SEE Feb/Mar 2025 Q4.b (6M)",
+        "SEE Jan 2026 Q3.a (6M)",
+        "SEE Feb 2024 Q3.a (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 4.1 (pp. 102-109)",
+      "answer": {
+        "definitions": {
+          "functional": "<strong>Functional Requirements</strong> describe the specific services, functions, and behaviors the system must provide, detailing how the system should react to particular inputs and how it should behave in specific situations.",
+          "non_functional": "<strong>Non-Functional Requirements (NFRs)</strong> are constraints on the services or functions offered by the system. They include performance constraints, reliability, availability, security, regulatory standards, and development toolchain constraints."
+        },
+        "comparison_table": {
+          "headers": [
+            "Dimension",
+            "Functional Requirements",
+            "Non-Functional Requirements"
+          ],
+          "rows": [
+            [
+              "Scope",
+              "Individual features or sub-functions.",
+              "System-wide properties and emergent characteristics."
+            ],
+            [
+              "Focus",
+              "What the system should DO.",
+              "How well or under what constraints the system PERFORMS."
+            ],
+            [
+              "Verification",
+              "Tested via functional/unit test cases.",
+              "Tested via load, stress, security, and benchmark tests."
+            ],
+            [
+              "Failure Consequence",
+              "A specific function is disabled or unavailable.",
+              "Whole system may be rendered unusable or legally uncompliant."
+            ]
+          ]
+        },
+        "ecommerce_examples": {
+          "functional": [
+            "1. The user shall be able to search products by keyword, category, and price range.",
+            "2. The system shall allow registered users to add items to a cart and pay via credit card, UPI, or net banking."
+          ],
+          "non_functional": [
+            "1. <strong>Performance:</strong> The product search results page shall load within 1.5 seconds for up to 10,000 concurrent users.",
+            "2. <strong>Security:</strong> All credit card transactions must comply with PCI-DSS 3.2 and all customer data must be encrypted at rest using AES-256."
+          ]
+        },
+        "banking_nfrs": [
+          "<strong>Availability:</strong> System uptime must be >= 99.99% (maximum 52 minutes unplanned downtime per year).",
+          "<strong>Transaction Latency:</strong> Fund transfers via IMPS/NEFT must complete and respond within 2.0 seconds.",
+          "<strong>Security:</strong> Multi-factor authentication (MFA) required for transfers > INR 10,000; session timeout after 3 minutes of inactivity.",
+          "<strong>Auditability:</strong> Immutable audit logs for all monetary transactions retained for 10 years per RBI regulations."
+        ]
+      }
+    },
+    {
+      "id": "se-q10",
+      "unit": 2,
+      "section_id": "sec-3",
+      "section_title": "Requirements Engineering Processes & RTM",
+      "question": "What are the common challenges faced during requirements elicitation, and how can a software engineer mitigate them?",
+      "marks": 7,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2025 Q2.b (7M)",
+        "SEE Feb 2024 Q4.b (6M)",
+        "SEE Jan 2026 Q3.c (6M)",
+        "SEE Feb/Mar 2025(O) Q4.b (8M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 4.4 (pp. 116-123)",
+      "answer": {
+        "definition": "<strong>Requirements Elicitation</strong> is the process of interacting with stakeholders to discover what services the system should provide, the required performance, and system constraints.",
+        "challenges_and_mitigations": [
+          {
+            "challenge": "<strong>1. Articulation Gap (Stakeholders don't know what they want):</strong> Users find it difficult to express what they need, except in the most general terms, or express unrealistic demands.",
+            "mitigation": "Develop rapid interactive throwaway prototypes, use concrete scenarios and User Stories rather than abstract questionnaires."
+          },
+          {
+            "challenge": "<strong>2. Domain Jargon & Communication Barrier:</strong> Stakeholders describe needs using domain-specific jargon that software engineers misunderstand, and engineers use technical jargon that confuses users.",
+            "mitigation": "Establish a shared project glossary/data dictionary; conduct joint workshop sessions (JAD) with embedded domain experts."
+          },
+          {
+            "challenge": "<strong>3. Conflicting Stakeholder Requirements:</strong> Different departments (e.g. Finance vs. Security vs. Operations) have incompatible goals and priorities.",
+            "mitigation": "Conduct requirements negotiation workshops; use MoSCoW prioritization (Must have, Should have, Could have, Won't have) and formal trade-off matrices."
+          },
+          {
+            "challenge": "<strong>4. Tacit Knowledge & Social Factors:</strong> Users perform routine complex organizational procedures unconsciously that they forget to mention; organizational politics can skew input.",
+            "mitigation": "Employ <strong>Ethnography</strong> (observing users at work in their real environment) to uncover tacit workflow patterns and institutional culture."
+          },
+          {
+            "challenge": "<strong>5. Requirement Volatility:</strong> Business priorities, regulations, and technologies change while requirements are being gathered.",
+            "mitigation": "Maintain a strict Requirements Traceability Matrix (RTM) and adopt short iterative agile cycles to re-baseline frequently."
+          }
+        ]
+      }
+    },
+    {
+      "id": "se-q11",
+      "unit": 2,
+      "section_id": "sec-4",
+      "section_title": "Context & Interaction Models (Use Cases)",
+      "question": "Create a simple Use Case Diagram for a 'Library Management System' involving actors like Member and Librarian, with at least three key use cases, and explain include/extend relationships.",
+      "marks": 5,
+      "bloom_level": "L3",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2025 Q3.b (5M)",
+        "SEE Jan 2026 Q5.a (8M)",
+        "SEE Feb 2024 Q5.b (10M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 5.2 (pp. 142-146)",
+      "answer": {
+        "overview": "A <strong>Use Case Diagram</strong> in UML models the functional requirements of a system by identifying interactions between external actors and system use cases.",
+        "actors": [
+          "<strong>Member:</strong> Student/Faculty borrowing books, searching catalog, reserving items.",
+          "<strong>Librarian:</strong> Staff managing book catalog, issuing/returning books, assessing fines."
+        ],
+        "use_cases": [
+          "1. <strong>Search Catalog:</strong> Both Member and Librarian query library database by title/author/ISBN.",
+          "2. <strong>Borrow / Issue Book:</strong> Librarian issues book to verified Member.",
+          "3. <strong>Return Book:</strong> Librarian processes returned book; if overdue, extends to 'Calculate Fine'.",
+          "4. <strong>Renew Membership:</strong> Member applies for renewal, Librarian approves."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 540 260' style='width:100%;max-width:500px;margin:12px auto;display:block;' aria-label='Library Management System Use Case Diagram'><rect x='130' y='10' width='280' height='240' rx='8' fill='#0f172a' stroke='#64748b' stroke-width='1.5'/><text x='270' y='30' fill='#94a3b8' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Library Management System</text><circle cx='60' cy='80' r='12' fill='#38bdf8'/><line x1='60' y1='92' x2='60' y2='130' stroke='#38bdf8' stroke-width='2'/><line x1='40' y1='105' x2='80' y2='105' stroke='#38bdf8' stroke-width='2'/><line x1='60' y1='130' x2='45' y2='160' stroke='#38bdf8' stroke-width='2'/><line x1='60' y1='130' x2='75' y2='160' stroke='#38bdf8' stroke-width='2'/><text x='60' y='180' fill='#38bdf8' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Member</text><circle cx='475' cy='80' r='12' fill='#10b981'/><line x1='475' y1='92' x2='475' y2='130' stroke='#10b981' stroke-width='2'/><line x1='455' y1='105' x2='495' y2='105' stroke='#10b981' stroke-width='2'/><line x1='475' y1='130' x2='460' y2='160' stroke='#10b981' stroke-width='2'/><line x1='475' y1='130' x2='490' y2='160' stroke='#10b981' stroke-width='2'/><text x='475' y='180' fill='#10b981' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Librarian</text><ellipse cx='270' cy='60' rx='65' ry='18' fill='#1e293b' stroke='#3b82f6' stroke-width='1.5'/><text x='270' y='64' fill='#93c5fd' font-size='10' font-family='sans-serif' text-anchor='middle'>Search Catalog</text><ellipse cx='270' cy='110' rx='65' ry='18' fill='#1e293b' stroke='#3b82f6' stroke-width='1.5'/><text x='270' y='114' fill='#93c5fd' font-size='10' font-family='sans-serif' text-anchor='middle'>Issue / Borrow Book</text><ellipse cx='270' cy='160' rx='65' ry='18' fill='#1e293b' stroke='#3b82f6' stroke-width='1.5'/><text x='270' y='164' fill='#93c5fd' font-size='10' font-family='sans-serif' text-anchor='middle'>Return Book</text><ellipse cx='270' cy='210' rx='65' ry='18' fill='#1e293b' stroke='#f59e0b' stroke-width='1.5'/><text x='270' y='214' fill='#fcd34d' font-size='10' font-family='sans-serif' text-anchor='middle'>Calculate Fine</text><line x1='85' y1='110' x2='205' y2='65' stroke='#64748b' stroke-width='1.5'/><line x1='85' y1='120' x2='205' y2='110' stroke='#64748b' stroke-width='1.5'/><line x1='450' y1='110' x2='335' y2='65' stroke='#64748b' stroke-width='1.5'/><line x1='450' y1='120' x2='335' y2='110' stroke='#64748b' stroke-width='1.5'/><line x1='450' y1='130' x2='335' y2='160' stroke='#64748b' stroke-width='1.5'/><path d='M270 178 L270 192' stroke='#f59e0b' stroke-width='1.5' stroke-dasharray='4,3'/><text x='315' y='188' fill='#f59e0b' font-size='9' font-family='sans-serif'>&lt;&lt;extend&gt;&gt;</text></svg>",
+        "relationships": [
+          "<strong>&lt;&lt;include&gt;&gt;:</strong> Mandatory behavior extracted into a common use case (e.g. 'Issue Book' &lt;&lt;include&gt;&gt; 'Verify Member Card').",
+          "<strong>&lt;&lt;extend&gt;&gt;:</strong> Optional or conditional behavior triggered under specific circumstances (e.g. 'Calculate Fine' extends 'Return Book' only if return date is overdue)."
+        ]
+      }
+    },
+    {
+      "id": "se-q12",
+      "unit": 2,
+      "section_id": "sec-3",
+      "section_title": "Requirements Engineering Processes & RTM",
+      "question": "List and briefly explain the requirement validation process and the five different checks carried out during validation.",
+      "marks": 7,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Ramaiah CIE-1 2025 Q3.c (4M)",
+        "SEE Feb/Mar 2025 Q3.c (7M)",
+        "SEE Feb 2024 Q3.c (6M)",
+        "SEE Feb/Mar 2025(O) Q3.c (6M)",
+        "SEE Jan 2023 Q4.b (5M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 4.5 (pp. 123-125)",
+      "answer": {
+        "definition": "<strong>Requirements Validation</strong> is the process of checking that requirements actually define the system that the customer really wants. Discovering requirements errors at this stage saves astronomical rework costs later in the development cycle.",
+        "five_checks": [
+          "<strong>1. Validity Checks:</strong> Does the system provide the functions which best support the customer's real operational needs?",
+          "<strong>2. Consistency Checks:</strong> Requirements in the document should not conflict (e.g. one section stating 24/7 availability while another stating nightly 4-hour maintenance shutdown).",
+          "<strong>3. Completeness Checks:</strong> The document should include all requirements and constraints requested by the user, covering all normal and exception cases.",
+          "<strong>4. Realism Checks:</strong> Can the requirements actually be implemented using known technologies, within budget and schedule constraints?",
+          "<strong>5. Verifiability Checks:</strong> Can the requirements be objectively tested? Every requirement must be phrased so that a software tester can design an unambiguous pass/fail test."
+        ],
+        "validation_techniques": [
+          "<strong>Requirements Reviews (Walkthroughs):</strong> Systematic manual analysis by developers, customers, and contractors.",
+          "<strong>Prototyping:</strong> Building an executable model to test user reaction and validate assumptions.",
+          "<strong>Test-Case Generation:</strong> If creating a test case is impossible for a requirement, it is ambiguous and must be rewritten."
+        ]
+      }
+    },
+    {
+      "id": "se-q13",
+      "unit": 2,
+      "section_id": "sec-3",
+      "section_title": "Requirements Engineering Processes & RTM",
+      "question": "What is Ethnography? Illustrate with a diagram how combining Ethnography and Prototyping helps the requirements discovery process.",
+      "marks": 7,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "SEE Feb/Mar 2025 Q3.a (7M)",
+        "SEE Feb 2024 Q4.c (8M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 4.4.4 (pp. 120-123)",
+      "answer": {
+        "definition": "<strong>Ethnography</strong> is an observational technique where an analyst immerses themselves in the actual working environment where the system is to be used, watching the day-to-day work and noting how people actually collaborate and use information.",
+        "why_ethnography_matters": [
+          "Discovers <strong>implicit (tacit) requirements</strong> that workers cannot articulate because procedures are second nature to them.",
+          "Identifies <strong>social and organizational factors</strong> that determine whether a software system will actually be accepted or resisted in practice.",
+          "Limitation: Ethnography reveals how people currently work, but cannot innovate or establish new organizational structures."
+        ],
+        "combining_with_prototyping": "Prototyping is focused and forward-looking, but can overlook subtle workplace dynamics. When combined:<br/>- <strong>Ethnography</strong> informs the early prototype by grounding it in real workplace habits.<br/>- <strong>Prototyping</strong> directs the ethnographer's focus to specific workflows and provides a concrete artifact for users to critique.",
+        "diagram_svg": "<svg viewBox='0 0 520 160' style='width:100%;max-width:480px;margin:12px auto;display:block;' aria-label='Ethnography and Prototyping Integration'><rect x='20' y='30' width='140' height='50' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='90' y='55' fill='#93c5fd' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Ethnographic</text><text x='90' y='70' fill='#93c5fd' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Analysis</text><rect x='360' y='30' width='140' height='50' rx='6' fill='#1e293b' stroke='#10b981' stroke-width='2'/><text x='430' y='55' fill='#6ee7b7' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Prototyping</text><text x='430' y='70' fill='#6ee7b7' font-size='12' font-family='sans-serif' font-weight='700' text-anchor='middle'>Development</text><rect x='190' y='95' width='140' height='50' rx='6' fill='#1e293b' stroke='#f59e0b' stroke-width='2'/><text x='260' y='120' fill='#fcd34d' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Discovered System</text><text x='260' y='135' fill='#fcd34d' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Requirements</text><path d='M160 55 L360 55' fill='none' stroke='#64748b' stroke-width='1.5' marker-end='url(#arrow)'/><path d='M90 80 L190 120' fill='none' stroke='#3b82f6' stroke-width='1.5' marker-end='url(#arrow)'/><path d='M430 80 L330 120' fill='none' stroke='#10b981' stroke-width='1.5' marker-end='url(#arrow)'/><text x='260' y='45' fill='#94a3b8' font-size='9' font-family='sans-serif' text-anchor='middle'>Focuses observation &amp; reveals questions</text></svg>"
+      }
+    },
+    {
+      "id": "se-q14",
+      "unit": 2,
+      "section_id": "sec-2",
+      "section_title": "The Software Requirements Specification & IEEE 830",
+      "question": "What are the problems with using Natural Language for specifying systems requirements? Explain how Structured Natural Language specifications overcome these problems.",
+      "marks": 7,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "SEE Feb/Mar 2025 Q4.a (7M)",
+        "SEE Feb/Mar 2025(O) Q3.b (6M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 4.3 (pp. 112-116)",
+      "answer": {
+        "problems_with_natural_language": [
+          "<strong>1. Ambiguity & Lack of Clarity:</strong> Authors mistakenly assume readers share their implicit context, causing words to be interpreted differently by developers and clients.",
+          "<strong>2. Requirements Confusion:</strong> Functional requirements, non-functional requirements, project goals, and design details become mixed up in the same paragraph.",
+          "<strong>3. Requirements Amalgamation:</strong> Multiple distinct requirements are lumped together into a single sprawling sentence.",
+          "<strong>4. Over-Flexibility:</strong> The same concept can be phrased in ten different ways, making automated verification or cross-referencing impossible."
+        ],
+        "structured_natural_language_solution": [
+          "Uses a standard form/template with mandatory predefined fields to write requirements.",
+          "<strong>Standard Fields:</strong> Function Name, Description, Inputs (source & format), Outputs (destination & rate), Pre-conditions, Post-conditions, Side-effects, Exceptions.",
+          "Maintains readability for non-technical clients while enforcing rigor, completeness, and consistency for engineers."
+        ]
+      }
+    },
+    {
+      "id": "se-q15",
+      "unit": 2,
+      "section_id": "sec-2",
+      "section_title": "The Software Requirements Specification & IEEE 830",
+      "question": "Explain the structure of a Software Requirements Specification (SRS) document according to IEEE 830 standard and highlight the characteristics of a good SRS document.",
+      "marks": 7,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "SEE Feb/Mar 2025 Q4.c (7M)",
+        "SEE Jan 2026 Q3.b (8M)",
+        "SEE Jan 2023 Q4.a (10M)",
+        "SEE Feb/Mar 2025(O) Q3.b (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 4.2 (pp. 109-112) & IEEE 830-1998",
+      "answer": {
+        "definition": "The <strong>Software Requirements Specification (SRS)</strong> is the official statement of what the system developers should implement. It serves as a contract between customer and developer.",
+        "ieee_830_structure": [
+          "<strong>1. Introduction:</strong> 1.1 Purpose, 1.2 Scope, 1.3 Definitions/Acronyms, 1.4 References, 1.5 Overview.",
+          "<strong>2. Overall Description:</strong> 2.1 Product Perspective, 2.2 Product Functions, 2.3 User Characteristics, 2.4 General Constraints, 2.5 Assumptions and Dependencies.",
+          "<strong>3. Specific Requirements:</strong> Detailed functional requirements, non-functional requirements (performance, reliability, security), external interface requirements (user, hardware, software, communications), and design constraints.",
+          "<strong>4. Appendices & Index:</strong> Hardware specs, sample input/output forms, glossary."
+        ],
+        "characteristics_of_good_srs": [
+          "<strong>Correct:</strong> Every requirement stated is one that the software shall meet.",
+          "<strong>Unambiguous:</strong> Every requirement has only one interpretation.",
+          "<strong>Complete:</strong> Includes all significant requirements (inputs, outputs, exceptions).",
+          "<strong>Consistent:</strong> No two requirements conflict with each other.",
+          "<strong>Verifiable:</strong> There exists a finite, cost-effective test to verify each requirement.",
+          "<strong>Modifiable & Traceable:</strong> Well-structured with unique IDs so changes can be tracked easily."
+        ]
+      }
+    },
+    {
+      "id": "se-q16",
+      "unit": 2,
+      "section_id": "sec-3",
+      "section_title": "Requirements Engineering Processes & RTM",
+      "question": "With a neat diagram, explain the overall Requirements Engineering (RE) process and its primary activities.",
+      "marks": 10,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "SEE Jan 2026 Q4.a (10M)",
+        "SEE Feb 2024 Q1.b (6M)",
+        "SEE Feb 2024 Q4.a (6M)"
+      ],
+      "frequency": "High",
+      "source_citation": "Sommerville 10e, Chapter 4.4 (pp. 116-125)",
+      "answer": {
+        "definition": "The <strong>Requirements Engineering Process</strong> is a structured set of activities used to discover, analyze, specify, validate, and maintain a software requirements document.",
+        "four_primary_activities": [
+          "<strong>1. Feasibility Study:</strong> Assesses whether the system contributes to business objectives, can be engineered within current tech/budget, and integrates with existing systems. Outputs a <em>Feasibility Report</em>.",
+          "<strong>2. Requirements Elicitation and Analysis:</strong> Working with customers to discover domain info, system services, and operational constraints. Involves discovery, classification, prioritization, and negotiation.",
+          "<strong>3. Requirements Specification:</strong> Translating information into a formal user and system requirements document (SRS).",
+          "<strong>4. Requirements Validation:</strong> Checking that requirements are complete, consistent, realistic, verifiable, and conform to user desires."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 600 130' style='width:100%;max-width:540px;margin:12px auto;display:block;' aria-label='Requirements Engineering Process'><rect x='20' y='40' width='120' height='45' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='80' y='67' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Feasibility Study</text><rect x='165' y='40' width='130' height='45' rx='6' fill='#1e293b' stroke='#10b981' stroke-width='2'/><text x='230' y='60' fill='#6ee7b7' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Elicitation &amp;</text><text x='230' y='74' fill='#6ee7b7' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Analysis</text><rect x='320' y='40' width='120' height='45' rx='6' fill='#1e293b' stroke='#f59e0b' stroke-width='2'/><text x='380' y='60' fill='#fcd34d' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Requirements</text><text x='380' y='74' fill='#fcd34d' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Specification</text><rect x='465' y='40' width='120' height='45' rx='6' fill='#1e293b' stroke='#8b5cf6' stroke-width='2'/><text x='525' y='60' fill='#c4b5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Requirements</text><text x='525' y='74' fill='#c4b5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Validation</text><path d='M140 62 L165 62' stroke='#64748b' stroke-width='2' marker-end='url(#arrow)'/><path d='M295 62 L320 62' stroke='#64748b' stroke-width='2' marker-end='url(#arrow)'/><path d='M440 62 L465 62' stroke='#64748b' stroke-width='2' marker-end='url(#arrow)'/><path d='M525 40 Q380 0 230 40' fill='none' stroke='#ef4444' stroke-width='1.5' stroke-dasharray='4,3' marker-end='url(#arrow)'/><text x='380' y='18' fill='#f87171' font-size='10' font-family='sans-serif' text-anchor='middle'>Errors found during validation feed back into analysis</text></svg>"
+      }
+    },
+    {
+      "id": "se-q17",
+      "unit": 2,
+      "section_id": "sec-1",
+      "section_title": "Functional vs Non-Functional Requirements",
+      "question": "Consider an Automated Traffic Signal System. Write functional and non-functional requirements for this system.",
+      "marks": 10,
+      "bloom_level": "L3",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "SEE Jan 2026 Q4.b (10M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 4.1 (pp. 104-108)",
+      "answer": {
+        "system_context": "An automated traffic control system installed at a busy four-way junction with inductive loop vehicle sensors, pedestrian push-buttons, and emergency vehicle optical detectors.",
+        "functional_requirements": [
+          "<strong>FR-01:</strong> The system shall cycle through Red, Yellow, and Green lights for each lane based on a dynamic time scheduler.",
+          "<strong>FR-02:</strong> When inductive loop sensors detect a queue of > 10 vehicles in lane A, the system shall extend lane A green light duration by 15 seconds (up to a max of 60 seconds).",
+          "<strong>FR-03:</strong> Upon pedestrian button press, the system shall transition conflicting vehicular signals to yellow and then red within 20 seconds, and activate the pedestrian walk indicator for 15 seconds.",
+          "<strong>FR-04:</strong> Upon receiving an emergency vehicle optical strobe signal (ambulance/fire engine), the system shall immediately grant green right-of-way to that corridor while holding all conflicting lanes at red.",
+          "<strong>FR-05:</strong> The system shall log vehicle counts and transition timings to local flash storage and upload hourly to central municipal servers."
+        ],
+        "non_functional_requirements": [
+          "<strong>NFR-01 (Reliability):</strong> MTBF shall exceed 50,000 hours; hardware failures shall automatically trip signals into a flashing yellow/red fail-safe mode.",
+          "<strong>NFR-02 (Safety):</strong> The controller must never illuminate green signals for conflicting perpendicular lanes simultaneously; verified via independent hardware interlock.",
+          "<strong>NFR-03 (Performance):</strong> Transition latency between emergency strobe detection and green corridor activation shall not exceed 1.0 second.",
+          "<strong>NFR-04 (Environmental):</strong> Outdoor controller enclosures must operate reliably between -10\u00b0C to +55\u00b0C and withstand IP65 moisture/dust rating."
+        ]
+      }
+    },
+    {
+      "id": "se-q18",
+      "unit": 2,
+      "section_id": "sec-3",
+      "section_title": "Requirements Engineering Processes & RTM",
+      "question": "With a diagram explain the principal stages of a Change Management process in Requirements Management.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "SEE Feb/Mar 2025(O) Q4.c (6M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 4.6 (pp. 126-129)",
+      "answer": {
+        "overview": "<strong>Requirements Management</strong> is the process of managing changing requirements during requirements engineering and system development. Because change is inevitable, an explicit change management process ensures controlled, cost-aware evolution.",
+        "three_stages": [
+          "<strong>1. Problem Analysis & Change Specification:</strong> Identifies problem or change proposal; checks that request is valid and not a duplicate.",
+          "<strong>2. Change Analysis & Costing:</strong> Assesses impact on existing system, calculates cost in dollars and schedule delay using Traceability Matrices (RTM).",
+          "<strong>3. Change Implementation:</strong> Modifies requirements document, design models, and source code; regression tests; updates version baselines."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 540 100' style='width:100%;max-width:500px;margin:12px auto;display:block;' aria-label='Change Management Process'><rect x='20' y='25' width='140' height='45' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='90' y='45' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Problem Analysis</text><text x='90' y='58' fill='#93c5fd' font-size='10' font-family='sans-serif' text-anchor='middle'>&amp; Change Spec</text><rect x='200' y='25' width='140' height='45' rx='6' fill='#1e293b' stroke='#f59e0b' stroke-width='2'/><text x='270' y='45' fill='#fcd34d' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Change Analysis</text><text x='270' y='58' fill='#fcd34d' font-size='10' font-family='sans-serif' text-anchor='middle'>&amp; Costing</text><rect x='380' y='25' width='140' height='45' rx='6' fill='#1e293b' stroke='#10b981' stroke-width='2'/><text x='450' y='45' fill='#6ee7b7' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Change</text><text x='450' y='58' fill='#6ee7b7' font-size='10' font-family='sans-serif' text-anchor='middle'>Implementation</text><path d='M160 47 L200 47' stroke='#64748b' stroke-width='2' marker-end='url(#arrow)'/><path d='M340 47 L380 47' stroke='#64748b' stroke-width='2' marker-end='url(#arrow)'/></svg>"
+      }
+    },
+    {
+      "id": "se-q19",
+      "unit": 2,
+      "section_id": "sec-5",
+      "section_title": "Interaction Models: Sequence Diagrams",
+      "question": "What is an Interaction Model? Explain how Sequence Diagrams model dynamic interactions with lifelines, messages, and combined fragments.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "SEE Jan 2026 Q5.a (8M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 5.2 (pp. 146-150)",
+      "answer": {
+        "definition": "<strong>Interaction Models</strong> show how system components interact with each other and with external actors. They model dynamic system behavior.",
+        "sequence_diagram_elements": [
+          "<strong>Lifelines:</strong> Dashed vertical lines representing participating objects or actors across time (time progresses downwards).",
+          "<strong>Activation Bars:</strong> Tall narrow rectangles placed on lifelines showing the period during which an object is executing an operation.",
+          "<strong>Synchronous Message (Solid Arrow with Filled Head):</strong> Caller blocks and waits for operation to return before proceeding.",
+          "<strong>Asynchronous Message (Solid Line with Open Arrowhead):</strong> Caller sends message and continues execution immediately.",
+          "<strong>Return Message (Dashed Line with Open Arrowhead):</strong> Value or control returned from called operation.",
+          "<strong>Combined Fragments:</strong> Rectangular frames with operator tags like <code>alt</code> (if-else conditional branch), <code>opt</code> (optional execute if condition holds), and <code>loop</code> (iterative execution)."
+        ]
+      }
+    },
+    {
+      "id": "se-q20",
+      "unit": 2,
+      "section_id": "sec-7",
+      "section_title": "Behavioral Models: Activity & State Machine Diagrams",
+      "question": "Differentiate between Data-Driven (Activity) models and Event-Driven (State Machine) models. Provide a simple State Machine diagram for a Microwave Oven.",
+      "marks": 6,
+      "bloom_level": "L2",
+      "course_outcome": "CO2",
+      "exam_occurrences": [
+        "Sommerville 10e Unit 2 Standard Curriculum Question",
+        "SEE 2023 Q5.b (12M)"
+      ],
+      "frequency": "Medium",
+      "source_citation": "Sommerville 10e, Chapter 5.4 (pp. 154-159)",
+      "answer": {
+        "comparison": [
+          "<strong>Data-Driven Models (Activity Diagrams):</strong> Show the sequence of actions and processing steps involved in handling data. Best for batch processing, business data pipelines, and algorithms.",
+          "<strong>Event-Driven Models (State Machine Diagrams):</strong> Show how a system responds to internal and external events by transitioning between discrete system states. Essential for real-time and embedded systems."
+        ],
+        "state_machine_elements": [
+          "<strong>States (Rounded Rectangles):</strong> An abstraction of the system's condition (e.g. <em>Waiting</em>, <em>Cooking</em>, <em>Door Open</em>).",
+          "<strong>Transitions (Directed Arrows):</strong> Movement between states triggered by an event: <code>Trigger [Guard] / Action</code>."
+        ],
+        "diagram_svg": "<svg viewBox='0 0 520 180' style='width:100%;max-width:480px;margin:12px auto;display:block;' aria-label='Microwave Oven State Diagram'><rect x='30' y='65' width='90' height='36' rx='6' fill='#1e293b' stroke='#3b82f6' stroke-width='2'/><text x='75' y='87' fill='#93c5fd' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Waiting</text><rect x='215' y='65' width='90' height='36' rx='6' fill='#1e293b' stroke='#10b981' stroke-width='2'/><text x='260' y='87' fill='#6ee7b7' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Cooking</text><rect x='400' y='65' width='90' height='36' rx='6' fill='#1e293b' stroke='#ef4444' stroke-width='2'/><text x='445' y='87' fill='#fca5a5' font-size='11' font-family='sans-serif' font-weight='700' text-anchor='middle'>Interrupted</text><path d='M120 75 L215 75' stroke='#10b981' stroke-width='1.5' marker-end='url(#arrow)'/><text x='167' y='68' fill='#6ee7b7' font-size='9' font-family='sans-serif' text-anchor='middle'>Start [Door Closed]</text><path d='M215 90 L120 90' stroke='#3b82f6' stroke-width='1.5' marker-end='url(#arrow)'/><text x='167' y='105' fill='#93c5fd' font-size='9' font-family='sans-serif' text-anchor='middle'>Timer Done</text><path d='M305 75 L400 75' stroke='#ef4444' stroke-width='1.5' marker-end='url(#arrow)'/><text x='352' y='68' fill='#fca5a5' font-size='9' font-family='sans-serif' text-anchor='middle'>Door Opened</text><path d='M400 90 L305 90' stroke='#10b981' stroke-width='1.5' marker-end='url(#arrow)'/><text x='352' y='105' fill='#6ee7b7' font-size='9' font-family='sans-serif' text-anchor='middle'>Door Closed &amp; Start</text></svg>"
+      }
+    }
+  ],
+  "out_of_scope_questions": [
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "1.a",
+      "marks": 4,
+      "question": "Illustrate advantages and disadvantages of the repository and layered architectural design models.",
+      "unit": 3,
+      "reason": "Architectural Patterns (Layered, Repository) are in Unit 3, which is outside the CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "1.b",
+      "marks": 6,
+      "question": "Demonstrate equivalence class test cases for the NextDate function.",
+      "unit": 4,
+      "reason": "Software Testing / Equivalence Partitioning belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "1.c",
+      "marks": 5,
+      "question": "Explain the factors effecting software pricing.",
+      "unit": 5,
+      "reason": "Project Management and Software Pricing belong to Unit 5, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "2.a",
+      "marks": 4,
+      "question": "With a neat diagram, explain the architecture of a language processing system.",
+      "unit": 3,
+      "reason": "Application Architectures belongs to Unit 3, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "2.b",
+      "marks": 6,
+      "question": "Using boundary value testing, write the test cases of an improved version of triangle problem that takes 3 integers as sides of the triangle.",
+      "unit": 4,
+      "reason": "Boundary Value Testing belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "2.c",
+      "marks": 5,
+      "question": "Explain why the process of project planning is iterative and why a plan must be continually reviewed during a software project.",
+      "unit": 5,
+      "reason": "Project Planning belongs to Unit 5, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "3.a",
+      "marks": 4,
+      "question": "Briefly Explain any two software design patterns with suitable diagrams.",
+      "unit": 3,
+      "reason": "Design Patterns belong to Unit 3, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "3.b",
+      "marks": 5,
+      "question": "Define Equivalence class testing. Write weak robust equivalence class test cases for Commission Problem.",
+      "unit": 4,
+      "reason": "Testing Commission Problem belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "Ramaiah CIE-2 2025 (23/12/2025)",
+      "question_number": "3.c",
+      "marks": 6,
+      "question": "Discuss strategies used for risk management and managing people at a workplace in an organization.",
+      "unit": 5,
+      "reason": "Risk Management & People Management belong to Unit 5, outside CIE-1 scope."
+    },
+    {
+      "paper": "SEE Feb/Mar 2025",
+      "question_number": "5.a, 5.b, 5.c",
+      "marks": 20,
+      "question": "Architectural styles, types of architectural styles, documenting architecture.",
+      "unit": 3,
+      "reason": "Architectural Design is in Unit 3, outside CIE-1 scope."
+    },
+    {
+      "paper": "SEE Feb/Mar 2025",
+      "question_number": "6.c",
+      "marks": 10,
+      "question": "Car Rental System Object-Oriented Design principles and Class Diagram.",
+      "unit": 3,
+      "reason": "OOD and Class-based detailed system implementation is in Unit 3."
+    },
+    {
+      "paper": "SEE Feb/Mar 2025",
+      "question_number": "7.a, 7.b, 8.a, 8.b",
+      "marks": 40,
+      "question": "Equivalence class test cases for triangle problem, Specification-based vs code-based, Robust worst-case BVT formula.",
+      "unit": 4,
+      "reason": "Software Testing belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "SEE Feb/Mar 2025",
+      "question_number": "9.a, 9.b, 10.a, 10.b, 10.c",
+      "marks": 40,
+      "question": "Project management goals, plan-driven vs agile planning, categories of risk, human needs hierarchy, software pricing factors.",
+      "unit": 5,
+      "reason": "Project Management belongs to Unit 5, outside CIE-1 scope."
+    },
+    {
+      "paper": "SEE Jan 2026",
+      "question_number": "5.b, 5.c, 6.a, 6.b, 6.c",
+      "marks": 32,
+      "question": "Google Docs architectural pattern, Repository vs Client-Server, ATM software architecture, Observer Pattern, Open source development.",
+      "unit": 3,
+      "reason": "Architectural patterns, design patterns and open source belong to Unit 3."
+    },
+    {
+      "paper": "SEE Jan 2026",
+      "question_number": "7.a, 7.b, 7.c, 8.a, 8.b, 8.c",
+      "marks": 40,
+      "question": "NextDate BVT, Fault taxonomy, Triangle problem classes, Levels of testing, Black-box vs White-box.",
+      "unit": 4,
+      "reason": "Software Testing belongs to Unit 4, outside CIE-1 scope."
+    },
+    {
+      "paper": "SEE Jan 2026",
+      "question_number": "9.a, 9.b, 9.c, 10.a, 10.b, 10.c",
+      "marks": 40,
+      "question": "Project risk management, plan-driven development, software metrics, people conflict management, software pricing strategies.",
+      "unit": 5,
+      "reason": "Project Management belongs to Unit 5, outside CIE-1 scope."
+    },
+    {
+      "paper": "SEE Feb 2024",
+      "question_number": "5.a, 6.a, 6.b",
+      "marks": 30,
+      "question": "Architectural styles, component design principles, ATM system architecture.",
+      "unit": 3,
+      "reason": "Architectural design belongs to Unit 3."
+    },
+    {
+      "paper": "SEE Feb 2024",
+      "question_number": "7.a, 7.b, 7.c, 8.a, 8.b",
+      "marks": 40,
+      "question": "Verification vs Validation, automated unit testing, re-engineering, hardware vs software test engineer, lifecycle defects.",
+      "unit": 4,
+      "reason": "Software testing & evolution belongs to Unit 4."
+    }
+  ]
+}

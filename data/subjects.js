@@ -45,7 +45,7 @@ window.SEM5_DATA = {
       },
       {
         "slNo": 2,
-        "code": "IS52",
+        "code": "24IS52",
         "name": "Software Engineering",
         "dept": "ISE",
         "category": "IPCC",
@@ -790,7 +790,11 @@ window.SEM5_DATA = {
     },
     {
       "id": "se",
-      "code": "IS52",
+      "code": "24IS52",
+      "examDate": "2026-10-14",
+      "examTime": "13:30–14:30",
+      "examSchedule": "Wed 14-10-2026, 13:30–14:30",
+      "cie1Scope": "Unit 1, Unit 2 (Full)",
       "name": "Software Engineering",
       "shortName": "SE",
       "category": "IPCC",
@@ -1143,42 +1147,39 @@ window.SEM5_DATA = {
           "isSyllabusOnly": false
         },
         {
-          "id": "se-unit3",
-          "unitNumber": 3,
-          "title": "Unit 3: Architectural Design & Implementation",
-          "topics": "Architectural design decisions, architectural views (4+1), architectural patterns (Layered, Repository, Client-Server, Pipe and Filter), application architectures, object-oriented design and design patterns.",
-          "isPractice": false,
+          "id": "se-pyq",
+          "unitNumber": "PYQ",
+          "title": "CIE-1 PYQ Bank & Model Answers",
+          "topics": "20 Solved examination questions covering Software Engineering definitions, ethics, Waterfall model, Rational Unified Process (RUP), Agile vs Plan-driven, Extreme Programming (XP), Boehm's Spiral model, Functional vs Non-Functional requirements, IEEE 830 SRS structure, Requirements Elicitation & Ethnography, Validation checks, Use Case modeling (Library Management System), and State Machine diagrams.",
+          "isPractice": true,
           "files": [
             {
-              "id": "se-u3-notes",
-              "title": "Unit 3: Interactive Notes",
-              "originalName": "unit-3-notes.html",
-              "path": "notes/se/unit3/unit-3-notes.html",
-              "originalPath": null,
-              "type": "notes",
-              "tag": "Interactive notes",
-              "readingTime": "42 min read",
-              "size": "Interactive Notes",
+              "id": "se-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/se/pyq/pyq-answers.html",
+              "type": "pyq",
+              "tag": "Solved PYQs",
+              "readingTime": "28 min read",
+              "size": "Interactive Model Answers",
               "isConverted": false
             },
             {
-              "id": "se-u3-handwritten-pdf",
-              "title": "Handwritten notebook (PDF)",
-              "originalName": "se-unit3-handwritten.pdf",
-              "path": "notes/se/unit3/handwritten/se-unit3-handwritten.pdf",
+              "id": "se-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "se-pyq-handwritten.pdf",
+              "path": "notes/se/pyq/handwritten/se-pyq-handwritten.pdf",
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 17,
-              "size": "0.56 MB",
-              "sizeBytes": 585288,
-              "previewImage": "notes/se/unit3/handwritten/se-unit3-preview.webp",
-              "sourceHtml": "notes/se/unit3/unit-3-notes.html"
+              "pages": 4,
+              "size": "0.16 MB",
+              "previewImage": "notes/se/pyq/handwritten/se-pyq-preview.webp",
+              "sourceHtml": "notes/se/pyq/pyq-answers.html"
             }
-          ],
-          "isSyllabusOnly": false
+          ]
         },
-        {
+         {
           "id": "se-practice",
           "unitNumber": "Practice",
           "title": "Practice & Examination Question Papers",
