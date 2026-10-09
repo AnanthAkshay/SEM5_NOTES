@@ -78,7 +78,7 @@ window.SEM5_DATA = {
       },
       {
         "slNo": 5,
-        "code": "ISE552",
+        "code": "24ISE552",
         "name": "Artificial Intelligence (Program Elective 1)",
         "dept": "ISE",
         "category": "PEC",
@@ -2140,7 +2140,11 @@ window.SEM5_DATA = {
     },
     {
       "id": "ai",
-      "code": "ISE552",
+      "code": "24ISE552",
+      "examDate": "2026-10-14",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Wed 14-10-2026, 09:30–10:30",
+      "cie1Scope": "Unit 1, Unit 2 (Full)",
       "name": "Artificial Intelligence",
       "shortName": "AI",
       "category": "PEC",
@@ -2489,53 +2493,39 @@ window.SEM5_DATA = {
           "isSyllabusOnly": false
         },
         {
-          "id": "ai-unit3",
-          "unitNumber": 3,
-          "title": "Unit 3: Adversarial Search (Games) & Constraint Satisfaction Problems",
-          "topics": "Game Theory, Minimax Algorithm, Alpha-Beta Pruning, CSP Formulation, Constraint Propagation (AC-3 Algorithm), Backtracking Search with MRV & Forward Checking.",
-          "isPractice": false,
+          "id": "ai-pyq",
+          "unitNumber": "PYQ",
+          "title": "CIE-1 PYQ Bank & Model Answers",
+          "topics": "22 Solved examination questions covering AI definitions, the 9 faculty photo priority questions, intelligent agents, PEAS formulations, uninformed & informed search (BFS, DFS, UCS, IDS, A* 8-puzzle), and adversarial game trees (Minimax & Alpha-Beta).",
+          "isPractice": true,
           "files": [
             {
-              "id": "ai-u3-notes",
-              "title": "Unit 3: Interactive Notes",
-              "originalName": "unit-3-notes.html",
-              "path": "notes/ai/unit3/unit-3-notes.html",
-              "originalPath": null,
-              "type": "notes",
-              "tag": "Interactive notes",
-              "readingTime": "42 min read",
-              "size": "Interactive Notes",
+              "id": "ai-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/ai/pyq/pyq-answers.html",
+              "type": "pyq",
+              "tag": "Solved PYQs",
+              "readingTime": "30 min read",
+              "size": "Interactive Model Answers",
               "isConverted": false
             },
             {
-              "id": "ai-u3-handwritten-pdf",
-              "title": "Handwritten notebook (PDF)",
-              "originalName": "ai-unit3-handwritten.pdf",
-              "path": "notes/ai/unit3/handwritten/ai-unit3-handwritten.pdf",
+              "id": "ai-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "ai-pyq-handwritten.pdf",
+              "path": "notes/ai/pyq/handwritten/ai-pyq-handwritten.pdf",
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 23,
-              "size": "0.78 MB",
-              "sizeBytes": 814438,
-              "previewImage": "notes/ai/unit3/handwritten/ai-unit3-preview.webp",
-              "sourceHtml": "notes/ai/unit3/unit-3-notes.html"
-            },
-            {
-              "id": "ai-u3-adversarial-pdf",
-              "title": "AI Unit 3: Adversarial Search (Games, Minimax & Alpha-Beta Pruning)",
-              "originalName": "AI-Adversarial_Search.pdf",
-              "path": "notes/ai/unit3/ai-adversarial-search.pdf",
-              "originalPath": null,
-              "type": "pdf",
-              "size": "0.19 MB",
-              "sizeBytes": 194418,
-              "isConverted": false
+              "pages": 26,
+              "size": "0.85 MB",
+              "previewImage": "notes/ai/pyq/handwritten/ai-pyq-preview.webp",
+              "sourceHtml": "notes/ai/pyq/pyq-answers.html"
             }
-          ],
-          "isSyllabusOnly": false
+          ]
         },
-        {
+         {
           "id": "ai-syllabus-unit",
           "unitNumber": "Syllabus",
           "title": "Official Syllabus & Course Scheme",

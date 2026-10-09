@@ -1,0 +1,422 @@
+{
+  "subject_id": "ai",
+  "subject_name": "Artificial Intelligence",
+  "subject_code": "24ISE552",
+  "exam_datetime": "2026-10-14T09:30:00+05:30",
+  "total_questions_extracted": 32,
+  "in_scope_count": 22,
+  "out_of_scope_count": 10,
+  "unverified_count": 0,
+  "questions": [
+    {
+      "id": "ai-q01",
+      "unit": 1,
+      "section_id": "sec-1",
+      "marks": 5,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025",
+        "SEE JAN 2026",
+        "SEE 2025",
+        "Faculty Priority Photo (Q1)"
+      ],
+      "exam_type": "CIE-1 & SEE",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q1) & CIE1&2-2025.pdf",
+      "question": "What is Artificial Intelligence? Explain the four major dimensions/approaches used to define AI systems (Acting Humanly, Thinking Humanly, Thinking Rationally, Acting Rationally).",
+      "answer": "<h4>1. Definition of Artificial Intelligence</h4><p><strong>Artificial Intelligence (AI)</strong> is the branch of computer science dedicated to creating software systems or hardware machines capable of performing tasks that typically require human intelligence, such as visual perception, speech recognition, reasoning, decision-making, and general problem-solving.</p><h4>2. Four Approaches to AI (Russell & Norvig 2x2 Matrix)</h4><table class=\"table-clean\"><thead><tr><th>Dimension</th><th>Human-Centered (Empirical Science)</th><th>Rationality-Centered (Ideal Standard)</th></tr></thead><tbody><tr><td><strong>Thinking</strong></td><td><strong>Thinking Humanly (Cognitive Science):</strong><br>Determining how the human mind thinks through psychological experiments and brain neuroimaging, then replicating that cognition in computer programs.</td><td><strong>Thinking Rationally (\"Laws of Thought\"):</strong><br>Codifying right thinking through formal deductive logic (Aristotelian syllogisms). If premises are true, conclusions must be true.</td></tr><tr><td><strong>Acting</strong></td><td><strong>Acting Humanly (The Turing Test):</strong><br>Creating machines that perform behaviors that would be considered intelligent if done by humans (Turing, 1950). Requires NLP, knowledge representation, automated reasoning, and machine learning.</td><td><strong>Acting Rationally (Rational Agents):</strong><br>Designing computational agents that act to achieve the best outcome (or best expected outcome when uncertain). Modern AI focuses primarily on this approach!</td></tr></tbody></table>",
+      "source_citation": "Russell & Norvig, AIMA 4th ed., Chapter 1.1, pp. 1\u20135"
+    },
+    {
+      "id": "ai-q02",
+      "unit": 1,
+      "section_id": "sec-1",
+      "marks": 5,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q2)",
+        "CIE-1 2025"
+      ],
+      "exam_type": "CIE & Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q2)",
+      "question": "What are the types of AI? Explain both classification schemes (by capability and by functionality).",
+      "answer": "<h4>1. Classification by Capability</h4><ol><li><strong>Narrow / Weak AI (ANI):</strong> AI trained and specialized for a single dedicated task. It excels in its domain but cannot generalize outside it.<br><em>Examples:</em> Apple Siri, Google Translate, AlphaGo, Tesla Autopilot. (All existing AI today is Narrow AI).</li><li><strong>General / Strong AI (AGI):</strong> Hypothetical AI possessing human-level cognitive capabilities across any intellectual task, capable of reasoning, abstract thinking, and transfer learning across domains.</li><li><strong>Super AI (ASI):</strong> Theoretical future AI surpassing human intelligence across all disciplines, including scientific creativity, emotional intelligence, and social skills.</li></ol><h4>2. Classification by Functionality (Hintze's Classification)</h4><ul><li><strong>Type 1: Reactive Machines:</strong> Purely reactive; no memory or past experience used for decisions (e.g. IBM Deep Blue).</li><li><strong>Type 2: Limited Memory:</strong> Can look into the past for short intervals to make current decisions (e.g. self-driving cars monitoring recent vehicle velocities).</li><li><strong>Type 3: Theory of Mind:</strong> (Under research) AI that understands that humans and other entities have thoughts, emotions, and beliefs affecting their behavior.</li><li><strong>Type 4: Self-Aware AI:</strong> (Hypothetical) AI possessing conscious awareness of self and internal states.</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 1; Faculty Slide Deck AI-Intelligent_Agents.pdf"
+    },
+    {
+      "id": "ai-q03",
+      "unit": 1,
+      "section_id": "sec-1",
+      "marks": 5,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q3)",
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE & Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q3)",
+      "question": "What is the difference between AI, Machine Learning (ML), and Deep Learning (DL)?",
+      "answer": "<h4>1. Hierarchical Relationship (Concentric Circles)</h4><p>Deep Learning is a subset of Machine Learning, which in turn is a subset of the broader field of Artificial Intelligence.</p><h4>2. Comparison Table</h4><table class=\"table-clean\"><thead><tr><th>Parameter</th><th>Artificial Intelligence (AI)</th><th>Machine Learning (ML)</th><th>Deep Learning (DL)</th></tr></thead><tbody><tr><td><strong>Scope</strong></td><td>Broad umbrella concept of machines performing tasks requiring human intelligence.</td><td>Subfield of AI focusing on algorithms that learn patterns from data without explicit rule programming.</td><td>Subfield of ML based on multi-layered Artificial Neural Networks (ANNs).</td></tr><tr><td><strong>Data Dependency</strong></td><td>Works on rule engines, logic trees, or statistical models.</td><td>Performs well on structured/tabular medium datasets.</td><td>Requires massive volumes of data (millions of samples) to avoid overfitting.</td></tr><tr><td><strong>Feature Engineering</strong></td><td>Manually programmed rules and heuristics.</td><td>Requires manual feature extraction by domain experts.</td><td>Performs automated feature representation learning from raw data.</td></tr><tr><td><strong>Hardware Needs</strong></td><td>Standard CPUs.</td><td>CPUs / mid-range GPUs.</td><td>High-performance multi-GPU clusters and TPUs.</td></tr><tr><td><strong>Examples</strong></td><td>Expert systems, A* search, Minimax.</td><td>Random Forests, SVM, Logistic Regression, Linear Regression.</td><td>CNNs (computer vision), Transformers (LLMs, GPT-4), RNNs/LSTMs.</td></tr></tbody></table>",
+      "source_citation": "Russell & Norvig, Chapter 1; Goodfellow et al., Deep Learning (MIT Press)"
+    },
+    {
+      "id": "ai-q04",
+      "unit": 1,
+      "section_id": "sec-1",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q4)"
+      ],
+      "exam_type": "Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q4)",
+      "question": "Discuss major real-world applications of Artificial Intelligence.",
+      "answer": "<h4>Key Application Domains of AI</h4><ol><li><strong>Healthcare & Medical Diagnosis:</strong> Automated detection of tumors from MRI/CT scans (e.g. deep CNNs matching radiologist accuracy), predictive analytics for ICU patient deterioration, genomic drug discovery.</li><li><strong>Autonomous Systems & Transportation:</strong> Self-driving vehicles (Tesla, Waymo) utilizing computer vision, LiDAR sensor fusion, and reinforcement learning for trajectory planning; automated drone pesticide spraying in precision agriculture.</li><li><strong>Natural Language Processing (NLP) & Assistants:</strong> Large Language Models (ChatGPT, Claude), real-time multilingual translation (Google Translate), intelligent customer service agents.</li><li><strong>Finance & Banking:</strong> High-frequency algorithmic trading, automated credit scoring, real-time credit card fraud detection via anomaly detection algorithms.</li><li><strong>Gaming & Robotics:</strong> Superhuman game-playing agents (DeepMind AlphaZero, AlphaGo), automated warehouse logistics robots (Amazon Kiva robotic fulfillment).</li></ol>",
+      "source_citation": "Russell & Norvig, Chapter 1.3, pp. 25\u201328"
+    },
+    {
+      "id": "ai-q05",
+      "unit": 1,
+      "section_id": "sec-2",
+      "marks": 5,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q5)",
+        "SEE JAN 2026",
+        "SEE 2025"
+      ],
+      "exam_type": "SEE & Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q5) & JAN2026.pdf",
+      "question": "What is an intelligent agent? Describe the structure of a simple intelligent agent interacting with its environment with a neat diagram.",
+      "answer": "<h4>1. Definition of an Agent</h4><p>An <strong>agent</strong> is anything that can be viewed as perceiving its <strong>environment</strong> through <strong>sensors</strong> and acting upon that environment through <strong>actuators</strong>. Mathematically, an agent's behavior is described by an agent function $f: P^* \\rightarrow A$, mapping any sequence of percepts $P^*$ to an action $A$.</p><h4>2. Agent-Environment Interaction Architecture</h4><div class=\"diagram-wrap\"><svg viewBox=\"0 0 650 200\" class=\"diagram-svg\"><rect x=\"220\" y=\"20\" width=\"210\" height=\"70\" rx=\"8\" fill=\"var(--surface-card)\" stroke=\"var(--accent)\" stroke-width=\"2\"/><text x=\"325\" y=\"50\" text-anchor=\"middle\" font-weight=\"bold\" font-size=\"14\" fill=\"var(--text-primary)\">AGENT</text><text x=\"325\" y=\"70\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--text-muted)\">Agent Program / Architecture</text><rect x=\"220\" y=\"120\" width=\"210\" height=\"60\" rx=\"8\" fill=\"var(--green-tint)\" stroke=\"var(--green)\" stroke-width=\"2\"/><text x=\"325\" y=\"155\" text-anchor=\"middle\" font-weight=\"bold\" font-size=\"14\" fill=\"var(--text-primary)\">ENVIRONMENT</text><rect x=\"50\" y=\"70\" width=\"120\" height=\"40\" rx=\"6\" fill=\"var(--surface-hover)\" stroke=\"var(--border-color)\" stroke-width=\"1.5\"/><text x=\"110\" y=\"95\" text-anchor=\"middle\" font-size=\"12\" fill=\"var(--text-primary)\">Sensors</text><rect x=\"480\" y=\"70\" width=\"120\" height=\"40\" rx=\"6\" fill=\"var(--surface-hover)\" stroke=\"var(--border-color)\" stroke-width=\"1.5\"/><text x=\"540\" y=\"95\" text-anchor=\"middle\" font-size=\"12\" fill=\"var(--text-primary)\">Actuators</text><line x1=\"220\" y1=\"140\" x2=\"110\" y2=\"110\" stroke=\"var(--accent)\" stroke-width=\"2\"/><text x=\"130\" y=\"145\" font-size=\"11\" fill=\"var(--text-muted)\">Percepts</text><line x1=\"110\" y1=\"70\" x2=\"220\" y2=\"45\" stroke=\"var(--accent)\" stroke-width=\"2\"/><line x1=\"430\" y1=\"45\" x2=\"540\" y2=\"70\" stroke=\"var(--green)\" stroke-width=\"2\"/><line x1=\"540\" y1=\"110\" x2=\"430\" y2=\"140\" stroke=\"var(--green)\" stroke-width=\"2\"/><text x=\"500\" y=\"145\" font-size=\"11\" fill=\"var(--text-muted)\">Actions</text></svg></div><ul><li><strong>Percept:</strong> The agent's perceptual inputs at any given instant.</li><li><strong>Percept Sequence ($P^*$):</strong> The complete history of everything the agent has ever perceived.</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 2.1, pp. 36\u201339"
+    },
+    {
+      "id": "ai-q06",
+      "unit": 1,
+      "section_id": "sec-2",
+      "marks": 4,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q6)"
+      ],
+      "exam_type": "Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q6)",
+      "question": "What are sensors and actuators? Give examples across robotic, software, and human agents.",
+      "answer": "<h4>1. Definitions</h4><ul><li><strong>Sensors:</strong> The physical devices or software interfaces through which an agent perceives the state of its environment and receives data/signals.</li><li><strong>Actuators:</strong> The mechanical mechanisms, hardware components, or software outputs through which an agent performs actions to effect changes upon its environment.</li></ul><h4>2. Comparative Examples Across Agent Types</h4><table class=\"table-clean\"><thead><tr><th>Agent Type</th><th>Sensors (Perception)</th><th>Actuators (Action)</th></tr></thead><tbody><tr><td><strong>Human Agent</strong></td><td>Eyes, ears, nose, tongue, skin receptors (touch, temperature).</td><td>Hands, legs, vocal cords, facial expressions.</td></tr><tr><td><strong>Robotic Agent (e.g. Autonomous Car)</strong></td><td>Cameras, LiDAR, RADAR, sonar, GPS, speedometer, odometer, gyroscopes.</td><td>Steering wheel motor, throttle/accelerator, brakes, display screen, turn signals.</td></tr><tr><td><strong>Software Agent (e.g. Web Bot / Filter)</strong></td><td>Keystrokes, received network packets, file contents, API requests.</td><td>Writing files, sending HTTP packets, displaying UI alerts, database queries.</td></tr></tbody></table>",
+      "source_citation": "Russell & Norvig, Chapter 2.1, p. 37"
+    },
+    {
+      "id": "ai-q07",
+      "unit": 1,
+      "section_id": "sec-2",
+      "marks": 5,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q7)",
+        "SEE 2025"
+      ],
+      "exam_type": "SEE & Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q7)",
+      "question": "What is a rational agent? Explain the four factors that determine rationality and differentiate rationality from omniscience.",
+      "answer": "<h4>1. Definition of Rationality</h4><p>A <strong>rational agent</strong> is one that does the right thing. Specifically, for each possible percept sequence, a rational agent selects an action expected to maximize its performance measure, based on the evidence provided by the percept sequence and whatever built-in knowledge the agent possesses.</p><h4>2. Four Factors Determining Rationality</h4><ol><li><strong>Performance Measure:</strong> Defines the criterion of success for evaluating the sequence of environment states.</li><li><strong>Prior Knowledge:</strong> The agent's initial background knowledge about its operational environment.</li><li><strong>Percept Sequence:</strong> The historical sequence of observations received up to the current moment ($P^*$).</li><li><strong>Action Set:</strong> The set of physical or logical actions that the agent is capable of executing.</li></ol><h4>3. Rationality $\\neq$ Omniscience</h4><ul><li>An <strong>omniscient agent</strong> knows the actual outcome of its actions and can act accordingly; but omniscience is impossible in reality.</li><li><strong>Rationality</strong> is about maximizing <em>expected</em> performance given the information available, whereas <strong>omniscience</strong> maximizes <em>actual</em> outcome. Rationality does not require clairvoyance!</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 2.2, pp. 39\u201342"
+    },
+    {
+      "id": "ai-q08",
+      "unit": 1,
+      "section_id": "sec-3",
+      "marks": 8,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q8)",
+        "CIE-1 2025",
+        "SEE JAN 2026"
+      ],
+      "exam_type": "CIE & SEE & Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q8) & CIE1&2-2025.pdf",
+      "question": "Discuss the different types of intelligent agent architectures (Simple Reflex, Model-Based, Goal-Based, Utility-Based, and Learning Agents) with schematic diagrams.",
+      "answer": "<h4>Five Core Agent Architectures</h4><ol><li><strong>Simple Reflex Agent:</strong> Selects actions based solely on the current percept, ignoring history, using Condition-Action Rules (<code>IF car-in-front-braking THEN brake</code>). Fails in partially observable environments.<br><em>Pseudocode:</em> <code>function SimpleReflex(percept): state = Interpret(percept); rule = RuleMatch(state, rules); return rule.Action</code>.</li><li><strong>Model-Based Reflex Agent:</strong> Maintains an internal state tracking aspects of the environment that cannot be seen currently (updates internal model: 'How the world evolves' and 'How my actions affect the world'). Can handle partial observability.</li><li><strong>Goal-Based Agent:</strong> Combines internal state information with a <strong>goal</strong> description to select actions that achieve desired future states. Uses search and planning.</li><li><strong>Utility-Based Agent:</strong> Uses a <strong>utility function</strong> ($U: S \\rightarrow \\mathbb{R}$) mapping states to a real number expressing the degree of happiness or desirability. Enables trade-offs between conflicting goals under uncertainty.</li><li><strong>Learning Agent:</strong> Divided into four conceptual components:<ul><li><em>Learning Element:</em> Responsible for making improvements.</li><li><em>Performance Element:</em> Responsible for selecting external actions (equivalent to entire agent previously).</li><li><em>Critic:</em> Evaluates agent behavior against an external performance standard.</li><li><em>Problem Generator:</em> Suggests exploratory actions leading to new experiences.</li></ul></li></ol>",
+      "source_citation": "Russell & Norvig, Chapter 2.4, pp. 49\u201358"
+    },
+    {
+      "id": "ai-q09",
+      "unit": 1,
+      "section_id": "sec-1",
+      "marks": 5,
+      "priority": "High",
+      "years": [
+        "Faculty Priority Photo (Q9)"
+      ],
+      "exam_type": "Photo",
+      "source_file": "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg (Q9)",
+      "question": "What is the difference between supervised and unsupervised learning?",
+      "answer": "<h4>Comparison: Supervised vs Unsupervised Learning</h4><table class=\"table-clean\"><thead><tr><th>Parameter</th><th>Supervised Learning</th><th>Unsupervised Learning</th></tr></thead><tbody><tr><td><strong>Training Data</strong></td><td>Trained on <strong>labeled data</strong> (pairs of input $X$ and ground-truth target $Y$).</td><td>Trained on <strong>unlabeled data</strong> (only input features $X$, zero ground-truth labels).</td></tr><tr><td><strong>Objective</strong></td><td>Learn a mapping function $f(X) \\rightarrow Y$ to accurately predict labels on unseen data.</td><td>Discover underlying hidden patterns, intrinsic groupings, or probability density of $X$.</td></tr><tr><td><strong>Feedback Mechanism</strong></td><td>Direct external supervisory error signal (loss = difference between prediction and actual label).</td><td>No external error feedback; model optimizes internal criteria (compactness, variance).</td></tr><tr><td><strong>Major Sub-tasks</strong></td><td>Classification (discrete labels) and Regression (continuous values).</td><td>Clustering, Dimensionality Reduction, Association Rule Mining, Density Estimation.</td></tr><tr><td><strong>Algorithms</strong></td><td>Linear Regression, Logistic Regression, Decision Trees, SVM, Neural Networks.</td><td>K-Means Clustering, Hierarchical Clustering, PCA, Autoencoders, Apriori.</td></tr></tbody></table>",
+      "source_citation": "Russell & Norvig, Chapter 18.1; Mitchell, Machine Learning"
+    },
+    {
+      "id": "ai-q10",
+      "unit": 1,
+      "section_id": "sec-2",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025",
+        "SEE JAN 2026"
+      ],
+      "exam_type": "CIE-1 & SEE",
+      "source_file": "ISE552 - AI/CIE - PYQ_s/CIE1&2-2025.pdf (Q3a) & JAN2026.pdf (Q1c)",
+      "question": "Formulate the PEAS (Performance Measure, Environment, Actuators, Sensors) description for: (i) Smart agricultural drone, (ii) Smart traffic control system, (iii) Intelligent medical diagnosis system.",
+      "answer": "<h4>PEAS Task Environment Specifications</h4><table class=\"table-clean\"><thead><tr><th>System</th><th>Performance Measure</th><th>Environment</th><th>Actuators</th><th>Sensors</th></tr></thead><tbody><tr><td><strong>(i) Smart Agricultural Drone</strong></td><td>Crop yield maximization, pesticide volume minimization, battery efficiency, zero collisions, flight safety.</td><td>Open farmland, crop rows, variable weather (wind, rain), trees, power lines.</td><td>Rotors/propellers, steering servos, pesticide spray nozzles, camera gimbal.</td><td>Multispectral RGB cameras, thermal sensors, LiDAR, GPS, altimeter, battery monitor.</td></tr><tr><td><strong>(ii) Smart Traffic Control System</strong></td><td>Vehicle throughput maximization, average wait time minimization, reduction in pedestrian delay, zero accidents.</td><td>City road intersection, multi-lane roads, vehicles, pedestrians, emergency vehicles.</td><td>Traffic light signals (Red/Yellow/Green timings), pedestrian crossing indicators, digital signage.</td><td>Inductive loop sensors, CCTV traffic cameras, radar vehicle detectors, pedestrian push buttons.</td></tr><tr><td><strong>(iii) Medical Diagnosis System</strong></td><td>Diagnostic accuracy, patient recovery rate, cost minimization, adverse reaction prevention.</td><td>Hospital, clinic, patient population, medical staff.</td><td>Display diagnostic report, treatment recommendations, prescription generation, referral alerts.</td><td>Keyboard input (symptoms, lab tests), medical imaging data feeds, electronic health records (EHR).</td></tr></tbody></table>",
+      "source_citation": "Russell & Norvig, Chapter 2.3, pp. 42\u201346"
+    },
+    {
+      "id": "ai-q11",
+      "unit": 1,
+      "section_id": "sec-3",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025",
+        "SEE 2025"
+      ],
+      "exam_type": "CIE-1 & SEE",
+      "source_file": "ISE552 - AI/CIE - PYQ_s/CIE1&2-2025.pdf (Q2a) & 2025.pdf (Q2a)",
+      "question": "Illustrate with a schematic diagram the working principle of a Simple Reflex Agent considering a two-state vacuum-cleaner environment.",
+      "answer": "<h4>1. Two-State Vacuum-Cleaner Environment</h4><p>Environment consists of two locations: Square $A$ and Square $B$. Each square can be either <code>Clean</code> or <code>Dirty</code>. The agent can perceive its location and cleanliness: $[A, \\text{Dirty}]$, $[A, \\text{Clean}]$, $[B, \\text{Dirty}]$, $[B, \\text{Clean}]$.</p><h4>2. Reflex Agent Action Rules</h4><pre class=\"code-block\"><code>function VacuumReflexAgent([location, status]):\n    if status == 'Dirty':\n        return 'Suck'\n    else if location == 'A':\n        return 'Right'\n    else if location == 'B':\n        return 'Left'</code></pre><h4>3. Working Principle & Limitations</h4><ul><li><strong>Direct Condition-Action:</strong> The agent acts directly on the current percept without storing any memory of previous squares visited.</li><li><strong>Limitation:</strong> If the environment is partially observable (e.g. cleanliness sensor is disabled), the simple reflex agent cannot avoid infinite loops or determine whether cleaning was already completed.</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 2.4, pp. 49\u201351"
+    },
+    {
+      "id": "ai-q12",
+      "unit": 2,
+      "section_id": "sec-1",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025",
+        "SEE JAN 2026"
+      ],
+      "exam_type": "CIE-1 & SEE",
+      "source_file": "ISE552 - AI/CIE - PYQ_s/CIE1&2-2025.pdf (Q1b)",
+      "question": "Explain how Bidirectional Search is efficient compared to BFS and DFS methods. Show the BFS and DFS traversal for the following graph to reach goal state G: Root A with children B, C; B has children D, E; C has child F; F has child G.",
+      "answer": "<h4>1. Efficiency of Bidirectional Search</h4><ul><li>Standard BFS searches forward from initial state to depth $d$ with branching factor $b$, requiring time and space $O(b^d)$.</li><li><strong>Bidirectional Search</strong> runs two simultaneous searches: one forward from the initial state, and one backward from the goal, stopping when the two search frontiers meet in the middle!</li><li>Complexity becomes $O(b^{d/2} + b^{d/2}) = O(2 b^{d/2})$, which is an exponential reduction! E.g. for $b = 10, d = 6$, $b^d = 1,000,000$ nodes vs $2 b^{d/2} = 2 \\times 10^3 = 2,000$ nodes (a 500-fold reduction).</li></ul><h4>2. Traversal on Given Graph</h4><p>Tree structure: $A \\rightarrow \\{B, C\\}$, $B \\rightarrow \\{D, E\\}$, $C \\rightarrow \\{F\\}$, $F \\rightarrow \\{G\\}$. Goal is $G$.</p><ul><li><strong>BFS (Breadth-First Traversal - Level by Level, FIFO Queue):</strong><br>1. Visit Level 0: <code>A</code><br>2. Visit Level 1: <code>B, C</code><br>3. Visit Level 2: <code>D, E, F</code><br>4. Visit Level 3: <code>G</code> (Goal reached!)<br>\u2022 <strong>Order of visited nodes:</strong> <code>A &rarr; B &rarr; C &rarr; D &rarr; E &rarr; F &rarr; G</code>.</li><li><strong>DFS (Depth-First Traversal - Deepest Node First, LIFO Stack):</strong><br>Assuming left-to-right branch exploration:<br>1. Explore left subtree: <code>A &rarr; B &rarr; D</code> (dead end, backtrack to B)<br>2. Explore next branch: <code>E</code> (dead end, backtrack to A)<br>3. Explore right subtree: <code>C &rarr; F &rarr; G</code> (Goal reached!)<br>\u2022 <strong>Order of visited nodes:</strong> <code>A &rarr; B &rarr; D &rarr; E &rarr; C &rarr; F &rarr; G</code>.</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 3.4.6, pp. 94\u201396"
+    },
+    {
+      "id": "ai-q13",
+      "unit": 2,
+      "section_id": "sec-2",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025",
+        "SEE 2025",
+        "SEE JAN 2026"
+      ],
+      "exam_type": "CIE-1 & SEE",
+      "source_file": "ISE552 - AI/CIE - PYQ_s/CIE1&2-2025.pdf (Q2b) & JAN2026.pdf (Q4b)",
+      "question": "Solve the 8-puzzle problem using A* search algorithm. Given Start State [1, _, 3 / 4, 2, 6 / 7, 5, 8] and Goal State [1, 2, 3 / 4, 5, 6 / 7, 8, _]. Find the most cost-effective path (consider g(n) = depth and h(n) = number of misplaced tiles).",
+      "answer": "<h4>1. Evaluation Function</h4>$$f(n) = g(n) + h(n)$$<ul><li>$g(n)$: Path cost from root (depth level).</li><li>$h(n)$: Number of misplaced tiles compared to Goal State $[1, 2, 3 / 4, 5, 6 / 7, 8, \\text{blank}]$. (Blank tile is not counted).</li></ul><h4>2. Step-by-Step Search Tree Trace</h4><h4>Step 0: Start State ($n_0$)</h4><pre class=\"code-block\"><code>[ 1   _   3 ]\n[ 4   2   6 ]\n[ 7   5   8 ]</code></pre><ul><li>Compare with Goal $[1, 2, 3 / 4, 5, 6 / 7, 8, \\_]$: Tiles 2, 5, 8 are in wrong positions $\\implies h(n_0) = 3$.</li><li>$g(n_0) = 0 \\implies f(n_0) = 0 + 3 = \\mathbf{3}$.</li></ul><h4>Step 1: Expand Start Node (Valid moves for blank at top-middle: Left, Right, Down)</h4><ul><li><strong>Move Left (Tile 1 moves Right):</strong> $[\\_, 1, 3 / 4, 2, 6 / 7, 5, 8]$. Misplaced: 1, 2, 5, 8 ($h = 4$). $g = 1 \\implies f = 1 + 4 = 5$.</li><li><strong>Move Right (Tile 3 moves Left):</strong> $[1, 3, \\_ / 4, 2, 6 / 7, 5, 8]$. Misplaced: 3, 2, 5, 8 ($h = 4$). $g = 1 \\implies f = 1 + 4 = 5$.</li><li><strong>Move Down (Tile 2 moves Up):</strong><pre class=\"code-block\"><code>[ 1   2   3 ]\n[ 4   _   6 ]\n[ 7   5   8 ]</code></pre>Misplaced tiles: 5, 8 are wrong ($h = 2$). $g = 1 \\implies f(n_1) = 1 + 2 = \\mathbf{3}$ &larr; <em>MINIMUM $f(n)$!</em></li></ul><h4>Step 2: Expand Node $n_1$ (Blank at center: Up, Left, Right, Down)</h4><ul><li>Moving Up returns to parent (pruned).</li><li>Move Left: $[1, 2, 3 / \\_, 4, 6 / 7, 5, 8]$. Misplaced: 4, 5, 8 ($h = 3$). $f = 2 + 3 = 5$.</li><li>Move Right: $[1, 2, 3 / 4, 6, \\_ / 7, 5, 8]$. Misplaced: 6, 5, 8 ($h = 3$). $f = 2 + 3 = 5$.</li><li><strong>Move Down (Tile 5 moves Up):</strong><pre class=\"code-block\"><code>[ 1   2   3 ]\n[ 4   5   6 ]\n[ 7   _   8 ]</code></pre>Misplaced tiles: 8 is wrong ($h = 1$). $g = 2 \\implies f(n_2) = 2 + 1 = \\mathbf{3}$ &larr; <em>MINIMUM $f(n)$!</em></li></ul><h4>Step 3: Expand Node $n_2$ (Blank at bottom-middle: Move Right / Tile 8 moves Left)</h4><pre class=\"code-block\"><code>[ 1   2   3 ]\n[ 4   5   6 ]\n[ 7   8   _ ]  <-- GOAL STATE REACHED!</code></pre><ul><li>All tiles in correct place: $h = 0$. $g = 3 \\implies f = 3 + 0 = \\mathbf{3}$.</li></ul><p><strong>Optimal Solution Path:</strong> $\\text{Start} \\xrightarrow{\\text{Down}} n_1 \\xrightarrow{\\text{Down}} n_2 \\xrightarrow{\\text{Right}} \\text{Goal State}$. Total Path Cost $= 3$ steps.</p>",
+      "source_citation": "Russell & Norvig, Chapter 3.5.2, pp. 102\u2013106"
+    },
+    {
+      "id": "ai-q14",
+      "unit": 2,
+      "section_id": "sec-4",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025",
+        "SEE JAN 2026",
+        "SEE 2025"
+      ],
+      "exam_type": "CIE-1 & SEE",
+      "source_file": "ISE552 - AI/CIE - PYQ_s/CIE1&2-2025.pdf (Q1c)",
+      "question": "Apply Minimax algorithm on the following game tree to compute the minimax value at each node: Max root A with Min children B and C. B has Max children D, E; C has Max children F, G. Leaf values: D has (3, 5); E has (6, 9); F has (1, 2); G has (9, -1).",
+      "answer": "<h4>1. Minimax Algorithm Principle</h4><ul><li><strong>MAX node:</strong> Chooses the maximum of its children: $V = \\max(child_1, child_2)$.</li><li><strong>MIN node:</strong> Chooses the minimum of its children: $V = \\min(child_1, child_2)$.</li></ul><h4>2. Bottom-Up Node Value Computation</h4><h4>Level 3 (Leaf Nodes):</h4><ul><li>Children of D: $3, 5$</li><li>Children of E: $6, 9$</li><li>Children of F: $1, 2$</li><li>Children of G: $9, -1$</li></ul><h4>Level 2 (MAX Nodes D, E, F, G):</h4><ul><li>Node D (MAX): $\\max(3, 5) = \\mathbf{5}$</li><li>Node E (MAX): $\\max(6, 9) = \\mathbf{9}$</li><li>Node F (MAX): $\\max(1, 2) = \\mathbf{2}$</li><li>Node G (MAX): $\\max(9, -1) = \\mathbf{9}$</li></ul><h4>Level 1 (MIN Nodes B, C):</h4><ul><li>Node B (MIN): $\\min(D, E) = \\min(5, 9) = \\mathbf{5}$</li><li>Node C (MIN): $\\min(F, G) = \\min(2, 9) = \\mathbf{2}$</li></ul><h4>Level 0 (Root MAX Node A):</h4><ul><li>Node A (MAX): $\\max(B, C) = \\max(5, 2) = \\mathbf{5}$</li></ul><div class=\"final-answer-box\"><span class=\"final-answer-label\">Optimal Move:</span><span class=\"final-answer-value\">Root A selects Left Branch (Node B) with Minimax Value = 5.</span></div>",
+      "source_citation": "Russell & Norvig, Chapter 5.2, pp. 163\u2013166"
+    },
+    {
+      "id": "ai-q15",
+      "unit": 2,
+      "section_id": "sec-4",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025"
+      ],
+      "exam_type": "CIE-1",
+      "source_file": "ISE552 - AI/CIE - PYQ_s/CIE1&2-2025.pdf (Q2c & Q3c)",
+      "question": "Explain Alpha-Beta Pruning. Define the terms alpha and beta, state their roles, and explain how alpha-beta pruning improves efficiency over standard minimax.",
+      "answer": "<h4>1. Definition of Alpha and Beta</h4><ul><li><strong>$\\alpha$ (Alpha):</strong> The value of the best (highest-value) choice found so far at any choice point along the path for <strong>MAX</strong>. Initialized to $-\\infty$.</li><li><strong>$\\beta$ (Beta):</strong> The value of the best (lowest-value) choice found so far at any choice point along the path for <strong>MIN</strong>. Initialized to $+\\infty$.</li></ul><h4>2. Pruning Condition (Alpha-Beta Cutoff)</h4><p>At any node, if $\\alpha \\ge \\beta$, the remaining children of that node do not need to be evaluated and are pruned (cut off). Because the parent already has a guaranteed outcome that is better than whatever this sub-branch could yield.</p><h4>3. Efficiency Improvement over Standard Minimax</h4><ul><li>Standard Minimax examines every leaf node in a tree with branching factor $b$ and depth $m$: Time complexity $O(b^m)$.</li><li>With <strong>perfect move ordering</strong> in Alpha-Beta pruning, the effective branching factor is reduced to $\\sqrt{b}$. The time complexity drops to:$$O(b^{m/2})$$</li><li>This means Alpha-Beta pruning can search <strong>twice as deep</strong> in the same amount of CPU time as standard Minimax!</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 5.3, pp. 167\u2013172"
+    },
+    {
+      "id": "ai-q16",
+      "unit": 2,
+      "section_id": "sec-1",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "CIE-1 2025"
+      ],
+      "exam_type": "CIE-1",
+      "source_file": "ISE552 - AI/CIE - PYQ_s/CIE1&2-2025.pdf (Q3b)",
+      "question": "Why is uninformed search known as blind search? Explain Uniform Cost Search (UCS) with a suitable example.",
+      "answer": "<h4>1. Why Uninformed Search is 'Blind Search'</h4><p>Uninformed search algorithms (BFS, DFS, Uniform Cost Search) have <strong>no domain-specific knowledge</strong> about how close a given state is to the goal. They can only generate successors and distinguish a goal state from a non-goal state; they have no clue whether one non-goal node is more promising than another.</p><h4>2. Uniform Cost Search (UCS / Dijkstra's Algorithm)</h4><ul><li>Instead of expanding the shallowest node (BFS), UCS expands the unvisited node with the <strong>lowest path cost $g(n)$</strong> from the root.</li><li>Implemented using a <strong>priority queue</strong> ordered by cumulative path cost $g(n)$.</li><li><strong>Completeness & Optimality:</strong> Guaranteed to find the optimal path if every step cost exceeds a positive constant $\\epsilon > 0$.</li></ul><h4>3. Example: Route from S to G</h4><p>Edges: $S \\rightarrow A$ (cost 1), $S \\rightarrow B$ (cost 5), $A \\rightarrow G$ (cost 10), $B \\rightarrow G$ (cost 2).</p><ol><li>Init: Frontier $= \\{[S, g=0]\\}$.</li><li>Expand S: Add $A$ ($g=1$), $B$ ($g=5$). Frontier $= \\{[A, 1], [B, 5]\\}$.</li><li>Expand A (min cost $g=1$): Add $G$ ($g=1+10=11$). Frontier $= \\{[B, 5], [G, 11]\\}$.</li><li>Expand B (min cost $g=5$): Add $G$ ($g=5+2=7$). Shorter path to G found! Frontier $= \\{[G, 7]\\}$.</li><li>Expand G ($g=7$): Goal reached! Optimal path is $S \\rightarrow B \\rightarrow G$ with cost 7.</li></ol>",
+      "source_citation": "Russell & Norvig, Chapter 3.4.2, pp. 83\u201386"
+    },
+    {
+      "id": "ai-q17",
+      "unit": 2,
+      "section_id": "sec-2",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISE552 - AI/SEE - PYQ_s/JAN2026.pdf (Q3a)",
+      "question": "Compare Breadth-First Search (BFS), Depth-First Search (DFS), and Iterative Deepening Search (IDS) on Time Complexity, Space Complexity, Completeness, and Optimality.",
+      "answer": "<h4>Comparison Matrix of Uninformed Search Strategies</h4><table class=\"table-clean\"><thead><tr><th>Criterion</th><th>Breadth-First Search (BFS)</th><th>Depth-First Search (DFS)</th><th>Iterative Deepening Search (IDS)</th></tr></thead><tbody><tr><td><strong>Completeness</strong></td><td>Yes (if branching factor $b$ is finite).</td><td>No in infinite-depth spaces or with loops.</td><td>Yes (if $b$ is finite).</td></tr><tr><td><strong>Time Complexity</strong></td><td>$O(b^d)$</td><td>$O(b^m)$ (where $m$ is maximum depth; poor if $m \\gg d$).</td><td>$O(b^d)$ (negligible overhead for repeating top levels).</td></tr><tr><td><strong>Space Complexity</strong></td><td>$O(b^d)$ (stores entire tree frontier; severe memory bottleneck!).</td><td>$O(b \\cdot m)$ (linear space; highly memory efficient!).</td><td>$O(b \\cdot d)$ (linear memory combined with BFS optimality!).</td></tr><tr><td><strong>Optimality</strong></td><td>Yes (for uniform step costs $g=1$).</td><td>No (can find long path first).</td><td>Yes (for uniform step costs).</td></tr></tbody></table><p><strong>Takeaway:</strong> Iterative Deepening Search (IDS) is the preferred uninformed search method when the search space is large and the depth of the solution is unknown, as it combines the optimality and completeness of BFS with the linear memory efficiency of DFS.</p>",
+      "source_citation": "Russell & Norvig, Chapter 3.4, pp. 81\u201391"
+    },
+    {
+      "id": "ai-q18",
+      "unit": 2,
+      "section_id": "sec-2",
+      "marks": 6,
+      "priority": "High",
+      "years": [
+        "SEE 2024",
+        "SEE 2025"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISE552 - AI/SEE - PYQ_s/2024.pdf & 2025.pdf",
+      "question": "What is an admissible heuristic? What is a consistent (monotonic) heuristic? Prove that A* tree search is optimal if h(n) is admissible.",
+      "answer": "<h4>1. Admissible Heuristic</h4><p>A heuristic function $h(n)$ is <strong>admissible</strong> if it never overestimates the true cost to reach the nearest goal state from node $n$:</p>$$0 \\le h(n) \\le h^*(n) \\quad \\forall n$$<p>where $h^*(n)$ is the true optimal path cost from $n$ to goal. (E.g., Straight-line Euclidean distance is admissible for road navigation).</p><h4>2. Consistent (Monotonic) Heuristic</h4><p>A heuristic $h(n)$ is <strong>consistent</strong> if for every node $n$ and every successor $n'$ generated by action $a$ with step cost $c(n, a, n')$:</p>$$h(n) \\le c(n, a, n') + h(n')$$<p>(Satisfies the triangle inequality. Every consistent heuristic is also admissible).</p><h4>3. Proof Sketch: A* is Optimal with Admissible Heuristic</h4><ul><li>Suppose suboptimal goal $G_2$ is in the queue with $f(G_2) = g(G_2) > C^*$ (where $C^*$ is optimal cost).</li><li>Let $n$ be an unexpanded node on the optimal path to true optimal goal $G_1$.</li><li>Since $h$ is admissible: $f(n) = g(n) + h(n) \\le g(n) + h^*(n) = C^*$.</li><li>Therefore: $f(n) \\le C^* < f(G_2)$.</li><li>Since A* always expands the node with minimum $f$ in the priority queue, node $n$ will always be selected before $G_2$. Hence $G_2$ can never be selected for expansion, guaranteeing A* returns the optimal goal!</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 3.5.2, pp. 102\u2013106"
+    },
+    {
+      "id": "ai-q19",
+      "unit": 2,
+      "section_id": "sec-3",
+      "marks": 6,
+      "priority": "Medium",
+      "years": [
+        "SEE 2024"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISE552 - AI/SEE - PYQ_s/2024.pdf",
+      "question": "Explain the Hill-Climbing search algorithm and discuss the three major problems that cause it to fail (Local Maxima, Ridges, and Plateaux).",
+      "answer": "<h4>1. Hill-Climbing Search Principle</h4><p>Hill-climbing (Greedy Local Search) is an iterative optimization algorithm that continuously moves in the direction of increasing elevation (value) to find the peak of a state landscape. It maintains only the current state and looks at its immediate neighbors.</p><h4>2. Three Major Failure Modes</h4><ol><li><strong>Local Maxima:</strong> A peak that is higher than each of its neighboring states, but lower than the global maximum. Since all neighboring moves look worse, the algorithm terminates prematurely.</li><li><strong>Ridges:</strong> A sequence of local maxima connected together. The slope orientation causes navigation steps that zigzag without progressing toward the summit because single-direction orthogonal steps drop off on either side.</li><li><strong>Plateaux (Flat Local Maxima / Shoulders):</strong> A flat area of the state space where all neighboring states have identical heuristic evaluation values. The search wanders aimlessly without guidance.</li></ol><h4>3. Remedial Variants</h4><ul><li><em>Random-restart hill climbing:</em> Conducts multiple hill-climbing runs starting from randomly chosen initial states.</li><li><em>Simulated Annealing:</em> Escapes local maxima by allowing occasional downhill moves with a probability that decreases over time (temperature cooling schedule).</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 4.1.1, pp. 122\u2013126"
+    },
+    {
+      "id": "ai-q20",
+      "unit": 2,
+      "section_id": "sec-3",
+      "marks": 5,
+      "priority": "Medium",
+      "years": [
+        "SEE 2025"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISE552 - AI/SEE - PYQ_s/2025.pdf",
+      "question": "Describe the Genetic Algorithm (GA) approach to local search. Explain its four core operators.",
+      "answer": "<h4>1. Genetic Algorithm (GA) Workflow</h4><p>Genetic algorithms are stochastic local search algorithms inspired by biological natural selection. A population of candidate solutions (encoded as strings over a finite alphabet, e.g. binary chromosomes) evolves over generations toward higher fitness.</p><h4>2. Four Core Operators</h4><ol><li><strong>Initial Population:</strong> A collection of randomly generated individual states.</li><li><strong>Fitness Function:</strong> Evaluates each individual state and returns a numerical fitness score (e.g. number of non-attacking queen pairs in 8-queens). Higher fitness means higher probability of selection.</li><li><strong>Selection & Crossover:</strong> Pairs of individuals are selected for reproduction based on fitness (roulette wheel or tournament selection). A crossover point is chosen randomly, and substrings are swapped to produce offspring.</li><li><strong>Mutation:</strong> Each gene (character) in the offspring is flipped or modified with a small independent probability (mutation rate $\\approx 0.01$), introducing diversity and preventing premature convergence.</li></ol>",
+      "source_citation": "Russell & Norvig, Chapter 4.1.4, pp. 130\u2013133"
+    },
+    {
+      "id": "ai-q21",
+      "unit": 1,
+      "section_id": "sec-3",
+      "marks": 5,
+      "priority": "Medium",
+      "years": [
+        "SEE JAN 2026"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISE552 - AI/SEE - PYQ_s/JAN2026.pdf (Q2c)",
+      "question": "An online chess-playing system competes against human grandmasters. Analyze its task environment properties across the 7 standard environment dimensions.",
+      "answer": "<h4>Task Environment Characterization for Chess AI</h4><ol><li><strong>Fully Observable vs Partially Observable:</strong> <strong>Fully Observable</strong>. The complete board state and all piece positions are known to the agent at every turn.</li><li><strong>Single-Agent vs Multi-Agent:</strong> <strong>Multi-Agent (Competitive)</strong>. The agent plays against an opponent whose objective directly opposes the agent's objective.</li><li><strong>Deterministic vs Stochastic:</strong> <strong>Deterministic</strong>. There is no randomness or dice; moving a piece to square $X$ results with certainty in that piece occupying $X$.</li><li><strong>Episodic vs Sequential:</strong> <strong>Sequential</strong>. Current moves fundamentally alter the future board position; actions have long-term consequences.</li><li><strong>Static vs Dynamic:</strong> <strong>Semi-Dynamic</strong>. The physical board does not change while the agent thinks, but there is a time clock ticking down.</li><li><strong>Discrete vs Continuous:</strong> <strong>Discrete</strong>. There are a finite number of distinct squares, distinct pieces, and legal turns.</li><li><strong>Known vs Unknown:</strong> <strong>Known</strong>. The rules of chess are completely known and programmed into the game engine.</li></ol>",
+      "source_citation": "Russell & Norvig, Chapter 2.3.2, pp. 44\u201347"
+    },
+    {
+      "id": "ai-q22",
+      "unit": 2,
+      "section_id": "sec-4",
+      "marks": 5,
+      "priority": "Medium",
+      "years": [
+        "SEE 2025"
+      ],
+      "exam_type": "SEE",
+      "source_file": "ISE552 - AI/SEE - PYQ_s/2025.pdf (Q4c)",
+      "question": "How can Artificial Intelligence solve the Tic-Tac-Toe problem? Explain with the help of a game tree representation.",
+      "answer": "<h4>1. Game Tree for Tic-Tac-Toe</h4><p>Tic-Tac-Toe is a 2-player, zero-sum, perfect-information, discrete, deterministic game played on a $3 \\times 3$ grid.</p><ul><li><strong>Root:</strong> Initial empty $3 \\times 3$ board ($9$ possible moves for Player MAX / 'X').</li><li><strong>Level 1:</strong> 9 possible board states. Player MIN ('O') can choose from remaining 8 empty squares.</li><li><strong>Terminal States:</strong> A board where a player has 3 in a row (Utility: $+1$ if MAX wins, $-1$ if MIN wins, $0$ if Draw), or all 9 squares are full.</li></ul><h4>2. Minimax Solution & Optimal Play</h4><ul><li>Total state space is small: at most $9! = 362,880$ leaf nodes (reduced to $26,830$ legal states via symmetry).</li><li>Minimax searches the complete game tree to the terminal leaves and backs up optimal values.</li><li>With optimal Minimax play, every game of Tic-Tac-Toe guarantees a <strong>Draw (Utility = 0)</strong>; MAX can never be beaten!</li></ul>",
+      "source_citation": "Russell & Norvig, Chapter 5.1, pp. 161\u2013164"
+    }
+  ],
+  "out_of_scope_questions": [
+    {
+      "id": "ai-out-01",
+      "question": "Write and interpret the propositional logic to represent knowledge for Wumpus world sentences (Square breezy, stench, glitter).",
+      "paper": "SEE JAN 2026 Q5a",
+      "reason": "Propositional logic and Wumpus world belong to Unit 3 (Knowledge Representation), out of CIE-1 scope."
+    },
+    {
+      "id": "ai-out-02",
+      "question": "Explain the process of Unification in First-Order Logic (FOL) with examples. Why is it essential for inference?",
+      "paper": "SEE JAN 2026 Q8a, SEE 2025 Q5a, CIE-2 2025 Q3b",
+      "reason": "First-Order Logic unification belongs to Unit 3/4."
+    },
+    {
+      "id": "ai-out-03",
+      "question": "Discuss the process of Knowledge Engineering in FOL. How can real-world knowledge be modelled?",
+      "paper": "SEE JAN 2026 Q8b",
+      "reason": "Knowledge Engineering in FOL belongs to Unit 4."
+    },
+    {
+      "id": "ai-out-04",
+      "question": "Discuss the PDDL description of The simple spare tire problem and air cargo transportation.",
+      "paper": "SEE JAN 2026 Q9b, Q10a",
+      "reason": "Planning and PDDL domain definition belongs to Unit 5."
+    },
+    {
+      "id": "ai-out-05",
+      "question": "Can machines really think? Justify with 'Chinese Room' and 'Consciousness and qualia' arguments.",
+      "paper": "SEE JAN 2026 Q9a, Q10c, CIE-2 2025 Q1c",
+      "reason": "Philosophy and Ethics of AI belongs to Unit 5."
+    },
+    {
+      "id": "ai-out-06",
+      "question": "Differentiate forward chaining and backward chaining in First-Order Logic.",
+      "paper": "SEE 2025 Q5b, Q6a, CIE-2 2025 Q1b",
+      "reason": "Inference chaining belongs to Unit 3."
+    },
+    {
+      "id": "ai-out-07",
+      "question": "Explain the process that converts any first-order sentence into Conjunctive Normal Form (CNF).",
+      "paper": "SEE 2025 Q6c, CIE-2 2025 Q2b",
+      "reason": "CNF conversion and resolution belong to Unit 3/4."
+    },
+    {
+      "id": "ai-out-08",
+      "question": "Given full joint probability distribution for toothache/cavity/catch, calculate marginal and conditional probabilities.",
+      "paper": "SEE 2025 Q7a",
+      "reason": "Probabilistic reasoning and joint distributions belong to Unit 4."
+    },
+    {
+      "id": "ai-out-09",
+      "question": "Describe the properties of planning graphs which are monotonically increasing or decreasing.",
+      "paper": "SEE 2025 Q5c",
+      "reason": "Planning graphs belong to Unit 5."
+    },
+    {
+      "id": "ai-out-10",
+      "question": "Write PDDL description to solve the 'Blocks world problem'.",
+      "paper": "CIE-2 2025 Q3c",
+      "reason": "Blocks world PDDL belongs to Unit 5."
+    }
+  ]
+}
