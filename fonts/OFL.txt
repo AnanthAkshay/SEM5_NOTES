@@ -1,24 +1,13 @@
------------------------------------------------------------
-SIL OPEN FONT LICENSE (OFL-1.1)
------------------------------------------------------------
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is available with a FAQ at:
-https://openfontlicense.org/
-
-The fonts bundled in this directory:
-- Patrick Hand (Copyright (c) 2010-2012 Patrick Wagesreiter)
-- Caveat (Copyright (c) 2014-2015 Impallari Type)
-- Kalam (Copyright (c) 2014 Indian Type Foundry)
-- JetBrains Mono (Copyright (c) 2020 JetBrains s.r.o.)
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+---------------------------------------------------
+This repository bundles the following fonts licensed under SIL Open Font License (OFL 1.1):
+1. Patrick Hand (Copyright (c) 2010-2012 Patrick Neveu, patrick.neveu@free.fr)
+2. Caveat (Copyright (c) 2014-2020 Tipotype, info@tipotype.com)
+3. Kalam (Copyright (c) 2014-2015 Indian Type Foundry, info@indiantypefoundry.com)
+4. JetBrains Mono (Copyright (c) 2020 JetBrains s.r.o.)
 
 PREAMBLE
-The goals of the Open Font License (OFL) are to stimulate worldwide development
-of collaborative font projects, to support the font creation efforts of
-academic and linguistic communities, and to provide a free and open framework
-in which fonts may be shared and improved in partnership with others.
+The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.
 
 PERMISSION & CONDITIONS
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of the Font Software, to use, study, copy, merge, embed, modify, redistribute,
-and sell modified and unmodified copies of the Font Software, subject to the
-conditions in the SIL Open Font License 1.1.
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the standard OFL conditions.
