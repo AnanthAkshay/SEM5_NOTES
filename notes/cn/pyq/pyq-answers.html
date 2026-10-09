@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIE-1 PYQ Bank & Model Answers | Computer Networks (24IS53) | SEM 5 ISE</title>
+  <meta name="description" content="Official CIE-1 solved previous year question bank with step-by-step model answers, numerical solutions, diagrams, and textbook citations for Computer Networks (24IS53).">
+
+  <!-- Prevent Theme Flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('sem5_theme_v1');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Google Fonts Preconnect & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Self-Hosted KaTeX Math Styles -->
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+
+  <!-- Single Shared Notes Stylesheet -->
+  <link rel="stylesheet" href="../../../css/notes.css">
+  
+  <style>
+    .pyq-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+    }
+    .pyq-filter-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--surface-hover);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pyq-filter-btn:hover, .pyq-filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .pyq-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pyq-card:hover {
+      border-color: var(--accent);
+    }
+    .pyq-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.6rem;
+    }
+    .pyq-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pyq-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-unit { background: var(--surface-hover); color: var(--text-primary); }
+    .badge-marks { background: var(--green-tint); color: var(--green); }
+    .badge-high { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-med { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .pyq-years {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .year-chip {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--surface-hover);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .pyq-question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0.6rem 0 1rem 0;
+      line-height: 1.45;
+    }
+    .pyq-link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--surface-hover);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 0.75rem;
+    }
+    .pyq-link-chip:hover {
+      text-decoration: underline;
+    }
+    .pyq-answer-details {
+      border-top: 1px dashed var(--border-color);
+      padding-top: 0.8rem;
+    }
+    .pyq-answer-summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pyq-answer-body {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+    .pyq-citation {
+      margin-top: 0.8rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      background: var(--surface-hover);
+      border-left: 3px solid var(--accent);
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+    .cie1-banner {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.12));
+      border: 1.5px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .cie1-banner h3 {
+      margin: 0 0 0.4rem 0;
+      color: var(--text-primary);
+      font-size: 1.15rem;
+    }
+    .cie1-banner p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to question bank</a>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Topbar Navigation -->
+  <header class="notes-topbar">
+    <div class="notes-topbar-inner">
+      <div class="topbar-left">
+        <a href="../../../index.html#subject/cn" class="back-btn" title="Return to Computer Networks Overview">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>← 24IS53 Overview</span>
+        </a>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html">Semester V</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="../../../index.html#subject/cn">Computer Networks</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">CIE-1 PYQ Bank</span>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button id="mark-done-btn" class="pill-action-btn" data-file-id="cn-pyq-notes" title="Mark this question bank as studied">
+          <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>MARK AS DONE</span>
+        </button>
+
+        <button id="print-btn" class="pill-action-btn" title="Print or save as PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span class="btn-label-desktop">PRINT</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="pill-action-btn icon-only" aria-label="Switch Theme" title="Toggle Dark/Light Mode">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="notes-container">
+    <!-- Desktop Sticky Sidebar -->
+    <aside class="notes-sidebar" id="notes-sidebar" aria-label="Question Bank Navigation">
+      <div class="sidebar-header">
+        <span class="sidebar-label">PYQ Bank Navigation</span>
+        <button id="close-toc-btn" class="close-toc-btn" aria-label="Close Table of Contents">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="toc-nav" id="toc-nav">
+        <ol class="toc-list">
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (6)</a></li>
+          <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (8)</a></li>
+          <li class="toc-item"><a href="#unit-3" class="toc-link">Unit 3 Questions (6)</a></li>
+          <li class="toc-item"><a href="#out-of-scope" class="toc-link">Out-of-Scope Archive (8)</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="notes-content" id="main-content">
+      <!-- CIE-1 Scope Alert Banner -->
+      <div class="cie1-banner">
+        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
+        <p><strong>Course:</strong> Computer Networks (24IS53) &bull; <strong>Exam Schedule:</strong> 2026-10-13 09:30:00+05:30 (60 Mins, 30 Marks)</p>
+        <p style="margin-top:0.4rem;">Contains <strong>20 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
+      </div>
+
+      <header class="notes-header" id="summary-overview">
+        <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
+        <h1 class="notes-title">Computer Networks PYQ Solutions</h1>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        
+        <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">20</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">16</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--green);">3</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
+          </div>
+          <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">8</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Out-of-Scope Archived</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Quick Interactive Filter Pills -->
+      <div class="pyq-filter-bar">
+        <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
+        <button class="pyq-filter-btn active" data-filter="all">All (20)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (16)</button>
+        <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (6)</button>
+        <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (8)</button>
+        <button class="pyq-filter-btn" data-filter="unit-3">Unit 3 (6)</button>
+      </div>
+
+      <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
+        <div class="section-badge">UNIT 1</div>
+        <h2 class="section-title">Unit 1 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
+
+        <!-- Question cn-q01 -->
+        <article class="pyq-card" id="cn-q01" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE 2025</span><span class="year-chip">SEE JAN 2026</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define Data Communication and discuss its fundamental characteristics. With a neat diagram illustrate the five components of data communication.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Data Communication</h4><p><strong>Data communication</strong> is the exchange of data between two devices via some form of transmission medium (such as a wire cable or wireless link). For data communication to occur, communicating devices must be part of a communication system made up of a combination of hardware and software.</p><h4>2. Four Fundamental Characteristics</h4><ul><li><strong>Delivery:</strong> The system must deliver data to the correct destination. Data must be received only by the intended device or user.</li><li><strong>Accuracy:</strong> The system must deliver the data accurately. Altered data that are left uncorrected are unusable.</li><li><strong>Timeliness:</strong> The system must deliver data in a timely manner (real-time data delivery without significant delay). For audio and video, late data is useless.</li><li><strong>Jitter:</strong> Jitter refers to the variation in packet arrival time. It is the uneven delay in the delivery of audio or video packets that can cause jerky reception.</li></ul><h4>3. Five Components of Data Communication</h4><div class="diagram-wrap"><svg viewBox="0 0 700 180" class="diagram-svg" role="img" aria-label="Five components of data communication"><rect x="20" y="60" width="120" height="60" rx="8" fill="var(--surface-card)" stroke="var(--accent)" stroke-width="2"/><text x="80" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--text-primary)">Sender</text><rect x="560" y="60" width="120" height="60" rx="8" fill="var(--surface-card)" stroke="var(--accent)" stroke-width="2"/><text x="620" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--text-primary)">Receiver</text><rect x="220" y="15" width="260" height="40" rx="6" fill="var(--surface-hover)" stroke="var(--border-color)" stroke-width="1.5"/><text x="350" y="40" text-anchor="middle" font-size="13" fill="var(--text-primary)">Protocol (Rule Set)</text><rect x="220" y="70" width="260" height="40" rx="6" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.5"/><text x="350" y="95" text-anchor="middle" font-size="13" font-weight="6" fill="var(--text-primary)">Message (Data / Payload)</text><line x1="140" y1="90" x2="220" y2="90" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"/><line x1="480" y1="90" x2="560" y2="90" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"/><rect x="220" y="125" width="260" height="40" rx="6" fill="var(--surface-hover)" stroke="var(--border-color)" stroke-width="1.5"/><text x="350" y="150" text-anchor="middle" font-size="13" fill="var(--text-primary)">Transmission Medium</text></svg></div><ol><li><strong>Message:</strong> The information (data) to be communicated (text, numbers, pictures, audio, video).</li><li><strong>Sender:</strong> The device that creates and sends the message (computer, workstation, telephone handset, video camera).</li><li><strong>Receiver:</strong> The device that receives the message (computer, workstation, TV, telephone).</li><li><strong>Transmission Medium:</strong> The physical path by which a message travels from sender to receiver (twisted-pair wire, coaxial cable, fiber-optic cable, radio waves).</li><li><strong>Protocol:</strong> A set of rules that governs data communications. It represents an agreement between the communicating devices. Without a protocol, two devices may be connected but cannot communicate.</li></ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 1.1, pp. 3–6
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q02 -->
+        <article class="pyq-card" id="cn-q02" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span><span class="year-chip">SEE 2025</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Compare mesh topology with star topology. Draw a hybrid topology with a star backbone and three bus networks.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Comparison: Mesh Topology vs Star Topology</h4><table class="table-clean"><thead><tr><th>Parameter</th><th>Mesh Topology</th><th>Star Topology</th></tr></thead><tbody><tr><td><strong>Link Architecture</strong></td><td>Dedicated point-to-point links between every pair of nodes: $L = \frac{N(N-1)}{2}$ links.</td><td>Each node has a dedicated point-to-point link to a central controller (Hub/Switch): $N$ links.</td></tr><tr><td><strong>Port Requirement</strong></td><td>Every node requires $(N-1)$ I/O ports.</td><td>Each node requires only 1 I/O port; central device needs $N$ ports.</td></tr><tr><td><strong>Fault Tolerance</strong></td><td>Extremely robust. Failure of one link does not affect any other node communication.</td><td>Node link failure isolates only that node. However, central switch failure disables the entire network.</td></tr><tr><td><strong>Cost & Installation</strong></td><td>High cabling cost and complex installation due to bulk cabling.</td><td>Far less expensive and simple to install, configure, and reconfigure.</td></tr></tbody></table><h4>2. Hybrid Topology Diagram (Star Backbone with 3 Bus Networks)</h4><div class="diagram-wrap"><svg viewBox="0 0 650 220" class="diagram-svg" role="img" aria-label="Star backbone with three bus networks"><circle cx="325" cy="50" r="32" fill="var(--green-tint)" stroke="var(--green)" stroke-width="2.5"/><text x="325" y="55" text-anchor="middle" font-weight="bold" font-size="12" fill="var(--text-primary)">Central Hub</text><line x1="300" y1="75" x2="130" y2="130" stroke="var(--accent)" stroke-width="2"/><line x1="325" y1="82" x2="325" y2="130" stroke="var(--accent)" stroke-width="2"/><line x1="350" y1="75" x2="520" y2="130" stroke="var(--accent)" stroke-width="2"/><rect x="40" y="130" width="180" height="12" fill="var(--border-color)" rx="3"/><text x="130" y="160" text-anchor="middle" font-size="11" fill="var(--text-muted)">Bus Network 1</text><circle cx="60" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><circle cx="130" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><circle cx="200" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><line x1="60" y1="142" x2="60" y2="170" stroke="var(--text-muted)"/><line x1="130" y1="142" x2="130" y2="170" stroke="var(--text-muted)"/><line x1="200" y1="142" x2="200" y2="170" stroke="var(--text-muted)"/><rect x="235" y="130" width="180" height="12" fill="var(--border-color)" rx="3"/><text x="325" y="160" text-anchor="middle" font-size="11" fill="var(--text-muted)">Bus Network 2</text><circle cx="255" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><circle cx="325" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><circle cx="395" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><line x1="255" y1="142" x2="255" y2="170" stroke="var(--text-muted)"/><line x1="325" y1="142" x2="325" y2="170" stroke="var(--text-muted)"/><line x1="395" y1="142" x2="395" y2="170" stroke="var(--text-muted)"/><rect x="430" y="130" width="180" height="12" fill="var(--border-color)" rx="3"/><text x="520" y="160" text-anchor="middle" font-size="11" fill="var(--text-muted)">Bus Network 3</text><circle cx="450" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><circle cx="520" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><circle cx="590" cy="180" r="10" fill="var(--surface-card)" stroke="var(--accent)"/><line x1="450" y1="142" x2="450" y2="170" stroke="var(--text-muted)"/><line x1="520" y1="142" x2="520" y2="170" stroke="var(--text-muted)"/><line x1="590" y1="142" x2="590" y2="170" stroke="var(--text-muted)"/></svg></div>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 1.2, pp. 9–14
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q03 -->
+        <article class="pyq-card" id="cn-q03" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE 2024</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-2" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 2</span>
+          </a>
+
+          <h3 class="pyq-question-text">Enumerate the functions of each layer of TCP/IP protocol suite with its layered diagram. What are the different types of addressing used at each layer?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. TCP/IP Architecture & Layer Functions</h4><div class="diagram-wrap"><svg viewBox="0 0 600 240" class="diagram-svg"><rect x="50" y="10" width="500" height="35" rx="6" fill="#EBF8FF" stroke="#3182CE" stroke-width="1.5"/><text x="300" y="32" text-anchor="middle" font-weight="bold" fill="#2B6CB0">5. Application Layer (HTTP, SMTP, DNS, FTP) — Process-to-Process</text><rect x="50" y="55" width="500" height="35" rx="6" fill="#E6FFFA" stroke="#319795" stroke-width="1.5"/><text x="300" y="77" text-anchor="middle" font-weight="bold" fill="#234E52">4. Transport Layer (TCP, UDP) — Host-to-Host / Port Addressing</text><rect x="50" y="100" width="500" height="35" rx="6" fill="#FEFCBF" stroke="#D69E2E" stroke-width="1.5"/><text x="300" y="122" text-anchor="middle" font-weight="bold" fill="#744210">3. Network Layer (IPv4, IPv6, ICMP) — Source-to-Destination / Logical Addressing</text><rect x="50" y="145" width="500" height="35" rx="6" fill="#FED7D7" stroke="#E53E3E" stroke-width="1.5"/><text x="300" y="167" text-anchor="middle" font-weight="bold" fill="#742A2A">2. Data Link Layer (Ethernet, Wi-Fi, PPP) — Hop-to-Hop / Physical Addressing</text><rect x="50" y="190" width="500" height="35" rx="6" fill="#EDF2F7" stroke="#4A5568" stroke-width="1.5"/><text x="300" y="212" text-anchor="middle" font-weight="bold" fill="#1A202C">1. Physical Layer (Bits, Cables, Modulation) — Bit Transmission over Medium</text></svg></div><ul><li><strong>Application Layer:</strong> Provides network services directly to user applications. Deals with high-level protocols such as HTTP, SMTP, FTP, and DNS.</li><li><strong>Transport Layer:</strong> Responsible for end-to-end process-to-process communication. Performs segmentation, flow control, connection management, error checking, and multiplexing/demultiplexing via port numbers. TCP provides reliable connection-oriented service; UDP provides lightweight connectionless service.</li><li><strong>Network Layer:</strong> Responsible for host-to-host packet delivery across multiple interconnected networks. Handles logical addressing (IPv4/IPv6), routing (determining path via routing algorithms), and packet forwarding.</li><li><strong>Data Link Layer:</strong> Responsible for node-to-node (hop-to-hop) frame delivery across a single physical network segment. Performs framing, hardware physical addressing (MAC addresses), error detection (CRC), flow control, and medium access control (MAC).</li><li><strong>Physical Layer:</strong> Transmits individual raw bits over a physical transmission medium. Defines mechanical, electrical, and functional interfaces (voltage levels, data rates, bit duration, connectors).</li></ul><h4>2. Addressing at Different Layers</h4><table class="table-clean"><thead><tr><th>Layer</th><th>Address Type</th><th>Size / Format</th><th>Example</th></tr></thead><tbody><tr><td><strong>Application</strong></td><td>Specific / Name Address</td><td>Variable URL/email string</td><td><code>user@msrit.edu</code>, <code>www.ietf.org</code></td></tr><tr><td><strong>Transport</strong></td><td>Port Address</td><td>16-bit integer (0 to 65535)</td><td>Port 80 (HTTP), Port 443 (HTTPS), Port 53 (DNS)</td></tr><tr><td><strong>Network</strong></td><td>Logical (IP) Address</td><td>32-bit (IPv4) / 128-bit (IPv6)</td><td><code>192.168.1.1</code> (IPv4)</td></tr><tr><td><strong>Data Link</strong></td><td>Physical (MAC) Address</td><td>48-bit (6 bytes hex)</td><td><code>00:1A:2B:3C:4D:5E</code></td></tr></tbody></table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 2.2–2.5, pp. 32–48
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q04 -->
+        <article class="pyq-card" id="cn-q04" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span><span class="year-chip">SEE 2024</span><span class="year-chip">SEE JAN 2026</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-4" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 4</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is transmission impairment? Briefly explain its causes with necessary diagrams.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition of Transmission Impairment</h4><p>Signals travel through transmission media, which are not perfect. The imperfection causes signal impairment. This means that the signal at the beginning of the medium is not identical to the signal at the end of the medium (what is sent is not what is received).</p><h4>2. Three Causes of Transmission Impairment</h4><ol><li><strong>Attenuation (Loss of Energy):</strong> When a signal travels through a medium, it loses energy overcoming the resistance of the medium. To compensate for this loss, amplifiers are used to amplify the signal.<br><em>Measurement in Decibels:</em> $\text{dB} = 10 \log_{10} \left(\frac{P_2}{P_1}\right)$ where $P_1$ is input power and $P_2$ is output power.<br><div class="diagram-wrap"><svg viewBox="0 0 550 90" class="diagram-svg"><path d="M20,45 Q40,15 60,45 T100,45" fill="none" stroke="var(--accent)" stroke-width="2.5"/><text x="60" y="80" text-anchor="middle" font-size="12" fill="var(--text-primary)">Original Signal</text><polygon points="180,25 240,45 180,65" fill="var(--surface-hover)" stroke="var(--border-color)" stroke-width="1.5"/><text x="205" y="50" text-anchor="middle" font-size="11" fill="var(--text-primary)">Medium</text><path d="M320,45 Q335,32 350,45 T380,45" fill="none" stroke="var(--accent)" stroke-width="1.5"/><text x="350" y="80" text-anchor="middle" font-size="12" fill="var(--text-primary)">Attenuated Signal</text><polygon points="420,20 420,70 470,45" fill="var(--green-tint)" stroke="var(--green)" stroke-width="2"/><text x="445" y="49" text-anchor="middle" font-size="10" font-weight="bold" fill="var(--text-primary)">Amp</text><path d="M490,45 Q510,15 530,45 T570,45" fill="none" stroke="var(--green)" stroke-width="2.5"/></svg></div></li><li><strong>Distortion (Alteration of Waveform):</strong> Occurs in composite signals made of different frequencies. Each frequency component has its own propagation speed through a medium and therefore arrives with a different phase delay at the receiver. Consequently, the components combine into a distorted shape.</li><li><strong>Noise:</strong> External electrical signals corrupting the original signal. Types include:<ul><li><em>Thermal Noise:</em> Random motion of electrons in a conductor.</li><li><em>Induced Noise:</em> Comes from sources like motors and appliances (transmitters act as sending antennas and media act as receiving antennas).</li><li><em>Crosstalk:</em> Effect of one wire on another (leakage between twisted pairs).</li><li><em>Impulse Noise:</em> Spikes caused by lightning, power lines, or sparks.</li></ul><p>Signal-to-Noise Ratio: $\text{SNR} = \frac{\text{Signal Power}}{\text{Noise Power}}$, $\text{SNR}_{\text{dB}} = 10 \log_{10}(\text{SNR})$.</p></li></ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 3.4, pp. 83–88
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q05 -->
+        <article class="pyq-card" id="cn-q05" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-5" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 5</span>
+          </a>
+
+          <h3 class="pyq-question-text">We have a channel with a 2-MHz bandwidth. The SNR for this channel is 63. What are the appropriate bit rate and signal level? (To calculate signal level, consider the bit rate to be 4 Mbps less than the upper limit).</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Step-by-Step Numerical Solution</h4><p><strong>Given Parameters:</strong></p><ul><li>Bandwidth $B = 2\text{ MHz} = 2 \times 10^6\text{ Hz}$</li><li>Signal-to-Noise Ratio $\text{SNR} = 63$</li></ul><h4>Step 1: Calculate Theoretical Upper Limit (Shannon Capacity)</h4><p>By Shannon's Capacity Formula:</p>$$\text{Capacity } C = B \log_2 (1 + \text{SNR})$$$$C = (2 \times 10^6) \times \log_2 (1 + 63) = (2 \times 10^6) \times \log_2 (64)$$$$\text{Since } 64 = 2^6 \implies \log_2(64) = 6$$$$C = 2 \times 10^6 \times 6 = 12 \times 10^6\text{ bps} = 12\text{ Mbps}$$<p>The upper limit of data rate is <strong>12 Mbps</strong>.</p><h4>Step 2: Determine Operating Bit Rate</h4><p>According to the problem statement, the appropriate bit rate must be 4 Mbps less than the upper limit:</p>$$\text{Bit Rate } R = C - 4\text{ Mbps} = 12\text{ Mbps} - 4\text{ Mbps} = 8\text{ Mbps} = 8 \times 10^6\text{ bps}$$<h4>Step 3: Determine Required Signal Level ($M$) using Nyquist Bit Rate Formula</h4><p>By Nyquist's Bit Rate Theorem for a noiseless channel operating at this rate:</p>$$R = 2 \times B \times \log_2(M)$$$$8 \times 10^6 = 2 \times (2 \times 10^6) \times \log_2(M)$$$$8 \times 10^6 = 4 \times 10^6 \times \log_2(M)$$$$\log_2(M) = \frac{8 \times 10^6}{4 \times 10^6} = 2$$$$M = 2^2 = 4\text{ signal levels}$$<h4>Final Result:</h4><p>• <strong>Appropriate Bit Rate:</strong> <code>8 Mbps</code><br>• <strong>Required Signal Levels:</strong> <code>4 signal levels</code></p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 3.5, pp. 89–93
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q06 -->
+        <article class="pyq-card" id="cn-q06" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span><span class="year-chip">SEE JAN 2026</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-6" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 6</span>
+          </a>
+
+          <h3 class="pyq-question-text">Convert the digital data 11001010 to a digital signal by applying AMI and Differential Manchester line coding schemes.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Bit Sequence: <code>1 1 0 0 1 0 1 0</code></h4><h4>1. Alternate Mark Inversion (AMI) Scheme</h4><ul><li><strong>Rule:</strong> Binary <code>0</code> is represented by zero voltage ($0\text{ V}$). Binary <code>1</code>s are represented by alternating positive ($+V$) and negative ($-V$) voltages.</li><li><strong>Bit-by-Bit Encoding:</strong><ul><li>1st bit = <code>1</code> $\rightarrow$ $+V$</li><li>2nd bit = <code>1</code> $\rightarrow$ $-V$ (alternate)</li><li>3rd bit = <code>0</code> $\rightarrow$ $0\text{ V}$</li><li>4th bit = <code>0</code> $\rightarrow$ $0\text{ V}$</li><li>5th bit = <code>1</code> $\rightarrow$ $+V$ (alternate)</li><li>6th bit = <code>0</code> $\rightarrow$ $0\text{ V}$</li><li>7th bit = <code>1</code> $\rightarrow$ $-V$ (alternate)</li><li>8th bit = <code>0</code> $\rightarrow$ $0\text{ V}$</li></ul></li><li><strong>Waveform Levels:</strong> <code>+V, -V, 0, 0, +V, 0, -V, 0</code></li></ul><h4>2. Differential Manchester Scheme</h4><ul><li><strong>Rule:</strong> Always contains a mid-bit transition for synchronization. Bit <code>0</code> forces a transition at the beginning of the bit interval. Bit <code>1</code> has NO transition at the beginning of the bit interval.</li><li>Assuming initial state begins from High voltage:<ul><li>Bit 1 (<code>1</code>): No transition at start; mid-bit transition High $\rightarrow$ Low.</li><li>Bit 2 (<code>1</code>): No transition at start; mid-bit transition Low $\rightarrow$ High.</li><li>Bit 3 (<code>0</code>): Transition at start (High $\rightarrow$ Low); mid-bit transition Low $\rightarrow$ High.</li><li>Bit 4 (<code>0</code>): Transition at start (High $\rightarrow$ Low); mid-bit transition Low $\rightarrow$ High.</li><li>Bit 5 (<code>1</code>): No transition at start; mid-bit transition High $\rightarrow$ Low.</li><li>Bit 6 (<code>0</code>): Transition at start (Low $\rightarrow$ High); mid-bit transition High $\rightarrow$ Low.</li><li>Bit 7 (<code>1</code>): No transition at start; mid-bit transition Low $\rightarrow$ High.</li><li>Bit 8 (<code>0</code>): Transition at start (High $\rightarrow$ Low); mid-bit transition Low $\rightarrow$ High.</li></ul></li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 4.1, pp. 101–110
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
+        <div class="section-badge">UNIT 2</div>
+        <h2 class="section-title">Unit 2 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
+
+        <!-- Question cn-q07 -->
+        <article class="pyq-card" id="cn-q07" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Compare bit stuffing and byte stuffing with suitable examples.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Byte Stuffing (Character-Oriented Framing)</h4><p>In byte stuffing, a special 1-byte flag character (e.g., <code>FLAG = 01111110</code>) is added at the start and end of the frame. If the flag or escape byte appears in the payload text, a special escape byte (<code>ESC = 00011011</code>) is inserted before it.</p><ul><li><strong>Example:</strong> Original payload text: <code>A  FLAG  B  ESC  C</code></li><li><strong>Transmitted Stuffed Payload:</strong> <code>FLAG  A  ESC FLAG  B  ESC ESC  C  FLAG</code></li><li><strong>Receiver Processing:</strong> Whenever <code>ESC</code> is seen, the receiver strips <code>ESC</code> and retains the following byte as pure data.</li></ul><h4>2. Bit Stuffing (Bit-Oriented Framing)</h4><p>In bit stuffing, frames begin and end with the unique 8-bit flag sequence <code>01111110</code> (six consecutive <code>1</code>s). To guarantee that the flag pattern never occurs accidentally in data, the sender automatically injects a special <code>0</code> bit after every sequence of <strong>five consecutive 1s</strong>, regardless of the next bit value.</p><ul><li><strong>Example:</strong> Original bitstream: <code>0001111111001111101</code></li><li><strong>After Bit Stuffing:</strong> <code>00011111<mark>0</mark>110011111<mark>0</mark>01</code> (underlined <code>0</code>s inserted).</li><li><strong>Receiver Processing:</strong> When the receiver sees five <code>1</code>s followed by a <code>0</code>, it strips the <code>0</code>. If it sees five <code>1</code>s followed by <code>10</code>, it detects the true end-of-frame flag!</li></ul><table class="table-clean"><thead><tr><th>Parameter</th><th>Byte Stuffing</th><th>Bit Stuffing</th></tr></thead><tbody><tr><td><strong>Orientation</strong></td><td>Byte/Character-oriented (e.g., PPP)</td><td>Bit-oriented protocols (e.g., HDLC)</td></tr><tr><td><strong>Stuffing Unit</strong></td><td>Inserts an entire 8-bit byte (<code>ESC</code>)</td><td>Inserts a single bit (<code>0</code>)</td></tr><tr><td><strong>Overhead</strong></td><td>8 bits added per stuffed instance</td><td>Only 1 bit added per stuffed instance</td></tr></tbody></table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 11.1, pp. 311–315
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q08 -->
+        <article class="pyq-card" id="cn-q08" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span><span class="year-chip">SEE 2025</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-2" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 2</span>
+          </a>
+
+          <h3 class="pyq-question-text">With a neat diagram, discuss the different fields of an ARP packet. Explain the process of ARP in resolving IP addresses to physical MAC addresses.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. ARP Packet Format (28 Bytes)</h4><div class="diagram-wrap"><svg viewBox="0 0 650 160" class="diagram-svg"><rect x="20" y="20" width="150" height="35" fill="var(--surface-card)" stroke="var(--accent)" stroke-width="1.5"/><text x="95" y="42" text-anchor="middle" font-size="11" fill="var(--text-primary)">Hardware Type (16-bit)</text><rect x="170" y="20" width="150" height="35" fill="var(--surface-card)" stroke="var(--accent)" stroke-width="1.5"/><text x="245" y="42" text-anchor="middle" font-size="11" fill="var(--text-primary)">Protocol Type (16-bit)</text><rect x="320" y="20" width="75" height="35" fill="var(--surface-card)" stroke="var(--accent)" stroke-width="1.5"/><text x="357" y="42" text-anchor="middle" font-size="10" fill="var(--text-primary)">HW Len (8)</text><rect x="395" y="20" width="75" height="35" fill="var(--surface-card)" stroke="var(--accent)" stroke-width="1.5"/><text x="432" y="42" text-anchor="middle" font-size="10" fill="var(--text-primary)">Prot Len (8)</text><rect x="470" y="20" width="160" height="35" fill="var(--surface-card)" stroke="var(--accent)" stroke-width="1.5"/><text x="550" y="42" text-anchor="middle" font-size="11" fill="var(--text-primary)">Operation (16-bit: 1=Req, 2=Rep)</text><rect x="20" y="55" width="300" height="35" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.5"/><text x="170" y="77" text-anchor="middle" font-size="11" fill="var(--text-primary)">Sender Hardware (MAC) Address (48 bits / 6 bytes)</text><rect x="320" y="55" width="310" height="35" fill="var(--surface-card)" stroke="var(--border-color)" stroke-width="1.5"/><text x="475" y="77" text-anchor="middle" font-size="11" fill="var(--text-primary)">Sender IP Address (32 bits / 4 bytes)</text><rect x="20" y="90" width="300" height="35" fill="var(--surface-card)" stroke="var(--border-color)" stroke-width="1.5"/><text x="170" y="112" text-anchor="middle" font-size="11" fill="var(--text-primary)">Target Hardware (MAC) Address (48 bits / 6 bytes)</text><rect x="320" y="90" width="310" height="35" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.5"/><text x="475" y="112" text-anchor="middle" font-size="11" fill="var(--text-primary)">Target IP Address (32 bits / 4 bytes)</text></svg></div><h4>2. Field Explanations:</h4><ul><li><strong>Hardware Type (16-bit):</strong> Defines physical network type (e.g., Ethernet = <code>1</code>).</li><li><strong>Protocol Type (16-bit):</strong> Defines protocol used at network layer (IPv4 = <code>0x0800</code>).</li><li><strong>Hardware Length (8-bit):</strong> Length of MAC address in bytes (Ethernet = <code>6</code>).</li><li><strong>Protocol Length (8-bit):</strong> Length of logical IP address in bytes (IPv4 = <code>4</code>).</li><li><strong>Operation Code (16-bit):</strong> <code>1</code> for ARP Request, <code>2</code> for ARP Reply.</li><li><strong>Sender Hardware & Protocol Address:</strong> MAC and IP address of the inquiring device.</li><li><strong>Target Hardware & Protocol Address:</strong> In an ARP Request, Target MAC is unknown (all 0s); Target IP is the destination address to be resolved.</li></ul><h4>3. ARP Resolution Process:</h4><ol><li><strong>ARP Request (Broadcast):</strong> Host A wants to send an IP datagram to Host B on the same LAN but knows only Host B's IP address. Host A encapsulates an ARP packet inside a broadcast Ethernet frame with destination MAC <code>FF:FF:FF:FF:FF:FF</code>. Every node on the LAN receives the packet.</li><li><strong>Inspection & Reply (Unicast):</strong> Every node checks the Target IP field. Nodes that do not match silently discard it. Host B recognizes its IP address, updates its local ARP cache with Host A's mapping, and sends an <strong>ARP Reply unicast</strong> directly to Host A's MAC address containing Host B's physical address.</li><li><strong>Cache Storage:</strong> Host A receives the reply, updates its ARP table (TTL cache), and immediately delivers the buffered IP datagram.</li></ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 9.2, pp. 257–264
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q09 -->
+        <article class="pyq-card" id="cn-q09" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span><span class="year-chip">SEE JAN 2026</span><span class="year-chip">SEE 2024</span><span class="year-chip">SEE 2025</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-4" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 4</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define cyclic codes and linear block codes. Given the dataword 101011 and the divisor 10011, generate the codeword using CRC polynomial division.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definitions</h4><ul><li><strong>Linear Block Codes:</strong> A code is linear if the modulo-2 sum (XOR) of any two valid codewords is also a valid codeword in the code. Block codes divide message data into fixed $k$-bit datawords and append $(n-k)$ parity bits to produce $n$-bit codewords.</li><li><strong>Cyclic Codes:</strong> A special subset of linear block codes where cyclically shifting any valid codeword produces another valid codeword. Implemented efficiently in hardware using feedback shift registers and modulo-2 polynomial division.</li></ul><h4>2. CRC Generation Problem</h4><p><strong>Given:</strong></p><ul><li>Dataword $D = 101011$ ($k = 6$ bits)</li><li>Divisor $G = 10011$ ($n - k + 1 = 5$ bits $\implies$ polynomial degree $r = 4$)</li></ul><h4>Step 1: Append $r = 4$ zeros to the dataword</h4>$$\text{Augmented Dataword } = 101011\mathbf{0000}$$$$(10\text{ bits total})$$<h4>Step 2: Modulo-2 Polynomial Division (XOR Division)</h4><pre class="code-block"><code>Dividend: 1010110000 | Divisor: 10011
+1010110000 XOR 1001100000 -> 0011010000
+0011010000 XOR 0010011000 -> 0001001000
+0001001000 XOR 0001001100 -> 0000000100
+Final Remainder (4 bits) = 0011</code></pre><p>Quotient $= 101101$, Remainder $R = 0011$.</p><h4>Step 3: Construct Codeword</h4>$$\text{Codeword} = \text{Dataword} \cup \text{Remainder} = 101011\mathbf{0011}$$<p>• <strong>Transmitted CRC Codeword:</strong> <code>1010110011</code></p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 10.3, pp. 286–295
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q10 -->
+        <article class="pyq-card" id="cn-q10" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span><span class="year-chip">SEE JAN 2026</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-5" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 5</span>
+          </a>
+
+          <h3 class="pyq-question-text">Calculate the Internet checksum for the text 'ISE DEPARTMENT' at sender and receiver side (assume hexadecimal ASCII: I=49, S=53, E=45, space=32, D=44, P=50, A=41, R=52, T=54, M=4D, N=4E).</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. ASCII to 16-Bit Word Mapping</h4><p>The text is 14 characters: <code>"ISE DEPARTMENT"</code></p><ol><li><code>"IS"</code> = <code>4953</code> (hex)</li><li><code>"E "</code> = <code>4520</code> (hex) (E = 45, space = 32 in hex = 20)</li><li><code>"DE"</code> = <code>4445</code> (hex)</li><li><code>"PA"</code> = <code>5041</code> (hex)</li><li><code>"RT"</code> = <code>5254</code> (hex)</li><li><code>"ME"</code> = <code>4D45</code> (hex)</li><li><code>"NT"</code> = <code>4E54</code> (hex)</li></ol><h4>2. Sender Side 16-Bit One's Complement Addition</h4>$$\begin{aligned}4953 + 4520 &= 8E73 \\8E73 + 4445 &= D2B8 \\D2B8 + 5041 &= 122F9 \rightarrow (22F9 + 1) = 22FA \text{ (wrap carry)} \\22FA + 5254 &= 754E \\754E + 4D45 &= C293 \\C293 + 4E54 &= 110E7 \rightarrow (10E7 + 1) = 10E8 \text{ (wrap carry)}\end{aligned}$$$$\text{Sum} = 10E8_{16}$$$$\text{Checksum (One's complement of Sum)} = \sim(10E8) = EF17_{16}$$<p>The sender transmits the data words along with the Checksum <code>EF17</code>.</p><h4>3. Receiver Side Verification</h4><p>The receiver sums all 7 data words plus the received checksum:</p>$$\text{Sum of data words} = 10E8_{16}$$$$\text{Total Sum} = 10E8_{16} + EF17_{16} = FFFF_{16}$$$$\text{Receiver Checksum} = \sim(FFFF) = 0000_{16}$$<p>Since the result is <strong>all zeros ($0000_{16}$)</strong>, the receiver confirms zero errors and accepts the packet!</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 10.5, pp. 297–300
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q11 -->
+        <article class="pyq-card" id="cn-q11" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-2 2025</span><span class="year-chip">SEE 2024</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-6" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 6</span>
+          </a>
+
+          <h3 class="pyq-question-text">Briefly discuss the working of Stop-and-Wait protocol for a noisy channel (Stop-and-Wait ARQ) with necessary flow diagrams.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Working of Stop-and-Wait ARQ</h4><p>Stop-and-Wait Automatic Repeat reQuest (ARQ) adds error control and flow control mechanisms to simple Stop-and-Wait over noisy channels:</p><ul><li><strong>Sequence Numbers:</strong> Frames alternate between sequence number <code>0</code> and <code>1</code> (using 1-bit sequence number $m=1, 2^1=2$).</li><li><strong>Acknowledgment Numbers:</strong> ACKs announce the sequence number of the <em>next expected frame</em> (ACK 0 or ACK 1).</li><li><strong>Retransmission Timer:</strong> The sender maintains a timer. If an ACK does not arrive before timer expiration (due to a lost frame or lost ACK), the sender retransmits the copy kept in its buffer.</li></ul><h4>2. Operation Scenarios:</h4><ol><li><strong>Normal Operation:</strong> Sender sends Frame 0 $\rightarrow$ Receiver receives Frame 0, sends ACK 1 $\rightarrow$ Sender sends Frame 1.</li><li><strong>Lost Frame:</strong> Sender sends Frame 0 $\rightarrow$ Frame lost in transit $\rightarrow$ Sender timer expires $\rightarrow$ Sender retransmits Frame 0 $\rightarrow$ Receiver receives Frame 0, sends ACK 1.</li><li><strong>Lost ACK:</strong> Sender sends Frame 0 $\rightarrow$ Receiver sends ACK 1, but ACK is lost $\rightarrow$ Sender timer expires $\rightarrow$ Sender retransmits Frame 0 $\rightarrow$ Receiver discards duplicate Frame 0 and re-sends ACK 1!</li></ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 11.2, pp. 317–324
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q12 -->
+        <article class="pyq-card" id="cn-q12" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-2 2025</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-6" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 6</span>
+          </a>
+
+          <h3 class="pyq-question-text">Consider m=2, and with necessary diagrams justify the statement: 'Size of the sender window must be equal to 2^(m-1) in Selective Repeat ARQ Protocol'.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Theoretical Principle</h4><p>In Selective Repeat ARQ, both sender window size $W_s$ and receiver window size $W_r$ must be equal, and satisfy:</p>$$W_s = W_r = 2^{m-1}$$<p>For $m = 2$ bits, sequence numbers are $0, 1, 2, 3$. The allowable window size is $W = 2^{2-1} = 2$.</p><h4>2. Proof by Contradiction: What happens if $W > 2^{m-1}$ (e.g., $W = 3$)?</h4><ol><li>Suppose $W = 3$ with sequence numbers $0, 1, 2, 3$. Sender window contains frames $[0, 1, 2]$.</li><li>Sender transmits frames 0, 1, and 2.</li><li>Receiver correctly receives frames 0, 1, 2 and advances its window to $[3, 0, 1]$.</li><li>Receiver sends ACKs 0, 1, 2 back to the sender, but <strong>all ACKs are lost</strong> in transit!</li><li>Sender's timer expires for Frame 0. Sender retransmits Frame 0.</li><li>The receiver is currently waiting for window $[3, 0, 1]$. Because <code>0</code> is in the receiver's new window, the receiver <strong>mistakes the retransmitted duplicate Frame 0 for the brand new Frame 0 of the next cycle!</strong></li><li>This causes fatal undetected duplicate data acceptance.</li></ol><h4>3. Correct Case when $W = 2^{m-1} = 2$:</h4><p>With $W = 2$, sender window is $[0, 1]$ and receiver window is $[0, 1]$. When receiver accepts frames 0 and 1, receiver window slides to $[2, 3]$. If all ACKs are lost and sender retransmits Frame 0, <code>0</code> is completely outside receiver's window $[2, 3]$. Receiver recognizes it as a duplicate and discards it! Hence, window size must be $\le 2^{m-1}$.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 11.2, pp. 331–335
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q13 -->
+        <article class="pyq-card" id="cn-q13" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE JAN 2026</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-6" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 6</span>
+          </a>
+
+          <h3 class="pyq-question-text">Justify the statement 'Size of the send window must be less than 2^m in Go-Back-N ARQ protocol' with suitable diagrams.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Principle of Go-Back-N Window Sizing</h4><p>In Go-Back-N ARQ with an $m$-bit sequence number ($2^m$ sequence numbers $0$ to $2^m - 1$), the maximum send window size must satisfy:</p>$$W_s \le 2^m - 1$$<h4>2. Justification (What if $W_s = 2^m$?):</h4><ul><li>Let $m = 2$, so sequence numbers are $0, 1, 2, 3$ ($2^m = 4$). Suppose $W_s = 4$.</li><li>Sender transmits frames 0, 1, 2, 3.</li><li>Receiver receives all 4 frames in order and sends cumulative ACK 4 (meaning expecting Frame 0 of next cycle).</li><li>If ACK 4 is lost, sender times out and retransmits frames 0, 1, 2, 3.</li><li>The receiver is expecting Frame 0 of the <em>next</em> cycle. It cannot distinguish whether Frame 0 is a retransmitted duplicate or new data!</li><li>By limiting $W_s \le 2^m - 1 = 3$, the window covers at most $[0, 1, 2]$. When ACK is lost, retransmitted Frame 0 can never overlap with next cycle's expected frame.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 11.2, pp. 325–330
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q14 -->
+        <article class="pyq-card" id="cn-q14" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE 2024</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-6" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 6</span>
+          </a>
+
+          <h3 class="pyq-question-text">A pure ALOHA network transmits 200-bit frames on a shared channel of 200 kbps. What is the throughput if the system produces: (i) 1000 frames/sec, (ii) 500 frames/sec, (iii) 250 frames/sec?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Parameter Calculations</h4><ul><li>Frame length $L = 200\text{ bits}$</li><li>Channel bandwidth $R = 200\text{ kbps} = 200,000\text{ bps}$</li><li>Frame transmission time $T_{\text{fr}} = \frac{L}{R} = \frac{200}{200,000} = 1\text{ ms} = 0.001\text{ sec}$</li></ul><p>Throughput formula for Pure ALOHA: $S = G e^{-2G}$, where $G = \text{load} = N \times T_{\text{fr}}$</p><h4>2. Calculations for Each Load:</h4><ol><li><strong>Case (i): 1000 frames/sec</strong><br>$G = 1000 \times 0.001 = 1.0$<br>$S = 1.0 \times e^{-2(1.0)} = 1.0 \times e^{-2} = 1.0 \times 0.1353 = 0.1353$ (13.53%)<br>Throughput in bps $= S \times R = 0.1353 \times 200\text{ kbps} = 27.06\text{ kbps}$ (or $135.3\text{ frames/sec}$).</li><li><strong>Case (ii): 500 frames/sec</strong><br>$G = 500 \times 0.001 = 0.5$<br>$S = 0.5 \times e^{-2(0.5)} = 0.5 \times e^{-1} = 0.5 \times 0.3679 = 0.1839$ (18.39% — peak capacity!)<br>Throughput in bps $= 0.1839 \times 200\text{ kbps} = 36.79\text{ kbps}$ (or $183.9\text{ frames/sec}$).</li><li><strong>Case (iii): 250 frames/sec</strong><br>$G = 250 \times 0.001 = 0.25$<br>$S = 0.25 \times e^{-2(0.25)} = 0.25 \times e^{-0.5} = 0.25 \times 0.6065 = 0.1516$ (15.16%)<br>Throughput in bps $= 0.1516 \times 200\text{ kbps} = 30.33\text{ kbps}$ (or $151.6\text{ frames/sec}$).</li></ol>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 12.1, pp. 343–348
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-3" class="note-section pyq-unit-section" data-unit="unit-3">
+        <div class="section-badge">UNIT 3</div>
+        <h2 class="section-title">Unit 3 Examination Questions & Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 3 past exam questions.</p>
+
+        <!-- Question cn-q15 -->
+        <article class="pyq-card" id="cn-q15" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">CIE-1 2025</span><span class="year-chip">SEE 2024</span><span class="year-chip">SEE JAN 2023</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Differentiate between connection-oriented (Virtual Circuit) and connectionless (Datagram) network services.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Comparison: Datagram vs Virtual-Circuit Network Layer Service</h4><table class="table-clean"><thead><tr><th>Feature</th><th>Datagram Approach (Connectionless)</th><th>Virtual-Circuit Approach (Connection-Oriented)</th></tr></thead><tbody><tr><td><strong>Connection Setup</strong></td><td>No setup phase. Packets are injected into the network immediately.</td><td>Mandatory 3-phase process: Connection setup, Data transfer, Teardown.</td></tr><tr><td><strong>Addressing in Packet</strong></td><td>Each packet contains full source and destination IP addresses.</td><td>Packets carry a short Virtual Circuit Identifier (VCI / Label).</td></tr><tr><td><strong>Routing & Path</strong></td><td>Each packet is routed independently. Packets may follow different routes.</td><td>All packets follow the exact same predetermined path.</td></tr><tr><td><strong>Packet Order</strong></td><td>Packets may arrive out of order at destination.</td><td>Packets arrive strictly in the order they were transmitted.</td></tr><tr><td><strong>Router State</strong></td><td>Routers do not hold state information about active connections.</td><td>Each intermediate switch maintains a state/forwarding table with active VCIs.</td></tr><tr><td><strong>Effect of Switch Failure</strong></td><td>Highly robust; remaining packets dynamically reroute around failed switches.</td><td>All virtual circuits traversing the failed switch terminate.</td></tr></tbody></table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 18.2, pp. 524–528
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q16 -->
+        <article class="pyq-card" id="cn-q16" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE 2025(O)</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is the purpose of a subnet mask in IPv4 addressing? How is it used to determine the network and host portion of an IP address?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Purpose of a Subnet Mask</h4><p>A subnet mask is a 32-bit binary number that demarcates which part of an IPv4 address corresponds to the <strong>network prefix</strong> and which part corresponds to the <strong>host identifier</strong>. In dotted-decimal notation, 1s indicate network bits and 0s indicate host bits (e.g., <code>255.255.255.0</code> has 24 ones and 8 zeros, written as <code>/24</code>).</p><h4>2. Bitwise Operation to Extract Network Address</h4><p>To determine the network address, the router performs a bitwise logical <strong>AND</strong> operation between the destination IP address and the subnet mask:</p>$$\text{Network Address} = \text{IP Address} \text{ AND } \text{Subnet Mask}$$<ul><li><strong>Example:</strong> Given IP address <code>192.168.10.75</code> and mask <code>255.255.255.192 (/26)</code>:<ul><li>IP in binary: <code>11000000.10101000.00001010.01001011</code></li><li>Mask in binary: <code>11000000.11111111.11111111.11000000</code></li><li>Bitwise AND: <code>11000000.10101000.00001010.01000000</code> $\implies$ <code>192.168.10.64</code></li></ul></li><li>The remaining 6 bits identify host number $11_2 = 11$ within the subnet <code>192.168.10.64/26</code>.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 18.4, pp. 531–535
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q17 -->
+        <article class="pyq-card" id="cn-q17" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE 2025</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">An ISP is granted a block of addresses starting with 120.50.0.0/16. The ISP wants to distribute these addresses to three groups of customers: (i) Group 1: 64 customers, each needing 256 addresses; (ii) Group 2: 128 customers, each needing 128 addresses; (iii) Group 3: 128 customers, each needing 64 addresses. Design the sub-blocks, find first and last address for each customer, and calculate the number of unallocated addresses remaining.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Address Space Analysis</h4><ul><li>Total addresses in granted block $120.50.0.0/16 = 2^{32 - 16} = 2^{16} = 65,536\text{ addresses}$.</li></ul><h4>2. Sub-Block Design per Group</h4><h4>Group 1: 64 customers, each needing 256 addresses</h4><ul><li>Each customer needs $256 = 2^8$ addresses $\implies$ host bits $= 8 \implies$ prefix length $n = 32 - 8 = /24$.</li><li>Total addresses for Group 1 $= 64 \times 256 = 16,384\text{ addresses}$.</li><li><strong>Customer 1:</strong> <code>120.50.0.0/24</code> to <code>120.50.0.255/24</code></li><li><strong>Customer 2:</strong> <code>120.50.1.0/24</code> to <code>120.50.1.255/24</code></li><li>...</li><li><strong>Customer 64:</strong> <code>120.50.63.0/24</code> to <code>120.50.63.255/24</code></li><li>Group 1 ends at: <code>120.50.63.255</code>.</li></ul><h4>Group 2: 128 customers, each needing 128 addresses</h4><ul><li>Each customer needs $128 = 2^7$ addresses $\implies$ host bits $= 7 \implies$ prefix length $n = 32 - 7 = /25$.</li><li>Total addresses for Group 2 $= 128 \times 128 = 16,384\text{ addresses}$.</li><li>Starts at next available IP: <code>120.50.64.0/25</code></li><li><strong>Customer 1:</strong> <code>120.50.64.0/25</code> to <code>120.50.64.127/25</code></li><li><strong>Customer 2:</strong> <code>120.50.64.128/25</code> to <code>120.50.64.255/25</code></li><li><strong>Customer 3:</strong> <code>120.50.65.0/25</code> to <code>120.50.65.127/25</code></li><li>...</li><li><strong>Customer 128:</strong> <code>120.50.127.128/25</code> to <code>120.50.127.255/25</code></li><li>Group 2 ends at: <code>120.50.127.255</code>.</li></ul><h4>Group 3: 128 customers, each needing 64 addresses</h4><ul><li>Each customer needs $64 = 2^6$ addresses $\implies$ host bits $= 6 \implies$ prefix length $n = 32 - 6 = /26$.</li><li>Total addresses for Group 3 $= 128 \times 64 = 8,192\text{ addresses}$.</li><li>Starts at next available IP: <code>120.50.128.0/26</code></li><li><strong>Customer 1:</strong> <code>120.50.128.0/26</code> to <code>120.50.128.63/26</code></li><li><strong>Customer 2:</strong> <code>120.50.128.64/26</code> to <code>120.50.128.127/26</code></li><li>...</li><li><strong>Customer 128:</strong> <code>120.50.159.192/26</code> to <code>120.50.159.255/26</code></li><li>Group 3 ends at: <code>120.50.159.255</code>.</li></ul><h4>3. Unallocated Addresses Remaining</h4>$$\begin{aligned}\text{Total Granted} &= 65,536 \\\text{Allocated Group 1} &= 16,384 \\\text{Allocated Group 2} &= 16,384 \\\text{Allocated Group 3} &= 8,192 \\\text{Total Allocated} &= 40,960 \\\text{Remaining Available} &= 65,536 - 40,960 = 24,576\text{ addresses}\end{aligned}$$<p>The unallocated addresses span from <code>120.50.160.0/16</code> to <code>120.50.255.255/16</code>.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 18.4, pp. 535–540
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q18 -->
+        <article class="pyq-card" id="cn-q18" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE JAN 2023</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">A large number of consecutive IP addresses are available starting at 198.16.0.0/16. Suppose that four organizations require: Org 1: 4000 addresses, Org 2: 2000 addresses, Org 3: 4000 addresses, Org 4: 8000 addresses. Determine address allocations and subnet masks.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Block Size Rounding (Powers of 2)</h4><ol><li><strong>Org 4 (8000 addresses):</strong> Smallest power of 2 is $2^{13} = 8192$. Prefix length $= 32 - 13 = /19$. Mask: <code>255.255.224.0</code>.</li><li><strong>Org 1 (4000 addresses):</strong> Smallest power of 2 is $2^{12} = 4096$. Prefix length $= 32 - 12 = /20$. Mask: <code>255.255.240.0</code>.</li><li><strong>Org 3 (4000 addresses):</strong> Smallest power of 2 is $2^{12} = 4096$. Prefix length $= 32 - 12 = /20$. Mask: <code>255.255.240.0</code>.</li><li><strong>Org 2 (2000 addresses):</strong> Smallest power of 2 is $2^{11} = 2048$. Prefix length $= 32 - 11 = /21$. Mask: <code>255.255.248.0</code>.</li></ol><h4>2. Sequential Allocation (Arranged largest to smallest for natural alignment):</h4><ul><li><strong>Allocation 1 (Org 4 — 8192 IPs):</strong><br>• Range: <code>198.16.0.0/19</code> to <code>198.16.31.255/19</code><br>• Subnet Mask: <code>255.255.224.0</code></li><li><strong>Allocation 2 (Org 1 — 4096 IPs):</strong><br>• Range: <code>198.16.32.0/20</code> to <code>198.16.47.255/20</code><br>• Subnet Mask: <code>255.255.240.0</code></li><li><strong>Allocation 3 (Org 3 — 4096 IPs):</strong><br>• Range: <code>198.16.48.0/20</code> to <code>198.16.63.255/20</code><br>• Subnet Mask: <code>255.255.240.0</code></li><li><strong>Allocation 4 (Org 2 — 2048 IPs):</strong><br>• Range: <code>198.16.64.0/21</code> to <code>198.16.71.255/21</code><br>• Subnet Mask: <code>255.255.248.0</code></li></ul><p>Total addresses allocated = $8192 + 4096 + 4096 + 2048 = 18,432$ addresses. Unassigned addresses start at <code>198.16.72.0/16</code>.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 18.4, pp. 538–542
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q19 -->
+        <article class="pyq-card" id="cn-q19" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE 2024</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">What are the restrictions imposed on classless address blocks? An Organization is granted the block 16.14.80.0/20. Divide this block into four equal subnets and find the subnet mask, first host, last host, and broadcast address for each subnet.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Three Restrictions on CIDR Address Blocks</h4><ol><li><strong>Contiguity:</strong> All addresses in a block must be contiguous (consecutive numbers).</li><li><strong>Power of 2:</strong> The number of addresses in a block must be a power of $2$ ($2^{32-n}$).</li><li><strong>Divisibility:</strong> The first address in the block must be evenly divisible by the total number of addresses in the block.</li></ol><h4>2. Subnetting 16.14.80.0/20 into 4 Equal Subnets</h4><ul><li>Original block has prefix $/20 \implies 2^{12} = 4096\text{ addresses}$.</li><li>To divide into 4 equal subnets ($4 = 2^2$), we borrow 2 subnet bits $\implies$ new prefix $= 20 + 2 = /22$.</li><li>Each subnet has $2^{32 - 22} = 2^{10} = 1024\text{ addresses}$.</li><li><strong>Subnet Mask:</strong> $/22 = \mathbf{255.255.252.0}$</li></ul><table class="table-clean"><thead><tr><th>Subnet</th><th>Network Address</th><th>First Usable Host</th><th>Last Usable Host</th><th>Broadcast Address</th></tr></thead><tbody><tr><td><strong>Subnet 1</strong></td><td><code>16.14.80.0/22</code></td><td><code>16.14.80.1</code></td><td><code>16.14.83.254</code></td><td><code>16.14.83.255</code></td></tr><tr><td><strong>Subnet 2</strong></td><td><code>16.14.84.0/22</code></td><td><code>16.14.84.1</code></td><td><code>16.14.87.254</code></td><td><code>16.14.87.255</code></td></tr><tr><td><strong>Subnet 3</strong></td><td><code>16.14.88.0/22</code></td><td><code>16.14.88.1</code></td><td><code>16.14.91.254</code></td><td><code>16.14.91.255</code></td></tr><tr><td><strong>Subnet 4</strong></td><td><code>16.14.92.0/22</code></td><td><code>16.14.92.1</code></td><td><code>16.14.95.254</code></td><td><code>16.14.95.255</code></td></tr></tbody></table>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 18.4, pp. 536–541
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question cn-q20 -->
+        <article class="pyq-card" id="cn-q20" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">4 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE 2024</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-2" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; 2</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define Bandwidth-Delay Product (BDP) in networking. What does it physically represent?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>1. Definition and Formula</h4><p>The <strong>Bandwidth-Delay Product (BDP)</strong> is the product of a link's transmission bandwidth (in bits per second) and its one-way propagation delay (in seconds):</p>$$\text{BDP} = \text{Bandwidth (bps)} \times \text{Propagation Delay (seconds)}$$<h4>2. Physical Interpretation: 'Volume of the Pipe'</h4><ul><li>BDP defines the maximum number of bits that can fill the transmission medium at any given instant.</li><li>Think of the link as a pipe carrying bits. Bandwidth is the cross-sectional area of the pipe, and delay is the length of the pipe. BDP is the total <em>volume</em> of the pipe in bits.</li><li><strong>Importance:</strong> If a sender wishes to achieve 100% link utilization without stalling, its sender window size must be at least equal to $2 \times \text{BDP}$ (round-trip bandwidth-delay product).</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Forouzan 5e, Chapter 3.6, pp. 95–97
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <!-- Out of Scope Questions Archive -->
+      <section id="out-of-scope" class="note-section pyq-unit-section" style="opacity:0.85;">
+        <div class="section-badge" style="background:#ef4444; color:#fff;">ARCHIVED</div>
+        <h2 class="section-title">Out of CIE-1 Scope Questions (8 Questions)</h2>
+        <p class="section-lead">The following questions were identified in past papers but fall outside the official CIE-1 syllabus. They are preserved here to ensure zero questions are dropped.</p>
+
+        <details style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:10px; padding:1.2rem;">
+          <summary style="font-weight:700; cursor:pointer; color:var(--text-primary);">
+            View all 8 archived out-of-scope questions and exclusion rationale
+          </summary>
+          <div style="margin-top:1rem;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Paper / Origin</th>
+                  <th>Question Summary</th>
+                  <th>Exclusion Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>CIE-2 2025 Q1a</code></td>
+                  <td>Elaborate on the different error reporting messages and query messages supported by ICMP.</td>
+                  <td><em>ICMP is in Unit 3 after IPv4 Classless addressing (CIE-1 cutoff).</em></td>
+                </tr>
+                <tr>
+                  <td><code>CIE-2 2025 Q2a, SEE 2024 Q6a, SEE JAN 2023 Q2a</code></td>
+                  <td>With a neat diagram, discuss the procedure for NAT address translation using one IP address.</td>
+                  <td><em>NAT is listed after classless addressing in syllabus order.</em></td>
+                </tr>
+                <tr>
+                  <td><code>CIE-2 2025 Q3a, SEE JAN 2026 Q6a, SEE 2025(O) Q3a</code></td>
+                  <td>Applying Link State Routing, calculate the shortest path from the root node A to all other nodes.</td>
+                  <td><em>Routing algorithms (Dijkstra, Bellman-Ford) are out of CIE-1 scope.</em></td>
+                </tr>
+                <tr>
+                  <td><code>SEE JAN 2026 Q5a</code></td>
+                  <td>An IPv4 datagram has arrived with the following header in hex: 45 00 00 ... Calculate length, header length, fragmentation flags.</td>
+                  <td><em>IPv4 datagram format and fragmentation are out of CIE-1 scope.</em></td>
+                </tr>
+                <tr>
+                  <td><code>CIE-2 2025 Q3b, SEE 2025 Q8b, MAKEUP 2023 Q2b</code></td>
+                  <td>Discuss the different strategies to achieve transition from IPv4 to IPv6 (Dual stack, Tunneling, Header translation).</td>
+                  <td><em>IPv6 is part of Unit 4.</em></td>
+                </tr>
+                <tr>
+                  <td><code>SEE 2024 Q10a, SEE 2025(O) Q5a, SEE JAN 2023 Q6a</code></td>
+                  <td>Explain three-way handshaking in Transmission Control Protocol (TCP) with a neat diagram.</td>
+                  <td><em>TCP connection management belongs to Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code>SEE 2024 Q9a, SEE 2025 Q7a, SEE 2025 Q9a</code></td>
+                  <td>Explain the TCP segment structure and how TCP handles lost segments and congestion control.</td>
+                  <td><em>TCP congestion control is part of Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code>CIE-2 2025 Q3c, SEE 2025 Q10a, MAKEUP 2023 Q7a</code></td>
+                  <td>Explain how recursive and iterative resolution solve the name-address conflict in Domain Name System (DNS).</td>
+                  <td><em>DNS is an Application Layer protocol in Unit 5.</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <!-- Unit Navigation Footer -->
+      <footer class="unit-nav-footer">
+        <a href="../../../index.html#subject/cn" class="nav-arrow-btn nav-back-center" style="text-align: center;">
+          <span class="nav-arrow-sub">Course Portal</span>
+          <span class="nav-arrow-title">24IS53 Overview</span>
+        </a>
+        <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
+          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-title">Unit 1 Notes</span>
+        </a>
+      </footer>
+
+      <!-- Prescribed Syllabus Disclaimer -->
+      <p class="reference-disclaimer">
+        CIE-1 Examination Model Answers derived from official syllabus guidelines and textbooks. Verify with faculty problem sets before writing the exam.
+      </p>
+    </main>
+  </div>
+
+  <!-- Shared Scripts: KaTeX Auto-Render & Notes Client Engine -->
+  <script src="../../../assets/katex/katex.min.js"></script>
+  <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
+  <script src="../../../js/notes.js"></script>
+  <script>
+    // Quick Interactive Filter logic
+    document.querySelectorAll('.pyq-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pyq-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.getAttribute('data-filter');
+
+        document.querySelectorAll('.pyq-card').forEach(card => {
+          if (f === 'all') {
+            card.style.display = 'block';
+          } else if (f === 'high') {
+            card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
+          } else if (f.startsWith('unit-')) {
+            card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

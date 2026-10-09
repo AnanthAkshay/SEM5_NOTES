@@ -97,7 +97,10 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
   const cfg = SUBJECT_CONFIGS[subId];
   if (!cfg) throw new Error(`Unknown subject ID: ${subId}`);
 
-  const htmlRelPath = `notes/${subId}/unit${unitNum}/unit-${unitNum}-notes.html`;
+  const isPyq = (unitNum === 'pyq' || unitNum === 'pyq-answers');
+  const htmlRelPath = isPyq
+    ? `notes/${subId}/pyq/pyq-answers.html`
+    : `notes/${subId}/unit${unitNum}/unit-${unitNum}-notes.html`;
   const htmlFullPath = path.join(REPO_ROOT, htmlRelPath);
   if (!fs.existsSync(htmlFullPath)) {
     console.warn(`File not found: ${htmlFullPath}, skipping.`);
@@ -105,22 +108,28 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
   }
 
   // Published output directory (PDF and preview image only, no published HTML)
-  const outDir = path.join(REPO_ROOT, `notes/${subId}/unit${unitNum}/handwritten`);
+  const outDir = isPyq
+    ? path.join(REPO_ROOT, `notes/${subId}/pyq/handwritten`)
+    : path.join(REPO_ROOT, `notes/${subId}/unit${unitNum}/handwritten`);
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
   // Intermediate build directory (git-ignored)
   const buildDir = path.join(REPO_ROOT, 'build/handwritten');
   if (!fs.existsSync(buildDir)) fs.mkdirSync(buildDir, { recursive: true });
 
-  const pdfName = `${subId}-unit${unitNum}-handwritten.pdf`;
+  const pdfName = isPyq
+    ? `${subId}-pyq-handwritten.pdf`
+    : `${subId}-unit${unitNum}-handwritten.pdf`;
   const pdfPath = path.join(outDir, pdfName);
-  const previewPath = path.join(outDir, `${subId}-unit${unitNum}-preview.webp`);
-  const stagingHtmlPath = path.join(buildDir, `${subId}-unit${unitNum}-staging.html`);
-  const finalHtmlPath = path.join(buildDir, `${subId}-unit${unitNum}.html`);
-  const tocJsonPath = path.join(buildDir, `${subId}-unit${unitNum}-toc.json`);
+  const previewPath = isPyq
+    ? path.join(outDir, `${subId}-pyq-preview.webp`)
+    : path.join(outDir, `${subId}-unit${unitNum}-preview.webp`);
+  const stagingHtmlPath = path.join(buildDir, `${subId}-${unitNum}-staging.html`);
+  const finalHtmlPath = path.join(buildDir, `${subId}-${unitNum}.html`);
+  const tocJsonPath = path.join(buildDir, `${subId}-${unitNum}-toc.json`);
 
   console.log(`\n===============================================================`);
-  console.log(`BUILDING HANDWRITTEN NOTEBOOK PDF: ${cfg.code} Unit ${unitNum}`);
+  console.log(`BUILDING HANDWRITTEN NOTEBOOK PDF: ${cfg.code} ${isPyq ? 'CIE-1 PYQ Bank' : 'Unit ' + unitNum}`);
   console.log(`Source: ${htmlRelPath}`);
   console.log(`Output PDF: ${pdfPath}`);
   console.log(`===============================================================`);
@@ -356,7 +365,7 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>${escapeHtml(cfg.code)} Unit ${unitNum} - Handwritten Notes</title>
+  <title>${escapeHtml(cfg.code)} ${isPyq ? 'CIE-1 PYQ Bank' : 'Unit ' + unitNum} - Handwritten Notes</title>
   <link rel="stylesheet" href="${fontsCssPath}">
   <link rel="stylesheet" href="${katexCssPath}">
   <link rel="stylesheet" href="${handCssPath}">
@@ -401,7 +410,7 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
   const stagingFileUrl = 'file:///' + stagingHtmlPath.replace(/\\/g, '/');
   await page.goto(stagingFileUrl, { waitUntil: 'load' });
 
-  const paginationResult = await page.evaluate(async ({ pageData, cfg, unitNum }) => {
+  const paginationResult = await page.evaluate(async ({ pageData, cfg, unitNum, isPyq }) => {
     function escapeHtml(str) {
       if (!str) return '';
       return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -468,8 +477,8 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
       <div class="cover-page">
         <div class="cover-header">
           <div class="cover-badge">${escapeHtml(cfg.code)} · ${escapeHtml(cfg.name)}</div>
-          <h1 class="cover-title">Unit ${unitNum}: ${escapeHtml(cleanTitle)}</h1>
-          <div class="cover-subtitle">Handwritten Student Notebook</div>
+          <h1 class="cover-title">${isPyq ? 'CIE-1 PYQ Bank: Model Answers' : `Unit ${unitNum}: ${escapeHtml(cleanTitle)}`}</h1>
+          <div class="cover-subtitle">${isPyq ? 'Handwritten Question Bank & Solutions' : 'Handwritten Student Notebook'}</div>
         </div>
 
         <div class="cover-syllabus-card">
@@ -501,7 +510,7 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
         <div class="punch-hole punch-mid"></div>
         <div class="punch-hole punch-bot"></div>
         <div class="page-header">
-          <span class="header-left">${escapeHtml(cfg.code)} · Unit ${unitNum}</span>
+          <span class="header-left">${escapeHtml(cfg.code)} · ${isPyq ? 'CIE-1 PYQ Bank' : 'Unit ' + unitNum}</span>
           <span class="header-right">${escapeHtml(topic || '')}</span>
         </div>
         <div class="page-content"></div>
@@ -793,7 +802,7 @@ async function buildHandwrittenNotebook(browser, subId, unitNum) {
       totalPages,
       tocEntries
     };
-  }, { pageData, cfg, unitNum });
+  }, { pageData, cfg, unitNum, isPyq });
 
   console.log(`Pagination completed! Total Pages: ${paginationResult.totalPages}`);
   console.log(`TOC Sections: ${paginationResult.tocEntries.length}`);
@@ -855,7 +864,11 @@ async function main() {
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--subject') targetSub = args[++i];
-    else if (args[i] === '--unit') targetUnit = parseInt(args[++i], 10);
+    else if (args[i] === '--unit') {
+      const uVal = args[++i];
+      targetUnit = (uVal === 'pyq' || uVal === 'pyq-answers') ? 'pyq' : parseInt(uVal, 10);
+    }
+    else if (args[i] === '--pyq') targetUnit = 'pyq';
     else if (args[i] === '--all') doAll = true;
   }
 
@@ -872,14 +885,16 @@ async function main() {
       for (const u of [1, 2, 3]) {
         await buildHandwrittenNotebook(browser, targetSub, u);
       }
+      await buildHandwrittenNotebook(browser, targetSub, 'pyq');
     } else if (doAll) {
       for (const s of Object.keys(SUBJECT_CONFIGS)) {
         for (const u of [1, 2, 3]) {
           await buildHandwrittenNotebook(browser, s, u);
         }
+        await buildHandwrittenNotebook(browser, s, 'pyq');
       }
     } else {
-      console.log('Usage: node scripts/build_handwritten.js [--subject <id> --unit <N>] [--all]');
+      console.log('Usage: node scripts/build_handwritten.js [--subject <id> --unit <N|pyq>] [--all]');
     }
   } finally {
     await browser.close();

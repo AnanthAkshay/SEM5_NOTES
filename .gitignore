@@ -34,8 +34,17 @@ audit/
 
 # Local Reference Textbooks (Copyrighted - strictly never published or served)
 textbooks/
+sources/textbooks/
 *[Ff]orouzan*.pdf
 *[Tt]extbook*.pdf
+*Sridhar*.pdf
+*Mitchell*.pdf
+*Sommerville*.pdf
+*Kothari*.pdf
+*Thiel*.pdf
+*Panneerselvam*.pdf
+*engineering economics*.pdf
+*data-communications-and-networking*.pdf
 
 node_modules/
 __pycache__/

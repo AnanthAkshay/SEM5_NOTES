@@ -56,7 +56,7 @@ window.SEM5_DATA = {
       },
       {
         "slNo": 3,
-        "code": "IS53",
+        "code": "24IS53",
         "name": "Computer Networks",
         "dept": "ISE",
         "category": "PCC",
@@ -1205,7 +1205,11 @@ window.SEM5_DATA = {
     },
     {
       "id": "cn",
-      "code": "IS53",
+      "code": "24IS53",
+      "examDate": "2026-10-13",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Tue 13-10-2026, 09:30–10:30",
+      "cie1Scope": "Unit 1, Unit 2, Unit 3 up to 'IPv4 Addressing – Classless' (inclusive)",
       "name": "Computer Networks",
       "shortName": "CN",
       "category": "PCC",
@@ -1536,7 +1540,7 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 33,
+              "pages": 34,
               "size": "1.02 MB",
               "sizeBytes": 1070505,
               "previewImage": "notes/cn/unit1/handwritten/cn-unit1-preview.webp",
@@ -1630,7 +1634,7 @@ window.SEM5_DATA = {
               "type": "handwritten",
               "tag": "PDF Notebook",
               "generated": true,
-              "pages": 31,
+              "pages": 16,
               "size": "0.99 MB",
               "sizeBytes": 1040496,
               "previewImage": "notes/cn/unit3/handwritten/cn-unit3-preview.webp",
@@ -1638,6 +1642,39 @@ window.SEM5_DATA = {
             }
           ],
           "isSyllabusOnly": false
+        },
+        {
+          "id": "cn-pyq",
+          "unitNumber": "PYQ",
+          "title": "CIE-1 PYQ Bank & Model Answers",
+          "topics": "20 Solved examination questions with step-by-step mathematical working, diagrams, and textbook citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).",
+          "isPractice": true,
+          "files": [
+            {
+              "id": "cn-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/cn/pyq/pyq-answers.html",
+              "type": "pyq",
+              "tag": "Solved PYQs",
+              "readingTime": "25 min read",
+              "size": "Interactive Model Answers",
+              "isConverted": false
+            },
+            {
+              "id": "cn-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "cn-pyq-handwritten.pdf",
+              "path": "notes/cn/pyq/handwritten/cn-pyq-handwritten.pdf",
+              "type": "handwritten",
+              "tag": "PDF Notebook",
+              "generated": true,
+              "pages": 23,
+              "size": "0.76 MB",
+              "previewImage": "notes/cn/pyq/handwritten/cn-pyq-preview.webp",
+              "sourceHtml": "notes/cn/pyq/pyq-answers.html"
+            }
+          ]
         },
         {
           "id": "cn-practice",

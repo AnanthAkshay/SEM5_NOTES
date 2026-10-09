@@ -1,0 +1,471 @@
+{
+  "metadata": {
+    "title": "SEM 5 ISE — CIE-1 Official Scope Specification",
+    "academic_year": "2026-2027",
+    "batch": "2024",
+    "semester": "5th Semester",
+    "department": "Information Science and Engineering",
+    "institute": "Ramaiah Institute of Technology (MSRIT)",
+    "cie_number": "CIE-1",
+    "duration_minutes": 60,
+    "max_marks": 30,
+    "question_pattern": "Answer any TWO full questions out of THREE (15 marks x 2 = 30 marks). Questions subdivided into (a), (b), (c) typically 6M+6M+3M or 8M+7M or 10M+5M.",
+    "effective_date": "2026-10-09",
+    "authoritative_source": "Department CIE-1 Timetable & Syllabus Specifications"
+  },
+  "subjects": {
+    "cn": {
+      "id": "cn",
+      "code": "24IS53",
+      "name": "Computer Networks",
+      "short_name": "CN",
+      "credits": "4:0:0",
+      "coordinator": "Suresh Kumar K R",
+      "exam_date": "2026-10-13",
+      "exam_time": "09:30–10:30",
+      "exam_datetime": "2026-10-13T09:30:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2, Unit 3 up to 'IPv4 Addressing – Classless' (inclusive)",
+      "in_scope_units": [1, 2, 3],
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Introduction to Computer Networks & Physical Layer",
+          "topics": [
+            "Data Communications: Components, Data representation, Data flow (Simplex, Half-duplex, Full-duplex)",
+            "Networks: Network criteria, Physical structures (Point-to-point, Multipoint), Topologies (Mesh, Star, Bus, Ring, Hybrid)",
+            "Network Types: LAN, WAN, Switching (Circuit switching, Packet switching)",
+            "Network Models: Protocol layering, Scenarios, Principles, Logical connections",
+            "TCP/IP Protocol Suite: Layered architecture, Layers in TCP/IP (Physical, Data link, Network, Transport, Application), Encapsulation and decapsulation, Addressing (Physical, Logical, Port, Specific)",
+            "OSI Model: Seven layers, OSI vs TCP/IP comparison",
+            "Physical Layer: Transmission media (Guided: Twisted pair, Coaxial cable, Fiber optic; Unguided: Wireless, Radio, Microwave, Infrared)"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "Data Link Layer & Medium Access Control",
+          "topics": [
+            "Data Link Layer Services: Framing (Character-oriented, Bit-oriented, Byte stuffing, Bit stuffing)",
+            "Error Control: Types of errors (Single-bit, Burst), Redundancy, Detection vs Correction, Forward error correction vs Retransmission",
+            "Block Coding: Error detection, Hamming distance, Minimum Hamming distance",
+            "Cyclic Codes: CRC (Cyclic Redundancy Check), Hardware implementation, Polynomial representation, Generator polynomials",
+            "Checksum: One's complement addition, Internet checksum calculation",
+            "Flow and Error Control: Noiseless channels (Simplest, Stop-and-Wait), Noisy channels (Stop-and-Wait ARQ, Go-Back-N ARQ, Selective Repeat ARQ, Piggybacking, Window sizes)",
+            "Media Access Control (MAC): Random access protocols (Pure ALOHA, Slotted ALOHA, CSMA, CSMA/CD with binary exponential backoff, CSMA/CA with RTS/CTS)",
+            "Controlled Access: Reservation, Polling, Token passing",
+            "Channelization: FDMA, TDMA, CDMA (Orthogonal chip sequences)",
+            "Ethernet: IEEE 802.3 Standard Ethernet (Frame format, Addressing, Minimum frame length calculation), Fast Ethernet, Gigabit Ethernet"
+          ]
+        },
+        "3": {
+          "unit": 3,
+          "title": "Network Layer: Services & IPv4 Addressing",
+          "scope_limit": "IPv4 Addressing – Classless (CIDR, subnetting, address allocation)",
+          "topics": [
+            "Network Layer Services: Packetizing, Routing and Forwarding, Error control, Flow control, Congestion control",
+            "Packet Switching: Datagram approach (Connectionless service) vs Virtual-circuit approach (Connection-oriented service)",
+            "IPv4 Addressing: 32-bit address space, Notation (Binary, Dotted-decimal, Hexadecimal)",
+            "Classful Addressing: Classes A, B, C, D, E, Default subnet masks, Network ID and Host ID, Limitations of classful addressing",
+            "Classless Addressing (CIDR): Variable-length blocks, Prefix length (/n notation), Network mask, Address mask",
+            "Subnetting & Supernetting: Subnet design, Finding network address, first address, last address, broadcast address, number of usable host addresses",
+            "Address Allocation & Block Design: Hierarchical addressing, ISP address delegation, VLSM (Variable Length Subnet Masking) numerical problems"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: Network Address Translation (NAT)",
+        "Unit 3: IPv4 Datagram format, Header fields, Fragmentation, MTU, IP options",
+        "Unit 3: ICMP (Error reporting and query messages)",
+        "Unit 3: Routing Algorithms (Distance Vector Routing, Link State Routing, Dijkstra, Bellman-Ford, DVMRP)",
+        "Unit 4: IPv6 Addressing, Address representation, IPv6 Packet format, Transition from IPv4 to IPv6, Transport layer protocols (Simple, Stop-and-Wait, Go-Back-N, Selective Repeat)",
+        "Unit 5: Transport Layer (UDP, TCP segment, Connection management, Congestion control), Application Layer (DNS, HTTP, SMTP)"
+      ]
+    },
+    "reactjs": {
+      "id": "reactjs",
+      "code": "24ISAEC594",
+      "name": "Frontend Development using React JS",
+      "short_name": "ReactJS",
+      "credits": "1:0:0",
+      "coordinator": "J R Shruti",
+      "exam_date": "2026-10-13",
+      "exam_time": "13:30–14:30",
+      "exam_datetime": "2026-10-13T13:30:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2 (Full)",
+      "in_scope_units": [1, 2],
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Introduction to ReactJS & Component Architecture",
+          "topics": [
+            "Introduction to React: Background, Features, SPA concept, React vs Vanilla JS/DOM, React ecosystem",
+            "Virtual DOM: Reconciliation algorithm, Diffing algorithm, Real DOM vs Virtual DOM performance",
+            "JSX (JavaScript XML): Syntax, Expressions in JSX, Attributes, Children, JSX under the hood (React.createElement)",
+            "Components: Functional components, Class components, Rendering components",
+            "Props: Passing props, Read-only nature of props, Default props, Prop types validation",
+            "State: Component state, useState hook, setState in class components, Immutability principle",
+            "Component Lifecycle: Mounting, Updating, Unmounting lifecycle methods and their Hook equivalents"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "React Hooks, Events & Forms",
+          "topics": [
+            "React Hooks: Rules of Hooks, Built-in hooks",
+            "State and Side Effect Hooks: useState in depth, useEffect for lifecycle effects and cleanup, dependency array rules",
+            "Additional Hooks: useContext for global state, useRef for mutable values and DOM access, useMemo and useCallback overview",
+            "Event Handling: SyntheticEvent system, Event handlers in React vs HTML, Passing arguments to event handlers",
+            "Forms & Controlled Components: Controlled inputs, Handling multiple form inputs, Form validation, Uncontrolled components with refs",
+            "Lifting State Up: Sharing state between sibling components, Single source of truth, Component composition vs Inheritance"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: React Router (BrowserRouter, Routes, Route, Link, useParams, useNavigate), Redux state management (Store, Actions, Reducers, useDispatch, useSelector), Asynchronous data fetching, Axios/Fetch API integration, Server-Side Rendering (SSR)"
+      ]
+    },
+    "ai": {
+      "id": "ai",
+      "code": "24ISE552",
+      "name": "Artificial Intelligence",
+      "short_name": "AI",
+      "credits": "3:0:0",
+      "coordinator": "Dr. Jagadeesh Sai D",
+      "exam_date": "2026-10-14",
+      "exam_time": "09:30–10:30",
+      "exam_datetime": "2026-10-14T09:30:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2 (Full)",
+      "in_scope_units": [1, 2],
+      "high_priority_bank": "9-Question Curated Photo List (AI definitions, 4 approaches, AI vs ML vs DL, Applications, Intelligent Agents, Sensors & Actuators, Rational Agents, 5 Agent Architectures, Supervised vs Unsupervised)",
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Introduction to Artificial Intelligence & Intelligent Agents",
+          "topics": [
+            "Introduction to AI: Definition and goals of AI, Foundations of AI (Philosophy, Mathematics, Economics, Neuroscience, Psychology, Computer Engineering, Control Theory, Linguistics)",
+            "Four Approaches to AI: Thinking Humanly (Cognitive modeling), Acting Humanly (Turing test approach), Thinking Rationally (Laws of thought / Logic), Acting Rationally (Rational agent approach)",
+            "Types of AI: Narrow AI (Weak AI), General AI (Strong AI), Super AI; Symbolic AI vs Sub-symbolic AI",
+            "Comparison: AI vs Machine Learning vs Deep Learning hierarchy and boundaries",
+            "Applications of AI: Engineering, Healthcare, Autonomous vehicles, Finance, Natural Language, Robotics",
+            "Intelligent Agents: Agent definition, Environment, Sensors and Actuators, Percept, Percept sequence, Agent function vs Agent program",
+            "Rationality: Definition of Rational Agent, Omniscience vs Rationality, Performance measures",
+            "PEAS Representation: Performance Measure, Environment, Actuators, Sensors specification for diverse systems (Automated taxi, Medical diagnosis, Satellite image analysis, Vacuum cleaner)",
+            "Environment Types: Fully observable vs Partially observable, Single-agent vs Multi-agent, Deterministic vs Stochastic, Episodic vs Sequential, Static vs Dynamic, Discrete vs Continuous, Known vs Unknown",
+            "Agent Architectures: Simple reflex agents, Model-based reflex agents, Goal-based agents, Utility-based agents, Learning agents (Critic, Learning element, Performance element, Problem generator)"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "Problem-Solving, Search Algorithms & Game Playing",
+          "topics": [
+            "Problem-Solving Agents: Problem formulation, Initial state, Actions, Transition model, Goal test, Path cost, State space representation",
+            "Example Problems: Toy problems (Vacuum world, 8-puzzle, 8-queens), Real-world problems (Route-finding, Traveling salesperson)",
+            "Search Algorithms: Infrastructure, Search tree, Node expansion, Open list (Frontier) and Closed list (Explored set)",
+            "Uninformed Search Strategies: Breadth-First Search (BFS), Depth-First Search (DFS), Uniform-Cost Search (UCS / Dijkstra), Depth-Limited Search (DLS), Iterative Deepening Search (IDDFS), Bidirectional Search; Evaluation criteria (Completeness, Time complexity, Space complexity, Optimality)",
+            "Informed (Heuristic) Search: Heuristic function h(n), Greedy Best-First Search, A* Search (f(n) = g(n) + h(n)), Proof of A* optimality with admissible heuristic, Consistent (monotonic) heuristics",
+            "Heuristic Evaluation & Numericals: 8-puzzle solved step-by-step using Manhattan distance and Misplaced tiles heuristics",
+            "Local Search Algorithms: State space landscape, Hill-Climbing search (Greedy local search), Limitations (Local maxima, Ridges, Plateaux), Stochastic hill climbing, Random-restart hill climbing, Simulated Annealing, Genetic Algorithms",
+            "Adversarial Search (Games): Optimal decisions in games, Two-player zero-sum deterministic games, Minimax algorithm, Minimax value calculation",
+            "Alpha-Beta Pruning: Alpha-Beta pruning algorithm, Pruning conditions (Alpha cut-off, Beta cut-off), Move ordering, Game tree evaluations"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: Knowledge Representation, First-Order Logic, Inference in FOL, Unification, Forward & Backward chaining, Resolution, Ontological engineering",
+        "Unit 4: Classical Planning, State space planning, Planning graph, Partial-order planning, Hierarchical task networks",
+        "Unit 5: Uncertainty & Probabilistic Reasoning, Bayesian Networks, Exact inference by enumeration, Markov models, Hidden Markov Models (HMM)"
+      ]
+    },
+    "se": {
+      "id": "se",
+      "code": "24IS52",
+      "name": "Software Engineering",
+      "short_name": "SE",
+      "credits": "2:0:1",
+      "coordinator": "Dr. Krishna Raj RM",
+      "exam_date": "2026-10-14",
+      "exam_time": "13:30–14:30",
+      "exam_datetime": "2026-10-14T13:30:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2 (Full) — AY 2026–27 Syllabus",
+      "in_scope_units": [1, 2],
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Professional Software Development, Processes & Agile",
+          "topics": [
+            "Professional Software Development: Software engineering definition, Software product types (Generic, Customized), Essential attributes of good software (Maintainability, Dependability, Efficiency, Acceptability), Software engineering diversity",
+            "Software Engineering Ethics: Professional responsibility, ACM/IEEE Code of Ethics, Ethical dilemmas in computing",
+            "Case Studies: Embedded medical systems (Insulin pump), Information system (Mentcare / MHC-PMS), Wilderness weather station",
+            "Software Processes: Generic process activities (Specification, Development, Validation, Evolution)",
+            "Software Process Models: Waterfall model (phases, advantages, disadvantages), Incremental development (benefits, problems), Reuse-oriented software engineering",
+            "Process Activities: Software specification, Software design and implementation, Software validation (V-Model, Verification & Validation), Software evolution",
+            "Coping with Change: Prototyping (Throwaway prototypes, Evolutionary prototypes), Incremental delivery (Advantages, Disadvantages), Boehm's Spiral model",
+            "Process Improvement: Process measurement, Process analysis, Process change, CMMI (Capability Maturity Model Integration) levels",
+            "Agile Software Development: Agile manifesto values and 12 principles, Plan-driven development vs Agile development comparison",
+            "Extreme Programming (XP): XP practices (User stories, Refactoring, Test-first development / TDD, Pair programming, Continuous integration)",
+            "Agile Project Management: Scrum framework (Roles: Product Owner, Scrum Master, Developers; Artifacts: Product Backlog, Sprint Backlog, Increment; Events: Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective), Velocity, Burndown charts",
+            "Scaling Agile Methods: Large-system agility, Multi-team scaling, Organizational scaling issues",
+            "Integrated Lab Exercise: Initializing GitHub repository, Kanban board task management, Product Backlog definition, Mini-sprint execution"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "Requirements Engineering & System Modeling",
+          "topics": [
+            "Requirements Engineering: Definition of requirement, User requirements vs System requirements",
+            "Requirement Classifications: Functional requirements, Non-functional requirements (Product, Organizational, External), Quantitative metrics for non-functional requirements, Domain requirements",
+            "Software Requirements Document (SRS): Structure of SRS, IEEE 830 standard format, Users of an SRS document",
+            "Requirements Specification: Natural language specification, Structured natural language, Form-based specifications, Tabular specifications",
+            "Requirements Engineering Processes: Inception, Elicitation and analysis, Specification, Validation, Management",
+            "Requirements Elicitation: Elicitation techniques (Interviewing: Closed vs Open; Ethnography; Scenarios; Use cases)",
+            "Requirements Validation: Validity checks, Consistency checks, Completeness checks, Realism checks, Verifiability checks, Requirements reviews, Prototyping, Test-case generation",
+            "Requirements Management: Requirements change management process, Traceability matrices (Source, Requirement, Design)",
+            "System Modeling: Purpose of models, Model perspectives (External, Interaction, Structural, Behavioral)",
+            "Context Models: System boundaries, Context diagrams, Process perspective with Activity diagrams",
+            "Interaction Models: Use Case modeling (Actors, Use cases, Include and Extend relationships), Sequence diagrams (Lifelines, Messages, Synchronous/Asynchronous, Combined fragments)",
+            "Structural Models: Class diagrams (Classes, Attributes, Operations, Associations, Multiplicity, Generalization, Aggregation, Composition)",
+            "Behavioral Models: Data-driven models, Event-driven models, State Machine diagrams (States, Transitions, Events, Guards, Actions)",
+            "Model-Driven Architecture (MDA): Model-driven engineering concepts, Computation-Independent Model (CIM), Platform-Independent Model (PIM), Platform-Specific Model (PSM), Automatic code generation",
+            "Integrated Lab Exercise: Full SRS document preparation following IEEE 830, UML diagrams using StarUML / Draw.io"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: Architectural Design (Architectural patterns: Layered, Repository, Client-server, Pipe and filter), Design and Implementation (Object-oriented design using UML, Design patterns, Open source licensing), Software Testing (Development testing: Unit testing, Component testing, System testing; Test-driven development; Release testing; User testing)",
+        "Unit 4: Software Evolution, Legacy system management, Software maintenance, Re-engineering, Configuration management (Git version control, Branching strategies, Continuous integration / CD)",
+        "Unit 5: Project Management, Risk management, People management, Project planning, Software cost estimation (COCOMO II model)"
+      ]
+    },
+    "ml": {
+      "id": "ml",
+      "code": "24IS51",
+      "name": "Machine Learning",
+      "short_name": "ML",
+      "credits": "3:0:0",
+      "coordinator": "Dr. Sumana M",
+      "exam_date": "2026-10-15",
+      "exam_time": "09:30–10:30",
+      "exam_datetime": "2026-10-15T09:30:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2, Unit 3 strictly Regression Portion Only",
+      "in_scope_units": [1, 2, 3],
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Introduction to Machine Learning & Understanding Data (Part 1)",
+          "topics": [
+            "Need for Machine Learning: Human learning vs Machine learning, Limitations of traditional programming",
+            "Machine Learning Explained: Formal definition (Mitchell's E, T, P definition: Task, Performance measure, Experience), Examples of (E, T, P)",
+            "Relation to Other Fields: ML vs Artificial Intelligence vs Data Science vs Statistics vs Pattern Recognition",
+            "Types of Machine Learning: Supervised learning (Classification, Regression), Unsupervised learning (Clustering, Dimensionality reduction, Association rules), Semi-supervised learning, Reinforcement learning (Agent, Environment, State, Action, Reward)",
+            "Challenges in Machine Learning: Insufficient training data, Non-representative training data, Poor data quality (Noise, Outliers, Missing values), Irrelevant features, Overfitting, Underfitting",
+            "Machine Learning Process: Seven-step ML pipeline (Data collection, Data preparation, Model selection, Model training, Model evaluation, Hyperparameter tuning, Deployment and prediction)",
+            "Machine Learning Applications: Computer vision, NLP, Healthcare, Recommendation systems, Fraud detection, Autonomous driving",
+            "Understanding Data (Part 1): Introduction, Big Data analysis framework (Volume, Velocity, Variety, Veracity, Value)",
+            "Descriptive Statistics: Measures of Central Tendency (Mean, Median, Mode, Weighted mean, Geometric mean), Measures of Dispersion (Range, Interquartile Range / IQR, Variance, Standard Deviation, Coefficient of Variation)",
+            "Univariate Data Analysis & Visualization: Histograms, Box plots (Five-number summary, Outlier detection via 1.5*IQR rule), Density plots",
+            "Bivariate & Multivariate Data: Scatter plots, Heatmaps, Pair plots, Contingency tables",
+            "Multivariate Statistics: Covariance definition, Sample covariance formula, Covariance matrix calculation; Pearson's Correlation Coefficient (r) formula, Properties of r (-1 to +1), Spearman's Rank Correlation; Solved numericals on Covariance and Correlation"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "Understanding Data (Part 2) & Basic Learning Theory",
+          "topics": [
+            "Mathematics for Multivariate Data: Vectors, Matrices, Eigenvalues, Eigenvectors, Linear transformations, Distance metrics (Euclidean distance, Manhattan distance, Minkowski distance, Mahalanobis distance, Cosine similarity)",
+            "Feature Engineering: Handling missing data (Mean/median imputation, Mode imputation, Dropping rows/columns), Handling categorical variables (One-Hot Encoding, Label/Ordinal Encoding, Target encoding)",
+            "Feature Scaling: Normalization (Min-Max Scaling to [0,1]), Standardization (Z-score normalization to mean=0, std=1), Robust scaling",
+            "Dimensionality Reduction Techniques: Curse of dimensionality (Sparsity, Distance metric collapse), Principal Component Analysis (PCA: Covariance matrix, Eigen decomposition, Scree plot, Explained variance ratio, Step-by-step PCA calculation), Linear Discriminant Analysis (LDA) overview",
+            "Design of a Learning System: Five-step design methodology from Mitchell (Step 1: Choosing training experience, Step 2: Choosing target function, Step 3: Choosing representation for target function, Step 4: Choosing function approximation algorithm, Step 5: Final design of checkers/learning system)",
+            "Concept of Learning: General-to-specific ordering of hypotheses, Version space, Find-S algorithm, Candidate-Elimination algorithm",
+            "Inductive Bias: Definition of inductive bias, Need for inductive bias, Inductive leap, Rote learner vs Generalizer",
+            "Modeling in Machine Learning: Bias-Variance tradeoff, Underfitting (High Bias) vs Overfitting (High Variance), Total error decomposition (Bias^2 + Variance + Irreducible error), Learning curves",
+            "Learning Frameworks: PAC (Probably Approximately Correct) learning framework, Occam's razor principle"
+          ]
+        },
+        "3": {
+          "unit": 3,
+          "title": "Regression Analysis & Regularization",
+          "scope_limit": "Regression Analysis portion only",
+          "topics": [
+            "Introduction to Regression: Regression definition, Dependent variable (Target) vs Independent variables (Predictors), Regression vs Classification",
+            "Simple Linear Regression: Model equation y = beta_0 + beta_1*x + epsilon, Assumptions of Linear Regression (Linearity, Independence, Homoscedasticity, Normality of residuals, No multicollinearity)",
+            "Ordinary Least Squares (OLS): Derivation of closed-form formulas for beta_1 (slope) and beta_0 (intercept), Minimization of Residual Sum of Squares (RSS / SSE)",
+            "Multiple Linear Regression: Matrix formulation Y = X*beta + epsilon, Closed-form Normal Equation beta = (X^T * X)^(-1) * X^T * Y, Interpretation of partial regression coefficients",
+            "Polynomial Regression: Non-linear modeling using polynomial feature transformation, Degree of polynomial, Risk of overfitting with high degrees",
+            "Model Evaluation Metrics: Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), Coefficient of Determination (R^2 score), Adjusted R^2 score for multiple regression",
+            "Gradient Descent Optimization: Cost function (Mean Squared Error), Gradient computation, Batch Gradient Descent, Stochastic Gradient Descent (SGD), Mini-batch Gradient Descent, Learning rate hyperparameter alpha",
+            "Regularization in Regression: Overfitting prevention, Ridge Regression (L2 regularization, Penalized cost function MSE + lambda * sum(beta_j^2), Analytical solution beta = (X^T * X + lambda*I)^(-1) * X^T * Y, Shrinkage of coefficients)",
+            "Lasso Regression: L1 regularization, Penalized cost function MSE + lambda * sum(|beta_j|), Sparse feature selection property",
+            "Elastic Net: Combination of L1 and L2 penalties",
+            "Logistic Regression: Classification via regression, Sigmoid (Logistic) activation function sigma(z) = 1 / (1 + e^(-z)), Odds ratio, Log-odds (Logit function), Maximum Likelihood Estimation (MLE), Binary cross-entropy (Log-loss) cost function, Decision boundary",
+            "Solved Numericals: Hand-computed OLS regression line (slope, intercept, R^2), Multiple regression matrix step-by-step, Logistic regression probability and odds calculation"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: Similarity-Based Learning (Nearest-Neighbor Learning, Weighted KNN algorithm, Nearest Centroid Classifier, Locally Weighted Regression / LWR)",
+        "Unit 3: Decision Tree Learning (Decision tree model, ID3 algorithm, C4.5, CART, Entropy, Information Gain, Gain Ratio, Gini Index, Overfitting in trees, Reduced error pruning)",
+        "Unit 4: Rule-Based Learning (Sequential covering algorithm, First-order rule learning, Association rule mining), Bayesian Learning (Bayes theorem, Maximum A Posteriori / MAP, Maximum Likelihood / ML, Naive Bayes classifier, Bayesian belief networks)",
+        "Unit 5: Artificial Neural Networks (Perceptron, Multilayer perceptron, Backpropagation algorithm), Support Vector Machines (Hyperplanes, Margin maximization, Soft margin SVM, Kernel trick), Ensemble Learning (Bagging, Random Forests, Boosting, AdaBoost)"
+      ]
+    },
+    "rmipr": {
+      "id": "rmipr",
+      "code": "24AL58",
+      "name": "Research Methodology and IPR",
+      "short_name": "RMIPR",
+      "credits": "3:0:0",
+      "coordinator": "Dr. Anitha P",
+      "exam_date": "2026-10-15",
+      "exam_time": "15:00–16:00",
+      "exam_datetime": "2026-10-15T15:00:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2, Unit 3 up to 'Characteristics of a Good Sample Design' (inclusive)",
+      "in_scope_units": [1, 2, 3],
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Introduction to Research & Technical Literature Review",
+          "topics": [
+            "Introduction to Research: Meaning and definition of research, Objectives of research (Exploratory/Formulative, Descriptive, Diagnostic, Hypothesis-testing), Motivation in research",
+            "Types of Research: Descriptive vs Analytical, Applied vs Fundamental (Basic/Pure), Quantitative vs Qualitative, Conceptual vs Empirical, Other types (One-time vs Longitudinal, Field vs Laboratory, Clinical vs Diagnostic)",
+            "Research Approaches: Quantitative approach (Inferential, Experimental, Simulation) vs Qualitative approach",
+            "Research Methods vs Methodology: Distinction between research methods and research methodology",
+            "Research Process: Eight-step research process flowchart",
+            "Criteria of Good Research: Systematic, Logical, Empirical, Replicable; Qualities of a good researcher",
+            "Ethics in Research: Ethical principles in academic research, Intellectual integrity, Plagiarism (definition, types, detection), Fabrication, Falsification, Types of research misconduct",
+            "Literature Review & Technical Reading: Importance of literature review, New and existing knowledge, Analysis and synthesis of prior art, Bibliographic databases (IEEE Xplore, ScienceDirect, Scopus, Google Scholar), Conceptualizing research, Critical and creative reading",
+            "Citations: Functions and attributes of citations, Impact of title and keywords on citations, Knowledge flow through citations, Acknowledgments, Attributions, Citation styles (IEEE, APA, MLA)"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "Defining the Research Problem & Research Design",
+          "topics": [
+            "Defining the Research Problem: What is a research problem?, Necessity of defining the problem, Technique involved in defining a problem (Statement of problem in general way, Understanding origin/nature, Surveying available literature, Developing ideas through discussions, Rephrasing research problem into working terms)",
+            "Research Design: Meaning and need for research design, Features of a good research design",
+            "Important Concepts in Research Design: Dependent and Independent variables, Extraneous variables, Control, Confounded relationship, Research hypothesis (Directional vs Non-directional), Experimental and Control groups, Treatments, Experiment (Comparative vs Absolute)",
+            "Different Research Designs: Research design in exploratory/formulative studies, Research design in descriptive and diagnostic studies",
+            "Basic Principles of Experimental Designs: Principle of Replication, Principle of Randomization, Principle of Local Control",
+            "Experimental Designs: Informal experimental designs (Before-and-after without control, After-only with control, Before-and-after with control), Formal experimental designs: Completely Randomized Design (C.R. Design), Randomized Block Design (R.B. Design), Latin Square Design (L.S. Design), Factorial Designs (Simple factorial, Complex factorial)"
+          ]
+        },
+        "3": {
+          "unit": 3,
+          "title": "Data Collection Methods & Sampling Design Fundamentals",
+          "scope_limit": "Up to 'Characteristics of a Good Sample Design' (inclusive)",
+          "topics": [
+            "Methods of Data Collection: Primary data vs Secondary data distinction",
+            "Collection of Primary Data: Observation method, Interview method (Personal, Telephone, Structured, Unstructured), Questionnaires (Design, Guidelines for constructing questionnaire, Pilot testing), Schedules, Other methods (Warranty cards, Audits, Consumer panels)",
+            "Collection of Secondary Data: Sources of secondary data, Precautions in using secondary data (Reliability, Suitability, Adequacy of data)",
+            "Sampling Design Fundamentals: Census method vs Sample survey method, Need for sampling, Implications of sample design",
+            "Steps in Sampling Design: Type of universe (Finite, Infinite), Sampling unit, Source list (Sampling frame), Size of sample, Parameters of interest, Budgetary constraint, Sampling procedure",
+            "Criteria of Selecting a Sampling Procedure: Inappropriate sampling frame, Defective measuring device, Non-respondents, Indeterminacy principle, Natural bias in reporting",
+            "Characteristics of a Good Sample Design: Representative sample, Controlled sampling error, Systematic bias minimization, Feasibility and cost efficiency, Generalizability of results"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: Types of Sample Designs (Probability sampling: Simple random, Systematic, Stratified, Cluster, Area, Multi-stage; Non-probability sampling: Deliberate/Purposive, Quota, Convenience, Snowball)",
+        "Unit 3: Measurement and Scaling Techniques (Nominal, Ordinal, Interval, Ratio scales, Likert scale, Semantic differential scale)",
+        "Unit 3: Data Analysis & Hypothesis Testing (Null hypothesis H0, Alternative hypothesis H1, Type I error alpha, Type II error beta, Level of significance, Critical region, Two-tailed vs One-tailed tests, z-test, t-test, Chi-square goodness of fit, ANOVA one-way and two-way, ANOCOVA)",
+        "Unit 4: Introduction to IPR, Different forms of IPR (Patents, Copyrights, Trademarks, Trade Secrets, Industrial Designs, Geographical Indications), TRIPS Agreement, PCT (Patent Cooperation Treaty), Indian Patent Act 1970, Patentable vs Non-patentable subject matter, Patent filing procedure",
+        "Unit 5: Copyright Law (Works protected, Rights of author, Fair use, Infringement), Trademarks (Registration, Infringement), Trade Secrets, Industrial Designs, Case studies in IPR litigation"
+      ]
+    },
+    "evs": {
+      "id": "evs",
+      "code": "24HS510",
+      "name": "Environmental Studies",
+      "short_name": "EVS",
+      "credits": "0:0:0",
+      "coordinator": "Dr. H U Raghavendra / Civil Faculty",
+      "exam_date": "2026-10-16",
+      "exam_time": "09:30–10:30",
+      "exam_datetime": "2026-10-16T09:30:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2 (Full)",
+      "in_scope_units": [1, 2],
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Environment, Ecosystems & Biodiversity",
+          "topics": [
+            "Introduction to Environment: Definition of environment, Components of environment (Atmosphere, Hydrosphere, Lithosphere, Biosphere), Scope and importance of environmental studies",
+            "Multidisciplinary Nature: Integration with physical, chemical, biological, and engineering disciplines",
+            "Public Awareness: Need for public awareness, Environmental ethics, Global environmental challenges",
+            "Ecosystem Concept: Definition of ecosystem, Structure of ecosystem (Biotic components: Producers, Consumers, Decomposers; Abiotic components: Physical, Chemical factors)",
+            "Ecosystem Functions: Energy flow in ecosystems (First and second laws of thermodynamics, 10% energy transfer rule), Food chains (Grazing, Detritus food chains), Food webs, Trophic levels",
+            "Ecological Pyramids: Pyramid of Numbers (upright, inverted), Pyramid of Biomass (terrestrial vs aquatic), Pyramid of Energy (always upright)",
+            "Biogeochemical Cycles: Carbon cycle, Nitrogen cycle, Water (Hydrological) cycle, Phosphorus cycle",
+            "Major Ecosystems: Forest ecosystem, Grassland ecosystem, Desert ecosystem, Aquatic ecosystems (Ponds, Lakes, Streams, Rivers, Oceans, Estuaries)"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "Natural Resources & Conservation",
+          "topics": [
+            "Natural Resources: Definition, Classification (Renewable vs Non-renewable resources), Resource depletion problems",
+            "Forest Resources: Ecological importance of forests (Carbon sinks, Oxygen production, Climate regulation, Soil conservation), Commercial uses (Timber, Paper, Medicine), Deforestation (Causes: Agriculture, Logging, Mining, Urbanization; Consequences: Climate change, Loss of biodiversity, Soil erosion, Floods), Timber extraction and its effects on tribal populations",
+            "Water Resources: Global water distribution (Oceans 97%, Freshwater 3%), Uses of water, Over-utilization of surface and groundwater, Floods and Droughts, Conflicts over water (Interstate river disputes: Cauvery water dispute), Benefits and problems of large dams",
+            "Mineral Resources: Classification of mineral resources, Environmental effects of extracting and processing mineral resources (Open-cast mining, Acid mine drainage, Dust pollution, Land degradation, Habitat destruction), Case studies",
+            "Food Resources: World food problems, Modern agriculture vs Traditional agriculture, Environmental impacts of modern agriculture (Fertilizer and pesticide problems, Eutrophication, Biomagnification, Salinization, Waterlogging)",
+            "Land Resources: Land as a resource, Land degradation, Man-induced landslides, Soil erosion (Sheet, Rill, Gully erosion, Wind erosion), Desertification (Causes and preventive measures), Role of individuals in conservation of natural resources"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: Energy Resources (Renewable: Solar, Wind, Hydro, Biomass, Geothermal, Ocean; Non-renewable: Coal, Petroleum, Natural Gas, Nuclear energy, Environmental impacts of fossil fuels)",
+        "Unit 4: Environmental Pollution (Air pollution: Primary and secondary pollutants, Smog, Acid rain; Water pollution: BOD, COD, Pathogens; Soil pollution; Noise pollution; Thermal pollution; Nuclear hazards; Solid waste management)",
+        "Unit 5: Social Issues and the Environment (Sustainable development, Urban problems related to energy, Water conservation: Rainwater harvesting, Watershed management, Climate change, Global warming, Ozone layer depletion, Environmental Protection Act 1986, Air Act 1981, Water Act 1974, Wildlife Protection Act, Forest Conservation Act)"
+      ]
+    },
+    "toc": {
+      "id": "toc",
+      "code": "24IS54",
+      "name": "Theory of Computation",
+      "short_name": "TOC",
+      "credits": "2:1:0",
+      "coordinator": "Dr. Rajeshwari S B",
+      "exam_date": "2026-10-16",
+      "exam_time": "13:30–14:30",
+      "exam_datetime": "2026-10-16T13:30:00+05:30",
+      "cie1_scope_description": "Unit 1, Unit 2 (Full)",
+      "in_scope_units": [1, 2],
+      "units": {
+        "1": {
+          "unit": 1,
+          "title": "Finite Automata Fundamentals & Nondeterminism",
+          "topics": [
+            "Introduction to Automata Theory: Central concepts, Alphabets (Sigma), Strings, Length of string, Empty string (epsilon), Powers of alphabet, Languages, Empty language, Operations on languages (Union, Concatenation, Kleene star, Positive closure)",
+            "Deterministic Finite Automata (DFA): Formal definition (5-tuple: Q, Sigma, delta, q0, F), Transition function delta: Q x Sigma -> Q, Transition table, Transition diagram, Extended transition function delta_hat",
+            "Language of a DFA: L(M) = { w in Sigma* | delta_hat(q0, w) in F }, Designing DFAs for binary strings (divisibility, substring, prefix, suffix, odd/even counts, modulo arithmetic)",
+            "Nondeterministic Finite Automata (NFA): Formal definition (5-tuple with delta: Q x Sigma -> 2^Q), Transition table, Transition diagram, Extended transition function, Language accepted by NFA",
+            "Equivalence of DFA and NFA: Subset Construction Algorithm (Powerset construction), Step-by-step conversion of NFA to DFA, Trap/Dead state handling, Deadlock vs Acceptance",
+            "Finite Automata with Epsilon Transitions (Epsilon-NFA): Formal definition (delta: Q x (Sigma union {epsilon}) -> 2^Q), Epsilon-closure (E-CLOSE) definition and calculation algorithm, Extended transition function for Epsilon-NFA",
+            "Equivalence of Epsilon-NFA and DFA: Algorithm to eliminate epsilon transitions and convert Epsilon-NFA directly to equivalent DFA",
+            "Applications of Finite Automata: Lexical analysis in compilers, Pattern matching (grep), Digital circuit design, Communication protocols"
+          ]
+        },
+        "2": {
+          "unit": 2,
+          "title": "Regular Expressions, Properties & Minimization",
+          "topics": [
+            "Regular Expressions (RE): Formal inductive definition of regular expressions, Primitive regular expressions (null set, epsilon, single symbol a), Operators (Union +, Concatenation ., Kleene star *), Operator precedence rules, Languages associated with REs",
+            "Designing Regular Expressions: Constructing REs for specified string patterns over {0,1} and {a,b}",
+            "Equivalence of Regular Expressions and Finite Automata: Kleene's Theorem",
+            "Converting Regular Expressions to Finite Automata: Thompson's Construction Algorithm (inductive constructions for base symbols, union, concatenation, Kleene closure)",
+            "Converting Finite Automata to Regular Expressions: State Elimination Method (Generalized Transition Graphs / GNFA, ripping states, updating composite transition expressions), Arden's Theorem (R = Q + RP has unique solution R = QP*)",
+            "Closure Properties of Regular Languages: Closed under Union, Concatenation, Kleene Star, Complement (DFA swapping final/non-final states), Intersection (Cross-product construction M = M1 x M2), Difference, Reversal",
+            "Pumping Lemma for Regular Languages: Formal statement of Pumping Lemma, Pumping length p, Partition w = xyz satisfying |y| > 0, |xy| <= p, and x y^i z in L for all i >= 0",
+            "Non-Regularity Proofs using Pumping Lemma: Proof by contradiction methodology, Standard proofs: L = { a^n b^n | n >= 0 }, L = { 0^n 1^n | n >= 1 }, L = { w w | w in {0,1}* }, L = { 1^(n^2) | n >= 1 }, L = { a^p | p is prime }",
+            "Equivalence & Minimization of Automata: Distinguishable vs Indistinguishable states, Equivalence of states (p ~ q iff for all w, delta_hat(p,w) and delta_hat(q,w) are both accepting or both non-accepting)",
+            "Table-Filling Algorithm (Myhill-Nerode Minimization): Step-by-step algorithm for finding equivalent states, Marking basis (accepting vs non-accepting pairs), Inductive marking step, Constructing the minimum-state DFA, Verification of uniqueness of minimal DFA"
+          ]
+        }
+      },
+      "out_of_scope_hold": [
+        "Unit 3: Context-Free Grammars (CFGs: V, T, P, S), Derivations (Leftmost, Rightmost), Parse Trees, Yield of parse tree, Ambiguity in grammars and languages, Inherent ambiguity, Simplification of CFGs (Eliminating useless symbols, epsilon-productions, unit productions), Chomsky Normal Form (CNF), Greibach Normal Form (GNF)",
+        "Unit 4: Pushdown Automata (PDA: 7-tuple), Instantaneous Descriptions (IDs), Acceptance by final state vs Acceptance by empty stack, Equivalence of PDA acceptance methods, Equivalence of CFGs and PDAs, Deterministic Pushdown Automata (DPDA), Pumping Lemma for Context-Free Languages",
+        "Unit 5: Introduction to Turing Machines (TM: 7-tuple), Instantaneous descriptions, Transition diagrams, Designing TMs for languages (a^n b^n c^n, 0^n 1^n, palindromes, unary multiplication), Multi-tape TMs, Non-deterministic TMs, Halting problem, Church-Turing thesis, Decidability, Undecidable problems, Post Correspondence Problem (PCP)"
+      ]
+    }
+  }
+}
