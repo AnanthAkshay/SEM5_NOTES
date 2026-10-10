@@ -19,6 +19,7 @@ ehthumbs_vista.db
 *.log
 scratch/
 build/
+archive/
 *.tmp
 audit/*
 !audit/*.md

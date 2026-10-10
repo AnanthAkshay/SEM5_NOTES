@@ -22,8 +22,8 @@ window.SEM5_DATA = {
       "prerequisites": "NIL",
       "description": "Need for machine learning, data exploration & multivariate statistics, similarity-based learning, regression, decision trees, rule-based learning, Bayes models, ANNs, ensemble learning, and clustering.",
       "examDate": "2026-10-15",
-      "examTime": "09:30\u201310:30",
-      "examSchedule": "Thu 15-10-2026, 09:30\u201310:30",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Thu 15-10-2026, 09:30–10:30",
       "cie1Scope": "Unit 1, Unit 2, Unit 3 strictly Regression Portion Only",
       "tags": [
         "Core ISE",
@@ -33,129 +33,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "ml-ml-ch3-5-inductive-bias-bias-variance-pdf",
-              "title": "Ch3 5 Inductive Bias Bias Variance",
-              "originalName": "ml-ch3-5-inductive-bias-bias-variance.pdf",
-              "path": "notes/ml/recent-notes/ml-ch3-5-inductive-bias-bias-variance.pdf",
-              "type": "pdf",
-              "sizeBytes": 272120,
-              "size": "266 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch3-5-inductive-bias-bias-variance.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch3-6-modeling-ml-detailed-pdf",
-              "title": "Ch3 6 Modeling Ml Detailed",
-              "originalName": "ml-ch3-6-modeling-ml-detailed.pdf",
-              "path": "notes/ml/recent-notes/ml-ch3-6-modeling-ml-detailed.pdf",
-              "type": "pdf",
-              "sizeBytes": 426242,
-              "size": "416 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch3-6-modeling-ml-detailed.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch3-7-learning-frameworks-detailed-pdf",
-              "title": "Ch3 7 Learning Frameworks Detailed",
-              "originalName": "ml-ch3-7-learning-frameworks-detailed.pdf",
-              "path": "notes/ml/recent-notes/ml-ch3-7-learning-frameworks-detailed.pdf",
-              "type": "pdf",
-              "sizeBytes": 237566,
-              "size": "232 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch3-7-learning-frameworks-detailed.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch3-basic-concepts-of-learning-pdf",
-              "title": "Ch3 Basic Concepts Of Learning",
-              "originalName": "ml-ch3-basic-concepts-of-learning.pdf",
-              "path": "notes/ml/recent-notes/ml-ch3-basic-concepts-of-learning.pdf",
-              "type": "pdf",
-              "sizeBytes": 62706,
-              "size": "61 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch3-basic-concepts-of-learning.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch4-similarity-based-learning-pdf",
-              "title": "Ch4 Similarity Based Learning",
-              "originalName": "ml-ch4-similarity-based-learning.pdf",
-              "path": "notes/ml/recent-notes/ml-ch4-similarity-based-learning.pdf",
-              "type": "pdf",
-              "sizeBytes": 74970,
-              "size": "73 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch4-similarity-based-learning.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch5-4-validation-of-regression-methods-pdf",
-              "title": "Ch5 4 Validation Of Regression Methods",
-              "originalName": "ml-ch5-4-validation-of-regression-methods.pdf",
-              "path": "notes/ml/recent-notes/ml-ch5-4-validation-of-regression-methods.pdf",
-              "type": "pdf",
-              "sizeBytes": 117670,
-              "size": "115 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch5-4-validation-of-regression-methods.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch5-regression-analysis-detailed-pdf",
-              "title": "Ch5 Regression Analysis Detailed",
-              "originalName": "ml-ch5-regression-analysis-detailed.pdf",
-              "path": "notes/ml/recent-notes/ml-ch5-regression-analysis-detailed.pdf",
-              "type": "pdf",
-              "sizeBytes": 382129,
-              "size": "373 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch5-regression-analysis-detailed.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch5-regression-problems-solutions-pdf",
-              "title": "Ch5 Regression Problems Solutions",
-              "originalName": "ml-ch5-regression-problems-solutions.pdf",
-              "path": "notes/ml/recent-notes/ml-ch5-regression-problems-solutions.pdf",
-              "type": "pdf",
-              "sizeBytes": 131781,
-              "size": "129 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch5-regression-problems-solutions.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "ml-ml-ch2-understanding-data-pdf",
-              "title": "Unit 2: Understanding Data & Preprocessing",
-              "originalName": "ml-ch2-understanding-data.pdf",
-              "path": "notes/ml/recent-notes/ml-ch2-understanding-data.pdf",
-              "type": "pdf",
-              "sizeBytes": 199255,
-              "size": "195 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/recent-notes/ml-ch2-understanding-data.pptx",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Introduction to Machine Learning & Understanding Data (Part 1)",
           "topics": "Need for Machine Learning: Human learning vs Machine learning, Limitations of traditional programming, Machine Learning Explained: Formal definition (Mitchell's...",
           "isPractice": false,
           "files": [
             {
-              "id": "ml-unit-1-notes-html",
+              "id": "ml-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/ml/unit1/unit-1-notes.html",
@@ -165,8 +49,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "ml-ml-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "ml-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "ml-unit1-handwritten.pdf",
               "path": "notes/ml/unit1/handwritten/ml-unit1-handwritten.pdf",
               "type": "handwritten",
@@ -175,90 +59,64 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "ml-ml-ch3-5-inductive-bias-bias-variance-pdf",
-              "title": "Ch3 5 Inductive Bias Bias Variance",
-              "originalName": "ml-ch3-5-inductive-bias-bias-variance.pdf",
-              "path": "notes/ml/unit1/ml-ch3-5-inductive-bias-bias-variance.pdf",
-              "type": "pdf",
-              "sizeBytes": 272120,
-              "size": "266 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit1/ml-ch3-5-inductive-bias-bias-variance.pptx"
-            },
-            {
-              "id": "ml-ml-ch3-6-modeling-ml-detailed-pdf",
-              "title": "Ch3 6 Modeling Ml Detailed",
-              "originalName": "ml-ch3-6-modeling-ml-detailed.pdf",
-              "path": "notes/ml/unit1/ml-ch3-6-modeling-ml-detailed.pdf",
-              "type": "pdf",
-              "sizeBytes": 426242,
-              "size": "416 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit1/ml-ch3-6-modeling-ml-detailed.pptx"
-            },
-            {
-              "id": "ml-ml-ch3-7-learning-frameworks-detailed-pdf",
-              "title": "Ch3 7 Learning Frameworks Detailed",
-              "originalName": "ml-ch3-7-learning-frameworks-detailed.pdf",
-              "path": "notes/ml/unit1/ml-ch3-7-learning-frameworks-detailed.pdf",
-              "type": "pdf",
-              "sizeBytes": 237566,
-              "size": "232 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit1/ml-ch3-7-learning-frameworks-detailed.pptx"
-            },
-            {
-              "id": "ml-ml-ch3-basic-concepts-of-learning-pdf",
-              "title": "Ch3 Basic Concepts Of Learning",
-              "originalName": "ml-ch3-basic-concepts-of-learning.pdf",
-              "path": "notes/ml/unit1/ml-ch3-basic-concepts-of-learning.pdf",
-              "type": "pdf",
-              "sizeBytes": 62706,
-              "size": "61 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit1/ml-ch3-basic-concepts-of-learning.pptx"
-            },
-            {
-              "id": "ml-ml-correlation-and-covariance-problems-pdf",
-              "title": "Correlation And Covariance Problems",
-              "originalName": "ml-correlation-and-covariance-problems.pdf",
-              "path": "notes/ml/unit1/ml-correlation-and-covariance-problems.pdf",
-              "type": "pdf",
-              "sizeBytes": 116790,
-              "size": "114 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit1/ml-correlation-and-covariance-problems.docx"
-            },
-            {
-              "id": "ml-unit-1-pdf",
-              "title": "Unit 1",
-              "originalName": "unit-1.pdf",
-              "path": "notes/ml/unit1/unit-1.pdf",
-              "type": "pdf",
-              "sizeBytes": 2508842,
-              "size": "2.4 MB"
-            },
-            {
-              "id": "ml-ml-unit-1-shruti-mam-pdf",
-              "title": "Unit 1 Shruti Mam",
-              "originalName": "ml-unit-1-shruti-mam.pdf",
-              "path": "notes/ml/unit1/ml-unit-1-shruti-mam.pdf",
-              "type": "pdf",
-              "sizeBytes": 2169858,
-              "size": "2.1 MB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit1/ml-unit-1-shruti-mam.pptx"
-            },
-            {
               "id": "ml-ml-ch2-understanding-data-pdf",
-              "title": "Unit 2: Understanding Data & Preprocessing",
+              "title": "Unit 1 - Chapter 2: Understanding Data & Preprocessing",
               "originalName": "ml-ch2-understanding-data.pdf",
-              "path": "notes/ml/unit1/ml-ch2-understanding-data.pdf",
+              "path": "notes/ml/recent-notes/ml-ch2-understanding-data.pdf",
               "type": "pdf",
               "sizeBytes": 199255,
               "size": "195 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/ml/unit1/ml-ch2-understanding-data.pptx"
+              "originalPath": "notes/ml/recent-notes/ml-ch2-understanding-data.pptx"
+            },
+            {
+              "id": "ml-ml-ch3-basic-concepts-of-learning-pdf",
+              "title": "Unit 1 - Chapter 3: Basic Concepts of Learning",
+              "originalName": "ml-ch3-basic-concepts-of-learning.pdf",
+              "path": "notes/ml/recent-notes/ml-ch3-basic-concepts-of-learning.pdf",
+              "type": "pdf",
+              "sizeBytes": 62706,
+              "size": "61 KB",
+              "tag": "Recent Notes",
+              "isConverted": true,
+              "originalPath": "notes/ml/recent-notes/ml-ch3-basic-concepts-of-learning.pptx"
+            },
+            {
+              "id": "ml-ml-ch3-5-inductive-bias-bias-variance-pdf",
+              "title": "Unit 1 - Section 3.5: Inductive Bias & Bias-Variance Dilemma",
+              "originalName": "ml-ch3-5-inductive-bias-bias-variance.pdf",
+              "path": "notes/ml/recent-notes/ml-ch3-5-inductive-bias-bias-variance.pdf",
+              "type": "pdf",
+              "sizeBytes": 272120,
+              "size": "266 KB",
+              "tag": "Recent Notes",
+              "isConverted": true,
+              "originalPath": "notes/ml/recent-notes/ml-ch3-5-inductive-bias-bias-variance.pptx"
+            },
+            {
+              "id": "ml-ml-ch3-6-modeling-ml-detailed-pdf",
+              "title": "Unit 1 - Section 3.6: Modeling in Machine Learning",
+              "originalName": "ml-ch3-6-modeling-ml-detailed.pdf",
+              "path": "notes/ml/recent-notes/ml-ch3-6-modeling-ml-detailed.pdf",
+              "type": "pdf",
+              "sizeBytes": 426242,
+              "size": "416 KB",
+              "tag": "Recent Notes",
+              "isConverted": true,
+              "originalPath": "notes/ml/recent-notes/ml-ch3-6-modeling-ml-detailed.pptx"
+            },
+            {
+              "id": "ml-ml-ch3-7-learning-frameworks-detailed-pdf",
+              "title": "Unit 1 - Section 3.7: Learning Frameworks (PAC Learning)",
+              "originalName": "ml-ch3-7-learning-frameworks-detailed.pdf",
+              "path": "notes/ml/recent-notes/ml-ch3-7-learning-frameworks-detailed.pdf",
+              "type": "pdf",
+              "sizeBytes": 237566,
+              "size": "232 KB",
+              "tag": "Recent Notes",
+              "isConverted": true,
+              "originalPath": "notes/ml/recent-notes/ml-ch3-7-learning-frameworks-detailed.pptx"
             }
           ]
         },
@@ -269,7 +127,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "ml-unit-2-notes-html",
+              "id": "ml-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/ml/unit2/unit-2-notes.html",
@@ -279,8 +137,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "ml-ml-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "ml-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "ml-unit2-handwritten.pdf",
               "path": "notes/ml/unit2/handwritten/ml-unit2-handwritten.pdf",
               "type": "handwritten",
@@ -290,34 +148,15 @@ window.SEM5_DATA = {
             },
             {
               "id": "ml-ml-ch4-similarity-based-learning-pdf",
-              "title": "Ch4 Similarity Based Learning",
+              "title": "Unit 2 - Chapter 4: Similarity-Based Learning & k-NN",
               "originalName": "ml-ch4-similarity-based-learning.pdf",
-              "path": "notes/ml/unit2/ml-ch4-similarity-based-learning.pdf",
+              "path": "notes/ml/recent-notes/ml-ch4-similarity-based-learning.pdf",
               "type": "pdf",
               "sizeBytes": 74970,
               "size": "73 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/ml/unit2/ml-ch4-similarity-based-learning.pptx"
-            },
-            {
-              "id": "ml-ml-unit-2-shruti-mam-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "ml-unit-2-shruti-mam.pdf",
-              "path": "notes/ml/unit2/ml-unit-2-shruti-mam.pdf",
-              "type": "pdf",
-              "sizeBytes": 1351021,
-              "size": "1.3 MB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit2/ml-unit-2-shruti-mam.pptx"
-            },
-            {
-              "id": "ml-unit-2-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2.pdf",
-              "path": "notes/ml/unit2/unit-2.pdf",
-              "type": "pdf",
-              "sizeBytes": 2132489,
-              "size": "2.0 MB"
+              "originalPath": "notes/ml/recent-notes/ml-ch4-similarity-based-learning.pptx"
             }
           ]
         },
@@ -328,7 +167,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "ml-unit-3-notes-html",
+              "id": "ml-u3-notes",
               "title": "Unit 3: Interactive Notes",
               "originalName": "unit-3-notes.html",
               "path": "notes/ml/unit3/unit-3-notes.html",
@@ -338,8 +177,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "ml-ml-unit3-handwritten-pdf",
-              "title": "Unit 3: Handwritten Notebook (PDF)",
+              "id": "ml-u3-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "ml-unit3-handwritten.pdf",
               "path": "notes/ml/unit3/handwritten/ml-unit3-handwritten.pdf",
               "type": "handwritten",
@@ -348,77 +187,40 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "ml-ml-ch5-4-validation-of-regression-methods-pdf",
-              "title": "Ch5 4 Validation Of Regression Methods",
-              "originalName": "ml-ch5-4-validation-of-regression-methods.pdf",
-              "path": "notes/ml/unit3/ml-ch5-4-validation-of-regression-methods.pdf",
-              "type": "pdf",
-              "sizeBytes": 117670,
-              "size": "115 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit3/ml-ch5-4-validation-of-regression-methods.pptx"
-            },
-            {
               "id": "ml-ml-ch5-regression-analysis-detailed-pdf",
-              "title": "Ch5 Regression Analysis Detailed",
+              "title": "Unit 3 - Chapter 5: Regression Analysis & Gradient Descent",
               "originalName": "ml-ch5-regression-analysis-detailed.pdf",
-              "path": "notes/ml/unit3/ml-ch5-regression-analysis-detailed.pdf",
+              "path": "notes/ml/recent-notes/ml-ch5-regression-analysis-detailed.pdf",
               "type": "pdf",
               "sizeBytes": 382129,
               "size": "373 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/ml/unit3/ml-ch5-regression-analysis-detailed.pptx"
+              "originalPath": "notes/ml/recent-notes/ml-ch5-regression-analysis-detailed.pptx"
             },
             {
               "id": "ml-ml-ch5-regression-problems-solutions-pdf",
-              "title": "Ch5 Regression Problems Solutions",
+              "title": "Unit 3 - Chapter 5: Regression Numerical Worked Problems",
               "originalName": "ml-ch5-regression-problems-solutions.pdf",
-              "path": "notes/ml/unit3/ml-ch5-regression-problems-solutions.pdf",
+              "path": "notes/ml/recent-notes/ml-ch5-regression-problems-solutions.pdf",
               "type": "pdf",
               "sizeBytes": 131781,
               "size": "129 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/ml/unit3/ml-ch5-regression-problems-solutions.pptx"
+              "originalPath": "notes/ml/recent-notes/ml-ch5-regression-problems-solutions.pptx"
             },
             {
-              "id": "ml-ml-linear-regression-problems-pdf",
-              "title": "Linear Regression Problems",
-              "originalName": "ml-linear-regression-problems.pdf",
-              "path": "notes/ml/unit3/ml-linear-regression-problems.pdf",
+              "id": "ml-ml-ch5-4-validation-of-regression-methods-pdf",
+              "title": "Unit 3 - Section 5.4: Validation of Regression Methods",
+              "originalName": "ml-ch5-4-validation-of-regression-methods.pdf",
+              "path": "notes/ml/recent-notes/ml-ch5-4-validation-of-regression-methods.pdf",
               "type": "pdf",
-              "sizeBytes": 1100848,
-              "size": "1.0 MB",
+              "sizeBytes": 117670,
+              "size": "115 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/ml/unit3/ml-linear-regression-problems.docx"
-            },
-            {
-              "id": "ml-unit-3-polynomial-regression-pdf",
-              "title": "Unit 3 Polynomial Regression",
-              "originalName": "unit-3-polynomial-regression.pdf",
-              "path": "notes/ml/unit3/unit-3-polynomial-regression.pdf",
-              "type": "pdf",
-              "sizeBytes": 740320,
-              "size": "723 KB"
-            },
-            {
-              "id": "ml-ml-unit-3-shruti-mam-pdf",
-              "title": "Unit 3 Shruti Mam",
-              "originalName": "ml-unit-3-shruti-mam.pdf",
-              "path": "notes/ml/unit3/ml-unit-3-shruti-mam.pdf",
-              "type": "pdf",
-              "sizeBytes": 73370,
-              "size": "72 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/unit3/ml-unit-3-shruti-mam.pptx"
-            },
-            {
-              "id": "ml-unit-3-steps-for-mlalg-pdf",
-              "title": "Unit 3 Steps For Mlalg",
-              "originalName": "unit-3-steps-for-mlalg.pdf",
-              "path": "notes/ml/unit3/unit-3-steps-for-mlalg.pdf",
-              "type": "pdf",
-              "sizeBytes": 91608,
-              "size": "89 KB"
+              "originalPath": "notes/ml/recent-notes/ml-ch5-4-validation-of-regression-methods.pptx"
             }
           ]
         },
@@ -428,8 +230,17 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
+              "id": "ml-ml-prog1-linear-ridge-regression-pdf",
+              "title": "Lab Program 1 - Regression",
+              "originalName": "ml-prog1-linear-ridge-regression.pdf",
+              "path": "notes/ml/lab/ml-prog1-linear-ridge-regression.pdf",
+              "type": "pdf",
+              "sizeBytes": 1470808,
+              "size": "1.4 MB"
+            },
+            {
               "id": "ml-ml-prog1-regression-html",
-              "title": "Lab Program 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Linear Regression",
+              "title": "Lab Program 1 - Regression",
               "originalName": "ml-prog1-regression.html",
               "path": "notes/ml/lab/ml-prog1-regression.html",
               "type": "ipynb",
@@ -440,7 +251,7 @@ window.SEM5_DATA = {
             },
             {
               "id": "ml-ml-prog1-simple-html",
-              "title": "Lab Program 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Simple Linear Regression",
+              "title": "Lab Program 1 - Regression",
               "originalName": "ml-prog1-simple.html",
               "path": "notes/ml/lab/ml-prog1-simple.html",
               "type": "ipynb",
@@ -451,7 +262,7 @@ window.SEM5_DATA = {
             },
             {
               "id": "ml-ml-prog2-logistic-regression-html",
-              "title": "Lab Program 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Logistic Regression",
+              "title": "Lab Program 2 - Logistic Regression",
               "originalName": "ml-prog2-logistic-regression.html",
               "path": "notes/ml/lab/ml-prog2-logistic-regression.html",
               "type": "ipynb",
@@ -461,8 +272,17 @@ window.SEM5_DATA = {
               "originalPath": "notes/ml/lab/ml-prog2-logistic-regression.ipynb"
             },
             {
+              "id": "ml-ml-prog2-logistic-regression-pdf",
+              "title": "Lab Program 2 - Logistic Regression",
+              "originalName": "ml-prog2-logistic-regression.pdf",
+              "path": "notes/ml/lab/ml-prog2-logistic-regression.pdf",
+              "type": "pdf",
+              "sizeBytes": 122482,
+              "size": "120 KB"
+            },
+            {
               "id": "ml-ml-prog3-html",
-              "title": "Lab Program 3 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Decision Tree Classification",
+              "title": "Lab Program 3 - Decision Tree Classification",
               "originalName": "ml-prog3.html",
               "path": "notes/ml/lab/ml-prog3.html",
               "type": "ipynb",
@@ -472,39 +292,6 @@ window.SEM5_DATA = {
               "originalPath": "notes/ml/lab/ml-prog3.ipynb"
             },
             {
-              "id": "ml-tableau-introduction-pdf",
-              "title": "Introduction to Tableau Data Visualization",
-              "originalName": "tableau-introduction.pdf",
-              "path": "notes/ml/lab/tableau-introduction.pdf",
-              "type": "pdf",
-              "sizeBytes": 1997761,
-              "size": "1.9 MB",
-              "isConverted": true,
-              "originalPath": "notes/ml/lab/tableau-introduction.pptx"
-            },
-            {
-              "id": "ml-ml-prog2-logistic-regression-pdf",
-              "title": "Lab Program 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Logistic Regression",
-              "originalName": "ml-prog2-logistic-regression.pdf",
-              "path": "notes/ml/lab/ml-prog2-logistic-regression.pdf",
-              "type": "pdf",
-              "sizeBytes": 122482,
-              "size": "120 KB",
-              "isConverted": true,
-              "originalPath": "notes/ml/lab/ml-prog2-logistic-regression.docx"
-            },
-            {
-              "id": "ml-ml-prog1-linear-ridge-regression-pdf",
-              "title": "Prog1 Linear Ridge Regression",
-              "originalName": "ml-prog1-linear-ridge-regression.pdf",
-              "path": "notes/ml/lab/ml-prog1-linear-ridge-regression.pdf",
-              "type": "pdf",
-              "sizeBytes": 1470808,
-              "size": "1.4 MB",
-              "isConverted": true,
-              "originalPath": "notes/ml/lab/ml-prog1-linear-ridge-regression.docx"
-            },
-            {
               "id": "ml-syllabus-ml-lab-isl56-pdf",
               "title": "Syllabus Ml Lab Isl56",
               "originalName": "syllabus-ml-lab-isl56.pdf",
@@ -512,6 +299,15 @@ window.SEM5_DATA = {
               "type": "pdf",
               "sizeBytes": 427153,
               "size": "417 KB"
+            },
+            {
+              "id": "ml-tableau-introduction-pdf",
+              "title": "Introduction to Tableau Data Visualization",
+              "originalName": "tableau-introduction.pdf",
+              "path": "notes/ml/lab/tableau-introduction.pdf",
+              "type": "pdf",
+              "sizeBytes": 1997761,
+              "size": "1.9 MB"
             }
           ]
         },
@@ -521,7 +317,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "ml-ml-pyq-handwritten-pdf",
+              "id": "ml-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/ml/pyq/pyq-answers.html",
+              "type": "pyq",
+              "sizeBytes": 114538,
+              "size": "112 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "ml-pyq-handwritten",
               "title": "Handwritten PYQ Solutions (PDF)",
               "originalName": "ml-pyq-handwritten.pdf",
               "path": "notes/ml/pyq/handwritten/ml-pyq-handwritten.pdf",
@@ -529,15 +335,6 @@ window.SEM5_DATA = {
               "sizeBytes": 943547,
               "size": "921 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "ml-pyq-answers-html",
-              "title": "CIE-1 Solved PYQ Bank (Interactive)",
-              "originalName": "pyq-answers.html",
-              "path": "notes/ml/pyq/pyq-answers.html",
-              "type": "pyq",
-              "sizeBytes": 114538,
-              "size": "112 KB"
             }
           ]
         },
@@ -547,16 +344,6 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "ml-ml-see-makeup-2024-pdf",
-              "title": "SEE Make-Up Question Paper 2024",
-              "originalName": "ml-see-makeup-2024.pdf",
-              "path": "notes/ml/practice/see/ml-see-makeup-2024.pdf",
-              "type": "pdf",
-              "sizeBytes": 717991,
-              "size": "701 KB",
-              "tag": "SEE Past Paper"
-            },
-            {
               "id": "ml-ml-cie-1-2-see-pdf",
               "title": "SEE Question Paper",
               "originalName": "ml-cie-1-2-see.pdf",
@@ -564,6 +351,16 @@ window.SEM5_DATA = {
               "type": "pdf",
               "sizeBytes": 1000544,
               "size": "977 KB",
+              "tag": "SEE Past Paper"
+            },
+            {
+              "id": "ml-ml-see-makeup-2024-pdf",
+              "title": "SEE Make-Up Question Paper 2024",
+              "originalName": "ml-see-makeup-2024.pdf",
+              "path": "notes/ml/practice/see/ml-see-makeup-2024.pdf",
+              "type": "pdf",
+              "sizeBytes": 717991,
+              "size": "701 KB",
               "tag": "SEE Past Paper"
             },
             {
@@ -597,16 +394,6 @@ window.SEM5_DATA = {
               "tag": "SEE Past Paper"
             },
             {
-              "id": "ml-ml-see-supple-aug-2025-pdf",
-              "title": "SEE Question Paper 2025",
-              "originalName": "ml-see-supple-aug-2025.pdf",
-              "path": "notes/ml/practice/see/ml-see-supple-aug-2025.pdf",
-              "type": "pdf",
-              "sizeBytes": 393813,
-              "size": "385 KB",
-              "tag": "SEE Past Paper"
-            },
-            {
               "id": "ml-ml-see-july-2026-pdf",
               "title": "SEE Question Paper 2026 (July)",
               "originalName": "ml-see-july-2026.pdf",
@@ -617,13 +404,24 @@ window.SEM5_DATA = {
               "tag": "SEE Past Paper"
             },
             {
+              "id": "ml-ml-see-supple-aug-2025-pdf",
+              "title": "SEE Supplementary Question Paper 2025",
+              "originalName": "ml-see-supple-aug-2025.pdf",
+              "path": "notes/ml/practice/see/ml-see-supple-aug-2025.pdf",
+              "type": "pdf",
+              "sizeBytes": 393813,
+              "size": "385 KB",
+              "tag": "SEE Past Paper"
+            },
+            {
               "id": "ml-unit-1-qb-pdf",
-              "title": "Unit 1 Qb",
+              "title": "Unit 1 Question Bank & Exercises",
               "originalName": "unit-1-qb.pdf",
               "path": "notes/ml/practice/unit-1-qb.pdf",
               "type": "pdf",
               "sizeBytes": 4237370,
-              "size": "4.0 MB"
+              "size": "4.0 MB",
+              "tag": "Practice"
             }
           ]
         }
@@ -733,8 +531,8 @@ window.SEM5_DATA = {
         "units": [
           {
             "unitNumber": 1,
-            "title": "Unit I: Introduction & Understanding Data \u2013 1",
-            "topics": "Introduction: Need for Machine Learning, Machine Learning Explained, Machine Learning in Relation to other Fields, Types of Machine Learning, Challenges of Machine Learning, Machine Learning Process, Machine Learning Applications. Understanding Data \u2013 1: Introduction, Big Data Analysis Framework, Descriptive Statistics, Univariate Data Analysis and Visualization, Bivariate Data and Multivariate Data, Multivariate Statistics",
+            "title": "Unit I: Introduction & Understanding Data – 1",
+            "topics": "Introduction: Need for Machine Learning, Machine Learning Explained, Machine Learning in Relation to other Fields, Types of Machine Learning, Challenges of Machine Learning, Machine Learning Process, Machine Learning Applications. Understanding Data – 1: Introduction, Big Data Analysis Framework, Descriptive Statistics, Univariate Data Analysis and Visualization, Bivariate Data and Multivariate Data, Multivariate Statistics",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -745,8 +543,8 @@ window.SEM5_DATA = {
           },
           {
             "unitNumber": 2,
-            "title": "Unit II: Understanding Data \u2013 2 & Basic Learning Theory",
-            "topics": "Understanding Data \u2013 2: Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques. Basic Learning Theory: Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, learning Frameworks.",
+            "title": "Unit II: Understanding Data – 2 & Basic Learning Theory",
+            "topics": "Understanding Data – 2: Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques. Basic Learning Theory: Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, learning Frameworks.",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -782,7 +580,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Rule Based Learning, Bayesian Learning & Artificial Neural Networks",
-            "topics": "Rule Based Learning: Introduction, Sequential Covering Algorithm, First order Rule Learning, Association Rule Mining. Bayesian Learning: Introduction to Probability-based Learning, Fundamentals of Bayes Theorem, Classification Using Bayes Model, Na\u00efve Bayes Algorithm for Continuous Attributes. Artificial Neural Networks: Introduction, Biological Neurons, Artificial Neurons, Perceptron and Learning Theory, Types of Artificial Neural Networks, Popular Applications of Artificial Neural Networks, Advantages and Disadvantages of ANN, Challenges of ANN",
+            "topics": "Rule Based Learning: Introduction, Sequential Covering Algorithm, First order Rule Learning, Association Rule Mining. Bayesian Learning: Introduction to Probability-based Learning, Fundamentals of Bayes Theorem, Classification Using Bayes Model, Naïve Bayes Algorithm for Continuous Attributes. Artificial Neural Networks: Introduction, Biological Neurons, Artificial Neurons, Perceptron and Learning Theory, Types of Artificial Neural Networks, Popular Applications of Artificial Neural Networks, Advantages and Disadvantages of ANN, Challenges of ANN",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -866,7 +664,7 @@ window.SEM5_DATA = {
             "tasks": [
               "Analyze and visualize the dataset to understand relationship between physicochemical features and wine quality.",
               "Build a regression model using Linear Regression and Ridge Regression.",
-              "Evaluate and interpret model performance using R\u00b2, RMSE, and MAE metrics."
+              "Evaluate and interpret model performance using R², RMSE, and MAE metrics."
             ]
           },
           {
@@ -881,7 +679,7 @@ window.SEM5_DATA = {
           },
           {
             "slNo": 3,
-            "title": "Parkinson\u2019s Disease Dataset KNN & Weighted KNN",
+            "title": "Parkinson’s Disease Dataset KNN & Weighted KNN",
             "dataset": "https://archive.ics.uci.edu/ml/datasets/parkinsons",
             "tasks": [
               "Explore correlations among speech and biomedical features related to Parkinson's disease.",
@@ -911,11 +709,11 @@ window.SEM5_DATA = {
           },
           {
             "slNo": 6,
-            "title": "Spambase Dataset Email Filtering with Gaussian Na\u00efve Bayes",
+            "title": "Spambase Dataset Email Filtering with Gaussian Naïve Bayes",
             "dataset": "https://archive.ics.uci.edu/ml/datasets/spambase",
             "tasks": [
               "Analyze word frequency, character frequency, and capital run length distributions.",
-              "Build a classification model using Na\u00efve Bayes and Gaussian Na\u00efve Bayes.",
+              "Build a classification model using Naïve Bayes and Gaussian Naïve Bayes.",
               "Evaluate using Accuracy, Precision, Recall, and F1-score."
             ]
           },
@@ -967,9 +765,9 @@ window.SEM5_DATA = {
       "prerequisites": "NIL",
       "description": "Integrated course covering professional software engineering ethics, processes models, Agile & Scrum, requirements engineering, system modeling, architectural design, testing pipelines, and project management with hands-on lab exercises.",
       "examDate": "2026-10-14",
-      "examTime": "13:30\u201314:30",
-      "examSchedule": "Wed 14-10-2026, 13:30\u201314:30",
-      "cie1Scope": "Unit 1, Unit 2 (Full) \u2014 AY 2026\u201327 Syllabus",
+      "examTime": "13:30–14:30",
+      "examSchedule": "Wed 14-10-2026, 13:30–14:30",
+      "cie1Scope": "Unit 1, Unit 2 (Full) — AY 2026–27 Syllabus",
       "tags": [
         "Core ISE",
         "IPCC",
@@ -978,81 +776,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "se-unit-1-1-pdf",
-              "title": "Unit 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 1",
-              "originalName": "unit-1-1.pdf",
-              "path": "notes/se/recent-notes/unit-1-1.pdf",
-              "type": "pdf",
-              "sizeBytes": 311732,
-              "size": "304 KB",
-              "isConverted": true,
-              "originalPath": "notes/se/recent-notes/unit-1-1.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "se-unit-1-2-pdf",
-              "title": "Unit 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 2",
-              "originalName": "unit-1-2.pdf",
-              "path": "notes/se/recent-notes/unit-1-2.pdf",
-              "type": "pdf",
-              "sizeBytes": 739555,
-              "size": "722 KB",
-              "isConverted": true,
-              "originalPath": "notes/se/recent-notes/unit-1-2.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "se-unit-1-3-pdf",
-              "title": "Unit 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 3",
-              "originalName": "unit-1-3.pdf",
-              "path": "notes/se/recent-notes/unit-1-3.pdf",
-              "type": "pdf",
-              "sizeBytes": 550417,
-              "size": "538 KB",
-              "isConverted": true,
-              "originalPath": "notes/se/recent-notes/unit-1-3.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "se-unit-2-2-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 2",
-              "originalName": "unit-2-2.pdf",
-              "path": "notes/se/recent-notes/unit-2-2.pdf",
-              "type": "pdf",
-              "sizeBytes": 596898,
-              "size": "583 KB",
-              "isConverted": true,
-              "originalPath": "notes/se/recent-notes/unit-2-2.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "se-unit-2-system-modeling-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 System Modeling (UML)",
-              "originalName": "unit-2-system-modeling.pdf",
-              "path": "notes/se/recent-notes/unit-2-system-modeling.pdf",
-              "type": "pdf",
-              "sizeBytes": 416031,
-              "size": "406 KB",
-              "isConverted": true,
-              "originalPath": "notes/se/recent-notes/unit-2-system-modeling.pptx",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Professional Software Development, Processes & Agile",
           "topics": "Professional Software Development: Software engineering definition, Software product types (Generic, Customized), Essential attributes of good software (Maintai...",
           "isPractice": false,
           "files": [
             {
-              "id": "se-unit-1-notes-html",
+              "id": "se-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/se/unit1/unit-1-notes.html",
@@ -1062,8 +792,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "se-se-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "se-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "se-unit1-handwritten.pdf",
               "path": "notes/se/unit1/handwritten/se-unit1-handwritten.pdf",
               "type": "handwritten",
@@ -1073,36 +803,39 @@ window.SEM5_DATA = {
             },
             {
               "id": "se-unit-1-1-pdf",
-              "title": "Unit 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 1",
+              "title": "Unit 1 - Part 1: Professional Software Development & Ethics",
               "originalName": "unit-1-1.pdf",
-              "path": "notes/se/unit1/unit-1-1.pdf",
+              "path": "notes/se/recent-notes/unit-1-1.pdf",
               "type": "pdf",
-              "sizeBytes": 313186,
-              "size": "306 KB",
+              "sizeBytes": 311732,
+              "size": "304 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/se/unit1/unit-1-1.pptx"
+              "originalPath": "notes/se/recent-notes/unit-1-1.pptx"
             },
             {
               "id": "se-unit-1-2-pdf",
-              "title": "Unit 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 2",
+              "title": "Unit 1 - Part 2: Software Process Models",
               "originalName": "unit-1-2.pdf",
-              "path": "notes/se/unit1/unit-1-2.pdf",
+              "path": "notes/se/recent-notes/unit-1-2.pdf",
               "type": "pdf",
               "sizeBytes": 739555,
               "size": "722 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/se/unit1/unit-1-2.pptx"
+              "originalPath": "notes/se/recent-notes/unit-1-2.pptx"
             },
             {
               "id": "se-unit-1-3-pdf",
-              "title": "Unit 1 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 3",
+              "title": "Unit 1 - Part 3: Agile Software Development & Scrum",
               "originalName": "unit-1-3.pdf",
-              "path": "notes/se/unit1/unit-1-3.pdf",
+              "path": "notes/se/recent-notes/unit-1-3.pdf",
               "type": "pdf",
               "sizeBytes": 550417,
               "size": "538 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/se/unit1/unit-1-3.pptx"
+              "originalPath": "notes/se/recent-notes/unit-1-3.pptx"
             }
           ]
         },
@@ -1113,7 +846,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "se-unit-2-notes-html",
+              "id": "se-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/se/unit2/unit-2-notes.html",
@@ -1123,8 +856,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "se-se-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "se-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "se-unit2-handwritten.pdf",
               "path": "notes/se/unit2/handwritten/se-unit2-handwritten.pdf",
               "type": "handwritten",
@@ -1134,62 +867,27 @@ window.SEM5_DATA = {
             },
             {
               "id": "se-unit-2-2-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Part 2",
+              "title": "Unit 2 - Part 2: Requirements Specification & Modeling",
               "originalName": "unit-2-2.pdf",
-              "path": "notes/se/unit2/unit-2-2.pdf",
+              "path": "notes/se/recent-notes/unit-2-2.pdf",
               "type": "pdf",
               "sizeBytes": 596898,
               "size": "583 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/se/unit2/unit-2-2.pptx"
-            },
-            {
-              "id": "se-unit-2-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2.pdf",
-              "path": "notes/se/unit2/unit-2.pdf",
-              "type": "pdf",
-              "sizeBytes": 416031,
-              "size": "406 KB",
-              "isConverted": true,
-              "originalPath": "notes/se/unit2/unit-2.pptx"
+              "originalPath": "notes/se/recent-notes/unit-2-2.pptx"
             },
             {
               "id": "se-unit-2-system-modeling-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 System Modeling (UML)",
+              "title": "Unit 2 - System Modeling (Context, Interaction, Structural, Behavioral)",
               "originalName": "unit-2-system-modeling.pdf",
-              "path": "notes/se/unit2/unit-2-system-modeling.pdf",
+              "path": "notes/se/recent-notes/unit-2-system-modeling.pdf",
               "type": "pdf",
-              "sizeBytes": 1218536,
-              "size": "1.2 MB",
+              "sizeBytes": 416031,
+              "size": "406 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/se/unit2/unit-2-system-modeling.pptx"
-            }
-          ]
-        },
-        {
-          "unitNumber": "ARCHIVE",
-          "title": "Older Versions / Archived Notes (Past Semesters)",
-          "topics": "Reference material from previous semesters and alternate professor lecture decks.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "se-se-unit1-archive-pdf",
-              "title": "Unit 1 Archived Notes (Past Batch)",
-              "originalName": "se-unit1-archive.pdf",
-              "path": "notes/se/older-versions/se-unit1-archive.pdf",
-              "type": "pdf",
-              "sizeBytes": 1455679,
-              "size": "1.4 MB"
-            },
-            {
-              "id": "se-se-unit2-archive-pdf",
-              "title": "Unit 2 Archived Notes (Past Batch)",
-              "originalName": "se-unit2-archive.pdf",
-              "path": "notes/se/older-versions/se-unit2-archive.pdf",
-              "type": "pdf",
-              "sizeBytes": 1112929,
-              "size": "1.1 MB"
+              "originalPath": "notes/se/recent-notes/unit-2-system-modeling.pptx"
             }
           ]
         },
@@ -1215,15 +913,13 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "se-se-syllabus-2026-27-pdf",
-              "title": "Software Engineering Syllabus 2026\u00c3\u0192\u00c2\u00a2\u00c3\u00a2\u00e2\u20ac\u0161\u00c2\u00ac\u00c3\u00a2\u00e2\u201a\u00ac\u00c5\u201c27",
+              "id": "se-syllabus-se-syllabus-2026-27",
+              "title": "Software Engineering Official Syllabus Document",
               "originalName": "se-syllabus-2026-27.pdf",
               "path": "notes/se/syllabus/se-syllabus-2026-27.pdf",
               "type": "pdf",
               "sizeBytes": 100229,
-              "size": "98 KB",
-              "isConverted": true,
-              "originalPath": "notes/se/syllabus/se-syllabus-2026-27.docx"
+              "size": "98 KB"
             }
           ]
         },
@@ -1233,7 +929,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "se-se-pyq-handwritten-pdf",
+              "id": "se-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/se/pyq/pyq-answers.html",
+              "type": "pyq",
+              "sizeBytes": 139912,
+              "size": "137 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "se-pyq-handwritten",
               "title": "Handwritten PYQ Solutions (PDF)",
               "originalName": "se-pyq-handwritten.pdf",
               "path": "notes/se/pyq/handwritten/se-pyq-handwritten.pdf",
@@ -1241,15 +947,6 @@ window.SEM5_DATA = {
               "sizeBytes": 924347,
               "size": "903 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "se-pyq-answers-html",
-              "title": "CIE-1 Solved PYQ Bank (Interactive)",
-              "originalName": "pyq-answers.html",
-              "path": "notes/se/pyq/pyq-answers.html",
-              "type": "pyq",
-              "sizeBytes": 139912,
-              "size": "137 KB"
             }
           ]
         },
@@ -1330,7 +1027,7 @@ window.SEM5_DATA = {
         },
         "referenceBooks": [
           {
-            "title": "Software Engineering: A Practitioner\u2019s Approach",
+            "title": "Software Engineering: A Practitioner’s Approach",
             "edition": "9th Edition (2020)",
             "authors": "Roger S. Pressman and Bruce R. Maxim",
             "publisher": "McGraw-Hill"
@@ -1536,9 +1233,9 @@ window.SEM5_DATA = {
       "prerequisites": "NIL",
       "description": "Data communication fundamentals, protocol layering, OSI and TCP/IP models, Data Link framing & MAC protocols, IPv4 and IPv6 network layers, routing algorithms, transport protocols, and DNS.",
       "examDate": "2026-10-13",
-      "examTime": "09:30\u201310:30",
-      "examSchedule": "Tue 13-10-2026, 09:30\u201310:30",
-      "cie1Scope": "Unit 1, Unit 2, Unit 3 up to 'IPv4 Addressing \u2013 Classless' (inclusive)",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Tue 13-10-2026, 09:30–10:30",
+      "cie1Scope": "Unit 1, Unit 2, Unit 3 up to 'IPv4 Addressing – Classless' (inclusive)",
       "tags": [
         "Core ISE",
         "PCC",
@@ -1547,57 +1244,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "cn-cn-unit1-complete-pdf",
-              "title": "Unit 1: Physical & Data Link Layer Complete Deck",
-              "originalName": "cn-unit1-complete.pdf",
-              "path": "notes/cn/recent-notes/cn-unit1-complete.pdf",
-              "type": "pdf",
-              "sizeBytes": 11310565,
-              "size": "10.8 MB",
-              "isConverted": true,
-              "originalPath": "notes/cn/recent-notes/cn-unit1-complete.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "cn-cn-unit2-complete-pdf",
-              "title": "Unit 2: Network Layer & Routing Complete Deck",
-              "originalName": "cn-unit2-complete.pdf",
-              "path": "notes/cn/recent-notes/cn-unit2-complete.pdf",
-              "type": "pdf",
-              "sizeBytes": 9260535,
-              "size": "8.8 MB",
-              "isConverted": true,
-              "originalPath": "notes/cn/recent-notes/cn-unit2-complete.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "cn-cn-unit3a-ipv4-pdf",
-              "title": "Unit 3A: IPv4 Addressing & Subnetting",
-              "originalName": "cn-unit3a-ipv4.pdf",
-              "path": "notes/cn/recent-notes/cn-unit3a-ipv4.pdf",
-              "type": "pdf",
-              "sizeBytes": 2160981,
-              "size": "2.1 MB",
-              "isConverted": true,
-              "originalPath": "notes/cn/recent-notes/cn-unit3a-ipv4.pptx",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Introduction to Computer Networks & Physical Layer",
           "topics": "Data Communications: Components, Data representation, Data flow (Simplex, Half-duplex, Full-duplex), Networks: Network criteria, Physical structures (Point-to-p...",
           "isPractice": false,
           "files": [
             {
-              "id": "cn-unit-1-notes-html",
+              "id": "cn-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/cn/unit1/unit-1-notes.html",
@@ -1607,8 +1260,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "cn-cn-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "cn-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "cn-unit1-handwritten.pdf",
               "path": "notes/cn/unit1/handwritten/cn-unit1-handwritten.pdf",
               "type": "handwritten",
@@ -1617,15 +1270,16 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "cn-is53-cn-unit1-pdf",
-              "title": "Unit1",
-              "originalName": "is53-cn-unit1.pdf",
-              "path": "notes/cn/unit1/is53-cn-unit1.pdf",
+              "id": "cn-cn-unit1-complete-pdf",
+              "title": "Unit 1 - Complete Lecture Deck: Physical & Data Link Layer",
+              "originalName": "cn-unit1-complete.pdf",
+              "path": "notes/cn/recent-notes/cn-unit1-complete.pdf",
               "type": "pdf",
-              "sizeBytes": 12266281,
-              "size": "11.7 MB",
+              "sizeBytes": 11310565,
+              "size": "10.8 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/cn/unit1/is53-cn-unit1.pptx"
+              "originalPath": "notes/cn/recent-notes/cn-unit1-complete.pptx"
             }
           ]
         },
@@ -1636,7 +1290,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "cn-unit-2-notes-html",
+              "id": "cn-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/cn/unit2/unit-2-notes.html",
@@ -1646,8 +1300,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "cn-cn-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "cn-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "cn-unit2-handwritten.pdf",
               "path": "notes/cn/unit2/handwritten/cn-unit2-handwritten.pdf",
               "type": "handwritten",
@@ -1656,15 +1310,16 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "cn-is53-cn-unit2-pdf",
-              "title": "Unit2",
-              "originalName": "is53-cn-unit2.pdf",
-              "path": "notes/cn/unit2/is53-cn-unit2.pdf",
+              "id": "cn-cn-unit2-complete-pdf",
+              "title": "Unit 2 - Complete Lecture Deck: Network Layer & Routing Protocols",
+              "originalName": "cn-unit2-complete.pdf",
+              "path": "notes/cn/recent-notes/cn-unit2-complete.pdf",
               "type": "pdf",
-              "sizeBytes": 10268479,
-              "size": "9.8 MB",
+              "sizeBytes": 9260535,
+              "size": "8.8 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/cn/unit2/is53-cn-unit2.pptx"
+              "originalPath": "notes/cn/recent-notes/cn-unit2-complete.pptx"
             }
           ]
         },
@@ -1675,7 +1330,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "cn-unit-3-notes-html",
+              "id": "cn-u3-notes",
               "title": "Unit 3: Interactive Notes",
               "originalName": "unit-3-notes.html",
               "path": "notes/cn/unit3/unit-3-notes.html",
@@ -1685,8 +1340,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "cn-cn-unit3-handwritten-pdf",
-              "title": "Unit 3: Handwritten Notebook (PDF)",
+              "id": "cn-u3-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "cn-unit3-handwritten.pdf",
               "path": "notes/cn/unit3/handwritten/cn-unit3-handwritten.pdf",
               "type": "handwritten",
@@ -1695,41 +1350,16 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "cn-is53-cn-unit3a-ipv4-pdf",
-              "title": "Unit 3A: IPv4 Addressing & Subnetting",
-              "originalName": "is53-cn-unit3a-ipv4.pdf",
-              "path": "notes/cn/unit3/is53-cn-unit3a-ipv4.pdf",
+              "id": "cn-cn-unit3a-ipv4-pdf",
+              "title": "Unit 3A - IPv4 Addressing & Subnetting (CIDR & VLSM)",
+              "originalName": "cn-unit3a-ipv4.pdf",
+              "path": "notes/cn/recent-notes/cn-unit3a-ipv4.pdf",
               "type": "pdf",
               "sizeBytes": 2160981,
               "size": "2.1 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/cn/unit3/is53-cn-unit3a-ipv4.pptx"
-            }
-          ]
-        },
-        {
-          "unitNumber": "ARCHIVE",
-          "title": "Older Versions / Archived Notes (Past Semesters)",
-          "topics": "Reference material from previous semesters and alternate professor lecture decks.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "cn-is53-cn-unit1-archive-pdf",
-              "title": "Unit 1 Archived Notes (Past Batch)",
-              "originalName": "is53-cn-unit1-archive.pdf",
-              "path": "notes/cn/older-versions/is53-cn-unit1-archive.pdf",
-              "type": "pdf",
-              "sizeBytes": 16486434,
-              "size": "15.7 MB"
-            },
-            {
-              "id": "cn-is53-cn-unit2-archive-pdf",
-              "title": "Unit 2 Archived Notes (Past Batch)",
-              "originalName": "is53-cn-unit2-archive.pdf",
-              "path": "notes/cn/older-versions/is53-cn-unit2-archive.pdf",
-              "type": "pdf",
-              "sizeBytes": 13706981,
-              "size": "13.1 MB"
+              "originalPath": "notes/cn/recent-notes/cn-unit3a-ipv4.pptx"
             }
           ]
         },
@@ -1739,7 +1369,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "cn-cn-pyq-handwritten-pdf",
+              "id": "cn-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/cn/pyq/pyq-answers.html",
+              "type": "pyq",
+              "sizeBytes": 119215,
+              "size": "116 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "cn-pyq-handwritten",
               "title": "Handwritten PYQ Solutions (PDF)",
               "originalName": "cn-pyq-handwritten.pdf",
               "path": "notes/cn/pyq/handwritten/cn-pyq-handwritten.pdf",
@@ -1747,15 +1387,6 @@ window.SEM5_DATA = {
               "sizeBytes": 825820,
               "size": "806 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "cn-pyq-answers-html",
-              "title": "CIE-1 Solved PYQ Bank (Interactive)",
-              "originalName": "pyq-answers.html",
-              "path": "notes/cn/pyq/pyq-answers.html",
-              "type": "pyq",
-              "sizeBytes": 119215,
-              "size": "116 KB"
             }
           ]
         },
@@ -1846,7 +1477,7 @@ window.SEM5_DATA = {
         },
         "referenceBooks": [
           {
-            "title": "Communication Networks \u2013 Fundamental Concepts and Key architectures",
+            "title": "Communication Networks – Fundamental Concepts and Key architectures",
             "edition": "Second Edition",
             "authors": "Alberto Leon-Garcia and Indra Widjaja",
             "publisher": "Tata McGraw-Hill"
@@ -2013,7 +1644,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 5,
             "title": "Unit V: Transport Services, UDP, TCP & DNS",
-            "topics": "Transport Layer: Services, Port Numbers, User Datagram Protocol (UDP) \u2013 user datagram, services and applications, Transmission control Protocol (FSMs excluded): TCP Services and features, Segment, TCP Connection, Error control, and TCP Congestion control; Domain Name System (DNS) \u2013 Purpose and Resolution.",
+            "topics": "Transport Layer: Services, Port Numbers, User Datagram Protocol (UDP) – user datagram, services and applications, Transmission control Protocol (FSMs excluded): TCP Services and features, Segment, TCP Connection, Error control, and TCP Congestion control; Domain Name System (DNS) – Purpose and Resolution.",
             "pedagogy": "Chalk & talk, Power Point and Multimedia Presentation",
             "links": [
               {
@@ -2131,8 +1762,8 @@ window.SEM5_DATA = {
       "prerequisites": "NIL",
       "description": "Central concepts of automata theory, DFA, NFA, epsilon-NFA, regular expressions, pumping lemma, context-free grammars, parse trees, pushdown automata, Turing machines, and NP-completeness.",
       "examDate": "2026-10-16",
-      "examTime": "13:30\u201314:30",
-      "examSchedule": "Fri 16-10-2026, 13:30\u201314:30",
+      "examTime": "13:30–14:30",
+      "examSchedule": "Fri 16-10-2026, 13:30–14:30",
       "cie1Scope": "Unit 1, Unit 2 (Full)",
       "tags": [
         "Core ISE",
@@ -2142,31 +1773,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "toc-toc-notes-complete-pdf",
-              "title": "Theory of Computation Complete Handwritten Notebook",
-              "originalName": "toc-notes-complete.pdf",
-              "path": "notes/toc/recent-notes/toc-notes-complete.pdf",
-              "type": "pdf",
-              "sizeBytes": 45578825,
-              "size": "43.5 MB",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Finite Automata Fundamentals & Nondeterminism",
           "topics": "Introduction to Automata Theory: Central concepts, Alphabets (Sigma), Strings, Length of string, Empty string (epsilon), Powers of alphabet, Languages, Empty la...",
           "isPractice": false,
           "files": [
             {
-              "id": "toc-unit-1-notes-html",
+              "id": "toc-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/toc/unit1/unit-1-notes.html",
@@ -2176,8 +1789,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "toc-toc-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "toc-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "toc-unit1-handwritten.pdf",
               "path": "notes/toc/unit1/handwritten/toc-unit1-handwritten.pdf",
               "type": "handwritten",
@@ -2186,22 +1799,16 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "toc-unit-1-pdf",
-              "title": "Unit 1",
-              "originalName": "unit-1.pdf",
-              "path": "notes/toc/unit1/unit-1.pdf",
+              "id": "toc-toc-notes-complete-pdf",
+              "title": "Theory of Computation Complete Course Notebook",
+              "originalName": "toc-notes-complete.pdf",
+              "path": "notes/toc/recent-notes/toc-notes-complete.pdf",
               "type": "pdf",
-              "sizeBytes": 23471151,
-              "size": "22.4 MB"
-            },
-            {
-              "id": "toc-toc-unit-1-and-2-alternate-pdf",
-              "title": "Unit 1 And 2 Alternate",
-              "originalName": "toc-unit-1-and-2-alternate.pdf",
-              "path": "notes/toc/unit1/toc-unit-1-and-2-alternate.pdf",
-              "type": "pdf",
-              "sizeBytes": 5845150,
-              "size": "5.6 MB"
+              "sizeBytes": 45578825,
+              "size": "43.5 MB",
+              "tag": "Recent Notes",
+              "coverageTag": "Covers Units 1-2",
+              "scopeTag": "Partly beyond CIE-1 scope"
             }
           ]
         },
@@ -2212,7 +1819,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "toc-unit-2-notes-html",
+              "id": "toc-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/toc/unit2/unit-2-notes.html",
@@ -2222,23 +1829,14 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "toc-toc-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "toc-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "toc-unit2-handwritten.pdf",
               "path": "notes/toc/unit2/handwritten/toc-unit2-handwritten.pdf",
               "type": "handwritten",
               "sizeBytes": 931891,
               "size": "910 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "toc-unit-2-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2.pdf",
-              "path": "notes/toc/unit2/unit-2.pdf",
-              "type": "pdf",
-              "sizeBytes": 11498155,
-              "size": "11.0 MB"
             }
           ]
         },
@@ -2248,7 +1846,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "toc-toc-pyq-handwritten-pdf",
+              "id": "toc-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/toc/pyq/pyq-answers.html",
+              "type": "pyq",
+              "sizeBytes": 116878,
+              "size": "114 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "toc-pyq-handwritten",
               "title": "Handwritten PYQ Solutions (PDF)",
               "originalName": "toc-pyq-handwritten.pdf",
               "path": "notes/toc/pyq/handwritten/toc-pyq-handwritten.pdf",
@@ -2256,15 +1864,6 @@ window.SEM5_DATA = {
               "sizeBytes": 802245,
               "size": "783 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "toc-pyq-answers-html",
-              "title": "CIE-1 Solved PYQ Bank (Interactive)",
-              "originalName": "pyq-answers.html",
-              "path": "notes/toc/pyq/pyq-answers.html",
-              "type": "pyq",
-              "sizeBytes": 116878,
-              "size": "114 KB"
             }
           ]
         },
@@ -2459,7 +2058,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Pushdown Automata",
-            "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA\u2019s and CFG\u2019s, Deterministic Pushdown Automata.",
+            "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA’s and CFG’s, Deterministic Pushdown Automata.",
             "pedagogy": "Chalk-and-talk",
             "links": [
               {
@@ -2502,8 +2101,8 @@ window.SEM5_DATA = {
       "prerequisites": "NIL",
       "description": "Foundations of intelligent agents, problem-solving search algorithms, game playing, propositional and first-order logic reasoning, uncertainty, and modern Generative AI foundations.",
       "examDate": "2026-10-14",
-      "examTime": "09:30\u201310:30",
-      "examSchedule": "Wed 14-10-2026, 09:30\u201310:30",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Wed 14-10-2026, 09:30–10:30",
       "cie1Scope": "Unit 1, Unit 2 (Full)",
       "tags": [
         "Program Elective",
@@ -2513,31 +2112,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "ai-ai-adversarial-search-pdf",
-              "title": "Unit 2: Adversarial Search & Game Playing",
-              "originalName": "ai-adversarial-search.pdf",
-              "path": "notes/ai/recent-notes/ai-adversarial-search.pdf",
-              "type": "pdf",
-              "sizeBytes": 194418,
-              "size": "190 KB",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Introduction to Artificial Intelligence & Intelligent Agents",
           "topics": "Introduction to AI: Definition and goals of AI, Foundations of AI (Philosophy, Mathematics, Economics, Neuroscience, Psychology, Computer Engineering, Control T...",
           "isPractice": false,
           "files": [
             {
-              "id": "ai-unit-1-notes-html",
+              "id": "ai-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/ai/unit1/unit-1-notes.html",
@@ -2547,41 +2128,14 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "ai-ai-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "ai-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "ai-unit1-handwritten.pdf",
               "path": "notes/ai/unit1/handwritten/ai-unit1-handwritten.pdf",
               "type": "handwritten",
               "sizeBytes": 981012,
               "size": "958 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "ai-ai-intro-intelligent-agents-pdf",
-              "title": "Intro Intelligent Agents",
-              "originalName": "ai-intro-intelligent-agents.pdf",
-              "path": "notes/ai/unit1/ai-intro-intelligent-agents.pdf",
-              "type": "pdf",
-              "sizeBytes": 1701680,
-              "size": "1.6 MB"
-            },
-            {
-              "id": "ai-ai-problem-solving-agents-pdf",
-              "title": "Problem Solving Agents",
-              "originalName": "ai-problem-solving-agents.pdf",
-              "path": "notes/ai/unit1/ai-problem-solving-agents.pdf",
-              "type": "pdf",
-              "sizeBytes": 418510,
-              "size": "409 KB"
-            },
-            {
-              "id": "ai-ai-problem-solving-agents-alt-pdf",
-              "title": "Problem Solving Agents Alt",
-              "originalName": "ai-problem-solving-agents-alt.pdf",
-              "path": "notes/ai/unit1/ai-problem-solving-agents-alt.pdf",
-              "type": "pdf",
-              "sizeBytes": 419163,
-              "size": "409 KB"
             }
           ]
         },
@@ -2592,7 +2146,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "ai-unit-2-notes-html",
+              "id": "ai-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/ai/unit2/unit-2-notes.html",
@@ -2602,8 +2156,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "ai-ai-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "ai-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "ai-unit2-handwritten.pdf",
               "path": "notes/ai/unit2/handwritten/ai-unit2-handwritten.pdf",
               "type": "handwritten",
@@ -2612,75 +2166,14 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "ai-ai-informed-search-pdf",
-              "title": "Informed Search",
-              "originalName": "ai-informed-search.pdf",
-              "path": "notes/ai/unit2/ai-informed-search.pdf",
-              "type": "pdf",
-              "sizeBytes": 177846,
-              "size": "174 KB"
-            },
-            {
-              "id": "ai-ai-local-search-pdf",
-              "title": "Local Search",
-              "originalName": "ai-local-search.pdf",
-              "path": "notes/ai/unit2/ai-local-search.pdf",
-              "type": "pdf",
-              "sizeBytes": 174371,
-              "size": "170 KB"
-            },
-            {
-              "id": "ai-ai-uninformed-search-pdf",
-              "title": "Uninformed Search",
-              "originalName": "ai-uninformed-search.pdf",
-              "path": "notes/ai/unit2/ai-uninformed-search.pdf",
-              "type": "pdf",
-              "sizeBytes": 174456,
-              "size": "170 KB"
-            },
-            {
               "id": "ai-ai-adversarial-search-pdf",
-              "title": "Unit 2: Adversarial Search & Game Playing",
+              "title": "Unit 2 - Adversarial Search & Game Playing (Minimax & Alpha-Beta)",
               "originalName": "ai-adversarial-search.pdf",
-              "path": "notes/ai/unit2/ai-adversarial-search.pdf",
+              "path": "notes/ai/recent-notes/ai-adversarial-search.pdf",
               "type": "pdf",
               "sizeBytes": 194418,
-              "size": "190 KB"
-            }
-          ]
-        },
-        {
-          "unitNumber": "ARCHIVE",
-          "title": "Older Versions / Archived Notes (Past Semesters)",
-          "topics": "Reference material from previous semesters and alternate professor lecture decks.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "ai-ai-consolidated-ppts-pdf",
-              "title": "AI Consolidated Lecture Slide Decks",
-              "originalName": "ai-consolidated-ppts.pdf",
-              "path": "notes/ai/older-versions/ai-consolidated-ppts.pdf",
-              "type": "pdf",
-              "sizeBytes": 4465769,
-              "size": "4.3 MB"
-            },
-            {
-              "id": "ai-ai-unit1-older-notes-pdf",
-              "title": "AI Unit 1 Archived Notes",
-              "originalName": "ai-unit1-older-notes.pdf",
-              "path": "notes/ai/older-versions/ai-unit1-older-notes.pdf",
-              "type": "pdf",
-              "sizeBytes": 3086810,
-              "size": "2.9 MB"
-            },
-            {
-              "id": "ai-ai-unit2-older-notes-pdf",
-              "title": "AI Unit 2 Archived Notes",
-              "originalName": "ai-unit2-older-notes.pdf",
-              "path": "notes/ai/older-versions/ai-unit2-older-notes.pdf",
-              "type": "pdf",
-              "sizeBytes": 2608104,
-              "size": "2.5 MB"
+              "size": "190 KB",
+              "tag": "Recent Notes"
             }
           ]
         },
@@ -2690,22 +2183,20 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "ai-ai-ise552-syllabus-pdf",
-              "title": "Ise552 Syllabus",
+              "id": "ai-syllabus-ai-ise552-syllabus",
+              "title": "Artificial Intelligence Official Syllabus Document",
               "originalName": "ai-ise552-syllabus.pdf",
               "path": "notes/ai/syllabus/ai-ise552-syllabus.pdf",
               "type": "pdf",
               "sizeBytes": 113825,
-              "size": "111 KB",
-              "isConverted": true,
-              "originalPath": "notes/ai/syllabus/ai-ise552-syllabus.docx"
+              "size": "111 KB"
             },
             {
-              "id": "ai-ai-syllabus-screenshot-png",
-              "title": "Syllabus Screenshot",
+              "id": "ai-syllabus-ai-syllabus-screenshot",
+              "title": "Artificial Intelligence Official Syllabus Document",
               "originalName": "ai-syllabus-screenshot.png",
               "path": "notes/ai/syllabus/ai-syllabus-screenshot.png",
-              "type": "pdf",
+              "type": "png",
               "sizeBytes": 129603,
               "size": "127 KB"
             }
@@ -2717,7 +2208,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "ai-ai-pyq-handwritten-pdf",
+              "id": "ai-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/ai/pyq/pyq-answers.html",
+              "type": "pyq",
+              "sizeBytes": 107476,
+              "size": "105 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "ai-pyq-handwritten",
               "title": "Handwritten PYQ Solutions (PDF)",
               "originalName": "ai-pyq-handwritten.pdf",
               "path": "notes/ai/pyq/handwritten/ai-pyq-handwritten.pdf",
@@ -2725,15 +2226,6 @@ window.SEM5_DATA = {
               "sizeBytes": 917364,
               "size": "896 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "ai-pyq-answers-html",
-              "title": "CIE-1 Solved PYQ Bank (Interactive)",
-              "originalName": "pyq-answers.html",
-              "path": "notes/ai/pyq/pyq-answers.html",
-              "type": "pyq",
-              "sizeBytes": 107476,
-              "size": "105 KB"
             }
           ]
         },
@@ -2777,7 +2269,7 @@ window.SEM5_DATA = {
               "title": "Sample CIE Question Board Reference",
               "originalName": "ai-sample-cie-question-board.jpeg",
               "path": "notes/ai/practice/ai-sample-cie-question-board.jpeg",
-              "type": "pdf",
+              "type": "image",
               "sizeBytes": 38050,
               "size": "37 KB",
               "tag": "CIE Question Paper"
@@ -2842,7 +2334,7 @@ window.SEM5_DATA = {
           {
             "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
             "edition": "3rd Edition (2022)",
-            "authors": "Aur\u00e9lien G\u00e9ron",
+            "authors": "Aurélien Géron",
             "publisher": "O'Reilly Media"
           },
           {
@@ -2980,7 +2472,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Uncertainty in AI & Generative AI",
-            "topics": "Uncertainty in AI: Sources of uncertainty, probability basics, conditional probability, Bayes' theorem, Bayesian reasoning, introduction to Bayesian Networks. Generative AI: Introduction to Generative AI, generative versus discriminative AI, Large Language Models, Transformer architecture \u2013 high-level understanding, foundation models, multimodal AI, AI assistants.",
+            "topics": "Uncertainty in AI: Sources of uncertainty, probability basics, conditional probability, Bayes' theorem, Bayesian reasoning, introduction to Bayesian Networks. Generative AI: Introduction to Generative AI, generative versus discriminative AI, Large Language Models, Transformer architecture – high-level understanding, foundation models, multimodal AI, AI assistants.",
             "pedagogy": "Theoretical foundation paired with contemporary Generative AI architectures.",
             "links": [
               {
@@ -3023,8 +2515,8 @@ window.SEM5_DATA = {
       "prerequisites": "NIL",
       "description": "Meaning of research, objectives, ethics, literature review & citations, experimental design, sampling & hypothesis testing (ANOVA, Chi-square), patents, TRIPS agreement, designs, trademarks, and copyrights.",
       "examDate": "2026-10-15",
-      "examTime": "15:00\u201316:00",
-      "examSchedule": "Thu 15-10-2026, 15:00\u201316:00",
+      "examTime": "15:00–16:00",
+      "examSchedule": "Thu 15-10-2026, 15:00–16:00",
       "cie1Scope": "Unit 1, Unit 2, Unit 3 up to 'Characteristics of a Good Sample Design' (inclusive)",
       "tags": [
         "Humanities & Management",
@@ -3034,57 +2526,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "rmipr-rm-ipr-unit1-pdf",
-              "title": "Unit 1: Research Methodology Presentation",
-              "originalName": "rm-ipr-unit1.pdf",
-              "path": "notes/rmipr/recent-notes/rm-ipr-unit1.pdf",
-              "type": "pdf",
-              "sizeBytes": 676815,
-              "size": "661 KB",
-              "isConverted": true,
-              "originalPath": "notes/rmipr/recent-notes/rm-ipr-unit1.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "rmipr-rm-ipr-unit2-pdf",
-              "title": "Unit 2: Research Design & Sampling Presentation",
-              "originalName": "rm-ipr-unit2.pdf",
-              "path": "notes/rmipr/recent-notes/rm-ipr-unit2.pdf",
-              "type": "pdf",
-              "sizeBytes": 1238464,
-              "size": "1.2 MB",
-              "isConverted": true,
-              "originalPath": "notes/rmipr/recent-notes/rm-ipr-unit2.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "rmipr-rm-ipr-unit3-part1-pdf",
-              "title": "Unit 3: IPR & Patents (Part 1) Presentation",
-              "originalName": "rm-ipr-unit3-part1.pdf",
-              "path": "notes/rmipr/recent-notes/rm-ipr-unit3-part1.pdf",
-              "type": "pdf",
-              "sizeBytes": 1186536,
-              "size": "1.1 MB",
-              "isConverted": true,
-              "originalPath": "notes/rmipr/recent-notes/rm-ipr-unit3-part1.pptx",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Introduction to Research & Technical Literature Review",
           "topics": "Introduction to Research: Meaning and definition of research, Objectives of research (Exploratory/Formulative, Descriptive, Diagnostic, Hypothesis-testing), Mot...",
           "isPractice": false,
           "files": [
             {
-              "id": "rmipr-unit-1-notes-html",
+              "id": "rmipr-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/rmipr/unit1/unit-1-notes.html",
@@ -3094,8 +2542,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "rmipr-rmipr-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "rmipr-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "rmipr-unit1-handwritten.pdf",
               "path": "notes/rmipr/unit1/handwritten/rmipr-unit1-handwritten.pdf",
               "type": "handwritten",
@@ -3105,14 +2553,15 @@ window.SEM5_DATA = {
             },
             {
               "id": "rmipr-rm-ipr-unit1-pdf",
-              "title": "Unit 1: Research Methodology Presentation",
+              "title": "Unit 1 - Research Methodology Presentation Deck",
               "originalName": "rm-ipr-unit1.pdf",
-              "path": "notes/rmipr/unit1/rm-ipr-unit1.pdf",
+              "path": "notes/rmipr/recent-notes/rm-ipr-unit1.pdf",
               "type": "pdf",
-              "sizeBytes": 674560,
-              "size": "659 KB",
+              "sizeBytes": 676815,
+              "size": "661 KB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/rmipr/unit1/rm-ipr-unit1.pptx"
+              "originalPath": "notes/rmipr/recent-notes/rm-ipr-unit1.pptx"
             }
           ]
         },
@@ -3123,7 +2572,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "rmipr-unit-2-notes-html",
+              "id": "rmipr-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/rmipr/unit2/unit-2-notes.html",
@@ -3133,8 +2582,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "rmipr-rmipr-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "rmipr-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "rmipr-unit2-handwritten.pdf",
               "path": "notes/rmipr/unit2/handwritten/rmipr-unit2-handwritten.pdf",
               "type": "handwritten",
@@ -3144,14 +2593,15 @@ window.SEM5_DATA = {
             },
             {
               "id": "rmipr-rm-ipr-unit2-pdf",
-              "title": "Unit 2: Research Design & Sampling Presentation",
+              "title": "Unit 2 - Research Design & Sampling Presentation Deck",
               "originalName": "rm-ipr-unit2.pdf",
-              "path": "notes/rmipr/unit2/rm-ipr-unit2.pdf",
+              "path": "notes/rmipr/recent-notes/rm-ipr-unit2.pdf",
               "type": "pdf",
-              "sizeBytes": 1319874,
-              "size": "1.3 MB",
+              "sizeBytes": 1238464,
+              "size": "1.2 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/rmipr/unit2/rm-ipr-unit2.pptx"
+              "originalPath": "notes/rmipr/recent-notes/rm-ipr-unit2.pptx"
             }
           ]
         },
@@ -3162,7 +2612,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "rmipr-unit-3-notes-html",
+              "id": "rmipr-u3-notes",
               "title": "Unit 3: Interactive Notes",
               "originalName": "unit-3-notes.html",
               "path": "notes/rmipr/unit3/unit-3-notes.html",
@@ -3172,8 +2622,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "rmipr-rmipr-unit3-handwritten-pdf",
-              "title": "Unit 3: Handwritten Notebook (PDF)",
+              "id": "rmipr-u3-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "rmipr-unit3-handwritten.pdf",
               "path": "notes/rmipr/unit3/handwritten/rmipr-unit3-handwritten.pdf",
               "type": "handwritten",
@@ -3182,59 +2632,16 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "rmipr-rmipr-statistical-tables-pdf",
-              "title": "Statistical Tables & Distribution Reference",
-              "originalName": "rmipr-statistical-tables.pdf",
-              "path": "notes/rmipr/unit3/rmipr-statistical-tables.pdf",
-              "type": "pdf",
-              "sizeBytes": 3266511,
-              "size": "3.1 MB"
-            },
-            {
               "id": "rmipr-rm-ipr-unit3-part1-pdf",
-              "title": "Unit 3: IPR & Patents (Part 1) Presentation",
+              "title": "Unit 3 - Intellectual Property Rights & Patents (Part 1)",
               "originalName": "rm-ipr-unit3-part1.pdf",
-              "path": "notes/rmipr/unit3/rm-ipr-unit3-part1.pdf",
+              "path": "notes/rmipr/recent-notes/rm-ipr-unit3-part1.pdf",
               "type": "pdf",
               "sizeBytes": 1186536,
               "size": "1.1 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/rmipr/unit3/rm-ipr-unit3-part1.pptx"
-            }
-          ]
-        },
-        {
-          "unitNumber": "ARCHIVE",
-          "title": "Older Versions / Archived Notes (Past Semesters)",
-          "topics": "Reference material from previous semesters and alternate professor lecture decks.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "rmipr-rmipr-unit1-archive-pdf",
-              "title": "Unit 1 Archived Notes (Past Batch)",
-              "originalName": "rmipr-unit1-archive.pdf",
-              "path": "notes/rmipr/older-versions/rmipr-unit1-archive.pdf",
-              "type": "pdf",
-              "sizeBytes": 787522,
-              "size": "769 KB"
-            },
-            {
-              "id": "rmipr-rmipr-unit2-archive-pdf",
-              "title": "Unit 2 Archived Notes (Past Batch)",
-              "originalName": "rmipr-unit2-archive.pdf",
-              "path": "notes/rmipr/older-versions/rmipr-unit2-archive.pdf",
-              "type": "pdf",
-              "sizeBytes": 1497545,
-              "size": "1.4 MB"
-            },
-            {
-              "id": "rmipr-rmipr-unit3-archive-pdf",
-              "title": "Unit 3 Archived Notes (Past Batch)",
-              "originalName": "rmipr-unit3-archive.pdf",
-              "path": "notes/rmipr/older-versions/rmipr-unit3-archive.pdf",
-              "type": "pdf",
-              "sizeBytes": 1169330,
-              "size": "1.1 MB"
+              "originalPath": "notes/rmipr/recent-notes/rm-ipr-unit3-part1.pptx"
             }
           ]
         },
@@ -3244,7 +2651,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "rmipr-rmipr-pyq-handwritten-pdf",
+              "id": "rmipr-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/rmipr/pyq/pyq-answers.html",
+              "type": "pyq",
+              "sizeBytes": 116644,
+              "size": "114 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "rmipr-pyq-handwritten",
               "title": "Handwritten PYQ Solutions (PDF)",
               "originalName": "rmipr-pyq-handwritten.pdf",
               "path": "notes/rmipr/pyq/handwritten/rmipr-pyq-handwritten.pdf",
@@ -3252,15 +2669,6 @@ window.SEM5_DATA = {
               "sizeBytes": 894636,
               "size": "874 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "rmipr-pyq-answers-html",
-              "title": "CIE-1 Solved PYQ Bank (Interactive)",
-              "originalName": "pyq-answers.html",
-              "path": "notes/rmipr/pyq/pyq-answers.html",
-              "type": "pyq",
-              "sizeBytes": 116644,
-              "size": "114 KB"
             }
           ]
         },
@@ -3269,26 +2677,6 @@ window.SEM5_DATA = {
           "title": "Practice, Question Banks & Examination Papers",
           "isPractice": true,
           "files": [
-            {
-              "id": "rmipr-rmipr-assignment-1-pdf",
-              "title": "Assignment 1 (Research Problem Formulation)",
-              "originalName": "rmipr-assignment-1.pdf",
-              "path": "notes/rmipr/practice/rmipr-assignment-1.pdf",
-              "type": "pdf",
-              "sizeBytes": 163608,
-              "size": "160 KB",
-              "tag": "Assignment"
-            },
-            {
-              "id": "rmipr-rmipr-assignment-2-pdf",
-              "title": "Assignment 2 (Research Design & Methods)",
-              "originalName": "rmipr-assignment-2.pdf",
-              "path": "notes/rmipr/practice/rmipr-assignment-2.pdf",
-              "type": "pdf",
-              "sizeBytes": 769872,
-              "size": "752 KB",
-              "tag": "Assignment"
-            },
             {
               "id": "rmipr-rmipr-cie-1-and-2-pdf",
               "title": "CIE-1 & CIE-2 Question Papers",
@@ -3320,13 +2708,34 @@ window.SEM5_DATA = {
               "tag": "CIE Question Paper"
             },
             {
+              "id": "rmipr-rmipr-assignment-1-pdf",
+              "title": "Assignment 1 (Research Problem Formulation)",
+              "originalName": "rmipr-assignment-1.pdf",
+              "path": "notes/rmipr/practice/rmipr-assignment-1.pdf",
+              "type": "pdf",
+              "sizeBytes": 163608,
+              "size": "160 KB",
+              "tag": "Practice"
+            },
+            {
+              "id": "rmipr-rmipr-assignment-2-pdf",
+              "title": "Assignment 2 (Research Design & Methods)",
+              "originalName": "rmipr-assignment-2.pdf",
+              "path": "notes/rmipr/practice/rmipr-assignment-2.pdf",
+              "type": "pdf",
+              "sizeBytes": 769872,
+              "size": "752 KB",
+              "tag": "Practice"
+            },
+            {
               "id": "rmipr-rmipr-important-questions-pdf",
               "title": "RM & IPR Important Questions & Model Answers",
               "originalName": "rmipr-important-questions.pdf",
               "path": "notes/rmipr/practice/rmipr-important-questions.pdf",
               "type": "pdf",
               "sizeBytes": 177942,
-              "size": "174 KB"
+              "size": "174 KB",
+              "tag": "Practice"
             },
             {
               "id": "rmipr-rmipr-quiz-pdf",
@@ -3336,7 +2745,7 @@ window.SEM5_DATA = {
               "type": "pdf",
               "sizeBytes": 75616,
               "size": "74 KB",
-              "tag": "Objective Quiz"
+              "tag": "Practice"
             },
             {
               "id": "rmipr-rmipr-see-makeup-2022-pdf",
@@ -3375,7 +2784,8 @@ window.SEM5_DATA = {
               "path": "notes/rmipr/practice/rmipr-makeup-apr-2025.pdf",
               "type": "pdf",
               "sizeBytes": 124279,
-              "size": "121 KB"
+              "size": "121 KB",
+              "tag": "Practice"
             },
             {
               "id": "rmipr-rmipr-see-2022-pdf",
@@ -3455,7 +2865,7 @@ window.SEM5_DATA = {
               "type": "pdf",
               "sizeBytes": 64104,
               "size": "63 KB",
-              "tag": "Revision Worksheet"
+              "tag": "Practice"
             },
             {
               "id": "rmipr-rmipr-unit2-worksheet-pdf",
@@ -3465,7 +2875,7 @@ window.SEM5_DATA = {
               "type": "pdf",
               "sizeBytes": 60047,
               "size": "59 KB",
-              "tag": "Revision Worksheet"
+              "tag": "Practice"
             },
             {
               "id": "rmipr-rmipr-unit3-worksheet-pdf",
@@ -3475,14 +2885,14 @@ window.SEM5_DATA = {
               "type": "pdf",
               "sizeBytes": 343336,
               "size": "335 KB",
-              "tag": "Revision Worksheet"
+              "tag": "Practice"
             }
           ]
         }
       ],
       "syllabus": {
         "textbook": {
-          "title": "Research Methodology \u2013 Methods and Techniques",
+          "title": "Research Methodology – Methods and Techniques",
           "edition": "Recent Edition",
           "authors": "C. R Kothari, Gourav Garg",
           "publisher": "New Age International Publishers"
@@ -3651,8 +3061,8 @@ window.SEM5_DATA = {
       "prerequisites": "HTML, CSS, and JavaScript",
       "description": "Declarative UI, React philosophy, JSX compilation, functional & class components, props & state management, SyntheticEvents, controlled forms, React DevTools, React Router, Hooks, CSS styling, and Netlify deployment.",
       "examDate": "2026-10-13",
-      "examTime": "13:30\u201314:30",
-      "examSchedule": "Tue 13-10-2026, 13:30\u201314:30",
+      "examTime": "13:30–14:30",
+      "examSchedule": "Tue 13-10-2026, 13:30–14:30",
       "cie1Scope": "Unit 1, Unit 2 (Full)",
       "tags": [
         "Ability Enhancement",
@@ -3662,43 +3072,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "reactjs-reactjs-unit1-pdf",
-              "title": "Unit 1: Foundations of React, Virtual DOM & JSX",
-              "originalName": "reactjs-unit1.pdf",
-              "path": "notes/reactjs/recent-notes/reactjs-unit1.pdf",
-              "type": "pdf",
-              "sizeBytes": 1968713,
-              "size": "1.9 MB",
-              "isConverted": true,
-              "originalPath": "notes/reactjs/recent-notes/reactjs-unit1.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "reactjs-reactjs-unit2-pdf",
-              "title": "Unit 2: Components, State Management & Hooks",
-              "originalName": "reactjs-unit2.pdf",
-              "path": "notes/reactjs/recent-notes/reactjs-unit2.pdf",
-              "type": "pdf",
-              "sizeBytes": 547364,
-              "size": "535 KB",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Introduction to ReactJS & Component Architecture",
           "topics": "Introduction to React: Background, Features, SPA concept, React vs Vanilla JS/DOM, React ecosystem, Virtual DOM: Reconciliation algorithm, Diffing algorithm, Re...",
           "isPractice": false,
           "files": [
             {
-              "id": "reactjs-unit-1-notes-html",
+              "id": "reactjs-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/reactjs/unit1/unit-1-notes.html",
@@ -3708,8 +3088,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "reactjs-reactjs-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "reactjs-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "reactjs-unit1-handwritten.pdf",
               "path": "notes/reactjs/unit1/handwritten/reactjs-unit1-handwritten.pdf",
               "type": "handwritten",
@@ -3719,14 +3099,15 @@ window.SEM5_DATA = {
             },
             {
               "id": "reactjs-reactjs-unit1-pdf",
-              "title": "Unit 1: Foundations of React, Virtual DOM & JSX",
+              "title": "Unit 1 - Foundations of React, Virtual DOM & JSX",
               "originalName": "reactjs-unit1.pdf",
-              "path": "notes/reactjs/unit1/reactjs-unit1.pdf",
+              "path": "notes/reactjs/recent-notes/reactjs-unit1.pdf",
               "type": "pdf",
               "sizeBytes": 1968713,
               "size": "1.9 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/reactjs/unit1/reactjs-unit1.pptx"
+              "originalPath": "notes/reactjs/recent-notes/reactjs-unit1.pptx"
             }
           ]
         },
@@ -3737,7 +3118,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "reactjs-unit-2-notes-html",
+              "id": "reactjs-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/reactjs/unit2/unit-2-notes.html",
@@ -3747,8 +3128,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "reactjs-reactjs-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "reactjs-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "reactjs-unit2-handwritten.pdf",
               "path": "notes/reactjs/unit2/handwritten/reactjs-unit2-handwritten.pdf",
               "type": "handwritten",
@@ -3758,12 +3139,13 @@ window.SEM5_DATA = {
             },
             {
               "id": "reactjs-reactjs-unit2-pdf",
-              "title": "Unit 2: Components, State Management & Hooks",
+              "title": "Unit 2 - Components, State Management & Hooks",
               "originalName": "reactjs-unit2.pdf",
-              "path": "notes/reactjs/unit2/reactjs-unit2.pdf",
+              "path": "notes/reactjs/recent-notes/reactjs-unit2.pdf",
               "type": "pdf",
               "sizeBytes": 547364,
-              "size": "535 KB"
+              "size": "535 KB",
+              "tag": "Recent Notes"
             }
           ]
         },
@@ -3773,11 +3155,11 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "reactjs-reactjs-syllabus-screenshot-png",
-              "title": "Syllabus Screenshot",
+              "id": "reactjs-syllabus-reactjs-syllabus-screenshot",
+              "title": "Frontend Development using React JS Official Syllabus Document",
               "originalName": "reactjs-syllabus-screenshot.png",
               "path": "notes/reactjs/syllabus/reactjs-syllabus-screenshot.png",
-              "type": "pdf",
+              "type": "png",
               "sizeBytes": 492109,
               "size": "481 KB"
             }
@@ -3789,23 +3171,24 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "reactjs-reactjs-pyq-handwritten-pdf",
-              "title": "Handwritten PYQ Solutions (PDF)",
-              "originalName": "reactjs-pyq-handwritten.pdf",
-              "path": "notes/reactjs/pyq/handwritten/reactjs-pyq-handwritten.pdf",
-              "type": "handwritten",
-              "sizeBytes": 1238502,
-              "size": "1.2 MB",
-              "tag": "Vector Handwritten"
-            },
-            {
-              "id": "reactjs-pyq-answers-html",
+              "id": "reactjs-pyq-answers",
               "title": "CIE-1 Solved PYQ Bank (Interactive)",
               "originalName": "pyq-answers.html",
               "path": "notes/reactjs/pyq/pyq-answers.html",
               "type": "pyq",
               "sizeBytes": 97434,
-              "size": "95 KB"
+              "size": "95 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "reactjs-pyq-handwritten",
+              "title": "Handwritten PYQ Solutions (PDF)",
+              "originalName": "reactjs-pyq-handwritten.pdf",
+              "path": "notes/reactjs/pyq/handwritten/reactjs-pyq-handwritten.pdf",
+              "type": "handwritten",
+              "sizeBytes": 1238502,
+              "size": "1209 KB",
+              "tag": "Vector Handwritten"
             }
           ]
         },
@@ -4028,8 +3411,8 @@ window.SEM5_DATA = {
       "prerequisites": "NIL",
       "description": "Non-Credit Mandatory Course (NCMC) covering ecosystems, biodiversity conservation, natural resources (forest, water, mineral, food, land), environmental pollution, social issues, and human population impact. Evaluated for 100 Marks CIE only (No SEE).",
       "examDate": "2026-10-16",
-      "examTime": "09:30\u201310:30",
-      "examSchedule": "Fri 16-10-2026, 09:30\u201310:30",
+      "examTime": "09:30–10:30",
+      "examSchedule": "Fri 16-10-2026, 09:30–10:30",
       "cie1Scope": "Unit 1, Unit 2 (Full)",
       "tags": [
         "Mandatory Course",
@@ -4039,45 +3422,13 @@ window.SEM5_DATA = {
       "status": "cie1_ready",
       "units": [
         {
-          "unitNumber": "RECENT",
-          "title": "Recent Notes (Latest Uploaded Material)",
-          "topics": "Latest lecture slide decks, worksheets, and classroom materials uploaded for this course.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "evs-evs-unit-1-pdf",
-              "title": "Unit 1: Ecosystems & Biodiversity Presentation",
-              "originalName": "evs-unit-1.pdf",
-              "path": "notes/evs/recent-notes/evs-unit-1.pdf",
-              "type": "pdf",
-              "sizeBytes": 2256187,
-              "size": "2.2 MB",
-              "isConverted": true,
-              "originalPath": "notes/evs/recent-notes/evs-unit-1.pptx",
-              "tag": "Recent Upload"
-            },
-            {
-              "id": "evs-evs-unit-2-pdf",
-              "title": "Unit 2: Natural Resources Presentation",
-              "originalName": "evs-unit-2.pdf",
-              "path": "notes/evs/recent-notes/evs-unit-2.pdf",
-              "type": "pdf",
-              "sizeBytes": 1651484,
-              "size": "1.6 MB",
-              "isConverted": true,
-              "originalPath": "notes/evs/recent-notes/evs-unit-2.pptx",
-              "tag": "Recent Upload"
-            }
-          ]
-        },
-        {
           "unitNumber": 1,
           "title": "Environment, Ecosystems & Biodiversity",
           "topics": "Introduction to Environment: Definition of environment, Components of environment (Atmosphere, Hydrosphere, Lithosphere, Biosphere), Scope and importance of env...",
           "isPractice": false,
           "files": [
             {
-              "id": "evs-unit-1-notes-html",
+              "id": "evs-u1-notes",
               "title": "Unit 1: Interactive Notes",
               "originalName": "unit-1-notes.html",
               "path": "notes/evs/unit1/unit-1-notes.html",
@@ -4087,8 +3438,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "evs-evs-unit1-handwritten-pdf",
-              "title": "Unit 1: Handwritten Notebook (PDF)",
+              "id": "evs-u1-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "evs-unit1-handwritten.pdf",
               "path": "notes/evs/unit1/handwritten/evs-unit1-handwritten.pdf",
               "type": "handwritten",
@@ -4097,15 +3448,16 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "evs-unit-1-pdf",
-              "title": "Unit 1",
-              "originalName": "unit-1.pdf",
-              "path": "notes/evs/unit1/unit-1.pdf",
+              "id": "evs-evs-unit-1-pdf",
+              "title": "Unit 1 - Ecosystems & Biodiversity Presentation Deck",
+              "originalName": "evs-unit-1.pdf",
+              "path": "notes/evs/recent-notes/evs-unit-1.pdf",
               "type": "pdf",
               "sizeBytes": 2256187,
               "size": "2.2 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/evs/unit1/unit-1.pptx"
+              "originalPath": "notes/evs/recent-notes/evs-unit-1.pptx"
             }
           ]
         },
@@ -4116,7 +3468,7 @@ window.SEM5_DATA = {
           "isPractice": false,
           "files": [
             {
-              "id": "evs-unit-2-notes-html",
+              "id": "evs-u2-notes",
               "title": "Unit 2: Interactive Notes",
               "originalName": "unit-2-notes.html",
               "path": "notes/evs/unit2/unit-2-notes.html",
@@ -4126,8 +3478,8 @@ window.SEM5_DATA = {
               "tag": "Interactive notes"
             },
             {
-              "id": "evs-evs-unit2-handwritten-pdf",
-              "title": "Unit 2: Handwritten Notebook (PDF)",
+              "id": "evs-u2-handwritten-pdf",
+              "title": "Handwritten notebook (PDF)",
               "originalName": "evs-unit2-handwritten.pdf",
               "path": "notes/evs/unit2/handwritten/evs-unit2-handwritten.pdf",
               "type": "handwritten",
@@ -4136,86 +3488,16 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "evs-unit-2-food-resources-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2-food-resources.pdf",
-              "path": "notes/evs/unit2/unit-2-food-resources.pdf",
-              "type": "pdf",
-              "sizeBytes": 273094,
-              "size": "267 KB"
-            },
-            {
-              "id": "evs-unit-2-forest-resources-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2-forest-resources.pdf",
-              "path": "notes/evs/unit2/unit-2-forest-resources.pdf",
-              "type": "pdf",
-              "sizeBytes": 339179,
-              "size": "331 KB"
-            },
-            {
-              "id": "evs-unit-2-land-resources-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2-land-resources.pdf",
-              "path": "notes/evs/unit2/unit-2-land-resources.pdf",
-              "type": "pdf",
-              "sizeBytes": 299829,
-              "size": "293 KB"
-            },
-            {
-              "id": "evs-unit-2-mineral-resources-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2-mineral-resources.pdf",
-              "path": "notes/evs/unit2/unit-2-mineral-resources.pdf",
-              "type": "pdf",
-              "sizeBytes": 269287,
-              "size": "263 KB"
-            },
-            {
-              "id": "evs-unit-2-water-resources-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2-water-resources.pdf",
-              "path": "notes/evs/unit2/unit-2-water-resources.pdf",
-              "type": "pdf",
-              "sizeBytes": 316208,
-              "size": "309 KB"
-            },
-            {
-              "id": "evs-unit-2-pdf",
-              "title": "Unit 2 \u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00b7 Requirements Engineering",
-              "originalName": "unit-2.pdf",
-              "path": "notes/evs/unit2/unit-2.pdf",
+              "id": "evs-evs-unit-2-pdf",
+              "title": "Unit 2 - Natural Resources & Conservation Presentation Deck",
+              "originalName": "evs-unit-2.pdf",
+              "path": "notes/evs/recent-notes/evs-unit-2.pdf",
               "type": "pdf",
               "sizeBytes": 1651484,
               "size": "1.6 MB",
+              "tag": "Recent Notes",
               "isConverted": true,
-              "originalPath": "notes/evs/unit2/unit-2.pptx"
-            }
-          ]
-        },
-        {
-          "unitNumber": "ARCHIVE",
-          "title": "Older Versions / Archived Notes (Past Semesters)",
-          "topics": "Reference material from previous semesters and alternate professor lecture decks.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "evs-evs-unit-1-notes-mcq-questions-pdf",
-              "title": "Unit 1: Ecosystems & Biodiversity Presentation",
-              "originalName": "evs-unit-1-notes-mcq-questions.pdf",
-              "path": "notes/evs/older-versions/evs-unit-1-notes-mcq-questions.pdf",
-              "type": "pdf",
-              "sizeBytes": 1089896,
-              "size": "1.0 MB"
-            },
-            {
-              "id": "evs-evs-unit-2-notes-mcq-questions-pdf",
-              "title": "Unit 2: Natural Resources Presentation",
-              "originalName": "evs-unit-2-notes-mcq-questions.pdf",
-              "path": "notes/evs/older-versions/evs-unit-2-notes-mcq-questions.pdf",
-              "type": "pdf",
-              "sizeBytes": 631068,
-              "size": "616 KB"
+              "originalPath": "notes/evs/recent-notes/evs-unit-2.pptx"
             }
           ]
         },
@@ -4225,7 +3507,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
-              "id": "evs-evs-pyq-handwritten-pdf",
+              "id": "evs-pyq-answers",
+              "title": "CIE-1 Solved PYQ Bank (Interactive)",
+              "originalName": "pyq-answers.html",
+              "path": "notes/evs/pyq/pyq-answers.html",
+              "type": "pyq",
+              "sizeBytes": 91586,
+              "size": "89 KB",
+              "tag": "Solved PYQ Bank"
+            },
+            {
+              "id": "evs-pyq-handwritten",
               "title": "Handwritten PYQ Solutions (PDF)",
               "originalName": "evs-pyq-handwritten.pdf",
               "path": "notes/evs/pyq/handwritten/evs-pyq-handwritten.pdf",
@@ -4233,15 +3525,6 @@ window.SEM5_DATA = {
               "sizeBytes": 810601,
               "size": "792 KB",
               "tag": "Vector Handwritten"
-            },
-            {
-              "id": "evs-pyq-answers-html",
-              "title": "CIE-1 Solved PYQ Bank (Interactive)",
-              "originalName": "pyq-answers.html",
-              "path": "notes/evs/pyq/pyq-answers.html",
-              "type": "pyq",
-              "sizeBytes": 91586,
-              "size": "89 KB"
             }
           ]
         },
@@ -4288,8 +3571,6 @@ window.SEM5_DATA = {
               "type": "pdf",
               "sizeBytes": 124985,
               "size": "122 KB",
-              "isConverted": true,
-              "originalPath": "notes/evs/practice/evs-cie1-qp-2024.docx",
               "tag": "CIE Question Paper"
             },
             {
@@ -4428,11 +3709,11 @@ window.SEM5_DATA = {
     }
   ],
   "meta": {
-    "totalFiles": 220,
-    "totalSize": "283.3 MB",
-    "totalSizeBytes": 297078860,
+    "totalFiles": 158,
+    "totalSize": "142.9 MB",
+    "totalSizeBytes": 149817118,
     "lastUpdated": "2026-10-10",
-    "academicYear": "2026\u20132027",
+    "academicYear": "2026–2027",
     "semester": "Semester V",
     "department": "Department of Information Science & Engineering"
   }

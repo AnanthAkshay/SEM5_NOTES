@@ -2,8 +2,15 @@
  * SEM 5 · Viewer Gate & Subject Pages Comprehensive Verification Script
  * - Tests in-browser PDF viewer opening across desktop & mobile
  * - Tests zero horizontal overflow at 1280px, 768px, 390px, and 320px
- * - Tests global search finding newly synced files
- * - Tests theme toggling
+ * - Tests UI GATE: Every unit strictly shows:
+ *     1. Interactive Notes (HTML)
+ *     2. Handwritten Notebook (PDF)
+ *     3. Recent Notes (tag: 'Recent Notes')
+ *     And NO OTHER old faculty slide or removed PDF note!
+ * - Tests SEARCH GATE:
+ *     - Newly synced recent notes ARE searchable
+ *     - Removed files & old titles NEVER appear
+ * - Tests theme toggling & zero console errors
  * - Captures high-res screenshots for all 8 subject pages in desktop/mobile, light/dark
  */
 
@@ -70,7 +77,7 @@ function startServer() {
 
 async function runViewerAndSubjectGates() {
   console.log('='.repeat(70));
-  console.log('VIEWER GATE & SUBJECT PAGES COMPREHENSIVE VERIFICATION');
+  console.log('VIEWER GATE, STRICT UNIT UI GATE & SUBJECT VERIFICATION');
   console.log('='.repeat(70));
 
   const server = await startServer();
@@ -87,7 +94,7 @@ async function runViewerAndSubjectGates() {
 
   try {
     // 1. TEST HORIZONTAL OVERFLOW AT 1280, 768, 390, 320
-    console.log('\n--- Checking Horizontal Overflow at 1280, 768, 390, 320 ---');
+    console.log('\n--- 1. Checking Horizontal Overflow at 1280, 768, 390, 320 ---');
     const viewports = [
       { name: 'desktop', width: 1280, height: 800 },
       { name: 'tablet', width: 768, height: 1024 },
@@ -126,41 +133,116 @@ async function runViewerAndSubjectGates() {
       await ctx.close();
     }
 
-    // 2. TEST GLOBAL SEARCH FINDING NEW FILES
-    console.log('\n--- Checking Global Search for Synced Materials ---');
+    // 2. TEST STRICT UNIT NOTES COMPLIANCE ACROSS ALL 8 SUBJECTS
+    console.log('\n--- 2. Checking Strict Unit Notes Structure (HTML -> Handwritten -> Recent Notes ONLY) ---');
+    const unitCtx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    const unitPage = await unitCtx.newPage();
+
+    for (const sub of subjectsData) {
+      await unitPage.goto(`http://localhost:${PORT}/SEM5_NOTES/#subject/${sub.id}`, { waitUntil: 'networkidle' });
+      
+      const unitResults = await unitPage.evaluate((subId) => {
+        const units = Array.from(document.querySelectorAll('.unit-pill-card'));
+        const errors = [];
+        const unitsSummary = [];
+
+        units.forEach(u => {
+          const title = u.querySelector('.unit-summary-title')?.textContent.trim();
+          const countLabel = u.querySelector('.unit-summary-meta span')?.textContent.trim();
+          const rows = Array.from(u.querySelectorAll('.file-row'));
+
+          const renderedCount = rows.length;
+          const expectedCount = parseInt(countLabel) || 0;
+          if (renderedCount !== expectedCount) {
+            errors.push(`[${subId} - ${title}] Summary label '${countLabel}' != rendered rows (${renderedCount})`);
+          }
+
+          // Check row sequence: 0 = Notes, 1 = Handwritten, 2+ = Recent Notes
+          rows.forEach((row, idx) => {
+            const rowTitle = row.querySelector('.file-title')?.textContent.trim();
+            const typePill = row.querySelector('.file-type-pill')?.textContent.trim();
+            const tagPill = row.querySelector('.pill-tag-green, .pill-tag-purple')?.textContent.trim();
+
+            if (idx === 0) {
+              if (typePill !== 'NOTES') {
+                errors.push(`[${subId} - ${title}] Row 0 expected NOTES, got '${typePill}' (${rowTitle})`);
+              }
+            } else if (idx === 1) {
+              if (typePill !== 'NOTEBOOK (PDF)') {
+                errors.push(`[${subId} - ${title}] Row 1 expected NOTEBOOK (PDF), got '${typePill}' (${rowTitle})`);
+              }
+            } else {
+              // Row 2+ MUST be Recent Notes
+              if (!tagPill || !tagPill.includes('Recent Notes')) {
+                errors.push(`[${subId} - ${title}] Row ${idx} '${rowTitle}' is missing Recent Notes tag! (got: '${tagPill}')`);
+              }
+            }
+          });
+
+          unitsSummary.push(`${title}: ${renderedCount} files`);
+        });
+
+        return { errors, unitsSummary };
+      }, sub.id);
+
+      if (unitResults.errors.length > 0) {
+        console.error(`  ❌ Violations in ${sub.id}:`);
+        unitResults.errors.forEach(e => console.error(`    -> ${e}`));
+        allPassed = false;
+      } else {
+        console.log(`  ✓ [${sub.id}] Strict Unit Structure Verified: ${unitResults.unitsSummary.join(' | ')}`);
+      }
+    }
+    await unitCtx.close();
+
+    // 3. TEST GLOBAL SEARCH (Recent notes searchable, removed files absent)
+    console.log('\n--- 3. Checking Global Search (Recent Notes Present & Removed Notes Absent) ---');
     const searchCtx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
     const searchPage = await searchCtx.newPage();
     await searchPage.goto(`http://localhost:${PORT}/SEM5_NOTES/`, { waitUntil: 'networkidle' });
 
-    // Open search modal via keyboard shortcut '/' or button
+    // Open search modal
     await searchPage.keyboard.press('/');
     await searchPage.waitForTimeout(200);
 
-    const isSearchOpen = await searchPage.evaluate(() => {
-      const modal = document.getElementById('search-modal');
-      return modal && modal.classList.contains('open');
-    });
-    console.log(`  ✓ Global Search shortcut '/' triggers modal: ${isSearchOpen}`);
-
-    // Test queries
-    const testQueries = ['Tableau', 'IPv4', 'Agile', 'Adversarial', 'Regression'];
-    for (const q of testQueries) {
+    // Test that Recent notes are searchable
+    const recentQueries = ['Tableau', 'IPv4', 'Agile', 'Adversarial', 'Regression', 'Complete Course Notebook'];
+    for (const q of recentQueries) {
       await searchPage.fill('#search-input', q);
       await searchPage.waitForTimeout(150);
-      const resultsCount = await searchPage.evaluate(() => {
-        return document.querySelectorAll('.search-result-item').length;
-      });
+      const resultsCount = await searchPage.evaluate(() => document.querySelectorAll('.search-result-item').length);
       console.log(`  ✓ Search query "${q}" -> found ${resultsCount} results.`);
       if (resultsCount === 0) {
-        console.error(`  ❌ Expected search results for "${q}", got 0!`);
+        console.error(`  ❌ Expected search results for active query "${q}", got 0!`);
         allPassed = false;
       }
     }
+
+    // Test that Removed files NEVER appear in search
+    const removedQueries = [
+      'Unit 1 And 2 Alternate',
+      'Shruti Mam',
+      'ai-informed-search',
+      'is53-cn-unit1.pdf',
+      'Unit 1 (22.4 MB)'
+    ];
+    for (const q of removedQueries) {
+      await searchPage.fill('#search-input', q);
+      await searchPage.waitForTimeout(150);
+      const resultsCount = await searchPage.evaluate(() => document.querySelectorAll('.search-result-item').length);
+      if (resultsCount > 0) {
+        console.error(`  ❌ Removed file/title appeared in search for "${q}" (found ${resultsCount} results)!`);
+        allPassed = false;
+      } else {
+        console.log(`  ✓ Removed query "${q}" -> 0 results (correctly excluded).`);
+      }
+    }
+
     await searchPage.keyboard.press('Escape');
     await searchCtx.close();
 
-    // 3. TEST IN-BROWSER PDF VIEWER GATE
-    console.log('\n--- Checking In-Browser PDF Viewer Gate ---');
+    // 4. TEST IN-BROWSER PDF VIEWER GATE
+    console.log('\n--- 4. Checking In-Browser PDF Viewer Gate ---');
     const viewerCtx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
     const viewerPage = await viewerCtx.newPage();
     const consoleErrors = [];
@@ -170,11 +252,11 @@ async function runViewerAndSubjectGates() {
 
     await viewerPage.goto(`http://localhost:${PORT}/SEM5_NOTES/#subject/ml`, { waitUntil: 'networkidle' });
 
-    // Find and test opening viewer for converted and original PDF files
     const testPdfIds = [
-      'ml-tableau-introduction-pdf',
+      'ml-ml-ch2-understanding-data-pdf',
       'se-unit-1-1-pdf',
       'cn-cn-unit1-complete-pdf',
+      'toc-toc-notes-complete-pdf',
       'ai-ai-adversarial-search-pdf',
       'rmipr-rm-ipr-unit1-pdf'
     ];
@@ -194,13 +276,12 @@ async function runViewerAndSubjectGates() {
       }, fid);
 
       if (opened && opened.isOpen && opened.src && !opened.src.endsWith('about:blank')) {
-        console.log(`  ✓ PDF Viewer successfully opened file "${fid}": iframe loaded -> ${opened.src.split('/SEM5_NOTES/')[1] || opened.src}`);
+        console.log(`  ✓ PDF Viewer successfully opened recent file "${fid}": iframe loaded -> ${opened.src.split('/SEM5_NOTES/')[1] || opened.src}`);
       } else {
         console.error(`  ❌ PDF Viewer failed to open file "${fid}"!`, opened);
         allPassed = false;
       }
 
-      // Close viewer
       await viewerPage.evaluate(() => {
         if (window.SEM5_APP && window.SEM5_APP.closeViewer) window.SEM5_APP.closeViewer();
       });
@@ -208,8 +289,8 @@ async function runViewerAndSubjectGates() {
     }
     await viewerCtx.close();
 
-    // 4. CAPTURE HIGH-RES SCREENSHOTS FOR ALL 8 SUBJECT PAGES (Desktop & Mobile, Light & Dark)
-    console.log('\n--- Capturing Screenshots for all 8 Subject Pages ---');
+    // 5. CAPTURE HIGH-RES SCREENSHOTS FOR ALL 8 SUBJECT PAGES (Desktop & Mobile, Light & Dark)
+    console.log('\n--- 5. Capturing High-Res Screenshots for all 8 Subject Pages ---');
     const renderModes = [
       { name: 'desktop', width: 1280, height: 900, theme: 'dark' },
       { name: 'desktop', width: 1280, height: 900, theme: 'light' },
@@ -225,14 +306,12 @@ async function runViewerAndSubjectGates() {
       for (const sub of subjectsData) {
         await page.goto(`http://localhost:${PORT}/SEM5_NOTES/#subject/${sub.id}`, { waitUntil: 'networkidle' });
 
-        // Set theme
         await page.evaluate((t) => {
           document.documentElement.setAttribute('data-theme', t);
           localStorage.setItem('sem5_theme_v1', t);
         }, mode.theme);
         await page.waitForTimeout(200);
 
-        // Verify title rendered
         const titleText = await page.evaluate(() => {
           const el = document.querySelector('.subject-view-title');
           return el ? el.textContent.trim() : '';
@@ -255,7 +334,7 @@ async function runViewerAndSubjectGates() {
 
   console.log('\n' + '='.repeat(70));
   if (allPassed) {
-    console.log('✅ ALL VIEWER, RESPONSIVE, SEARCH & SCREENSHOT TESTS PASSED!');
+    console.log('✅ ALL VIEWER, RESPONSIVE, STRICT UNIT & SEARCH TESTS PASSED!');
   } else {
     console.log('❌ SOME TESTS FAILED!');
     process.exit(1);

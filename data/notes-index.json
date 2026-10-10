@@ -5912,168 +5912,6 @@
   {
     "type": "file",
     "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch3 5 Inductive Bias Bias Variance",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch3-5-inductive-bias-bias-variance.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch3 6 Modeling Ml Detailed",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch3-6-modeling-ml-detailed.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch3 7 Learning Frameworks Detailed",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch3-7-learning-frameworks-detailed.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch3 Basic Concepts Of Learning",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch3-basic-concepts-of-learning.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch4 Similarity Based Learning",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch4-similarity-based-learning.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch5 4 Validation Of Regression Methods",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch5-4-validation-of-regression-methods.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch5 Regression Analysis Detailed",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch5-regression-analysis-detailed.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Ch5 Regression Problems Solutions",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch5-regression-problems-solutions.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2: Understanding Data & Preprocessing",
-    "subsections": [
-      "ML · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ml/recent-notes/ml-ch2-understanding-data.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
     "unit": 1,
     "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
     "title": "Unit 1: Interactive Notes",
@@ -6094,7 +5932,7 @@
     "subject": "ml",
     "unit": 1,
     "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Ch3 5 Inductive Bias Bias Variance",
+    "title": "Unit 1 - Chapter 2: Understanding Data & Preprocessing",
     "subsections": [
       "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
     ],
@@ -6102,16 +5940,17 @@
       "ml",
       "ml",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit1/ml-ch3-5-inductive-bias-bias-variance.pdf"
+    "path": "notes/ml/recent-notes/ml-ch2-understanding-data.pdf"
   },
   {
     "type": "file",
     "subject": "ml",
     "unit": 1,
     "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Ch3 6 Modeling Ml Detailed",
+    "title": "Unit 1 - Chapter 3: Basic Concepts of Learning",
     "subsections": [
       "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
     ],
@@ -6119,16 +5958,17 @@
       "ml",
       "ml",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit1/ml-ch3-6-modeling-ml-detailed.pdf"
+    "path": "notes/ml/recent-notes/ml-ch3-basic-concepts-of-learning.pdf"
   },
   {
     "type": "file",
     "subject": "ml",
     "unit": 1,
     "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Ch3 7 Learning Frameworks Detailed",
+    "title": "Unit 1 - Section 3.5: Inductive Bias & Bias-Variance Dilemma",
     "subsections": [
       "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
     ],
@@ -6136,16 +5976,17 @@
       "ml",
       "ml",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit1/ml-ch3-7-learning-frameworks-detailed.pdf"
+    "path": "notes/ml/recent-notes/ml-ch3-5-inductive-bias-bias-variance.pdf"
   },
   {
     "type": "file",
     "subject": "ml",
     "unit": 1,
     "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Ch3 Basic Concepts Of Learning",
+    "title": "Unit 1 - Section 3.6: Modeling in Machine Learning",
     "subsections": [
       "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
     ],
@@ -6153,16 +5994,17 @@
       "ml",
       "ml",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit1/ml-ch3-basic-concepts-of-learning.pdf"
+    "path": "notes/ml/recent-notes/ml-ch3-6-modeling-ml-detailed.pdf"
   },
   {
     "type": "file",
     "subject": "ml",
     "unit": 1,
     "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Correlation And Covariance Problems",
+    "title": "Unit 1 - Section 3.7: Learning Frameworks (PAC Learning)",
     "subsections": [
       "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
     ],
@@ -6170,60 +6012,10 @@
       "ml",
       "ml",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit1/ml-correlation-and-covariance-problems.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 1,
-    "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Unit 1",
-    "subsections": [
-      "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "1",
-      "pdf"
-    ],
-    "path": "notes/ml/unit1/unit-1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 1,
-    "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Unit 1 Shruti Mam",
-    "subsections": [
-      "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "1",
-      "pdf"
-    ],
-    "path": "notes/ml/unit1/ml-unit-1-shruti-mam.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 1,
-    "unitTitle": "Introduction to Machine Learning & Understanding Data (Part 1)",
-    "title": "Unit 2: Understanding Data & Preprocessing",
-    "subsections": [
-      "ML · Introduction to Machine Learning & Understanding Data (Part 1)"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "1",
-      "pdf"
-    ],
-    "path": "notes/ml/unit1/ml-ch2-understanding-data.pdf"
+    "path": "notes/ml/recent-notes/ml-ch3-7-learning-frameworks-detailed.pdf"
   },
   {
     "type": "file",
@@ -6248,7 +6040,7 @@
     "subject": "ml",
     "unit": 2,
     "unitTitle": "Understanding Data (Part 2) & Basic Learning Theory",
-    "title": "Ch4 Similarity Based Learning",
+    "title": "Unit 2 - Chapter 4: Similarity-Based Learning & k-NN",
     "subsections": [
       "ML · Understanding Data (Part 2) & Basic Learning Theory"
     ],
@@ -6256,43 +6048,10 @@
       "ml",
       "ml",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit2/ml-ch4-similarity-based-learning.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 2,
-    "unitTitle": "Understanding Data (Part 2) & Basic Learning Theory",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "ML · Understanding Data (Part 2) & Basic Learning Theory"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/ml/unit2/ml-unit-2-shruti-mam.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 2,
-    "unitTitle": "Understanding Data (Part 2) & Basic Learning Theory",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "ML · Understanding Data (Part 2) & Basic Learning Theory"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/ml/unit2/unit-2.pdf"
+    "path": "notes/ml/recent-notes/ml-ch4-similarity-based-learning.pdf"
   },
   {
     "type": "file",
@@ -6317,7 +6076,7 @@
     "subject": "ml",
     "unit": 3,
     "unitTitle": "Regression Analysis & Regularization",
-    "title": "Ch5 4 Validation Of Regression Methods",
+    "title": "Unit 3 - Chapter 5: Regression Analysis & Gradient Descent",
     "subsections": [
       "ML · Regression Analysis & Regularization"
     ],
@@ -6325,16 +6084,17 @@
       "ml",
       "ml",
       "3",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit3/ml-ch5-4-validation-of-regression-methods.pdf"
+    "path": "notes/ml/recent-notes/ml-ch5-regression-analysis-detailed.pdf"
   },
   {
     "type": "file",
     "subject": "ml",
     "unit": 3,
     "unitTitle": "Regression Analysis & Regularization",
-    "title": "Ch5 Regression Analysis Detailed",
+    "title": "Unit 3 - Chapter 5: Regression Numerical Worked Problems",
     "subsections": [
       "ML · Regression Analysis & Regularization"
     ],
@@ -6342,16 +6102,17 @@
       "ml",
       "ml",
       "3",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit3/ml-ch5-regression-analysis-detailed.pdf"
+    "path": "notes/ml/recent-notes/ml-ch5-regression-problems-solutions.pdf"
   },
   {
     "type": "file",
     "subject": "ml",
     "unit": 3,
     "unitTitle": "Regression Analysis & Regularization",
-    "title": "Ch5 Regression Problems Solutions",
+    "title": "Unit 3 - Section 5.4: Validation of Regression Methods",
     "subsections": [
       "ML · Regression Analysis & Regularization"
     ],
@@ -6359,84 +6120,34 @@
       "ml",
       "ml",
       "3",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ml/unit3/ml-ch5-regression-problems-solutions.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 3,
-    "unitTitle": "Regression Analysis & Regularization",
-    "title": "Linear Regression Problems",
-    "subsections": [
-      "ML · Regression Analysis & Regularization"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "3",
-      "pdf"
-    ],
-    "path": "notes/ml/unit3/ml-linear-regression-problems.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 3,
-    "unitTitle": "Regression Analysis & Regularization",
-    "title": "Unit 3 Polynomial Regression",
-    "subsections": [
-      "ML · Regression Analysis & Regularization"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "3",
-      "pdf"
-    ],
-    "path": "notes/ml/unit3/unit-3-polynomial-regression.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 3,
-    "unitTitle": "Regression Analysis & Regularization",
-    "title": "Unit 3 Shruti Mam",
-    "subsections": [
-      "ML · Regression Analysis & Regularization"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "3",
-      "pdf"
-    ],
-    "path": "notes/ml/unit3/ml-unit-3-shruti-mam.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": 3,
-    "unitTitle": "Regression Analysis & Regularization",
-    "title": "Unit 3 Steps For Mlalg",
-    "subsections": [
-      "ML · Regression Analysis & Regularization"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "3",
-      "pdf"
-    ],
-    "path": "notes/ml/unit3/unit-3-steps-for-mlalg.pdf"
+    "path": "notes/ml/recent-notes/ml-ch5-4-validation-of-regression-methods.pdf"
   },
   {
     "type": "file",
     "subject": "ml",
     "unit": "Lab",
     "unitTitle": "Laboratory Manuals, Programs & Notebooks",
-    "title": "Lab Program 1 Ã‚Â· Linear Regression",
+    "title": "Lab Program 1 - Regression",
+    "subsections": [
+      "ML · Laboratory Manuals, Programs & Notebooks"
+    ],
+    "keywords": [
+      "ml",
+      "ml",
+      "lab",
+      "pdf"
+    ],
+    "path": "notes/ml/lab/ml-prog1-linear-ridge-regression.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ml",
+    "unit": "Lab",
+    "unitTitle": "Laboratory Manuals, Programs & Notebooks",
+    "title": "Lab Program 1 - Regression",
     "subsections": [
       "ML · Laboratory Manuals, Programs & Notebooks"
     ],
@@ -6453,7 +6164,7 @@
     "subject": "ml",
     "unit": "Lab",
     "unitTitle": "Laboratory Manuals, Programs & Notebooks",
-    "title": "Lab Program 1 Ã‚Â· Simple Linear Regression",
+    "title": "Lab Program 1 - Regression",
     "subsections": [
       "ML · Laboratory Manuals, Programs & Notebooks"
     ],
@@ -6470,7 +6181,7 @@
     "subject": "ml",
     "unit": "Lab",
     "unitTitle": "Laboratory Manuals, Programs & Notebooks",
-    "title": "Lab Program 2 Ã‚Â· Logistic Regression",
+    "title": "Lab Program 2 - Logistic Regression",
     "subsections": [
       "ML · Laboratory Manuals, Programs & Notebooks"
     ],
@@ -6487,41 +6198,7 @@
     "subject": "ml",
     "unit": "Lab",
     "unitTitle": "Laboratory Manuals, Programs & Notebooks",
-    "title": "Lab Program 3 Ã‚Â· Decision Tree Classification",
-    "subsections": [
-      "ML · Laboratory Manuals, Programs & Notebooks"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "lab",
-      "ipynb"
-    ],
-    "path": "notes/ml/lab/ml-prog3.html"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "Lab",
-    "unitTitle": "Laboratory Manuals, Programs & Notebooks",
-    "title": "Introduction to Tableau Data Visualization",
-    "subsections": [
-      "ML · Laboratory Manuals, Programs & Notebooks"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "lab",
-      "pdf"
-    ],
-    "path": "notes/ml/lab/tableau-introduction.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "Lab",
-    "unitTitle": "Laboratory Manuals, Programs & Notebooks",
-    "title": "Lab Program 2 Ã‚Â· Logistic Regression",
+    "title": "Lab Program 2 - Logistic Regression",
     "subsections": [
       "ML · Laboratory Manuals, Programs & Notebooks"
     ],
@@ -6538,7 +6215,7 @@
     "subject": "ml",
     "unit": "Lab",
     "unitTitle": "Laboratory Manuals, Programs & Notebooks",
-    "title": "Prog1 Linear Ridge Regression",
+    "title": "Lab Program 3 - Decision Tree Classification",
     "subsections": [
       "ML · Laboratory Manuals, Programs & Notebooks"
     ],
@@ -6546,9 +6223,9 @@
       "ml",
       "ml",
       "lab",
-      "pdf"
+      "ipynb"
     ],
-    "path": "notes/ml/lab/ml-prog1-linear-ridge-regression.pdf"
+    "path": "notes/ml/lab/ml-prog3.html"
   },
   {
     "type": "file",
@@ -6570,6 +6247,23 @@
   {
     "type": "file",
     "subject": "ml",
+    "unit": "Lab",
+    "unitTitle": "Laboratory Manuals, Programs & Notebooks",
+    "title": "Introduction to Tableau Data Visualization",
+    "subsections": [
+      "ML · Laboratory Manuals, Programs & Notebooks"
+    ],
+    "keywords": [
+      "ml",
+      "ml",
+      "lab",
+      "pdf"
+    ],
+    "path": "notes/ml/lab/tableau-introduction.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ml",
     "unit": "PYQ",
     "unitTitle": "CIE-1 PYQ Bank & Model Answers",
     "title": "CIE-1 Solved PYQ Bank (Interactive)",
@@ -6580,27 +6274,10 @@
       "ml",
       "ml",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/ml/pyq/pyq-answers.html"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "Practice",
-    "unitTitle": "Practice, Question Banks & Examination Papers",
-    "title": "SEE Make-Up Question Paper 2024",
-    "subsections": [
-      "ML · Practice, Question Banks & Examination Papers"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "practice",
-      "pdf",
-      "see past paper"
-    ],
-    "path": "notes/ml/practice/see/ml-see-makeup-2024.pdf"
   },
   {
     "type": "file",
@@ -6619,6 +6296,24 @@
       "see past paper"
     ],
     "path": "notes/ml/practice/ml-cie-1-2-see.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ml",
+    "unit": "Practice",
+    "unitTitle": "Practice, Question Banks & Examination Papers",
+    "title": "SEE Make-Up Question Paper 2024",
+    "subsections": [
+      "ML · Practice, Question Banks & Examination Papers"
+    ],
+    "keywords": [
+      "ml",
+      "ml",
+      "practice",
+      "pdf",
+      "see past paper"
+    ],
+    "path": "notes/ml/practice/see/ml-see-makeup-2024.pdf"
   },
   {
     "type": "file",
@@ -6679,24 +6374,6 @@
     "subject": "ml",
     "unit": "Practice",
     "unitTitle": "Practice, Question Banks & Examination Papers",
-    "title": "SEE Question Paper 2025",
-    "subsections": [
-      "ML · Practice, Question Banks & Examination Papers"
-    ],
-    "keywords": [
-      "ml",
-      "ml",
-      "practice",
-      "pdf",
-      "see past paper"
-    ],
-    "path": "notes/ml/practice/see/ml-see-supple-aug-2025.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ml",
-    "unit": "Practice",
-    "unitTitle": "Practice, Question Banks & Examination Papers",
     "title": "SEE Question Paper 2026 (July)",
     "subsections": [
       "ML · Practice, Question Banks & Examination Papers"
@@ -6715,7 +6392,7 @@
     "subject": "ml",
     "unit": "Practice",
     "unitTitle": "Practice, Question Banks & Examination Papers",
-    "title": "Unit 1 Qb",
+    "title": "SEE Supplementary Question Paper 2025",
     "subsections": [
       "ML · Practice, Question Banks & Examination Papers"
     ],
@@ -6723,99 +6400,28 @@
       "ml",
       "ml",
       "practice",
-      "pdf"
+      "pdf",
+      "see past paper"
+    ],
+    "path": "notes/ml/practice/see/ml-see-supple-aug-2025.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ml",
+    "unit": "Practice",
+    "unitTitle": "Practice, Question Banks & Examination Papers",
+    "title": "Unit 1 Question Bank & Exercises",
+    "subsections": [
+      "ML · Practice, Question Banks & Examination Papers"
+    ],
+    "keywords": [
+      "ml",
+      "ml",
+      "practice",
+      "pdf",
+      "practice"
     ],
     "path": "notes/ml/practice/unit-1-qb.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 1 Ã‚Â· Part 1",
-    "subsections": [
-      "SE · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/se/recent-notes/unit-1-1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 1 Ã‚Â· Part 2",
-    "subsections": [
-      "SE · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/se/recent-notes/unit-1-2.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 1 Ã‚Â· Part 3",
-    "subsections": [
-      "SE · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/se/recent-notes/unit-1-3.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2 Ã‚Â· Part 2",
-    "subsections": [
-      "SE · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/se/recent-notes/unit-2-2.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2 Ã‚Â· System Modeling (UML)",
-    "subsections": [
-      "SE · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/se/recent-notes/unit-2-system-modeling.pdf"
   },
   {
     "type": "file",
@@ -6840,7 +6446,7 @@
     "subject": "se",
     "unit": 1,
     "unitTitle": "Professional Software Development, Processes & Agile",
-    "title": "Unit 1 Ã‚Â· Part 1",
+    "title": "Unit 1 - Part 1: Professional Software Development & Ethics",
     "subsections": [
       "SE · Professional Software Development, Processes & Agile"
     ],
@@ -6848,16 +6454,17 @@
       "se",
       "se",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/se/unit1/unit-1-1.pdf"
+    "path": "notes/se/recent-notes/unit-1-1.pdf"
   },
   {
     "type": "file",
     "subject": "se",
     "unit": 1,
     "unitTitle": "Professional Software Development, Processes & Agile",
-    "title": "Unit 1 Ã‚Â· Part 2",
+    "title": "Unit 1 - Part 2: Software Process Models",
     "subsections": [
       "SE · Professional Software Development, Processes & Agile"
     ],
@@ -6865,16 +6472,17 @@
       "se",
       "se",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/se/unit1/unit-1-2.pdf"
+    "path": "notes/se/recent-notes/unit-1-2.pdf"
   },
   {
     "type": "file",
     "subject": "se",
     "unit": 1,
     "unitTitle": "Professional Software Development, Processes & Agile",
-    "title": "Unit 1 Ã‚Â· Part 3",
+    "title": "Unit 1 - Part 3: Agile Software Development & Scrum",
     "subsections": [
       "SE · Professional Software Development, Processes & Agile"
     ],
@@ -6882,9 +6490,10 @@
       "se",
       "se",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/se/unit1/unit-1-3.pdf"
+    "path": "notes/se/recent-notes/unit-1-3.pdf"
   },
   {
     "type": "file",
@@ -6909,7 +6518,7 @@
     "subject": "se",
     "unit": 2,
     "unitTitle": "Requirements Engineering & System Modeling",
-    "title": "Unit 2 Ã‚Â· Part 2",
+    "title": "Unit 2 - Part 2: Requirements Specification & Modeling",
     "subsections": [
       "SE · Requirements Engineering & System Modeling"
     ],
@@ -6917,16 +6526,17 @@
       "se",
       "se",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/se/unit2/unit-2-2.pdf"
+    "path": "notes/se/recent-notes/unit-2-2.pdf"
   },
   {
     "type": "file",
     "subject": "se",
     "unit": 2,
     "unitTitle": "Requirements Engineering & System Modeling",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
+    "title": "Unit 2 - System Modeling (Context, Interaction, Structural, Behavioral)",
     "subsections": [
       "SE · Requirements Engineering & System Modeling"
     ],
@@ -6934,60 +6544,10 @@
       "se",
       "se",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/se/unit2/unit-2.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": 2,
-    "unitTitle": "Requirements Engineering & System Modeling",
-    "title": "Unit 2 Ã‚Â· System Modeling (UML)",
-    "subsections": [
-      "SE · Requirements Engineering & System Modeling"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/se/unit2/unit-2-system-modeling.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 1 Archived Notes (Past Batch)",
-    "subsections": [
-      "SE · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/se/older-versions/se-unit1-archive.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "se",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 2 Archived Notes (Past Batch)",
-    "subsections": [
-      "SE · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "se",
-      "se",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/se/older-versions/se-unit2-archive.pdf"
+    "path": "notes/se/recent-notes/unit-2-system-modeling.pdf"
   },
   {
     "type": "file",
@@ -7011,7 +6571,7 @@
     "subject": "se",
     "unit": "Syllabus",
     "unitTitle": "Official Syllabus Document",
-    "title": "Software Engineering Syllabus 2026Ã¢â‚¬â€œ27",
+    "title": "Software Engineering Official Syllabus Document",
     "subsections": [
       "SE · Official Syllabus Document"
     ],
@@ -7036,7 +6596,8 @@
       "se",
       "se",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/se/pyq/pyq-answers.html"
   },
@@ -7151,60 +6712,6 @@
   {
     "type": "file",
     "subject": "cn",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 1: Physical & Data Link Layer Complete Deck",
-    "subsections": [
-      "CN · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "cn",
-      "cn",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/cn/recent-notes/cn-unit1-complete.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "cn",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2: Network Layer & Routing Complete Deck",
-    "subsections": [
-      "CN · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "cn",
-      "cn",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/cn/recent-notes/cn-unit2-complete.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "cn",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 3A: IPv4 Addressing & Subnetting",
-    "subsections": [
-      "CN · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "cn",
-      "cn",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/cn/recent-notes/cn-unit3a-ipv4.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "cn",
     "unit": 1,
     "unitTitle": "Introduction to Computer Networks & Physical Layer",
     "title": "Unit 1: Interactive Notes",
@@ -7225,7 +6732,7 @@
     "subject": "cn",
     "unit": 1,
     "unitTitle": "Introduction to Computer Networks & Physical Layer",
-    "title": "Unit1",
+    "title": "Unit 1 - Complete Lecture Deck: Physical & Data Link Layer",
     "subsections": [
       "CN · Introduction to Computer Networks & Physical Layer"
     ],
@@ -7233,9 +6740,10 @@
       "cn",
       "cn",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/cn/unit1/is53-cn-unit1.pdf"
+    "path": "notes/cn/recent-notes/cn-unit1-complete.pdf"
   },
   {
     "type": "file",
@@ -7260,7 +6768,7 @@
     "subject": "cn",
     "unit": 2,
     "unitTitle": "Data Link Layer & Medium Access Control",
-    "title": "Unit2",
+    "title": "Unit 2 - Complete Lecture Deck: Network Layer & Routing Protocols",
     "subsections": [
       "CN · Data Link Layer & Medium Access Control"
     ],
@@ -7268,9 +6776,10 @@
       "cn",
       "cn",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/cn/unit2/is53-cn-unit2.pdf"
+    "path": "notes/cn/recent-notes/cn-unit2-complete.pdf"
   },
   {
     "type": "file",
@@ -7295,7 +6804,7 @@
     "subject": "cn",
     "unit": 3,
     "unitTitle": "Network Layer: Services & IPv4 Addressing",
-    "title": "Unit 3A: IPv4 Addressing & Subnetting",
+    "title": "Unit 3A - IPv4 Addressing & Subnetting (CIDR & VLSM)",
     "subsections": [
       "CN · Network Layer: Services & IPv4 Addressing"
     ],
@@ -7303,43 +6812,10 @@
       "cn",
       "cn",
       "3",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/cn/unit3/is53-cn-unit3a-ipv4.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "cn",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 1 Archived Notes (Past Batch)",
-    "subsections": [
-      "CN · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "cn",
-      "cn",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/cn/older-versions/is53-cn-unit1-archive.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "cn",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 2 Archived Notes (Past Batch)",
-    "subsections": [
-      "CN · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "cn",
-      "cn",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/cn/older-versions/is53-cn-unit2-archive.pdf"
+    "path": "notes/cn/recent-notes/cn-unit3a-ipv4.pdf"
   },
   {
     "type": "file",
@@ -7354,7 +6830,8 @@
       "cn",
       "cn",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/cn/pyq/pyq-answers.html"
   },
@@ -7487,24 +6964,6 @@
   {
     "type": "file",
     "subject": "toc",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Theory of Computation Complete Handwritten Notebook",
-    "subsections": [
-      "TOC · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "toc",
-      "toc",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/toc/recent-notes/toc-notes-complete.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "toc",
     "unit": 1,
     "unitTitle": "Finite Automata Fundamentals & Nondeterminism",
     "title": "Unit 1: Interactive Notes",
@@ -7525,7 +6984,7 @@
     "subject": "toc",
     "unit": 1,
     "unitTitle": "Finite Automata Fundamentals & Nondeterminism",
-    "title": "Unit 1",
+    "title": "Theory of Computation Complete Course Notebook",
     "subsections": [
       "TOC · Finite Automata Fundamentals & Nondeterminism"
     ],
@@ -7533,26 +6992,10 @@
       "toc",
       "toc",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/toc/unit1/unit-1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "toc",
-    "unit": 1,
-    "unitTitle": "Finite Automata Fundamentals & Nondeterminism",
-    "title": "Unit 1 And 2 Alternate",
-    "subsections": [
-      "TOC · Finite Automata Fundamentals & Nondeterminism"
-    ],
-    "keywords": [
-      "toc",
-      "toc",
-      "1",
-      "pdf"
-    ],
-    "path": "notes/toc/unit1/toc-unit-1-and-2-alternate.pdf"
+    "path": "notes/toc/recent-notes/toc-notes-complete.pdf"
   },
   {
     "type": "file",
@@ -7575,23 +7018,6 @@
   {
     "type": "file",
     "subject": "toc",
-    "unit": 2,
-    "unitTitle": "Regular Expressions, Properties & Minimization",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "TOC · Regular Expressions, Properties & Minimization"
-    ],
-    "keywords": [
-      "toc",
-      "toc",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/toc/unit2/unit-2.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "toc",
     "unit": "PYQ",
     "unitTitle": "CIE-1 PYQ Bank & Model Answers",
     "title": "CIE-1 Solved PYQ Bank (Interactive)",
@@ -7602,7 +7028,8 @@
       "toc",
       "toc",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/toc/pyq/pyq-answers.html"
   },
@@ -7681,24 +7108,6 @@
   {
     "type": "file",
     "subject": "ai",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2: Adversarial Search & Game Playing",
-    "subsections": [
-      "AI · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/ai/recent-notes/ai-adversarial-search.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
     "unit": 1,
     "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
     "title": "Unit 1: Interactive Notes",
@@ -7713,57 +7122,6 @@
       "interactive notes"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": 1,
-    "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
-    "title": "Intro Intelligent Agents",
-    "subsections": [
-      "AI · Introduction to Artificial Intelligence & Intelligent Agents"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "1",
-      "pdf"
-    ],
-    "path": "notes/ai/unit1/ai-intro-intelligent-agents.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": 1,
-    "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
-    "title": "Problem Solving Agents",
-    "subsections": [
-      "AI · Introduction to Artificial Intelligence & Intelligent Agents"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "1",
-      "pdf"
-    ],
-    "path": "notes/ai/unit1/ai-problem-solving-agents.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": 1,
-    "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
-    "title": "Problem Solving Agents Alt",
-    "subsections": [
-      "AI · Introduction to Artificial Intelligence & Intelligent Agents"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "1",
-      "pdf"
-    ],
-    "path": "notes/ai/unit1/ai-problem-solving-agents-alt.pdf"
   },
   {
     "type": "file",
@@ -7788,7 +7146,7 @@
     "subject": "ai",
     "unit": 2,
     "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
-    "title": "Informed Search",
+    "title": "Unit 2 - Adversarial Search & Game Playing (Minimax & Alpha-Beta)",
     "subsections": [
       "AI · Problem-Solving, Search Algorithms & Game Playing"
     ],
@@ -7796,118 +7154,17 @@
       "ai",
       "ai",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/ai/unit2/ai-informed-search.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": 2,
-    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
-    "title": "Local Search",
-    "subsections": [
-      "AI · Problem-Solving, Search Algorithms & Game Playing"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/ai/unit2/ai-local-search.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": 2,
-    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
-    "title": "Uninformed Search",
-    "subsections": [
-      "AI · Problem-Solving, Search Algorithms & Game Playing"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/ai/unit2/ai-uninformed-search.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": 2,
-    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
-    "title": "Unit 2: Adversarial Search & Game Playing",
-    "subsections": [
-      "AI · Problem-Solving, Search Algorithms & Game Playing"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/ai/unit2/ai-adversarial-search.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "AI Consolidated Lecture Slide Decks",
-    "subsections": [
-      "AI · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/ai/older-versions/ai-consolidated-ppts.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "AI Unit 1 Archived Notes",
-    "subsections": [
-      "AI · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/ai/older-versions/ai-unit1-older-notes.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "ai",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "AI Unit 2 Archived Notes",
-    "subsections": [
-      "AI · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "ai",
-      "ai",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/ai/older-versions/ai-unit2-older-notes.pdf"
+    "path": "notes/ai/recent-notes/ai-adversarial-search.pdf"
   },
   {
     "type": "file",
     "subject": "ai",
     "unit": "Syllabus",
     "unitTitle": "Official Syllabus Document",
-    "title": "Ise552 Syllabus",
+    "title": "Artificial Intelligence Official Syllabus Document",
     "subsections": [
       "AI · Official Syllabus Document"
     ],
@@ -7924,7 +7181,7 @@
     "subject": "ai",
     "unit": "Syllabus",
     "unitTitle": "Official Syllabus Document",
-    "title": "Syllabus Screenshot",
+    "title": "Artificial Intelligence Official Syllabus Document",
     "subsections": [
       "AI · Official Syllabus Document"
     ],
@@ -7932,7 +7189,7 @@
       "ai",
       "ai",
       "syllabus",
-      "pdf"
+      "png"
     ],
     "path": "notes/ai/syllabus/ai-syllabus-screenshot.png"
   },
@@ -7949,7 +7206,8 @@
       "ai",
       "ai",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/ai/pyq/pyq-answers.html"
   },
@@ -8020,7 +7278,7 @@
       "ai",
       "ai",
       "practice",
-      "pdf",
+      "image",
       "cie question paper"
     ],
     "path": "notes/ai/practice/ai-sample-cie-question-board.jpeg"
@@ -8100,60 +7358,6 @@
   {
     "type": "file",
     "subject": "rmipr",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 1: Research Methodology Presentation",
-    "subsections": [
-      "RMIPR · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/rmipr/recent-notes/rm-ipr-unit1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2: Research Design & Sampling Presentation",
-    "subsections": [
-      "RMIPR · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/rmipr/recent-notes/rm-ipr-unit2.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 3: IPR & Patents (Part 1) Presentation",
-    "subsections": [
-      "RMIPR · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/rmipr/recent-notes/rm-ipr-unit3-part1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
     "unit": 1,
     "unitTitle": "Introduction to Research & Technical Literature Review",
     "title": "Unit 1: Interactive Notes",
@@ -8174,7 +7378,7 @@
     "subject": "rmipr",
     "unit": 1,
     "unitTitle": "Introduction to Research & Technical Literature Review",
-    "title": "Unit 1: Research Methodology Presentation",
+    "title": "Unit 1 - Research Methodology Presentation Deck",
     "subsections": [
       "RMIPR · Introduction to Research & Technical Literature Review"
     ],
@@ -8182,9 +7386,10 @@
       "rmipr",
       "rmipr",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/rmipr/unit1/rm-ipr-unit1.pdf"
+    "path": "notes/rmipr/recent-notes/rm-ipr-unit1.pdf"
   },
   {
     "type": "file",
@@ -8209,7 +7414,7 @@
     "subject": "rmipr",
     "unit": 2,
     "unitTitle": "Defining the Research Problem & Research Design",
-    "title": "Unit 2: Research Design & Sampling Presentation",
+    "title": "Unit 2 - Research Design & Sampling Presentation Deck",
     "subsections": [
       "RMIPR · Defining the Research Problem & Research Design"
     ],
@@ -8217,9 +7422,10 @@
       "rmipr",
       "rmipr",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/rmipr/unit2/rm-ipr-unit2.pdf"
+    "path": "notes/rmipr/recent-notes/rm-ipr-unit2.pdf"
   },
   {
     "type": "file",
@@ -8244,7 +7450,7 @@
     "subject": "rmipr",
     "unit": 3,
     "unitTitle": "Data Collection Methods & Sampling Design Fundamentals",
-    "title": "Statistical Tables & Distribution Reference",
+    "title": "Unit 3 - Intellectual Property Rights & Patents (Part 1)",
     "subsections": [
       "RMIPR · Data Collection Methods & Sampling Design Fundamentals"
     ],
@@ -8252,77 +7458,10 @@
       "rmipr",
       "rmipr",
       "3",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/rmipr/unit3/rmipr-statistical-tables.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": 3,
-    "unitTitle": "Data Collection Methods & Sampling Design Fundamentals",
-    "title": "Unit 3: IPR & Patents (Part 1) Presentation",
-    "subsections": [
-      "RMIPR · Data Collection Methods & Sampling Design Fundamentals"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "3",
-      "pdf"
-    ],
-    "path": "notes/rmipr/unit3/rm-ipr-unit3-part1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 1 Archived Notes (Past Batch)",
-    "subsections": [
-      "RMIPR · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/rmipr/older-versions/rmipr-unit1-archive.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 2 Archived Notes (Past Batch)",
-    "subsections": [
-      "RMIPR · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/rmipr/older-versions/rmipr-unit2-archive.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 3 Archived Notes (Past Batch)",
-    "subsections": [
-      "RMIPR · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/rmipr/older-versions/rmipr-unit3-archive.pdf"
+    "path": "notes/rmipr/recent-notes/rm-ipr-unit3-part1.pdf"
   },
   {
     "type": "file",
@@ -8337,45 +7476,10 @@
       "rmipr",
       "rmipr",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/rmipr/pyq/pyq-answers.html"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": "Practice",
-    "unitTitle": "Practice, Question Banks & Examination Papers",
-    "title": "Assignment 1 (Research Problem Formulation)",
-    "subsections": [
-      "RMIPR · Practice, Question Banks & Examination Papers"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "practice",
-      "pdf",
-      "assignment"
-    ],
-    "path": "notes/rmipr/practice/rmipr-assignment-1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "rmipr",
-    "unit": "Practice",
-    "unitTitle": "Practice, Question Banks & Examination Papers",
-    "title": "Assignment 2 (Research Design & Methods)",
-    "subsections": [
-      "RMIPR · Practice, Question Banks & Examination Papers"
-    ],
-    "keywords": [
-      "rmipr",
-      "rmipr",
-      "practice",
-      "pdf",
-      "assignment"
-    ],
-    "path": "notes/rmipr/practice/rmipr-assignment-2.pdf"
   },
   {
     "type": "file",
@@ -8436,6 +7540,42 @@
     "subject": "rmipr",
     "unit": "Practice",
     "unitTitle": "Practice, Question Banks & Examination Papers",
+    "title": "Assignment 1 (Research Problem Formulation)",
+    "subsections": [
+      "RMIPR · Practice, Question Banks & Examination Papers"
+    ],
+    "keywords": [
+      "rmipr",
+      "rmipr",
+      "practice",
+      "pdf",
+      "practice"
+    ],
+    "path": "notes/rmipr/practice/rmipr-assignment-1.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "rmipr",
+    "unit": "Practice",
+    "unitTitle": "Practice, Question Banks & Examination Papers",
+    "title": "Assignment 2 (Research Design & Methods)",
+    "subsections": [
+      "RMIPR · Practice, Question Banks & Examination Papers"
+    ],
+    "keywords": [
+      "rmipr",
+      "rmipr",
+      "practice",
+      "pdf",
+      "practice"
+    ],
+    "path": "notes/rmipr/practice/rmipr-assignment-2.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "rmipr",
+    "unit": "Practice",
+    "unitTitle": "Practice, Question Banks & Examination Papers",
     "title": "RM & IPR Important Questions & Model Answers",
     "subsections": [
       "RMIPR · Practice, Question Banks & Examination Papers"
@@ -8444,7 +7584,8 @@
       "rmipr",
       "rmipr",
       "practice",
-      "pdf"
+      "pdf",
+      "practice"
     ],
     "path": "notes/rmipr/practice/rmipr-important-questions.pdf"
   },
@@ -8462,7 +7603,7 @@
       "rmipr",
       "practice",
       "pdf",
-      "objective quiz"
+      "practice"
     ],
     "path": "notes/rmipr/practice/rmipr-quiz.pdf"
   },
@@ -8533,7 +7674,8 @@
       "rmipr",
       "rmipr",
       "practice",
-      "pdf"
+      "pdf",
+      "practice"
     ],
     "path": "notes/rmipr/practice/rmipr-makeup-apr-2025.pdf"
   },
@@ -8677,7 +7819,7 @@
       "rmipr",
       "practice",
       "pdf",
-      "revision worksheet"
+      "practice"
     ],
     "path": "notes/rmipr/practice/worksheets/rmipr-unit1-worksheet.pdf"
   },
@@ -8695,7 +7837,7 @@
       "rmipr",
       "practice",
       "pdf",
-      "revision worksheet"
+      "practice"
     ],
     "path": "notes/rmipr/practice/worksheets/rmipr-unit2-worksheet.pdf"
   },
@@ -8713,45 +7855,9 @@
       "rmipr",
       "practice",
       "pdf",
-      "revision worksheet"
+      "practice"
     ],
     "path": "notes/rmipr/practice/worksheets/rmipr-unit3-worksheet.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "reactjs",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 1: Foundations of React, Virtual DOM & JSX",
-    "subsections": [
-      "ReactJS · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "reactjs",
-      "reactjs",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/reactjs/recent-notes/reactjs-unit1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "reactjs",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2: Components, State Management & Hooks",
-    "subsections": [
-      "ReactJS · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "reactjs",
-      "reactjs",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/reactjs/recent-notes/reactjs-unit2.pdf"
   },
   {
     "type": "file",
@@ -8776,7 +7882,7 @@
     "subject": "reactjs",
     "unit": 1,
     "unitTitle": "Introduction to ReactJS & Component Architecture",
-    "title": "Unit 1: Foundations of React, Virtual DOM & JSX",
+    "title": "Unit 1 - Foundations of React, Virtual DOM & JSX",
     "subsections": [
       "ReactJS · Introduction to ReactJS & Component Architecture"
     ],
@@ -8784,9 +7890,10 @@
       "reactjs",
       "reactjs",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/reactjs/unit1/reactjs-unit1.pdf"
+    "path": "notes/reactjs/recent-notes/reactjs-unit1.pdf"
   },
   {
     "type": "file",
@@ -8811,7 +7918,7 @@
     "subject": "reactjs",
     "unit": 2,
     "unitTitle": "React Hooks, Events & Forms",
-    "title": "Unit 2: Components, State Management & Hooks",
+    "title": "Unit 2 - Components, State Management & Hooks",
     "subsections": [
       "ReactJS · React Hooks, Events & Forms"
     ],
@@ -8819,16 +7926,17 @@
       "reactjs",
       "reactjs",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/reactjs/unit2/reactjs-unit2.pdf"
+    "path": "notes/reactjs/recent-notes/reactjs-unit2.pdf"
   },
   {
     "type": "file",
     "subject": "reactjs",
     "unit": "Syllabus",
     "unitTitle": "Official Syllabus Document",
-    "title": "Syllabus Screenshot",
+    "title": "Frontend Development using React JS Official Syllabus Document",
     "subsections": [
       "ReactJS · Official Syllabus Document"
     ],
@@ -8836,7 +7944,7 @@
       "reactjs",
       "reactjs",
       "syllabus",
-      "pdf"
+      "png"
     ],
     "path": "notes/reactjs/syllabus/reactjs-syllabus-screenshot.png"
   },
@@ -8853,7 +7961,8 @@
       "reactjs",
       "reactjs",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/reactjs/pyq/pyq-answers.html"
   },
@@ -8878,42 +7987,6 @@
   {
     "type": "file",
     "subject": "evs",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 1: Ecosystems & Biodiversity Presentation",
-    "subsections": [
-      "EVS · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/evs/recent-notes/evs-unit-1.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": "RECENT",
-    "unitTitle": "Recent Notes (Latest Uploaded Material)",
-    "title": "Unit 2: Natural Resources Presentation",
-    "subsections": [
-      "EVS · Recent Notes (Latest Uploaded Material)"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "recent",
-      "pdf",
-      "recent upload"
-    ],
-    "path": "notes/evs/recent-notes/evs-unit-2.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
     "unit": 1,
     "unitTitle": "Environment, Ecosystems & Biodiversity",
     "title": "Unit 1: Interactive Notes",
@@ -8934,7 +8007,7 @@
     "subject": "evs",
     "unit": 1,
     "unitTitle": "Environment, Ecosystems & Biodiversity",
-    "title": "Unit 1",
+    "title": "Unit 1 - Ecosystems & Biodiversity Presentation Deck",
     "subsections": [
       "EVS · Environment, Ecosystems & Biodiversity"
     ],
@@ -8942,9 +8015,10 @@
       "evs",
       "evs",
       "1",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/evs/unit1/unit-1.pdf"
+    "path": "notes/evs/recent-notes/evs-unit-1.pdf"
   },
   {
     "type": "file",
@@ -8969,7 +8043,7 @@
     "subject": "evs",
     "unit": 2,
     "unitTitle": "Natural Resources & Conservation",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
+    "title": "Unit 2 - Natural Resources & Conservation Presentation Deck",
     "subsections": [
       "EVS · Natural Resources & Conservation"
     ],
@@ -8977,128 +8051,10 @@
       "evs",
       "evs",
       "2",
-      "pdf"
+      "pdf",
+      "recent notes"
     ],
-    "path": "notes/evs/unit2/unit-2-food-resources.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": 2,
-    "unitTitle": "Natural Resources & Conservation",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "EVS · Natural Resources & Conservation"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/evs/unit2/unit-2-forest-resources.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": 2,
-    "unitTitle": "Natural Resources & Conservation",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "EVS · Natural Resources & Conservation"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/evs/unit2/unit-2-land-resources.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": 2,
-    "unitTitle": "Natural Resources & Conservation",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "EVS · Natural Resources & Conservation"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/evs/unit2/unit-2-mineral-resources.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": 2,
-    "unitTitle": "Natural Resources & Conservation",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "EVS · Natural Resources & Conservation"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/evs/unit2/unit-2-water-resources.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": 2,
-    "unitTitle": "Natural Resources & Conservation",
-    "title": "Unit 2 Ã‚Â· Requirements Engineering",
-    "subsections": [
-      "EVS · Natural Resources & Conservation"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "2",
-      "pdf"
-    ],
-    "path": "notes/evs/unit2/unit-2.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 1: Ecosystems & Biodiversity Presentation",
-    "subsections": [
-      "EVS · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/evs/older-versions/evs-unit-1-notes-mcq-questions.pdf"
-  },
-  {
-    "type": "file",
-    "subject": "evs",
-    "unit": "ARCHIVE",
-    "unitTitle": "Older Versions / Archived Notes (Past Semesters)",
-    "title": "Unit 2: Natural Resources Presentation",
-    "subsections": [
-      "EVS · Older Versions / Archived Notes (Past Semesters)"
-    ],
-    "keywords": [
-      "evs",
-      "evs",
-      "archive",
-      "pdf"
-    ],
-    "path": "notes/evs/older-versions/evs-unit-2-notes-mcq-questions.pdf"
+    "path": "notes/evs/recent-notes/evs-unit-2.pdf"
   },
   {
     "type": "file",
@@ -9113,7 +8069,8 @@
       "evs",
       "evs",
       "pyq",
-      "pyq"
+      "pyq",
+      "solved pyq bank"
     ],
     "path": "notes/evs/pyq/pyq-answers.html"
   },

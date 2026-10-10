@@ -60,3 +60,25 @@ Per `data/scope.json`, only materials strictly corresponding to CIE-1 (13–16 O
 
 - ML Lab programs (`ML-1.ipynb`, `ML-Prog2.ipynb`, `ML-Prog-3.ipynb`) and SE Kanban Lab Manual are placed under `notes/<subject>/lab/`.
 - `.ipynb` files will have rendered HTML previews alongside raw `.ipynb` download links.
+
+---
+
+## 6. Strict Notes Policy: Interactive HTML + Handwritten + Recent Notes Only (Branch `only-recent-notes`)
+
+Per user directive on branch `only-recent-notes`:
+1. **Strict Unit Notes Structure:** Under the `Notes & Docs` tab for every subject, every unit displays ONLY and EXACTLY:
+   - **Row 1:** Interactive HTML Notes (`Unit N: Interactive Notes`)
+   - **Row 2:** Handwritten Notebook (`Handwritten notebook (PDF)`)
+   - **Row 3+:** Recent Notes — files mapped directly from the student's authoritative recent notes folder for that unit.
+2. **Removal of Old/Duplicate Slides:** All older faculty slide decks, old alternate/condensed TOC notes, chapter presentations, and past semester duplicate PDFs were unlinked from the site, un-indexed from search, and safely moved out of the served tree into the gitignored directory `archive/removed-from-site/<subject>/`. Over 186.4 MB (and over 230 MB with older archives) was pruned from the served tree, significantly shrinking the deployment payload.
+3. **Preservation of Non-Notes Categories:**
+   - **Solved PYQs:** Preserved in the dedicated `Solved PYQs` tab with interactive answers and vector handwritten revision sheets.
+   - **Practice & Question Papers:** Preserved in the `Practice` tab with CIE and SEE question paper bundles.
+   - **Official Syllabus Documents:** Preserved in the `Syllabus & Books` tab.
+   - **Laboratory Manuals & Notebooks:** Preserved in the `Laboratory` tab.
+   These categories are NOT study "notes" and remain intact without polluting the unit study note hierarchy.
+4. **Encoding & Title Sanity:**
+   - Eradicated all mojibake sequences (e.g. `Ãƒâ€šÃ‚·`, `Â`, `â€`).
+   - Fixed copy-pasted title bugs (e.g. "Requirements Engineering" incorrectly assigned to TOC and ML).
+   - Created automated audit script `scripts/verify_no_mojibake.py` to enforce zero encoding errors in CI/testing.
+

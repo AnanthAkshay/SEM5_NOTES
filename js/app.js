@@ -9,7 +9,7 @@
   // --- State & Constants ---
   const STORAGE_KEYS = {
     THEME: 'sem5_theme_v1',
-    PROGRESS: 'sem5_progress_v3',
+    PROGRESS: 'sem5_progress_v4',
     PINNED: 'sem5_pinned_v1'
   };
 
@@ -26,6 +26,7 @@
     }
 
     const raw = localStorage.getItem(STORAGE_KEYS.PROGRESS) ||
+                localStorage.getItem('sem5_progress_v3') ||
                 localStorage.getItem('sem5_progress_v2') ||
                 localStorage.getItem('sem5_progress_v1');
     if (raw) {
@@ -526,7 +527,7 @@
       <!-- Pill Segmented Control Tabs (Like One-Time/Monthly in Reference) -->
       <div class="subject-tabs-track">
         <button class="segmented-tab ${state.currentTab === 'notes' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('notes')">
-          Notes &amp; Docs (${subject.units.filter(u => !u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
+          Notes &amp; Docs (${subject.units.filter(u => !u.isPractice && typeof u.unitNumber === 'number').reduce((acc, u) => acc + u.files.length, 0)})
         </button>
         <button class="segmented-tab ${state.currentTab === 'pyq' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('pyq')">
           Solved PYQs
@@ -740,7 +741,7 @@
 
   // --- Render Units & Files List ---
   function renderUnitsList(subject, isPracticeOnly = false) {
-    const units = subject.units.filter(u => isPracticeOnly ? u.isPractice : !u.isPractice);
+    const units = subject.units.filter(u => isPracticeOnly ? u.isPractice : (!u.isPractice && typeof u.unitNumber === 'number'));
 
     if (units.length === 0) {
       return `
@@ -829,6 +830,8 @@
             <div class="file-title-wrap">
               <span class="file-title">${escapeHtml(file.title)}</span>
               ${file.tag ? `<span class="${isHandwrittenPdf ? 'pill-tag-purple' : 'pill-tag-green'}" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.tag)}</span>` : ''}
+              ${file.coverageTag ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">${escapeHtml(file.coverageTag)}</span>` : ''}
+              ${file.scopeTag ? `<span class="pill-tag-amber" style="font-size:10px;padding:2px 7px;background:rgba(245,158,11,0.15);color:#d97706;border:1px solid rgba(245,158,11,0.3);border-radius:999px;">${escapeHtml(file.scopeTag)}</span>` : ''}
               ${file.isAlternate ? `<span class="pill-tag-green" style="font-size:10px;padding:2px 7px;">Condensed</span>` : ''}
               ${file.isConverted ? `<span class="file-tag-converted">(Converted for preview)</span>` : ''}
               ${isLarge ? `<span class="kbd-shortcut" title="Consider alternate notes on mobile data">${largeNote}</span>` : ''}
@@ -850,6 +853,11 @@
             <a href="${file.path}" target="_blank" rel="noopener" class="pill-btn-outline pill-btn-sm" title="Open notes in new browser tab">
               ${ICONS.externalLink} <span>NEW TAB</span>
             </a>
+            ${file.originalPath ? `
+              <a href="${file.originalPath}" download class="pill-btn-outline pill-btn-sm" title="Download original format (${file.type.toUpperCase()})">
+                ${ICONS.download} <span>${file.originalPath.split('.').pop().toUpperCase()}</span>
+              </a>
+            ` : ''}
           ` : `
             <button class="pill-btn-green pill-btn-sm view-btn" onclick="window.SEM5_APP.openViewer('${file.id}')" title="Read in built-in PDF viewer">
               ${ICONS.eye} <span>VIEW</span>
@@ -1015,6 +1023,19 @@
             </div>
           </div>
         ` : ''}
+
+        ${(() => {
+          const sylUnit = subject.units.find(u => u.unitNumber === 'Syllabus');
+          if (!sylUnit || !sylUnit.files || sylUnit.files.length === 0) return '';
+          return `
+            <div class="syllabus-section-card" style="margin-top:1.25rem;">
+              <h2 class="syl-card-title">Official Syllabus &amp; Curriculum Documents</h2>
+              <div class="files-list" style="margin-top:0.75rem;">
+                ${sylUnit.files.map(f => renderFileRow(f, subject)).join('')}
+              </div>
+            </div>
+          `;
+        })()}
       </div>
     `;
   }
@@ -1047,6 +1068,19 @@
           <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-primary);">${escapeHtml(lab.title)}</h2>
           <p style="font-size:0.92rem;color:var(--text-secondary);">${escapeHtml(lab.description)}</p>
         </div>
+
+        ${(() => {
+          const labUnit = subject.units.find(u => u.unitNumber === 'Lab');
+          if (!labUnit || !labUnit.files || labUnit.files.length === 0) return '';
+          return `
+            <div class="syllabus-section-card" style="margin-bottom:1.5rem;">
+              <h3 class="syl-card-title" style="margin-bottom:0.75rem;">Laboratory Manuals, Programs &amp; Notebooks</h3>
+              <div class="files-list">
+                ${labUnit.files.map(f => renderFileRow(f, subject)).join('')}
+              </div>
+            </div>
+          `;
+        })()}
 
         ${lab.partA && lab.partA.length > 0 ? `
           <div class="lab-part-section">

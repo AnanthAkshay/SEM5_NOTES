@@ -134,16 +134,18 @@ This study website consolidates materials into an intuitive web interface with:
 
 | Exam Date & Time | Course Code | Subject Name | Type | Coordinator | CIE-1 Scope Portion | Registered Files & Size | Notes, PYQ & Handwritten Status |
 |---|---|---|---|---|---|---|---|
-| **Tue 13-10-2026, 09:30–10:30** | `24IS53` | **Computer Networks** | PCC | Suresh Kumar K R | Units 1, 2, Unit 3 up to "IPv4 Addressing – Classless" | **23 files** · 80.3 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, IPv4 deck |
-| **Tue 13-10-2026, 13:30–14:30** | `24ISAEC594` | **Frontend Dev using React JS** | AEC | J R Shruti | Units 1 & 2 (Full) | **12 files** · 9.1 MB | **CIE-1 Ready:** Units 1–2 Notes, 21 Solved PYQs, 3 Vector Handwritten Notebooks |
-| **Wed 14-10-2026, 09:30–10:30** | `24ISE552` | **Artificial Intelligence** | PEC | Dr. Jagadeesh Sai D | Units 1 & 2 (Full) | **27 files** · 20.6 MB | **CIE-1 Ready:** Units 1–2 Notes, Faculty 9-Q List, 22 Solved PYQs, 3 Vector Handwritten Notebooks |
-| **Wed 14-10-2026, 13:30–14:30** | `24IS52` | **Software Engineering** | IPCC | Mushtaq Ahmed D M | Units 1 & 2 (Full) | **27 files** · 13.4 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Agile Lab Manual |
-| **Thu 15-10-2026, 09:30–10:30** | `24IS51` | **Machine Learning** | PCC | Dr. Sumana M | Units 1, 2, Unit 3 (Regression only) | **51 files** · 31.1 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, Lab Notebooks |
-| **Thu 15-10-2026, 15:00–16:00** | `24AL58` | **Research Methodology & IPR** | HSMC | Dr. Anitha P | Units 1, 2, Unit 3 up to Sample Design Characteristics | **39 files** · 23.2 MB | **CIE-1 Ready:** Units 1–3 Notes, 23 Solved PYQs, 4 Vector Handwritten Notebooks, Worksheets |
-| **Fri 16-10-2026, 09:30–10:30** | `24HS510` | **Environmental Studies** | NCMC | Civil / H&S Faculty | Units 1 & 2 (Full) | **27 files** · 18.4 MB | **CIE-1 Ready:** Units 1–2 Notes, 25 Solved PYQs, 3 Vector Handwritten Notebooks, MCQ Bank |
-| **Fri 16-10-2026, 13:30–14:30** | `24IS54` | **Theory of Computation** | PCC | Dr. Rajeshwari S B | Units 1 & 2 (Full) | **14 files** · 87.2 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Course Notebook |
+| Exam Date & Time | Course Code | Subject Name | Type | Coordinator | CIE-1 Scope Portion | Registered Files & Size | Notes, PYQ & Handwritten Status |
+|---|---|---|---|---|---|---|---|
+| **Tue 13-10-2026, 09:30–10:30** | `24IS53` | **Computer Networks** | PCC | Suresh Kumar K R | Units 1, 2, Unit 3 up to "IPv4 Addressing – Classless" | **18 files** · 27.9 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Complete Unit 1 & 2 decks, Unit 3 IPv4) |
+| **Tue 13-10-2026, 13:30–14:30** | `24ISAEC594` | **Frontend Dev using React JS** | AEC | J R Shruti | Units 1 & 2 (Full) | **10 files** · 6.7 MB | **CIE-1 Ready:** Units 1–2 Notes, 21 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Complete Unit 1 & 2 decks) |
+| **Wed 14-10-2026, 09:30–10:30** | `24ISE552` | **Artificial Intelligence** | PEC | Dr. Jagadeesh Sai D | Units 1 & 2 (Full) | **17 files** · 7.8 MB | **CIE-1 Ready:** Units 1–2 Notes, Faculty 9-Q List, 22 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Search & Adversarial decks) |
+| **Wed 14-10-2026, 13:30–14:30** | `24IS52` | **Software Engineering** | IPCC | Mushtaq Ahmed D M | Units 1 & 2 (Full) | **19 files** · 7.3 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Unit 1.1–1.3, Unit 2.1–2.2), Agile Lab Manual |
+| **Thu 15-10-2026, 09:30–10:30** | `24IS51` | **Machine Learning** | PCC | Dr. Sumana M | Units 1, 2, Unit 3 (Regression only) | **33 files** · 19.5 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Ch 2–5 regression decks), Lab Notebooks |
+| **Thu 15-10-2026, 15:00–16:00** | `24AL58` | **Research Methodology & IPR** | HSMC | Dr. Anitha P | Units 1, 2, Unit 3 up to Sample Design Characteristics | **32 files** · 13.8 MB | **CIE-1 Ready:** Units 1–3 Notes, 23 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Units 1–3 PPTXs) |
+| **Fri 16-10-2026, 09:30–10:30** | `24HS510` | **Environmental Studies** | NCMC | Civil / H&S Faculty | Units 1 & 2 (Full) | **18 files** · 11.6 MB | **CIE-1 Ready:** Units 1–2 Notes, 25 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Unit 1 & 2 PPTXs, Unit 2 Topic PDFs) |
+| **Fri 16-10-2026, 13:30–14:30** | `24IS54` | **Theory of Computation** | PCC | Dr. Rajeshwari S B | Units 1 & 2 (Full) | **11 files** · 48.3 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Complete Course Notebook, 45.5 MB) |
 
-**Total Registry**: **220 registered files** across 8 subjects (**283.3 MB** total), **476 indexed search items**.
+**Total Registry**: **158 registered files** across 8 subjects (**142.9 MB** total), **414 indexed search items** (pruned >140 MB of older duplicate slides).
 
 ---
 
@@ -153,35 +155,35 @@ This study website consolidates materials into an intuitive web interface with:
 SEM5_NOTES/
 ├── index.html              # Main application shell (SPA architecture)
 ├── README.md               # Comprehensive documentation & verified syllabus matrix
-├── .gitignore              # Ignores OS, IDE, audit directories, and raw temp files
+├── .gitignore              # Ignores OS, IDE, audit directories, archive/, and textbooks
 ├── assets/
 │   └── katex/              # Self-hosted KaTeX (CSS, JS, and web fonts for offline math rendering)
 ├── css/
 │   ├── style.css           # Design tokens, themes, scheme view, lab programs & print styles
 │   └── notes.css           # Interactive study notes stylesheet (Hope Rise theme tokens, sidebar TOC)
 ├── js/
-│   ├── app.js              # Application controller, hash router, global search, and progress storage
+│   ├── app.js              # Application controller, hash router, global search, and progress storage (v4)
 │   └── notes.js            # Interactive notes engine (TOC scrollspy, collapsibles, copy buttons)
 ├── data/
-│   ├── subjects.js         # Single source of truth (220 files, V Sem Scheme, subjects, labs, timetables)
-│   ├── notes-index.json    # Compact global search index for all 476 searchable entries
+│   ├── subjects.js         # Single source of truth (158 files, V Sem Scheme, subjects, labs, timetables)
+│   ├── notes-index.json    # Compact global search index for all 414 searchable entries
 │   └── notes-index.js      # Offline fallback search index wrapper for file:// protocols
 ├── scripts/
-│   ├── sync_subjects_from_folders.py  # Synchronizes data/subjects.js from notes/ filesystem
+│   ├── sync_subjects_from_folders.py  # Synchronizes data/subjects.js strictly with HTML + Handwritten + Recent Notes
 │   ├── build_notes_index.py           # Generates data/notes-index.json and notes-index.js
+│   ├── verify_no_mojibake.py          # Enforces 0 mojibake and strict subject title matching
 │   ├── verify_cie1_gates.py           # Validates all 8 quality gates (Scope, Coverage, PYQ, Links, etc.)
-│   └── test_home_and_links.js         # Playwright regression test suite
+│   └── verify_viewer_and_subject_pages.js # Playwright strict unit notes & viewer validation suite
+├── archive/
+│   └── removed-from-site/  # Quarantined older faculty slides & duplicate PDFs (gitignored, off-site)
 └── notes/                  # URL-safe, lowercase, kebab-case document and study notes repository
     ├── <subject>/          # e.g., ml, se, cn, toc, ai, rmipr, reactjs, evs
-    │   ├── recent-notes/   # Latest uploaded lecture slides, presentations, and worksheets
-    │   ├── unit1/ unit2/   # Interactive HTML notes, faculty PDFs/decks, handwritten notebooks
+    │   ├── recent-notes/   # Latest uploaded lecture slides, presentations, and notebooks
+    │   ├── unit1/ unit2/   # Interactive HTML notes and handwritten notebook PDFs
     │   ├── unit3/          # (where within CIE-1 scope: ML, CN, RMIPR)
     │   ├── practice/       # Question banks, CIE papers, assignments, quizzes, and SEE papers
     │   ├── pyq/            # CIE-1 Solved PYQs (Interactive HTML & Handwritten PDF)
-    │   ├── syllabus/       # Official syllabus copies & outlines
-    │   ├── older-versions/ # Archived reference notes from past semesters
-    │   ├── lab/            # Lab manuals, programs, and Jupyter notebook previews
-    │   └── held/           # Out-of-scope units (Units 4, 5, etc.) held off the active study index
+    │   └── lab/ / syllabus/# Lab programs (.ipynb & HTML preview) and official syllabus documents
 ```
 
 ---
