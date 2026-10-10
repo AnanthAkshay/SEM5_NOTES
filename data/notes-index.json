@@ -1416,7 +1416,8 @@
     "subsections": [
       "Mark Questions (Short Answer)",
       "Mark Questions (Medium Length)",
-      "Mark Questions (Long Answer / Comprehensive)"
+      "Mark Questions (Long Answer / Comprehensive)",
+      "CLASSROOM SCAN\n            Curated Classroom Photo List (9 Core Examination Questions)"
     ],
     "keywords": [
       "Answer",
@@ -1424,7 +1425,16 @@
       "E (Environment)",
       "A (Actuators)",
       "S (Sensors)",
-      "Answer Summary"
+      "Thinking Humanly",
+      "Acting Humanly",
+      "Thinking Rationally",
+      "Acting Rationally",
+      "By Capability / Generality",
+      "Narrow AI (Weak AI)",
+      "General AI (Strong AI / AGI)",
+      "Artificial Superintelligence (ASI)",
+      "Reactive Machines",
+      "Limited Memory"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#important-questions"
   },
@@ -7126,6 +7136,42 @@
   {
     "type": "file",
     "subject": "ai",
+    "unit": 1,
+    "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
+    "title": "Unit 1 - Introduction to AI & Intelligent Agents Lecture Presentation",
+    "subsections": [
+      "AI · Introduction to Artificial Intelligence & Intelligent Agents"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "1",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-intro-intelligent-agents.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 1,
+    "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
+    "title": "Unit 1 - Important Questions Board Photo (9 Core Questions)",
+    "subsections": [
+      "AI · Introduction to Artificial Intelligence & Intelligent Agents"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "1",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-important-questions.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
     "unit": 2,
     "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
     "title": "Unit 2: Interactive Notes",
@@ -7140,6 +7186,96 @@
       "interactive notes"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 2,
+    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
+    "title": "Unit 2 - Problem-Solving Agents & State-Space Formulation",
+    "subsections": [
+      "AI · Problem-Solving, Search Algorithms & Game Playing"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "2",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-problem-solving-agents.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 2,
+    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
+    "title": "Unit 2 - Problem-Solving Agents (Problem Set & Formulation)",
+    "subsections": [
+      "AI · Problem-Solving, Search Algorithms & Game Playing"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "2",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-problem-solving-agents-ps.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 2,
+    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
+    "title": "Unit 2 - Uninformed Search Strategies (BFS, DFS, UCS, DLS, IDS)",
+    "subsections": [
+      "AI · Problem-Solving, Search Algorithms & Game Playing"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "2",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-uninformed-search.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 2,
+    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
+    "title": "Unit 2 - Informed Search Strategies (Heuristics, Greedy & A*)",
+    "subsections": [
+      "AI · Problem-Solving, Search Algorithms & Game Playing"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "2",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-informed-search.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 2,
+    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
+    "title": "Unit 2 - Local Search Algorithms (Hill Climbing & Simulated Annealing)",
+    "subsections": [
+      "AI · Problem-Solving, Search Algorithms & Game Playing"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "2",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-local-search.pdf"
   },
   {
     "type": "file",
