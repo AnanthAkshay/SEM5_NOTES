@@ -1377,11 +1377,189 @@
         <div class="q-group">
           <h3 class="q-group-title">10-Mark Questions (Long Answer / Comprehensive)</h3>
 
+        <div class="q-group" id="curated-photo-questions" style="margin-top:2rem; border-top:2px dashed var(--border); padding-top:1.5rem;">
+          <h3 class="q-group-title" style="display:flex; align-items:center; gap:0.5rem;">
+            <span class="q-badge" style="background:var(--green); color:#fff;">CLASSROOM SCAN</span>
+            <span>Curated Classroom Photo List (9 Core Examination Questions)</span>
+          </h3>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+            Directly transcribed and answered from the authoritative classroom blackboard revision photo (<code>notes/ai/recent-notes/ai-important-questions.jpg</code>):
+          </p>
+
+          <!-- Q1 -->
           <div class="qa-item">
             <details>
-              <summary><span class="q-badge">10M</span> Explain the five agent architectures with neat diagrams, and compare their operational mechanisms.</summary>
+              <summary><span class="q-badge">Q1</span> What is Artificial Intelligence?</summary>
               <div class="qa-answer">
-                <p><strong>Answer Summary:</strong> Discuss and draw diagrams for all 5 architectures as detailed in Section 6: Simple Reflex, Model-Based Reflex, Goal-Based, Utility-Based, and the 4 components of the Learning Agent (Critic, Learning Element, Performance Element, Problem Generator).</p>
+                <p><strong>Answer:</strong> Artificial Intelligence (AI) is the subfield of computer science dedicated to creating computational systems capable of performing tasks that typically require human intelligence, including perception, natural language understanding, reasoning, problem-solving, learning, and decision-making.</p>
+                <p>Per Russell &amp; Norvig (4th Edition), AI is formalized across four historical approaches:</p>
+                <ul>
+                  <li><strong>Thinking Humanly:</strong> Cognitive modeling validating that computational reasoning matches human brain traces.</li>
+                  <li><strong>Acting Humanly:</strong> The Turing Test approach assessing if machine conversation is indistinguishable from a human.</li>
+                  <li><strong>Thinking Rationally:</strong> Formal deductive logic ensuring mathematically valid inferences (Aristotelian syllogisms).</li>
+                  <li><strong>Acting Rationally:</strong> The rational agent standard requiring an agent to select actions that maximize expected performance given available percept history.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q2 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q2</span> What are the types of AI?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> AI is classified across two primary standard academic schemes:</p>
+                <ol>
+                  <li><strong>By Capability / Generality:</strong>
+                    <ul>
+                      <li><strong>Narrow AI (Weak AI):</strong> Specialized systems built for dedicated tasks (e.g., AlphaGo, Siri, facial recognition, spam filters). All current deployed AI systems belong here.</li>
+                      <li><strong>General AI (Strong AI / AGI):</strong> Hypothetical machines possessing human-level cognitive breadth capable of cross-domain reasoning, transfer learning, and abstract creativity.</li>
+                      <li><strong>Artificial Superintelligence (ASI):</strong> Theoretical future systems surpassing total human intellectual capability across all domains.</li>
+                    </ul>
+                  </li>
+                  <li><strong>By Architecture / Functionality (Hinton &amp; Russell):</strong>
+                    <ul>
+                      <li><strong>Reactive Machines:</strong> Pure stimulus-response without memory (e.g., IBM Deep Blue).</li>
+                      <li><strong>Limited Memory:</strong> Uses past history and transient memory to inform current choices (e.g., autonomous driving vehicles).</li>
+                      <li><strong>Theory of Mind:</strong> Understanding beliefs, desires, and intentions of other agents.</li>
+                      <li><strong>Self-Aware AI:</strong> Possesses consciousness and self-state metacognition.</li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q3 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q3</span> What is the difference between AI, Machine Learning, and Deep Learning?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> AI, ML, and DL form a hierarchical nested relationship ($\text{DL} \subset \text{ML} \subset \text{AI}$):</p>
+                <div class="table-container">
+                  <table class="data-table">
+                    <thead>
+                      <tr><th>Feature</th><th>Artificial Intelligence (AI)</th><th>Machine Learning (ML)</th><th>Deep Learning (DL)</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><strong>Scope</strong></td><td>Broadest umbrella field: creating intelligent computational behavior.</td><td>Subset of AI focused on learning patterns from data without explicit rules.</td><td>Specialized subset of ML using deep multi-layered artificial neural networks.</td></tr>
+                      <tr><td><strong>Core Paradigm</strong></td><td>Rule-based systems, expert systems, search, logic, and learning.</td><td>Statistical algorithms (Linear Regression, SVM, Decision Trees, Naive Bayes).</td><td>Representation learning (CNN, RNN, Transformers, ResNets) with automatic feature extraction.</td></tr>
+                      <tr><td><strong>Feature Engineering</strong></td><td>Manually hardcoded by knowledge engineers.</td><td>Requires human domain experts to craft input feature vectors.</td><td>End-to-end automatic hierarchy of feature representations learned from raw inputs.</td></tr>
+                      <tr><td><strong>Data Scale</strong></td><td>Can function on zero training data using search trees or logical inference.</td><td>Performs well on tabular and medium-sized structured datasets (thousands of rows).</td><td>Requires massive scale datasets (millions of parameters) and GPU acceleration.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q4 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q4</span> What are the applications of AI?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Major modern applications across industry and engineering:</p>
+                <ul>
+                  <li><strong>Healthcare &amp; Medicine:</strong> Automated oncology detection from radiological scans, protein folding prediction (AlphaFold), personalized pharmacogenomics, and ICU triage monitoring.</li>
+                  <li><strong>Autonomous Transportation:</strong> Self-driving vehicles (Waymo, Tesla FSD), intelligent traffic signal management (SCOOT), flight autopilots, and robotic warehouse logistics.</li>
+                  <li><strong>Natural Language Processing &amp; Software:</strong> Large Language Models (LLMs), machine translation, automated code completion (Copilot), and conversational agents.</li>
+                  <li><strong>Finance &amp; Banking:</strong> High-frequency algorithmic trading, credit risk assessment, and real-time fraud transaction scoring.</li>
+                  <li><strong>Robotics &amp; Manufacturing:</strong> Robotic assembly manipulation, predictive machinery maintenance, and automated visual quality inspection.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q5 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q5</span> What is an intelligent agent?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> An <strong>Agent</strong> is anything that can perceive its environment through <strong>sensors</strong> and act upon that environment through <strong>actuators</strong>.</p>
+                <p>Mathematically, the agent's behavior is dictated by an <strong>Agent Function</strong> $f$ which maps any given percept sequence $P^*$ to an action $A$:</p>
+                $$f: P^* \to A$$
+                <p>The <strong>Agent Program</strong> is the concrete implementation of the agent function executing on an underlying physical architecture ($\text{Agent} = \text{Architecture} + \text{Program}$).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q6 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q6</span> What are sensors and actuators?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <ul>
+                  <li><strong>Sensors:</strong> The hardware or software devices through which an agent receives percepts (data inputs) from the environment at any given time instant.</li>
+                  <li><strong>Actuators:</strong> The mechanisms or interfaces through which an agent directs actions to alter the physical or computational state of the environment.</li>
+                </ul>
+                <div class="table-container">
+                  <table class="data-table">
+                    <thead><tr><th>Agent Type</th><th>Sensors (Perception)</th><th>Actuators (Action)</th></tr></thead>
+                    <tbody>
+                      <tr><td><strong>Human Agent</strong></td><td>Eyes, ears, nose, taste buds, skin, proprioceptors.</td><td>Hands, legs, vocal cords, muscles.</td></tr>
+                      <tr><td><strong>Robotic Agent</strong></td><td>Cameras, infrared lidar, sonar, ultrasonic, tactile bump sensors.</td><td>Electric motors, hydraulic servos, robotic gripper hands, audio speakers.</td></tr>
+                      <tr><td><strong>Software Agent</strong></td><td>File inputs, network packet sockets, keystrokes, API requests.</td><td>File writes, network packets, display pixels, API responses.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q7 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q7</span> What is a rational agent?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> For each possible percept sequence, a <strong>rational agent</strong> should select an action that is expected to maximize its performance measure, given the evidence provided by the percept sequence and whatever built-in knowledge the agent has.</p>
+                <p>Rationality depends on four factors:</p>
+                <ol>
+                  <li>The <strong>Performance Measure</strong> that defines the criterion of success.</li>
+                  <li>The agent's <strong>prior knowledge</strong> of the environment.</li>
+                  <li>The <strong>actions</strong> that the agent can perform.</li>
+                  <li>The agent's <strong>percept sequence to date</strong>.</li>
+                </ol>
+                <p><em>Crucial Distinction:</em> Rationality is <strong>not omniscience</strong>. An omniscient agent knows the <em>actual</em> outcome of its actions and can act accordingly; a rational agent maximizes <em>expected</em> success based on limited information and exploratory learning.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q8 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q8</span> What are the different types of intelligent agents?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong> Russell &amp; Norvig classify agent programs into five progressively capable architectures:</p>
+                <ol>
+                  <li><strong>Simple Reflex Agent:</strong> Acts only on the basis of the current percept, using condition-action rules ($\text{if percept then action}$). Works only in fully observable environments.</li>
+                  <li><strong>Model-Based Reflex Agent:</strong> Maintains internal state to track aspects of the environment that cannot be seen now (handles partial observability).</li>
+                  <li><strong>Goal-Based Agent:</strong> Combines internal state with explicit goal descriptions to evaluate which sequence of actions will achieve the objective (involves search and planning).</li>
+                  <li><strong>Utility-Based Agent:</strong> Uses an explicit utility function mapping states to real numbers to weigh trade-offs and select the most desirable action among competing goals.</li>
+                  <li><strong>Learning Agent:</strong> Separates learning from performance across four components: <em>Critic</em> (evaluates behavior against performance standard), <em>Learning Element</em> (makes improvements), <em>Performance Element</em> (selects external actions), and <em>Problem Generator</em> (suggests exploratory actions).</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q9 -->
+          <div class="qa-item">
+            <details>
+              <summary><span class="q-badge">Q9</span> What is the difference between supervised and unsupervised learning?</summary>
+              <div class="qa-answer">
+                <p><strong>Answer:</strong></p>
+                <div class="table-container">
+                  <table class="data-table">
+                    <thead><tr><th>Criteria</th><th>Supervised Learning</th><th>Unsupervised Learning</th></tr></thead>
+                    <tbody>
+                      <tr><td><strong>Training Data</strong></td><td>Labeled data with ground-truth input-output pairs $(x_i, y_i)$.</td><td>Unlabeled data containing inputs only $\{x_i\}$.</td></tr>
+                      <tr><td><strong>Objective</strong></td><td>Learn a mapping function $f: X \to Y$ to predict outputs for new unseen test inputs.</td><td>Discover underlying structure, groupings, density, or hidden patterns in the data.</td></tr>
+                      <tr><td><strong>Core Tasks</strong></td><td><strong>Classification</strong> (discrete labels) and <strong>Regression</strong> (continuous values).</td><td><strong>Clustering</strong> (grouping items), <strong>Dimensionality Reduction</strong> (PCA), and <strong>Association Rules</strong>.</td></tr>
+                      <tr><td><strong>Feedback</strong></td><td>Direct error feedback (Loss = $y_{\text{true}} - \hat{y}$).</td><td>No supervisory feedback; optimized via heuristics (inertia, intra-cluster variance).</td></tr>
+                      <tr><td><strong>Algorithms</strong></td><td>Linear Regression, Logistic Regression, SVM, Random Forest, Neural Networks.</td><td>K-Means, Hierarchical Clustering, DBSCAN, Principal Component Analysis (PCA).</td></tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </details>
           </div>
