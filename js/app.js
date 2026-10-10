@@ -230,7 +230,7 @@
     state.currentSubjectId = subjectId;
     state.currentTab = subject.status === 'syllabus_only' ? 'syllabus' : 'notes';
     if (pushHistory) {
-      window.location.hash = `subject-${subjectId}`;
+      window.location.hash = `subject/${subjectId}`;
     }
 
     renderSubjectDetail(subject);
@@ -333,7 +333,10 @@
 
   // --- Favorites / Pinned Subjects ---
   function togglePinSubject(subjectId, e) {
-    if (e) e.stopPropagation();
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     const idx = state.pinned.indexOf(subjectId);
     if (idx > -1) {
       state.pinned.splice(idx, 1);
@@ -403,7 +406,7 @@
         }
 
         renderedCards.push(`
-          <div class="subject-card" onclick="window.SEM5_APP.openSubject('${subject.id}')" role="button" tabindex="0" aria-label="Open ${escapeHtml(subject.name)} notes">
+          <a href="#subject/${subject.id}" class="subject-card" data-subject="${subject.id}" data-href="#subject/${subject.id}" onclick="window.SEM5_APP.openSubject('${subject.id}'); return false;" role="button" tabindex="0" aria-label="Open ${escapeHtml(subject.name)} notes" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); window.SEM5_APP.openSubject('${subject.id}');}">
             <div class="card-top-row">
               <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
                 <span class="card-code-circle" aria-hidden="true">${escapeHtml(shortInitial)}</span>
@@ -437,7 +440,7 @@
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </span>
             </div>
-          </div>
+          </a>
         `);
       } catch (cardErr) {
         console.error(`Error rendering card for subject [${subject ? subject.id : 'unknown'}]:`, cardErr);

@@ -157,6 +157,22 @@ async function runTestSuite() {
         console.log(`  ✓ All 8 cards have complete original structure with single exam chip.`);
       }
 
+      // Assert that each card links to #subject/<id>
+      const cardsLinkValid = await page.evaluate(() => {
+        const cards = Array.from(document.querySelectorAll('.subject-card'));
+        return cards.every(c => {
+          const href = c.getAttribute('href');
+          const subId = c.getAttribute('data-subject');
+          return subId && href === `#subject/${subId}`;
+        });
+      });
+      if (!cardsLinkValid) {
+        console.error(`  ❌ Cards missing proper link to #subject/<id>`);
+        allTestsPassed = false;
+      } else {
+        console.log(`  ✓ Each card links directly to #subject/<id>.`);
+      }
+
       // Test filter pills
       // 1. All (8)
       await page.click('button[data-filter="all"]');
@@ -192,7 +208,7 @@ async function runTestSuite() {
       if (cfg.name === 'desktop' && cfg.theme === 'dark') {
         console.log('\nTesting Subject View Interaction (clicking Computer Networks)...');
         // Click CN card
-        await page.click('.subject-card[onclick*="cn"]');
+        await page.click('.subject-card[data-subject="cn"]');
         await page.waitForTimeout(400);
 
         const isSubjectActive = await page.evaluate(() => {
@@ -208,6 +224,23 @@ async function runTestSuite() {
         console.log(`  ✓ Subject View active: ${isSubjectActive}`);
         console.log(`  ✓ CIE-1 Scope line present: ${hasScopeLine}`);
         console.log(`  ✓ Tabs found: ${tabs.join(' | ')}`);
+
+        // Assert presence of Notes, Handwritten, Solved PYQs and Practice
+        const subjectFeatures = await page.evaluate(() => {
+          const tabsText = Array.from(document.querySelectorAll('.segmented-tab')).map(t => t.textContent.trim());
+          const hasNotesTab = tabsText.some(t => t.includes('Notes'));
+          const hasPyqTab = tabsText.some(t => t.includes('Solved PYQs') || t.includes('PYQ'));
+          const hasPracticeTab = tabsText.some(t => t.includes('Practice'));
+          const hasHandwrittenPills = !!document.querySelector('.file-type-handwritten') || !!document.querySelector('.pill-tag-purple');
+          return { hasNotesTab, hasPyqTab, hasPracticeTab, hasHandwrittenPills };
+        });
+
+        if (subjectFeatures.hasNotesTab && subjectFeatures.hasPyqTab && subjectFeatures.hasPracticeTab && subjectFeatures.hasHandwrittenPills) {
+          console.log('  ✓ Subject view successfully displays Notes, Handwritten, Solved PYQs, and Practice entries.');
+        } else {
+          console.error('  ❌ Subject view missing expected entries:', subjectFeatures);
+          allTestsPassed = false;
+        }
 
         // Switch to Solved PYQs tab
         const pyqTab = await page.$('.segmented-tab:has-text("Solved PYQs")');
@@ -268,6 +301,26 @@ async function runTestSuite() {
     }
     await testPage.close();
     console.log(`✓ Verified ${checkedCount} resource paths from subjects.js. Failed: ${failedCount}`);
+
+    // Verify every subject SPA page loads correctly via hash
+    console.log('\n' + '='.repeat(70));
+    console.log('CHECKING ALL 8 SUBJECT DETAIL SPA VIEWS');
+    console.log('='.repeat(70));
+    const subPage = await browser.newPage();
+    for (const sub of subjectsData) {
+      await subPage.goto(`http://localhost:${PORT}/SEM5_NOTES/#subject/${sub.id}`, { waitUntil: 'networkidle' });
+      const title = await subPage.evaluate(() => {
+        const el = document.querySelector('.subject-view-title');
+        return el ? el.textContent.trim() : '';
+      });
+      if (!title) {
+        console.error(`  ❌ Subject view failed to load for ${sub.id}`);
+        allTestsPassed = false;
+      } else {
+        console.log(`  ✓ Subject view loaded: ${sub.id} -> "${title}"`);
+      }
+    }
+    await subPage.close();
 
   } finally {
     await browser.close();
