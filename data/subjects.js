@@ -2189,13 +2189,69 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
+              "id": "ai-ai-problem-solving-agents-pdf",
+              "title": "Unit 2 - Problem-Solving Agents & State-Space Formulation",
+              "originalName": "AI-Intelligent_Agents.pdf",
+              "path": "notes/ai/recent-notes/ai-problem-solving-agents.pdf",
+              "type": "pdf",
+              "sizeBytes": 418510,
+              "size": "409 KB",
+              "pages": 15,
+              "tag": "Recent Notes"
+            },
+            {
+              "id": "ai-ai-problem-solving-agents-ps-pdf",
+              "title": "Unit 2 - Problem-Solving Agents (Problem Set & Formulation)",
+              "originalName": "AI-Intelligent_Agents-PS.pdf",
+              "path": "notes/ai/recent-notes/ai-problem-solving-agents-ps.pdf",
+              "type": "pdf",
+              "sizeBytes": 419163,
+              "size": "410 KB",
+              "pages": 16,
+              "tag": "Recent Notes"
+            },
+            {
+              "id": "ai-ai-uninformed-search-pdf",
+              "title": "Unit 2 - Uninformed Search Strategies (BFS, DFS, UCS, DLS, IDS)",
+              "originalName": "AI-AGENTS-Uninformed_Search.pdf",
+              "path": "notes/ai/recent-notes/ai-uninformed-search.pdf",
+              "type": "pdf",
+              "sizeBytes": 174456,
+              "size": "171 KB",
+              "pages": 15,
+              "tag": "Recent Notes"
+            },
+            {
+              "id": "ai-ai-informed-search-pdf",
+              "title": "Unit 2 - Informed Search Strategies (Heuristics, Greedy & A*)",
+              "originalName": "AI-Informed_Search.pdf",
+              "path": "notes/ai/recent-notes/ai-informed-search.pdf",
+              "type": "pdf",
+              "sizeBytes": 177846,
+              "size": "174 KB",
+              "pages": 19,
+              "tag": "Recent Notes"
+            },
+            {
+              "id": "ai-ai-local-search-pdf",
+              "title": "Unit 2 - Local Search Algorithms (Hill Climbing & Simulated Annealing)",
+              "originalName": "AI-Local_Search.pdf",
+              "path": "notes/ai/recent-notes/ai-local-search.pdf",
+              "type": "pdf",
+              "sizeBytes": 174371,
+              "size": "171 KB",
+              "pages": 19,
+              "tag": "Recent Notes"
+            },
+            {
               "id": "ai-ai-adversarial-search-pdf",
               "title": "Unit 2 - Adversarial Search & Game Playing (Minimax & Alpha-Beta)",
-              "originalName": "ai-adversarial-search.pdf",
+              "originalName": "AI-Adversarial_Search.pdf",
               "path": "notes/ai/recent-notes/ai-adversarial-search.pdf",
               "type": "pdf",
               "sizeBytes": 194418,
               "size": "190 KB",
+              "pages": 19,
               "tag": "Recent Notes"
             }
           ]
@@ -3732,9 +3788,9 @@ window.SEM5_DATA = {
     }
   ],
   "meta": {
-    "totalFiles": 158,
-    "totalSize": "142.9 MB",
-    "totalSizeBytes": 149817118,
+    "totalFiles": 165,
+    "totalSize": "145.8 MB",
+    "totalSizeBytes": 152921194,
     "lastUpdated": "2026-10-10",
     "academicYear": "2026–2027",
     "semester": "Semester V",
