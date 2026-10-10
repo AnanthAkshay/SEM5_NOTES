@@ -132,6 +132,7 @@
     const isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent || navigator.platform || '');
     document.querySelectorAll('.search-keycap-hint').forEach(el => {
       el.textContent = isMac ? 'Cmd K' : 'Ctrl K';
+    });
     if (elements.currentYearSpan) {
       elements.currentYearSpan.textContent = new Date().getFullYear();
     }
@@ -360,9 +361,9 @@
     if (state.activeFilter === 'core') {
       list = list.filter(s => s.tags && s.tags.some(t => t.toLowerCase().includes('core')));
     } else if (state.activeFilter === 'elective') {
-      list = list.filter(s => s.tags && s.tags.some(t => t.toLowerCase().includes('elective')));
+      list = list.filter(s => !s.tags || !s.tags.some(t => t.toLowerCase().includes('core')));
     } else if (state.activeFilter === 'practice') {
-      list = list.filter(s => s.units.some(u => u.isPractice));
+      list = list.filter(s => s.units && s.units.some(u => u.isPractice || (u.files && u.files.some(f => f.type === 'pyq' || f.isPYQ))));
     }
 
     list.sort((a, b) => {
@@ -373,70 +374,77 @@
       return 0;
     });
 
-    elements.subjectsGrid.innerHTML = list.map(subject => {
-      const isPinned = state.pinned.includes(subject.id);
-      const progress = getSubjectProgress(subject);
-      const shortInitial = subject.shortName || subject.code;
+    const renderedCards = [];
+    list.forEach(subject => {
+      try {
+        const isPinned = state.pinned.includes(subject.id);
+        const progress = getSubjectProgress(subject);
+        const shortInitial = subject.shortName || subject.code;
 
-      // Dynamic Hashtag chips based on actual contents
-      const chips = [];
-      const hasInteractiveNotes = subject.units.some(u => u.files && u.files.some(f => f.type === 'notes'));
-      if (hasInteractiveNotes) {
-        chips.push('# Interactive notes');
-      } else if (subject.status === 'full_notes') {
-        chips.push('# Notes');
-      } else {
-        chips.push('# Syllabus only');
-      }
-      const hasHandwritten = subject.units.some(u => u.files && u.files.some(f => f.type === 'handwritten'));
-      if (hasHandwritten) {
-        chips.push('# Handwritten notebooks');
-      }
-      if (subject.units.some(u => u.isPractice)) {
-        chips.push('# Practice');
-      }
-      if (subject.lab) {
-        chips.push('# Lab (Syllabus only)');
-      }
+        // Dynamic Hashtag chips based on actual contents
+        const chips = [];
+        const hasInteractiveNotes = subject.units && subject.units.some(u => u.files && u.files.some(f => f.type === 'notes'));
+        if (hasInteractiveNotes) {
+          chips.push('# Interactive notes');
+        } else if (subject.status === 'full_notes') {
+          chips.push('# Notes');
+        } else {
+          chips.push('# Syllabus only');
+        }
+        const hasHandwritten = subject.units && subject.units.some(u => u.files && u.files.some(f => f.type === 'handwritten'));
+        if (hasHandwritten) {
+          chips.push('# Handwritten notebooks');
+        }
+        if (subject.units && subject.units.some(u => u.isPractice)) {
+          chips.push('# Practice');
+        }
+        if (subject.lab) {
+          chips.push('# Lab (Syllabus only)');
+        }
 
-      return `
-        <div class="subject-card" onclick="window.SEM5_APP.openSubject('${subject.id}')" role="button" tabindex="0" aria-label="Open ${escapeHtml(subject.name)} notes">
-          <div class="card-top-row">
-            <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
-              <span class="card-code-circle" aria-hidden="true">${escapeHtml(shortInitial)}</span>
-              ${getExamChip(subject)}
-            </div>
-            <button class="pin-btn ${isPinned ? 'pinned' : ''}" onclick="window.SEM5_APP.togglePinSubject('${subject.id}', event)" title="${isPinned ? 'Unpin' : 'Pin subject to top'}" aria-label="${isPinned ? 'Unpin' : 'Pin'}">
-              ${isPinned ? ICONS.pinnedFilled : ICONS.pin}
-            </button>
-          </div>
-
-          <div class="card-main-info">
-            <h3 class="card-title">${escapeHtml(subject.name)}</h3>
-            <p class="card-desc">${escapeHtml(subject.description)}</p>
-            <div class="card-meta-line">
-              <span>${escapeHtml(subject.credits || 'TBD')} Credits</span>
-              ${subject.coordinator ? ` · <span>${escapeHtml(subject.coordinator)}</span>` : ''}
-              ${subject.contactHours ? ` · <span>${escapeHtml(subject.contactHours)}</span>` : ''}
-            </div>
-            ${progress.total > 0 ? `
-              <div class="card-progress-pill" title="${progress.completed} of ${progress.total} studied (${progress.pct}%)">
-                <div class="card-progress-fill" style="width: ${progress.pct}%;"></div>
+        renderedCards.push(`
+          <div class="subject-card" onclick="window.SEM5_APP.openSubject('${subject.id}')" role="button" tabindex="0" aria-label="Open ${escapeHtml(subject.name)} notes">
+            <div class="card-top-row">
+              <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+                <span class="card-code-circle" aria-hidden="true">${escapeHtml(shortInitial)}</span>
+                ${getExamChip(subject)}
               </div>
-            ` : ''}
-          </div>
-
-          <div class="card-footer-row">
-            <div class="card-chips-left">
-              ${chips.map(chip => `<span class="hash-chip">${escapeHtml(chip)}</span>`).join('')}
+              <button class="pin-btn ${isPinned ? 'pinned' : ''}" onclick="window.SEM5_APP.togglePinSubject('${subject.id}', event)" title="${isPinned ? 'Unpin' : 'Pin subject to top'}" aria-label="${isPinned ? 'Unpin' : 'Pin'}">
+                ${isPinned ? ICONS.pinnedFilled : ICONS.pin}
+              </button>
             </div>
-            <span class="card-arrow-btn" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </span>
+
+            <div class="card-main-info">
+              <h3 class="card-title">${escapeHtml(subject.name)}</h3>
+              <p class="card-desc">${escapeHtml(subject.description)}</p>
+              <div class="card-meta-line">
+                <span>${escapeHtml(subject.credits || 'TBD')} Credits</span>
+                ${subject.coordinator ? ` · <span>${escapeHtml(subject.coordinator)}</span>` : ''}
+                ${subject.contactHours ? ` · <span>${escapeHtml(subject.contactHours)}</span>` : ''}
+              </div>
+              ${progress.total > 0 ? `
+                <div class="card-progress-pill" title="${progress.completed} of ${progress.total} studied (${progress.pct}%)">
+                  <div class="card-progress-fill" style="width: ${progress.pct}%;"></div>
+                </div>
+              ` : ''}
+            </div>
+
+            <div class="card-footer-row">
+              <div class="card-chips-left">
+                ${chips.map(chip => `<span class="hash-chip">${escapeHtml(chip)}</span>`).join('')}
+              </div>
+              <span class="card-arrow-btn" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </span>
+            </div>
           </div>
-        </div>
-      `;
-    }).join('');
+        `);
+      } catch (cardErr) {
+        console.error(`Error rendering card for subject [${subject ? subject.id : 'unknown'}]:`, cardErr);
+      }
+    });
+
+    elements.subjectsGrid.innerHTML = renderedCards.join('');
   }
 
   // --- Render Subject Detail View ---
