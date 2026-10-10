@@ -82,3 +82,23 @@ Per user directive on branch `only-recent-notes`:
    - Fixed copy-pasted title bugs (e.g. "Requirements Engineering" incorrectly assigned to TOC and ML).
    - Created automated audit script `scripts/verify_no_mojibake.py` to enforce zero encoding errors in CI/testing.
 
+---
+
+## 7. AI (ISE552) Recent Notes Resolution & Problem-Solving Variant
+
+1. **`AI-2.pdf` vs Unit Assignment:**
+   - Rendered inspection proved `AI-2.pdf` is the comprehensive lecture presentation for Unit 1 (*Introduction to Artificial Intelligence & Intelligent Agents*). Mapped to `Unit 1 Recent Notes` as `ai-intelligent-agents-intro.pdf`.
+2. **`AI-Intelligent_Agents.pdf` vs `AI-Intelligent_Agents-PS.pdf`:**
+   - Both files cover Problem-Solving Agents (Initial State, Actions, Transition Model, Goal Test, Path Cost, Bengaluru → Hyderabad state space).
+   - `AI-Intelligent_Agents.pdf` contains 15 slides.
+   - `AI-Intelligent_Agents-PS.pdf` contains the exact same 15 content slides plus a 16th trailing blank slide.
+   - To preserve both without confusion while maintaining distinct metadata:
+     - `AI-Intelligent_Agents.pdf` is registered as `"Problem-Solving Agents & State-Space Formulation"` (`ai-problem-solving-agents.pdf`).
+     - `AI-Intelligent_Agents-PS.pdf` is registered as `"Problem-Solving Agents (Problem Set & Formulation)"` (`ai-problem-solving-agents-ps.pdf`).
+3. **Local Search & Adversarial Search Scope:**
+   - In the MSRIT ISE552 syllabus, Local Search and Adversarial Search are explicitly topics 4 and 5 of **Unit 2** (NOT Unit 3).
+   - Since Unit 2 is fully in CIE-1 scope, both `ai-local-search.pdf` and `ai-adversarial-search.pdf` are 100% in-scope under Unit 2.
+4. **Important Questions Board Photo:**
+   - The WhatsApp image lists 9 core Unit 1 questions. Preserved under `notes/ai/recent-notes/ai-important-questions.jpg` and registered in Unit 1 Recent Notes. Full model answers are accessible on both the Unit 1 HTML page and the AI Solved PYQs page.
+
+
