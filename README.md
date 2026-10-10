@@ -134,18 +134,16 @@ This study website consolidates materials into an intuitive web interface with:
 
 | Exam Date & Time | Course Code | Subject Name | Type | Coordinator | CIE-1 Scope Portion | Registered Files & Size | Notes, PYQ & Handwritten Status |
 |---|---|---|---|---|---|---|---|
-| Exam Date & Time | Course Code | Subject Name | Type | Coordinator | CIE-1 Scope Portion | Registered Files & Size | Notes, PYQ & Handwritten Status |
-|---|---|---|---|---|---|---|---|
 | **Tue 13-10-2026, 09:30–10:30** | `24IS53` | **Computer Networks** | PCC | Suresh Kumar K R | Units 1, 2, Unit 3 up to "IPv4 Addressing – Classless" | **18 files** · 27.9 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Complete Unit 1 & 2 decks, Unit 3 IPv4) |
 | **Tue 13-10-2026, 13:30–14:30** | `24ISAEC594` | **Frontend Dev using React JS** | AEC | J R Shruti | Units 1 & 2 (Full) | **10 files** · 6.7 MB | **CIE-1 Ready:** Units 1–2 Notes, 21 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Complete Unit 1 & 2 decks) |
-| **Wed 14-10-2026, 09:30–10:30** | `24ISE552` | **Artificial Intelligence** | PEC | Dr. Jagadeesh Sai D | Units 1 & 2 (Full) | **17 files** · 7.8 MB | **CIE-1 Ready:** Units 1–2 Notes, Faculty 9-Q List, 22 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Search & Adversarial decks) |
+| **Wed 14-10-2026, 09:30–10:30** | `24ISE552` | **Artificial Intelligence** | PEC | Dr. Jagadeesh Sai D | Units 1 & 2 (Full) | **24 files** · 10.8 MB | **CIE-1 Ready:** Units 1–2 Notes, Faculty 9-Q List (Photo scan & answers), 22 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Intro, Problem-Solving, Uninformed, Informed, Local & Adversarial decks) |
 | **Wed 14-10-2026, 13:30–14:30** | `24IS52` | **Software Engineering** | IPCC | Mushtaq Ahmed D M | Units 1 & 2 (Full) | **19 files** · 7.3 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Unit 1.1–1.3, Unit 2.1–2.2), Agile Lab Manual |
 | **Thu 15-10-2026, 09:30–10:30** | `24IS51` | **Machine Learning** | PCC | Dr. Sumana M | Units 1, 2, Unit 3 (Regression only) | **33 files** · 19.5 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Ch 2–5 regression decks), Lab Notebooks |
 | **Thu 15-10-2026, 15:00–16:00** | `24AL58` | **Research Methodology & IPR** | HSMC | Dr. Anitha P | Units 1, 2, Unit 3 up to Sample Design Characteristics | **32 files** · 13.8 MB | **CIE-1 Ready:** Units 1–3 Notes, 23 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Units 1–3 PPTXs) |
 | **Fri 16-10-2026, 09:30–10:30** | `24HS510` | **Environmental Studies** | NCMC | Civil / H&S Faculty | Units 1 & 2 (Full) | **18 files** · 11.6 MB | **CIE-1 Ready:** Units 1–2 Notes, 25 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Unit 1 & 2 PPTXs, Unit 2 Topic PDFs) |
 | **Fri 16-10-2026, 13:30–14:30** | `24IS54` | **Theory of Computation** | PCC | Dr. Rajeshwari S B | Units 1 & 2 (Full) | **11 files** · 48.3 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Complete Course Notebook, 45.5 MB) |
 
-**Total Registry**: **158 registered files** across 8 subjects (**142.9 MB** total), **414 indexed search items** (pruned >140 MB of older duplicate slides).
+**Total Registry**: **165 registered files** across 8 subjects (**145.8 MB** total), **421 indexed search items**.
 
 ---
 
