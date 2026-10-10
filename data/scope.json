@@ -173,6 +173,9 @@
         "Unit 3: Knowledge Representation, First-Order Logic, Inference in FOL, Unification, Forward & Backward chaining, Resolution, Ontological engineering",
         "Unit 4: Classical Planning, State space planning, Planning graph, Partial-order planning, Hierarchical task networks",
         "Unit 5: Uncertainty & Probabilistic Reasoning, Bayesian Networks, Exact inference by enumeration, Markov models, Hidden Markov Models (HMM)"
+      ],
+      "held_files": [
+        "notes/ai/held/ai-units-3-4-5-incomplete.pdf"
       ]
     },
     "se": {
