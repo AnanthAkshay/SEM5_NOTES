@@ -127,6 +127,41 @@ RECENT_NOTES_REGISTRY = {
         }
     },
     'ai': {
+        'ai-intro-intelligent-agents.pdf': {
+            'unit': 1,
+            'title': "Unit 1 - Introduction to AI & Intelligent Agents Lecture Presentation",
+            'tag': "Recent Notes"
+        },
+        'ai-important-questions.pdf': {
+            'unit': 1,
+            'title': "Unit 1 - Important Questions Board Photo (9 Core Questions)",
+            'tag': "Recent Notes"
+        },
+        'ai-problem-solving-agents.pdf': {
+            'unit': 2,
+            'title': "Unit 2 - Problem-Solving Agents & State-Space Formulation",
+            'tag': "Recent Notes"
+        },
+        'ai-problem-solving-agents-ps.pdf': {
+            'unit': 2,
+            'title': "Unit 2 - Problem-Solving Agents (Problem Set & Formulation)",
+            'tag': "Recent Notes"
+        },
+        'ai-uninformed-search.pdf': {
+            'unit': 2,
+            'title': "Unit 2 - Uninformed Search Strategies (BFS, DFS, UCS, DLS, IDS)",
+            'tag': "Recent Notes"
+        },
+        'ai-informed-search.pdf': {
+            'unit': 2,
+            'title': "Unit 2 - Informed Search Strategies (Heuristics, Greedy & A*)",
+            'tag': "Recent Notes"
+        },
+        'ai-local-search.pdf': {
+            'unit': 2,
+            'title': "Unit 2 - Local Search Algorithms (Hill Climbing & Simulated Annealing)",
+            'tag': "Recent Notes"
+        },
         'ai-adversarial-search.pdf': {
             'unit': 2,
             'title': "Unit 2 - Adversarial Search & Game Playing (Minimax & Alpha-Beta)",
