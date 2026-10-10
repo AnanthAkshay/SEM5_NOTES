@@ -9,37 +9,36 @@
   // --- State & Constants ---
   const STORAGE_KEYS = {
     THEME: 'sem5_theme_v1',
-    PROGRESS: 'sem5_progress_v2',
+    PROGRESS: 'sem5_progress_v3',
     PINNED: 'sem5_pinned_v1'
   };
 
   function loadAndMigrateProgress() {
-    const raw = localStorage.getItem(STORAGE_KEYS.PROGRESS);
-    if (raw) {
-      try { return JSON.parse(raw); } catch (e) { return {}; }
-    }
-    const v1Raw = localStorage.getItem('sem5_progress_v1');
-    if (v1Raw) {
-      try {
-        const v1 = JSON.parse(v1Raw);
-        const validIds = new Set();
-        if (window.SEM5_DATA && window.SEM5_DATA.subjects) {
-          window.SEM5_DATA.subjects.forEach(s => {
-            if (s.units) {
-              s.units.forEach(u => {
-                if (u.files) u.files.forEach(f => validIds.add(f.id));
-              });
-            }
+    const validIds = new Set();
+    if (window.SEM5_DATA && window.SEM5_DATA.subjects) {
+      window.SEM5_DATA.subjects.forEach(s => {
+        if (s.units) {
+          s.units.forEach(u => {
+            if (u.files) u.files.forEach(f => validIds.add(f.id));
           });
         }
-        const v2 = {};
-        Object.keys(v1).forEach(k => {
-          if (validIds.has(k)) {
-            v2[k] = true;
+      });
+    }
+
+    const raw = localStorage.getItem(STORAGE_KEYS.PROGRESS) ||
+                localStorage.getItem('sem5_progress_v2') ||
+                localStorage.getItem('sem5_progress_v1');
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        const migrated = {};
+        Object.keys(parsed).forEach(k => {
+          if (validIds.has(k) && parsed[k]) {
+            migrated[k] = true;
           }
         });
-        localStorage.setItem(STORAGE_KEYS.PROGRESS, JSON.stringify(v2));
-        return v2;
+        localStorage.setItem(STORAGE_KEYS.PROGRESS, JSON.stringify(migrated));
+        return migrated;
       } catch (e) {
         return {};
       }

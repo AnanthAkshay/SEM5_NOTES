@@ -13,10 +13,10 @@
 | **Gate 1: Scope Gate** | Zero out-of-scope sections served; ground truth in `data/scope.json` | **PASS** | 19 in-scope units verified across 8 subjects; 0 out-of-scope files served. |
 | **Gate 2: Coverage Gate** | 100% of syllabus topics covered; all notes & notebooks present | **PASS** | All 19 in-scope units and 8 PYQ notebooks verified present on disk. |
 | **Gate 3: PYQ Gate** | All questions extracted, model answers written, citations verified | **PASS** | **175 in-scope answered**, 115 out-of-scope held, 0 unverified. |
-| **Gate 4: Link Gate** | All paths, PDFs, and previews resolve to 200 on disk | **PASS** | 98 registered files verified present on disk; zero broken paths. |
+| **Gate 4: Link Gate** | All paths, PDFs, and previews resolve to 200 on disk | **PASS** | 220 registered files verified present on disk; zero broken paths. |
 | **Gate 5: Style Gate** | Hope Rise design tokens, responsive typography, AA contrast | **PASS** | Shared CSS tokens and accessibility contrast standards passed. |
 | **Gate 6: Handwritten Gate** | Open vector fonts, 0 Type-3 fonts, outline bookmarks, < 12 MB | **PASS** | 27 PDFs generated (22.4 MB, 645 total pages). |
-| **Gate 7: Site Gate** | Live exam schedule chips, clean cards, search index, progress migration | **PASS** | 8 subjects with live exam schedules; 283 indexed search records. |
+| **Gate 7: Site Gate** | Live exam schedule chips, clean cards, search index, progress migration | **PASS** | 8 subjects with live exam schedules; 476 indexed search records. |
 | **Gate 8: Size & Hygiene Gate** | 0 copyrighted textbooks tracked in git; clean repository hygiene | **PASS** | 0 copyrighted textbooks tracked in git; .gitignore validated. |
 
 ---

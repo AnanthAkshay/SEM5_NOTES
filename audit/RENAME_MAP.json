@@ -1,0 +1,954 @@
+{
+  "AL58 - RM/Books/CR Kothari Research Methodology (1).pdf": {
+    "destination": "sources/textbooks/cr-kothari-research-methodology.pdf",
+    "subject": "textbooks",
+    "tag": "quarantined-textbook",
+    "description": "Textbook quarantined per policy",
+    "hash": "c31be3e2e5b2b626fed36ddb6d2a734fe5cf57bef0eda57e0e790c65f33a2362"
+  },
+  "AL58 - RM/Books/David V. Thiel - Research Methods for Engineers. 1-Cambridge Uni Press (2014).pdf": {
+    "destination": "sources/textbooks/david-v-thiel-research-methods-for-engineers.pdf",
+    "subject": "textbooks",
+    "tag": "quarantined-textbook",
+    "description": "Textbook quarantined per policy",
+    "hash": "fcfa63e6a79d793771324abe3a28d8d0e31fde03d81c20480490901c1d9a94ec"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-THEORY/1. Machine Learning by S Sridhar.pdf": {
+    "destination": "sources/textbooks/machine-learning-s-sridhar.pdf",
+    "subject": "textbooks",
+    "tag": "quarantined-textbook",
+    "description": "Textbook quarantined per policy",
+    "hash": "805663049048daa58bb1f97dc0e6a2b504bd9734e03e8a45a4621256f976ce79"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-THEORY/2. Tom Mitchell.pdf": {
+    "destination": "sources/textbooks/tom-mitchell-machine-learning.pdf",
+    "subject": "textbooks",
+    "tag": "quarantined-textbook",
+    "description": "Textbook quarantined per policy",
+    "hash": "d352f566d95d31812cd826b04ee42bdfec55a74d0714f1f2e8fb6a5cb9265ac7"
+  },
+  "IS52 - SE/Book/Software Engineering - Ian Sommerville.pdf": {
+    "destination": "sources/textbooks/software-engineering-ian-sommerville.pdf",
+    "subject": "textbooks",
+    "tag": "quarantined-textbook",
+    "description": "Textbook quarantined per policy",
+    "hash": "cabeeeae791371a199f28372b0f4695a760877953333528f101e7f747988bd22"
+  },
+  "IS53 - CN/BOOK/fifth-edition-data-communications-and-networking.pdf": {
+    "destination": "sources/textbooks/data-communications-and-networking-forouzan.pdf",
+    "subject": "textbooks",
+    "tag": "quarantined-textbook",
+    "description": "Textbook quarantined per policy",
+    "hash": "be53190de9f9114fe9001fe5c5380f2bd387dc9c2cc7d5d81aaaf3b11a7dd750"
+  },
+  "ISAEC591 - Eco/Book/engineering economics 239p -- R_ Panneerselvam.pdf": {
+    "destination": "sources/textbooks/engineering-economics-panneerselvam.pdf",
+    "subject": "textbooks",
+    "tag": "quarantined-textbook",
+    "description": "Textbook quarantined per policy",
+    "hash": "5cd1c347f96fdb586c33cf61fe3f3c7afdf0ede4abc517dc92b44ce104b9cf87"
+  },
+  "ISE552 - AI/AI-ISE552 SYLLABUS.docx": {
+    "destination": "notes/ai/syllabus/ai-ise552-syllabus.docx",
+    "subject": "ai",
+    "tag": "syllabus",
+    "description": "AI Course Syllabus",
+    "hash": "c6820eb574017e587046d5c85e0afbb38e3322858932c23ff0a88394102f36c5"
+  },
+  "ISE552 - AI/Recent Notes/AI-Adversarial_Search.pdf": {
+    "destination": "notes/ai/recent-notes/ai-adversarial-search.pdf",
+    "subject": "ai",
+    "tag": "recent-notes",
+    "description": "Adversarial Search",
+    "hash": "558783e9d1caa5aa102cae600bd77d89885404f9f92940129dbef86fee576562"
+  },
+  "ISE552 - AI/Recent Notes/WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg": {
+    "destination": "notes/ai/practice/ai-sample-cie-question-board.jpeg",
+    "subject": "ai",
+    "tag": "practice",
+    "description": "Board Problem Discussion",
+    "hash": "84f2f3a9cf1b722e79cb7cb5e0e468b8ae4328388a54c5091b5185edaeede15a"
+  },
+  "ISE552 - AI/CIE - PYQ_s/CIE1-2022.pdf": {
+    "destination": "notes/ai/practice/ai-cie1-2022.pdf",
+    "subject": "ai",
+    "tag": "practice-cie",
+    "description": "CIE-1 Question Paper (2022)",
+    "hash": "2780f4a8c61685a2990603408992fbab76588bcc2b963fb1dd040190324059e2"
+  },
+  "ISE552 - AI/CIE - PYQ_s/CIE2-2022.pdf": {
+    "destination": "notes/ai/practice/ai-cie2-2022.pdf",
+    "subject": "ai",
+    "tag": "practice-cie",
+    "description": "CIE-2 Question Paper (2022)",
+    "hash": "f06d538c9c9a528ff8852f1f6ccd13ac41ec81a5fbf1073cbe264f211f91923d"
+  },
+  "ISE552 - AI/SEE - PYQ_s/2024.pdf": {
+    "destination": "notes/ai/practice/see/ai-see-2024.pdf",
+    "subject": "ai",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2024)",
+    "hash": "8747d8aed32c7388d116f773183fe38f816b71d7ec58dfb28a334b0fe5f38b9a"
+  },
+  "ISE552 - AI/SEE - PYQ_s/2025.pdf": {
+    "destination": "notes/ai/practice/see/ai-see-2025.pdf",
+    "subject": "ai",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025)",
+    "hash": "213e7d5b35559d3bd5f585580c0f1f26c9fccc32eb8aaf29c2b7ee315df08ac9"
+  },
+  "ISE552 - AI/SEE - PYQ_s/JAN2026.pdf": {
+    "destination": "notes/ai/practice/see/ai-see-jan-2026.pdf",
+    "subject": "ai",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (jan-2026)",
+    "hash": "b4ed60145d46f21d729ebffcff719cdf6528d7e5a382c323b5facb7d8cfbe40c"
+  },
+  "ISE552 - AI/SEE - PYQ_s/MAY2023.pdf": {
+    "destination": "notes/ai/practice/see/ai-see-may-2023.pdf",
+    "subject": "ai",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (may-2023)",
+    "hash": "37e6315fc81f6961c6b69ccb08801b8c8b4331f08f573e137ff176b78e51399e"
+  },
+  "ISE552 - AI/Vercel Notes/AI_ppts.pdf": {
+    "destination": "notes/ai/older-versions/ai-consolidated-ppts.pdf",
+    "subject": "ai",
+    "tag": "older-versions",
+    "description": "AI Consolidated Slides (Archive)",
+    "hash": "32404156f6c370e4f1c219e1e01ee4f83e7f79eb6bf769d80973d65b8e2b3aac"
+  },
+  "ISE552 - AI/Vercel Notes/Unit 1.pdf": {
+    "destination": "notes/ai/older-versions/ai-unit1-older-notes.pdf",
+    "subject": "ai",
+    "tag": "older-versions",
+    "description": "Unit 1 Archive Notes",
+    "hash": "5b9f03171ead19772f9f82fa84e327180d611afc4258d8816954df9eac53e529"
+  },
+  "ISE552 - AI/Vercel Notes/Unit 2.pdf": {
+    "destination": "notes/ai/older-versions/ai-unit2-older-notes.pdf",
+    "subject": "ai",
+    "tag": "older-versions",
+    "description": "Unit 2 Archive Notes",
+    "hash": "1f4bfb2b455f1e8e6bb6215f7db49cf95f1459bfd18df387bf37d006aa382cad"
+  },
+  "ISE552 - AI/Vercel Notes/Units 3, 4 and 5 (incomplete).pdf": {
+    "destination": "notes/ai/held/ai-units-3-4-5-incomplete.pdf",
+    "subject": "ai",
+    "tag": "held-out-of-scope",
+    "description": "Units 3, 4, 5 (CIE-2 & SEE Scope - Held)",
+    "hash": "bb4da7d576ec7675425efe5a037da26eba547882686f4f6cda9577d9596abf62"
+  },
+  "IS53 - CN/Recent Notes/CN-UNIT1 Complete.pptx": {
+    "destination": "notes/cn/recent-notes/cn-unit1-complete.pptx",
+    "subject": "cn",
+    "tag": "recent-notes",
+    "description": "CN Unit 1 Complete Slide Deck",
+    "hash": "80ed79a5aadf68cb8a0d1667762292804b9af1e1a98449fba85bd63496d62a32"
+  },
+  "IS53 - CN/Recent Notes/CN-Unit2 Complete.pptx": {
+    "destination": "notes/cn/recent-notes/cn-unit2-complete.pptx",
+    "subject": "cn",
+    "tag": "recent-notes",
+    "description": "CN Unit 2 Complete Slide Deck",
+    "hash": "01239bad18bc4700f09a73f3decbb016bf47d78de001e0d7facae464ecaa5680"
+  },
+  "IS53 - CN/Recent Notes/Unit3a (1) (1).pptx": {
+    "destination": "notes/cn/recent-notes/cn-unit3a-ipv4.pptx",
+    "subject": "cn",
+    "tag": "recent-notes",
+    "description": "CN Unit 3a IPv4 Slide Deck",
+    "hash": "577f61a0f0b91e7aeca6dfba6da9c3c10d350842c9b7aa273e4f57cdb51ae470"
+  },
+  "IS53 - CN/SEE - PYQ_s/JAN2023.pdf": {
+    "destination": "notes/cn/practice/see/cn-see-jan-2023.pdf",
+    "subject": "cn",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (jan-2023)",
+    "hash": "7886820d6c12ab8924ada89d17def0a6801ee16d88a0932782c99060ba653d03"
+  },
+  "IS53 - CN/SEE - PYQ_s/MAKEUP 2023.pdf": {
+    "destination": "notes/cn/practice/see/cn-see-makeup-2023.pdf",
+    "subject": "cn",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (makeup-2023)",
+    "hash": "5d321fecb5021aad1499a28067c2946064ff4dd3792f3e18884bc95f74984e93"
+  },
+  "IS53 - CN/SEE - PYQ_s/2024.pdf": {
+    "destination": "notes/cn/practice/see/cn-see-2024.pdf",
+    "subject": "cn",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2024)",
+    "hash": "9dc2073554f776916e2c2a810df4b4e74dc3277ed2345a429d17c7558e2f2853"
+  },
+  "IS53 - CN/SEE - PYQ_s/2025(O).pdf": {
+    "destination": "notes/cn/practice/see/cn-see-2025-old.pdf",
+    "subject": "cn",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025-old)",
+    "hash": "fe4b7f7feb4f6d9824d7bc82a3973a3b3fce4ebe0a9d8ac76009b2679f3cb3c5"
+  },
+  "IS53 - CN/SEE - PYQ_s/2025.pdf": {
+    "destination": "notes/cn/practice/see/cn-see-2025.pdf",
+    "subject": "cn",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025)",
+    "hash": "002f87f5fc75c00d174685016e8280b00d2973cfe6b39137b32f68bb0508d655"
+  },
+  "IS53 - CN/SEE - PYQ_s/JAN2026.pdf": {
+    "destination": "notes/cn/practice/see/cn-see-jan-2026.pdf",
+    "subject": "cn",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (jan-2026)",
+    "hash": "6ebc474f7920227e3e01fa83ff74087b7ff793e31554d492c32c191b69295bea"
+  },
+  "IS53 - CN/Vercel Notes/IS53-CN-Unit1.pdf": {
+    "destination": "notes/cn/older-versions/is53-cn-unit1-archive.pdf",
+    "subject": "cn",
+    "tag": "older-versions",
+    "description": "CN Unit 1 Archive Notes PDF",
+    "hash": "3d9fa517da8167974a6055af20453e14e6b96aa9ce882c136671e47b1e52baca"
+  },
+  "IS53 - CN/Vercel Notes/IS53-CN-Unit2.pdf": {
+    "destination": "notes/cn/older-versions/is53-cn-unit2-archive.pdf",
+    "subject": "cn",
+    "tag": "older-versions",
+    "description": "CN Unit 2 Archive Notes PDF",
+    "hash": "faa9b0542b08d34081e7c60bedf48c1ed22a30811a22056b1c7d1fd6736b5fb9"
+  },
+  "HS510 - EVS/Recent Notes/Unit-1.pptx": {
+    "destination": "notes/evs/recent-notes/evs-unit-1.pptx",
+    "subject": "evs",
+    "tag": "recent-notes",
+    "description": "EVS Unit 1 Slides",
+    "hash": "f88d924745339f1e5b26714305b47cbfc084d2766d3ea7bfe0492b757e124022"
+  },
+  "HS510 - EVS/Recent Notes/Unit-2.pptx": {
+    "destination": "notes/evs/recent-notes/evs-unit-2.pptx",
+    "subject": "evs",
+    "tag": "recent-notes",
+    "description": "EVS Unit 2 Slides",
+    "hash": "7e15eaf5c4c7780bb184182e3a9b7081643abaf8b21f8b7151436d30872a7b4d"
+  },
+  "HS510 - EVS/Recent Notes/Unit-3.pptx": {
+    "destination": "notes/evs/held/evs-unit-3.pptx",
+    "subject": "evs",
+    "tag": "held-out-of-scope",
+    "description": "EVS Unit 3 (Held for CIE-2 / SEE)",
+    "hash": "958ae55a9eee1a5c632ae0bb3b36c4db5de02ce57fcf8b58aaab5d91f59492b0"
+  },
+  "HS510 - EVS/Recent Notes/Unit-4.pptx": {
+    "destination": "notes/evs/held/evs-unit-4.pptx",
+    "subject": "evs",
+    "tag": "held-out-of-scope",
+    "description": "EVS Unit 4 (Held for CIE-2 / SEE)",
+    "hash": "8533e1c15122a769c9bdab12f0d8595641af97e6e28b2d6bd53072f1c42bbe1b"
+  },
+  "HS510 - EVS/Recent Notes/Unit-5.pptx": {
+    "destination": "notes/evs/held/evs-unit-5.pptx",
+    "subject": "evs",
+    "tag": "held-out-of-scope",
+    "description": "EVS Unit 5 (Held for CIE-2 / SEE)",
+    "hash": "4b80b98893d88fa505ad4ac3f37533c3d241048e6143e0803ffe8bf294b10c69"
+  },
+  "HS510 - EVS/CIE - PYQ_s/CIE1&2-2023.pdf": {
+    "destination": "notes/evs/practice/evs-cie1-and-2-2023.pdf",
+    "subject": "evs",
+    "tag": "practice-cie",
+    "description": "CIE-1 & 2 Question Paper (2023)",
+    "hash": "6e99acdd87357ccc9fffe83ba5bb6973be80afb9bd9bd227d3489ad9942ed705"
+  },
+  "HS510 - EVS/CIE - PYQ_s/CIE1&2-2024.pdf": {
+    "destination": "notes/evs/practice/evs-cie1-and-2-2024.pdf",
+    "subject": "evs",
+    "tag": "practice-cie",
+    "description": "CIE-1 & 2 Question Paper (2024)",
+    "hash": "db6ed0b48097a338a190401a19965f6090e71eed5ed820bce67877578e2618a7"
+  },
+  "HS510 - EVS/CIE - PYQ_s/EVS_CIE1_QP-2024 (1).docx": {
+    "destination": "notes/evs/practice/evs-cie1-qp-2024.docx",
+    "subject": "evs",
+    "tag": "practice-cie",
+    "description": "CIE-1 Question Paper (2024)",
+    "hash": "197f661a70bf205260e780f0901431f92b42e395c7f42eb8a74946722a35e5f4"
+  },
+  "HS510 - EVS/SEE - PYQ_s/FEB2024.pdf": {
+    "destination": "notes/evs/practice/see/evs-see-feb-2024.pdf",
+    "subject": "evs",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (feb-2024)",
+    "hash": "2b7c08bc131ccf31740c4d1549625c2c0c2331945e3e5858fbc9125c41738a99"
+  },
+  "HS510 - EVS/SEE - PYQ_s/MAKEUP2024.pdf": {
+    "destination": "notes/evs/practice/see/evs-see-makeup-2024.pdf",
+    "subject": "evs",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (makeup-2024)",
+    "hash": "c67b2bc159d656578847e03a4dc4e3e04b9e820c7d38e7df88851f08736c8a56"
+  },
+  "HS510 - EVS/SEE - PYQ_s/2025.pdf": {
+    "destination": "notes/evs/practice/see/evs-see-2025.pdf",
+    "subject": "evs",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025)",
+    "hash": "b84a8222a350dd0092179491edc61c0698d7e064e810134db85961c31fe62426"
+  },
+  "HS510 - EVS/SEE - PYQ_s/MAKEUP2025.pdf": {
+    "destination": "notes/evs/practice/see/evs-see-makeup-2025.pdf",
+    "subject": "evs",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (makeup-2025)",
+    "hash": "1cd02eb0342caeeb468d48c3d2b66ef29df4a3131f19be7cb639ca550a96e71c"
+  },
+  "HS510 - EVS/SEE - PYQ_s/JAN2026.pdf": {
+    "destination": "notes/evs/practice/see/evs-see-jan-2026.pdf",
+    "subject": "evs",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (jan-2026)",
+    "hash": "1a8c2e05b5736cb568eb30cefa9eaaa4cf0a841919dcdcaff724c8cab11b6d76"
+  },
+  "HS510 - EVS/SEE - PYQ_s/MAKEUP2026.pdf": {
+    "destination": "notes/evs/practice/see/evs-see-makeup-2026.pdf",
+    "subject": "evs",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (makeup-2026)",
+    "hash": "1bc9aa42477cf1379e30412847ddf6d92df0d6c98d01c7d59716e980fec0fd22"
+  },
+  "HS510 - EVS/Vercel Notes/Unit-1 Notes, MCQ & Questions.pdf": {
+    "destination": "notes/evs/older-versions/evs-unit-1-notes-mcq-questions.pdf",
+    "subject": "evs",
+    "tag": "older-versions",
+    "description": "Unit 1 Notes, MCQ & Questions (Archive)",
+    "hash": "5ffa74a104c1d06f72134f9b8ac674ac443079a68eb9f7acc1933bb208a21297"
+  },
+  "HS510 - EVS/Vercel Notes/Unit-2 Notes, MCQ & Questions.pdf": {
+    "destination": "notes/evs/older-versions/evs-unit-2-notes-mcq-questions.pdf",
+    "subject": "evs",
+    "tag": "older-versions",
+    "description": "Unit 2 Notes, MCQ & Questions (Archive)",
+    "hash": "089e89b49f411543326bae2e3acd97cc8f0d381de7880bee163b1ce422ff81ac"
+  },
+  "HS510 - EVS/Vercel Notes/Unit-3 Notes, MCQ & Questions.pdf": {
+    "destination": "notes/evs/held/evs-unit-3-notes-mcq-questions.pdf",
+    "subject": "evs",
+    "tag": "held-out-of-scope",
+    "description": "Unit 3 Notes, MCQ & Questions (Archive - Held)",
+    "hash": "ab0a4504056d3e46a09e835eb2e5fea167a550d168314f74db72bf3e2e490d66"
+  },
+  "HS510 - EVS/Vercel Notes/Unit-4 Notes, MCQ & Questions.pdf": {
+    "destination": "notes/evs/held/evs-unit-4-notes-mcq-questions.pdf",
+    "subject": "evs",
+    "tag": "held-out-of-scope",
+    "description": "Unit 4 Notes, MCQ & Questions (Archive - Held)",
+    "hash": "e71f9935ca6e53206586bb5793ffd557c78bf47d60e66ebac67e590f43fac7fd"
+  },
+  "HS510 - EVS/Vercel Notes/Unit-5 Notes, MCQ & Questions.pdf": {
+    "destination": "notes/evs/held/evs-unit-5-notes-mcq-questions.pdf",
+    "subject": "evs",
+    "tag": "held-out-of-scope",
+    "description": "Unit 5 Notes, MCQ & Questions (Archive - Held)",
+    "hash": "2d56cada458d5cde92cc2242231a3304b34a06caef27b373371d7c37b2829323"
+  },
+  "IS51 - ML/Recent Notes/Chapter_2_Understanding_Data_Sridhar_Vijayalakshmi.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch2-understanding-data.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 2: Understanding Data (Attribute Types, Similarity & Dissimilarity)",
+    "hash": "66dbeaadf0687117f99dbf945f27fc9e7efa452a71949a352d13a68e0ca62d7e"
+  },
+  "IS51 - ML/Recent Notes/Machine_Learning_Chapter_3_Basic_Concepts_of_Learning.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch3-basic-concepts-of-learning.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 3: Basic Concepts of Learning & Concept Learning Task",
+    "hash": "745d6997b5ec4683d9a72d395e9149292a1155e154c6044ab6a535e2a35a8517"
+  },
+  "IS51 - ML/Recent Notes/Chapter_3_5_Detailed_Induction_Bias_Bias_Variance.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch3-5-inductive-bias-bias-variance.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 3.5: Inductive Bias & Bias-Variance Dilemma",
+    "hash": "177ad1ce00b5ca7b6fc673549161c2f2e77cc668988670756883070f3f3cd733"
+  },
+  "IS51 - ML/Recent Notes/Chapter_3.6_Modeling_ML_Detailed.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch3-6-modeling-ml-detailed.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 3.6: Modeling Machine Learning Systems",
+    "hash": "95a5e49ffa8db3360b0a875f76057a035817ac5b758c8d23f67a41dad0041a53"
+  },
+  "IS51 - ML/Recent Notes/Chapter_3.7_Learning_Frameworks_Detailed.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch3-7-learning-frameworks-detailed.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 3.7: Learning Frameworks & Performance Bounds",
+    "hash": "4611060c8762bb589f8dfad927358609fbfe50adee3b86e223afb3196823ad15"
+  },
+  "IS51 - ML/Recent Notes/Machine_Learning_Chapter_4_Similarity_Based_Learning.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch4-similarity-based-learning.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 4: Similarity Based Learning (k-NN, Weighted Distance)",
+    "hash": "15c9c06fb55ded668fa63a6a7a4e7e4fbd4dc6ca13b7395039791c115ecdd1b2"
+  },
+  "IS51 - ML/Recent Notes/Chapter_5_Regression_Analysis_Detailed.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch5-regression-analysis-detailed.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 5: Linear Regression Analysis & OLS Derivation",
+    "hash": "bde0005b247a71c601cc84715d6745281b6dd76803de251b03c6665e9735a8d0"
+  },
+  "IS51 - ML/Recent Notes/Chapter_5_1_5_2_5_3_Detailed_PPT_Problems_Solutions.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch5-regression-problems-solutions.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 5.1\u20135.3: Regression Worked Problems & Solutions",
+    "hash": "e91fcb0422882fec5e5400fef272f37dd5cc50fbab915243be67209433365e9f"
+  },
+  "IS51 - ML/Recent Notes/Chapter_5_4_Validation_of_Regression_Methods_Detailed.pptx": {
+    "destination": "notes/ml/recent-notes/ml-ch5-4-validation-of-regression-methods.pptx",
+    "subject": "ml",
+    "tag": "recent-notes",
+    "description": "Chapter 5.4: Validation of Regression Models (R\u00b2, Adj-R\u00b2, SSE)",
+    "hash": "a5447a12cbf65b0513ebd0a466a0158f05cec07072eee222fb31672d24380060"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-THEORY/UNIT-1/ML-UNIT-1.pptx": {
+    "destination": "notes/ml/unit1/ml-unit-1-shruti-mam.pptx",
+    "subject": "ml",
+    "tag": "faculty-notes",
+    "description": "ML Unit 1 Slides (Prof. Shruti M)",
+    "hash": "24b02bfcb523fa64474e5e23e98441e5aeef7f2e7fb478956534f5f4735c67c2"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-THEORY/UNIT-1/6_Correlation_and_Covariance_Problems_with_Solutions.docx": {
+    "destination": "notes/ml/unit1/ml-correlation-and-covariance-problems.docx",
+    "subject": "ml",
+    "tag": "faculty-notes",
+    "description": "Correlation and Covariance Problems with Solutions",
+    "hash": "68c15070c804dedecbd2095b8d504cfa65076a379ce1fda2905478c63950b070"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-THEORY/UNIT-2/ML-UNIT-2.pptx": {
+    "destination": "notes/ml/unit2/ml-unit-2-shruti-mam.pptx",
+    "subject": "ml",
+    "tag": "faculty-notes",
+    "description": "ML Unit 2 Slides (Prof. Shruti M)",
+    "hash": "5f4909c6576dde6292d7b4eeffbfba8697a7fce9c9559547f8e2b2704e1c1fae"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-THEORY/UNIT-3/ML-UNIT-3.pptx": {
+    "destination": "notes/ml/unit3/ml-unit-3-shruti-mam.pptx",
+    "subject": "ml",
+    "tag": "faculty-notes",
+    "description": "ML Unit 3 Slides (Prof. Shruti M)",
+    "hash": "300d57d21f50e80b8363f8cc8b713354d0b4510d9146df158e2c34c1ef30c52c"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-THEORY/UNIT-3/Linear_Regression and multiple linear regression_problems.docx": {
+    "destination": "notes/ml/unit3/ml-linear-regression-problems.docx",
+    "subject": "ml",
+    "tag": "faculty-notes",
+    "description": "Linear Regression and Multiple Linear Regression Problems",
+    "hash": "1d39deae2df897879a7303703de260c4e6b7da0e1364811bd4b7608256ba2df3"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-1/Linear & ridge regression....docx": {
+    "destination": "notes/ml/lab/ml-prog1-linear-ridge-regression.docx",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Lab Manual: Linear & Ridge Regression",
+    "hash": "49b18f03f7ad7c543ccf2a65aa06c86951b89ed0f214f29b45e280ab073e8218"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-1/ML-1.ipynb": {
+    "destination": "notes/ml/lab/ml-prog1-regression.ipynb",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Jupyter Notebook: ML Program 1",
+    "hash": "7c890c809b4caae95b17fdf395a55c859500441e91fe99e6a2573f743daf9eda"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-1/ML-1_simple.ipynb": {
+    "destination": "notes/ml/lab/ml-prog1-simple.ipynb",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Jupyter Notebook: ML Program 1 (Simple)",
+    "hash": "29805a0b256373c315a7fa77e8e36cacded53ee265275a0aa4ffe48061757109"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-1/winequality-red.csv": {
+    "destination": "notes/ml/lab/data/winequality-red.csv",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Dataset: Wine Quality Red",
+    "hash": "4a402cf041b025d4566d954c3b9ba8635a3a8a01e039005d97d6a710278cf05e"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-1/winequality-white.csv": {
+    "destination": "notes/ml/lab/data/winequality-white.csv",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Dataset: Wine Quality White",
+    "hash": "76c3f809815c17c07212622f776311faeb31e87610d52c26d87d6e361b169836"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-2/Logistic Regression and multinomial logistic regression.docx": {
+    "destination": "notes/ml/lab/ml-prog2-logistic-regression.docx",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Lab Manual: Logistic Regression",
+    "hash": "94dff31a9f16a6f30a64ccc8955c9dc80a859df7a54ca08b119ed3b3b87bbe13"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-2/ML-Prog2.ipynb": {
+    "destination": "notes/ml/lab/ml-prog2-logistic-regression.ipynb",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Jupyter Notebook: ML Program 2",
+    "hash": "f86ef27028cb34bd5b82b8a8884582ad95857e983bd3c2df65fcc4358fba9d88"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/ML_programs/ML_Prog-3/ML-Prog-3.ipynb": {
+    "destination": "notes/ml/lab/ml-prog3.ipynb",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Jupyter Notebook: ML Program 3",
+    "hash": "e7a2b6d8027adee71118d757435d3ca4928085869a4fe74579ab3c312625ba03"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/Tableau_/Tableau.pptx": {
+    "destination": "notes/ml/lab/tableau-introduction.pptx",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Tableau Lab Guide & Exercises",
+    "hash": "68ffabb4ad3037621d870617ace2e816b08bd4a91ec1ac4861120793c1f999fd"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/Tableau_/Customer_Purchases.xlsx": {
+    "destination": "notes/ml/lab/data/customer-purchases.xlsx",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Dataset: Customer Purchases",
+    "hash": "a7ad27362c41e75f71f04a679c140227c8d9b62a180929dc462f7ad11a106889"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/Tableau_/Tableau_Sales_Dataset31-08.xlsx": {
+    "destination": "notes/ml/lab/data/tableau-sales-dataset.xlsx",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Dataset: Tableau Sales Dataset",
+    "hash": "681959705ae810e4106f27e7530bccb13af0a06d3903143a0693b2bb2c152a76"
+  },
+  "IS51 - ML/Recent Notes/Shruti mam/ML-LAB/Tableau_/syllabus_ML-lab_ISL56.pdf": {
+    "destination": "notes/ml/lab/syllabus-ml-lab-isl56.pdf",
+    "subject": "ml",
+    "tag": "lab",
+    "description": "Official ML Laboratory Syllabus (ISL56)",
+    "hash": "ad89b21a73f9c2f0897ba022f90f1130b410e092b2a5396f4f7f15df40418f04"
+  },
+  "IS51 - ML/SEE - PYQ_s/2023.pdf": {
+    "destination": "notes/ml/practice/see/ml-see-2023.pdf",
+    "subject": "ml",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2023)",
+    "hash": "1fdd8736fa89bb47e4811d87342d977b1907a3bd5eeb7b9443bbd1623925d83a"
+  },
+  "IS51 - ML/SEE - PYQ_s/2024.pdf": {
+    "destination": "notes/ml/practice/see/ml-see-2024.pdf",
+    "subject": "ml",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2024)",
+    "hash": "69fb06c0d666c3dbdd60c9b17e37bffe201ddf5f73952379de2a9ea45f3002ca"
+  },
+  "IS51 - ML/SEE - PYQ_s/2025.pdf": {
+    "destination": "notes/ml/practice/see/ml-see-2025.pdf",
+    "subject": "ml",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025)",
+    "hash": "a79c433d8b216aaa9a92afed6e5d82e45d39b501cd2a0d0a5c5d4d926857ea81"
+  },
+  "IS51 - ML/SEE - PYQ_s/JULY2026.pdf": {
+    "destination": "notes/ml/practice/see/ml-see-july-2026.pdf",
+    "subject": "ml",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (july-2026)",
+    "hash": "561e7eb31c69b41d988a4cb05e6199c23a01662d682b5452baeb9c05d60ded29"
+  },
+  "IS51 - ML/SEE - PYQ_s/MAKEUP2024.pdf": {
+    "destination": "notes/ml/practice/see/ml-see-makeup-2024.pdf",
+    "subject": "ml",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (makeup-2024)",
+    "hash": "0cd33c4b1ac1637bd36cf86779567cdbaf804dc7ec7df4235bddf7373508ae07"
+  },
+  "IS51 - ML/SEE - PYQ_s/SUPPLE AUGUST 2025.pdf": {
+    "destination": "notes/ml/practice/see/ml-see-supple-aug-2025.pdf",
+    "subject": "ml",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (supple-aug-2025)",
+    "hash": "84a7c6d9847e43f391234c53da1ae604e69777ed2a6a54b80f94227ef389a07d"
+  },
+  "ISAEC594 - React/Recent Notes/UNIT-1 ReactJS.pptx": {
+    "destination": "notes/reactjs/recent-notes/reactjs-unit1.pptx",
+    "subject": "reactjs",
+    "tag": "recent-notes",
+    "description": "ReactJS Unit 1 Slide Deck",
+    "hash": "f216da470a41443c95ceb258e9968cc34a127977d62072018a0f49b20e66981b"
+  },
+  "ISAEC594 - React/Recent Notes/Unit-2.pdf": {
+    "destination": "notes/reactjs/recent-notes/reactjs-unit2.pdf",
+    "subject": "reactjs",
+    "tag": "recent-notes",
+    "description": "ReactJS Unit 2 Slide Deck",
+    "hash": "bd8ffaba4d8c9496f199c0a79015a89e623ff137ba5778518043cd73ac2784fa"
+  },
+  "ISAEC594 - React/SEE - PYQ_s/JAN2026.pdf": {
+    "destination": "notes/reactjs/practice/see/reactjs-see-jan-2026.pdf",
+    "subject": "reactjs",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (Jan 2026)",
+    "hash": "ee97c371d190ec661d8b284c37e04b428003b1a2673e1140c200318dd20888d0"
+  },
+  "AL58 - RM/Recent Notes/RM & IPR Unit 1 PPT (1).pptx": {
+    "destination": "notes/rmipr/recent-notes/rm-ipr-unit1.pptx",
+    "subject": "rmipr",
+    "tag": "recent-notes",
+    "description": "RMIPR Unit 1 Slide Deck",
+    "hash": "5f318bdc874804fff61a9903ebb625d98d1391b692837419ac3f5d0bac266630"
+  },
+  "AL58 - RM/Recent Notes/Unit 2 ppt.pptx": {
+    "destination": "notes/rmipr/recent-notes/rm-ipr-unit2.pptx",
+    "subject": "rmipr",
+    "tag": "recent-notes",
+    "description": "RMIPR Unit 2 Slide Deck",
+    "hash": "d0112e600a0231f83d681cccf68b25bf82d4ebb21f430ec6dcc3970613263a5e"
+  },
+  "AL58 - RM/Recent Notes/Unit 3 part 1.pptx": {
+    "destination": "notes/rmipr/recent-notes/rm-ipr-unit3-part1.pptx",
+    "subject": "rmipr",
+    "tag": "recent-notes",
+    "description": "RMIPR Unit 3 Part 1 Slide Deck",
+    "hash": "1e8026c13f57ca6660cee522c6ee364bdf6e60336dd948a384add206722f8a86"
+  },
+  "AL58 - RM/Recent Notes/AL58 unit 1 worksheet.pdf": {
+    "destination": "notes/rmipr/practice/worksheets/rmipr-unit1-worksheet.pdf",
+    "subject": "rmipr",
+    "tag": "practice",
+    "description": "RMIPR Unit 1 Revision Worksheet",
+    "hash": "52b591bf258b8d710e3f6658dae1642d8dcecdf31583d8143650e41572f50df8"
+  },
+  "AL58 - RM/Recent Notes/AL58 unit 2 worksheet.pdf": {
+    "destination": "notes/rmipr/practice/worksheets/rmipr-unit2-worksheet.pdf",
+    "subject": "rmipr",
+    "tag": "practice",
+    "description": "RMIPR Unit 2 Revision Worksheet",
+    "hash": "d5a74a6c88fdd2fb4e0b0d23789c6efb6292eced336144f0cb9127436c528eb9"
+  },
+  "AL58 - RM/Recent Notes/AL58 unit 3 worksheet.pdf": {
+    "destination": "notes/rmipr/practice/worksheets/rmipr-unit3-worksheet.pdf",
+    "subject": "rmipr",
+    "tag": "practice",
+    "description": "RMIPR Unit 3 Revision Worksheet",
+    "hash": "8050b54c11119d506cadaf69ad1f2204c241a694b35309a847c383ea9eb98d7b"
+  },
+  "AL58 - RM/Other_Component/Assignment I.pdf": {
+    "destination": "notes/rmipr/practice/rmipr-assignment-1.pdf",
+    "subject": "rmipr",
+    "tag": "practice",
+    "description": "Assignment I: Research Problem Formulation",
+    "hash": "d5f18f047ef4f76ccc83db112e0519f70c09baf01b670f92d8f59272f25e037f"
+  },
+  "AL58 - RM/Other_Component/Assignment II.pdf": {
+    "destination": "notes/rmipr/practice/rmipr-assignment-2.pdf",
+    "subject": "rmipr",
+    "tag": "practice",
+    "description": "Assignment II: Literature Review & Design",
+    "hash": "2f3efe7d1cbb2806ec7933bec89cfd37903f08061b6dd7ddfb32304369cf0e46"
+  },
+  "AL58 - RM/Other_Component/Important Question.pdf": {
+    "destination": "notes/rmipr/practice/rmipr-important-questions.pdf",
+    "subject": "rmipr",
+    "tag": "practice",
+    "description": "Important Questions Bank",
+    "hash": "6384f773cd0c1804bc498c6405ba6960d4cce2dd056c3ab1be2a9cb40a1578b8"
+  },
+  "AL58 - RM/Other_Component/Quiz.pdf": {
+    "destination": "notes/rmipr/practice/rmipr-quiz.pdf",
+    "subject": "rmipr",
+    "tag": "practice",
+    "description": "Objective Quiz & Self-Assessment",
+    "hash": "d3ef1af6fc2fd53f01243d6d1f809849ea2e17ccccaaa0685900109cdf011ada"
+  },
+  "AL58 - RM/CIE - PYQ_s/2023 CIE.pdf": {
+    "destination": "notes/rmipr/practice/rmipr-cie-2023.pdf",
+    "subject": "rmipr",
+    "tag": "practice-cie",
+    "description": "CIE Question Paper (2023)",
+    "hash": "ae635e969497beafd3d6fc967ad6cf16227b458f9d41aadeabe94b487419376a"
+  },
+  "AL58 - RM/CIE - PYQ_s/2024 CIE.pdf": {
+    "destination": "notes/rmipr/practice/rmipr-cie-2024.pdf",
+    "subject": "rmipr",
+    "tag": "practice-cie",
+    "description": "CIE Question Paper (2024)",
+    "hash": "ee55c5294b096751a3334b7fedcf98507150ac4f74b197050cbf86b94cb5a4ef"
+  },
+  "AL58 - RM/SEE - PYQ_s/2022.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-2022.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2022)",
+    "hash": "015e3cb3fe57669046767dee13f915f658ace0ea786f9a326d69c71a2eb0f01c"
+  },
+  "AL58 - RM/SEE - PYQ_s/2023.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-2023.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2023)",
+    "hash": "4f7ff31280efbbff4823c55932de8fc0c19862f248cf22b054eead5b1f708514"
+  },
+  "AL58 - RM/SEE - PYQ_s/2024.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-2024.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2024)",
+    "hash": "dc06a6d413c08839dfd2e9ef6db19a0a65d318a5fa01f140c03b0ae3162b0579"
+  },
+  "AL58 - RM/SEE - PYQ_s/2025.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-2025.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025)",
+    "hash": "53e1390c46a2f88a29fa7d9948d26a1aff46efdfaca33de95ba434bcb3a436de"
+  },
+  "AL58 - RM/SEE - PYQ_s/JAN2026.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-jan2026.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (JAN2026)",
+    "hash": "30e4398fe501d90fe46ac7ff59a234c201c68248ad10e0712823a349d72ccfbf"
+  },
+  "AL58 - RM/SEE - PYQ_s/Makeup 2022.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-makeup-2022.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (Makeup 2022)",
+    "hash": "2ec4f8ba439d93222c8bf4de38565c36cb107ea72495c86b824e9705f3102780"
+  },
+  "AL58 - RM/SEE - PYQ_s/MAKEUP2024.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-makeup2024.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (MAKEUP2024)",
+    "hash": "09f10c1b9197d27ed6531f9a4fd94c49adf2c36464fb41f1787c3db3387e5f20"
+  },
+  "AL58 - RM/SEE - PYQ_s/MAKEUP2025.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-makeup2025.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (MAKEUP2025)",
+    "hash": "16279ad03caf2ce0e20e200cad427f2c7df4cf4184267a69421969b9e34f1747"
+  },
+  "AL58 - RM/SEE - PYQ_s/Supply 2023.pdf": {
+    "destination": "notes/rmipr/practice/see/rmipr-see-supply-2023.pdf",
+    "subject": "rmipr",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (Supply 2023)",
+    "hash": "0cf7982a1ac82d0ef1c3d7952e8bf6beb26ae93007fafc703ef35a8a9c0d32e3"
+  },
+  "AL58 - RM/Vercel Notes/Unit 1.pdf": {
+    "destination": "notes/rmipr/older-versions/rmipr-unit1-archive.pdf",
+    "subject": "rmipr",
+    "tag": "older-versions",
+    "description": "Unit 1 Archive Notes",
+    "hash": "abf0b8af6059e19addb37d116d74741e41f9cec21d983cb7926598e9a8fa06aa"
+  },
+  "AL58 - RM/Vercel Notes/Unit 2.pdf": {
+    "destination": "notes/rmipr/older-versions/rmipr-unit2-archive.pdf",
+    "subject": "rmipr",
+    "tag": "older-versions",
+    "description": "Unit 2 Archive Notes",
+    "hash": "2f41a80f18aee8d667cd8941bd79adc68366c8e55c8f63d7668ac5f08b91528d"
+  },
+  "AL58 - RM/Vercel Notes/Unit 3.pdf": {
+    "destination": "notes/rmipr/older-versions/rmipr-unit3-archive.pdf",
+    "subject": "rmipr",
+    "tag": "older-versions",
+    "description": "Unit 3 Archive Notes",
+    "hash": "8710d1a7a4298bc95dcf05c9205ef2472d204a0506f9aa7895827bdf420a90f3"
+  },
+  "AL58 - RM/Vercel Notes/Unit 3 Statistical Table.pdf": {
+    "destination": "notes/rmipr/unit3/rmipr-statistical-tables.pdf",
+    "subject": "rmipr",
+    "tag": "faculty-notes",
+    "description": "Statistical Tables (Z, t, F, Chi-Square)",
+    "hash": "ebc4a71e2003871ab82a469ac6814fcb1617372ca5c581e13257b47b7ce3df8c"
+  },
+  "AL58 - RM/Vercel Notes/Unit 4.pdf": {
+    "destination": "notes/rmipr/held/rmipr-unit4-archive.pdf",
+    "subject": "rmipr",
+    "tag": "held-out-of-scope",
+    "description": "Unit 4 Archive Notes (Held)",
+    "hash": "d95dfa5dba6c3d60accedb98476ba49f81f1d015256a00b7c73c455b9effdb1c"
+  },
+  "AL58 - RM/Vercel Notes/Unit 5.pdf": {
+    "destination": "notes/rmipr/held/rmipr-unit5-archive.pdf",
+    "subject": "rmipr",
+    "tag": "held-out-of-scope",
+    "description": "Unit 5 Archive Notes (Held)",
+    "hash": "b413f7a1a6cdb22de473dde425fd3ccb1a29f8fa8b6eda0c7a820ff8c3c1cc82"
+  },
+  "IS52 - SE/SE-Syllabus2026-27.docx": {
+    "destination": "notes/se/syllabus/se-syllabus-2026-27.docx",
+    "subject": "se",
+    "tag": "syllabus",
+    "description": "SE Syllabus 2026\u201327",
+    "hash": "7d2062de50b8f93ad0de9d2a9dbc73688fe7fbdbe647b5c683ca8179e2a9a83e"
+  },
+  "IS52 - SE/LAB/GitHub_Kanban_Product_Backlog_Mini_Sprint_Lab_Manual.pdf": {
+    "destination": "notes/se/lab/se-kanban-agile-sprint-lab-manual.pdf",
+    "subject": "se",
+    "tag": "lab",
+    "description": "GitHub Kanban & Agile Mini-Sprint Lab Manual",
+    "hash": "b8e2d3c1ba9317511b25f2eaaf0a9ea3a0e989f70a9a94a3ccfe46a8a10f948a"
+  },
+  "IS52 - SE/Recent Notes/Unit 1.1.pptx": {
+    "destination": "notes/se/recent-notes/unit-1-1.pptx",
+    "subject": "se",
+    "tag": "recent-notes",
+    "description": "Unit 1.1: Professional Software Development",
+    "hash": "fda3a445757c2226b0450d86da6e32b8ccc3c287cdfcc5e0ffd44b567f0bacea"
+  },
+  "IS52 - SE/Recent Notes/Unit 1.2.pptx": {
+    "destination": "notes/se/recent-notes/unit-1-2.pptx",
+    "subject": "se",
+    "tag": "recent-notes",
+    "description": "Unit 1.2: Software Processes & Agile Development",
+    "hash": "f78a94534ede690caff4dff8dae577fd61cc74ad84a5af9da71861bb57e643d7"
+  },
+  "IS52 - SE/Recent Notes/Unit 1.3.pptx": {
+    "destination": "notes/se/recent-notes/unit-1-3.pptx",
+    "subject": "se",
+    "tag": "recent-notes",
+    "description": "Unit 1.3: Requirements Engineering",
+    "hash": "1dac17b3421a86089fd824947be139f73bd29996de3b408e7e52018f561e7211"
+  },
+  "IS52 - SE/Recent Notes/Unit 2.1.pptx": {
+    "destination": "notes/se/recent-notes/unit-2-system-modeling.pptx",
+    "subject": "se",
+    "tag": "recent-notes",
+    "description": "Unit 2.1: System Modeling & Context Models",
+    "hash": "52eaa85244058d733128a8cc60fe97b54ecdc3b3f672c108015659ac195c1807"
+  },
+  "IS52 - SE/Recent Notes/Unit 2.2.pptx": {
+    "destination": "notes/se/recent-notes/unit-2-2.pptx",
+    "subject": "se",
+    "tag": "recent-notes",
+    "description": "Unit 2.2: Architectural Design & Implementation",
+    "hash": "5409f63bcc7608e35404d5431cc83db6b14f1a0307dde84ad218cf470834ba54"
+  },
+  "IS52 - SE/SEE - PYQ_s/2023.pdf": {
+    "destination": "notes/se/practice/see/se-see-2023.pdf",
+    "subject": "se",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2023)",
+    "hash": "8d7687d1f624ef1af4d2a179626601d0e153e39c153ca5e3c93d03c47e9136b0"
+  },
+  "IS52 - SE/SEE - PYQ_s/2024.pdf": {
+    "destination": "notes/se/practice/see/se-see-2024.pdf",
+    "subject": "se",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2024)",
+    "hash": "3ffa631e34212be1ef94cc33c9abd1ba8d40d206f6b2f8d628461f0c737783bf"
+  },
+  "IS52 - SE/SEE - PYQ_s/2025(O).pdf": {
+    "destination": "notes/se/practice/see/se-see-2025-o.pdf",
+    "subject": "se",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025(O))",
+    "hash": "9b3785737449f79ff1f48e293580486bbc4d74124d88eeb96533cdfb8ec989d4"
+  },
+  "IS52 - SE/SEE - PYQ_s/2025.pdf": {
+    "destination": "notes/se/practice/see/se-see-2025.pdf",
+    "subject": "se",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025)",
+    "hash": "4e6bb4fe6368beb8fb417e6b86a9b7d92b8f31766a0b6b9941c8a938b5d8a9bb"
+  },
+  "IS52 - SE/SEE - PYQ_s/JAN2026.pdf": {
+    "destination": "notes/se/practice/see/se-see-jan2026.pdf",
+    "subject": "se",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (JAN2026)",
+    "hash": "7a7cd1e0afc2f15accec4944b99d9cd10ea7876592436e9d318a98556bc6ac5d"
+  },
+  "IS52 - SE/Vercel Notes/Unit 1.pdf": {
+    "destination": "notes/se/older-versions/se-unit1-archive.pdf",
+    "subject": "se",
+    "tag": "older-versions",
+    "description": "Unit 1 Archive Notes",
+    "hash": "c6515ff1d9ad59ab2d573ea3db872c4b3c8e6d21e61a06862bd675317b9f8e6f"
+  },
+  "IS52 - SE/Vercel Notes/Unit 2.pdf": {
+    "destination": "notes/se/older-versions/se-unit2-archive.pdf",
+    "subject": "se",
+    "tag": "older-versions",
+    "description": "Unit 2 Archive Notes",
+    "hash": "44d5bbb37eebe8f23bb0f2187844c26c0acc71f893a6b0d2ee917f9cf3442544"
+  },
+  "IS52 - SE/Vercel Notes/Unit 3.pdf": {
+    "destination": "notes/se/held/se-unit3-archive.pdf",
+    "subject": "se",
+    "tag": "held-out-of-scope",
+    "description": "Unit 3 Archive Notes (Held)",
+    "hash": "9a67971afc019a2d91624d474676d8d928ca00f5a2286987ad0a4953fd03be9c"
+  },
+  "IS52 - SE/Vercel Notes/Unit 4.pdf": {
+    "destination": "notes/se/held/se-unit4-archive.pdf",
+    "subject": "se",
+    "tag": "held-out-of-scope",
+    "description": "Unit 4 Archive Notes (Held)",
+    "hash": "a18941b5520f3654dd4bc8e35c0d1816ce0401a14721559162180dd5e0e9cba6"
+  },
+  "IS52 - SE/Vercel Notes/Unit 5.pdf": {
+    "destination": "notes/se/held/se-unit5-archive.pdf",
+    "subject": "se",
+    "tag": "held-out-of-scope",
+    "description": "Unit 5 Archive Notes (Held)",
+    "hash": "4c966d648494430e6416bae66e9de392e8a5b6876198aeee4d7050f1685b4bc9"
+  },
+  "IS54 - TOC/Recent Notes/TOC_Notes.pdf": {
+    "destination": "notes/toc/recent-notes/toc-notes-complete.pdf",
+    "subject": "toc",
+    "tag": "recent-notes",
+    "description": "Complete TOC Lecture Notes & Solutions (Prof. Sridevi)",
+    "hash": "690a4d7bea48fd1928b4d47e4479101aaf9839144c32d3dee145d54446eda992"
+  },
+  "IS54 - TOC/SEE - PYQ_s/2024.pdf": {
+    "destination": "notes/toc/practice/see/toc-see-2024.pdf",
+    "subject": "toc",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2024)",
+    "hash": "cccd13ba6484de53164f8cd37c2d192a8398295dab4b5a8ceb9455edfb296f73"
+  },
+  "IS54 - TOC/SEE - PYQ_s/2025.pdf": {
+    "destination": "notes/toc/practice/see/toc-see-2025.pdf",
+    "subject": "toc",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (2025)",
+    "hash": "ab2bdcbd0566799c18bffe87804582de61936735950d1351d685d16a1b5b7e4b"
+  },
+  "IS54 - TOC/SEE - PYQ_s/JAN2026.pdf": {
+    "destination": "notes/toc/practice/see/toc-see-jan2026.pdf",
+    "subject": "toc",
+    "tag": "practice-see",
+    "description": "SEE Question Paper (JAN2026)",
+    "hash": "9d5fc3d7048ae32c277ef1022feff0469e64093e2e92e7f7373f5aa5dec738d8"
+  },
+  "IS54 - TOC/Vercel Notes/Unit 3.pdf": {
+    "destination": "notes/toc/held/toc-unit3-archive.pdf",
+    "subject": "toc",
+    "tag": "held-out-of-scope",
+    "description": "Unit 3 Archive Notes (Held)",
+    "hash": "da0700a059bb8263a904e74e8b4d3951f5dc34630bac3389ee37abab6eadfbab"
+  },
+  "IS54 - TOC/Vercel Notes/Unit 4.pdf": {
+    "destination": "notes/toc/held/toc-unit4-archive.pdf",
+    "subject": "toc",
+    "tag": "held-out-of-scope",
+    "description": "Unit 4 Archive Notes (Held)",
+    "hash": "44e2610cb7eef62bd367d8392661ede0fd562114ba114706821be26824f667d5"
+  },
+  "IS54 - TOC/Vercel Notes/Unit 5.pdf": {
+    "destination": "notes/toc/held/toc-unit5-archive.pdf",
+    "subject": "toc",
+    "tag": "held-out-of-scope",
+    "description": "Unit 5 Archive Notes (Held)",
+    "hash": "63599ce7fc80b5fe778d48cf3d7294c109bbf546938392cfea15fac88a32dbd8"
+  }
+}

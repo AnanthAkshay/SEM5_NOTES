@@ -30,6 +30,8 @@ const MIME_TYPES = {
   '.css': 'text/css',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
   '.webp': 'image/webp',
   '.pdf': 'application/pdf',
   '.woff2': 'font/woff2'
@@ -268,9 +270,8 @@ async function runTestSuite() {
     console.log('CHECKING ALL HTTP LINKS IN data/subjects.js');
     console.log('='.repeat(70));
 
-    global.window = {};
-    require(path.join(REPO_ROOT, 'data/subjects.js'));
-    const subjectsData = global.window.SEM5_DATA.subjects;
+    const subjectsModule = require(path.join(REPO_ROOT, 'data/subjects.js'));
+    const subjectsData = subjectsModule.subjects || (global.window && global.window.SEM5_DATA ? global.window.SEM5_DATA.subjects : global.SEM5_DATA.subjects);
 
     const testPage = await browser.newPage();
     let checkedCount = 0;

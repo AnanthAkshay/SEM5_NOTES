@@ -186,6 +186,42 @@ def build_index():
                     "path": pyq_hw_path
                 })
 
+    # 3. Every Registered File from data/subjects.js
+    try:
+        with open("data/subjects.js", "r", encoding="utf-8") as f:
+            content = f.read()
+        m = re.search(r"window\.SEM5_DATA\s*=\s*(\{[\s\S]*?\n\});", content)
+        if m:
+            subjects_data = json.loads(m.group(1))
+            indexed_paths = {e.get("path") for e in index_entries}
+            for s in subjects_data.get("subjects", []):
+                sid = s["id"]
+                s_name = s.get("shortName", sid.upper())
+                for u in s.get("units", []):
+                    u_num = u.get("unitNumber", "")
+                    u_title = u.get("title", "")
+                    for f in u.get("files", []):
+                        f_path = f.get("path", "")
+                        if not f_path or f_path in indexed_paths:
+                            continue
+                        indexed_paths.add(f_path)
+                        f_title = f.get("title", "")
+                        keywords = [sid, s_name.lower(), str(u_num).lower(), f.get("type", "")]
+                        if f.get("tag"):
+                            keywords.append(f.get("tag").lower())
+                        index_entries.append({
+                            "type": "file",
+                            "subject": sid,
+                            "unit": u_num,
+                            "unitTitle": u_title,
+                            "title": f_title,
+                            "subsections": [f"{s_name} · {u_title}"],
+                            "keywords": keywords,
+                            "path": f_path
+                        })
+    except Exception as e:
+        print(f"Error indexing subjects.js files: {e}")
+
     print(f"Total indexed CIE-1 records: {len(index_entries)}")
 
     # Write data/notes-index.json
