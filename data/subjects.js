@@ -2136,6 +2136,29 @@ window.SEM5_DATA = {
               "sizeBytes": 981012,
               "size": "958 KB",
               "tag": "Vector Handwritten"
+            },
+            {
+              "id": "ai-ai-intro-intelligent-agents-pdf",
+              "title": "Unit 1 - Introduction to AI & Intelligent Agents Lecture Presentation",
+              "originalName": "AI-2.pdf",
+              "path": "notes/ai/recent-notes/ai-intro-intelligent-agents.pdf",
+              "type": "pdf",
+              "sizeBytes": 1701680,
+              "size": "1.7 MB",
+              "pages": 39,
+              "tag": "Recent Notes"
+            },
+            {
+              "id": "ai-ai-important-questions-pdf",
+              "title": "Unit 1 - Important Questions Board Photo (9 Core Questions)",
+              "originalName": "WhatsApp Image 2026-09-07 at 9.11.31 AM.jpeg",
+              "path": "notes/ai/recent-notes/ai-important-questions.pdf",
+              "type": "pdf",
+              "sizeBytes": 38050,
+              "size": "38 KB",
+              "pages": 1,
+              "tag": "Recent Notes",
+              "originalPath": "notes/ai/recent-notes/ai-important-questions.jpg"
             }
           ]
         },
