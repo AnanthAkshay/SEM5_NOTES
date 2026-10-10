@@ -20,7 +20,8 @@ ehthumbs_vista.db
 scratch/
 build/
 *.tmp
-audit/
+audit/*
+!audit/*.md
 
 # Raw Workspace Source Folders (Organized & converted copies live in notes/)
 /AI/
@@ -31,6 +32,16 @@ audit/
 /RMIPR/
 /SE/
 /TOC/
+/AL58 - RM/
+/HS510 - EVS/
+/IS51 - ML/
+/IS52 - SE/
+/IS53 - CN/
+/IS54 - TOC/
+/ISAEC594 - React/
+/ISE552 - AI/
+/2023_batch5-6_sem_syllabus.pdf
+/CIE1 Schedule.pdf
 
 # Local Reference Textbooks (Copyrighted - strictly never published or served)
 textbooks/

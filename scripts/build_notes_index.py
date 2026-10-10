@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-SEM 5 · ISE Notes - Global Search Index Generator
+SEM 5 · ISE Notes - Global Search Index Generator (CIE-1 Scope)
 
-Scans all 24 HTML study notes across all 8 subjects (AI, CN, EVS, ML, ReactJS, RMIPR, SE, TOC),
-extracts all sections, titles, subsections, and key concepts, and generates:
+Scans in-scope HTML notes, PYQ question banks, and handwritten PDF notebooks
+based strictly on data/scope.json and generates:
 - data/notes-index.json
 - data/notes-index.js (for direct browser script inclusion)
 """
@@ -12,17 +12,6 @@ import os
 import json
 import re
 from html.parser import HTMLParser
-
-SUBJECT_METADATA = [
-    {"id": "ai", "units": [1, 2, 3]},
-    {"id": "cn", "units": [1, 2, 3]},
-    {"id": "evs", "units": [1, 2, 3]},
-    {"id": "ml", "units": [1, 2, 3]},
-    {"id": "reactjs", "units": [1, 2, 3]},
-    {"id": "rmipr", "units": [1, 2, 3]},
-    {"id": "se", "units": [1, 2, 3]},
-    {"id": "toc", "units": [1, 2, 3]},
-]
 
 class NoteParser(HTMLParser):
     def __init__(self):
@@ -62,13 +51,11 @@ class NoteParser(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "h1" and self.in_h1:
             self.in_h1 = False
-            # Clean unit title
             t = re.sub(r"^Unit\s+\d+:\s*", "", self.text_buf.strip(), flags=re.IGNORECASE)
             self.unit_title = t
         elif tag == "h2" and self.in_h2:
             self.in_h2 = False
             if self.curr_sec:
-                # Remove leading section numbers like "1.1 " or "Section 1: "
                 clean_title = re.sub(r"^\d+(\.\d+)*\s*[:.-]?\s*", "", self.text_buf.strip())
                 self.curr_sec["title"] = clean_title or self.text_buf.strip()
         elif tag == "h3" and self.in_h3:
@@ -87,13 +74,22 @@ class NoteParser(HTMLParser):
         if self.in_h1 or self.in_h2 or self.in_h3 or self.in_strong:
             self.text_buf += data
 
+
 def build_index():
     index_entries = []
-    print("Building global search index for all 24 units...")
+    print("Building global search index for CIE-1 scope...")
 
-    for sub in SUBJECT_METADATA:
-        sub_id = sub["id"]
-        for u in sub["units"]:
+    with open("data/scope.json", "r", encoding="utf-8") as f:
+        scope = json.load(f)
+
+    subjects = scope.get("subjects", {})
+
+    for sub_id, sub_info in subjects.items():
+        in_scope_units = sub_info.get("in_scope_units", [])
+        sub_name = sub_info.get("short_name", sub_id.upper())
+
+        # 1. Notes Sections & Unit Handwritten Notebooks
+        for u in in_scope_units:
             note_path = f"notes/{sub_id}/unit{u}/unit-{u}-notes.html"
             if not os.path.exists(note_path):
                 print(f"[WARN] Missing note file: {note_path}")
@@ -110,11 +106,10 @@ def build_index():
             for sec in parser.sections:
                 sec_id = sec["id"]
                 title = sec["title"] or f"Section {sec_id}"
-                
-                # Limit keywords to top 15 most relevant
                 keywords = sec["keywords"][:15]
 
                 entry = {
+                    "type": "note-section",
                     "subject": sub_id,
                     "unit": u,
                     "unitTitle": unit_title,
@@ -126,7 +121,72 @@ def build_index():
                 }
                 index_entries.append(entry)
 
-    print(f"Total indexed section records: {len(index_entries)}")
+            # Handwritten Notebook entry for Unit
+            hw_path = f"notes/{sub_id}/unit{u}/handwritten/{sub_id}-unit{u}-handwritten.pdf"
+            if os.path.exists(hw_path):
+                index_entries.append({
+                    "type": "handwritten",
+                    "subject": sub_id,
+                    "unit": u,
+                    "unitTitle": unit_title,
+                    "title": f"{sub_name} Unit {u} Handwritten Notebook (PDF)",
+                    "subsections": [f"{sub_name} Unit {u} handwritten notes"],
+                    "keywords": [sub_id, f"unit{u}", "handwritten", "pdf", "notebook"],
+                    "path": hw_path
+                })
+
+        # 2. PYQ Questions & PYQ Handwritten Notebook
+        pyq_json_path = f"data/pyq/{sub_id}.json"
+        if os.path.exists(pyq_json_path):
+            with open(pyq_json_path, "r", encoding="utf-8") as f:
+                pyq_data = json.load(f)
+
+            in_scope_questions = pyq_data.get("in_scope_questions", [])
+            for q in in_scope_questions:
+                q_id = q.get("id", "")
+                q_text = q.get("question", "")
+                q_clean = re.sub(r"<[^>]+>", "", q_text).strip()
+                q_unit = q.get("unit", 1)
+                q_marks = q.get("marks", "")
+                q_exam = q.get("exam", "")
+                q_sec = q.get("syllabus_section", "")
+
+                keywords = [sub_id, f"unit{q_unit}", "pyq", q_id]
+                if q_exam:
+                    keywords.append(q_exam.lower())
+                if q_marks:
+                    keywords.append(str(q_marks).lower())
+
+                index_entries.append({
+                    "type": "pyq",
+                    "subject": sub_id,
+                    "unit": q_unit,
+                    "unitTitle": f"Unit {q_unit} PYQ",
+                    "sectionId": q_sec,
+                    "questionId": q_id,
+                    "title": q_clean,
+                    "marks": q_marks,
+                    "exam": q_exam,
+                    "subsections": [f"{q_exam} ({q_marks})" if q_exam else ""],
+                    "keywords": keywords,
+                    "path": f"notes/{sub_id}/pyq/pyq-answers.html#{q_id}"
+                })
+
+            # PYQ Handwritten Notebook entry
+            pyq_hw_path = f"notes/{sub_id}/pyq/handwritten/{sub_id}-pyq-handwritten.pdf"
+            if os.path.exists(pyq_hw_path):
+                index_entries.append({
+                    "type": "handwritten",
+                    "subject": sub_id,
+                    "unit": "PYQ",
+                    "unitTitle": "CIE-1 Solved PYQs",
+                    "title": f"{sub_name} CIE-1 Solved PYQs Handwritten Notebook (PDF)",
+                    "subsections": [f"{sub_name} PYQ model answers handwritten notes"],
+                    "keywords": [sub_id, "pyq", "handwritten", "pdf", "solved pyqs", "cie1"],
+                    "path": pyq_hw_path
+                })
+
+    print(f"Total indexed CIE-1 records: {len(index_entries)}")
 
     # Write data/notes-index.json
     with open("data/notes-index.json", "w", encoding="utf-8") as f:

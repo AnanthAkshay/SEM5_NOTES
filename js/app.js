@@ -9,15 +9,49 @@
   // --- State & Constants ---
   const STORAGE_KEYS = {
     THEME: 'sem5_theme_v1',
-    PROGRESS: 'sem5_progress_v1',
+    PROGRESS: 'sem5_progress_v2',
     PINNED: 'sem5_pinned_v1'
   };
+
+  function loadAndMigrateProgress() {
+    const raw = localStorage.getItem(STORAGE_KEYS.PROGRESS);
+    if (raw) {
+      try { return JSON.parse(raw); } catch (e) { return {}; }
+    }
+    const v1Raw = localStorage.getItem('sem5_progress_v1');
+    if (v1Raw) {
+      try {
+        const v1 = JSON.parse(v1Raw);
+        const validIds = new Set();
+        if (window.SEM5_DATA && window.SEM5_DATA.subjects) {
+          window.SEM5_DATA.subjects.forEach(s => {
+            if (s.units) {
+              s.units.forEach(u => {
+                if (u.files) u.files.forEach(f => validIds.add(f.id));
+              });
+            }
+          });
+        }
+        const v2 = {};
+        Object.keys(v1).forEach(k => {
+          if (validIds.has(k)) {
+            v2[k] = true;
+          }
+        });
+        localStorage.setItem(STORAGE_KEYS.PROGRESS, JSON.stringify(v2));
+        return v2;
+      } catch (e) {
+        return {};
+      }
+    }
+    return {};
+  }
 
   const state = {
     data: window.SEM5_DATA || { subjects: [], meta: {} },
     notesIndex: window.SEM5_NOTES_INDEX || [],
     theme: localStorage.getItem(STORAGE_KEYS.THEME) || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'),
-    progress: JSON.parse(localStorage.getItem(STORAGE_KEYS.PROGRESS) || '{}'),
+    progress: loadAndMigrateProgress(),
     pinned: JSON.parse(localStorage.getItem(STORAGE_KEYS.PINNED) || '[]'),
     currentSubjectId: null,
     currentTab: 'notes',
@@ -100,9 +134,210 @@
       el.textContent = isMac ? 'Cmd K' : 'Ctrl K';
     });
 
+    initCie1Portal();
+
     if (elements.currentYearSpan) {
       elements.currentYearSpan.textContent = new Date().getFullYear();
     }
+  }
+
+  // --- CIE-1 Examination Portal & Timetable ---
+  const CIE1_SCHEDULE = [
+    {
+      id: 'cn',
+      code: '24IS53',
+      name: 'Computer Networks',
+      dateTimeStr: 'Tue 13-10-2026, 09:30–10:30',
+      examStart: '2026-10-13T09:30:00+05:30',
+      examEnd: '2026-10-13T10:30:00+05:30',
+      scope: 'Unit 1, Unit 2, Unit 3 up to "IPv4 Addressing – Classless" (inclusive)',
+      notesPath: 'notes/cn/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/cn/unit1/handwritten/cn-unit1-handwritten.pdf',
+      pyqPath: 'notes/cn/pyq/pyq-answers.html'
+    },
+    {
+      id: 'reactjs',
+      code: '24ISAEC594',
+      name: 'Frontend Development using React JS',
+      dateTimeStr: 'Tue 13-10-2026, 13:30–14:30',
+      examStart: '2026-10-13T13:30:00+05:30',
+      examEnd: '2026-10-13T14:30:00+05:30',
+      scope: 'Unit 1, Unit 2 (Full)',
+      notesPath: 'notes/reactjs/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/reactjs/unit1/handwritten/reactjs-unit1-handwritten.pdf',
+      pyqPath: 'notes/reactjs/pyq/pyq-answers.html'
+    },
+    {
+      id: 'ai',
+      code: '24ISE552',
+      name: 'Artificial Intelligence',
+      dateTimeStr: 'Wed 14-10-2026, 09:30–10:30',
+      examStart: '2026-10-14T09:30:00+05:30',
+      examEnd: '2026-10-14T10:30:00+05:30',
+      scope: 'Unit 1, Unit 2 (Full)',
+      notesPath: 'notes/ai/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/ai/unit1/handwritten/ai-unit1-handwritten.pdf',
+      pyqPath: 'notes/ai/pyq/pyq-answers.html'
+    },
+    {
+      id: 'se',
+      code: '24IS52',
+      name: 'Software Engineering',
+      dateTimeStr: 'Wed 14-10-2026, 13:30–14:30',
+      examStart: '2026-10-14T13:30:00+05:30',
+      examEnd: '2026-10-14T14:30:00+05:30',
+      scope: 'Unit 1, Unit 2 (Full)',
+      notesPath: 'notes/se/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/se/unit1/handwritten/se-unit1-handwritten.pdf',
+      pyqPath: 'notes/se/pyq/pyq-answers.html'
+    },
+    {
+      id: 'ml',
+      code: '24IS51',
+      name: 'Machine Learning',
+      dateTimeStr: 'Thu 15-10-2026, 09:30–10:30',
+      examStart: '2026-10-15T09:30:00+05:30',
+      examEnd: '2026-10-15T10:30:00+05:30',
+      scope: 'Unit 1, Unit 2, Unit 3 (Regression portion only)',
+      notesPath: 'notes/ml/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/ml/unit1/handwritten/ml-unit1-handwritten.pdf',
+      pyqPath: 'notes/ml/pyq/pyq-answers.html'
+    },
+    {
+      id: 'rmipr',
+      code: '24AL58',
+      name: 'Research Methodology & IPR',
+      dateTimeStr: 'Thu 15-10-2026, 15:00–16:00',
+      examStart: '2026-10-15T15:00:00+05:30',
+      examEnd: '2026-10-15T16:00:00+05:30',
+      scope: 'Unit 1, Unit 2, Unit 3 up to "Characteristics of a Good Sample Design"',
+      notesPath: 'notes/rmipr/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/rmipr/unit1/handwritten/rmipr-unit1-handwritten.pdf',
+      pyqPath: 'notes/rmipr/pyq/pyq-answers.html'
+    },
+    {
+      id: 'evs',
+      code: '24HS510',
+      name: 'Environmental Studies',
+      dateTimeStr: 'Fri 16-10-2026, 09:30–10:30',
+      examStart: '2026-10-16T09:30:00+05:30',
+      examEnd: '2026-10-16T10:30:00+05:30',
+      scope: 'Unit 1, Unit 2 (Full)',
+      notesPath: 'notes/evs/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/evs/unit1/handwritten/evs-unit1-handwritten.pdf',
+      pyqPath: 'notes/evs/pyq/pyq-answers.html'
+    },
+    {
+      id: 'toc',
+      code: '24IS54',
+      name: 'Theory of Computation',
+      dateTimeStr: 'Fri 16-10-2026, 13:30–14:30',
+      examStart: '2026-10-16T13:30:00+05:30',
+      examEnd: '2026-10-16T14:30:00+05:30',
+      scope: 'Unit 1, Unit 2 (Full)',
+      notesPath: 'notes/toc/unit1/unit-1-notes.html',
+      handwrittenPath: 'notes/toc/unit1/handwritten/toc-unit1-handwritten.pdf',
+      pyqPath: 'notes/toc/pyq/pyq-answers.html'
+    }
+  ];
+
+  function initCie1Portal() {
+    const grid = document.getElementById('cie1-schedule-grid');
+    if (grid) {
+      grid.innerHTML = CIE1_SCHEDULE.map(item => `
+        <div class="cie1-exam-card">
+          <div>
+            <div class="cie1-card-header">
+              <span class="cie1-code-badge">${escapeHtml(item.code)}</span>
+              <span class="cie1-datetime-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                ${escapeHtml(item.dateTimeStr)}
+              </span>
+            </div>
+            <h3 class="cie1-card-title">${escapeHtml(item.name)}</h3>
+            <div class="cie1-scope-box" style="margin-top: 0.75rem;">
+              <strong>CIE-1 Scope:</strong> ${escapeHtml(item.scope)}
+            </div>
+          </div>
+          <div class="cie1-actions-bar">
+            <a href="${item.notesPath}" class="cie1-action-link" title="Read Interactive Notes">
+              <span>📖 Notes</span>
+            </a>
+            <a href="${item.handwrittenPath}" download class="cie1-action-link" title="Download Handwritten Notebook PDF">
+              <span>✍️ Notebook</span>
+            </a>
+            <a href="${item.pyqPath}" class="cie1-action-link primary-pyq" title="Study Model PYQ Answers">
+              <span>🎯 Solved PYQs</span>
+            </a>
+            <button class="cie1-action-link" onclick="window.SEM5_APP.openSubject('${item.id}')" title="Overview & Details">
+              <span>📂 Overview ↗</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Live countdown timer
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  function updateCountdown() {
+    const now = Date.now();
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-mins');
+    const secsEl = document.getElementById('cd-secs');
+    const targetEl = document.getElementById('cie1-countdown-target');
+    if (!daysEl || !hoursEl || !minsEl || !secsEl || !targetEl) return;
+
+    let nextExam = null;
+    let isOngoing = false;
+
+    for (const item of CIE1_SCHEDULE) {
+      const start = new Date(item.examStart).getTime();
+      const end = new Date(item.examEnd).getTime();
+      if (now < start) {
+        nextExam = item;
+        break;
+      } else if (now >= start && now <= end) {
+        nextExam = item;
+        isOngoing = true;
+        break;
+      }
+    }
+
+    if (!nextExam) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minsEl.textContent = '00';
+      secsEl.textContent = '00';
+      targetEl.textContent = 'All CIE-1 Examinations Concluded! 🎉';
+      return;
+    }
+
+    if (isOngoing) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minsEl.textContent = '00';
+      secsEl.textContent = '00';
+      targetEl.innerHTML = `⚠️ <strong style="color:#ef4444;">EXAM IN PROGRESS:</strong> ${escapeHtml(nextExam.name)} (${nextExam.code})`;
+      return;
+    }
+
+    const start = new Date(nextExam.examStart).getTime();
+    const diff = Math.max(0, start - now);
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / 1000 / 60) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    daysEl.textContent = String(d).padStart(2, '0');
+    hoursEl.textContent = String(h).padStart(2, '0');
+    minsEl.textContent = String(m).padStart(2, '0');
+    secsEl.textContent = String(s).padStart(2, '0');
+    targetEl.textContent = `Target: ${nextExam.name} (${nextExam.code}) · ${nextExam.dateTimeStr.split(',')[0]}`;
   }
 
   // --- Theme Management ---
@@ -464,6 +699,9 @@
         <button class="segmented-tab ${state.currentTab === 'notes' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('notes')">
           Notes &amp; Docs (${subject.units.filter(u => !u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
         </button>
+        <button class="segmented-tab ${state.currentTab === 'pyq' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('pyq')">
+          PYQ &amp; Answers
+        </button>
         ${hasPractice ? `
           <button class="segmented-tab ${state.currentTab === 'practice' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('practice')">
             Practice (${subject.units.filter(u => u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
@@ -487,6 +725,9 @@
           ${renderUnitsList(subject, state.currentTab === 'practice')}
         </div>
       ` : ''}
+
+      <!-- Tab Content: PYQ & Answers View -->
+      ${state.currentTab === 'pyq' ? renderPyqTab(subject) : ''}
 
       <!-- Tab Content: Rich Syllabus View -->
       ${state.currentTab === 'syllabus' && hasRichSyllabus ? renderSyllabusView(subject) : ''}
@@ -544,6 +785,128 @@
     const anyOpen = Array.from(detailsList).some(d => d.open);
     toggleBtn.setAttribute('aria-expanded', anyOpen ? 'true' : 'false');
     toggleBtn.innerHTML = `<span>${anyOpen ? 'COLLAPSE ALL' : 'EXPAND ALL'}</span>`;
+  }
+
+  // --- Render PYQ & Answers Tab View ---
+  function renderPyqTab(subject) {
+    const pyqUnit = subject.units.find(u => u.unitNumber === 'PYQ');
+    const pyqInteractiveFile = pyqUnit && pyqUnit.files ? pyqUnit.files.find(f => f.type === 'pyq') : null;
+    const pyqHwFile = pyqUnit && pyqUnit.files ? pyqUnit.files.find(f => f.type === 'handwritten') : null;
+    const pyqBundleFile = pyqUnit && pyqUnit.files ? pyqUnit.files.find(f => f.type === 'pdf') : null;
+
+    const questions = (state.notesIndex || []).filter(e => e.type === 'pyq' && e.subject === subject.id);
+
+    return `
+      <div class="pyq-hub-container" style="display:flex; flex-direction:column; gap:1.5rem;">
+        <!-- PYQ Quick Access Hero Cards -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem;">
+          ${pyqInteractiveFile ? `
+            <div class="scheme-section-card" style="padding:1.25rem 1.5rem; margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between; gap:1rem; border:1.5px solid var(--green);">
+              <div>
+                <span class="pill-tag-green" style="font-size:11px;">Interactive Model Answers</span>
+                <h3 style="font-family:var(--font-display); font-size:1.15rem; font-weight:700; color:var(--ink); margin:0.5rem 0 0.35rem 0;">${escapeHtml(pyqInteractiveFile.title)}</h3>
+                <p style="font-size:12px; color:var(--ink-muted); margin:0;">Complete 2M, 5M &amp; 10M model answers with derivations, diagrams, worked arithmetic, and textbook citations.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem;">
+                <a href="${pyqInteractiveFile.path}" class="pill-btn-green pill-btn-sm" style="flex:1; justify-content:center;">
+                  ${ICONS.eye} <span>OPEN ANSWERS</span>
+                </a>
+                <a href="${pyqInteractiveFile.path}" target="_blank" rel="noopener" class="pill-btn-outline pill-btn-sm" title="Open in new tab">
+                  ${ICONS.externalLink}
+                </a>
+              </div>
+            </div>
+          ` : ''}
+
+          ${pyqHwFile ? `
+            <div class="scheme-section-card" style="padding:1.25rem 1.5rem; margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between; gap:1rem;">
+              <div>
+                <span class="pill-tag-purple" style="font-size:11px;">Handwritten PDF Notebook</span>
+                <h3 style="font-family:var(--font-display); font-size:1.15rem; font-weight:700; color:var(--ink); margin:0.5rem 0 0.35rem 0;">${escapeHtml(pyqHwFile.title)}</h3>
+                <p style="font-size:12px; color:var(--ink-muted); margin:0;">${pyqHwFile.pages} Pages vector handwritten PDF formatted for quick mobile revision before the exam.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="pill-btn-green pill-btn-sm" onclick="window.SEM5_APP.openViewer('${pyqHwFile.id}')" style="flex:1; justify-content:center;">
+                  ${ICONS.eye} <span>VIEW PDF</span>
+                </button>
+                <a href="${pyqHwFile.path}" download class="pill-btn-outline pill-btn-sm" title="Download PDF">
+                  ${ICONS.download}
+                </a>
+              </div>
+            </div>
+          ` : ''}
+
+          ${pyqBundleFile ? `
+            <div class="scheme-section-card" style="padding:1.25rem 1.5rem; margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between; gap:1rem;">
+              <div>
+                <span class="pill-tag-amber" style="font-size:11px; background:rgba(245,158,11,0.15); color:#d97706; padding:2px 8px; border-radius:999px;">Original Papers Bundle</span>
+                <h3 style="font-family:var(--font-display); font-size:1.15rem; font-weight:700; color:var(--ink); margin:0.5rem 0 0.35rem 0;">${escapeHtml(pyqBundleFile.title)}</h3>
+                <p style="font-size:12px; color:var(--ink-muted); margin:0;">Official CIE and SEE question paper bundle scan (${pyqBundleFile.size}).</p>
+              </div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="pill-btn-green pill-btn-sm" onclick="window.SEM5_APP.openViewer('${pyqBundleFile.id}')" style="flex:1; justify-content:center;">
+                  ${ICONS.eye} <span>VIEW PAPER</span>
+                </button>
+                <a href="${pyqBundleFile.path}" download class="pill-btn-outline pill-btn-sm" title="Download PDF">
+                  ${ICONS.download}
+                </a>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- Question Bank Filter & List -->
+        <div class="scheme-section-card" style="margin-bottom:0;">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.75rem; margin-bottom:1.25rem;">
+            <div>
+              <h2 class="syl-card-title" style="margin:0 0 0.25rem 0;">CIE-1 In-Scope Solved Questions (${questions.length})</h2>
+              <p style="font-size:12px; color:var(--ink-muted); margin:0;">Click any question to view its verified model answer or mark it as revised.</p>
+            </div>
+            <a href="notes/${subject.id}/pyq/pyq-answers.html" class="pill-btn-outline pill-btn-sm">
+              <span>VIEW FULL MODEL ANSWERS PAGE →</span>
+            </a>
+          </div>
+
+          <div class="pyq-questions-stack" style="display:flex; flex-direction:column; gap:0.6rem;">
+            ${questions.length > 0 ? questions.map(q => {
+              const isDone = !!state.progress[q.questionId];
+              return `
+                <div class="file-row ${isDone ? 'is-done' : ''}" style="padding:0.75rem 1rem;">
+                  <div class="file-info-group">
+                    <label class="done-checkbox-wrap" title="Mark as revised">
+                      <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${q.questionId}')" />
+                    </label>
+                    <span class="file-type-pill file-type-pyq">${escapeHtml(q.marks || 'PYQ')}</span>
+                    <div class="file-details-col">
+                      <div class="file-title-wrap">
+                        <a href="${q.path}" class="file-title" style="text-decoration:none; color:inherit; font-weight:600;">
+                          ${escapeHtml(q.title)}
+                        </a>
+                      </div>
+                      <div class="file-submeta">
+                        <span class="code-mono">${escapeHtml(q.exam || 'CIE-1')}</span>
+                        <span>·</span>
+                        <span>Unit ${q.unit}</span>
+                        ${q.sectionId ? `<span>· §${escapeHtml(q.sectionId)}</span>` : ''}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="file-actions-group">
+                    <a href="${q.path}" class="pill-btn-green pill-btn-sm">
+                      ${ICONS.eye} <span>ANSWER</span>
+                    </a>
+                  </div>
+                </div>
+              `;
+            }).join('') : `
+              <p style="font-size:13px; color:var(--ink-muted); padding:1rem; text-align:center;">
+                Visit the <a href="notes/${subject.id}/pyq/pyq-answers.html" style="color:var(--green); font-weight:700;">Solved PYQ Bank</a> for complete question list and answers.
+              </p>
+            `}
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   // --- Render Units & Files List ---
@@ -622,6 +985,7 @@
     let pillLabel = file.type.toUpperCase();
     if (isNotes) pillLabel = 'NOTES';
     else if (isHandwrittenPdf) pillLabel = 'NOTEBOOK (PDF)';
+    else if (file.type === 'pyq') pillLabel = 'PYQ BANK';
 
     return `
       <div class="file-row ${isDone ? 'is-done' : ''}" id="file-row-${file.id}">
@@ -630,7 +994,7 @@
             <input type="checkbox" class="done-checkbox" ${isDone ? 'checked' : ''} onchange="window.SEM5_APP.toggleFileProgress('${file.id}')" aria-label="Mark ${escapeHtml(file.title)} as studied" />
           </label>
 
-          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''} ${isHandwrittenPdf ? 'file-type-handwritten' : ''}">${pillLabel}</span>
+          <span class="file-type-pill ${isNotes ? 'file-type-notes' : ''} ${isHandwrittenPdf ? 'file-type-handwritten' : ''} ${file.type === 'pyq' ? 'file-type-pyq' : ''}">${pillLabel}</span>
 
           <div class="file-details-col">
             <div class="file-title-wrap">
@@ -744,6 +1108,28 @@
                 <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;">${escapeHtml(b.publisher)}</p>
               </div>
             `).join('') : ''}
+          </div>
+        </div>
+
+        <!-- CIE-1 Academic Sources & Faculty Citations -->
+        <div class="syllabus-section-card">
+          <h2 class="syl-card-title">CIE-1 Academic Sources &amp; Faculty Citations</h2>
+          <p style="font-size:13px; color:var(--ink-muted); line-height:1.5; margin-bottom:1rem;">
+            Every definition, algorithm step, network diagram, automata state, and solved mathematical numerical in the CIE-1 notes is strictly traceable to prescribed textbooks and faculty materials:
+          </p>
+          <div class="books-grid">
+            <div class="book-card">
+              <span class="book-tag" style="background:var(--green-tint); color:var(--green-tint-ink);">Primary Scope Authority</span>
+              <h4 class="book-title">MSRIT Department Syllabus &amp; CIE-1 Schedule</h4>
+              <p class="book-author">Autonomous Scheme (2024 Batch, V Semester ISE)</p>
+              <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">Exam Schedule: ${escapeHtml(subject.examSchedule || 'October 2026')}</p>
+            </div>
+            <div class="book-card">
+              <span class="book-tag">Faculty Source Citations</span>
+              <h4 class="book-title">Department Faculty Lecture Decks &amp; Question Papers</h4>
+              <p class="book-author">Course Coordinator: ${escapeHtml(subject.coordinator || 'Department Faculty')}</p>
+              <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">Classroom slides, problem sheets, and authenticated examination papers</p>
+            </div>
           </div>
         </div>
 
@@ -1320,13 +1706,21 @@
         const subIdMatch = entry.subject && entry.subject.toLowerCase() === q;
 
         if (titleMatch || subMatch || keyMatch || unitMatch || subIdMatch) {
-          noteSectionMatches++;
           const subCode = (entry.subject || 'notes').toUpperCase();
+          let badgeText = 'Interactive notes';
+          let subtitleText = `${subCode} · Unit ${entry.unit}: ${entry.unitTitle} §${entry.sectionId || ''}`;
+          if (entry.type === 'pyq') {
+            badgeText = 'Solved PYQ';
+            subtitleText = `${subCode} · Unit ${entry.unit} PYQ ${entry.exam ? '· ' + entry.exam : ''} ${entry.marks ? '(' + entry.marks + ')' : ''}`;
+          } else if (entry.type === 'handwritten') {
+            badgeText = 'PDF Notebook';
+            subtitleText = `${subCode} · ${entry.unitTitle} · Handwritten PDF`;
+          }
           results.push({
-            type: 'note-section',
+            type: entry.type || 'note-section',
             title: entry.title,
-            subtitle: `${subCode} · Unit ${entry.unit}: ${entry.unitTitle} §${entry.sectionId}`,
-            badge: 'Interactive notes',
+            subtitle: subtitleText,
+            badge: badgeText,
             action: () => {
               closeSearch();
               window.location.href = entry.path;

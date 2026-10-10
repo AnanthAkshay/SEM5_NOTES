@@ -10,11 +10,18 @@
 > A bespoke, lightweight, and data-driven study portal crafted for 5th Semester ISE engineering students. Built with pure HTML5, modern CSS3 variables, and vanilla JavaScript—zero external build steps, 100% relative paths, and instant deployment on GitHub Pages.
 
 > [!IMPORTANT]
-> **AI-Assisted Study Notes & Verification Notice**:  
-> All unit notes and handwritten notebooks are AI-assisted study materials compiled from the autonomous syllabus. Students **must** verify proofs, equations, definitions, and problem solutions against the prescribed textbooks and their faculty's lecture notes before examinations.
+> **CIE-1 Examination Scope & Verification Notice**:  
+> The portal has been strictly trimmed and rebuilt for the **5th Semester CIE-1 Examinations (13–16 October 2026)**. All definitions, algorithm traces, network diagrams, and numerical calculations are compiled directly from prescribed textbooks, faculty lecture slides, and department question papers. Out-of-scope portions are archived under git tag `pre-cie1-scope`. See [`CIE1_SCOPE.md`](./CIE1_SCOPE.md) for full authoritative scope boundaries.
 > 
-> **Syllabus Coverage**:  
-> Units 1–3 across all 8 subjects contain complete interactive notes and downloadable handwritten vector notebooks. Units 4 and 5, as well as laboratory sections, are provided as syllabus-only curriculum references.
+> **CIE-1 Syllabus Coverage (19 In-Scope Units & 8 Solved PYQ Banks)**:  
+> - **Computer Networks (`24IS53`):** Units 1, 2, 3 up to "IPv4 Addressing – Classless" (CIDR/VLSM included; NAT/IPv6 out)  
+> - **React JS (`24ISAEC594`):** Units 1 & 2 (Full)  
+> - **Artificial Intelligence (`24ISE552`):** Units 1 & 2 (Full) + Faculty 9-question priority list  
+> - **Software Engineering (`24IS52`):** Units 1 & 2 (Full)  
+> - **Machine Learning (`24IS51`):** Units 1, 2, 3 (Regression portion only; KNN/Decision Trees out)  
+> - **Research Methodology & IPR (`24AL58`):** Units 1, 2, 3 up to "Characteristics of a Good Sample Design"  
+> - **Environmental Studies (`24HS510`):** Units 1 & 2 (Full)  
+> - **Theory of Computation (`24IS54`):** Units 1 & 2 (Full)
 
 🌐 **Live Website**: [https://ananthakshay.github.io/SEM5_NOTES/](https://ananthakshay.github.io/SEM5_NOTES/)
 
@@ -123,18 +130,18 @@ This study website consolidates materials into an intuitive web interface with:
 
 ---
 
-## 📊 Subject Coverage & Inventory (Official V Semester Scheme: 22 Credits)
+## 📊 Subject Coverage & Inventory (CIE-1 Examination Schedule: 13–16 Oct 2026)
 
-| Subject Name | Code | Credits (L:T:P) | Type | Coordinator | Coverage Status | Materials Included |
+| Exam Date & Time | Course Code | Subject Name | Type | Coordinator | CIE-1 Scope Portion | Notes, PYQ & Handwritten Status |
 |---|---|---|---|---|---|---|
-| **Machine Learning** | `IS51` | `3:0:0` | PCC | Dr. Sumana M | **Interactive Notes + Full PDFs + Lab + Practice** | Units 1–3 Interactive HTML Notes, Units 1–3 faculty PDFs, Unit 1 QB, ISL56 Lab Programs (Tableau + Python), and CIE-1, CIE-2 & SEE 2026 combined paper. |
-| **Software Engineering** | `IS52` | `2:0:1` | IPCC | Mushtaq Ahmed D M | **Interactive Notes + Full PDFs + Lab + Practice** | Units 1–3 Interactive HTML Notes, Units 1.1–1.3 & Unit 2 Requirements Engineering + System Modeling PPTs/PDFs, Unit-wise practical exercises, and CIE-1 & CIE-2 combined paper. |
-| **Computer Networks** | `IS53` | `4:0:0` | PCC | Suresh Kumar K R | **Interactive Notes + Full PDFs + Lab + Practice** | Units 1–3 Interactive HTML Notes, Unit 1 & Unit 2 lecture presentations, ISL57 Lab Part A & B programs, and CIE-1 & CIE-2 combined paper. |
-| **Theory of Computation** | `IS54` | `2:1:0` | PCC | Dr. Rajeshwari S B | **Interactive Notes + Full PDFs + Practice** | Units 1–3 Interactive HTML Notes, Units 1–5 comprehensive notes + alternate condensed notes, and CIE-1, CIE-2 & SEE 2025 combined paper. |
-| **Artificial Intelligence** | `ISE552` | `3:0:0` | PEC | Dr. Jagadeesh Sai D | **Interactive Notes + Full PDFs + Practice** | Units 1–3 Interactive HTML Notes, Units 1–3 faculty lecture slide decks (Agents, Uninformed, Informed, Local, and Adversarial Search), syllabus document, and CIE-1 & CIE-2 combined paper. |
-| **Research Methodology & IPR** | `AL58` | `3:0:0` | HSMC | Dr. Anitha P | **Interactive Notes + Full PDFs + Practice** | Units 1–3 Interactive HTML Notes, Unit 1 & Unit 2 PPTs/PDFs, CIE-1 & CIE-2 paper, Make-Up Exam (Apr 2025), and SEE Backlog Exam (Feb/Mar 2025). |
-| **Front end Dev using ReactJS** | `ISAEC594` | `1:0:0` | AEC | J R Shruti | **Interactive Notes + Full PDFs + Syllabus** | Units 1–3 Interactive HTML Notes, Unit 1 Foundations of React & JSX lecture presentation (115 slides converted to PDF + PPTX), transcribed syllabus, and documentation links. |
-| **Environmental Studies** | `HS510` | `0:0:0` (NCMC) | NCMC | Civil / H&S Faculty | **Interactive Notes + Full PDFs + Practice** | Units 1–3 Interactive HTML Notes, Units 1–5 PPTs/PDFs, Unit 2 natural resource references, 2024 CIE-1 QP, and CIE-1 50-mark paper. |
+| **Tue 13-10-2026, 09:30–10:30** | `24IS53` | **Computer Networks** | PCC | Suresh Kumar K R | Units 1, 2, Unit 3 up to "IPv4 Addressing – Classless" | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks (74p Notes + 23p PYQ) |
+| **Tue 13-10-2026, 13:30–14:30** | `24ISAEC594` | **Frontend Dev using React JS** | AEC | J R Shruti | Units 1 & 2 (Full) | **CIE-1 Ready:** Units 1–2 Notes, 21 Solved PYQs, 3 Vector Handwritten Notebooks (51p Notes + 25p PYQ) |
+| **Wed 14-10-2026, 09:30–10:30** | `24ISE552` | **Artificial Intelligence** | PEC | Dr. Jagadeesh Sai D | Units 1 & 2 (Full) | **CIE-1 Ready:** Units 1–2 Notes, Faculty 9-Q List, 22 Solved PYQs, 3 Vector Handwritten Notebooks (55p Notes + 26p PYQ) |
+| **Wed 14-10-2026, 13:30–14:30** | `24IS52` | **Software Engineering** | IPCC | Mushtaq Ahmed D M | Units 1 & 2 (Full) | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks (44p Notes + 4p PYQ) |
+| **Thu 15-10-2026, 09:30–10:30** | `24IS51` | **Machine Learning** | PCC | Dr. Sumana M | Units 1, 2, Unit 3 (Regression only) | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks (82p Notes + 4p PYQ) |
+| **Thu 15-10-2026, 15:00–16:00** | `24AL58` | **Research Methodology & IPR** | HSMC | Dr. Anitha P | Units 1, 2, Unit 3 up to Sample Design Characteristics | **CIE-1 Ready:** Units 1–3 Notes, 23 Solved PYQs, 4 Vector Handwritten Notebooks (54p Notes + 25p PYQ) |
+| **Fri 16-10-2026, 09:30–10:30** | `24HS510` | **Environmental Studies** | NCMC | Civil / H&S Faculty | Units 1 & 2 (Full) | **CIE-1 Ready:** Units 1–2 Notes, 25 Solved PYQs, 3 Vector Handwritten Notebooks (41p Notes + 22p PYQ) |
+| **Fri 16-10-2026, 13:30–14:30** | `24IS54` | **Theory of Computation** | PCC | Dr. Rajeshwari S B | Units 1 & 2 (Full) | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks (44p Notes + 20p PYQ) |
 
 ---
 

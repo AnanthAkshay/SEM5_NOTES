@@ -6,18 +6,18 @@
 
 window.SEM5_DATA = {
   "meta": {
-    "siteTitle": "SEM 5 \u00b7 ISE Notes",
+    "siteTitle": "SEM 5 · ISE Notes",
     "tagline": "Department of Information Science & Engineering",
     "semester": "Semester V",
-    "batch": "2024 Batch (Academic Year 2026\u20132027)",
+    "batch": "2024 Batch (Academic Year 2026–2027)",
     "totalCredits": 22,
-    "academicYear": "2026\u20132027",
-    "lastUpdated": "October 2026",
+    "academicYear": "2026–2027",
+    "lastUpdated": "October 2026 (CIE-1 Scope)",
     "repositoryName": "SEM5_NOTES",
     "studentDegree": "B.E. Information Science & Engineering",
-    "totalFiles": 100,
-    "totalSizeBytes": 156368693,
-    "totalSize": "149.1 MB"
+    "totalFiles": 98,
+    "totalSizeBytes": 111713995,
+    "totalSize": "106.5 MB"
   },
   "scheme": {
     "title": "Scheme of Teaching & Evaluation - V Semester (2024 Batch)",
@@ -213,7 +213,7 @@ window.SEM5_DATA = {
         "status": "Available for All Subjects",
         "statusBadge": "Completed",
         "pdfUrl": "notes/ai/practice/ai-cie-1-and-2.pdf",
-        "dateRange": "Term Sep\u2013Dec 2025",
+        "dateRange": "Term Sep–Dec 2025",
         "description": "Official CIE-1 and CIE-2 question papers available under Practice tabs for AI, CN, EVS, ML, RMIPR, SE, and TOC."
       },
       {
@@ -263,7 +263,7 @@ window.SEM5_DATA = {
       "contactHours": "45L+45S",
       "coordinator": "Dr. Sumana M",
       "prerequisites": "NIL",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#F97316",
         "secondary": "#FB923C",
@@ -381,8 +381,8 @@ window.SEM5_DATA = {
         "units": [
           {
             "unitNumber": 1,
-            "title": "Unit I: Introduction & Understanding Data \u2013 1",
-            "topics": "Introduction: Need for Machine Learning, Machine Learning Explained, Machine Learning in Relation to other Fields, Types of Machine Learning, Challenges of Machine Learning, Machine Learning Process, Machine Learning Applications. Understanding Data \u2013 1: Introduction, Big Data Analysis Framework, Descriptive Statistics, Univariate Data Analysis and Visualization, Bivariate Data and Multivariate Data, Multivariate Statistics",
+            "title": "Unit I: Introduction & Understanding Data – 1",
+            "topics": "Introduction: Need for Machine Learning, Machine Learning Explained, Machine Learning in Relation to other Fields, Types of Machine Learning, Challenges of Machine Learning, Machine Learning Process, Machine Learning Applications. Understanding Data – 1: Introduction, Big Data Analysis Framework, Descriptive Statistics, Univariate Data Analysis and Visualization, Bivariate Data and Multivariate Data, Multivariate Statistics",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -393,8 +393,8 @@ window.SEM5_DATA = {
           },
           {
             "unitNumber": 2,
-            "title": "Unit II: Understanding Data \u2013 2 & Basic Learning Theory",
-            "topics": "Understanding Data \u2013 2: Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques. Basic Learning Theory: Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, learning Frameworks.",
+            "title": "Unit II: Understanding Data – 2 & Basic Learning Theory",
+            "topics": "Understanding Data – 2: Mathematics for Multivariate Data, Feature Engineering and Dimensionality Reduction Techniques. Basic Learning Theory: Design of Learning System, Introduction to Concept of Learning, Induction biases, Modelling in Machine Learning, learning Frameworks.",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -430,7 +430,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Rule Based Learning, Bayesian Learning & Artificial Neural Networks",
-            "topics": "Rule Based Learning: Introduction, Sequential Covering Algorithm, First order Rule Learning, Association Rule Mining. Bayesian Learning: Introduction to Probability-based Learning, Fundamentals of Bayes Theorem, Classification Using Bayes Model, Na\u00efve Bayes Algorithm for Continuous Attributes. Artificial Neural Networks: Introduction, Biological Neurons, Artificial Neurons, Perceptron and Learning Theory, Types of Artificial Neural Networks, Popular Applications of Artificial Neural Networks, Advantages and Disadvantages of ANN, Challenges of ANN",
+            "topics": "Rule Based Learning: Introduction, Sequential Covering Algorithm, First order Rule Learning, Association Rule Mining. Bayesian Learning: Introduction to Probability-based Learning, Fundamentals of Bayes Theorem, Classification Using Bayes Model, Naïve Bayes Algorithm for Continuous Attributes. Artificial Neural Networks: Introduction, Biological Neurons, Artificial Neurons, Perceptron and Learning Theory, Types of Artificial Neural Networks, Popular Applications of Artificial Neural Networks, Advantages and Disadvantages of ANN, Challenges of ANN",
             "pedagogy": "Chalk and talk, PowerPoint Presentation, Videos",
             "links": [
               {
@@ -514,7 +514,7 @@ window.SEM5_DATA = {
             "tasks": [
               "Analyze and visualize the dataset to understand relationship between physicochemical features and wine quality.",
               "Build a regression model using Linear Regression and Ridge Regression.",
-              "Evaluate and interpret model performance using R\u00b2, RMSE, and MAE metrics."
+              "Evaluate and interpret model performance using R², RMSE, and MAE metrics."
             ]
           },
           {
@@ -529,7 +529,7 @@ window.SEM5_DATA = {
           },
           {
             "slNo": 3,
-            "title": "Parkinson\u2019s Disease Dataset KNN & Weighted KNN",
+            "title": "Parkinson’s Disease Dataset KNN & Weighted KNN",
             "dataset": "https://archive.ics.uci.edu/ml/datasets/parkinsons",
             "tasks": [
               "Explore correlations among speech and biomedical features related to Parkinson's disease.",
@@ -559,11 +559,11 @@ window.SEM5_DATA = {
           },
           {
             "slNo": 6,
-            "title": "Spambase Dataset Email Filtering with Gaussian Na\u00efve Bayes",
+            "title": "Spambase Dataset Email Filtering with Gaussian Naïve Bayes",
             "dataset": "https://archive.ics.uci.edu/ml/datasets/spambase",
             "tasks": [
               "Analyze word frequency, character frequency, and capital run length distributions.",
-              "Build a classification model using Na\u00efve Bayes and Gaussian Na\u00efve Bayes.",
+              "Build a classification model using Naïve Bayes and Gaussian Naïve Bayes.",
               "Evaluate using Accuracy, Precision, Recall, and F1-score."
             ]
           },
@@ -821,7 +821,7 @@ window.SEM5_DATA = {
           ]
         }
       ],
-      "fileCount": 12,
+      "fileCount": 14,
       "totalSizeBytes": 13999811,
       "totalSize": "13.4 MB"
     },
@@ -839,7 +839,7 @@ window.SEM5_DATA = {
       "contactHours": "30L+15P+30S",
       "coordinator": "Mushtaq Ahmed D M",
       "prerequisites": "NIL",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#6366F1",
         "secondary": "#818CF8",
@@ -861,7 +861,7 @@ window.SEM5_DATA = {
         },
         "referenceBooks": [
           {
-            "title": "Software Engineering: A Practitioner\u2019s Approach",
+            "title": "Software Engineering: A Practitioner’s Approach",
             "edition": "9th Edition (2020)",
             "authors": "Roger S. Pressman and Bruce R. Maxim",
             "publisher": "McGraw-Hill"
@@ -1216,7 +1216,7 @@ window.SEM5_DATA = {
             }
           ]
         },
-         {
+        {
           "id": "se-practice",
           "unitNumber": "Practice",
           "title": "Practice & Examination Question Papers",
@@ -1225,7 +1225,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "se-cie1-2",
-              "title": "Software Engineering CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
+              "title": "Software Engineering CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
               "originalName": "CIE 1 & 2.pdf",
               "path": "notes/se/practice/se-cie-1-and-2.pdf",
               "originalPath": null,
@@ -1238,8 +1238,8 @@ window.SEM5_DATA = {
         }
       ],
       "fileCount": 12,
-      "totalSizeBytes": 5716232,
-      "totalSize": "5.5 MB"
+      "totalSizeBytes": 5130944,
+      "totalSize": "4.9 MB"
     },
     {
       "id": "cn",
@@ -1255,7 +1255,7 @@ window.SEM5_DATA = {
       "contactHours": "60L+60S",
       "coordinator": "Suresh Kumar K R",
       "prerequisites": "NIL",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#06B6D4",
         "secondary": "#22D3EE",
@@ -1277,7 +1277,7 @@ window.SEM5_DATA = {
         },
         "referenceBooks": [
           {
-            "title": "Communication Networks \u2013 Fundamental Concepts and Key architectures",
+            "title": "Communication Networks – Fundamental Concepts and Key architectures",
             "edition": "Second Edition",
             "authors": "Alberto Leon-Garcia and Indra Widjaja",
             "publisher": "Tata McGraw-Hill"
@@ -1444,7 +1444,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 5,
             "title": "Unit V: Transport Services, UDP, TCP & DNS",
-            "topics": "Transport Layer: Services, Port Numbers, User Datagram Protocol (UDP) \u2013 user datagram, services and applications, Transmission control Protocol (FSMs excluded): TCP Services and features, Segment, TCP Connection, Error control, and TCP Congestion control; Domain Name System (DNS) \u2013 Purpose and Resolution.",
+            "topics": "Transport Layer: Services, Port Numbers, User Datagram Protocol (UDP) – user datagram, services and applications, Transmission control Protocol (FSMs excluded): TCP Services and features, Segment, TCP Connection, Error control, and TCP Congestion control; Domain Name System (DNS) – Purpose and Resolution.",
             "pedagogy": "Chalk & talk, Power Point and Multimedia Presentation",
             "links": [
               {
@@ -1723,7 +1723,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "cn-cie1-2",
-              "title": "Computer Networks IS53 CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
+              "title": "Computer Networks IS53 CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
               "originalName": "CIE 1 & 2.pdf",
               "path": "notes/cn/practice/cn-cie-1-and-2.pdf",
               "originalPath": null,
@@ -1735,7 +1735,7 @@ window.SEM5_DATA = {
           ]
         }
       ],
-      "fileCount": 9,
+      "fileCount": 11,
       "totalSizeBytes": 25805309,
       "totalSize": "24.6 MB"
     },
@@ -1753,7 +1753,7 @@ window.SEM5_DATA = {
       "contactHours": "30L+15T+30S",
       "coordinator": "Dr. Rajeshwari S B",
       "prerequisites": "NIL",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#F59E0B",
         "secondary": "#FBBF24",
@@ -1909,7 +1909,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Pushdown Automata",
-            "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA\u2019s and CFG\u2019s, Deterministic Pushdown Automata.",
+            "topics": "The Pushdown automata: The languages of a PDA, Equivalence of PDA’s and CFG’s, Deterministic Pushdown Automata.",
             "pedagogy": "Chalk-and-talk",
             "links": [
               {
@@ -2114,7 +2114,7 @@ window.SEM5_DATA = {
       "contactHours": "45L+45S",
       "coordinator": "Dr. Jagadeesh Sai D",
       "prerequisites": "NIL",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#8B5CF6",
         "secondary": "#A78BFA",
@@ -2144,7 +2144,7 @@ window.SEM5_DATA = {
           {
             "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
             "edition": "3rd Edition (2022)",
-            "authors": "Aur\u00e9lien G\u00e9ron",
+            "authors": "Aurélien Géron",
             "publisher": "O'Reilly Media"
           },
           {
@@ -2282,7 +2282,7 @@ window.SEM5_DATA = {
           {
             "unitNumber": 4,
             "title": "Unit IV: Uncertainty in AI & Generative AI",
-            "topics": "Uncertainty in AI: Sources of uncertainty, probability basics, conditional probability, Bayes' theorem, Bayesian reasoning, introduction to Bayesian Networks. Generative AI: Introduction to Generative AI, generative versus discriminative AI, Large Language Models, Transformer architecture \u2013 high-level understanding, foundation models, multimodal AI, AI assistants.",
+            "topics": "Uncertainty in AI: Sources of uncertainty, probability basics, conditional probability, Bayes' theorem, Bayesian reasoning, introduction to Bayesian Networks. Generative AI: Introduction to Generative AI, generative versus discriminative AI, Large Language Models, Transformer architecture – high-level understanding, foundation models, multimodal AI, AI assistants.",
             "pedagogy": "Theoretical foundation paired with contemporary Generative AI architectures.",
             "links": [
               {
@@ -2487,7 +2487,7 @@ window.SEM5_DATA = {
             }
           ]
         },
-         {
+        {
           "id": "ai-syllabus-unit",
           "unitNumber": "Syllabus",
           "title": "Official Syllabus & Course Scheme",
@@ -2526,7 +2526,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "ai-cie1-2",
-              "title": "AI Internal Assessment CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
+              "title": "AI Internal Assessment CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
               "originalName": "AI cie 1 & 2.pdf",
               "path": "notes/ai/practice/ai-cie-1-and-2.pdf",
               "originalPath": null,
@@ -2538,9 +2538,9 @@ window.SEM5_DATA = {
           ]
         }
       ],
-      "fileCount": 16,
-      "totalSizeBytes": 6742032,
-      "totalSize": "6.4 MB"
+      "fileCount": 15,
+      "totalSizeBytes": 5733176,
+      "totalSize": "5.5 MB"
     },
     {
       "id": "rmipr",
@@ -2556,7 +2556,7 @@ window.SEM5_DATA = {
       "contactHours": "45L+45S",
       "coordinator": "Dr. Anitha P",
       "prerequisites": "NIL",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#EC4899",
         "secondary": "#F472B6",
@@ -2571,7 +2571,7 @@ window.SEM5_DATA = {
       "description": "Meaning of research, objectives, ethics, literature review & citations, experimental design, sampling & hypothesis testing (ANOVA, Chi-square), patents, TRIPS agreement, designs, trademarks, and copyrights.",
       "syllabus": {
         "textbook": {
-          "title": "Research Methodology \u2013 Methods and Techniques",
+          "title": "Research Methodology – Methods and Techniques",
           "edition": "Recent Edition",
           "authors": "C. R Kothari, Gourav Garg",
           "publisher": "New Age International Publishers"
@@ -2901,7 +2901,7 @@ window.SEM5_DATA = {
           "files": [
             {
               "id": "rmipr-cie1-2",
-              "title": "Research Methodology & IPR AL58 CIE-1 & CIE-2 Question Papers (Term Sep\u2013Dec 2025)",
+              "title": "Research Methodology & IPR AL58 CIE-1 & CIE-2 Question Papers (Term Sep–Dec 2025)",
               "originalName": "CIE 1 & 2.pdf",
               "path": "notes/rmipr/practice/rmipr-cie-1-and-2.pdf",
               "originalPath": null,
@@ -2923,7 +2923,7 @@ window.SEM5_DATA = {
             },
             {
               "id": "rmipr-see-backlog",
-              "title": "Research Methodology & IPR AL58 SEE / Backlog Examination Question Paper (Feb\u2013March 2025, SEE-3)",
+              "title": "Research Methodology & IPR AL58 SEE / Backlog Examination Question Paper (Feb–March 2025, SEE-3)",
               "originalName": "SEE-3.pdf",
               "path": "notes/rmipr/practice/rmipr-see-feb-mar-2025.pdf",
               "originalPath": null,
@@ -2935,7 +2935,7 @@ window.SEM5_DATA = {
           ]
         }
       ],
-      "fileCount": 11,
+      "fileCount": 13,
       "totalSizeBytes": 4935615,
       "totalSize": "4.7 MB"
     },
@@ -2953,7 +2953,7 @@ window.SEM5_DATA = {
       "contactHours": "15L+15S",
       "coordinator": "J R Shruti",
       "prerequisites": "HTML, CSS, and JavaScript",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#3B82F6",
         "secondary": "#60A5FA",
@@ -3272,7 +3272,7 @@ window.SEM5_DATA = {
             }
           ]
         },
-         {
+        {
           "id": "react-syllabus-unit",
           "unitNumber": "Syllabus",
           "title": "Official Syllabus Document",
@@ -3293,8 +3293,8 @@ window.SEM5_DATA = {
         }
       ],
       "fileCount": 8,
-      "totalSizeBytes": 5468460,
-      "totalSize": "5.2 MB"
+      "totalSizeBytes": 4556603,
+      "totalSize": "4.3 MB"
     },
     {
       "id": "evs",
@@ -3310,7 +3310,7 @@ window.SEM5_DATA = {
       "contactHours": "1 hr/week (15 Hours)",
       "coordinator": "Civil Engineering / H&S Faculty",
       "prerequisites": "NIL",
-      "status": "full_notes",
+      "status": "cie1_ready",
       "accent": {
         "primary": "#10B981",
         "secondary": "#34D399",
@@ -3543,27 +3543,6 @@ window.SEM5_DATA = {
           ],
           "isSyllabusOnly": false
         },
-         {
-          "id": "evs-unit4",
-          "unitNumber": 4,
-          "title": "Unit 4: Social Issues & The Environment",
-          "topics": "Sustainable development, urban energy issues, water conservation, rain water harvesting, watershed management, environmental ethics, and climate change.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "evs-u4-pdf",
-              "title": "Unit 4: Social Issues & The Environment Presentation Notes",
-              "originalName": "Unit-4.pptx",
-              "path": "notes/evs/unit4/unit-4.pdf",
-              "originalPath": "notes/evs/unit4/unit-4.pptx",
-              "type": "pdf",
-              "size": "3.34 MB",
-              "sizeBytes": 3505326,
-              "isConverted": true
-            }
-          ],
-          "isSyllabusOnly": true
-        },
         {
           "id": "evs-pyq",
           "unitNumber": "PYQ",
@@ -3594,40 +3573,10 @@ window.SEM5_DATA = {
               "size": "0.70 MB",
               "previewImage": "notes/evs/pyq/handwritten/evs-pyq-preview.webp",
               "sourceHtml": "notes/evs/pyq/pyq-answers.html"
-            }
-          ]
-        },
-        {
-          "id": "evs-unit5",
-          "unitNumber": 5,
-          "title": "Unit 5: Human Population & The Environment",
-          "topics": "Population growth and variations, population explosion, environment and human health, human rights, value education, women and child welfare, role of IT in environment and health.",
-          "isPractice": false,
-          "files": [
-            {
-              "id": "evs-u5-pdf",
-              "title": "Unit 5: Human Population & The Environment Presentation Notes",
-              "originalName": "Unit-5.pptx",
-              "path": "notes/evs/unit5/unit-5.pdf",
-              "originalPath": "notes/evs/unit5/unit-5.pptx",
-              "type": "pdf",
-              "size": "1.22 MB",
-              "sizeBytes": 1283697,
-              "isConverted": true
-            }
-          ],
-          "isSyllabusOnly": true
-        },
-        {
-          "id": "evs-practice",
-          "unitNumber": "Practice",
-          "title": "Practice & Examination Question Papers",
-          "topics": "Official test papers, portion reviews, Bloom's taxonomy distribution, and question formats.",
-          "isPractice": true,
-          "files": [
+            },
             {
               "id": "evs-cie-1-2025",
-              "title": "Environmental Studies HS 510 CIE-1 Question Paper (Term Sep\u2013Dec 2025)",
+              "title": "Environmental Studies HS 510 CIE-1 Question Paper (Term Sep–Dec 2025)",
               "originalName": "cie 1.pdf",
               "path": "notes/evs/practice/evs-cie-1.pdf",
               "originalPath": null,
@@ -3638,7 +3587,7 @@ window.SEM5_DATA = {
             },
             {
               "id": "evs-cie1-qp",
-              "title": "EVS CIE-1 Internal Assessment Question Paper (2024\u20132025)",
+              "title": "EVS CIE-1 Internal Assessment Question Paper (2024–2025)",
               "originalName": "EVS_CIE1_QP-2024 (1).docx",
               "path": "notes/evs/practice/evs-cie1-qp-2024.pdf",
               "originalPath": "notes/evs/practice/evs-cie1-qp-2024.docx",
@@ -3650,9 +3599,9 @@ window.SEM5_DATA = {
           ]
         }
       ],
-      "fileCount": 18,
-      "totalSizeBytes": 14840910,
-      "totalSize": "14.2 MB"
+      "fileCount": 15,
+      "totalSizeBytes": 7565019,
+      "totalSize": "7.2 MB"
     }
   ]
 };
