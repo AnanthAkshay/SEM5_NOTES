@@ -9,7 +9,7 @@
   // --- State & Constants ---
   const STORAGE_KEYS = {
     THEME: 'sem5_theme_v1',
-    PROGRESS: 'sem5_progress_v4',
+    PROGRESS: 'sem5_progress_v5',
     PINNED: 'sem5_pinned_v1'
   };
 
@@ -26,6 +26,7 @@
     }
 
     const raw = localStorage.getItem(STORAGE_KEYS.PROGRESS) ||
+                localStorage.getItem('sem5_progress_v4') ||
                 localStorage.getItem('sem5_progress_v3') ||
                 localStorage.getItem('sem5_progress_v2') ||
                 localStorage.getItem('sem5_progress_v1');
