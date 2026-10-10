@@ -66,7 +66,6 @@
 
         <!-- Desktop Navigation Links -->
         <nav class="nav-desktop-links desktop-only" aria-label="Primary Navigation">
-          <a href="#cie1-portal-section" class="nav-text-link" onclick="window.SEM5_APP && window.SEM5_APP.closeSubjectView(); document.getElementById('cie1-portal-section').scrollIntoView({behavior:'smooth'}); return false;">CIE-1 TIMETABLE</a>
           <a href="#subjects-section" class="nav-text-link" onclick="window.SEM5_APP && window.SEM5_APP.closeSubjectView(); document.getElementById('subjects-section').scrollIntoView({behavior:'smooth'}); return false;">SUBJECTS</a>
           <a href="#scheme" class="nav-text-link" onclick="window.SEM5_APP && window.SEM5_APP.openSchemeView(); return false;">SCHEME &amp; EVALUATION</a>
         </nav>
@@ -113,10 +112,6 @@
       </div>
 
       <nav class="mobile-sheet-links">
-        <a href="#cie1-portal-section" class="mobile-sheet-link" onclick="window.SEM5_APP.closeMobileMenu(); window.SEM5_APP.closeSubjectView(); document.getElementById('cie1-portal-section').scrollIntoView({behavior:'smooth'}); return false;">
-          <span>CIE-1 TIMETABLE &amp; SCOPE</span>
-          <span class="circle-arrow-mini">↗</span>
-        </a>
         <a href="#subjects-section" class="mobile-sheet-link" onclick="window.SEM5_APP.closeMobileMenu(); window.SEM5_APP.closeSubjectView(); document.getElementById('subjects-section').scrollIntoView({behavior:'smooth'}); return false;">
           <span>SUBJECTS</span>
           <span class="circle-arrow-mini">↗</span>
@@ -192,43 +187,6 @@
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
               </span>
             </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- CIE-1 Examination Portal & Timetable (13–16 Oct 2026) -->
-      <section id="cie1-portal-section" class="cie1-portal-section">
-        <div class="container">
-          <div class="cie1-portal-banner">
-            <div class="cie1-banner-header">
-              <div class="cie1-badge-row">
-                <span class="cie1-pulse-dot" aria-hidden="true"></span>
-                <span class="cie1-status-pill">OFFICIAL CIE-1 SCHEDULE</span>
-                <span class="cie1-dates-pill">13–16 OCT 2026</span>
-              </div>
-              <h2 class="cie1-banner-title">CIE-1 Examination Portal</h2>
-              <p class="cie1-banner-desc">
-                Ramaiah Autonomous 5th Semester CIE-1 timetable, strictly trimmed syllabus portions, 100% vector handwritten notebooks, and authentic solved PYQs with exam-grade model answers.
-              </p>
-            </div>
-            <div class="cie1-countdown-box" id="cie1-countdown-card">
-              <span class="countdown-label">NEXT EXAM COUNTDOWN</span>
-              <div class="countdown-digits" id="cie1-countdown-timer">
-                <span class="time-block"><strong id="cd-days">00</strong><small>DAYS</small></span>
-                <span class="time-colon">:</span>
-                <span class="time-block"><strong id="cd-hours">00</strong><small>HOURS</small></span>
-                <span class="time-colon">:</span>
-                <span class="time-block"><strong id="cd-mins">00</strong><small>MINS</small></span>
-                <span class="time-colon">:</span>
-                <span class="time-block"><strong id="cd-secs">00</strong><small>SECS</small></span>
-              </div>
-              <div class="countdown-target" id="cie1-countdown-target">Target: Computer Networks (24IS53)</div>
-            </div>
-          </div>
-
-          <!-- 8 CIE-1 Exam Cards Ordered by Date & Time -->
-          <div class="cie1-schedule-grid" id="cie1-schedule-grid">
-            <!-- Populated dynamically by app.js -->
           </div>
         </div>
       </section>

@@ -132,212 +132,21 @@
     const isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent || navigator.platform || '');
     document.querySelectorAll('.search-keycap-hint').forEach(el => {
       el.textContent = isMac ? 'Cmd K' : 'Ctrl K';
-    });
-
-    initCie1Portal();
-
     if (elements.currentYearSpan) {
       elements.currentYearSpan.textContent = new Date().getFullYear();
     }
   }
 
-  // --- CIE-1 Examination Portal & Timetable ---
-  const CIE1_SCHEDULE = [
-    {
-      id: 'cn',
-      code: '24IS53',
-      name: 'Computer Networks',
-      dateTimeStr: 'Tue 13-10-2026, 09:30–10:30',
-      examStart: '2026-10-13T09:30:00+05:30',
-      examEnd: '2026-10-13T10:30:00+05:30',
-      scope: 'Unit 1, Unit 2, Unit 3 up to "IPv4 Addressing – Classless" (inclusive)',
-      notesPath: 'notes/cn/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/cn/unit1/handwritten/cn-unit1-handwritten.pdf',
-      pyqPath: 'notes/cn/pyq/pyq-answers.html'
-    },
-    {
-      id: 'reactjs',
-      code: '24ISAEC594',
-      name: 'Frontend Development using React JS',
-      dateTimeStr: 'Tue 13-10-2026, 13:30–14:30',
-      examStart: '2026-10-13T13:30:00+05:30',
-      examEnd: '2026-10-13T14:30:00+05:30',
-      scope: 'Unit 1, Unit 2 (Full)',
-      notesPath: 'notes/reactjs/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/reactjs/unit1/handwritten/reactjs-unit1-handwritten.pdf',
-      pyqPath: 'notes/reactjs/pyq/pyq-answers.html'
-    },
-    {
-      id: 'ai',
-      code: '24ISE552',
-      name: 'Artificial Intelligence',
-      dateTimeStr: 'Wed 14-10-2026, 09:30–10:30',
-      examStart: '2026-10-14T09:30:00+05:30',
-      examEnd: '2026-10-14T10:30:00+05:30',
-      scope: 'Unit 1, Unit 2 (Full)',
-      notesPath: 'notes/ai/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/ai/unit1/handwritten/ai-unit1-handwritten.pdf',
-      pyqPath: 'notes/ai/pyq/pyq-answers.html'
-    },
-    {
-      id: 'se',
-      code: '24IS52',
-      name: 'Software Engineering',
-      dateTimeStr: 'Wed 14-10-2026, 13:30–14:30',
-      examStart: '2026-10-14T13:30:00+05:30',
-      examEnd: '2026-10-14T14:30:00+05:30',
-      scope: 'Unit 1, Unit 2 (Full)',
-      notesPath: 'notes/se/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/se/unit1/handwritten/se-unit1-handwritten.pdf',
-      pyqPath: 'notes/se/pyq/pyq-answers.html'
-    },
-    {
-      id: 'ml',
-      code: '24IS51',
-      name: 'Machine Learning',
-      dateTimeStr: 'Thu 15-10-2026, 09:30–10:30',
-      examStart: '2026-10-15T09:30:00+05:30',
-      examEnd: '2026-10-15T10:30:00+05:30',
-      scope: 'Unit 1, Unit 2, Unit 3 (Regression portion only)',
-      notesPath: 'notes/ml/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/ml/unit1/handwritten/ml-unit1-handwritten.pdf',
-      pyqPath: 'notes/ml/pyq/pyq-answers.html'
-    },
-    {
-      id: 'rmipr',
-      code: '24AL58',
-      name: 'Research Methodology & IPR',
-      dateTimeStr: 'Thu 15-10-2026, 15:00–16:00',
-      examStart: '2026-10-15T15:00:00+05:30',
-      examEnd: '2026-10-15T16:00:00+05:30',
-      scope: 'Unit 1, Unit 2, Unit 3 up to "Characteristics of a Good Sample Design"',
-      notesPath: 'notes/rmipr/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/rmipr/unit1/handwritten/rmipr-unit1-handwritten.pdf',
-      pyqPath: 'notes/rmipr/pyq/pyq-answers.html'
-    },
-    {
-      id: 'evs',
-      code: '24HS510',
-      name: 'Environmental Studies',
-      dateTimeStr: 'Fri 16-10-2026, 09:30–10:30',
-      examStart: '2026-10-16T09:30:00+05:30',
-      examEnd: '2026-10-16T10:30:00+05:30',
-      scope: 'Unit 1, Unit 2 (Full)',
-      notesPath: 'notes/evs/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/evs/unit1/handwritten/evs-unit1-handwritten.pdf',
-      pyqPath: 'notes/evs/pyq/pyq-answers.html'
-    },
-    {
-      id: 'toc',
-      code: '24IS54',
-      name: 'Theory of Computation',
-      dateTimeStr: 'Fri 16-10-2026, 13:30–14:30',
-      examStart: '2026-10-16T13:30:00+05:30',
-      examEnd: '2026-10-16T14:30:00+05:30',
-      scope: 'Unit 1, Unit 2 (Full)',
-      notesPath: 'notes/toc/unit1/unit-1-notes.html',
-      handwrittenPath: 'notes/toc/unit1/handwritten/toc-unit1-handwritten.pdf',
-      pyqPath: 'notes/toc/pyq/pyq-answers.html'
-    }
-  ];
-
-  function initCie1Portal() {
-    const grid = document.getElementById('cie1-schedule-grid');
-    if (grid) {
-      grid.innerHTML = CIE1_SCHEDULE.map(item => `
-        <div class="cie1-exam-card">
-          <div>
-            <div class="cie1-card-header">
-              <span class="cie1-code-badge">${escapeHtml(item.code)}</span>
-              <span class="cie1-datetime-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                ${escapeHtml(item.dateTimeStr)}
-              </span>
-            </div>
-            <h3 class="cie1-card-title">${escapeHtml(item.name)}</h3>
-            <div class="cie1-scope-box" style="margin-top: 0.75rem;">
-              <strong>CIE-1 Scope:</strong> ${escapeHtml(item.scope)}
-            </div>
-          </div>
-          <div class="cie1-actions-bar">
-            <a href="${item.notesPath}" class="cie1-action-link" title="Read Interactive Notes">
-              <span>📖 Notes</span>
-            </a>
-            <a href="${item.handwrittenPath}" download class="cie1-action-link" title="Download Handwritten Notebook PDF">
-              <span>✍️ Notebook</span>
-            </a>
-            <a href="${item.pyqPath}" class="cie1-action-link primary-pyq" title="Study Model PYQ Answers">
-              <span>🎯 Solved PYQs</span>
-            </a>
-            <button class="cie1-action-link" onclick="window.SEM5_APP.openSubject('${item.id}')" title="Overview & Details">
-              <span>📂 Overview ↗</span>
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    // Live countdown timer
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  }
-
-  function updateCountdown() {
-    const now = Date.now();
-    const daysEl = document.getElementById('cd-days');
-    const hoursEl = document.getElementById('cd-hours');
-    const minsEl = document.getElementById('cd-mins');
-    const secsEl = document.getElementById('cd-secs');
-    const targetEl = document.getElementById('cie1-countdown-target');
-    if (!daysEl || !hoursEl || !minsEl || !secsEl || !targetEl) return;
-
-    let nextExam = null;
-    let isOngoing = false;
-
-    for (const item of CIE1_SCHEDULE) {
-      const start = new Date(item.examStart).getTime();
-      const end = new Date(item.examEnd).getTime();
-      if (now < start) {
-        nextExam = item;
-        break;
-      } else if (now >= start && now <= end) {
-        nextExam = item;
-        isOngoing = true;
-        break;
-      }
-    }
-
-    if (!nextExam) {
-      daysEl.textContent = '00';
-      hoursEl.textContent = '00';
-      minsEl.textContent = '00';
-      secsEl.textContent = '00';
-      targetEl.textContent = 'All CIE-1 Examinations Concluded! 🎉';
-      return;
-    }
-
-    if (isOngoing) {
-      daysEl.textContent = '00';
-      hoursEl.textContent = '00';
-      minsEl.textContent = '00';
-      secsEl.textContent = '00';
-      targetEl.innerHTML = `⚠️ <strong style="color:#ef4444;">EXAM IN PROGRESS:</strong> ${escapeHtml(nextExam.name)} (${nextExam.code})`;
-      return;
-    }
-
-    const start = new Date(nextExam.examStart).getTime();
-    const diff = Math.max(0, start - now);
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / 1000 / 60) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    daysEl.textContent = String(d).padStart(2, '0');
-    hoursEl.textContent = String(h).padStart(2, '0');
-    minsEl.textContent = String(m).padStart(2, '0');
-    secsEl.textContent = String(s).padStart(2, '0');
-    targetEl.textContent = `Target: ${nextExam.name} (${nextExam.code}) · ${nextExam.dateTimeStr.split(',')[0]}`;
+  // --- Helpers for Date & CIE-1 Badges ---
+  function getExamChip(subject) {
+    if (!subject.examDate) return '';
+    const parts = subject.examDate.split('-');
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const day = parseInt(parts[2], 10);
+    const mon = months[parseInt(parts[1], 10) - 1] || '';
+    const startTime = (subject.examTime || '').split('–')[0].trim();
+    const label = startTime ? `${day} ${mon} · ${startTime}` : `${day} ${mon}`;
+    return `<span class="card-exam-chip" title="CIE-1 Exam Date & Time">${escapeHtml(label)}</span>`;
   }
 
   // --- Theme Management ---
@@ -593,7 +402,10 @@
       return `
         <div class="subject-card" onclick="window.SEM5_APP.openSubject('${subject.id}')" role="button" tabindex="0" aria-label="Open ${escapeHtml(subject.name)} notes">
           <div class="card-top-row">
-            <span class="card-code-circle" aria-hidden="true">${escapeHtml(shortInitial)}</span>
+            <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+              <span class="card-code-circle" aria-hidden="true">${escapeHtml(shortInitial)}</span>
+              ${getExamChip(subject)}
+            </div>
             <button class="pin-btn ${isPinned ? 'pinned' : ''}" onclick="window.SEM5_APP.togglePinSubject('${subject.id}', event)" title="${isPinned ? 'Unpin' : 'Pin subject to top'}" aria-label="${isPinned ? 'Unpin' : 'Pin'}">
               ${isPinned ? ICONS.pinnedFilled : ICONS.pin}
             </button>
@@ -676,6 +488,13 @@
         <h1 class="subject-view-title">${escapeHtml(subject.name)}</h1>
         <p class="subject-view-desc">${escapeHtml(subject.description)}</p>
 
+        ${subject.cie1Scope ? `
+          <div class="subject-scope-line" style="margin-top: 0.75rem;">
+            <span class="scope-pill-label">CIE-1 Scope:</span>
+            <span class="scope-pill-text">${escapeHtml(subject.cie1Scope)}</span>
+          </div>
+        ` : ''}
+
         ${progress.total > 0 ? `
           <div class="overall-progress-box">
             <span class="card-meta-line" style="font-weight:700;color:var(--ink);">${progress.completed} of ${progress.total} Completed (${progress.pct}%)</span>
@@ -700,7 +519,7 @@
           Notes &amp; Docs (${subject.units.filter(u => !u.isPractice).reduce((acc, u) => acc + u.files.length, 0)})
         </button>
         <button class="segmented-tab ${state.currentTab === 'pyq' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('pyq')">
-          PYQ &amp; Answers
+          Solved PYQs
         </button>
         ${hasPractice ? `
           <button class="segmented-tab ${state.currentTab === 'practice' ? 'active' : ''}" onclick="window.SEM5_APP.switchTab('practice')">

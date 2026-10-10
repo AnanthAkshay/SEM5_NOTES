@@ -2037,292 +2037,59 @@ a {
 }
 
 /* ==========================================================================
-   14. CIE-1 EXAMINATION PORTAL & TIMETABLE (13–16 OCT 2026)
+/* ==========================================================================
+   14. CIE-1 EXAM CHIP & SCOPE STYLING
    ========================================================================== */
-.cie1-portal-section {
-  padding: 3rem 0 1.5rem 0;
-}
-
-.cie1-portal-banner {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 2.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  box-shadow: var(--shadow-faint);
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.cie1-banner-header {
-  flex: 1;
-  min-width: 280px;
-}
-
-.cie1-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.cie1-pulse-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background-color: #ef4444;
-  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
-  animation: pulse-red 2s infinite;
-}
-
-@keyframes pulse-red {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-}
-
-.cie1-status-pill {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background-color: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(239, 68, 68, 0.25);
-}
-
-.cie1-dates-pill {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--ink-muted);
-  background-color: var(--bg);
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-}
-
-.cie1-banner-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.3rem);
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1.15;
-  margin: 0 0 0.5rem 0;
-  letter-spacing: -0.02em;
-}
-
-.cie1-banner-desc {
-  font-size: 14px;
-  color: var(--ink-muted);
-  line-height: 1.5;
-  margin: 0;
-  max-width: 620px;
-}
-
-.cie1-countdown-box {
-  background: linear-gradient(135deg, rgba(46, 195, 107, 0.08), rgba(246, 233, 207, 0.35));
-  border: 1.5px solid var(--green);
-  border-radius: var(--radius-card-sm);
-  padding: 1.25rem 1.75rem;
-  min-width: 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 4px 18px rgba(46, 195, 107, 0.1);
-}
-
-[data-theme="dark"] .cie1-countdown-box {
-  background: linear-gradient(135deg, rgba(46, 195, 107, 0.1), rgba(31, 28, 21, 0.8));
-}
-
-.countdown-label {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--green);
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.countdown-digits {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.time-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 44px;
-}
-
-.time-block strong {
+.card-exam-chip {
   font-family: var(--font-mono);
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1;
-}
-
-.time-block small {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--ink-muted);
-  margin-top: 3px;
-}
-
-.time-colon {
-  font-family: var(--font-mono);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--ink-muted);
-  margin-top: -8px;
-}
-
-.countdown-target {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink);
-  opacity: 0.85;
-}
-
-/* CIE-1 Cards Grid */
-.cie1-schedule-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 1.25rem;
-}
-
-@media (max-width: 440px) {
-  .cie1-schedule-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cie1-exam-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card-sm);
-  padding: 1.35rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-  position: relative;
-  overflow: hidden;
-}
-
-.cie1-exam-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--ink);
-  box-shadow: var(--shadow-sheet);
-}
-
-.cie1-card-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.cie1-code-badge {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--green-tint-ink);
-  background-color: var(--green-tint);
-  padding: 3px 8px;
-  border-radius: 6px;
-}
-
-.cie1-datetime-badge {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background-color: var(--bg);
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-  white-space: nowrap;
-}
-
-.cie1-card-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.25;
-  margin: 0.35rem 0 0 0;
-}
-
-.cie1-scope-box {
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0.65rem 0.85rem;
-  font-size: 12px;
-  line-height: 1.45;
-  color: var(--ink-muted);
-}
-
-.cie1-scope-box strong {
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.cie1-actions-bar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  margin-top: auto;
-}
-
-.cie1-action-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 0.45rem 0.6rem;
-  border-radius: var(--radius-pill);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  text-decoration: none;
-  border: 1px solid var(--border);
-  background-color: var(--surface);
-  color: var(--ink);
-  transition: all var(--transition);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(46, 195, 107, 0.12);
+  color: var(--green-tint-ink);
+  border: 1px solid rgba(46, 195, 107, 0.3);
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
 }
 
-.cie1-action-link:hover {
-  background-color: var(--bg);
-  border-color: var(--ink);
+[data-theme="dark"] .card-exam-chip {
+  background-color: rgba(46, 195, 107, 0.18);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.35);
 }
 
-.cie1-action-link.primary-pyq {
-  background-color: var(--green);
-  color: var(--green-ink);
-  border-color: var(--green);
+.subject-scope-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  line-height: 1.4;
+  flex-wrap: wrap;
 }
 
-.cie1-action-link.primary-pyq:hover {
-  background-color: var(--green-hover);
+.subject-scope-line .scope-pill-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: var(--green-tint);
+  color: var(--green-tint-ink);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.subject-scope-line .scope-pill-text {
+  font-weight: 600;
+  color: var(--ink);
 }
 
 /* File type badge for PYQ */
