@@ -71,7 +71,7 @@ def generate_waterfall_model_svg():
   <!-- Theoretical Feedback Loops (Dotted gray curves) -->
   <path d="M 320 176 C 260 176, 260 97, 210 97" fill="none" stroke="var(--ink-muted)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#wf-arr-back)" />
   <path d="M 460 226 C 400 226, 400 147, 350 147" fill="none" stroke="var(--ink-muted)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#wf-arr-back)" />
-  <text x="215" y="195" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)">Expensive backtracking in practice!</text>
+  <text x="50" y="290" font-family="var(--font-mono)" font-size="10.5" fill="var(--ink-muted)">* Dotted arcs: Costly feedback loops in practice</text>
 </svg>'''
 
 def generate_rup_model_svg():

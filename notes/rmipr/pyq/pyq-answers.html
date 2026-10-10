@@ -15,69 +15,43 @@
     })();
   </script>
 
-  <!-- Google Fonts Preconnect & Styles -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Self-Hosted KaTeX Math Styles -->
+  <!-- KaTeX for High-Fidelity Math Typesetting -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
 
-  <!-- Single Shared Notes Stylesheet -->
+  <!-- Theme and Layout Stylesheets -->
+  <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/notes.css">
-  
+
   <style>
-    .pyq-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-    }
-    .pyq-filter-btn {
-      padding: 0.4rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid var(--border-color);
-      background: var(--surface-hover);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .pyq-filter-btn:hover, .pyq-filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
     .pyq-card {
       background: var(--surface-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.4rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .pyq-card:hover {
       border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
     .pyq-header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.6rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
     .pyq-badges {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 0.4rem;
     }
     .pyq-badge {
@@ -175,6 +149,10 @@
       font-size: 0.88rem;
       color: var(--text-secondary);
     }
+    .pyq-diagram-wrap {
+      overflow-x: auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -190,7 +168,7 @@
       <div class="topbar-left">
         <a href="../../../index.html#subject/rmipr" class="back-btn" title="Return to Research Methodology and IPR Overview">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>← 24AL58 Overview</span>
+          <span>&larr; 24AL58 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
@@ -232,10 +210,11 @@
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
-          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">&sect; Overview &amp; Statistics</a></li>
           <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (10)</a></li>
           <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (8)</a></li>
           <li class="toc-item"><a href="#unit-3" class="toc-link">Unit 3 Questions (5)</a></li>
+          <li class="toc-item"><a href="#out-of-scope" class="toc-link">Out-of-Scope Archive (18)</a></li>
         </ol>
       </nav>
     </aside>
@@ -244,7 +223,7 @@
     <main class="notes-content" id="main-content">
       <!-- CIE-1 Scope Alert Banner -->
       <div class="cie1-banner">
-        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
+        <h3>🎯 CIE-1 Exam-Ready PYQ &amp; Model Answers Bank</h3>
         <p><strong>Course:</strong> Research Methodology and IPR (24AL58) &bull; <strong>Exam Schedule:</strong>  (60 Mins, 30 Marks)</p>
         <p style="margin-top:0.4rem;">Contains <strong>23 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
       </div>
@@ -252,7 +231,7 @@
       <header class="notes-header" id="summary-overview">
         <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
         <h1 class="notes-title">Research Methodology and IPR PYQ Solutions</h1>
-        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, 8M, and 10M questions with direct notes cross-references.</p>
         
         <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -260,7 +239,7 @@
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">20</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -268,7 +247,7 @@
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">18</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Out-of-Scope Archived</div>
           </div>
         </div>
@@ -278,7 +257,7 @@
       <div class="pyq-filter-bar">
         <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
         <button class="pyq-filter-btn active" data-filter="all">All (23)</button>
-        <button class="pyq-filter-btn" data-filter="high">High Priority (0)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (20)</button>
         <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (10)</button>
         <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (8)</button>
         <button class="pyq-filter-btn" data-filter="unit-3">Unit 3 (5)</button>
@@ -286,16 +265,16 @@
 
       <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
         <div class="section-badge">UNIT 1</div>
-        <h2 class="section-title">Unit 1 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 1 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
 
         <!-- Question rmipr-q01 -->
-        <article class="pyq-card" id="rmipr-q01" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q01" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">7 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -315,6 +294,90 @@
             <div class="pyq-answer-body">
               <h4>1. Meaning of Research</h4>
 <p><strong>Research</strong> is a systematic, formal, and rigorous process of inquiry designed to discover new facts, verify existing knowledge, establish causal relationships, and derive general principles. In the words of Clifford Woody, research comprises <em>defining and redefining problems, formulating hypothesis or suggested solutions, collecting, organizing and evaluating data, making deductions and reaching conclusions, and carefully testing the conclusions to determine whether they fit the formulating hypothesis</em>.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 840 280" class="diagram-svg" role="img" aria-label="Research Process Flowchart showing sequential steps from problem formulation to conclusions" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+            <title>Scientific Research Process Flowchart</title>
+            <desc>Step-by-step diagram showing: Define Research Problem -> Extensive Literature Survey -> Formulate Hypotheses -> Research Design -> Data Collection -> Data Analysis -> Hypothesis Testing -> Generalizations and Interpretation</desc>
+            <!-- Step 1 -->
+            <rect x="20" y="30" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="100" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">1. Problem</text>
+            <text x="100" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Formulation &amp; Scope</text>
+
+            <!-- Arrow 1-2 -->
+            <path d="M 180 65 L 210 65" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 2 -->
+            <rect x="220" y="30" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="300" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">2. Prior Art</text>
+            <text x="300" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Literature Review</text>
+
+            <!-- Arrow 2-3 -->
+            <path d="M 380 65 L 410 65" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 3 -->
+            <rect x="420" y="30" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="500" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">3. Hypothesis</text>
+            <text x="500" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Formulate $H_0$ &amp; $H_1$</text>
+
+            <!-- Arrow 3-4 -->
+            <path d="M 580 65 L 610 65" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 4 -->
+            <rect x="620" y="30" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="710" y="60" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">4. Research Design</text>
+            <text x="710" y="80" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Sampling &amp; Experiment</text>
+
+            <!-- Arrow down from 4 to 5 -->
+            <path d="M 710 100 L 710 140 L 710 150" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 5 -->
+            <rect x="620" y="160" width="180" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="710" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">5. Data Collection</text>
+            <text x="710" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Primary / Secondary</text>
+
+            <!-- Arrow 5-6 (leftward) -->
+            <path d="M 620 195 L 590 195" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 6 -->
+            <rect x="420" y="160" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="500" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">6. Data Analysis</text>
+            <text x="500" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Coding &amp; Statistical Test</text>
+
+            <!-- Arrow 6-7 -->
+            <path d="M 420 195 L 390 195" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 7 -->
+            <rect x="220" y="160" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="300" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">7. Hypothesis Test</text>
+            <text x="300" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Accept or Reject $H_0$</text>
+
+            <!-- Arrow 7-8 -->
+            <path d="M 220 195 L 190 195" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <!-- Step 8 -->
+            <rect x="20" y="160" width="160" height="70" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="100" y="190" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">8. Conclusions</text>
+            <text x="100" y="210" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Generalize &amp; Report</text>
+
+            <!-- Marker Def -->
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--green)"/>
+              </marker>
+            </defs>
+          </svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <p>It is essentially an intellectual journey from the <strong>known to the unknown</strong> driven by inquisitiveness and structured scientific methodology.</p>
 
 <h4>2. Objectives of Research</h4>
@@ -343,12 +406,12 @@
         </article>
 
         <!-- Question rmipr-q02 -->
-        <article class="pyq-card" id="rmipr-q02" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q02" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">10 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -481,12 +544,12 @@
         </article>
 
         <!-- Question rmipr-q04 -->
-        <article class="pyq-card" id="rmipr-q04" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q04" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">6 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -531,12 +594,12 @@
         </article>
 
         <!-- Question rmipr-q05 -->
-        <article class="pyq-card" id="rmipr-q05" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q05" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -585,12 +648,12 @@
         </article>
 
         <!-- Question rmipr-q06 -->
-        <article class="pyq-card" id="rmipr-q06" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q06" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -631,12 +694,12 @@
         </article>
 
         <!-- Question rmipr-q07 -->
-        <article class="pyq-card" id="rmipr-q07" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q07" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -702,12 +765,12 @@
         </article>
 
         <!-- Question rmipr-q08 -->
-        <article class="pyq-card" id="rmipr-q08" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q08" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">6 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -810,12 +873,12 @@
         </article>
 
         <!-- Question rmipr-q10 -->
-        <article class="pyq-card" id="rmipr-q10" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q10" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -901,16 +964,16 @@
 
       <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
         <div class="section-badge">UNIT 2</div>
-        <h2 class="section-title">Unit 2 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 2 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
 
         <!-- Question rmipr-q11 -->
-        <article class="pyq-card" id="rmipr-q11" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q11" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">10 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -962,12 +1025,12 @@
         </article>
 
         <!-- Question rmipr-q12 -->
-        <article class="pyq-card" id="rmipr-q12" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q12" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1030,12 +1093,12 @@
         </article>
 
         <!-- Question rmipr-q13 -->
-        <article class="pyq-card" id="rmipr-q13" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q13" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1078,12 +1141,12 @@
         </article>
 
         <!-- Question rmipr-q14 -->
-        <article class="pyq-card" id="rmipr-q14" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q14" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1132,12 +1195,12 @@
         </article>
 
         <!-- Question rmipr-q15 -->
-        <article class="pyq-card" id="rmipr-q15" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q15" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1157,6 +1220,58 @@
             <div class="pyq-answer-body">
               <h4>1. Concept and Layout of CRD</h4>
 <p>A <strong>Completely Randomized Design (CRD)</strong> is the simplest formal experimental design. In CRD, the treatments are allocated to experimental units completely at random across the entire experimental material, without any grouping or blocking. It utilizes only two principles: <em>Replication</em> and <em>Randomization</em> (no local control).</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 210" class="diagram-svg" role="img" aria-label="Completely Randomized Design Layout" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Completely Randomized Design (CRD) Field Plot Layout</title>
+  <desc>Completely Randomized Design with 12 experimental units allocated across 3 treatments (T1, T2, T3) via pure randomization.</desc>
+  <defs>
+    <style>
+      .crd-cell { rx: 6px; stroke-width: 1.5; }
+      .crd-text { font-family: sans-serif; font-size: 13px; font-weight: 700; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect x="30" y="20" width="700" height="170" rx="10" fill="var(--surface-hover, #f1f5f9)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.5"/>
+  <text x="50" y="45" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--text-primary, #0f172a)">HOMOGENEOUS EXPERIMENTAL FIELD (12 UNITS)</text>
+
+  <!-- Row 1 -->
+  <rect x="50" y="65" width="150" height="45" class="crd-cell" fill="rgba(59, 130, 246, 0.15)" stroke="var(--accent, #3b82f6)"/>
+  <text x="125" y="92" class="crd-text" fill="var(--accent, #3b82f6)">Plot 1: Treatment B</text>
+
+  <rect x="220" y="65" width="150" height="45" class="crd-cell" fill="rgba(16, 185, 129, 0.15)" stroke="var(--green, #10b981)"/>
+  <text x="295" y="92" class="crd-text" fill="var(--green, #10b981)">Plot 2: Treatment A</text>
+
+  <rect x="390" y="65" width="150" height="45" class="crd-cell" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b"/>
+  <text x="465" y="92" class="crd-text" fill="#f59e0b)">Plot 3: Treatment C</text>
+
+  <rect x="560" y="65" width="150" height="45" class="crd-cell" fill="rgba(16, 185, 129, 0.15)" stroke="var(--green, #10b981)"/>
+  <text x="635" y="92" class="crd-text" fill="var(--green, #10b981)">Plot 4: Treatment A</text>
+
+  <!-- Row 2 -->
+  <rect x="50" y="125" width="150" height="45" class="crd-cell" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b"/>
+  <text x="125" y="152" class="crd-text" fill="#f59e0b)">Plot 5: Treatment C</text>
+
+  <rect x="220" y="125" width="150" height="45" class="crd-cell" fill="rgba(59, 130, 246, 0.15)" stroke="var(--accent, #3b82f6)"/>
+  <text x="295" y="152" class="crd-text" fill="var(--accent, #3b82f6)">Plot 6: Treatment B</text>
+
+  <rect x="390" y="125" width="150" height="45" class="crd-cell" fill="rgba(16, 185, 129, 0.15)" stroke="var(--green, #10b981)"/>
+  <text x="465" y="152" class="crd-text" fill="var(--green, #10b981)">Plot 7: Treatment A</text>
+
+  <rect x="560" y="125" width="150" height="45" class="crd-cell" fill="rgba(59, 130, 246, 0.15)" stroke="var(--accent, #3b82f6)"/>
+  <text x="635" y="152" class="crd-text" fill="var(--accent, #3b82f6)">Plot 8: Treatment B</text>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 
 <h4>2. Mathematical ANOVA Model</h4>
 <p>$$Y_{ij} = \mu + \tau_i + \epsilon_{ij}$$</p>
@@ -1189,12 +1304,12 @@
         </article>
 
         <!-- Question rmipr-q16 -->
-        <article class="pyq-card" id="rmipr-q16" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q16" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1214,6 +1329,57 @@
             <div class="pyq-answer-body">
               <h4>1. Concept of Randomized Block Design (RBD)</h4>
 <p><strong>Randomized Block Design (RBD)</strong> applies all three Fisherian principles: <em>Replication, Randomization, and Local Control</em>. Experimental units are stratified into homogeneous groups called <strong>blocks</strong> according to a known extraneous variable. Each block contains exactly one replication of each treatment, and treatments are assigned randomly within each block.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 740 220" class="diagram-svg" role="img" aria-label="RBD Grid showing randomized assignment of four treatments across three homogeneous blocks" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+            <title>Randomized Block Design Layout</title>
+            <!-- Block 1 -->
+            <rect x="30" y="40" width="200" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="130" y="65" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Block 1 (e.g. Low Load)</text>
+            <rect x="45" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="85" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_3$</text>
+            <rect x="135" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="175" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_1$</text>
+            <rect x="45" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="85" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_4$</text>
+            <rect x="135" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="175" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_2$</text>
+
+            <!-- Block 2 -->
+            <rect x="270" y="40" width="200" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="370" y="65" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Block 2 (Medium Load)</text>
+            <rect x="285" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="325" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_1$</text>
+            <rect x="375" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="415" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_4$</text>
+            <rect x="285" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="325" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_2$</text>
+            <rect x="375" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="415" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_3$</text>
+
+            <!-- Block 3 -->
+            <rect x="510" y="40" width="200" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="610" y="65" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="13">Block 3 (High Load)</text>
+            <rect x="525" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="565" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_2$</text>
+            <rect x="615" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="655" y="105" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_3$</text>
+            <rect x="525" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="565" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_1$</text>
+            <rect x="615" y="130" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+            <text x="655" y="155" text-anchor="middle" font-weight="600" fill="var(--text-primary)">$T_4$</text>
+          </svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 
 <h4>2. Experimental Layout for Fertilizer Experiment</h4>
 <p><strong>Problem Setup:</strong></p>
@@ -1267,12 +1433,12 @@
         </article>
 
         <!-- Question rmipr-q17 -->
-        <article class="pyq-card" id="rmipr-q17" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q17" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1370,12 +1536,12 @@
         </article>
 
         <!-- Question rmipr-q18 -->
-        <article class="pyq-card" id="rmipr-q18" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q18" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">6 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1433,16 +1599,16 @@
 
       <section id="unit-3" class="note-section pyq-unit-section" data-unit="unit-3">
         <div class="section-badge">UNIT 3</div>
-        <h2 class="section-title">Unit 3 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 3 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 3 past exam questions.</p>
 
         <!-- Question rmipr-q19 -->
-        <article class="pyq-card" id="rmipr-q19" data-unit="unit-3" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q19" data-unit="unit-3" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 3</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1507,12 +1673,12 @@
         </article>
 
         <!-- Question rmipr-q20 -->
-        <article class="pyq-card" id="rmipr-q20" data-unit="unit-3" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q20" data-unit="unit-3" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 3</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1634,12 +1800,12 @@
         </article>
 
         <!-- Question rmipr-q22 -->
-        <article class="pyq-card" id="rmipr-q22" data-unit="unit-3" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q22" data-unit="unit-3" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 3</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1681,12 +1847,12 @@
         </article>
 
         <!-- Question rmipr-q23 -->
-        <article class="pyq-card" id="rmipr-q23" data-unit="unit-3" data-priority="medium">
+        <article class="pyq-card" id="rmipr-q23" data-unit="unit-3" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 3</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1730,6 +1896,121 @@
         </article>
       </section>
 
+      <!-- Out of Scope Questions Archive -->
+      <section id="out-of-scope" class="note-section pyq-unit-section" style="opacity:0.85;">
+        <div class="section-badge" style="background:#ef4444; color:#fff;">ARCHIVED</div>
+        <h2 class="section-title">Out of CIE-1 Scope Questions (18 Questions)</h2>
+        <p class="section-lead">The following questions were identified in past papers but fall outside the official CIE-1 syllabus. They are preserved here to ensure zero questions are dropped.</p>
+
+        <details style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:10px; padding:1.2rem;">
+          <summary style="font-weight:700; cursor:pointer; color:var(--text-primary);">
+            View all 18 archived out-of-scope questions and exclusion rationale
+          </summary>
+          <div style="margin-top:1rem;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Paper / Origin</th>
+                  <th>Question Summary</th>
+                  <th>Exclusion Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 3 stops at 'Characteristics of a Good Sample Design'. Measurement and scaling techniques occur later in Unit 3 and are excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: All hypothesis testing protocols and decision rules occur after sampling design and are excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Statistical hypothesis tests (z-test) occur in the second half of Unit 3.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Hypothesis testing numericals are excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Hypothesis testing for sample proportions is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Non-parametric tests are excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: ANOVA calculations occur in Unit 3 data analysis and are excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Only Units 1, 2, and initial Unit 3 are in scope. Unit 4 (IPR) is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Patents is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Patents is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 IPR international conventions is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Patent case studies are excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Industrial designs is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Trademarks is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Copyrights is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Copyright litigation is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Trade secrets is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 GI is excluded from CIE-1.</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
 
       <!-- Unit Navigation Footer -->
       <footer class="unit-nav-footer">
@@ -1738,7 +2019,7 @@
           <span class="nav-arrow-title">24AL58 Overview</span>
         </a>
         <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
-          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-sub">Start Revision &rarr;</span>
           <span class="nav-arrow-title">Unit 1 Notes</span>
         </a>
       </footer>
@@ -1767,7 +2048,7 @@
             card.style.display = 'block';
           } else if (f === 'high') {
             card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
-          } else if (f.startsWith('unit-')) {
+          } else {
             card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
           }
         });

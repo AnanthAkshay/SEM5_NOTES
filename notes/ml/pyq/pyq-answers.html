@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CIE-1 PYQ Bank & Model Answers | ML () | SEM 5 ISE</title>
-  <meta name="description" content="Official CIE-1 solved previous year question bank with step-by-step model answers, numerical solutions, diagrams, and textbook citations for ML ().">
+  <title>CIE-1 PYQ Bank & Model Answers | Machine Learning (24IS51) | SEM 5 ISE</title>
+  <meta name="description" content="Official CIE-1 solved previous year question bank with step-by-step model answers, numerical solutions, diagrams, and textbook citations for Machine Learning (24IS51).">
 
   <!-- Prevent Theme Flash -->
   <script>
@@ -15,69 +15,43 @@
     })();
   </script>
 
-  <!-- Google Fonts Preconnect & Styles -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Self-Hosted KaTeX Math Styles -->
+  <!-- KaTeX for High-Fidelity Math Typesetting -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
 
-  <!-- Single Shared Notes Stylesheet -->
+  <!-- Theme and Layout Stylesheets -->
+  <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/notes.css">
-  
+
   <style>
-    .pyq-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-    }
-    .pyq-filter-btn {
-      padding: 0.4rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid var(--border-color);
-      background: var(--surface-hover);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .pyq-filter-btn:hover, .pyq-filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
     .pyq-card {
       background: var(--surface-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.4rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .pyq-card:hover {
       border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
     .pyq-header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.6rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
     .pyq-badges {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 0.4rem;
     }
     .pyq-badge {
@@ -175,6 +149,10 @@
       font-size: 0.88rem;
       color: var(--text-secondary);
     }
+    .pyq-diagram-wrap {
+      overflow-x: auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -188,15 +166,15 @@
   <header class="notes-topbar">
     <div class="notes-topbar-inner">
       <div class="topbar-left">
-        <a href="../../../index.html#subject/ml" class="back-btn" title="Return to ML Overview">
+        <a href="../../../index.html#subject/ml" class="back-btn" title="Return to Machine Learning Overview">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>←  Overview</span>
+          <span>&larr; 24IS51 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
           <a href="../../../index.html">Semester V</a>
           <span class="breadcrumb-sep">/</span>
-          <a href="../../../index.html#subject/ml">ML</a>
+          <a href="../../../index.html#subject/ml">Machine Learning</a>
           <span class="breadcrumb-sep">/</span>
           <span class="breadcrumb-current">CIE-1 PYQ Bank</span>
         </nav>
@@ -232,7 +210,10 @@
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
-          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">&sect; Overview &amp; Statistics</a></li>
+          <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (5)</a></li>
+          <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (6)</a></li>
+          <li class="toc-item"><a href="#unit-3" class="toc-link">Unit 3 Questions (9)</a></li>
           <li class="toc-item"><a href="#out-of-scope" class="toc-link">Out-of-Scope Archive (18)</a></li>
         </ol>
       </nav>
@@ -242,27 +223,27 @@
     <main class="notes-content" id="main-content">
       <!-- CIE-1 Scope Alert Banner -->
       <div class="cie1-banner">
-        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
-        <p><strong>Course:</strong> ML () &bull; <strong>Exam Schedule:</strong>  (60 Mins, 30 Marks)</p>
-        <p style="margin-top:0.4rem;">Contains <strong>0 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
+        <h3>🎯 CIE-1 Exam-Ready PYQ &amp; Model Answers Bank</h3>
+        <p><strong>Course:</strong> Machine Learning (24IS51) &bull; <strong>Exam Schedule:</strong> Thu 15-10-2026, 09:30–10:30 (60 Mins, 30 Marks)</p>
+        <p style="margin-top:0.4rem;">Contains <strong>20 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
       </div>
 
       <header class="notes-header" id="summary-overview">
         <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
-        <h1 class="notes-title">ML PYQ Solutions</h1>
-        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        <h1 class="notes-title">Machine Learning PYQ Solutions</h1>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, 8M, and 10M questions with direct notes cross-references.</p>
         
         <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">20</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">15</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:var(--green);">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--green);">3</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -275,9 +256,1066 @@
       <!-- Quick Interactive Filter Pills -->
       <div class="pyq-filter-bar">
         <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
-        <button class="pyq-filter-btn active" data-filter="all">All (0)</button>
-        <button class="pyq-filter-btn" data-filter="high">High Priority (0)</button>
+        <button class="pyq-filter-btn active" data-filter="all">All (20)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (15)</button>
+        <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (5)</button>
+        <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (6)</button>
+        <button class="pyq-filter-btn" data-filter="unit-3">Unit 3 (9)</button>
       </div>
+
+      <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
+        <div class="section-badge">UNIT 1</div>
+        <h2 class="section-title">Unit 1 Examination Questions &amp; Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
+
+        <!-- Question ml-q01 -->
+        <article class="pyq-card" id="ml-q01" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2026 Q1.a (6M)</span><span class="year-chip">SEE June/July 2026 Q2.a (7M)</span><span class="year-chip">SEE May 2023 Q1 (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the difference between Supervised and Unsupervised Learning with suitable examples. Compare them with Reinforcement Learning.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Definitions:</h4>
+<p><strong>Supervised:</strong> <strong>Supervised Learning:</strong> The algorithm is provided with a labeled dataset $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N$, where each input vector $\mathbf{x}_i$ is paired with a known ground-truth target label $y_i$. The goal is to learn a mapping function $f: \mathcal{X} 	o \mathcal{Y}$ that generalizes accurately to unseen test instances.</p>
+<p><strong>Unsupervised:</strong> <strong>Unsupervised Learning:</strong> The algorithm is provided with unlabeled data $\mathcal{D} = \{\mathbf{x}_i\}_{i=1}^N$ without target annotations. The objective is to discover underlying patterns, intrinsic structures, clusters, or probability distributions.</p>
+<p><strong>Reinforcement:</strong> <strong>Reinforcement Learning:</strong> An autonomous agent interacts with an environment through trial-and-error actions $a_t$, observing state transitions $s_{t+1}$ and scalar reward signals $r_t$. The goal is to learn an optimal policy $\pi^*(s)$ that maximizes cumulative expected long-term discounted reward.</p>
+<h4>Comparison Table:</h4>
+<h5>Headers:</h5><ul><li>Attribute</li><li>Supervised Learning</li><li>Unsupervised Learning</li><li>Reinforcement Learning</li></ul>
+<h5>Rows:</h5><ul><li>['Training Data', 'Input data paired with explicit ground-truth labels $(\\mathbf{x}, y)$.', 'Input data only $\\mathbf{x}$; no labels or supervision.', 'No fixed dataset; dynamic state-action-reward interactions.']</li><li>['Core Tasks', 'Classification (discrete labels) & Regression (continuous values).', 'Clustering, Dimensionality Reduction, Density Estimation.', 'Sequential decision-making, Game playing, Robotics control.']</li><li>['Feedback Mechanism', 'Direct error signal $(y - \\hat{y})$ per training sample.', 'No external feedback; relies on internal similarity/variance.', 'Delayed scalar numerical rewards/penalties after action sequences.']</li><li>['Examples', 'Spam filtering, House price prediction, Medical diagnosis.', 'Customer segmentation (K-Means), PCA visualization.', 'Self-driving navigation, Chess/Go (AlphaGo), Drone control.']</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 1 (pp. 12-18); Mitchell Ch. 1
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q02 -->
+        <article class="pyq-card" id="ml-q02" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE June/July 2026 Q1.a (6M)</span><span class="year-chip">SEE July 2024 Q1 (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Describe the complete 7-step Machine Learning process pipeline with a neat diagram.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>The machine learning process is a disciplined engineering workflow transforming raw domain data into a reliable, deployed predictive model.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 880 260" class="diagram-svg" role="img" aria-label="End-to-End Machine Learning Process Pipeline" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="ml-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)" />
+    </marker>
+    <marker id="ml-arr-feedback" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#EF4444" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect x="5" y="5" width="870" height="250" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">MACHINE LEARNING ENGINEERING PIPELINE (RAMAIAH SEE 2026 Q1.a)</text>
+
+  <!-- Stage 1: Problem Formulation -->
+  <g transform="translate(20, 60)">
+    <rect width="105" height="110" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <circle cx="52" cy="30" r="14" fill="var(--brand-tint)" />
+    <text x="52" y="35" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">01</text>
+    <text x="52" y="65" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Problem</text>
+    <text x="52" y="80" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Formulation</text>
+    <text x="52" y="98" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Task (T) &amp; P</text>
+  </g>
+
+  <!-- Arrow 1->2 -->
+  <line x1="125" y1="115" x2="140" y2="115" stroke="var(--brand)" stroke-width="2" marker-end="url(#ml-arr)" />
+
+  <!-- Stage 2: Data Ingestion -->
+  <g transform="translate(142, 60)">
+    <rect width="105" height="110" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <circle cx="52" cy="30" r="14" fill="var(--brand-tint)" />
+    <text x="52" y="35" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">02</text>
+    <text x="52" y="65" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Data</text>
+    <text x="52" y="80" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Collection</text>
+    <text x="52" y="98" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Big Data 5Vs</text>
+  </g>
+
+  <!-- Arrow 2->3 -->
+  <line x1="247" y1="115" x2="262" y2="115" stroke="var(--brand)" stroke-width="2" marker-end="url(#ml-arr)" />
+
+  <!-- Stage 3: Preprocessing & Cleaning -->
+  <g transform="translate(264, 60)">
+    <rect width="105" height="110" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <circle cx="52" cy="30" r="14" fill="var(--brand-tint)" />
+    <text x="52" y="35" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">03</text>
+    <text x="52" y="65" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Data Cleaning</text>
+    <text x="52" y="80" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">&amp; Imputation</text>
+    <text x="52" y="98" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Outlier Fences</text>
+  </g>
+
+  <!-- Arrow 3->4 -->
+  <line x1="369" y1="115" x2="384" y2="115" stroke="var(--brand)" stroke-width="2" marker-end="url(#ml-arr)" />
+
+  <!-- Stage 4: Feature Engineering -->
+  <g transform="translate(386, 60)">
+    <rect width="105" height="110" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <circle cx="52" cy="30" r="14" fill="var(--brand-tint)" />
+    <text x="52" y="35" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">04</text>
+    <text x="52" y="65" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Feature</text>
+    <text x="52" y="80" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Engineering</text>
+    <text x="52" y="98" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Z-score / Min-Max</text>
+  </g>
+
+  <!-- Arrow 4->5 -->
+  <line x1="491" y1="115" x2="506" y2="115" stroke="var(--brand)" stroke-width="2" marker-end="url(#ml-arr)" />
+
+  <!-- Stage 5: Model Training -->
+  <g transform="translate(508, 60)">
+    <rect width="105" height="110" rx="10" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.8" />
+    <circle cx="52" cy="30" r="14" fill="var(--brand)" />
+    <text x="52" y="35" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">05</text>
+    <text x="52" y="65" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--brand)" text-anchor="middle">Model</text>
+    <text x="52" y="80" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--brand)" text-anchor="middle">Training</text>
+    <text x="52" y="98" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Loss Minimization</text>
+  </g>
+
+  <!-- Arrow 5->6 -->
+  <line x1="613" y1="115" x2="628" y2="115" stroke="var(--brand)" stroke-width="2" marker-end="url(#ml-arr)" />
+
+  <!-- Stage 6: Evaluation & Diagnostics -->
+  <g transform="translate(630, 60)">
+    <rect width="105" height="110" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <circle cx="52" cy="30" r="14" fill="var(--brand-tint)" />
+    <text x="52" y="35" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">06</text>
+    <text x="52" y="65" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Evaluation &amp;</text>
+    <text x="52" y="80" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Diagnostics</text>
+    <text x="52" y="98" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Confusion Matrix</text>
+  </g>
+
+  <!-- Arrow 6->7 -->
+  <line x1="735" y1="115" x2="750" y2="115" stroke="var(--brand)" stroke-width="2" marker-end="url(#ml-arr)" />
+
+  <!-- Stage 7: Deployment & Monitoring -->
+  <g transform="translate(752, 60)">
+    <rect width="105" height="110" rx="10" fill="var(--surface-alt)" stroke="var(--green)" stroke-width="1.5" />
+    <circle cx="52" cy="30" r="14" fill="var(--green-tint)" />
+    <text x="52" y="35" font-family="var(--font-mono)" font-size="11" font-weight="700" fill="var(--green)" text-anchor="middle">07</text>
+    <text x="52" y="65" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--green)" text-anchor="middle">Deploy &amp;</text>
+    <text x="52" y="80" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--green)" text-anchor="middle">Monitor</text>
+    <text x="52" y="98" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Concept Drift</text>
+  </g>
+
+  <!-- Feedback Loop Arrow from Stage 6 back to Stage 4 & 5 -->
+  <path d="M 682 170 L 682 215 L 438 215 L 438 175" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#ml-arr-feedback)" />
+  <rect x="500" y="203" width="130" height="24" rx="6" fill="var(--surface)" stroke="#EF4444" stroke-width="1" />
+  <text x="565" y="219" font-family="var(--font-mono)" font-size="9.5" font-weight="700" fill="#EF4444" text-anchor="middle">&#x21a9; Hyperparameter Loop</text>
+</svg></div>
+<h4>Seven Steps:</h4><ul><li><strong>1. Data Collection:</strong> Gather raw data from diverse sources (databases, APIs, IoT sensors, web scraping).</li><li><strong>2. Data Preparation & Cleaning:</strong> Handle missing values, remove noise/outliers, normalize features, split data into Train (70%), Validation (15%), and Test (15%) subsets.</li><li><strong>3. Model Selection:</strong> Choose suitable candidate model families (e.g., Linear Regression, Logistic Regression, Random Forest) based on data size, type, and complexity.</li><li><strong>4. Model Training:</strong> Optimize model parameters $\mathbf{w}$ using training data by minimizing an objective loss function via Gradient Descent or closed-form OLS.</li><li><strong>5. Model Evaluation:</strong> Benchmark the model against unseen validation data using objective metrics (MSE, $R^2$, Accuracy, F1-Score, ROC-AUC).</li><li><strong>6. Hyperparameter Tuning:</strong> Optimize non-trainable hyperparameters (learning rate $\alpha$, regularization strength $\lambda$) using grid search or cross-validation.</li><li><strong>7. Deployment & Monitoring:</strong> Deploy model as a REST API or microservice; continuously monitor data drift, latency, and predictive performance in production.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 1 (pp. 20-25)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q03 -->
+        <article class="pyq-card" id="ml-q03" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2026 Q2.a (6M)</span><span class="year-chip">SEE June/July 2026 Q1.b (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">A binary classifier produces the following confusion matrix: TP = 70, TN = 50, FP = 20, FN = 10. Compute Accuracy, Precision, Recall, F1-Score, Sensitivity, and Specificity. Discuss suitability for medical diagnosis.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Given:</h4><p>TP = 70, TN = 50, FP = 20, FN = 10. Total instances $N = 70 + 50 + 20 + 10 = 150$.</p>
+<h4>Computations:</h4><ul><li><strong>1. Accuracy:</strong> Proportion of total correct predictions.<br/>$$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} = \frac{70 + 50}{150} = \frac{120}{150} = \mathbf{0.8000 \; (80.00\%)}$$</li><li><strong>2. Precision:</strong> Proportion of predicted positives that are actually positive.<br/>$$\text{Precision} = \frac{TP}{TP + FP} = \frac{70}{70 + 20} = \frac{70}{90} = \mathbf{0.7778 \; (77.78\%)}$$</li><li><strong>3. Recall / Sensitivity:</strong> Proportion of actual positives identified.<br/>$$\text{Recall} = \frac{TP}{TP + FN} = \frac{70}{70 + 10} = \frac{70}{80} = \mathbf{0.8750 \; (87.50\%)}$$</li><li><strong>4. Specificity (True Negative Rate):</strong> Proportion of actual negatives correctly identified.<br/>$$\text{Specificity} = \frac{TN}{TN + FP} = \frac{50}{50 + 20} = \frac{50}{70} = \mathbf{0.7143 \; (71.43\%)}$$</li><li><strong>5. F1-Score:</strong> Harmonic mean of Precision and Recall.<br/>$$F_1 = \frac{2 \times \text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2 \times 0.7778 \times 0.8750}{0.7778 + 0.8750} = \frac{1.36115}{1.6528} = \mathbf{0.8235 \; (82.35\%)}$$</li></ul>
+<h4>Medical Suitability Commentary:</h4><p><strong>Critical Application Analysis:</strong> In life-threatening medical diagnosis (e.g., malignant tumor detection), <strong>False Negatives (FN = 10)</strong> are disastrous because sick patients are sent home untreated. While Recall is respectable at 87.5%, an FN rate of 12.5% is unacceptable for clinical screening. The decision threshold must be adjusted to prioritize <strong>near-100% Recall (Sensitivity)</strong>, even at the cost of lower precision (more false alarms sent for follow-up biopsy).</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 1 (pp. 25-28)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q04 -->
+        <article class="pyq-card" id="ml-q04" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Shruti mam Docx Problem 1 & 3</span><span class="year-chip">Unit-1 QB (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define Covariance and Pearson's Correlation Coefficient. The following data show hours studied (X) and marks obtained (Y) by four students: X = [2, 4, 6, 8], Y = [50, 60, 70, 80]. Calculate Covariance and Pearson's r with step-by-step verification.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 680 180" class="diagram-svg" role="img" aria-label="Scatter Plot Patterns" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+            <title>Bivariate Correlation Patterns</title>
+            <desc>Three scatter plots showing positive correlation (r approx +1), negative correlation (r approx -1), and zero correlation (r approx 0).</desc>
+            <!-- Card 1: Positive -->
+            <rect x="20" y="15" width="190" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" />
+            <text x="115" y="35" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">Positive (r &gt; 0)</text>
+            <line x1="40" y1="140" x2="190" y2="140" stroke="var(--border-strong)" />
+            <line x1="40" y1="140" x2="40" y2="50" stroke="var(--border-strong)" />
+            <circle cx="60" cy="125" r="3.5" fill="var(--green)" />
+            <circle cx="85" cy="115" r="3.5" fill="var(--green)" />
+            <circle cx="105" cy="98" r="3.5" fill="var(--green)" />
+            <circle cx="130" cy="85" r="3.5" fill="var(--green)" />
+            <circle cx="150" cy="70" r="3.5" fill="var(--green)" />
+            <circle cx="175" cy="55" r="3.5" fill="var(--green)" />
+            <line x1="50" y1="135" x2="180" y2="50" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="3" />
+
+            <!-- Card 2: Negative -->
+            <rect x="245" y="15" width="190" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" />
+            <text x="340" y="35" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">Negative (r &lt; 0)</text>
+            <line x1="265" y1="140" x2="415" y2="140" stroke="var(--border-strong)" />
+            <line x1="265" y1="140" x2="265" y2="50" stroke="var(--border-strong)" />
+            <circle cx="285" cy="58" r="3.5" fill="var(--callout-warning-label)" />
+            <circle cx="310" cy="75" r="3.5" fill="var(--callout-warning-label)" />
+            <circle cx="335" cy="95" r="3.5" fill="var(--callout-warning-label)" />
+            <circle cx="360" cy="108" r="3.5" fill="var(--callout-warning-label)" />
+            <circle cx="385" cy="122" r="3.5" fill="var(--callout-warning-label)" />
+            <circle cx="400" cy="132" r="3.5" fill="var(--callout-warning-label)" />
+            <line x1="275" y1="50" x2="405" y2="135" stroke="var(--callout-warning-label)" stroke-width="1.5" stroke-dasharray="3" />
+
+            <!-- Card 3: Zero Correlation -->
+            <rect x="470" y="15" width="190" height="150" rx="10" fill="var(--surface)" stroke="var(--border)" />
+            <text x="565" y="35" font-family="var(--font-display)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">No Linear Trend (r ≈ 0)</text>
+            <line x1="490" y1="140" x2="640" y2="140" stroke="var(--border-strong)" />
+            <line x1="490" y1="140" x2="490" y2="50" stroke="var(--border-strong)" />
+            <circle cx="510" cy="95" r="3.5" fill="var(--ink-muted)" />
+            <circle cx="530" cy="65" r="3.5" fill="var(--ink-muted)" />
+            <circle cx="550" cy="125" r="3.5" fill="var(--ink-muted)" />
+            <circle cx="570" cy="80" r="3.5" fill="var(--ink-muted)" />
+            <circle cx="590" cy="110" r="3.5" fill="var(--ink-muted)" />
+            <circle cx="615" cy="60" r="3.5" fill="var(--ink-muted)" />
+            <circle cx="625" cy="100" r="3.5" fill="var(--ink-muted)" />
+          </svg></div>
+<h4>Definitions:</h4><ul><li><strong>Sample Covariance:</strong> Measures the directional joint variability of two random variables:<br/>$$\operatorname{Cov}(X, Y) = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{n - 1}$$</li><li><strong>Pearson's Correlation Coefficient (r):</strong> Scale-invariant measure of linear association normalized between $[-1, +1]$:<br/>$$r = \frac{\operatorname{Cov}(X, Y)}{s_X s_Y} = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sqrt{\sum (X_i - \bar{X})^2 \sum (Y_i - \bar{Y})^2}}$$</li></ul>
+<h4>Given Data:</h4><p>$n = 4$. $X = [2, 4, 6, 8]$, $Y = [50, 60, 70, 80]$.</p>
+<h4>Step By Step:</h4><ul><li>1. <strong>Compute Means:</strong><br/>$$\bar{X} = \frac{2+4+6+8}{4} = 5.0, \quad \bar{Y} = \frac{50+60+70+80}{4} = 65.0$$</li><li>2. <strong>Deviations & Products:</strong><br/>- $i=1$: $(2-5)=-3$, $(50-65)=-15$, product $= 45$, $(-3)^2 = 9$, $(-15)^2 = 225$<br/>- $i=2$: $(4-5)=-1$, $(60-65)=-5$, product $= 5$, $(-1)^2 = 1$, $(-5)^2 = 25$<br/>- $i=3$: $(6-5)=+1$, $(70-65)=+5$, product $= 5$, $(+1)^2 = 1$, $(+5)^2 = 25$<br/>- $i=4$: $(8-5)=+3$, $(80-65)=+15$, product $= 45$, $(+3)^2 = 9$, $(+15)^2 = 225$</li><li>3. <strong>Summations:</strong><br/>$$\sum (X_i - \bar{X})(Y_i - \bar{Y}) = 45 + 5 + 5 + 45 = 100$$<br/>$$\sum (X_i - \bar{X})^2 = 9 + 1 + 1 + 9 = 20, \quad \sum (Y_i - \bar{Y})^2 = 225 + 25 + 25 + 225 = 500$$</li><li>4. <strong>Sample Covariance ($n-1 = 3$):</strong><br/>$$\operatorname{Cov}(X, Y) = \frac{100}{3} = \mathbf{33.3333}$$</li><li>5. <strong>Pearson's Correlation Coefficient:</strong><br/>$$r = \frac{100}{\sqrt{20 \times 500}} = \frac{100}{\sqrt{10000}} = \frac{100}{100} = \mathbf{+1.0000}$$</li></ul>
+<h4>Interpretation:</h4><p>A perfect positive linear correlation ($r = +1.0$) exists: for every 1-hour increase in study time, marks increase by exactly 5.0 points.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 2.5 (pp. 58-64); 6_Correlation_and_Covariance_Problems_with_Solutions.docx
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q20 -->
+        <article class="pyq-card" id="ml-q20" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Sridhar & Vijayalakshmi Ch. 2.4</span><span class="year-chip">Unit-1 QB (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the Five-Number Summary and Outlier Detection using the 1.5 * IQR rule with Box Plots.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Five Number Summary:</h4><ul><li><strong>1. Minimum:</strong> Lowest data value excluding outliers ($Q_1 - 1.5 \times \text{IQR}$).</li><li><strong>2. First Quartile ($Q_1$ / 25th Percentile):</strong> Median of the lower half of sorted data.</li><li><strong>3. Median ($Q_2$ / 50th Percentile):</strong> Middle value dividing data into two equal halves.</li><li><strong>4. Third Quartile ($Q_3$ / 75th Percentile):</strong> Median of the upper half of sorted data.</li><li><strong>5. Maximum:</strong> Highest data value excluding outliers ($Q_3 + 1.5 \times \text{IQR}$).</li></ul>
+<h4>Iqr Outlier Rule:</h4><ul><li><strong>Interquartile Range:</strong> $\text{IQR} = Q_3 - Q_1$, representing the spread of the middle 50% of observations.</li><li><strong>Inner Fences for Outliers:</strong><br/>- Lower Fence $= Q_1 - 1.5 \times \text{IQR}$<br/>- Upper Fence $= Q_3 + 1.5 \times \text{IQR}$</li><li>Any data point $x < \text{Lower Fence}$ or $x > \text{Upper Fence}$ is flagged as a statistical outlier and plotted as an individual point beyond the whiskers in a Box Plot.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 2.4 (pp. 52-56)
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
+        <div class="section-badge">UNIT 2</div>
+        <h2 class="section-title">Unit 2 Examination Questions &amp; Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
+
+        <!-- Question ml-q05 -->
+        <article class="pyq-card" id="ml-q05" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2026 Q1.b (6M)</span><span class="year-chip">SEE June/July 2026 Q3.a (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain how dissimilarity is computed for Ordinal attributes. Given four objects with test results: Object 1 = Excellent, Object 2 = Fair, Object 3 = Good, Object 4 = Excellent. Rank order: Fair < Good < Excellent. Compute the normalized values and the pairwise dissimilarity matrix using step-by-step formulas.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Formula Explanation:</h4><ul><li><strong>Step 1: Replace with Rank:</strong> For an ordinal attribute $f$ with $M_f$ ordered states, assign each state an integer rank $r_{if} \in \{1, 2, \dots, M_f\}$.</li><li><strong>Step 2: Map to Normalized Interval $[0, 1]$:</strong> Apply the formula:<br/>$$z_{if} = \frac{r_{if} - 1}{M_f - 1}$$</li><li><strong>Step 3: Compute Pairwise Dissimilarity:</strong> For single attribute, dissimilarity is the absolute difference:<br/>$$d(i, j) = |z_{if} - z_{jf}|$$</li></ul>
+<h4>Step By Step Calculation:</h4><ul><li>States: $M = 3$ (Fair = 1, Good = 2, Excellent = 3). Range $M - 1 = 2$.</li><li>Normalized Scores $z_i$:<br/>- Object 1 (Excellent): $r_1 = 3 \implies z_1 = (3-1)/2 = \mathbf{1.0}$<br/>- Object 2 (Fair): $r_2 = 1 \implies z_2 = (1-1)/2 = \mathbf{0.0}$<br/>- Object 3 (Good): $r_3 = 2 \implies z_3 = (2-1)/2 = \mathbf{0.5}$<br/>- Object 4 (Excellent): $r_4 = 3 \implies z_4 = (3-1)/2 = \mathbf{1.0}$</li><li>Pairwise Dissimilarities $d(i, j) = |z_i - z_j|$:<br/>- $d(1, 1) = 0.0$<br/>- $d(2, 1) = |0.0 - 1.0| = 1.0$<br/>- $d(3, 1) = |0.5 - 1.0| = 0.5, \quad d(3, 2) = |0.5 - 0.0| = 0.5$<br/>- $d(4, 1) = |1.0 - 1.0| = 0.0, \quad d(4, 2) = |1.0 - 0.0| = 1.0, \quad d(4, 3) = |1.0 - 0.5| = 0.5$</li></ul>
+<h4>Dissimilarity Matrix:</h4><p>Pairwise Dissimilarity Matrix $\mathbf{D}$:<br/>$$\mathbf{D} = \begin{bmatrix} 0 & & & \\ 1.0 & 0 & & \\ 0.5 & 0.5 & 0 & \\ 0.0 & 1.0 & 0.5 & 0 \end{bmatrix}$$</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 2.3 (pp. 45-48)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q06 -->
+        <article class="pyq-card" id="ml-q06" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-2 2026 Q2.c (6M)</span><span class="year-chip">SEE June/July 2026 Q9.a (7M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-4" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 4</span>
+          </a>
+
+          <h3 class="pyq-question-text">Using the covariance matrix $C = \begin{bmatrix} 4 & 2 \\ 2 & 4 \end{bmatrix}$, apply Principal Component Analysis (PCA): 1. Find the Eigenvalues, 2. Find the normalized Eigenvectors, 3. Identify the First Principal Component (PC1) and calculate the proportion of total variance it explains.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Given:</h4><p>Covariance matrix $\mathbf{C} = \begin{bmatrix} 4 & 2 \\ 2 & 4 \end{bmatrix}$.</p>
+<h4>Step 1 Eigenvalues:</h4><ul><li>Solve characteristic equation $\det(\mathbf{C} - \lambda \mathbf{I}) = 0$:</li><li>$$\det\begin{pmatrix} 4-\lambda & 2 \\ 2 & 4-\lambda \end{pmatrix} = (4 - \lambda)^2 - (2)(2) = 0$$</li><li>$$\lambda^2 - 8\lambda + 16 - 4 = 0 \implies \lambda^2 - 8\lambda + 12 = 0$$</li><li>$$(\lambda - 6)(\lambda - 2) = 0 \implies \mathbf{\lambda_1 = 6, \quad \lambda_2 = 2}$$</li></ul>
+<h4>Step 2 Eigenvectors:</h4><ul><li><strong>For $\lambda_1 = 6$:</strong> $(\mathbf{C} - 6\mathbf{I})\mathbf{v}_1 = \mathbf{0}$:<br/>$$\begin{bmatrix} -2 & 2 \\ 2 & -2 \end{bmatrix} \begin{bmatrix} v_{11} \\ v_{12} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \implies -2v_{11} + 2v_{12} = 0 \implies v_{11} = v_{12}$$<br/>Unnormalized: $\mathbf{v}_1 = [1, 1]^T$. Length $= \sqrt{1^2 + 1^2} = \sqrt{2}$.<br/>Normalized: $\mathbf{u}_1 = \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix} \approx \begin{bmatrix} 0.7071 \\ 0.7071 \end{bmatrix}$.</li><li><strong>For $\lambda_2 = 2$:</strong> $(\mathbf{C} - 2\mathbf{I})\mathbf{v}_2 = \mathbf{0}$:<br/>$$\begin{bmatrix} 2 & 2 \\ 2 & 2 \end{bmatrix} \begin{bmatrix} v_{21} \\ v_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \implies 2v_{21} + 2v_{22} = 0 \implies v_{21} = -v_{22}$$<br/>Normalized: $\mathbf{u}_2 = \begin{bmatrix} -1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix} \approx \begin{bmatrix} -0.7071 \\ 0.7071 \end{bmatrix}$.</li></ul>
+<h4>Step 3 Pc1 And Variance:</h4><ul><li>The largest eigenvalue is $\lambda_1 = 6$, so the <strong>First Principal Component (PC1)</strong> corresponds to eigenvector $\mathbf{u}_1 = [0.7071, 0.7071]^T$.</li><li>Total Variance $= \lambda_1 + \lambda_2 = 6 + 2 = 8$.</li><li>Proportion of Variance Explained by PC1:<br/>$$\text{Explained Ratio} = \frac{\lambda_1}{\lambda_1 + \lambda_2} = \frac{6}{8} = \mathbf{0.7500 \; (75.00\%)}$$</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 2.8 (pp. 72-78)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q07 -->
+        <article class="pyq-card" id="ml-q07" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Unit-1 QB Q2.a & Q2.b (10M)</span><span class="year-chip">SEE May 2023 Q2 (10M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-2" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 2</span>
+          </a>
+
+          <h3 class="pyq-question-text">Describe the five-step methodology for designing a learning system from Tom Mitchell. Illustrate each step using the Checkers Learning Problem.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 220" class="diagram-svg" role="img" aria-label="Mitchell" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Mitchell's Learning System Architecture</title>
+  <desc>Checkers learning system feedback loop: Experiment Generator, Performance System, Critic, and Generalizer.</desc>
+  <defs>
+    <marker id="ml-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+    <marker id="ml-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--green, #10b981)"/>
+    </marker>
+  </defs>
+
+  <!-- 4 Modules -->
+  <rect x="25" y="30" width="150" height="65" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2"/>
+  <text x="100" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--accent, #3b82f6)">Experiment Gen</text>
+  <text x="100" y="75" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">New Problems / Moves</text>
+
+  <line x1="175" y1="62" x2="207" y2="62" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#ml-arr)"/>
+
+  <rect x="210" y="30" width="150" height="65" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2"/>
+  <text x="285" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--text-primary, #0f172a)">Performance Sys</text>
+  <text x="285" y="75" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Game Trace History</text>
+
+  <line x1="360" y1="62" x2="392" y2="62" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#ml-arr)"/>
+
+  <rect x="395" y="30" width="150" height="65" rx="8" fill="var(--surface-card, #ffffff)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="470" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="#f59e0b">Critic</text>
+  <text x="470" y="75" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Credit Assign (V_train)</text>
+
+  <line x1="545" y1="62" x2="577" y2="62" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#ml-arr)"/>
+
+  <rect x="580" y="30" width="155" height="65" rx="8" fill="var(--green-tint, #ecfdf5)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <text x="657" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--green-tint-ink, #065f46)">Generalizer</text>
+  <text x="657" y="75" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--green-tint-ink, #065f46)">LMS Weight Update</text>
+
+  <!-- Feedback loops -->
+  <path d="M 657 95 L 657 160 L 285 160 L 285 102" fill="none" stroke="var(--green, #10b981)" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#ml-arr-green)"/>
+  <text x="470" y="152" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--green, #10b981)">Updated Hypothesis Weights (w) &rarr;</text>
+</svg></div>
+<h4>Mitchell Definition:</h4><p>A computer program is said to learn from <strong>Experience E</strong> with respect to some class of <strong>Tasks T</strong> and <strong>Performance measure P</strong>, if its performance at tasks in T, as measured by P, improves with experience E.</p>
+<h4>Five Steps:</h4><ul><li><strong>1. Choosing the Training Experience:</strong> Select source and feedback type (Direct vs Indirect; Teacher-guided vs Self-play games). In Checkers: Self-play games provide indirect feedback (win/loss signal only at game end).</li><li><strong>2. Choosing the Target Function:</strong> Formalize what knowledge to learn. In Checkers: Function $V: B \to \mathbb{R}$ mapping any board state $b \in B$ to a real evaluation score (+100 for win, -100 for loss, intermediate values for board advantage).</li><li><strong>3. Choosing a Representation for Target Function:</strong> Select mathematical hypothesis representation. In Checkers: Linear combination of board features: $\hat{V}(b) = w_0 + w_1 x_1 + w_2 x_2 + w_3 x_3 + w_4 x_4 + w_5 x_5 + w_6 x_6$, where $x_1$ = black pieces, $x_2$ = red pieces, $x_3$ = black kings, etc.</li><li><strong>4. Choosing a Function Approximation Algorithm:</strong> Select learning rule to adjust weights $w_i$. In Checkers: LMS (Least Mean Squares) weight update rule: $w_i \leftarrow w_i + \eta (V_{\text{train}}(b) - \hat{V}(b)) x_i$.</li><li><strong>5. Final System Architecture:</strong> Compose four core operational modules: Complete System = Performance System (plays game) + Critic (generates training pairs) + Generalizer (computes LMS updates) + Experiment Generator (proposes novel exploratory moves).</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Tom Mitchell, Machine Learning Ch. 1.2 (pp. 2-12)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q08 -->
+        <article class="pyq-card" id="ml-q08" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2026 Q2.b (6M)</span><span class="year-chip">SEE June/July 2026 Q4.b (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain Concept Learning and the Find-S Algorithm. Consider a 4-attribute dataset for Buys_Computer (Age, Income, Student, Credit_Rating). Initialize the most specific hypothesis and trace Find-S step by step across positive examples to derive the final hypothesis.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Concept Learning Def:</h4><p><strong>Concept Learning</strong> is acquiring the definition of a general category given a sample of positive and negative training examples of the category. It is equivalent to searching through a predefined hypothesis space $H$ for a hypothesis consistent with training examples.</p>
+<h4>Find S Rules:</h4><ul><li>1. Initialize hypothesis $h$ to the most specific hypothesis in $H$: $h = \langle \emptyset, \emptyset, \dots, \emptyset \rangle$.</li><li>2. For each positive training instance $x$:</li><li>&nbsp;&nbsp;&nbsp;&nbsp;For each attribute constraint $a_i$ in $h$:</li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If $a_i$ is satisfied by $x$, do nothing.</li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else, replace $a_i$ in $h$ by the next more general constraint that is satisfied by $x$ (e.g. replace specific value with '?' wildcard).</li><li>3. Negative training instances are completely ignored by Find-S.</li><li>4. Output final hypothesis $h$.</li></ul>
+<h4>Step By Step Trace:</h4><ul><li><strong>Initialization:</strong> $h_0 = \langle \emptyset, \emptyset, \emptyset, \emptyset \rangle$</li><li><strong>Instance 1:</strong> $\langle \text{Youth, High, No, Fair} \rangle \to \text{No}$ (Negative $\implies$ IGNORE):<br/>$h_1 = \langle \emptyset, \emptyset, \emptyset, \emptyset \rangle$</li><li><strong>Instance 2:</strong> $\langle \text{Senior, Low, Yes, Fair} \rangle \to \text{Yes}$ (Positive! First update):<br/>$h_2 = \langle \text{Senior, Low, Yes, Fair} \rangle$</li><li><strong>Instance 3:</strong> $\langle \text{Middle, Low, Yes, Excellent} \rangle \to \text{Yes}$ (Positive!):<br/>- Age: Senior vs Middle $\to$ generalized to '?'<br/>- Income: Low vs Low $\to$ remains 'Low'<br/>- Student: Yes vs Yes $\to$ remains 'Yes'<br/>- Credit: Fair vs Excellent $\to$ generalized to '?'<br/>$h_3 = \langle ?, \text{Low, Yes}, ? \rangle$</li><li><strong>Instance 4:</strong> $\langle \text{Senior, Medium, Yes, Fair} \rangle \to \text{Yes}$ (Positive!):<br/>- Income: Low vs Medium $\to$ generalized to '?'<br/>$h_4 = \langle ?, ?, \text{Yes}, ? \rangle$</li></ul>
+<h4>Final Hypothesis:</h4><p><strong>Final Learned Hypothesis:</strong> $h = \langle ?, ?, \mathbf{Yes}, ? \rangle$.<br/><strong>Interpretation:</strong> The learned concept is: 'If Student = Yes, then Buys_Computer = Yes, regardless of Age, Income, or Credit Rating'.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Tom Mitchell Ch. 2.3 & 2.4 (pp. 22-29)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q09 -->
+        <article class="pyq-card" id="ml-q09" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2026 Q3.b (6M)</span><span class="year-chip">SEE June/July 2026 Q3.b (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the Candidate Elimination Algorithm in Concept Learning. Describe how the Specific boundary (S) and General boundary (G) are updated for positive and negative examples.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>The <strong>Candidate-Elimination Algorithm</strong> computes the entire Version Space (set of all hypotheses consistent with training examples) by maintaining two compact boundary sets: the <strong>Specific boundary ($S$)</strong> and the <strong>General boundary ($G$)</strong>.</p>
+<h4>Boundary Definitions:</h4><ul><li><strong>Specific Boundary $S$:</strong> Set of minimally general (most specific) hypotheses consistent with all observed instances. Initialized to $S_0 = \{\langle \emptyset, \emptyset, \dots \rangle\}$.</li><li><strong>General Boundary $G$:</strong> Set of maximally general hypotheses consistent with all observed instances. Initialized to $G_0 = \{\langle ?, ?, \dots \rangle\}$.</li></ul>
+<h4>Update Rules:</h4><ul><li><strong>For a POSITIVE training example $d = (x, +)$:</strong><br/>1. Remove any hypothesis from $G$ that is not consistent with $d$.<br/>2. For each hypothesis $s \in S$ not consistent with $d$: remove $s$ and add all minimal generalizations $h$ of $s$ such that $h$ is consistent with $d$ and some member of $G$ is more general than $h$.<br/>3. Remove from $S$ any hypothesis that is more general than another hypothesis in $S$.</li><li><strong>For a NEGATIVE training example $d = (x, -)$:</strong><br/>1. Remove any hypothesis from $S$ that is consistent with $d$.<br/>2. For each hypothesis $g \in G$ that is consistent with $d$: remove $g$ and add all minimal specializations $h$ of $g$ such that $h$ is not consistent with $d$ and some member of $S$ is more specific than $h$.<br/>3. Remove from $G$ any hypothesis that is more specific than another hypothesis in $G$.</li></ul>
+<h4>Stopping Condition:</h4><p>When the algorithm converges ($S = G = \{c\}$), the target concept $c$ is uniquely learned. If $S$ and $G$ become empty, the training data is noisy or inconsistent with hypothesis space $H$.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Tom Mitchell Ch. 2.5 (pp. 29-37)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q10 -->
+        <article class="pyq-card" id="ml-q10" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE June/July 2026 Q1.c (6M)</span><span class="year-chip">SEE June/July 2026 Q2.b (7M)</span><span class="year-chip">Ramaiah CIE-1 2026 Q3.a (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-4" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 4</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain how Bias and Variance change with model complexity. A model achieves Training Accuracy = 98% and Validation Accuracy = 72%. Diagnose whether this is overfitting or underfitting, suggest two methods to improve it, and explain the roles of train, val, and test datasets.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 260" class="diagram-svg" role="img" aria-label="Bias-Variance Tradeoff Curve" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Bias-Variance Tradeoff and Model Complexity</title>
+  <desc>Plot of Error vs Model Complexity illustrating High Bias (Underfitting), Optimal Capacity, and High Variance (Overfitting).</desc>
+  <defs>
+    <marker id="ml-bv-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--text-primary, #0f172a)"/>
+    </marker>
+  </defs>
+
+  <!-- Axes -->
+  <line x1="90" y1="210" x2="710" y2="210" stroke="var(--text-primary, #0f172a)" stroke-width="2" marker-end="url(#ml-bv-arr)"/>
+  <text x="400" y="240" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="var(--text-primary, #0f172a)">Model Complexity &rarr;</text>
+
+  <line x1="90" y1="210" x2="90" y2="25" stroke="var(--text-primary, #0f172a)" stroke-width="2" marker-end="url(#ml-bv-arr)"/>
+  <text x="45" y="115" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="var(--text-primary, #0f172a)" transform="rotate(-90 45 115)">Error Rate &rarr;</text>
+
+  <!-- Bias^2 Curve (Decreasing) -->
+  <path d="M 110 50 Q 250 180 670 195" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="675" y="195" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--accent, #3b82f6)">Bias&sup2;</text>
+
+  <!-- Variance Curve (Increasing) -->
+  <path d="M 110 195 Q 450 180 670 50" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="675" y="55" font-family="sans-serif" font-size="12" font-weight="700" fill="#f59e0b">Variance</text>
+
+  <!-- Total Error Curve (U-shape) -->
+  <path d="M 110 65 Q 380 200 670 65" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <text x="675" y="75" font-family="sans-serif" font-size="12" font-weight="800" fill="#ef4444">Total Error</text>
+
+  <!-- Optimal Line -->
+  <line x1="380" y1="35" x2="380" y2="210" stroke="var(--green, #10b981)" stroke-width="2" stroke-dasharray="4,4"/>
+  <circle cx="380" cy="132" r="5" fill="var(--green, #10b981)"/>
+  <text x="380" y="25" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="800" fill="var(--green, #10b981)">Optimal Complexity</text>
+
+  <!-- Regions -->
+  <rect x="110" y="160" width="130" height="35" rx="6" fill="rgba(59, 130, 246, 0.12)"/>
+  <text x="175" y="182" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--accent, #3b82f6)">Underfitting Zone</text>
+
+  <rect x="520" y="160" width="130" height="35" rx="6" fill="rgba(245, 158, 11, 0.12)"/>
+  <text x="585" y="182" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="#f59e0b">Overfitting Zone</text>
+</svg></div>
+<strong>Diagnosis: OVERFITTING (High Variance).</strong><br/>A large performance discrepancy between near-perfect Training Accuracy (98%) and degraded Validation Accuracy (72%) is the classic hallmark of overfitting. The model has memorized idiosyncrasies and random noise in the training set instead of learning true underlying relationships.
+<h4>Two Remedies:</h4><ul>
+<li><strong>1. Regularization (L2 Ridge / L1 Lasso / Dropout):</strong> Penalize large parameter weights $\lambda \sum w_j^2$, shrinking model complexity and smoothing decision boundaries.</li>
+<li><strong>2. Early Stopping & Pruning / Feature Reduction:</strong> Stop training before over-optimization, use PCA/Lasso to prune redundant input features, or gather additional diverse training samples.</li>
+</ul>
+<h4>Dataset Roles:</h4><ul>
+<li><strong>Training Set (70%):</strong> Used by the optimization algorithm to update model weights/coefficients directly.</li>
+<li><strong>Validation Set (15%):</strong> Used during development to tune hyperparameters (learning rate, polynomial degree, regularization strength $\lambda$) and detect overfitting.</li>
+<li><strong>Test Set (15%):</strong> Completely held-out pristine set used once at the very end to obtain an unbiased estimate of real-world generalization performance.</li>
+</ul>
+<h4>Bias Variance Definitions:</h4><ul><li><strong>Bias (Underfitting Error):</strong> Error introduced by approximating a complex real-world problem with an overly simplistic model (e.g. fitting linear line to quadratic data). High bias models fail to learn underlying structure.</li><li><strong>Variance (Overfitting Error):</strong> Sensitivity of model predictions to fluctuations/noise in training set. High variance models memorize training data and fail to generalize to unseen test instances.</li><li><strong>Total Error:</strong> $\text{Expected Error} = \text{Bias}^2 + \text{Variance} + \sigma^2_{\text{irreducible}}$.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 3.5; Mitchell Ch. 2
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-3" class="note-section pyq-unit-section" data-unit="unit-3">
+        <div class="section-badge">UNIT 3</div>
+        <h2 class="section-title">Unit 3 Examination Questions &amp; Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 3 past exam questions.</p>
+
+        <!-- Question ml-q11 -->
+        <article class="pyq-card" id="ml-q11" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2026 Q1.c (3M)</span><span class="year-chip">Faculty docx Problem 1</span><span class="year-chip">SEE May 2023 Q1 (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-linear-regression" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; linear-regression</span>
+          </a>
+
+          <h3 class="pyq-question-text">The following data represents hours studied (X) and marks obtained (Y) by five students: X = [2, 4, 6, 8, 10], Y = [50, 60, 65, 80, 85]. i. Compute slope (b) and intercept (a) using Ordinary Least Squares (OLS). ii. Write the regression equation. iii. Predict marks for X = 7 hours. iv. Compute the Coefficient of Determination (R^2).</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Given Data:</h4><p>Five data points ($n=5$):<br/>$X = [2, 4, 6, 8, 10]$, $Y = [50, 60, 65, 80, 85]$.</p>
+<h4>Step 1 Summations:</h4><ul><li>$\sum X = 2 + 4 + 6 + 8 + 10 = 30 \implies \bar{X} = 30 / 5 = 6.0$</li><li>$\sum Y = 50 + 60 + 65 + 80 + 85 = 340 \implies \bar{Y} = 340 / 5 = 68.0$</li><li>$\sum X^2 = 2^2 + 4^2 + 6^2 + 8^2 + 10^2 = 4 + 16 + 36 + 64 + 100 = 220$</li><li>$\sum XY = (2)(50) + (4)(60) + (6)(65) + (8)(80) + (10)(85) = 100 + 240 + 390 + 640 + 850 = 2220$</li></ul>
+<h4>Step 2 Slope And Intercept:</h4><ul><li><strong>Slope ($b_1$ or $b$):</strong><br/>$$b = \frac{n \sum XY - (\sum X)(\sum Y)}{n \sum X^2 - (\sum X)^2} = \frac{5(2220) - (30)(340)}{5(220) - (30)^2} = \frac{11100 - 10200}{1100 - 900} = \frac{900}{200} = \mathbf{4.5000}$$</li><li><strong>Intercept ($b_0$ or $a$):</strong><br/>$$a = \bar{Y} - b\bar{X} = 68.0 - (4.5000)(6.0) = 68.0 - 27.0 = \mathbf{41.0000}$$</li></ul>
+<h4>Step 3 Equation And Prediction:</h4><ul><li><strong>Regression Equation:</strong><br/>$$\hat{Y} = 41.0 + 4.5 X$$</li><li><strong>Prediction for $X = 7$ hours:</strong><br/>$$\hat{Y}(7) = 41.0 + 4.5(7) = 41.0 + 31.5 = \mathbf{72.50 \text{ marks}}$$</li></ul>
+<h4>Step 4 R2 Score:</h4><ul><li>Fitted values $\hat{Y}$: $[50.0, 59.0, 68.0, 77.0, 86.0]$</li><li>Residuals $Y - \hat{Y}$: $[0.0, +1.0, -3.0, +3.0, -1.0]$</li><li>$SSE = 0^2 + 1^2 + (-3)^2 + 3^2 + (-1)^2 = 0 + 1 + 9 + 9 + 1 = 20.0$</li><li>$SST = \sum (Y_i - \bar{Y})^2 = (50-68)^2 + (60-68)^2 + (65-68)^2 + (80-68)^2 + (85-68)^2 = 324 + 64 + 9 + 144 + 289 = 830.0$</li><li>$$R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{20}{830} = 1 - 0.0241 = \mathbf{0.9759 \; (97.59\%)}$$</li></ul>
+<h4>Interpretation:</h4><p>97.59% of total variance in exam marks is directly explained by study hours under this linear model.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.1 & 5.2 (pp. 142-148); Linear_Regression and multiple linear regression_problems.docx
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q12 -->
+        <article class="pyq-card" id="ml-q12" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE May 2023 Q1 (10M)</span><span class="year-chip">Faculty PPT Chapter 5.1</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-linear-regression" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; linear-regression</span>
+          </a>
+
+          <h3 class="pyq-question-text">Derive the closed-form formulas for slope (b1) and intercept (b0) in Simple Linear Regression using Ordinary Least Squares (OLS) calculus minimization.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 360" class="diagram-svg" role="img" aria-label="Ordinary Least Squares Linear Regression Best-Fit Line and Residuals" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <!-- Background Canvas -->
+  <rect x="5" y="5" width="770" height="350" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">ORDINARY LEAST SQUARES (OLS) REGRESSION &amp; RESIDUALS (RAMAIAH CIE-1 Q1.c)</text>
+
+  <!-- Axes: X = 0 to 12 (mapped to pixel x: 90 to 710), Y = 40 to 100 (mapped to pixel y: 310 to 60) -->
+  <!-- Y Axis -->
+  <line x1="90" y1="50" x2="90" y2="310" stroke="var(--ink-muted)" stroke-width="2" />
+  <text x="45" y="180" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--ink)" transform="rotate(-90 45 180)" text-anchor="middle">Exam Marks Y (%)</text>
+  <!-- Y Ticks: 40, 50, 60, 70, 80, 90, 100 -->
+  <text x="80" y="314" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="end">40</text>
+  <text x="80" y="272" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="end">50</text>
+  <text x="80" y="230" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="end">60</text>
+  <text x="80" y="188" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="end">70</text>
+  <text x="80" y="146" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="end">80</text>
+  <text x="80" y="104" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="end">90</text>
+  <text x="80" y="62" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="end">100</text>
+
+  <!-- X Axis -->
+  <line x1="90" y1="310" x2="730" y2="310" stroke="var(--ink-muted)" stroke-width="2" />
+  <text x="410" y="342" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">Study Hours X (Hours / Week)</text>
+  <!-- X Ticks: 0, 2, 4, 6, 7, 8, 10, 12 -->
+  <text x="90" y="325" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="middle">0</text>
+  <text x="193" y="325" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="middle">2</text>
+  <text x="296" y="325" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="middle">4</text>
+  <text x="400" y="325" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="middle">6</text>
+  <text x="451" y="325" font-family="var(--font-mono)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">7*</text>
+  <text x="503" y="325" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="middle">8</text>
+  <text x="606" y="325" font-family="var(--font-mono)" font-size="10" fill="var(--ink-muted)" text-anchor="middle">10</text>
+
+  <!-- Regression Line: Y = 4.50*X + 41.00 -->
+  <!-- At X=0: Y=41.00 -> y = 310 - (1/60)*250 = 305.8 -->
+  <!-- At X=11: Y=90.50 -> y = 310 - (50.5/60)*250 = 99.6 -->
+  <!-- x_scale = 51.67 px / unit, y_scale = 4.167 px / unit from 40 -->
+  <line x1="90" y1="306" x2="658" y2="99" stroke="var(--brand)" stroke-width="2.5" />
+  <text x="665" y="95" font-family="var(--font-mono)" font-size="11" font-weight="800" fill="var(--brand)">&#x177; = 4.50X + 41.00</text>
+
+  <!-- Data Points: (2, 50), (4, 60), (6, 65), (8, 80), (10, 85) -->
+  <!-- Point 1: X=2 (193), Y=50 (268). Fitted Y=50.0 (268) -> residual = 0 -->
+  <line x1="193" y1="268" x2="193" y2="268" stroke="#EF4444" stroke-width="1.8" />
+  <circle cx="193" cy="268" r="5.5" fill="var(--green)" />
+  <text x="193" y="258" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink)" text-anchor="middle">(2, 50)</text>
+
+  <!-- Point 2: X=4 (297), Y=60 (227). Fitted Y=59.0 (231) -> residual = +1.0 -->
+  <line x1="297" y1="227" x2="297" y2="231" stroke="#EF4444" stroke-width="2" />
+  <circle cx="297" cy="227" r="5.5" fill="var(--green)" />
+  <text x="297" y="217" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink)" text-anchor="middle">(4, 60)</text>
+
+  <!-- Point 3: X=6 (400), Y=65 (206). Fitted Y=68.0 (193) -> residual = -3.0 -->
+  <line x1="400" y1="206" x2="400" y2="193" stroke="#EF4444" stroke-width="2" stroke-dasharray="3 2" />
+  <circle cx="400" cy="206" r="5.5" fill="var(--green)" />
+  <text x="400" y="222" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink)" text-anchor="middle">(6, 65)</text>
+
+  <!-- Point 4: X=8 (503), Y=80 (143). Fitted Y=77.0 (156) -> residual = +3.0 -->
+  <line x1="503" y1="143" x2="503" y2="156" stroke="#EF4444" stroke-width="2" stroke-dasharray="3 2" />
+  <circle cx="503" cy="143" r="5.5" fill="var(--green)" />
+  <text x="503" y="133" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink)" text-anchor="middle">(8, 80)</text>
+
+  <!-- Point 5: X=10 (606), Y=85 (122). Fitted Y=86.0 (118) -> residual = -1.0 -->
+  <line x1="606" y1="122" x2="606" y2="118" stroke="#EF4444" stroke-width="2" />
+  <circle cx="606" cy="122" r="5.5" fill="var(--green)" />
+  <text x="606" y="138" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink)" text-anchor="middle">(10, 85)</text>
+
+  <!-- Target Prediction for X=7: Fitted Y = 4.5*7 + 41 = 72.50 (175) -->
+  <line x1="451" y1="310" x2="451" y2="175" stroke="var(--brand)" stroke-width="1.8" stroke-dasharray="4 3" />
+  <line x1="90" y1="175" x2="451" y2="175" stroke="var(--brand)" stroke-width="1.8" stroke-dasharray="4 3" />
+  <circle cx="451" cy="175" r="6" fill="var(--brand)" stroke="#FFFFFF" stroke-width="2" />
+  <rect x="462" y="160" width="160" height="26" rx="6" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.2" />
+  <text x="542" y="177" font-family="var(--font-mono)" font-size="10.5" font-weight="800" fill="var(--brand)" text-anchor="middle">&#x177;(7) = 72.50 Marks</text>
+
+  <!-- Legend Box -->
+  <g transform="translate(110, 60)">
+    <rect width="210" height="65" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+    <circle cx="15" cy="16" r="4.5" fill="var(--green)" />
+    <text x="26" y="20" font-family="var(--font-body)" font-size="10.5" fill="var(--ink)">Observed Sample (x&#x1d62;, y&#x1d62;)</text>
+    <line x1="8" y1="36" x2="22" y2="36" stroke="var(--brand)" stroke-width="2.5" />
+    <text x="26" y="40" font-family="var(--font-body)" font-size="10.5" font-weight="700" fill="var(--brand)">OLS Fitted Regression Line</text>
+    <line x1="8" y1="52" x2="22" y2="52" stroke="#EF4444" stroke-width="2" stroke-dasharray="3 2" />
+    <text x="26" y="55" font-family="var(--font-body)" font-size="10.5" fill="#EF4444">Residual e&#x1d62; = y&#x1d62; - &#x177;&#x1d62;</text>
+  </g>
+</svg></div>
+<h4>Model Equation:</h4><p>Simple linear regression model: $y_i = \beta_0 + \beta_1 x_i + \epsilon_i$. Fitted value $\hat{y}_i = \beta_0 + \beta_1 x_i$.</p>
+<h4>Objective:</h4><p>Minimize the Sum of Squared Residuals (Residual Sum of Squares, RSS / SSE):<br/>$$S(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2$$</p>
+<h4>Derivation Beta0:</h4><ul><li>Differentiate $S$ partially with respect to $\beta_0$ and set to zero:<br/>$$\frac{\partial S}{\partial \beta_0} = -2 \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i) = 0$$</li><li>$$\sum y_i - n \beta_0 - \beta_1 \sum x_i = 0 \implies n \beta_0 = \sum y_i - \beta_1 \sum x_i$$</li><li>Divide by $n$:<br/>$$\mathbf{\beta_0 = \bar{y} - \beta_1 \bar{x}}$$</li></ul>
+<h4>Derivation Beta1:</h4><ul><li>Differentiate $S$ partially with respect to $\beta_1$ and set to zero:<br/>$$\frac{\partial S}{\partial \beta_1} = -2 \sum_{i=1}^n x_i (y_i - \beta_0 - \beta_1 x_i) = 0$$</li><li>$$\sum x_i y_i - \beta_0 \sum x_i - \beta_1 \sum x_i^2 = 0$$</li><li>Substitute $\beta_0 = \bar{y} - \beta_1 \bar{x}$:<br/>$$\sum x_i y_i - (\bar{y} - \beta_1 \bar{x}) \sum x_i - \beta_1 \sum x_i^2 = 0$$</li><li>$$\sum x_i y_i - \bar{y} \sum x_i = \beta_1 \left( \sum x_i^2 - \bar{x} \sum x_i \right)$$</li><li>Since $\sum x_i = n\bar{x}$ and $\sum x_i y_i - n\bar{x}\bar{y} = \sum (x_i - \bar{x})(y_i - \bar{y})$ and $\sum x_i^2 - n\bar{x}^2 = \sum (x_i - \bar{x})^2$:<br/>$$\mathbf{\beta_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} = \frac{n \sum x_i y_i - (\sum x_i)(\sum y_i)}{n \sum x_i^2 - (\sum x_i)^2}}$$</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.2 (pp. 144-147)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q13 -->
+        <article class="pyq-card" id="ml-q13" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE June/July 2026 Q5.a (8M)</span><span class="year-chip">Faculty docx Problem 1</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-multiple-regression" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; multiple-regression</span>
+          </a>
+
+          <h3 class="pyq-question-text">Formulate the Multiple Linear Regression model in matrix notation. State the closed-form Normal Equations solution. How are partial regression coefficients interpreted?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Matrix Formulation:</h4><ul><li>For $n$ observations and $p$ predictor variables:<br/>$$y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsilon_i$$</li><li>In compact matrix notation:<br/>$$\mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}$$</li><li>where $\mathbf{Y} \in \mathbb{R}^{n \times 1}$, $\mathbf{X} \in \mathbb{R}^{n \times (p+1)}$ (with leading column of ones for intercept), $\boldsymbol{\beta} \in \mathbb{R}^{(p+1) \times 1}$, and error $\boldsymbol{\epsilon} \in \mathbb{R}^{n \times 1}$.</li></ul>
+<h4>Normal Equations:</h4><ul><li>To minimize residual sum of squares $S(\boldsymbol{\beta}) = (\mathbf{Y} - \mathbf{X}\boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X}\boldsymbol{\beta})$:</li><li>$$\nabla_{\boldsymbol{\beta}} S = -2 \mathbf{X}^T (\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}) = \mathbf{0} \implies \mathbf{X}^T \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^T \mathbf{Y}$$</li><li>Provided $(\mathbf{X}^T \mathbf{X})$ is non-singular (no exact multicollinearity):<br/>$$\mathbf{\boldsymbol{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{Y}}$$</li></ul>
+<h4>Partial Slope Interpretation:</h4><p>Each coefficient $\beta_j$ represents the expected change in response variable $Y$ for a one-unit increase in predictor $X_j$, <strong>holding all other predictor variables constant</strong> ('ceteris paribus').</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.3 (pp. 149-153)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q14 -->
+        <article class="pyq-card" id="ml-q14" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Faculty docx Linear & ridge regression.docx</span><span class="year-chip">Faculty PPT Ch. 5.4</span><span class="year-chip">NPTEL Week 2</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-regularization" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; regularization</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the need for Regularization in regression. Differentiate between Ridge Regression (L2) and Lasso Regression (L1) with their loss functions, mathematical solutions, and feature selection properties.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Need For Regularization:</h4><p>When predictors are highly correlated (multicollinearity) or the number of features $p$ is large relative to sample size $n$, OLS regression coefficients exhibit explosive variance, leading to extreme overfitting. Regularization introduces an explicit penalty on coefficient magnitude to shrink weights and enforce generalization.</p>
+<h4>Ridge Regression:</h4><ul><li><strong>Loss Function (L2 Penalty):</strong><br/>$$J_{\text{Ridge}}(\boldsymbol{\beta}) = \frac{1}{2n} \|\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\|^2_2 + \lambda \sum_{j=1}^p \beta_j^2$$</li><li><strong>Closed-Form Solution:</strong><br/>$$\mathbf{\boldsymbol{\beta}_{\text{Ridge}} = (\mathbf{X}^T \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^T \mathbf{Y}}$$</li><li>Adds $\lambda > 0$ along the diagonal, guaranteeing invertibility even when $\mathbf{X}^T\mathbf{X}$ is ill-conditioned.</li><li><strong>Coefficient Behavior:</strong> As $\lambda \to \infty$, coefficients shrink smoothly toward zero, but <em>never reach exactly zero</em>. Does not perform feature selection.</li></ul>
+<h4>Lasso Regression:</h4><ul><li><strong>Loss Function (L1 Penalty):</strong><br/>$$J_{\text{Lasso}}(\boldsymbol{\beta}) = \frac{1}{2n} \|\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\|^2_2 + \lambda \sum_{j=1}^p |\beta_j|$$</li><li><strong>Sparsity Property:</strong> The sharp corners of the L1 diamond constraint boundary cause contours of the MSE loss ellipse to hit axes directly, forcing irrelevant feature coefficients to become <strong>identically zero</strong> ($w_j = 0$).</li><li><strong>Feature Selection:</strong> Automatically performs embedded subset selection, producing compact, interpretable models.</li></ul>
+<h4>Elastic Net:</h4><p>Combines both penalties: $\lambda_1 \|\boldsymbol{\beta}\|_1 + \lambda_2 \|\boldsymbol{\beta}\|_2^2$, handling correlated feature groups while maintaining sparsity.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.4; Linear & ridge regression....docx
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q15 -->
+        <article class="pyq-card" id="ml-q15" data-unit="unit-3" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2026 Q2.c (3M)</span><span class="year-chip">Faculty docx Logistic Regression.docx</span><span class="year-chip">SEE May 2023 Q1 (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-logistic-regression" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; logistic-regression</span>
+          </a>
+
+          <h3 class="pyq-question-text">Differentiate Logistic Regression and Linear Regression in machine learning. Why is Linear Regression unsuitable for classification problems?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Why Linear Fails Classification:</h4><ul><li><strong>1. Unbounded Output:</strong> Linear regression produces predictions in $(-\infty, +\infty)$, violating the mathematical constraint that probabilities must lie strictly in $[0, 1]$.</li><li><strong>2. Sensitivity to Extreme Outliers:</strong> An extreme positive point far to the right pulls the OLS regression slope down, inadvertently shifting the decision boundary and causing false negatives.</li><li><strong>3. Non-Normal, Heteroscedastic Errors:</strong> Binary classification residuals violate Gauss-Markov assumptions (residuals can only be $1 - \hat{y}$ or $-\hat{y}$, having variance that depends on $\hat{y}$).</li></ul>
+<h4>Comparison Table:</h4>
+<h5>Headers:</h5><ul><li>Feature</li><li>Linear Regression</li><li>Logistic Regression</li></ul>
+<h5>Rows:</h5><ul><li>['Target Variable Type', 'Continuous numerical variable $y \\in \\mathbb{R}$.', 'Discrete categorical variable $y \\in \\{0, 1\\}$.']</li><li>['Hypothesis Function', 'Linear: $\\hat{y} = \\mathbf{w}^T \\mathbf{x} + b$', 'Sigmoid activation: $P(y=1|\\mathbf{x}) = \\frac{1}{1 + e^{-(\\mathbf{w}^T\\mathbf{x}+b)}}$']</li><li>['Output Range', 'Real line $(-\\infty, +\\infty)$', 'Probability strictly in $(0, 1)$']</li><li>['Cost Function', 'Mean Squared Error (convex for linear): $\\frac{1}{2n}\\sum(y-\\hat{y})^2$', 'Binary Cross-Entropy / Log-Loss: $-\\frac{1}{n}\\sum[y\\ln\\hat{y} + (1-y)\\ln(1-\\hat{y})]$']</li><li>['Decision Boundary', 'N/A (regression line/plane)', 'Hyperplane at $P(y=1|\\mathbf{x}) = 0.5 \\iff \\mathbf{w}^T\\mathbf{x}+b = 0$']</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.5 (pp. 160-165); Logistic Regression and multinomial logistic regression.docx
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q16 -->
+        <article class="pyq-card" id="ml-q16" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Faculty docx Logistic Regression.docx</span><span class="year-chip">NPTEL Regression Week 3 Assignment</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-logistic-regression" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; logistic-regression</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the Sigmoid function, Odds Ratio, and Logit (Log-Odds) formulation in Logistic Regression. A logistic model produces linear score z = 1.386 for an input. Calculate: i. The odds, ii. The predicted probability P(Y=1), iii. Final classification with threshold 0.5.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 680 180" class="diagram-svg" role="img" aria-label="Sigmoid Activation Curve" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+            <title>Sigmoid Function</title>
+            <desc>S-shaped curve squashing inputs from minus infinity to plus infinity into the range zero to one, with threshold 0.5.</desc>
+            <!-- Axes -->
+            <line x1="60" y1="150" x2="620" y2="150" stroke="var(--border-strong)" stroke-width="1.5" />
+            <line x1="340" y1="160" x2="340" y2="20" stroke="var(--border-strong)" stroke-width="1.5" />
+            <text x="620" y="165" font-family="var(--font-mono)" font-size="11" fill="var(--ink-muted)">z</text>
+            <text x="345" y="25" font-family="var(--font-mono)" font-size="11" fill="var(--ink-muted)">σ(z)</text>
+
+            <!-- Probability levels -->
+            <line x1="60" y1="40" x2="620" y2="40" stroke="var(--border)" stroke-dasharray="3" />
+            <text x="35" y="44" font-family="var(--font-mono)" font-size="11" fill="var(--ink-muted)">1.0</text>
+            
+            <line x1="60" y1="95" x2="620" y2="95" stroke="var(--green)" stroke-dasharray="3" />
+            <text x="35" y="99" font-family="var(--font-mono)" font-size="11" fill="var(--green-tint-ink)">0.5</text>
+            <text x="35" y="154" font-family="var(--font-mono)" font-size="11" fill="var(--ink-muted)">0.0</text>
+
+            <!-- Sigmoid S-Curve -->
+            <path d="M 80 148 C 220 148, 280 120, 340 95 C 400 70, 460 42, 600 42" fill="none" stroke="var(--green)" stroke-width="3" />
+            
+            <circle cx="340" cy="95" r="5" fill="var(--green)" />
+            <text x="355" y="90" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--green-tint-ink)">Threshold z=0, P=0.5</text>
+          </svg></div>
+<h4>Steps:</h4><ul>
+<li><strong>i. Calculate Odds:</strong><br/>$$\text{Odds} = e^{1.386} \approx 3.9988 \approx \mathbf{4.0}$$</li>
+<li><strong>ii. Calculate Predicted Probability $P(Y=1)$:</strong><br/>$$P(Y=1) = \frac{1}{1 + e^{-1.386}} = \frac{1}{1 + 0.25007} = \frac{1}{1.25007} = \mathbf{0.79995 \approx 0.80 \; (80.0\%)}$$</li>
+<li><strong>iii. Classification Decision:</strong><br/>Since $P(Y=1) = 0.80 > 0.50$ (decision threshold), the instance is classified into **Class 1**.</li>
+</ul>
+<h4>Mathematical Foundations:</h4><ul><li><strong>Sigmoid Activation Function:</strong><br/>$$\sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^z}$$<br/>Maps any input $z \in (-\infty, +\infty)$ to probability $p \in (0, 1)$. Derivative: $\sigma'(z) = \sigma(z)(1 - \sigma(z))$.</li><li><strong>Odds Ratio:</strong> Ratio of probability of success to probability of failure:<br/>$$\text{Odds} = \frac{p}{1 - p} = \frac{\sigma(z)}{1 - \sigma(z)} = e^z$$</li><li><strong>Logit (Log-Odds) Function:</strong> Natural logarithm of odds:<br/>$$\text{Logit}(p) = \ln\left(\frac{p}{1 - p}\right) = \ln(e^z) = z = \mathbf{w}^T \mathbf{x} + b$$<br/>Demonstrates that Logistic Regression is a generalized linear model where the <em>log-odds</em> are linearly related to predictors.</li></ul>
+<h4>Given Calculation:</h4><p>Given linear score $z = 1.386$ (note: $\ln 4 \approx 1.38629$):</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.5; Logistic Regression and multinomial logistic regression.docx
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q17 -->
+        <article class="pyq-card" id="ml-q17" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Faculty PPT Chapter 5.3</span><span class="year-chip">SEE July 2024 Q3</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-polynomial-regression" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; polynomial-regression</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is Polynomial Regression? How is it implemented using linear regression techniques? Discuss the risks associated with selecting very high polynomial degrees.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Polynomial Regression</strong> is a form of regression analysis in which the relationship between the independent variable $x$ and dependent variable $y$ is modeled as an $d$-th degree polynomial:<br/>$$y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \dots + \beta_d x^d + \epsilon$$</p>
+<h4>Implementation As Linear Model:</h4><ul><li>Although the relationship between $y$ and $x$ is non-linear, the model is strictly <strong>linear in its parameters $\boldsymbol{\beta}$</strong>.</li><li>It is solved directly by defining transformed feature vectors: $z_1 = x, z_2 = x^2, \dots, z_d = x^d$.</li><li>The transformed design matrix $\mathbf{X}_{\text{poly}}$ is fed directly into the standard OLS Normal Equation: $\boldsymbol{\beta} = (\mathbf{X}_{\text{poly}}^T \mathbf{X}_{\text{poly}})^{-1} \mathbf{X}_{\text{poly}}^T \mathbf{Y}$.</li></ul>
+<h4>High Degree Risks:</h4><ul><li><strong>1. Severe Overfitting (Runge's Phenomenon):</strong> High-degree polynomials oscillate wildly near the boundaries of the data interval, achieving near-zero training error but catastrophic test error.</li><li><strong>2. Extreme Multicollinearity:</strong> As powers $x^k$ increase, columns of $\mathbf{X}_{\text{poly}}$ become nearly collinear, causing $(\mathbf{X}^T\mathbf{X})$ to become ill-conditioned and numerical solutions to become unstable.</li><li><strong>Remedy:</strong> Use Cross-Validation to select degree $d$ (typically $d \le 3$) and apply Ridge regularization.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.3 (pp. 154-158)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q18 -->
+        <article class="pyq-card" id="ml-q18" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Faculty PPT Chapter 5.2</span><span class="year-chip">NPTEL Week 1</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-gradient-descent" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; gradient-descent</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain Gradient Descent optimization for Linear Regression. Compare Batch Gradient Descent, Stochastic Gradient Descent (SGD), and Mini-Batch Gradient Descent.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Gradient Descent Overview:</h4><p>Gradient Descent is a first-order iterative optimization algorithm to find the parameter vector $\mathbf{w}$ that minimizes cost function $J(\mathbf{w})$. Parameters are updated opposite to the gradient:<br/>$$\mathbf{w} \leftarrow \mathbf{w} - \alpha \nabla_{\mathbf{w}} J(\mathbf{w})$$<br/>where $\alpha$ is the learning rate hyperparameter.</p>
+<h4>Mse Gradient Computation:</h4><p>For MSE cost $J(\mathbf{w}) = \frac{1}{2n}\sum_{i=1}^n (\mathbf{w}^T \mathbf{x}_i - y_i)^2$, the partial derivative is:<br/>$$\frac{\partial J}{\partial w_j} = \frac{1}{n} \sum_{i=1}^n (\mathbf{w}^T \mathbf{x}_i - y_i) x_{ij}$$</p>
+<h4>Comparison Table:</h4>
+<h5>Headers:</h5><ul><li>Algorithm</li><li>Samples Per Update</li><li>Convergence Behavior</li><li>Computational Efficiency</li></ul>
+<h5>Rows:</h5><ul><li>['Batch Gradient Descent', 'Entire training set ($n$ samples).', 'Smooth, monotonic descent to global minimum.', 'Very slow on large datasets ($O(n \\cdot d)$ per step).']</li><li>['Stochastic GD (SGD)', '1 single random sample.', 'Noisy, erratic path; can jump out of shallow local minima.', 'Fastest per step ($O(d)$); poor vectorization efficiency.']</li><li>['Mini-Batch GD', 'Small batch $B$ (e.g. 32, 64, 128).', 'Balanced stability and stochastic exploration.', 'Optimal: leverages GPU hardware vectorization; gold standard in modern ML.']</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.2 (pp. 147-151)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question ml-q19 -->
+        <article class="pyq-card" id="ml-q19" data-unit="unit-3" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 3</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE May 2023 Q1 (7M)</span><span class="year-chip">Faculty PPT Chapter 5.4</span>
+            </div>
+          </div>
+
+          <a href="../unit3/unit-3-notes.html#sec-regularization" class="pyq-link-chip" title="Read full theory in Unit 3 Notes">
+            <span>📖 Theory Link: Unit 3 &sect; regularization</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define and compare the following regression evaluation metrics: Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and Coefficient of Determination (R^2). Why is Adjusted R^2 preferred in multiple regression?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Definitions:</h4><ul><li><strong>Mean Squared Error (MSE):</strong> Average squared difference between actual and predicted values:<br/>$$\text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2$$<br/>Penalizes large errors heavily due to squaring; units are squared.</li><li><strong>Root Mean Squared Error (RMSE):</strong> Square root of MSE:<br/>$$\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2}$$<br/>In same measurement units as target $y$; highly sensitive to outliers.</li><li><strong>Mean Absolute Error (MAE):</strong> Average absolute difference:<br/>$$\text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|$$<br/>Linear penalty, robust to extreme outliers.</li><li><strong>Coefficient of Determination ($R^2$ Score):</strong> Proportion of variance explained by model:<br/>$$R^2 = 1 - \frac{SS_{\text{res}}}{SS_{\text{tot}}} = 1 - \frac{\sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}$$</li></ul>
+<h4>Why Adjusted R2:</h4><p>In Multiple Regression, adding any new predictor variable—even complete random noise—always mechanically increases or holds constant the standard $R^2$ because $SS_{\text{res}}$ cannot increase. This misleads model selection into adding useless features.<br/><br/><strong>Adjusted $R^2$</strong> introduces a degrees-of-freedom penalty for every additional feature added:<br/>$$R^2_{\text{adj}} = 1 - \left[ \frac{(1 - R^2)(n - 1)}{n - p - 1} \right]$$<br/>$R^2_{\text{adj}}$ increases <em>only if the new variable enhances model explanatory power more than would be expected by random chance</em>.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sridhar & Vijayalakshmi Ch. 5.4 (pp. 158-160)
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
 
       <!-- Out of Scope Questions Archive -->
       <section id="out-of-scope" class="note-section pyq-unit-section" style="opacity:0.85;">
@@ -399,10 +1437,10 @@
       <footer class="unit-nav-footer">
         <a href="../../../index.html#subject/ml" class="nav-arrow-btn nav-back-center" style="text-align: center;">
           <span class="nav-arrow-sub">Course Portal</span>
-          <span class="nav-arrow-title"> Overview</span>
+          <span class="nav-arrow-title">24IS51 Overview</span>
         </a>
         <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
-          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-sub">Start Revision &rarr;</span>
           <span class="nav-arrow-title">Unit 1 Notes</span>
         </a>
       </footer>
@@ -431,7 +1469,7 @@
             card.style.display = 'block';
           } else if (f === 'high') {
             card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
-          } else if (f.startsWith('unit-')) {
+          } else {
             card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
           }
         });

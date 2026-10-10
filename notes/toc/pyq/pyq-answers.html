@@ -15,69 +15,43 @@
     })();
   </script>
 
-  <!-- Google Fonts Preconnect & Styles -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Self-Hosted KaTeX Math Styles -->
+  <!-- KaTeX for High-Fidelity Math Typesetting -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
 
-  <!-- Single Shared Notes Stylesheet -->
+  <!-- Theme and Layout Stylesheets -->
+  <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/notes.css">
-  
+
   <style>
-    .pyq-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-    }
-    .pyq-filter-btn {
-      padding: 0.4rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid var(--border-color);
-      background: var(--surface-hover);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .pyq-filter-btn:hover, .pyq-filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
     .pyq-card {
       background: var(--surface-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.4rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .pyq-card:hover {
       border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
     .pyq-header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.6rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
     .pyq-badges {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 0.4rem;
     }
     .pyq-badge {
@@ -175,6 +149,10 @@
       font-size: 0.88rem;
       color: var(--text-secondary);
     }
+    .pyq-diagram-wrap {
+      overflow-x: auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -190,7 +168,7 @@
       <div class="topbar-left">
         <a href="../../../index.html#subject/toc" class="back-btn" title="Return to Theory of Computation Overview">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>← 24IS54 Overview</span>
+          <span>&larr; 24IS54 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
@@ -232,9 +210,10 @@
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
-          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">&sect; Overview &amp; Statistics</a></li>
           <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (11)</a></li>
           <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (9)</a></li>
+          <li class="toc-item"><a href="#out-of-scope" class="toc-link">Out-of-Scope Archive (18)</a></li>
         </ol>
       </nav>
     </aside>
@@ -243,7 +222,7 @@
     <main class="notes-content" id="main-content">
       <!-- CIE-1 Scope Alert Banner -->
       <div class="cie1-banner">
-        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
+        <h3>🎯 CIE-1 Exam-Ready PYQ &amp; Model Answers Bank</h3>
         <p><strong>Course:</strong> Theory of Computation (24IS54) &bull; <strong>Exam Schedule:</strong>  (60 Mins, 30 Marks)</p>
         <p style="margin-top:0.4rem;">Contains <strong>20 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
       </div>
@@ -251,7 +230,7 @@
       <header class="notes-header" id="summary-overview">
         <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
         <h1 class="notes-title">Theory of Computation PYQ Solutions</h1>
-        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, 8M, and 10M questions with direct notes cross-references.</p>
         
         <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -259,7 +238,7 @@
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">13</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -267,7 +246,7 @@
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">18</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Out-of-Scope Archived</div>
           </div>
         </div>
@@ -277,23 +256,23 @@
       <div class="pyq-filter-bar">
         <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
         <button class="pyq-filter-btn active" data-filter="all">All (20)</button>
-        <button class="pyq-filter-btn" data-filter="high">High Priority (0)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (13)</button>
         <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (11)</button>
         <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (9)</button>
       </div>
 
       <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
         <div class="section-badge">UNIT 1</div>
-        <h2 class="section-title">Unit 1 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 1 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
 
         <!-- Question toc-q01 -->
-        <article class="pyq-card" id="toc-q01" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="toc-q01" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">7 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -333,12 +312,12 @@
         </article>
 
         <!-- Question toc-q02 -->
-        <article class="pyq-card" id="toc-q02" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="toc-q02" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -382,12 +361,12 @@
         </article>
 
         <!-- Question toc-q03 -->
-        <article class="pyq-card" id="toc-q03" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="toc-q03" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -407,6 +386,79 @@
             <div class="pyq-answer-body">
               <h4>1. Arithmetic Formulation (Modulo 5 DFA)</h4>
 <p>When processing a binary number from left to right, if the current value is $v$ and the next incoming bit is $b \in \{0, 1\}$, the updated value is:</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 260" class="diagram-svg" role="img" aria-label="Modulo 5 Binary Divisibility DFA" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Modulo 5 Binary Divisibility Deterministic Finite Automaton</title>
+  <desc>State transition diagram with 5 states q0 through q4 for remainder modulo 5. State q0 is start and double-circle accepting.</desc>
+  <defs>
+    <marker id="toc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)" />
+    </marker>
+    <marker id="toc-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--green, #10b981)" />
+    </marker>
+  </defs>
+
+  <line x1="25" y1="130" x2="68" y2="130" stroke="var(--green, #10b981)" stroke-width="2.5" marker-end="url(#toc-arr-green)"/>
+  <text x="35" y="118" font-family="var(--font-mono, monospace)" font-size="13" font-weight="700" fill="var(--green, #10b981)">Start</text>
+
+  <circle cx="95" cy="130" r="26" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <circle cx="95" cy="130" r="21" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="1.8"/>
+  <text x="95" y="135" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="15" font-weight="800" fill="var(--text-primary, #0f172a)">q0</text>
+  <text x="95" y="175" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="var(--green, #10b981)">rem 0 (Accept)</text>
+
+  <path d="M 85 105 C 75 65, 115 65, 105 105" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="95" y="65" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">0</text>
+
+  <circle cx="245" cy="70" r="24" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="245" y="75" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="15" font-weight="800" fill="var(--text-primary, #0f172a)">q1</text>
+  <text x="245" y="35" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="var(--text-secondary, #64748b)">rem 1</text>
+
+  <path d="M 115 115 Q 165 85 222 73" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="155" y="88" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">1</text>
+
+  <circle cx="415" cy="70" r="24" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="415" y="75" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="15" font-weight="800" fill="var(--text-primary, #0f172a)">q2</text>
+  <text x="415" y="35" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="var(--text-secondary, #64748b)">rem 2</text>
+
+  <line x1="269" y1="70" x2="389" y2="70" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="330" y="62" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">0</text>
+
+  <circle cx="585" cy="130" r="24" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="585" y="135" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="15" font-weight="800" fill="var(--text-primary, #0f172a)">q3</text>
+  <text x="585" y="170" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="var(--text-secondary, #64748b)">rem 3</text>
+
+  <path d="M 265 82 Q 415 130 560 130" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="360" y="115" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">1</text>
+
+  <circle cx="415" cy="190" r="24" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="415" y="195" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="15" font-weight="800" fill="var(--text-primary, #0f172a)">q4</text>
+  <text x="415" y="230" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="var(--text-secondary, #64748b)">rem 4</text>
+
+  <line x1="415" y1="94" x2="415" y2="164" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="428" y="135" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">0</text>
+
+  <path d="M 565 142 Q 490 185 440 188" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="510" y="180" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">1</text>
+
+  <path d="M 390 195 Q 230 215 118 142" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="240" y="222" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">0</text>
+
+  <path d="M 439 190 Q 512 175 565 142" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#toc-arr)"/>
+  <text x="495" y="152" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">1</text>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <p>$$v_{\text{new}} = 2v + b$$</p>
 <p>Taking modulo 5: $$\text{remainder}_{\text{new}} = (2 \times \text{remainder} + b) \pmod 5$$</p>
 <p>Hence, the DFA requires 5 states representing remainders $\{0, 1, 2, 3, 4\}$: $Q = \{q_0, q_1, q_2, q_3, q_4\}$.</p>
@@ -463,12 +515,12 @@ $\delta(q_0, 1) = q_1 \rightarrow \delta(q_1, 0) = q_2 \rightarrow \delta(q_2, 1
         </article>
 
         <!-- Question toc-q04 -->
-        <article class="pyq-card" id="toc-q04" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="toc-q04" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -488,6 +540,90 @@ $\delta(q_0, 1) = q_1 \rightarrow \delta(q_1, 0) = q_2 \rightarrow \delta(q_2, 1
             <div class="pyq-answer-body">
               <h4>1. State Definitions (Modulo 2 Product Automaton)</h4>
 <p>Parity of $a$'s and parity of $b$'s each have 2 states: $\{Even, Odd\}$. Total states = $2 \times 2 = 4$ states:</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 680 280" class="diagram-svg" role="img" aria-label="4-State Parity DFA for Even a" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <style>
+      .p-state { fill: var(--surface); stroke: var(--border); stroke-width: 2.2; }
+      .p-acc { fill: rgba(46, 195, 107, 0.12); stroke: var(--green); stroke-width: 2.5; }
+      .p-acc-in { fill: none; stroke: var(--green); stroke-width: 1.8; }
+      .p-txt { font-family: var(--font-mono); font-size: 13.5px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .p-sub { font-family: var(--font-sans); font-size: 10px; fill: var(--ink-muted); text-anchor: middle; }
+      .p-line { stroke: var(--ink); stroke-width: 1.6; fill: none; marker-end: url(#arrow-p); }
+      .p-lbl { font-family: var(--font-mono); font-size: 12px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+    </style>
+    <marker id="arrow-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink)"/>
+    </marker>
+  </defs>
+
+  <!-- Start Arrow to q_ee -->
+  <line x1="30" y1="90" x2="90" y2="90" class="p-line"/>
+  <text x="55" y="78" class="p-lbl">Start</text>
+
+  <!-- q_ee (Even a, Even b) -> Top Left -->
+  <circle cx="130" cy="90" r="32" class="p-state"/>
+  <text x="130" y="90" class="p-txt">q_ee</text>
+  <text x="130" y="45" class="p-sub">(Even a, Even b)</text>
+
+  <!-- q_oe (Odd a, Even b) -> Top Right -->
+  <circle cx="470" cy="90" r="32" class="p-state"/>
+  <text x="470" y="90" class="p-txt">q_oe</text>
+  <text x="470" y="45" class="p-sub">(Odd a, Even b)</text>
+
+  <!-- q_eo (Even a, Odd b) -> Bottom Left (ACCEPT STATE) -->
+  <circle cx="130" cy="210" r="32" class="p-acc"/>
+  <circle cx="130" cy="210" r="26" class="p-acc-in"/>
+  <text x="130" y="210" class="p-txt" fill="var(--green)">q_eo</text>
+  <text x="130" y="258" class="p-sub">(Even a, Odd b &bull; ACCEPT)</text>
+
+  <!-- q_oo (Odd a, Odd b) -> Bottom Right -->
+  <circle cx="470" cy="210" r="32" class="p-state"/>
+  <text x="470" y="210" class="p-txt">q_oo</text>
+  <text x="470" y="258" class="p-sub">(Odd a, Odd b)</text>
+
+  <!-- Horizontal transitions on 'a' -->
+  <!-- q_ee to q_oe (Top a forward) -->
+  <path d="M 162 80 L 438 80" class="p-line"/>
+  <text x="300" y="70" class="p-lbl">a</text>
+  <!-- q_oe to q_ee (Top a backward) -->
+  <path d="M 438 100 L 162 100" class="p-line"/>
+  <text x="300" y="112" class="p-lbl">a</text>
+
+  <!-- q_eo to q_oo (Bottom a forward) -->
+  <path d="M 162 200 L 438 200" class="p-line"/>
+  <text x="300" y="190" class="p-lbl">a</text>
+  <!-- q_oo to q_eo (Bottom a backward) -->
+  <path d="M 438 220 L 162 220" class="p-line"/>
+  <text x="300" y="232" class="p-lbl">a</text>
+
+  <!-- Vertical transitions on 'b' -->
+  <!-- q_ee to q_eo (Left b downward) -->
+  <path d="M 120 122 L 120 178" class="p-line"/>
+  <text x="106" y="150" class="p-lbl">b</text>
+  <!-- q_eo to q_ee (Left b upward) -->
+  <path d="M 140 178 L 140 122" class="p-line"/>
+  <text x="154" y="150" class="p-lbl">b</text>
+
+  <!-- q_oe to q_oo (Right b downward) -->
+  <path d="M 460 122 L 460 178" class="p-line"/>
+  <text x="446" y="150" class="p-lbl">b</text>
+  <!-- q_oo to q_oe (Right b upward) -->
+  <path d="M 480 178 L 480 122" class="p-line"/>
+  <text x="494" y="150" class="p-lbl">b</text>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <ul>
   <li>$q_{ee}$: Even $a$'s, Even $b$'s (Start & Final state)</li>
   <li>$q_{oe}$: Odd $a$'s, Even $b$'s</li>
@@ -547,12 +683,12 @@ $\delta(q_0, 1) = q_1 \rightarrow \delta(q_1, 0) = q_2 \rightarrow \delta(q_2, 1
         </article>
 
         <!-- Question toc-q05 -->
-        <article class="pyq-card" id="toc-q05" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="toc-q05" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -588,6 +724,88 @@ $\delta(q_0, 1) = q_1 \rightarrow \delta(q_1, 0) = q_2 \rightarrow \delta(q_2, 1
 
 <h4>(ii) Complement of Substring 'aab'</h4>
 <p>First construct standard DFA for substring 'aab' with trap state $q_3$, then swap accepting and non-accepting states ($F' = Q \setminus F$):</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 740 220" class="diagram-svg" role="img" aria-label="DFA for even length strings beginning with 00 (Ramaiah CIE-1 Q3.a.i)" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <style>
+      .el-state { fill: var(--surface); stroke: var(--border); stroke-width: 2.2; }
+      .el-acc { fill: rgba(46, 195, 107, 0.12); stroke: var(--green); stroke-width: 2.5; }
+      .el-acc-in { fill: none; stroke: var(--green); stroke-width: 1.8; }
+      .el-dead { fill: rgba(239, 68, 68, 0.1); stroke: #EF4444; stroke-width: 2; }
+      .el-txt { font-family: var(--font-mono); font-size: 14px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .el-line { stroke: var(--ink); stroke-width: 1.6; fill: none; marker-end: url(#arrow-el); }
+      .el-lbl { font-family: var(--font-mono); font-size: 12px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+    </style>
+    <marker id="arrow-el" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink)"/>
+    </marker>
+  </defs>
+
+  <!-- Start Arrow -->
+  <line x1="20" y1="80" x2="60" y2="80" class="el-line"/>
+  <text x="40" y="68" class="el-lbl">Start</text>
+
+  <!-- q0 (len 0) -->
+  <circle cx="90" cy="80" r="28" class="el-state"/>
+  <text x="90" y="80" class="el-txt">q₀</text>
+
+  <!-- q0 to q1 on 0 -->
+  <path d="M 118 80 L 202 80" class="el-line"/>
+  <text x="160" y="70" class="el-lbl">0</text>
+
+  <!-- q1 (len 1, saw 0) -->
+  <circle cx="230" cy="80" r="28" class="el-state"/>
+  <text x="230" y="80" class="el-txt">q₁</text>
+
+  <!-- q1 to q2 on 0 -->
+  <path d="M 258 80 L 392 80" class="el-line"/>
+  <text x="325" y="70" class="el-lbl">0</text>
+
+  <!-- q2 (len 2 even, saw 00 -> ACCEPT) -->
+  <circle cx="420" cy="80" r="28" class="el-acc"/>
+  <circle cx="420" cy="80" r="22" class="el-acc-in"/>
+  <text x="420" y="80" class="el-txt" fill="var(--green)">q₂</text>
+
+  <!-- q2 to q3 on 0,1 -->
+  <path d="M 448 70 L 572 70" class="el-line"/>
+  <text x="510" y="60" class="el-lbl">0, 1</text>
+
+  <!-- q3 (len odd >= 3) -->
+  <circle cx="600" cy="80" r="28" class="el-state"/>
+  <text x="600" y="80" class="el-txt">q₃</text>
+
+  <!-- q3 back to q2 on 0,1 -->
+  <path d="M 572 90 L 448 90" class="el-line"/>
+  <text x="510" y="102" class="el-lbl">0, 1</text>
+
+  <!-- Trap state (q_trap) on bottom -->
+  <circle cx="160" cy="170" r="25" class="el-dead"/>
+  <text x="160" y="170" class="el-txt" fill="#EF4444">q_d</text>
+
+  <!-- q0 on 1 to trap -->
+  <path d="M 105 104 L 145 148" class="el-line"/>
+  <text x="115" y="132" class="el-lbl">1</text>
+
+  <!-- q1 on 1 to trap -->
+  <path d="M 215 104 L 175 148" class="el-line"/>
+  <text x="205" y="132" class="el-lbl">1</text>
+
+  <!-- Trap self loop on 0,1 -->
+  <path d="M 148 193 C 140 225, 180 225, 172 193" class="el-line"/>
+  <text x="160" y="215" class="el-lbl">0, 1</text>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <ul>
   <li>States: $q_0$ (start, accept), $q_1$ (seen 'a', accept), $q_2$ (seen 'aa', accept), $q_3$ (seen 'aab', reject trap state).</li>
   <li>Transitions:
@@ -645,6 +863,64 @@ $\delta(q_0, 1) = q_1 \rightarrow \delta(q_1, 0) = q_2 \rightarrow \delta(q_2, 1
             <div class="pyq-answer-body">
               <h4>1. Formal Definition of NFA</h4>
 <p>An <strong>NFA</strong> is a 5-tuple $M = (Q, \Sigma, \delta, q_0, F)$ where:</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 680 160" class="diagram-svg" role="img" aria-label="DFA resulting from subset construction" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/></marker>
+  </defs>
+                  <title>DFA from Subset Construction</title>
+                  <desc>DFA with 3 states [p], [p, q], and [p, r].</desc>
+                  <!-- Start -->
+                  <line x1="30" y1="80" x2="80" y2="80" stroke="var(--ink)" stroke-width="2" marker-end="url(#arr)" />
+                  <text x="45" y="72" font-family="var(--font-mono)" font-size="11" fill="var(--ink-muted)">Start</text>
+
+                  <!-- State [p] -->
+                  <circle cx="120" cy="80" r="30" fill="var(--surface)" stroke="var(--ink)" stroke-width="2" />
+                  <text x="120" y="86" font-family="var(--font-mono)" font-size="13" font-weight="700" text-anchor="middle" fill="var(--ink)">[p]</text>
+                  <!-- Loop on 1 -->
+                  <path d="M 105 52 C 105 20, 135 20, 135 52" fill="none" stroke="var(--ink)" stroke-width="1.8" />
+                  <text x="120" y="18" font-family="var(--font-mono)" font-size="12" text-anchor="middle" fill="var(--ink)">1</text>
+
+                  <!-- Transition [p] -> [p, q] on 0 -->
+                  <line x1="150" y1="80" x2="280" y2="80" stroke="var(--ink)" stroke-width="2" />
+                  <text x="215" y="72" font-family="var(--font-mono)" font-size="13" font-weight="700" text-anchor="middle" fill="var(--green-tint-ink)">0</text>
+
+                  <!-- State [p, q] -->
+                  <circle cx="310" cy="80" r="32" fill="var(--surface)" stroke="var(--ink)" stroke-width="2" />
+                  <text x="310" y="86" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">[p, q]</text>
+                  <!-- Loop on 0 -->
+                  <path d="M 295 50 C 295 18, 325 18, 325 50" fill="none" stroke="var(--ink)" stroke-width="1.8" />
+                  <text x="310" y="16" font-family="var(--font-mono)" font-size="12" text-anchor="middle" fill="var(--ink)">0</text>
+
+                  <!-- Transition [p, q] -> [p, r] on 1 -->
+                  <line x1="342" y1="80" x2="468" y2="80" stroke="var(--ink)" stroke-width="2" />
+                  <text x="405" y="72" font-family="var(--font-mono)" font-size="13" font-weight="700" text-anchor="middle" fill="var(--green-tint-ink)">1</text>
+
+                  <!-- State [p, r] (Accept) -->
+                  <circle cx="500" cy="80" r="32" fill="var(--green-tint)" stroke="var(--green)" stroke-width="2" />
+                  <circle cx="500" cy="80" r="26" fill="none" stroke="var(--green)" stroke-width="1.8" />
+                  <text x="500" y="86" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--green-ink)">[p, r]</text>
+
+                  <!-- [p, r] -> [p, q] on 0 -->
+                  <path d="M 478 102 C 410 145, 390 145, 332 102" fill="none" stroke="var(--ink)" stroke-width="1.8" />
+                  <text x="405" y="140" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">0</text>
+
+                  <!-- [p, r] -> [p] on 1 -->
+                  <path d="M 480 58 C 400 -10, 220 -10, 140 58" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-dasharray="3" />
+                  <text x="310" y="5" font-family="var(--font-mono)" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)">1</text>
+                </svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <p>$$\delta: Q \times \Sigma \rightarrow 2^Q$$</p>
 <p>For any state and input symbol, the transition function outputs a <em>subset of states</em> (which may be empty $\emptyset$ or contain multiple possible next states). An input string $w$ is accepted if <strong>at least one computational branch</strong> reaches a final state in $F$.</p>
 
@@ -666,12 +942,12 @@ $\delta(q_0, 1) = q_1 \rightarrow \delta(q_1, 0) = q_2 \rightarrow \delta(q_2, 1
         </article>
 
         <!-- Question toc-q07 -->
-        <article class="pyq-card" id="toc-q07" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="toc-q07" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -905,12 +1181,12 @@ Transitions: $\delta(p, \epsilon) = \{r\}, \delta(p, a) = \{q\}, \delta(p, b) = 
         </article>
 
         <!-- Question toc-q20 -->
-        <article class="pyq-card" id="toc-q20" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="toc-q20" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">6 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -953,6 +1229,77 @@ Transitions: $\delta(p, \epsilon) = \{r\}, \delta(p, a) = \{q\}, \delta(p, b) = 
   </li>
 </ol>
 <p><strong>Resulting DFA:</strong> Exactly 3 states: $A$ (start), $B$, and $C$ (accept). Minimal and complete!</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 680 200" class="diagram-svg" role="img" aria-label="DFA accepting strings ending in 01" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <style>
+      .state-c { fill: var(--surface); stroke: var(--border); stroke-width: 2.2; }
+      .state-start { stroke: var(--ink); stroke-width: 2.5; }
+      .state-acc { fill: rgba(46, 195, 107, 0.12); stroke: var(--green); stroke-width: 2.5; }
+      .state-acc-inner { fill: none; stroke: var(--green); stroke-width: 1.8; }
+      .st-txt { font-family: var(--font-mono); font-size: 15px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .trans-line { stroke: var(--ink); stroke-width: 1.8; fill: none; marker-end: url(#arrow-toc); }
+      .trans-lbl { font-family: var(--font-mono); font-size: 12.5px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .start-arrow { stroke: var(--ink); stroke-width: 2; fill: none; marker-end: url(#arrow-toc); }
+    </style>
+    <marker id="arrow-toc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink)"/>
+    </marker>
+  </defs>
+
+  <!-- Start Arrow -->
+  <line x1="30" y1="100" x2="85" y2="100" class="start-arrow"/>
+  <text x="50" y="88" class="trans-lbl">Start</text>
+
+  <!-- State q0 (Start) -->
+  <circle cx="120" cy="100" r="30" class="state-c state-start"/>
+  <text x="120" y="100" class="st-txt">q₀</text>
+
+  <!-- Self-loop on q0 (input 1) -->
+  <path d="M 105 72 C 100 25, 140 25, 135 72" class="trans-line"/>
+  <text x="120" y="32" class="trans-lbl">1</text>
+
+  <!-- q0 to q1 on 0 -->
+  <path d="M 150 90 L 290 90" class="trans-line"/>
+  <text x="220" y="78" class="trans-lbl">0</text>
+
+  <!-- State q1 (Seen 0) -->
+  <circle cx="320" cy="100" r="30" class="state-c"/>
+  <text x="320" y="100" class="st-txt">q₁</text>
+
+  <!-- Self loop on q1 (input 0) -->
+  <path d="M 305 72 C 300 25, 340 25, 335 72" class="trans-line"/>
+  <text x="320" y="32" class="trans-lbl">0</text>
+
+  <!-- q1 to q2 on 1 -->
+  <path d="M 350 90 L 490 90" class="trans-line"/>
+  <text x="420" y="78" class="trans-lbl">1</text>
+
+  <!-- State q2 (Accept, Seen 01) -->
+  <circle cx="520" cy="100" r="30" class="state-acc"/>
+  <circle cx="520" cy="100" r="24" class="state-acc-inner"/>
+  <text x="520" y="100" class="st-txt">q₂</text>
+
+  <!-- q2 back to q1 on 0 -->
+  <path d="M 500 120 C 450 170, 390 170, 340 125" class="trans-line"/>
+  <text x="420" y="165" class="trans-lbl">0</text>
+
+  <!-- q2 back to q0 on 1 -->
+  <path d="M 520 130 C 520 190, 120 190, 120 130" class="trans-line"/>
+  <text x="320" y="195" class="trans-lbl">1</text>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
               <div class="pyq-citation">
                 <strong>Source:</strong> SEE Jan 2026 Paper; Hopcroft & Ullman Ch. 2
               </div>
@@ -963,16 +1310,16 @@ Transitions: $\delta(p, \epsilon) = \{r\}, \delta(p, a) = \{q\}, \delta(p, b) = 
 
       <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
         <div class="section-badge">UNIT 2</div>
-        <h2 class="section-title">Unit 2 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 2 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
 
         <!-- Question toc-q08 -->
-        <article class="pyq-card" id="toc-q08" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="toc-q08" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1030,12 +1377,12 @@ Transitions: $\delta(p, \epsilon) = \{r\}, \delta(p, a) = \{q\}, \delta(p, b) = 
         </article>
 
         <!-- Question toc-q09 -->
-        <article class="pyq-card" id="toc-q09" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="toc-q09" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">7 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1055,6 +1402,103 @@ Transitions: $\delta(p, \epsilon) = \{r\}, \delta(p, a) = \{q\}, \delta(p, b) = 
             <div class="pyq-answer-body">
               <h4>1. Thompson's Construction Principles</h4>
 <p>Ken Thompson's algorithm inductively builds an $\epsilon$-NFA having <strong>exactly one start state and exactly one accept state</strong> with no transitions entering the start state or leaving the accept state:</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 800 420" class="diagram-svg" role="img" aria-label="Thompson" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+            <title>Thompson Construction Gadgets</title>
+            <desc>SVG diagram illustrating Thompson's construction gadgets for symbol a, concatenation AB, union A or B, and Kleene star A*</desc>
+            <defs>
+              <marker id="th-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="var(--stroke)" />
+              </marker>
+              <marker id="th-arr-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="var(--green)" />
+              </marker>
+            </defs>
+
+            <!-- 1. Base Symbol 'a' -->
+            <g transform="translate(40, 30)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">1. Symbol 'a'</text>
+              <circle cx="40" cy="50" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="40" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">s</text>
+              <line x1="58" y1="50" x2="130" y2="50" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+              <text x="95" y="42" font-family="Inter" font-size="13" font-weight="700" fill="var(--green)" text-anchor="middle">a</text>
+              <circle cx="150" cy="50" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="150" cy="50" r="14" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="150" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">f</text>
+            </g>
+
+            <!-- 2. Concatenation R1 R2 -->
+            <g transform="translate(320, 30)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">2. Concatenation: R₁ · R₂ (Merge f₁ into s₂ or &epsilon;)</text>
+              <rect x="30" y="30" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="70" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₁)</text>
+              <line x1="110" y1="50" x2="160" y2="50" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="135" y="42" font-family="Inter" font-size="13" font-weight="700" fill="var(--green)" text-anchor="middle">&epsilon;</text>
+              <rect x="160" y="30" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="200" y="55" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₂)</text>
+              <circle cx="280" cy="50" r="16" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="280" cy="50" r="12" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <line x1="240" y1="50" x2="262" y2="50" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            </g>
+
+            <!-- 3. Union R1 + R2 -->
+            <g transform="translate(40, 160)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">3. Union: R₁ + R₂</text>
+              <!-- new start s -->
+              <circle cx="30" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="30" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">s₀</text>
+              <!-- branch upper -->
+              <path d="M 45 80 C 70 50, 85 45, 110 45" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="75" y="55" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <rect x="110" y="25" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="150" y="50" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₁)</text>
+              <!-- branch lower -->
+              <path d="M 45 100 C 70 130, 85 135, 110 135" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="75" y="130" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <rect x="110" y="115" width="80" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="150" y="140" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R₂)</text>
+              <!-- convergence to new final f -->
+              <path d="M 190 45 C 215 45, 230 75, 250 85" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <path d="M 190 135 C 215 135, 230 105, 250 95" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <circle cx="270" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="270" cy="90" r="14" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="270" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">f₀</text>
+            </g>
+
+            <!-- 4. Kleene Star R* -->
+            <g transform="translate(400, 160)">
+              <text x="0" y="15" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="var(--text-main)">4. Kleene Closure: R*</text>
+              <circle cx="40" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <text x="40" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">s₀</text>
+              <line x1="58" y1="90" x2="110" y2="90" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="85" y="82" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <rect x="110" y="70" width="90" height="40" rx="8" fill="var(--bg-card)" stroke="var(--stroke)" stroke-width="1.5" stroke-dasharray="4" />
+              <text x="155" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-muted)">N(R)</text>
+              <line x1="200" y1="90" x2="252" y2="90" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="226" y="82" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)">&epsilon;</text>
+              <circle cx="270" cy="90" r="18" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+              <circle cx="270" cy="90" r="14" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+              <text x="270" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">f₀</text>
+              <!-- loopback epsilon: f(R) back to s(R) -->
+              <path d="M 180 70 C 180 40, 130 40, 130 70" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="155" y="32" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)" text-anchor="middle">&epsilon; (loop back)</text>
+              <!-- bypass epsilon: s0 to f0 -->
+              <path d="M 40 108 C 40 155, 270 155, 270 108" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#th-arr-green)" />
+              <text x="155" y="165" font-family="Inter" font-size="12" font-weight="700" fill="var(--green)" text-anchor="middle">&epsilon; (bypass / empty string)</text>
+            </g>
+          </svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <ul>
   <li><strong>Base Symbol $a$:</strong> $q_0 \xrightarrow{a} q_1$.</li>
   <li><strong>Union ($R_1 + R_2$):</strong> Create new start state $S$ branching with $\epsilon$ to $start(R_1)$ and $start(R_2)$. Both $accept(R_1)$ and $accept(R_2)$ branch with $\epsilon$ to a new single accept state $F$.</li>
@@ -1077,12 +1521,12 @@ Transitions: $\delta(p, \epsilon) = \{r\}, \delta(p, a) = \{q\}, \delta(p, b) = 
         </article>
 
         <!-- Question toc-q10 -->
-        <article class="pyq-card" id="toc-q10" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="toc-q10" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1121,12 +1565,12 @@ Transitions: $\delta(p, \epsilon) = \{r\}, \delta(p, a) = \{q\}, \delta(p, b) = 
         </article>
 
         <!-- Question toc-q11 -->
-        <article class="pyq-card" id="toc-q11" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="toc-q11" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">10 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1147,6 +1591,126 @@ Transitions: $A(B, A), B(A, C), C(D, B), D(D, A), E(D, F), F(G, E), G(F, G), H(G
             </summary>
             <div class="pyq-answer-body">
               <h4>1. Algorithm Principles (Table-Filling Method)</h4>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 260" class="diagram-svg" role="img" aria-label="Minimization of 6-state DFA from Ramaiah CIE-1 Q1.b" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <style>
+      .m-state { fill: var(--surface); stroke: var(--border); stroke-width: 2.2; }
+      .m-acc { fill: rgba(46, 195, 107, 0.12); stroke: var(--green); stroke-width: 2.5; }
+      .m-acc-in { fill: none; stroke: var(--green); stroke-width: 1.8; }
+      .m-txt { font-family: var(--font-mono); font-size: 14px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .m-line { stroke: var(--ink); stroke-width: 1.6; fill: none; marker-end: url(#arrow-m); }
+      .m-lbl { font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+      .panel-bg { fill: var(--surface-alt); stroke: var(--border); stroke-width: 1.2; rx: 8px; }
+      .panel-txt { font-family: var(--font-display); font-size: 12px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+    </style>
+    <marker id="arrow-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink)"/>
+    </marker>
+  </defs>
+
+  <!-- Left: Original 6-State DFA (q1, q2, q3 are Accept) -->
+  <g transform="translate(10, 10)">
+    <rect x="0" y="0" width="420" height="235" class="panel-bg"/>
+    <text x="210" y="24" class="panel-txt">Original 6-State DFA (Ramaiah CIE-1 Q1.b)</text>
+
+    <!-- Top Row: Accept States q1, q2, q3 -->
+    <circle cx="70" cy="80" r="24" class="m-acc"/>
+    <circle cx="70" cy="80" r="19" class="m-acc-in"/>
+    <text x="70" y="80" class="m-txt" fill="var(--green)">q₁</text>
+
+    <circle cx="210" cy="80" r="24" class="m-acc"/>
+    <circle cx="210" cy="80" r="19" class="m-acc-in"/>
+    <text x="210" y="80" class="m-txt" fill="var(--green)">q₂</text>
+
+    <circle cx="350" cy="80" r="24" class="m-acc"/>
+    <circle cx="350" cy="80" r="19" class="m-acc-in"/>
+    <text x="350" y="80" class="m-txt" fill="var(--green)">q₃</text>
+
+    <!-- Bottom Row: Non-Accept States q4, q5, q6 -->
+    <circle cx="70" cy="180" r="24" class="m-state"/>
+    <text x="70" y="180" class="m-txt">q₄</text>
+
+    <circle cx="210" cy="180" r="24" class="m-state"/>
+    <text x="210" y="180" class="m-txt">q₅</text>
+
+    <circle cx="350" cy="180" r="24" class="m-state"/>
+    <text x="350" y="180" class="m-txt">q₆</text>
+
+    <!-- Horizontal transitions on 'a' -->
+    <path d="M 94 72 L 186 72" class="m-line"/>
+    <text x="140" y="64" class="m-lbl">a</text>
+    <path d="M 234 72 L 326 72" class="m-line"/>
+    <text x="280" y="64" class="m-lbl">a</text>
+
+    <path d="M 94 172 L 186 172" class="m-line"/>
+    <text x="140" y="164" class="m-lbl">a</text>
+    <path d="M 234 172 L 326 172" class="m-line"/>
+    <text x="280" y="164" class="m-lbl">a</text>
+
+    <!-- Vertical transitions on 'b' -->
+    <path d="M 62 104 L 62 156" class="m-line"/>
+    <text x="50" y="130" class="m-lbl">b</text>
+    <path d="M 78 156 L 78 104" class="m-line"/>
+    <text x="90" y="130" class="m-lbl">b</text>
+
+    <path d="M 202 104 L 202 156" class="m-line"/>
+    <text x="190" y="130" class="m-lbl">b</text>
+    <path d="M 218 156 L 218 104" class="m-line"/>
+    <text x="230" y="130" class="m-lbl">b</text>
+
+    <path d="M 342 104 L 342 156" class="m-line"/>
+    <text x="330" y="130" class="m-lbl">b</text>
+    <path d="M 358 156 L 358 104" class="m-line"/>
+    <text x="370" y="130" class="m-lbl">b</text>
+  </g>
+
+  <!-- Right: Minimized 2-State DFA -->
+  <g transform="translate(450, 10)">
+    <rect x="0" y="0" width="300" height="235" class="panel-bg"/>
+    <text x="150" y="24" class="panel-txt">Minimized Equivalent DFA (2 States)</text>
+
+    <!-- Start Arrow -->
+    <line x1="20" y1="120" x2="55" y2="120" class="m-line"/>
+    <text x="36" y="110" class="m-lbl">Start</text>
+
+    <!-- State {q1, q2, q3} (Accept) -->
+    <circle cx="100" cy="120" r="34" class="m-acc"/>
+    <circle cx="100" cy="120" r="28" class="m-acc-in"/>
+    <text x="100" y="120" class="m-txt" font-size="12" fill="var(--green)">{q₁,q₂,q₃}</text>
+
+    <!-- State {q4, q5, q6} (Non-Accept) -->
+    <circle cx="230" cy="120" r="34" class="m-state"/>
+    <text x="230" y="120" class="m-txt" font-size="12">{q₄,q₅,q₆}</text>
+
+    <!-- Self-loop on Accept on 'a' -->
+    <path d="M 85 88 C 75 40, 125 40, 115 88" class="m-line"/>
+    <text x="100" y="50" class="m-lbl">a</text>
+
+    <!-- Self-loop on Non-Accept on 'a' -->
+    <path d="M 215 88 C 205 40, 255 40, 245 88" class="m-line"/>
+    <text x="230" y="50" class="m-lbl">a</text>
+
+    <!-- Between {q1..} and {q4..} on 'b' -->
+    <path d="M 134 110 L 196 110" class="m-line"/>
+    <text x="165" y="100" class="m-lbl">b</text>
+
+    <path d="M 196 130 L 134 130" class="m-line"/>
+    <text x="165" y="145" class="m-lbl">b</text>
+  </g>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <ol>
   <li>Construct a lower-triangular matrix of pairs $\{p, q\}$ for all $p \neq q$.</li>
   <li><strong>Basis Step:</strong> Mark all pairs $\{p, q\}$ where one state is accepting ($p \in F$) and the other is non-accepting ($q \notin F$). They are 0-distinguishable.</li>
@@ -1176,12 +1740,12 @@ Transitions: $A(B, A), B(A, C), C(D, B), D(D, A), E(D, F), F(G, E), G(F, G), H(G
         </article>
 
         <!-- Question toc-q12 -->
-        <article class="pyq-card" id="toc-q12" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="toc-q12" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1201,6 +1765,53 @@ Transitions: $A(B, A), B(A, C), C(D, B), D(D, A), E(D, F), F(G, E), G(F, G), H(G
             <div class="pyq-answer-body">
               <h4>1. Formal Statement of Pumping Lemma</h4>
 <p>Let $L$ be a regular language. Then there exists a constant integer $p \ge 1$ (the <strong>pumping length</strong>) such that for any string $w \in L$ with $|w| \ge p$, $w$ can be partitioned into three substrings:</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 740 180" class="diagram-svg" role="img" aria-label="Pumping Lemma Loop Diagram showing x, y loop, and z to final state" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="th-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/></marker>
+    <marker id="th-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="var(--green, #10b981)"/></marker>
+  </defs>
+            <title>Pumping Lemma State Loop</title>
+            <desc>SVG diagram illustrating how string w=xyz is processed by DFA: path x leads to state r_j, path y loops back to r_j, path z leads to final state</desc>
+            <circle cx="60" cy="90" r="22" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <text x="60" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">q₀</text>
+            <line x1="20" y1="90" x2="38" y2="90" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+
+            <!-- Path x to r_j -->
+            <path d="M 82 90 L 220 90" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="150" y="80" font-family="Inter" font-size="14" font-weight="700" fill="var(--text-main)" text-anchor="middle">x (|x| = j)</text>
+
+            <!-- State r_j = r_k -->
+            <circle cx="240" cy="90" r="22" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5" />
+            <text x="240" y="95" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" fill="var(--text-main)">rⱼ = rₖ</text>
+
+            <!-- Loop y -->
+            <path d="M 235 68 C 210 15, 270 15, 245 68" fill="none" stroke="var(--green)" stroke-width="2.5" marker-end="url(#th-arr-green)" />
+            <text x="240" y="10" font-family="Inter" font-size="13" font-weight="700" fill="var(--green)" text-anchor="middle">y (|y| &ge; 1, |xy| &le; p)</text>
+
+            <!-- Path z to Final state -->
+            <path d="M 262 90 L 580 90" stroke="var(--stroke)" stroke-width="2" marker-end="url(#th-arr)" />
+            <text x="420" y="80" font-family="Inter" font-size="14" font-weight="700" fill="var(--text-main)" text-anchor="middle">z</text>
+
+            <!-- Final state r_m -->
+            <circle cx="605" cy="90" r="22" fill="var(--surface)" stroke="var(--stroke)" stroke-width="2" />
+            <circle cx="605" cy="90" r="17" fill="none" stroke="var(--stroke)" stroke-width="1.5" />
+            <text x="605" y="95" font-family="Inter" font-size="12" text-anchor="middle" fill="var(--text-main)">r_m &isin; F</text>
+
+            <text x="370" y="150" font-family="Inter" font-size="13" font-weight="600" fill="var(--text-muted)" text-anchor="middle">Traversing the y-loop i times consumes string x yⁱ z, which must land on the same accepting state r_m!</text>
+          </svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <p>$$w = xyz$$</p>
 <p>satisfying the three mandatory conditions:</p>
 <ol>
@@ -1230,12 +1841,12 @@ Transitions: $A(B, A), B(A, C), C(D, B), D(D, A), E(D, F), F(G, E), G(F, G), H(G
         </article>
 
         <!-- Question toc-q13 -->
-        <article class="pyq-card" id="toc-q13" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="toc-q13" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">8 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1416,6 +2027,121 @@ As $k \rightarrow \infty$, any string generated from $RP^{k+1}$ has length excee
         </article>
       </section>
 
+      <!-- Out of Scope Questions Archive -->
+      <section id="out-of-scope" class="note-section pyq-unit-section" style="opacity:0.85;">
+        <div class="section-badge" style="background:#ef4444; color:#fff;">ARCHIVED</div>
+        <h2 class="section-title">Out of CIE-1 Scope Questions (18 Questions)</h2>
+        <p class="section-lead">The following questions were identified in past papers but fall outside the official CIE-1 syllabus. They are preserved here to ensure zero questions are dropped.</p>
+
+        <details style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:10px; padding:1.2rem;">
+          <summary style="font-weight:700; cursor:pointer; color:var(--text-primary);">
+            View all 18 archived out-of-scope questions and exclusion rationale
+          </summary>
+          <div style="margin-top:1rem;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Paper / Origin</th>
+                  <th>Question Summary</th>
+                  <th>Exclusion Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: TOC CIE-1 scope includes Units 1 and 2 only. CFG is Unit 3.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: CNF is Unit 3.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Derivation trees are Unit 3.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Ambiguity is Unit 3.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: CFG simplification is Unit 3.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Pushdown Automata is Unit 4.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: PDA is Unit 4.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: PDA acceptance mechanisms are Unit 4.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: DPDA is Unit 4.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: CFG to PDA conversion is Unit 4.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: PDA IDs are Unit 4.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Turing Machines is Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: TM computation is Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Multitape TM is Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Halting problem is Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: NP complexity is Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: TM techniques are Unit 5.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: TM storage is Unit 5.</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
 
       <!-- Unit Navigation Footer -->
       <footer class="unit-nav-footer">
@@ -1424,7 +2150,7 @@ As $k \rightarrow \infty$, any string generated from $RP^{k+1}$ has length excee
           <span class="nav-arrow-title">24IS54 Overview</span>
         </a>
         <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
-          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-sub">Start Revision &rarr;</span>
           <span class="nav-arrow-title">Unit 1 Notes</span>
         </a>
       </footer>
@@ -1453,7 +2179,7 @@ As $k \rightarrow \infty$, any string generated from $RP^{k+1}$ has length excee
             card.style.display = 'block';
           } else if (f === 'high') {
             card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
-          } else if (f.startsWith('unit-')) {
+          } else {
             card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
           }
         });

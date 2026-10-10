@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CIE-1 PYQ Bank & Model Answers | SE () | SEM 5 ISE</title>
-  <meta name="description" content="Official CIE-1 solved previous year question bank with step-by-step model answers, numerical solutions, diagrams, and textbook citations for SE ().">
+  <title>CIE-1 PYQ Bank & Model Answers | Software Engineering (24IS52) | SEM 5 ISE</title>
+  <meta name="description" content="Official CIE-1 solved previous year question bank with step-by-step model answers, numerical solutions, diagrams, and textbook citations for Software Engineering (24IS52).">
 
   <!-- Prevent Theme Flash -->
   <script>
@@ -15,69 +15,43 @@
     })();
   </script>
 
-  <!-- Google Fonts Preconnect & Styles -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Self-Hosted KaTeX Math Styles -->
+  <!-- KaTeX for High-Fidelity Math Typesetting -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
 
-  <!-- Single Shared Notes Stylesheet -->
+  <!-- Theme and Layout Stylesheets -->
+  <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/notes.css">
-  
+
   <style>
-    .pyq-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-    }
-    .pyq-filter-btn {
-      padding: 0.4rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid var(--border-color);
-      background: var(--surface-hover);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .pyq-filter-btn:hover, .pyq-filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
     .pyq-card {
       background: var(--surface-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.4rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .pyq-card:hover {
       border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
     .pyq-header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.6rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
     .pyq-badges {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 0.4rem;
     }
     .pyq-badge {
@@ -175,6 +149,10 @@
       font-size: 0.88rem;
       color: var(--text-secondary);
     }
+    .pyq-diagram-wrap {
+      overflow-x: auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -188,15 +166,15 @@
   <header class="notes-topbar">
     <div class="notes-topbar-inner">
       <div class="topbar-left">
-        <a href="../../../index.html#subject/se" class="back-btn" title="Return to SE Overview">
+        <a href="../../../index.html#subject/se" class="back-btn" title="Return to Software Engineering Overview">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>←  Overview</span>
+          <span>&larr; 24IS52 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
           <a href="../../../index.html">Semester V</a>
           <span class="breadcrumb-sep">/</span>
-          <a href="../../../index.html#subject/se">SE</a>
+          <a href="../../../index.html#subject/se">Software Engineering</a>
           <span class="breadcrumb-sep">/</span>
           <span class="breadcrumb-current">CIE-1 PYQ Bank</span>
         </nav>
@@ -232,7 +210,9 @@
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
-          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">&sect; Overview &amp; Statistics</a></li>
+          <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (8)</a></li>
+          <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (12)</a></li>
           <li class="toc-item"><a href="#out-of-scope" class="toc-link">Out-of-Scope Archive (18)</a></li>
         </ol>
       </nav>
@@ -242,27 +222,27 @@
     <main class="notes-content" id="main-content">
       <!-- CIE-1 Scope Alert Banner -->
       <div class="cie1-banner">
-        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
-        <p><strong>Course:</strong> SE () &bull; <strong>Exam Schedule:</strong>  (60 Mins, 30 Marks)</p>
-        <p style="margin-top:0.4rem;">Contains <strong>0 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
+        <h3>🎯 CIE-1 Exam-Ready PYQ &amp; Model Answers Bank</h3>
+        <p><strong>Course:</strong> Software Engineering (24IS52) &bull; <strong>Exam Schedule:</strong> Wed 14-10-2026, 13:30–14:30 (60 Mins, 30 Marks)</p>
+        <p style="margin-top:0.4rem;">Contains <strong>20 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
       </div>
 
       <header class="notes-header" id="summary-overview">
         <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
-        <h1 class="notes-title">SE PYQ Solutions</h1>
-        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        <h1 class="notes-title">Software Engineering PYQ Solutions</h1>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, 8M, and 10M questions with direct notes cross-references.</p>
         
         <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">20</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">12</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:var(--green);">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--green);">2</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -275,9 +255,1423 @@
       <!-- Quick Interactive Filter Pills -->
       <div class="pyq-filter-bar">
         <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
-        <button class="pyq-filter-btn active" data-filter="all">All (0)</button>
-        <button class="pyq-filter-btn" data-filter="high">High Priority (0)</button>
+        <button class="pyq-filter-btn active" data-filter="all">All (20)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (12)</button>
+        <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (8)</button>
+        <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (12)</button>
       </div>
+
+      <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
+        <div class="section-badge">UNIT 1</div>
+        <h2 class="section-title">Unit 1 Examination Questions &amp; Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
+
+        <!-- Question se-q01 -->
+        <article class="pyq-card" id="se-q01" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2025 Q1.a (8M)</span><span class="year-chip">SEE Feb/Mar 2025(O) Q1.a (10M)</span><span class="year-chip">SEE Jan 2026 Q1.b (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Define Software Engineering. How is it more than 'just programming'? Consider a client has a vague idea of their requirements and expects them to change frequently. Which process model would you recommend and why?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Software Engineering</strong> is an engineering discipline concerned with all aspects of software production from the earliest stages of system specification through to maintaining and evolving the system after it has gone into use (Sommerville, Ch. 1).</p>
+<h4>Why More Than Programming:</h4><ul><li><strong>Systematic Lifecycle:</strong> Programming is merely the coding phase. Software engineering encompasses requirements analysis, architectural design, verification & validation, deployment, configuration management, and ongoing software evolution.</li><li><strong>Socio-Technical & Economic Constraints:</strong> Professional software must be developed on schedule, within organizational budgets, and adhere to strict quality attributes (maintainability, dependability, efficiency, and usability).</li><li><strong>Team-Based & Industrial Scale:</strong> Programming is often individual or small-scale; software engineering provides the organizational framework, version control, automated testing, and governance needed for large teams building complex, long-lived systems.</li></ul>
+<h4>Recommendation Case:</h4>
+<p><strong>Scenario:</strong> Client with vague, emerging requirements expecting frequent changes.</p>
+<p><strong>Recommended Model:</strong> <strong>Agile Incremental Development / Extreme Programming (XP) or Scrum</strong> (or Evolutionary Prototyping).</p>
+<h5>Justification:</h5><ul><li><strong>Rapid Feedback Cycles:</strong> Developing in small 1–2 week sprints/iterations allows the customer to interact with working software increments, helping them clarify their vague vision early.</li><li><strong>Low Cost of Change:</strong> In waterfall, changing requirements mid-stream causes catastrophic rework of specification and architecture documents. In agile, the Product Backlog is reprioritized at every sprint boundary without penalty.</li><li><strong>Customer Collaboration over Contract Negotiation:</strong> Continuous customer involvement ensures that as the client's understanding evolves, the software directly aligns with actual business needs.</li><li><strong>Continuous Integration & Automated Testing:</strong> Ensures regression defects are caught immediately as features are adapted.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 1 (pp. 18-24) & Chapter 2 (pp. 44-50)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q02 -->
+        <article class="pyq-card" id="se-q02" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2025 Q2.a (8M)</span><span class="year-chip">SEE Feb/Mar 2025 Q1.a (8M)</span><span class="year-chip">SEE Feb 2024 Q1.c (8M)</span><span class="year-chip">SEE Jan 2026 Q1.a (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-4" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 4</span>
+          </a>
+
+          <h3 class="pyq-question-text">With a neat diagram, explain in detail about the Waterfall process model for software development. Identify its advantages and limitations.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>The <strong>Waterfall Model</strong> (Classic Life Cycle) is a plan-driven software process model where each fundamental process activity is organized into separate, sequential phases, with the output of one phase serving as the formal baselined input to the next.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 340" class="diagram-svg" role="img" aria-label="Waterfall Process Model for Software Development" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="wf-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)" />
+    </marker>
+    <marker id="wf-arr-back" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--text-secondary, #64748b)" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface-hover, #f8fafc)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="sans-serif" font-size="13" font-weight="700" fill="var(--text-primary, #0f172a)" letter-spacing="0.5">THE CLASSICAL WATERFALL PROCESS MODEL &bull; CASCADING PHASES (RAMAIAH CIE-1 Q2.a)</text>
+
+  <!-- Phase 1: Requirements Definition -->
+  <g transform="translate(40, 55)">
+    <rect width="170" height="42" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.5" />
+    <text x="85" y="22" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--text-primary, #0f172a)" text-anchor="middle">1. Requirements Analysis</text>
+    <text x="85" y="34" font-family="monospace" font-size="9" fill="var(--text-secondary, #64748b)" text-anchor="middle">SRS Document Baseline</text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 210 76 L 240 76 L 240 105" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#wf-arr)" />
+
+  <!-- Phase 2: System & Software Design -->
+  <g transform="translate(180, 105)">
+    <rect width="170" height="42" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.5" />
+    <text x="85" y="22" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--text-primary, #0f172a)" text-anchor="middle">2. System &amp; SW Design</text>
+    <text x="85" y="34" font-family="monospace" font-size="9" fill="var(--text-secondary, #64748b)" text-anchor="middle">Architecture &amp; Data Models</text>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 350 126 L 380 126 L 380 155" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#wf-arr)" />
+
+  <!-- Phase 3: Implementation & Unit Testing -->
+  <g transform="translate(320, 155)">
+    <rect width="170" height="42" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.5" />
+    <text x="85" y="22" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--text-primary, #0f172a)" text-anchor="middle">3. Implementation &amp; Unit</text>
+    <text x="85" y="34" font-family="monospace" font-size="9" fill="var(--text-secondary, #64748b)" text-anchor="middle">Source Code &amp; Module Tests</text>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 490 176 L 520 176 L 520 205" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#wf-arr)" />
+
+  <!-- Phase 4: Integration & System Testing -->
+  <g transform="translate(460, 205)">
+    <rect width="170" height="42" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.5" />
+    <text x="85" y="22" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--text-primary, #0f172a)" text-anchor="middle">4. Integration &amp; System</text>
+    <text x="85" y="34" font-family="monospace" font-size="9" fill="var(--text-secondary, #64748b)" text-anchor="middle">End-to-End System Tests</text>
+  </g>
+
+  <!-- Arrow 4 to 5 -->
+  <path d="M 630 226 L 660 226 L 660 255" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#wf-arr)" />
+
+  <!-- Phase 5: Operation & Maintenance -->
+  <g transform="translate(570, 255)">
+    <rect width="170" height="42" rx="8" fill="var(--green-tint, #ecfdf5)" stroke="var(--green, #10b981)" stroke-width="2" />
+    <text x="85" y="22" font-family="sans-serif" font-size="11.5" font-weight="800" fill="var(--green, #10b981)" text-anchor="middle">5. Operation &amp; Maint.</text>
+    <text x="85" y="34" font-family="monospace" font-size="9" font-weight="700" fill="var(--green, #10b981)" text-anchor="middle">Deployment &amp; Patches</text>
+  </g>
+
+  <!-- Theoretical Feedback Loops (Dotted gray curves) -->
+  <path d="M 320 176 C 260 176, 260 97, 210 97" fill="none" stroke="var(--text-secondary, #64748b)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#wf-arr-back)" />
+  <path d="M 460 226 C 400 226, 400 147, 350 147" fill="none" stroke="var(--text-secondary, #64748b)" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#wf-arr-back)" />
+  <text x="50" y="290" font-family="monospace" font-size="10.5" fill="var(--text-secondary, #64748b)">* Dotted arcs: Costly feedback loops in practice</text>
+</svg></div>
+<h4>Phases:</h4><ul>
+<li><strong>1. Requirements Definition:</strong> System services, constraints, and goals are established in consultation with stakeholders and formally documented in an SRS.</li>
+<li><strong>2. System and Software Design:</strong> Allocates requirements to hardware/software systems; establishes overall software architecture and data structures.</li>
+<li><strong>3. Implementation and Unit Testing:</strong> Software design is realized as sets of programs or program units; verified through unit testing.</li>
+<li><strong>4. Integration and System Testing:</strong> Individual program units are integrated and tested as a complete system to ensure software requirements are met; followed by acceptance testing.</li>
+<li><strong>5. Operation and Maintenance:</strong> The system is deployed into operational use; includes bug fixes, enhancing capabilities, and adapting to new hardware.</li>
+</ul>
+<h4>Advantages:</h4><ul>
+<li>Clear, disciplined milestones and deliverables at each stage make project management and progress tracking straightforward.</li>
+<li>Extensive upfront documentation ensures team members have a shared understanding and facilitates knowledge transfer.</li>
+<li>Well suited for stable, well-understood systems (e.g. large infrastructure, aerospace, defense contracts).</li>
+</ul>
+<h4>Limitations:</h4><ul>
+<li><strong>Inflexible Partitioning:</strong> Difficult to accommodate changing customer requirements once an earlier stage is frozen.</li>
+<li><strong>Late Software Delivery:</strong> Working software is produced only late in the lifecycle; major design errors may remain hidden until integration.</li>
+<li><strong>High Cost of Rework:</strong> An error in requirements discovered during system testing costs up to 100x more to fix than if identified early.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 2.1 (pp. 44-46)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q03 -->
+        <article class="pyq-card" id="se-q03" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2025 Q3.a (6M)</span><span class="year-chip">SEE Feb/Mar 2025 Q2.a (6M)</span><span class="year-chip">SEE Jan 2026 Q2.a (8M)</span><span class="year-chip">SEE Feb 2024 Q2.b (6M)</span><span class="year-chip">SEE Feb/Mar 2025(O) Q1.b (10M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-4" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 4</span>
+          </a>
+
+          <h3 class="pyq-question-text">Describe and elaborate the four distinct phases of the Rational Unified Process (RUP), with a neat diagram.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>The <strong>Rational Unified Process (RUP)</strong> is a modern generic process framework that combines elements of all generic process models. It has two dimensions: dynamic (lifecycle phases over time) and static (workflows/disciplines across iterations).</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 340" class="diagram-svg" role="img" aria-label="Rational Unified Process 4 Phases and Milestones" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <!-- Background Canvas -->
+  <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">RATIONAL UNIFIED PROCESS (RUP) &bull; 4 DYNAMIC PHASES &amp; MILESTONES (RAMAIAH CIE-1 Q3.a)</text>
+
+  <!-- Time Axis Bar across Top -->
+  <g transform="translate(30, 55)">
+    <rect width="720" height="26" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+    <text x="75" y="18" font-family="var(--font-mono)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">INCEPTION (10%)</text>
+    <text x="235" y="18" font-family="var(--font-mono)" font-size="10" font-weight="700" fill="var(--brand)" text-anchor="middle">ELABORATION (30%)</text>
+    <text x="475" y="18" font-family="var(--font-mono)" font-size="10" font-weight="700" fill="var(--green)" text-anchor="middle">CONSTRUCTION (50%)</text>
+    <text x="665" y="18" font-family="var(--font-mono)" font-size="10" font-weight="700" fill="var(--ink-muted)" text-anchor="middle">TRANSITION (10%)</text>
+    <line x1="150" y1="0" x2="150" y2="26" stroke="var(--border)" stroke-width="1.5" />
+    <line x1="320" y1="0" x2="320" y2="26" stroke="var(--border)" stroke-width="1.5" />
+    <line x1="630" y1="0" x2="630" y2="26" stroke="var(--border)" stroke-width="1.5" />
+  </g>
+
+  <!-- 4 Phase Cards -->
+  <!-- Phase 1: Inception -->
+  <g transform="translate(30, 95)">
+    <rect width="165" height="155" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="82" y="24" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">1. Inception Phase</text>
+    <line x1="15" y1="34" x2="150" y2="34" stroke="var(--border)" stroke-width="1" />
+    <text x="12" y="55" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Business case &amp; scope</text>
+    <text x="12" y="75" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Feasibility study</text>
+    <text x="12" y="95" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Identify primary actors</text>
+    <!-- Milestone -->
+    <rect x="10" y="115" width="145" height="28" rx="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="1" />
+    <text x="82" y="132" font-family="var(--font-mono)" font-size="8.5" font-weight="700" fill="var(--brand)" text-anchor="middle">Milestone: Lifecycle Obj.</text>
+  </g>
+
+  <!-- Phase 2: Elaboration -->
+  <g transform="translate(205, 95)">
+    <rect width="175" height="155" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="87" y="24" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">2. Elaboration Phase</text>
+    <line x1="15" y1="34" x2="160" y2="34" stroke="var(--border)" stroke-width="1" />
+    <text x="12" y="55" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Requirements capture</text>
+    <text x="12" y="75" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Architecture baseline</text>
+    <text x="12" y="95" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Mitigate high risks</text>
+    <!-- Milestone -->
+    <rect x="10" y="115" width="155" height="28" rx="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="1" />
+    <text x="87" y="132" font-family="var(--font-mono)" font-size="8.5" font-weight="700" fill="var(--brand)" text-anchor="middle">Milestone: Lifecycle Arch.</text>
+  </g>
+
+  <!-- Phase 3: Construction -->
+  <g transform="translate(390, 95)">
+    <rect width="185" height="155" rx="10" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.5" />
+    <text x="92" y="24" font-family="var(--font-display)" font-size="12" font-weight="800" fill="var(--green)" text-anchor="middle">3. Construction Phase</text>
+    <line x1="15" y1="34" x2="170" y2="34" stroke="var(--green)" stroke-width="1" />
+    <text x="12" y="55" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Component coding</text>
+    <text x="12" y="75" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; System integration</text>
+    <text x="12" y="95" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Comprehensive tests</text>
+    <!-- Milestone -->
+    <rect x="10" y="115" width="165" height="28" rx="6" fill="var(--surface)" stroke="var(--green)" stroke-width="1" />
+    <text x="92" y="132" font-family="var(--font-mono)" font-size="8.5" font-weight="800" fill="var(--green)" text-anchor="middle">Milestone: Initial Op. Cap.</text>
+  </g>
+
+  <!-- Phase 4: Transition -->
+  <g transform="translate(585, 95)">
+    <rect width="165" height="155" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="82" y="24" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">4. Transition Phase</text>
+    <line x1="15" y1="34" x2="150" y2="34" stroke="var(--border)" stroke-width="1" />
+    <text x="12" y="55" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Beta test deployment</text>
+    <text x="12" y="75" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; User training &amp; conversion</text>
+    <text x="12" y="95" font-family="var(--font-body)" font-size="10" fill="var(--ink)">&bull; Bug patching</text>
+    <!-- Milestone -->
+    <rect x="10" y="115" width="145" height="28" rx="6" fill="var(--surface)" stroke="var(--border-strong)" stroke-width="1" />
+    <text x="82" y="132" font-family="var(--font-mono)" font-size="8.5" font-weight="700" fill="var(--ink-muted)" text-anchor="middle">Milestone: Product Release</text>
+  </g>
+
+  <!-- Bottom Explanatory Banner -->
+  <g transform="translate(30, 265)">
+    <rect width="720" height="50" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+    <text x="360" y="20" font-family="var(--font-body)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Core Workflows span all phases: Business Modeling, Requirements, Analysis &amp; Design, Implementation, Testing, Deployment.</text>
+    <text x="360" y="38" font-family="var(--font-mono)" font-size="10" fill="var(--green)" text-anchor="middle">RUP unites plan-driven architecture discipline in Elaboration with Agile iterations in Construction.</text>
+  </g>
+</svg></div>
+<h4>Four Phases:</h4><ul><li><strong>1. Inception Phase:</strong> Establish the business case, project scope, identify all external entities (actors), define major use cases at a high level, and assess business viability and financial risks.</li><li><strong>2. Elaboration Phase:</strong> Deepen understanding of problem domain; establish an architectural baseline; identify and eliminate the highest project risks; produce the executable architecture.</li><li><strong>3. Construction Phase:</strong> System design, programming, and unit/integration testing. Components are implemented, integrated into the architecture, and tested against use cases; produces the first external beta release.</li><li><strong>4. Transition Phase:</strong> Move system from development environment to operational user environment. Involves beta testing, user training, defect correction, and product rollout.</li></ul>
+<h4>Key Practices:</h4><ul><li>Develop iteratively with user feedback.</li><li>Manage requirements through use case driven models.</li><li>Use component-based architectures.</li><li>Visually model software using Unified Modeling Language (UML).</li><li>Continuously verify quality and manage changes.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 2.4 (pp. 57-60)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q04 -->
+        <article class="pyq-card" id="se-q04" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb/Mar 2025 Q1.b (7M)</span><span class="year-chip">SEE Jan 2026 Q2.b (6M)</span><span class="year-chip">SEE Feb 2024 Q2.a (8M)</span><span class="year-chip">SEE Feb/Mar 2025(O) Q2.a (10M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-7" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 7</span>
+          </a>
+
+          <h3 class="pyq-question-text">Compare and contrast plan-driven processes and agile processes with a suitable use case. Demonstrate how they can be combined in a hybrid model.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Comparison Table:</h4>
+<h5>Headers:</h5><ul><li>Attribute</li><li>Plan-Driven Development</li><li>Agile Development</li></ul>
+<h5>Rows:</h5><ul><li>['Philosophy', 'Anticipate changes upfront; extensive formal planning and architecture.', 'Embrace change; adapt iteratively through customer collaboration.']</li><li>['Documentation', 'Comprehensive, heavy documentation (SRS, SDD, traceability matrices).', 'Working software prioritized over comprehensive documentation; user stories.']</li><li>['Customer Involvement', 'Formal involvement during requirements and acceptance sign-offs.', 'Continuous, embedded customer collaboration throughout development.']</li><li>['Testing Strategy', 'Formal V-Model testing following implementation phase.', 'Test-Driven Development (TDD) and continuous automated integration.']</li><li>['Team Structure', 'Hierarchical, specialized functional teams with strict governance.', 'Cross-functional, self-organizing teams with high tacit communication.']</li><li>['Suitability', 'Safety-critical systems, aerospace, large distributed teams, stable domains.', 'Fast-evolving business apps, web/mobile software, startups, uncertain domains.']</li></ul>
+<h4>Use Case Comparison:</h4><p><strong>Use Case: Electronic Health Record (EHR) System vs. Clinic Booking Mobile App:</strong><br/>- EHR Core: Requires strict regulatory compliance (HIPAA, HL7), high reliability, and formal safety audits. A <em>plan-driven</em> approach is mandatory.<br/>- Mobile Booking App: Dynamic patient UI, frequently changing booking rules and UX features. An <em>agile</em> approach delivers rapid iterations.</p>
+<h4>Hybrid Approach:</h4><p><strong>Large-Scale / Real-Time Systems Hybrid Model:</strong><br/>- Upfront Plan-Driven Phase: Establish system architectural framework, safety-critical subsystem interfaces, and regulatory baseline requirements.<br/>- Agile Incremental Phase: User-facing modules, peripheral services, and application workflows are developed using agile sprints (Scrum/XP) within the architectural constraints.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 3.1 & 3.4 (pp. 74-88)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q05 -->
+        <article class="pyq-card" id="se-q05" data-unit="unit-1" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb/Mar 2025 Q2.c (6M)</span><span class="year-chip">SEE Jan 2026 Q2.c (6M)</span><span class="year-chip">SEE Feb 2024 Q2.c (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-7" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 7</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is the need for Extreme Programming (XP)? Draw and describe the Extreme Programming release/iteration cycle, highlighting key XP practices.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 340" class="diagram-svg" role="img" aria-label="Scrum Framework with Product Backlog and Sprint Cycle" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="scrum-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--green)" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect x="5" y="5" width="770" height="330" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">THE SCRUM AGILE FRAMEWORK &bull; SPRINT VELOCITY &amp; INCREMENT DELIVERY (SOMMERVILLE CH. 3)</text>
+
+  <!-- 1. Product Backlog on Left -->
+  <g transform="translate(30, 65)">
+    <rect width="130" height="235" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="65" y="26" font-family="var(--font-display)" font-size="12" font-weight="700" fill="var(--brand)" text-anchor="middle">Product Backlog</text>
+    <text x="65" y="42" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">(Product Owner)</text>
+    <!-- Backlog items stack -->
+    <rect x="15" y="55" width="100" height="24" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="71" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)" text-anchor="middle">Story #1 (13 SP)</text>
+    <rect x="15" y="85" width="100" height="24" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="101" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)" text-anchor="middle">Story #2 (8 SP)</text>
+    <rect x="15" y="115" width="100" height="24" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="131" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink)" text-anchor="middle">Story #3 (8 SP)</text>
+    <rect x="15" y="145" width="100" height="24" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="161" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Story #4 (5 SP)</text>
+    <rect x="15" y="175" width="100" height="24" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="191" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Remaining: 180 SP</text>
+  </g>
+
+  <!-- Arrow from Product Backlog to Sprint Planning -->
+  <line x1="160" y1="182" x2="200" y2="182" stroke="var(--green)" stroke-width="2" marker-end="url(#scrum-arr)" />
+
+  <!-- 2. Sprint Planning & Sprint Backlog -->
+  <g transform="translate(200, 105)">
+    <rect width="130" height="155" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="65" y="24" font-family="var(--font-display)" font-size="11.5" font-weight="700" fill="var(--ink)" text-anchor="middle">Sprint Planning</text>
+    <text x="65" y="38" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">&amp; Sprint Backlog</text>
+    <rect x="15" y="50" width="100" height="22" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="65" font-family="var(--font-mono)" font-size="8.5" fill="var(--brand)" text-anchor="middle">Task 1 (Design)</text>
+    <rect x="15" y="78" width="100" height="22" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="93" font-family="var(--font-mono)" font-size="8.5" fill="var(--brand)" text-anchor="middle">Task 2 (Code)</text>
+    <rect x="15" y="106" width="100" height="22" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="65" y="121" font-family="var(--font-mono)" font-size="8.5" fill="var(--brand)" text-anchor="middle">Task 3 (Test)</text>
+  </g>
+
+  <!-- Arrow to Sprint Cycle -->
+  <line x1="330" y1="182" x2="380" y2="182" stroke="var(--green)" stroke-width="2" marker-end="url(#scrum-arr)" />
+
+  <!-- 3. Central Sprint Cycle Loop (2-4 Weeks) -->
+  <g transform="translate(450, 182)">
+    <circle cx="0" cy="0" r="62" fill="var(--green-tint)" stroke="var(--green)" stroke-width="2.5" />
+    <text x="0" y="-12" font-family="var(--font-display)" font-size="13" font-weight="800" fill="var(--green)" text-anchor="middle">SPRINT</text>
+    <text x="0" y="5" font-family="var(--font-mono)" font-size="10" font-weight="700" fill="var(--ink)" text-anchor="middle">2 &ndash; 4 WEEKS</text>
+    <text x="0" y="22" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Velocity: 44 SP</text>
+
+    <!-- Daily Standup Satellite above -->
+    <circle cx="0" cy="-80" r="24" fill="var(--surface)" stroke="var(--brand)" stroke-width="1.8" />
+    <text x="0" y="-83" font-family="var(--font-mono)" font-size="8.5" font-weight="700" fill="var(--brand)" text-anchor="middle">DAILY</text>
+    <text x="0" y="-71" font-family="var(--font-mono)" font-size="8" fill="var(--ink)" text-anchor="middle">15 min</text>
+    <line x1="0" y1="-56" x2="0" y2="-62" stroke="var(--brand)" stroke-width="1.5" />
+  </g>
+
+  <!-- Arrow to Output Increment -->
+  <line x1="512" y1="182" x2="560" y2="182" stroke="var(--green)" stroke-width="2" marker-end="url(#scrum-arr)" />
+
+  <!-- 4. Shippable Increment & Review -->
+  <g transform="translate(560, 105)">
+    <rect width="180" height="155" rx="10" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.2" />
+    <text x="90" y="24" font-family="var(--font-display)" font-size="12" font-weight="800" fill="var(--green)" text-anchor="middle">Shippable Increment</text>
+    <text x="90" y="40" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">Potentially Deployable Code</text>
+
+    <rect x="15" y="55" width="150" height="34" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="90" y="70" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="var(--ink)" text-anchor="middle">Sprint Review</text>
+    <text x="90" y="82" font-family="var(--font-body)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Demo to Stakeholders</text>
+
+    <rect x="15" y="98" width="150" height="34" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1" />
+    <text x="90" y="113" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="var(--ink)" text-anchor="middle">Sprint Retrospective</text>
+    <text x="90" y="125" font-family="var(--font-body)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Team Process Tuning</text>
+  </g>
+</svg></div>
+<h4>Need For Xp:</h4><p>Traditional methods assumed changes late in development were prohibitively expensive. <strong>Extreme Programming (XP)</strong> was created by Kent Beck to take recognized good development practices (e.g. testing, reviews, integration) and push them to 'extreme' levels to make software development highly responsive to customer needs while maintaining code quality.</p>
+<h4>Xp Cycle Description:</h4><ul><li><strong>1. User Stories:</strong> Customer requirements are written on story cards by the customer.</li><li><strong>2. Release Planning:</strong> Team and customer prioritize stories into the next release schedule and break stories into developmental tasks.</li><li><strong>3. Iteration Development:</strong> In 1-2 week cycles, developers implement tasks using Pair Programming and Test-Driven Development.</li><li><strong>4. Acceptance Tests:</strong> Customer-defined automated tests verify completed stories.</li><li><strong>5. Software Release:</strong> Delivered frequently to users; feedback immediately feeds next user stories.</li></ul>
+<h4>Core Practices:</h4><ul><li><strong>Test-Driven Development (TDD):</strong> Tests are written *before* code; code is only written to make tests pass.</li><li><strong>Pair Programming:</strong> Two programmers work together at one workstation (driver and navigator), providing continuous code review and shared ownership.</li><li><strong>Refactoring:</strong> Continually improving system structure without altering external behavior.</li><li><strong>Continuous Integration:</strong> Code is checked in and integrated multiple times a day with automated regression suites.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 3.2 (pp. 77-83)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q06 -->
+        <article class="pyq-card" id="se-q06" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb/Mar 2025 Q1.c (5M)</span><span class="year-chip">SEE Jan 2026 Q1.c (6M)</span><span class="year-chip">SEE Jan 2023 Q1 (5M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-2" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 2</span>
+          </a>
+
+          <h3 class="pyq-question-text">List out the different ethical responsibilities of the software engineering profession. State the eight principles of the ACM/IEEE-CS Code of Ethics.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>Software engineers must behave in an honest and ethically responsible manner, not merely follow the law. Technical competence must be joined with ethical integrity because software systems directly impact public safety, privacy, and economic well-being.</p>
+<h4>Professional Responsibilities:</h4><ul><li><strong>Confidentiality:</strong> Respect client/employer confidentiality regardless of whether a formal non-disclosure agreement was signed.</li><li><strong>Competence:</strong> Do not misrepresent level of competence; do not knowingly accept work outside personal competence.</li><li><strong>Intellectual Property Rights:</strong> Respect patents, copyrights, and open-source licenses; never use unauthorized software.</li><li><strong>Computer Misuse:</strong> Never use technical abilities to breach security, deploy malware, or access private systems unauthorized.</li></ul>
+<h4>Eight Principles:</h4><ul><li><strong>1. PUBLIC:</strong> Act consistently with the public interest as paramount.</li><li><strong>2. CLIENT AND EMPLOYER:</strong> Act in a manner that is in the best interests of client and employer, consistent with public interest.</li><li><strong>3. PRODUCT:</strong> Ensure products and related modifications meet the highest professional standards possible.</li><li><strong>4. JUDGMENT:</strong> Maintain integrity and independence in professional judgment.</li><li><strong>5. MANAGEMENT:</strong> Managers and leaders shall subscribe to and promote an ethical approach to software management.</li><li><strong>6. PROFESSION:</strong> Advance the integrity and reputation of the profession consistent with public interest.</li><li><strong>7. COLLEAGUES:</strong> Be fair to and supportive of colleagues.</li><li><strong>8. SELF:</strong> Participate in lifelong learning regarding the practice of their profession and promote an ethical approach.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 1.3 (pp. 28-31)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q07 -->
+        <article class="pyq-card" id="se-q07" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">8 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Jan 2026 Q1.a (8M)</span><span class="year-chip">SEE Jan 2023 Q1 (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-5" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 5</span>
+          </a>
+
+          <h3 class="pyq-question-text">With a neat diagram explain Boehm's Spiral Model. Discuss its risk-driven nature, four quadrants, and its advantages over the waterfall model.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Boehm's Spiral Model</strong> is a risk-driven software process framework where the development lifecycle is represented as a spiral, rather than a sequence of activities with backtracking. Each loop represents a phase of the process.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 340" class="diagram-svg" role="img" aria-label="Boehm" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Boehm's Spiral Model</title>
+  <desc>Risk-driven software lifecycle model with four quadrants: Objective setting, Risk assessment & reduction, Development & validation, and Planning next phase.</desc>
+  <defs>
+    <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+  </defs>
+
+  <rect x="30" y="20" width="345" height="145" rx="6" fill="var(--surface-hover, #f1f5f9)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.2"/>
+  <text x="45" y="45" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--accent, #3b82f6)">QUADRANT 1: OBJECTIVES SETTING</text>
+  <text x="45" y="70" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Identify specific phase objectives</text>
+  <text x="45" y="90" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Detail constraints (budget, schedule)</text>
+  <text x="45" y="110" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Elaborate alternative approaches</text>
+
+  <rect x="385" y="20" width="345" height="145" rx="6" fill="var(--surface-hover, #f1f5f9)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.2"/>
+  <text x="400" y="45" font-family="sans-serif" font-size="13" font-weight="800" fill="#ef4444">QUADRANT 2: RISK ASSESSMENT &amp; RESOLUTION</text>
+  <text x="400" y="70" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Identify operational and technical risks</text>
+  <text x="400" y="90" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Build prototypes and simulations</text>
+  <text x="400" y="110" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Resolve high-impact risk factors</text>
+
+  <rect x="30" y="175" width="345" height="145" rx="6" fill="var(--surface-hover, #f1f5f9)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.2"/>
+  <text x="45" y="200" font-family="sans-serif" font-size="13" font-weight="800" fill="#f59e0b">QUADRANT 4: PLANNING NEXT PHASE</text>
+  <text x="45" y="225" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Formal customer milestone review</text>
+  <text x="45" y="245" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Allocate resources and schedule</text>
+  <text x="45" y="265" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Decide whether to continue spiral</text>
+
+  <rect x="385" y="175" width="345" height="145" rx="6" fill="var(--surface-hover, #f1f5f9)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.2"/>
+  <text x="400" y="200" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--green, #10b981)">QUADRANT 3: DEVELOPMENT &amp; VALIDATION</text>
+  <text x="400" y="225" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Concept &rarr; Requirements &rarr; Architecture</text>
+  <text x="400" y="245" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; Detailed design, coding, unit testing</text>
+  <text x="400" y="265" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">&bull; System integration and formal verification</text>
+
+  <line x1="380" y1="20" x2="380" y2="320" stroke="var(--text-primary, #0f172a)" stroke-width="2"/>
+  <line x1="30" y1="170" x2="730" y2="170" stroke="var(--text-primary, #0f172a)" stroke-width="2"/>
+
+  <line x1="380" y1="170" x2="720" y2="30" stroke="var(--accent, #3b82f6)" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#se-arr)"/>
+  <text x="550" y="148" font-family="sans-serif" font-size="11" font-weight="700" fill="var(--accent, #3b82f6)">Cumulative Cost &rarr;</text>
+
+  <circle cx="380" cy="170" r="5" fill="var(--green, #10b981)"/>
+  <text x="365" y="185" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="800" fill="var(--green, #10b981)">START</text>
+</svg></div>
+<h4>Four Quadrants:</h4><ul><li><strong>1. Objective Setting (Quadrant 1):</strong> Specific objectives for the phase are identified. Constraints on processes and products are defined, and a detailed management plan is drawn up.</li><li><strong>2. Risk Assessment and Reduction (Quadrant 2):</strong> For each identified project risk, a detailed analysis is carried out. Steps are taken to reduce risks (e.g. prototyping, simulations, benchmarking).</li><li><strong>3. Development and Validation (Quadrant 3):</strong> A development model for the system is chosen based on remaining risks (e.g. waterfall if low risk, evolutionary prototype if UX risk, etc.). The increment is built and validated.</li><li><strong>4. Planning (Quadrant 4):</strong> The project is reviewed and a decision is made whether to continue with a further loop of the spiral. Plans are drawn up for the next phase.</li></ul>
+<h4>Advantages Over Waterfall:</h4><ul><li>Explicit risk management avoids unexpected project catastrophes.</li><li>Accommodates evolving requirements through successive spiral loops.</li><li>Allows different sub-models to be selected within different phases.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 2.3.2 (pp. 55-57)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q08 -->
+        <article class="pyq-card" id="se-q08" data-unit="unit-1" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 1</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb 2024 Q1.a (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit1/unit-1-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 1 Notes">
+            <span>📖 Theory Link: Unit 1 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">With a neat diagram, explain the activity model of the Insulin Pump control system. Why is this considered a safety-critical system?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>The <strong>Insulin Pump</strong> is a safety-critical embedded system used to regulate blood sugar in patients with Type 1 diabetes. It measures micro-current blood glucose levels, computes insulin requirement, and drives a pump micro-motor.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 250" class="diagram-svg" role="img" aria-label="Insulin Pump Activity Diagram" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Insulin Pump Control System Activity Diagram</title>
+  <desc>UML Activity diagram showing read sensor, compute dose, safety check decision diamond, pump actuation, logging, and timer delay.</desc>
+  <defs>
+    <marker id="se-act-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+  </defs>
+
+  <!-- Start state -->
+  <circle cx="45" cy="110" r="12" fill="var(--text-primary, #0f172a)"/>
+  <line x1="57" y1="110" x2="88" y2="110" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#se-act-arr)"/>
+
+  <!-- Action 1 -->
+  <rect x="90" y="85" width="130" height="50" rx="16" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2"/>
+  <text x="155" y="107" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--text-primary, #0f172a)">Read Blood</text>
+  <text x="155" y="123" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Glucose Sensor</text>
+
+  <line x1="220" y1="110" x2="250" y2="110" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#se-act-arr)"/>
+
+  <!-- Action 2 -->
+  <rect x="252" y="85" width="135" height="50" rx="16" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2"/>
+  <text x="319" y="107" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--text-primary, #0f172a)">Calculate Rate &amp;</text>
+  <text x="319" y="123" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Compute Dose</text>
+
+  <line x1="387" y1="110" x2="415" y2="110" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#se-act-arr)"/>
+
+  <!-- Decision Diamond -->
+  <polygon points="445,85 475,110 445,135 415,110" fill="var(--surface-hover, #f1f5f9)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="445" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#f59e0b">Dose &le; Limit?</text>
+
+  <!-- Safe path (Yes) -->
+  <line x1="475" y1="110" x2="512" y2="110" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#se-act-arr)"/>
+  <text x="490" y="102" font-family="sans-serif" font-size="11" font-weight="800" fill="var(--green, #10b981)">[Yes]</text>
+
+  <!-- Action 3 -->
+  <rect x="515" y="85" width="130" height="50" rx="16" fill="var(--green-tint, #ecfdf5)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <text x="580" y="107" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="800" fill="var(--green-tint-ink, #065f46)">Deliver Insulin</text>
+  <text x="580" y="123" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--green-tint-ink, #065f46)">(Actuate Needle)</text>
+
+  <!-- Unsafe path (No) -->
+  <line x1="445" y1="135" x2="445" y2="190" stroke="#ef4444" stroke-width="2" marker-end="url(#se-act-arr)"/>
+  <text x="450" y="155" font-family="sans-serif" font-size="11" font-weight="800" fill="#ef4444">[No: Limit Exceeded]</text>
+
+  <rect x="380" y="190" width="130" height="45" rx="14" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" stroke-width="2"/>
+  <text x="445" y="210" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="800" fill="#ef4444">Trigger Alarm</text>
+  <text x="445" y="224" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#ef4444">&amp; Fail-Safe Lock</text>
+
+  <!-- Bullseye End State -->
+  <circle cx="705" cy="110" r="14" fill="none" stroke="var(--text-primary, #0f172a)" stroke-width="2"/>
+  <circle cx="705" cy="110" r="8" fill="var(--text-primary, #0f172a)"/>
+  <line x1="645" y1="110" x2="688" y2="110" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#se-act-arr)"/>
+</svg></div>
+<h4>Activity Steps:</h4><ul>
+<li>1. Read blood sensor output.</li>
+<li>2. Calculate blood sugar level and rate of change.</li>
+<li>3. Compute required insulin dose.</li>
+<li>4. Run safety check: ensure dose <= maximum safe single bolus.</li>
+<li>5. Command needle pump actuator to deliver computed units.</li>
+<li>6. Log delivery timestamp and insulin remaining.</li>
+<li>7. Wait for scheduled sampling interval (e.g. 10 minutes).</li>
+</ul>
+It is safety-critical because failure can cause death: delivering too little insulin leads to hyper-glycaemic coma; delivering an overdose leads to fatal hypo-glycaemia. The system must never fail silently and must run fail-safe self-diagnostics.
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 1.4 (pp. 31-34)
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
+
+      <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
+        <div class="section-badge">UNIT 2</div>
+        <h2 class="section-title">Unit 2 Examination Questions &amp; Answers</h2>
+        <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
+
+        <!-- Question se-q09 -->
+        <article class="pyq-card" id="se-q09" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2025 Q1.b (7M)</span><span class="year-chip">SEE Feb/Mar 2025 Q3.b (6M)</span><span class="year-chip">SEE Feb/Mar 2025 Q4.b (6M)</span><span class="year-chip">SEE Jan 2026 Q3.a (6M)</span><span class="year-chip">SEE Feb 2024 Q3.a (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Differentiate between Functional and Non-Functional Requirements (NFRs). Provide two examples of each for an e-commerce website and develop a list of NFRs for a real-time banking application.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Definitions:</h4>
+<p><strong>Functional:</strong> <strong>Functional Requirements</strong> describe the specific services, functions, and behaviors the system must provide, detailing how the system should react to particular inputs and how it should behave in specific situations.</p>
+<p><strong>Non Functional:</strong> <strong>Non-Functional Requirements (NFRs)</strong> are constraints on the services or functions offered by the system. They include performance constraints, reliability, availability, security, regulatory standards, and development toolchain constraints.</p>
+<h4>Comparison Table:</h4>
+<h5>Headers:</h5><ul><li>Dimension</li><li>Functional Requirements</li><li>Non-Functional Requirements</li></ul>
+<h5>Rows:</h5><ul><li>['Scope', 'Individual features or sub-functions.', 'System-wide properties and emergent characteristics.']</li><li>['Focus', 'What the system should DO.', 'How well or under what constraints the system PERFORMS.']</li><li>['Verification', 'Tested via functional/unit test cases.', 'Tested via load, stress, security, and benchmark tests.']</li><li>['Failure Consequence', 'A specific function is disabled or unavailable.', 'Whole system may be rendered unusable or legally uncompliant.']</li></ul>
+<h4>Ecommerce Examples:</h4>
+<h5>Functional:</h5><ul><li>1. The user shall be able to search products by keyword, category, and price range.</li><li>2. The system shall allow registered users to add items to a cart and pay via credit card, UPI, or net banking.</li></ul>
+<h5>Non Functional:</h5><ul><li>1. <strong>Performance:</strong> The product search results page shall load within 1.5 seconds for up to 10,000 concurrent users.</li><li>2. <strong>Security:</strong> All credit card transactions must comply with PCI-DSS 3.2 and all customer data must be encrypted at rest using AES-256.</li></ul>
+<h4>Banking Nfrs:</h4><ul><li><strong>Availability:</strong> System uptime must be >= 99.99% (maximum 52 minutes unplanned downtime per year).</li><li><strong>Transaction Latency:</strong> Fund transfers via IMPS/NEFT must complete and respond within 2.0 seconds.</li><li><strong>Security:</strong> Multi-factor authentication (MFA) required for transfers > INR 10,000; session timeout after 3 minutes of inactivity.</li><li><strong>Auditability:</strong> Immutable audit logs for all monetary transactions retained for 10 years per RBI regulations.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.1 (pp. 102-109)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q10 -->
+        <article class="pyq-card" id="se-q10" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2025 Q2.b (7M)</span><span class="year-chip">SEE Feb 2024 Q4.b (6M)</span><span class="year-chip">SEE Jan 2026 Q3.c (6M)</span><span class="year-chip">SEE Feb/Mar 2025(O) Q4.b (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">What are the common challenges faced during requirements elicitation, and how can a software engineer mitigate them?</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Requirements Elicitation</strong> is the process of interacting with stakeholders to discover what services the system should provide, the required performance, and system constraints.</p>
+<h4>Challenges And Mitigations:</h4><ul><li>{'challenge': "<strong>1. Articulation Gap (Stakeholders don't know what they want):</strong> Users find it difficult to express what they need, except in the most general terms, or express unrealistic demands.", 'mitigation': 'Develop rapid interactive throwaway prototypes, use concrete scenarios and User Stories rather than abstract questionnaires.'}</li><li>{'challenge': '<strong>2. Domain Jargon & Communication Barrier:</strong> Stakeholders describe needs using domain-specific jargon that software engineers misunderstand, and engineers use technical jargon that confuses users.', 'mitigation': 'Establish a shared project glossary/data dictionary; conduct joint workshop sessions (JAD) with embedded domain experts.'}</li><li>{'challenge': '<strong>3. Conflicting Stakeholder Requirements:</strong> Different departments (e.g. Finance vs. Security vs. Operations) have incompatible goals and priorities.', 'mitigation': "Conduct requirements negotiation workshops; use MoSCoW prioritization (Must have, Should have, Could have, Won't have) and formal trade-off matrices."}</li><li>{'challenge': '<strong>4. Tacit Knowledge & Social Factors:</strong> Users perform routine complex organizational procedures unconsciously that they forget to mention; organizational politics can skew input.', 'mitigation': 'Employ <strong>Ethnography</strong> (observing users at work in their real environment) to uncover tacit workflow patterns and institutional culture.'}</li><li>{'challenge': '<strong>5. Requirement Volatility:</strong> Business priorities, regulations, and technologies change while requirements are being gathered.', 'mitigation': 'Maintain a strict Requirements Traceability Matrix (RTM) and adopt short iterative agile cycles to re-baseline frequently.'}</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.4 (pp. 116-123)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q11 -->
+        <article class="pyq-card" id="se-q11" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">5 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2025 Q3.b (5M)</span><span class="year-chip">SEE Jan 2026 Q5.a (8M)</span><span class="year-chip">SEE Feb 2024 Q5.b (10M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-4" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 4</span>
+          </a>
+
+          <h3 class="pyq-question-text">Create a simple Use Case Diagram for a 'Library Management System' involving actors like Member and Librarian, with at least three key use cases, and explain include/extend relationships.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>A <strong>Use Case Diagram</strong> in UML models the functional requirements of a system by identifying interactions between external actors and system use cases.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 420" class="diagram-svg" role="img" aria-label="Use Case Diagram for Library Management System showing Member and Librarian actors" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="uc-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)" />
+    </marker>
+    <marker id="uc-arr-dash" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink-muted)" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Container -->
+  <rect x="5" y="5" width="770" height="410" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">LIBRARY MANAGEMENT SYSTEM &bull; USE CASE DIAGRAM (RAMAIAH CIE-1 Q3.b)</text>
+
+  <!-- Left Actor: Library Member -->
+  <g transform="translate(60, 160)">
+    <!-- Stick Figure: Member -->
+    <circle cx="0" cy="-35" r="14" fill="none" stroke="var(--ink)" stroke-width="2.2" />
+    <line x1="0" y1="-21" x2="0" y2="18" stroke="var(--ink)" stroke-width="2.2" />
+    <line x1="-22" y1="-5" x2="22" y2="-5" stroke="var(--ink)" stroke-width="2.2" />
+    <line x1="0" y1="18" x2="-18" y2="52" stroke="var(--ink)" stroke-width="2.2" />
+    <line x1="0" y1="18" x2="18" y2="52" stroke="var(--ink)" stroke-width="2.2" />
+    <rect x="-42" y="62" width="84" height="22" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+    <text x="0" y="77" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">&laquo;Actor&raquo; Member</text>
+  </g>
+
+  <!-- Right Actor: Librarian -->
+  <g transform="translate(720, 160)">
+    <!-- Stick Figure: Librarian -->
+    <circle cx="0" cy="-35" r="14" fill="none" stroke="var(--brand)" stroke-width="2.2" />
+    <line x1="0" y1="-21" x2="0" y2="18" stroke="var(--brand)" stroke-width="2.2" />
+    <line x1="-22" y1="-5" x2="22" y2="-5" stroke="var(--brand)" stroke-width="2.2" />
+    <line x1="0" y1="18" x2="-18" y2="52" stroke="var(--brand)" stroke-width="2.2" />
+    <line x1="0" y1="18" x2="18" y2="52" stroke="var(--brand)" stroke-width="2.2" />
+    <rect x="-45" y="62" width="90" height="22" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+    <text x="0" y="77" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--brand)" text-anchor="middle">&laquo;Actor&raquo; Librarian</text>
+  </g>
+
+  <!-- System Boundary Box -->
+  <rect x="145" y="48" width="490" height="350" rx="10" fill="none" stroke="var(--brand)" stroke-width="1.8" stroke-dasharray="6,4" />
+  <rect x="155" y="55" width="220" height="20" rx="4" fill="var(--surface-alt)" />
+  <text x="165" y="69" font-family="var(--font-mono)" font-size="10.5" font-weight="700" fill="var(--brand)">System: Library Management</text>
+
+  <!-- Use Case 1: Search Books -->
+  <g transform="translate(260, 105)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="4" font-family="var(--font-display)" font-size="11" font-weight="600" fill="var(--ink)" text-anchor="middle">Search &amp; Browse Catalog</text>
+  </g>
+
+  <!-- Use Case 2: Borrow Book -->
+  <g transform="translate(260, 175)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="4" font-family="var(--font-display)" font-size="11" font-weight="600" fill="var(--ink)" text-anchor="middle">Borrow Book</text>
+  </g>
+
+  <!-- Use Case 3: Return Book -->
+  <g transform="translate(260, 245)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="4" font-family="var(--font-display)" font-size="11" font-weight="600" fill="var(--ink)" text-anchor="middle">Return Book</text>
+  </g>
+
+  <!-- Use Case 4: Verify Member Eligibility (Included) -->
+  <g transform="translate(490, 140)">
+    <ellipse cx="0" cy="0" rx="95" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Validate Member Identity</text>
+  </g>
+
+  <!-- Use Case 5: Pay Overdue Fine (Extended) -->
+  <g transform="translate(490, 220)">
+    <ellipse cx="0" cy="0" rx="95" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Calculate &amp; Collect Fine</text>
+  </g>
+
+  <!-- Use Case 6: Manage Book Inventory (Librarian) -->
+  <g transform="translate(490, 310)">
+    <ellipse cx="0" cy="0" rx="95" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Manage Catalog &amp; Stock</text>
+  </g>
+
+  <!-- Use Case 7: Generate Circulation Reports -->
+  <g transform="translate(260, 340)">
+    <ellipse cx="0" cy="0" rx="90" ry="24" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="4" font-family="var(--font-display)" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Generate Overdue Report</text>
+  </g>
+
+  <!-- Association Lines from Member -->
+  <line x1="75" y1="145" x2="170" y2="105" stroke="var(--ink)" stroke-width="1.5" />
+  <line x1="75" y1="160" x2="170" y2="175" stroke="var(--ink)" stroke-width="1.5" />
+  <line x1="75" y1="175" x2="170" y2="245" stroke="var(--ink)" stroke-width="1.5" />
+
+  <!-- Association Lines from Librarian -->
+  <line x1="705" y1="145" x2="585" y2="140" stroke="var(--brand)" stroke-width="1.5" />
+  <line x1="705" y1="160" x2="585" y2="220" stroke="var(--brand)" stroke-width="1.5" />
+  <line x1="705" y1="180" x2="585" y2="310" stroke="var(--brand)" stroke-width="1.5" />
+  <line x1="705" y1="195" x2="350" y2="340" stroke="var(--brand)" stroke-width="1.5" />
+
+  <!-- Relationship: Borrow Book <<include>> Validate Member Identity -->
+  <path d="M 345 162 L 400 148" fill="none" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#uc-arr-dash)" />
+  <rect x="340" y="138" width="60" height="14" rx="3" fill="var(--surface)" />
+  <text x="370" y="148" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">&laquo;include&raquo;</text>
+
+  <!-- Relationship: Return Book <<extend>> Calculate & Collect Fine -->
+  <path d="M 400 228 L 348 238" fill="none" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#uc-arr-dash)" />
+  <rect x="350" y="222" width="60" height="14" rx="3" fill="var(--surface)" />
+  <text x="380" y="232" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">&laquo;extend&raquo;</text>
+</svg></div>
+<h4>Actors:</h4><ul><li><strong>Member:</strong> Student/Faculty borrowing books, searching catalog, reserving items.</li><li><strong>Librarian:</strong> Staff managing book catalog, issuing/returning books, assessing fines.</li></ul>
+<h4>Use Cases:</h4><ul><li>1. <strong>Search Catalog:</strong> Both Member and Librarian query library database by title/author/ISBN.</li><li>2. <strong>Borrow / Issue Book:</strong> Librarian issues book to verified Member.</li><li>3. <strong>Return Book:</strong> Librarian processes returned book; if overdue, extends to 'Calculate Fine'.</li><li>4. <strong>Renew Membership:</strong> Member applies for renewal, Librarian approves.</li></ul>
+<h4>Relationships:</h4><ul><li><strong>&lt;&lt;include&gt;&gt;:</strong> Mandatory behavior extracted into a common use case (e.g. 'Issue Book' &lt;&lt;include&gt;&gt; 'Verify Member Card').</li><li><strong>&lt;&lt;extend&gt;&gt;:</strong> Optional or conditional behavior triggered under specific circumstances (e.g. 'Calculate Fine' extends 'Return Book' only if return date is overdue).</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 5.2 (pp. 142-146)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q12 -->
+        <article class="pyq-card" id="se-q12" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Ramaiah CIE-1 2025 Q3.c (4M)</span><span class="year-chip">SEE Feb/Mar 2025 Q3.c (7M)</span><span class="year-chip">SEE Feb 2024 Q3.c (6M)</span><span class="year-chip">SEE Feb/Mar 2025(O) Q3.c (6M)</span><span class="year-chip">SEE Jan 2023 Q4.b (5M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">List and briefly explain the requirement validation process and the five different checks carried out during validation.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Requirements Validation</strong> is the process of checking that requirements actually define the system that the customer really wants. Discovering requirements errors at this stage saves astronomical rework costs later in the development cycle.</p>
+<h4>Five Checks:</h4><ul><li><strong>1. Validity Checks:</strong> Does the system provide the functions which best support the customer's real operational needs?</li><li><strong>2. Consistency Checks:</strong> Requirements in the document should not conflict (e.g. one section stating 24/7 availability while another stating nightly 4-hour maintenance shutdown).</li><li><strong>3. Completeness Checks:</strong> The document should include all requirements and constraints requested by the user, covering all normal and exception cases.</li><li><strong>4. Realism Checks:</strong> Can the requirements actually be implemented using known technologies, within budget and schedule constraints?</li><li><strong>5. Verifiability Checks:</strong> Can the requirements be objectively tested? Every requirement must be phrased so that a software tester can design an unambiguous pass/fail test.</li></ul>
+<h4>Validation Techniques:</h4><ul><li><strong>Requirements Reviews (Walkthroughs):</strong> Systematic manual analysis by developers, customers, and contractors.</li><li><strong>Prototyping:</strong> Building an executable model to test user reaction and validate assumptions.</li><li><strong>Test-Case Generation:</strong> If creating a test case is impossible for a requirement, it is ambiguous and must be rewritten.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.5 (pp. 123-125)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q13 -->
+        <article class="pyq-card" id="se-q13" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb/Mar 2025 Q3.a (7M)</span><span class="year-chip">SEE Feb 2024 Q4.c (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is Ethnography? Illustrate with a diagram how combining Ethnography and Prototyping helps the requirements discovery process.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Ethnography</strong> is an observational technique where an analyst immerses themselves in the actual working environment where the system is to be used, watching the day-to-day work and noting how people actually collaborate and use information.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 210" class="diagram-svg" role="img" aria-label="Ethnography and Prototyping Integration" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Combining Ethnography and Prototyping in Requirements Discovery</title>
+  <desc>Dual feedback methodology: Ethnographic observation discovers social nuances, while Prototyping focuses observational queries.</desc>
+  <defs>
+    <marker id="se-eth-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+    <marker id="se-eth-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--green, #10b981)"/>
+    </marker>
+  </defs>
+
+  <rect x="40" y="30" width="220" height="70" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="150" y="58" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="800" fill="var(--accent, #3b82f6)">Ethnographic Analysis</text>
+  <text x="150" y="78" text-anchor="middle" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">Observational study of actual workflows</text>
+
+  <rect x="500" y="30" width="220" height="70" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--green, #10b981)" stroke-width="2.5"/>
+  <text x="610" y="58" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="800" fill="var(--green, #10b981)">Software Prototyping</text>
+  <text x="610" y="78" text-anchor="middle" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">Interactive mockup &amp; scenario testing</text>
+
+  <path d="M 260 50 L 490 50" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#se-eth-arr)"/>
+  <text x="380" y="42" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--accent, #3b82f6)">Reveals implicit workflows &rarr;</text>
+
+  <path d="M 490 80 L 270 80" fill="none" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#se-eth-arr-green)"/>
+  <text x="380" y="96" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--green, #10b981)">&larr; Focuses observational questions</text>
+
+  <rect x="250" y="140" width="260" height="50" rx="8" fill="var(--surface-hover, #f1f5f9)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="380" y="162" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="#f59e0b">Discovered System Requirements</text>
+  <text x="380" y="178" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Validated user needs &amp; social context</text>
+
+  <path d="M 150 100 Q 150 165 240 165" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#se-eth-arr)"/>
+  <path d="M 610 100 Q 610 165 520 165" fill="none" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#se-eth-arr-green)"/>
+</svg></div>
+<h4>Why Ethnography Matters:</h4><ul><li>Discovers <strong>implicit (tacit) requirements</strong> that workers cannot articulate because procedures are second nature to them.</li><li>Identifies <strong>social and organizational factors</strong> that determine whether a software system will actually be accepted or resisted in practice.</li><li>Limitation: Ethnography reveals how people currently work, but cannot innovate or establish new organizational structures.</li></ul>
+<h4>Combining With Prototyping:</h4><p>Prototyping is focused and forward-looking, but can overlook subtle workplace dynamics. When combined:<br/>- <strong>Ethnography</strong> informs the early prototype by grounding it in real workplace habits.<br/>- <strong>Prototyping</strong> directs the ethnographer's focus to specific workflows and provides a concrete artifact for users to critique.</p>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.4.4 (pp. 120-123)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q14 -->
+        <article class="pyq-card" id="se-q14" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb/Mar 2025 Q4.a (7M)</span><span class="year-chip">SEE Feb/Mar 2025(O) Q3.b (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-2" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 2</span>
+          </a>
+
+          <h3 class="pyq-question-text">What are the problems with using Natural Language for specifying systems requirements? Explain how Structured Natural Language specifications overcome these problems.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>Problems With Natural Language:</h4><ul><li><strong>1. Ambiguity & Lack of Clarity:</strong> Authors mistakenly assume readers share their implicit context, causing words to be interpreted differently by developers and clients.</li><li><strong>2. Requirements Confusion:</strong> Functional requirements, non-functional requirements, project goals, and design details become mixed up in the same paragraph.</li><li><strong>3. Requirements Amalgamation:</strong> Multiple distinct requirements are lumped together into a single sprawling sentence.</li><li><strong>4. Over-Flexibility:</strong> The same concept can be phrased in ten different ways, making automated verification or cross-referencing impossible.</li></ul>
+<h4>Structured Natural Language Solution:</h4><ul><li>Uses a standard form/template with mandatory predefined fields to write requirements.</li><li><strong>Standard Fields:</strong> Function Name, Description, Inputs (source & format), Outputs (destination & rate), Pre-conditions, Post-conditions, Side-effects, Exceptions.</li><li>Maintains readability for non-technical clients while enforcing rigor, completeness, and consistency for engineers.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.3 (pp. 112-116)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q15 -->
+        <article class="pyq-card" id="se-q15" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">7 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb/Mar 2025 Q4.c (7M)</span><span class="year-chip">SEE Jan 2026 Q3.b (8M)</span><span class="year-chip">SEE Jan 2023 Q4.a (10M)</span><span class="year-chip">SEE Feb/Mar 2025(O) Q3.b (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-2" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 2</span>
+          </a>
+
+          <h3 class="pyq-question-text">Explain the structure of a Software Requirements Specification (SRS) document according to IEEE 830 standard and highlight the characteristics of a good SRS document.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>The <strong>Software Requirements Specification (SRS)</strong> is the official statement of what the system developers should implement. It serves as a contract between customer and developer.</p>
+<h4>Ieee 830 Structure:</h4><ul><li><strong>1. Introduction:</strong> 1.1 Purpose, 1.2 Scope, 1.3 Definitions/Acronyms, 1.4 References, 1.5 Overview.</li><li><strong>2. Overall Description:</strong> 2.1 Product Perspective, 2.2 Product Functions, 2.3 User Characteristics, 2.4 General Constraints, 2.5 Assumptions and Dependencies.</li><li><strong>3. Specific Requirements:</strong> Detailed functional requirements, non-functional requirements (performance, reliability, security), external interface requirements (user, hardware, software, communications), and design constraints.</li><li><strong>4. Appendices & Index:</strong> Hardware specs, sample input/output forms, glossary.</li></ul>
+<h4>Characteristics Of Good Srs:</h4><ul><li><strong>Correct:</strong> Every requirement stated is one that the software shall meet.</li><li><strong>Unambiguous:</strong> Every requirement has only one interpretation.</li><li><strong>Complete:</strong> Includes all significant requirements (inputs, outputs, exceptions).</li><li><strong>Consistent:</strong> No two requirements conflict with each other.</li><li><strong>Verifiable:</strong> There exists a finite, cost-effective test to verify each requirement.</li><li><strong>Modifiable & Traceable:</strong> Well-structured with unique IDs so changes can be tracked easily.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.2 (pp. 109-112) & IEEE 830-1998
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q16 -->
+        <article class="pyq-card" id="se-q16" data-unit="unit-2" data-priority="high">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-high">High Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Jan 2026 Q4.a (10M)</span><span class="year-chip">SEE Feb 2024 Q1.b (6M)</span><span class="year-chip">SEE Feb 2024 Q4.a (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">With a neat diagram, explain the overall Requirements Engineering (RE) process and its primary activities.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p>The <strong>Requirements Engineering Process</strong> is a structured set of activities used to discover, analyze, specify, validate, and maintain a software requirements document.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 320" class="diagram-svg" role="img" aria-label="Requirements Engineering Process Flow with Feedback Loops" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="re-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)" />
+    </marker>
+    <marker id="re-arr-back" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink-muted)" />
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect x="5" y="5" width="770" height="310" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">THE REQUIREMENTS ENGINEERING SPIRAL PROCESS &bull; SOMMERVILLE CH. 4</text>
+
+  <!-- Activity 1: Requirements Elicitation -->
+  <g transform="translate(30, 60)">
+    <rect width="165" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <rect width="165" height="26" rx="8" fill="var(--surface-alt)" />
+    <text x="82" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">1. Elicitation &amp; Discovery</text>
+    <line x1="0" y1="26" x2="165" y2="26" stroke="var(--border)" stroke-width="1" />
+    <text x="12" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Stakeholder Interviews</text>
+    <text x="12" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Use Cases &amp; Scenarios</text>
+    <text x="12" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Ethnography / Observation</text>
+    <text x="12" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Domain Document Analysis</text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 195 110 L 220 110" fill="none" stroke="var(--brand)" stroke-width="2" marker-end="url(#re-arr)" />
+
+  <!-- Activity 2: Requirements Analysis & Negotiation -->
+  <g transform="translate(225, 60)">
+    <rect width="165" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="82" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">2. Analysis &amp; Negotiation</text>
+    <line x1="0" y1="26" x2="165" y2="26" stroke="var(--border)" stroke-width="1" />
+    <text x="12" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Conflict Resolution</text>
+    <text x="12" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Feasibility Assessment</text>
+    <text x="12" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Prioritization (MoSCoW)</text>
+    <text x="12" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Boundary Clarification</text>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 390 110 L 415 110" fill="none" stroke="var(--brand)" stroke-width="2" marker-end="url(#re-arr)" />
+
+  <!-- Activity 3: Requirements Specification -->
+  <g transform="translate(420, 60)">
+    <rect width="165" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="82" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">3. Specification (SRS)</text>
+    <line x1="0" y1="26" x2="165" y2="26" stroke="var(--border)" stroke-width="1" />
+    <text x="12" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; User Requirements (FR/NFR)</text>
+    <text x="12" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; System Architecture Specs</text>
+    <text x="12" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; IEEE 830 Standard Format</text>
+    <text x="12" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Mathematical Models / UML</text>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 585 110 L 610 110" fill="none" stroke="var(--brand)" stroke-width="2" marker-end="url(#re-arr)" />
+
+  <!-- Activity 4: Requirements Validation -->
+  <g transform="translate(615, 60)">
+    <rect width="140" height="100" rx="8" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="70" y="18" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">4. Validation</text>
+    <line x1="0" y1="26" x2="140" y2="26" stroke="var(--border)" stroke-width="1" />
+    <text x="10" y="44" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Formal Reviews</text>
+    <text x="10" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Prototyping</text>
+    <text x="10" y="76" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Test-Case Gen</text>
+    <text x="10" y="92" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">&bull; Consistency Check</text>
+  </g>
+
+  <!-- Feedback loops from Validation back to Elicitation & Specification -->
+  <path d="M 685 160 L 685 190 L 112 190 L 112 165" fill="none" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#re-arr-back)" />
+  <rect x="330" y="182" width="160" height="16" rx="4" fill="var(--surface)" />
+  <text x="410" y="194" font-family="var(--font-mono)" font-size="8.5" fill="var(--ink-muted)" text-anchor="middle">Feedback Loop &bull; Defects Discovered</text>
+
+  <!-- Bottom Encompassing Layer: Requirements Management & RTM -->
+  <g transform="translate(30, 225)">
+    <rect width="725" height="70" rx="10" fill="var(--surface-alt)" stroke="var(--brand)" stroke-width="1.5" />
+    <text x="20" y="26" font-family="var(--font-display)" font-size="11.5" font-weight="700" fill="var(--brand)">CROSS-CUTTING GOVERNANCE: REQUIREMENTS MANAGEMENT &amp; TRACEABILITY (RTM)</text>
+    <text x="20" y="46" font-family="var(--font-mono)" font-size="9.5" fill="var(--ink)">1. Change Control Board (CCB) Impact Analysis &bull; 2. Forward &amp; Backward Traceability Matrix &bull; 3. Version Baselining</text>
+    <text x="20" y="60" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)">Links initial user needs &rarr; SRS specification items &rarr; design modules &rarr; executable verification test cases.</text>
+  </g>
+</svg></div>
+<h4>Four Primary Activities:</h4><ul><li><strong>1. Feasibility Study:</strong> Assesses whether the system contributes to business objectives, can be engineered within current tech/budget, and integrates with existing systems. Outputs a <em>Feasibility Report</em>.</li><li><strong>2. Requirements Elicitation and Analysis:</strong> Working with customers to discover domain info, system services, and operational constraints. Involves discovery, classification, prioritization, and negotiation.</li><li><strong>3. Requirements Specification:</strong> Translating information into a formal user and system requirements document (SRS).</li><li><strong>4. Requirements Validation:</strong> Checking that requirements are complete, consistent, realistic, verifiable, and conform to user desires.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.4 (pp. 116-125)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q17 -->
+        <article class="pyq-card" id="se-q17" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">10 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Jan 2026 Q4.b (10M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-1" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 1</span>
+          </a>
+
+          <h3 class="pyq-question-text">Consider an Automated Traffic Signal System. Write functional and non-functional requirements for this system.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <h4>System Context:</h4><p>An automated traffic control system installed at a busy four-way junction with inductive loop vehicle sensors, pedestrian push-buttons, and emergency vehicle optical detectors.</p>
+<h4>Functional Requirements:</h4><ul><li><strong>FR-01:</strong> The system shall cycle through Red, Yellow, and Green lights for each lane based on a dynamic time scheduler.</li><li><strong>FR-02:</strong> When inductive loop sensors detect a queue of > 10 vehicles in lane A, the system shall extend lane A green light duration by 15 seconds (up to a max of 60 seconds).</li><li><strong>FR-03:</strong> Upon pedestrian button press, the system shall transition conflicting vehicular signals to yellow and then red within 20 seconds, and activate the pedestrian walk indicator for 15 seconds.</li><li><strong>FR-04:</strong> Upon receiving an emergency vehicle optical strobe signal (ambulance/fire engine), the system shall immediately grant green right-of-way to that corridor while holding all conflicting lanes at red.</li><li><strong>FR-05:</strong> The system shall log vehicle counts and transition timings to local flash storage and upload hourly to central municipal servers.</li></ul>
+<h4>Non Functional Requirements:</h4><ul><li><strong>NFR-01 (Reliability):</strong> MTBF shall exceed 50,000 hours; hardware failures shall automatically trip signals into a flashing yellow/red fail-safe mode.</li><li><strong>NFR-02 (Safety):</strong> The controller must never illuminate green signals for conflicting perpendicular lanes simultaneously; verified via independent hardware interlock.</li><li><strong>NFR-03 (Performance):</strong> Transition latency between emergency strobe detection and green corridor activation shall not exceed 1.0 second.</li><li><strong>NFR-04 (Environmental):</strong> Outdoor controller enclosures must operate reliably between -10°C to +55°C and withstand IP65 moisture/dust rating.</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.1 (pp. 104-108)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q18 -->
+        <article class="pyq-card" id="se-q18" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Feb/Mar 2025(O) Q4.c (6M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-3" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 3</span>
+          </a>
+
+          <h3 class="pyq-question-text">With a diagram explain the principal stages of a Change Management process in Requirements Management.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Requirements Management</strong> is the process of managing changing requirements during requirements engineering and system development. Because change is inevitable, an explicit change management process ensures controlled, cost-aware evolution.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 160" class="diagram-svg" role="img" aria-label="Change Management Process" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Principal Stages of Change Management</title>
+  <desc>Three-stage change control workflow: Problem analysis, Change analysis & costing, and Change implementation.</desc>
+  <defs>
+    <marker id="se-cm-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+  </defs>
+
+  <rect x="30" y="40" width="200" height="75" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2"/>
+  <text x="130" y="68" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--accent, #3b82f6)">STAGE 1</text>
+  <text x="130" y="88" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--text-primary, #0f172a)">Problem Analysis &amp;</text>
+  <text x="130" y="103" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Change Specification</text>
+
+  <line x1="230" y1="77" x2="272" y2="77" stroke="var(--accent, #3b82f6)" stroke-width="2.5" marker-end="url(#se-cm-arr)"/>
+
+  <rect x="280" y="40" width="200" height="75" rx="8" fill="var(--surface-card, #ffffff)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="380" y="68" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="#f59e0b">STAGE 2</text>
+  <text x="380" y="88" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--text-primary, #0f172a)">Change Analysis &amp;</text>
+  <text x="380" y="103" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Costing (CCB Approval)</text>
+
+  <line x1="480" y1="77" x2="522" y2="77" stroke="var(--accent, #3b82f6)" stroke-width="2.5" marker-end="url(#se-cm-arr)"/>
+
+  <rect x="530" y="40" width="200" height="75" rx="8" fill="var(--green-tint, #ecfdf5)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <text x="630" y="68" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--green, #10b981)">STAGE 3</text>
+  <text x="630" y="88" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="800" fill="var(--green-tint-ink, #065f46)">Change Implementation</text>
+  <text x="630" y="103" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--green-tint-ink, #065f46)">&amp; Verification</text>
+</svg></div>
+<h4>Three Stages:</h4><ul>
+<li><strong>1. Problem Analysis & Change Specification:</strong> Identifies problem or change proposal; checks that request is valid and not a duplicate.</li>
+<li><strong>2. Change Analysis & Costing:</strong> Assesses impact on existing system, calculates cost in dollars and schedule delay using Traceability Matrices (RTM).</li>
+<li><strong>3. Change Implementation:</strong> Modifies requirements document, design models, and source code; regression tests; updates version baselines.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 4.6 (pp. 126-129)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q19 -->
+        <article class="pyq-card" id="se-q19" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">SEE Jan 2026 Q5.a (8M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-5" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 5</span>
+          </a>
+
+          <h3 class="pyq-question-text">What is an Interaction Model? Explain how Sequence Diagrams model dynamic interactions with lifelines, messages, and combined fragments.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <p><strong>Interaction Models</strong> show how system components interact with each other and with external actors. They model dynamic system behavior.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 390" class="diagram-svg" role="img" aria-label="Sequence Diagram for Book Borrowing interaction" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="seq-sync" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--brand)" />
+    </marker>
+    <marker id="seq-reply" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--ink-muted)" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="5" y="5" width="770" height="380" rx="14" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+  <text x="25" y="32" font-family="var(--font-display)" font-size="13" font-weight="700" fill="var(--ink)" letter-spacing="0.5">SEQUENCE DIAGRAM &bull; BOOK BORROWING &amp; CHECKOUT INTERACTION</text>
+
+  <!-- Lifeline 1: Member (Actor) -->
+  <g transform="translate(90, 52)">
+    <rect x="-55" y="0" width="110" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:Member</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4" />
+  </g>
+
+  <!-- Lifeline 2: LibraryWebUI -->
+  <g transform="translate(280, 52)">
+    <rect x="-65" y="0" width="130" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:LibraryWebUI</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4" />
+  </g>
+
+  <!-- Lifeline 3: BorrowController -->
+  <g transform="translate(480, 52)">
+    <rect x="-70" y="0" width="140" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:BorrowController</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4" />
+  </g>
+
+  <!-- Lifeline 4: CatalogDB -->
+  <g transform="translate(670, 52)">
+    <rect x="-60" y="0" width="120" height="30" rx="6" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1.5" />
+    <text x="0" y="19" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">:CatalogDB</text>
+    <line x1="0" y1="30" x2="0" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4" />
+  </g>
+
+  <!-- Activation Bars -->
+  <rect x="84" y="100" width="12" height="225" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+  <rect x="274" y="105" width="12" height="215" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+  <rect x="474" y="125" width="12" height="185" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+  <rect x="664" y="150" width="12" height="135" rx="2" fill="var(--surface-alt)" stroke="var(--border)" stroke-width="1" />
+
+  <!-- Message 1: Member -> UI -->
+  <line x1="96" y1="110" x2="272" y2="110" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)" />
+  <text x="180" y="104" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">1: submitBorrowRequest(isbn, id)</text>
+
+  <!-- Message 2: UI -> Controller -->
+  <line x1="286" y1="130" x2="472" y2="130" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)" />
+  <text x="380" y="124" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">2: validateBorrower(id)</text>
+
+  <!-- Message 3: Controller -> DB -->
+  <line x1="486" y1="155" x2="662" y2="155" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)" />
+  <text x="575" y="149" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">3: queryMemberStatus(id)</text>
+
+  <!-- Message 4: DB -> Controller (Return) -->
+  <line x1="664" y1="180" x2="488" y2="180" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)" />
+  <text x="575" y="174" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">4: return eligibility (0 fines, active)</text>
+
+  <!-- Message 5: Controller -> DB -->
+  <line x1="486" y1="210" x2="662" y2="210" stroke="var(--brand)" stroke-width="1.8" marker-end="url(#seq-sync)" />
+  <text x="575" y="204" font-family="var(--font-mono)" font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">5: updateBookStatus(isbn, BORROWED)</text>
+
+  <!-- Message 6: DB -> Controller (Return) -->
+  <line x1="664" y1="235" x2="488" y2="235" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)" />
+  <text x="575" y="229" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">6: recordCreated(loanId, due: 14d)</text>
+
+  <!-- Message 7: Controller -> UI (Return) -->
+  <line x1="474" y1="265" x2="288" y2="265" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)" />
+  <text x="380" y="259" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">7: checkoutSuccess(loanId, dueDate)</text>
+
+  <!-- Message 8: UI -> Member (Return) -->
+  <line x1="274" y1="295" x2="98" y2="295" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#seq-reply)" />
+  <text x="180" y="289" font-family="var(--font-mono)" font-size="9" fill="var(--ink-muted)" text-anchor="middle">8: displayCheckoutReceipt(loanId)</text>
+</svg></div>
+<h4>Sequence Diagram Elements:</h4><ul><li><strong>Lifelines:</strong> Dashed vertical lines representing participating objects or actors across time (time progresses downwards).</li><li><strong>Activation Bars:</strong> Tall narrow rectangles placed on lifelines showing the period during which an object is executing an operation.</li><li><strong>Synchronous Message (Solid Arrow with Filled Head):</strong> Caller blocks and waits for operation to return before proceeding.</li><li><strong>Asynchronous Message (Solid Line with Open Arrowhead):</strong> Caller sends message and continues execution immediately.</li><li><strong>Return Message (Dashed Line with Open Arrowhead):</strong> Value or control returned from called operation.</li><li><strong>Combined Fragments:</strong> Rectangular frames with operator tags like <code>alt</code> (if-else conditional branch), <code>opt</code> (optional execute if condition holds), and <code>loop</code> (iterative execution).</li></ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 5.2 (pp. 146-150)
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- Question se-q20 -->
+        <article class="pyq-card" id="se-q20" data-unit="unit-2" data-priority="medium">
+          <div class="pyq-header">
+            <div class="pyq-badges">
+              <span class="pyq-badge badge-unit">Unit 2</span>
+              <span class="pyq-badge badge-marks">6 Marks</span>
+              <span class="pyq-badge badge-med">Medium Priority</span>
+            </div>
+            <div class="pyq-years">
+              <span class="year-chip">Sommerville 10e Unit 2 Standard Curriculum Question</span><span class="year-chip">SEE 2023 Q5.b (12M)</span>
+            </div>
+          </div>
+
+          <a href="../unit2/unit-2-notes.html#sec-7" class="pyq-link-chip" title="Read full theory in Unit 2 Notes">
+            <span>📖 Theory Link: Unit 2 &sect; 7</span>
+          </a>
+
+          <h3 class="pyq-question-text">Differentiate between Data-Driven (Activity) models and Event-Driven (State Machine) models. Provide a simple State Machine diagram for a Microwave Oven.</h3>
+
+          <details class="pyq-answer-details" open>
+            <summary class="pyq-answer-summary">
+              <span>Model Exam Answer</span>
+            </summary>
+            <div class="pyq-answer-body">
+              <div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 210" class="diagram-svg" role="img" aria-label="Microwave Oven State Diagram" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Event-Driven State Machine: Microwave Oven</title>
+  <desc>State transition diagram showing Waiting, Cooking, and Interrupted states with transition guards and actions.</desc>
+  <defs>
+    <marker id="se-sm-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+  </defs>
+
+  <rect x="50" y="80" width="130" height="55" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="115" y="105" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="800" fill="var(--text-primary, #0f172a)">Waiting</text>
+  <text x="115" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Door closed</text>
+
+  <rect x="315" y="80" width="130" height="55" rx="8" fill="var(--green-tint, #ecfdf5)" stroke="var(--green, #10b981)" stroke-width="2.5"/>
+  <text x="380" y="105" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="800" fill="var(--green-tint-ink, #065f46)">Cooking</text>
+  <text x="380" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--green-tint-ink, #065f46)">Magnetron ON</text>
+
+  <rect x="580" y="80" width="130" height="55" rx="8" fill="var(--surface-card, #ffffff)" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="645" y="105" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="800" fill="#ef4444">Interrupted</text>
+  <text x="645" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">Magnetron OFF</text>
+
+  <!-- Forward Start -->
+  <line x1="180" y1="95" x2="307" y2="95" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#se-sm-arr)"/>
+  <text x="245" y="88" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--green, #10b981)">Start [Door Closed]</text>
+
+  <!-- Timer Done -->
+  <line x1="315" y1="120" x2="188" y2="120" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#se-sm-arr)"/>
+  <text x="245" y="135" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--accent, #3b82f6)">Timer Done</text>
+
+  <!-- Door Opened -->
+  <line x1="445" y1="95" x2="572" y2="95" stroke="#ef4444" stroke-width="2" marker-end="url(#se-sm-arr)"/>
+  <text x="512" y="88" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="#ef4444">Door Opened</text>
+
+  <!-- Door Closed & Restart -->
+  <line x1="580" y1="120" x2="453" y2="120" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#se-sm-arr)"/>
+  <text x="512" y="135" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="700" fill="var(--green, #10b981)">Door Closed &amp; Start</text>
+</svg></div>
+<ul><li><strong>Data-Driven Models (Activity Diagrams):</strong> Show the sequence of actions and processing steps involved in handling data. Best for batch processing, business data pipelines, and algorithms.</li><li><strong>Event-Driven Models (State Machine Diagrams):</strong> Show how a system responds to internal and external events by transitioning between discrete system states. Essential for real-time and embedded systems.</li></ul>
+<h4>State Machine Elements:</h4><ul>
+<li><strong>States (Rounded Rectangles):</strong> An abstraction of the system's condition (e.g. <em>Waiting</em>, <em>Cooking</em>, <em>Door Open</em>).</li>
+<li><strong>Transitions (Directed Arrows):</strong> Movement between states triggered by an event: <code>Trigger [Guard] / Action</code>.</li>
+</ul>
+              <div class="pyq-citation">
+                <strong>Source:</strong> Sommerville 10e, Chapter 5.4 (pp. 154-159)
+              </div>
+            </div>
+          </details>
+        </article>
+      </section>
 
       <!-- Out of Scope Questions Archive -->
       <section id="out-of-scope" class="note-section pyq-unit-section" style="opacity:0.85;">
@@ -399,10 +1793,10 @@
       <footer class="unit-nav-footer">
         <a href="../../../index.html#subject/se" class="nav-arrow-btn nav-back-center" style="text-align: center;">
           <span class="nav-arrow-sub">Course Portal</span>
-          <span class="nav-arrow-title"> Overview</span>
+          <span class="nav-arrow-title">24IS52 Overview</span>
         </a>
         <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
-          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-sub">Start Revision &rarr;</span>
           <span class="nav-arrow-title">Unit 1 Notes</span>
         </a>
       </footer>
@@ -431,7 +1825,7 @@
             card.style.display = 'block';
           } else if (f === 'high') {
             card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
-          } else if (f.startsWith('unit-')) {
+          } else {
             card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
           }
         });

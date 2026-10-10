@@ -15,8 +15,8 @@
 | **Gate 3: PYQ Gate** | All questions extracted, model answers written, citations verified | **PASS** | **175 in-scope answered**, 115 out-of-scope held, 0 unverified. |
 | **Gate 4: Link Gate** | All paths, PDFs, and previews resolve to 200 on disk | **PASS** | 98 registered files verified present on disk; zero broken paths. |
 | **Gate 5: Style Gate** | Hope Rise design tokens, responsive typography, AA contrast | **PASS** | Shared CSS tokens and accessibility contrast standards passed. |
-| **Gate 6: Handwritten Gate** | Open vector fonts, 0 Type-3 fonts, outline bookmarks, < 12 MB | **PASS** | 27 PDFs generated (20.7 MB, 594 total pages). |
-| **Gate 7: Site Gate** | Live exam schedule, countdown timer, search index, progress migration | **PASS** | 8 subjects with live exam schedules; 283 indexed search records. |
+| **Gate 6: Handwritten Gate** | Open vector fonts, 0 Type-3 fonts, outline bookmarks, < 12 MB | **PASS** | 27 PDFs generated (22.4 MB, 645 total pages). |
+| **Gate 7: Site Gate** | Live exam schedule chips, clean cards, search index, progress migration | **PASS** | 8 subjects with live exam schedules; 283 indexed search records. |
 | **Gate 8: Size & Hygiene Gate** | 0 copyrighted textbooks tracked in git; clean repository hygiene | **PASS** | 0 copyrighted textbooks tracked in git; .gitignore validated. |
 
 ---
@@ -33,7 +33,7 @@
 | **Thu 15-10-2026, 15:00–16:00** | `24AL58` | Research Methodology & IPR | Units 1, 2, 3 (Sampling) | 23 | 18 | 4 PDFs (79 pages) |
 | **Fri 16-10-2026, 09:30–10:30** | `24HS510` | Environmental Studies | Units 1, 2 | 25 | 15 | 3 PDFs (63 pages) |
 | **Fri 16-10-2026, 13:30–14:30** | `24IS54` | Theory of Computation | Units 1, 2 | 20 | 18 | 3 PDFs (64 pages) |
-| **TOTALS** | - | **8 Courses** | **19 In-Scope Units** | **175 Solved** | **115 Held** | **27 PDFs (594 pages)** |
+| **TOTALS** | - | **8 Courses** | **19 In-Scope Units** | **175 Solved** | **115 Held** | **27 PDFs (645 pages)** |
 
 ---
 

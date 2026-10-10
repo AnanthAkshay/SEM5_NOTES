@@ -248,7 +248,7 @@ def run_gate_6_handwritten(scope_data):
     }
 
 def run_gate_7_site(subjects_data, notes_index):
-    """Gate 7: Site Gate - Timetables, countdown, progress migration, and search index."""
+    """Gate 7: Site Gate - Timetables, exam schedule chips, progress migration, and search index."""
     print("\n--- Gate 7: Site Gate ---")
     errors = []
 
@@ -358,7 +358,7 @@ def main():
 | **Gate 4: Link Gate** | All paths, PDFs, and previews resolve to 200 on disk | **{g4['status']}** | {g4['checked_count']} registered files verified present on disk; zero broken paths. |
 | **Gate 5: Style Gate** | Hope Rise design tokens, responsive typography, AA contrast | **{g5['status']}** | Shared CSS tokens and accessibility contrast standards passed. |
 | **Gate 6: Handwritten Gate** | Open vector fonts, 0 Type-3 fonts, outline bookmarks, < 12 MB | **{g6['status']}** | {g6['total_notebooks']} PDFs generated ({g6['total_bytes_mb']}, {g6['total_pages']} total pages). |
-| **Gate 7: Site Gate** | Live exam schedule, countdown timer, search index, progress migration | **{g7['status']}** | 8 subjects with live exam schedules; {g7['index_count']} indexed search records. |
+| **Gate 7: Site Gate** | Live exam schedule chips, clean cards, search index, progress migration | **{g7['status']}** | 8 subjects with live exam schedules; {g7['index_count']} indexed search records. |
 | **Gate 8: Size & Hygiene Gate** | 0 copyrighted textbooks tracked in git; clean repository hygiene | **{g8['status']}** | 0 copyrighted textbooks tracked in git; .gitignore validated. |
 
 ---

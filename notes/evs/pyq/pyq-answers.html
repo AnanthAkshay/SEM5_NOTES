@@ -15,69 +15,43 @@
     })();
   </script>
 
-  <!-- Google Fonts Preconnect & Styles -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Self-Hosted KaTeX Math Styles -->
+  <!-- KaTeX for High-Fidelity Math Typesetting -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
 
-  <!-- Single Shared Notes Stylesheet -->
+  <!-- Theme and Layout Stylesheets -->
+  <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/notes.css">
-  
+
   <style>
-    .pyq-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-    }
-    .pyq-filter-btn {
-      padding: 0.4rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid var(--border-color);
-      background: var(--surface-hover);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .pyq-filter-btn:hover, .pyq-filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
     .pyq-card {
       background: var(--surface-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.4rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .pyq-card:hover {
       border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
     .pyq-header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.6rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
     .pyq-badges {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 0.4rem;
     }
     .pyq-badge {
@@ -175,6 +149,10 @@
       font-size: 0.88rem;
       color: var(--text-secondary);
     }
+    .pyq-diagram-wrap {
+      overflow-x: auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -190,7 +168,7 @@
       <div class="topbar-left">
         <a href="../../../index.html#subject/evs" class="back-btn" title="Return to Environmental Studies Overview">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>← 24HS510 Overview</span>
+          <span>&larr; 24HS510 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
@@ -232,9 +210,10 @@
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
-          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">&sect; Overview &amp; Statistics</a></li>
           <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (10)</a></li>
           <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (15)</a></li>
+          <li class="toc-item"><a href="#out-of-scope" class="toc-link">Out-of-Scope Archive (15)</a></li>
         </ol>
       </nav>
     </aside>
@@ -243,7 +222,7 @@
     <main class="notes-content" id="main-content">
       <!-- CIE-1 Scope Alert Banner -->
       <div class="cie1-banner">
-        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
+        <h3>🎯 CIE-1 Exam-Ready PYQ &amp; Model Answers Bank</h3>
         <p><strong>Course:</strong> Environmental Studies (24HS510) &bull; <strong>Exam Schedule:</strong>  (60 Mins, 30 Marks)</p>
         <p style="margin-top:0.4rem;">Contains <strong>25 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
       </div>
@@ -251,7 +230,7 @@
       <header class="notes-header" id="summary-overview">
         <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
         <h1 class="notes-title">Environmental Studies PYQ Solutions</h1>
-        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, 8M, and 10M questions with direct notes cross-references.</p>
         
         <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -259,7 +238,7 @@
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">In-Scope Questions</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#ef4444;">24</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">High Priority (Repeated)</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -267,7 +246,7 @@
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Units Covered</div>
           </div>
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
-            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">0</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--text-secondary);">15</div>
             <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Out-of-Scope Archived</div>
           </div>
         </div>
@@ -277,23 +256,23 @@
       <div class="pyq-filter-bar">
         <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); align-self:center; margin-right:0.4rem;">FILTER:</span>
         <button class="pyq-filter-btn active" data-filter="all">All (25)</button>
-        <button class="pyq-filter-btn" data-filter="high">High Priority (0)</button>
+        <button class="pyq-filter-btn" data-filter="high">High Priority (24)</button>
         <button class="pyq-filter-btn" data-filter="unit-1">Unit 1 (10)</button>
         <button class="pyq-filter-btn" data-filter="unit-2">Unit 2 (15)</button>
       </div>
 
       <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
         <div class="section-badge">UNIT 1</div>
-        <h2 class="section-title">Unit 1 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 1 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
 
         <!-- Question evs-q01 -->
-        <article class="pyq-card" id="evs-q01" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q01" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -332,12 +311,12 @@
         </article>
 
         <!-- Question evs-q02 -->
-        <article class="pyq-card" id="evs-q02" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q02" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -380,12 +359,12 @@
         </article>
 
         <!-- Question evs-q03 -->
-        <article class="pyq-card" id="evs-q03" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q03" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -431,12 +410,12 @@
         </article>
 
         <!-- Question evs-q04 -->
-        <article class="pyq-card" id="evs-q04" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q04" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -502,12 +481,12 @@
         </article>
 
         <!-- Question evs-q05 -->
-        <article class="pyq-card" id="evs-q05" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q05" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -527,6 +506,51 @@
             <div class="pyq-answer-body">
               <h4>1. Concept of Ecological Pyramids (Eltonian Pyramids)</h4>
 <p>An <strong>Ecological Pyramid</strong> is a graphical representation of ecological parameters (numbers, biomass, or energy) across successive trophic levels, with producers at the base and apex predators at the top.</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 280" class="diagram-svg" role="img" aria-label="Energy pyramid showing 10 percent energy transfer from producers to tertiary consumers" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+            <title>Lindeman's 10 Percent Energy Flow</title>
+            <!-- Tertiary Consumer (Apex) -->
+            <polygon points="320,30 440,30 470,80 290,80" fill="var(--surface)" stroke="var(--green)" stroke-width="2"/>
+            <text x="380" y="55" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">Tertiary Consumers</text>
+            <text x="380" y="72" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="11">25 kcal (0.1%)</text>
+
+            <!-- Secondary Consumer -->
+            <polygon points="290,85 470,85 510,140 250,140" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="380" y="110" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Secondary Consumers (Carnivores)</text>
+            <text x="380" y="128" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="11">250 kcal (1%)</text>
+
+            <!-- Primary Consumer -->
+            <polygon points="250,145 510,145 560,205 200,205" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="380" y="172" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Primary Consumers (Herbivores)</text>
+            <text x="380" y="190" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="11">2,500 kcal (10%)</text>
+
+            <!-- Primary Producers -->
+            <polygon points="200,210 560,210 620,270 140,270" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="380" y="235" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="13">Primary Producers (Autotrophs)</text>
+            <text x="380" y="255" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="12">25,000 kcal (100%)</text>
+
+            <!-- Heat Loss Side Arrows -->
+            <path d="M 520 110 L 610 110" stroke="#d9534f" stroke-width="2" marker-end="url(#arrow-red)" fill="none"/>
+            <text x="620" y="115" fill="#d9534f" font-weight="600" font-size="11">90% Dissipated as Heat</text>
+
+            <defs>
+              <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M 0 1 L 8 5 L 0 9 z" fill="#d9534f"/>
+              </marker>
+            </defs>
+          </svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 
 <h4>2. Three Types of Pyramids</h4>
 <ol>
@@ -556,12 +580,12 @@
         </article>
 
         <!-- Question evs-q06 -->
-        <article class="pyq-card" id="evs-q06" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q06" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -610,12 +634,12 @@
         </article>
 
         <!-- Question evs-q16 -->
-        <article class="pyq-card" id="evs-q16" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q16" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -644,12 +668,12 @@
         </article>
 
         <!-- Question evs-q17 -->
-        <article class="pyq-card" id="evs-q17" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q17" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -681,12 +705,12 @@
         </article>
 
         <!-- Question evs-q18 -->
-        <article class="pyq-card" id="evs-q18" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q18" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -715,12 +739,12 @@
         </article>
 
         <!-- Question evs-q25 -->
-        <article class="pyq-card" id="evs-q25" data-unit="unit-1" data-priority="medium">
+        <article class="pyq-card" id="evs-q25" data-unit="unit-1" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 1</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -751,16 +775,16 @@
 
       <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
         <div class="section-badge">UNIT 2</div>
-        <h2 class="section-title">Unit 2 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 2 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
 
         <!-- Question evs-q07 -->
-        <article class="pyq-card" id="evs-q07" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q07" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -805,12 +829,12 @@
         </article>
 
         <!-- Question evs-q08 -->
-        <article class="pyq-card" id="evs-q08" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q08" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -830,6 +854,60 @@
             <div class="pyq-answer-body">
               <h4>1. Ecological Functions of Forests (Why Forests are 'Earth's Lungs')</h4>
 <p>Forests are called <strong>Earth's Lungs</strong> because through photosynthetic gas exchange, dense forest canopies absorb massive volumes of carbon dioxide ($CO_2$) and release oxygen ($O_2$) vital for aerobic life:</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 250" class="diagram-svg" role="img" aria-label="Nitrogen Biogeochemical Cycle" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>Nitrogen Biogeochemical Cycle</title>
+  <desc>Complete ecological cycle: Atmospheric N2, Biological Fixation, Ammonification, Nitrification, Assimilation, and Denitrification.</desc>
+  <defs>
+    <marker id="evs-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--green, #10b981)"/>
+    </marker>
+    <marker id="evs-arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect x="230" y="15" width="300" height="45" rx="8" fill="var(--green-tint, #ecfdf5)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <text x="380" y="42" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="800" fill="var(--green-tint-ink, #065f46)">Atmospheric Nitrogen (N2 - 78%)</text>
+
+  <rect x="40" y="90" width="180" height="50" rx="6" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="1.8"/>
+  <text x="130" y="112" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--text-primary, #0f172a)">1. Biological Fixation</text>
+  <text x="130" y="128" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">(Rhizobium, Azotobacter)</text>
+  <path d="M 280 60 Q 140 60 130 82" fill="none" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#evs-arr)"/>
+
+  <rect x="40" y="180" width="180" height="45" rx="6" fill="var(--surface-card, #ffffff)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.8"/>
+  <text x="130" y="202" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="var(--text-primary, #0f172a)">Ammonium (NH4+)</text>
+  <text x="130" y="218" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="var(--text-secondary, #64748b)">Ammonification by Decomposers</text>
+  <line x1="130" y1="140" x2="130" y2="172" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#evs-arr)"/>
+
+  <rect x="290" y="180" width="200" height="45" rx="6" fill="var(--surface-card, #ffffff)" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="390" y="202" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="var(--text-primary, #0f172a)">2. Nitrification (NO2- &rarr; NO3-)</text>
+  <text x="390" y="218" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="var(--text-secondary, #64748b)">Nitrosomonas &amp; Nitrobacter</text>
+  <line x1="220" y1="202" x2="282" y2="202" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#evs-arr)"/>
+
+  <rect x="540" y="180" width="180" height="45" rx="6" fill="var(--surface-card, #ffffff)" stroke="var(--green, #10b981)" stroke-width="1.8"/>
+  <text x="630" y="202" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="var(--text-primary, #0f172a)">3. Plant Assimilation</text>
+  <text x="630" y="218" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="var(--text-secondary, #64748b)">Organic Proteins / DNA</text>
+  <line x1="490" y1="202" x2="532" y2="202" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#evs-arr)"/>
+
+  <rect x="540" y="90" width="180" height="50" rx="6" fill="var(--surface-card, #ffffff)" stroke="#ef4444" stroke-width="1.8"/>
+  <text x="630" y="112" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--text-primary, #0f172a)">4. Denitrification</text>
+  <text x="630" y="128" text-anchor="middle" font-family="sans-serif" font-size="11" fill="var(--text-secondary, #64748b)">(Pseudomonas bacteria)</text>
+  <line x1="630" y1="180" x2="630" y2="148" stroke="var(--green, #10b981)" stroke-width="2" marker-end="url(#evs-arr)"/>
+  <path d="M 630 90 Q 620 60 480 60" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#evs-arr-red)"/>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
 <ul>
   <li><strong>Carbon Sink & Climate Regulation:</strong> Forests sequester over $45\%$ of terrestrial carbon. They act as thermal buffers and regulate precipitation through evapotranspiration.</li>
   <li><strong>Soil Conservation:</strong> Tree canopies intercept severe rain droplets, while root networks bind topsoil, preventing soil erosion, flash floods, and landslides.</li>
@@ -852,12 +930,12 @@
         </article>
 
         <!-- Question evs-q09 -->
-        <article class="pyq-card" id="evs-q09" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q09" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -903,12 +981,12 @@
         </article>
 
         <!-- Question evs-q10 -->
-        <article class="pyq-card" id="evs-q10" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q10" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -955,12 +1033,12 @@
         </article>
 
         <!-- Question evs-q11 -->
-        <article class="pyq-card" id="evs-q11" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q11" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -996,12 +1074,12 @@
         </article>
 
         <!-- Question evs-q12 -->
-        <article class="pyq-card" id="evs-q12" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q12" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1061,12 +1139,12 @@
         </article>
 
         <!-- Question evs-q13 -->
-        <article class="pyq-card" id="evs-q13" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q13" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1168,12 +1246,12 @@
         </article>
 
         <!-- Question evs-q15 -->
-        <article class="pyq-card" id="evs-q15" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q15" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">5 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1212,12 +1290,12 @@
         </article>
 
         <!-- Question evs-q19 -->
-        <article class="pyq-card" id="evs-q19" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q19" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1246,12 +1324,12 @@
         </article>
 
         <!-- Question evs-q20 -->
-        <article class="pyq-card" id="evs-q20" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q20" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1280,12 +1358,12 @@
         </article>
 
         <!-- Question evs-q21 -->
-        <article class="pyq-card" id="evs-q21" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q21" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1314,12 +1392,12 @@
         </article>
 
         <!-- Question evs-q22 -->
-        <article class="pyq-card" id="evs-q22" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q22" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1348,12 +1426,12 @@
         </article>
 
         <!-- Question evs-q23 -->
-        <article class="pyq-card" id="evs-q23" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q23" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1385,12 +1463,12 @@
         </article>
 
         <!-- Question evs-q24 -->
-        <article class="pyq-card" id="evs-q24" data-unit="unit-2" data-priority="medium">
+        <article class="pyq-card" id="evs-q24" data-unit="unit-2" data-priority="high">
           <div class="pyq-header">
             <div class="pyq-badges">
               <span class="pyq-badge badge-unit">Unit 2</span>
               <span class="pyq-badge badge-marks">1 Marks</span>
-              <span class="pyq-badge badge-med">Medium Priority</span>
+              <span class="pyq-badge badge-high">High Priority</span>
             </div>
             <div class="pyq-years">
               
@@ -1419,6 +1497,106 @@
         </article>
       </section>
 
+      <!-- Out of Scope Questions Archive -->
+      <section id="out-of-scope" class="note-section pyq-unit-section" style="opacity:0.85;">
+        <div class="section-badge" style="background:#ef4444; color:#fff;">ARCHIVED</div>
+        <h2 class="section-title">Out of CIE-1 Scope Questions (15 Questions)</h2>
+        <p class="section-lead">The following questions were identified in past papers but fall outside the official CIE-1 syllabus. They are preserved here to ensure zero questions are dropped.</p>
+
+        <details style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:10px; padding:1.2rem;">
+          <summary style="font-weight:700; cursor:pointer; color:var(--text-primary);">
+            View all 15 archived out-of-scope questions and exclusion rationale
+          </summary>
+          <div style="margin-top:1rem;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Paper / Origin</th>
+                  <th>Question Summary</th>
+                  <th>Exclusion Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: EVS CIE-1 scope includes Units 1 and 2 only. Unit 3 deep energy engineering is excluded.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 3 biofuels are excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Pollution is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Air Pollution is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Water Pollution chemistry is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Pollutants is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Wastewater engineering is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Solid waste is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 4 Noise pollution is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Environmental legislation is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Environmental governance is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Global climate governance is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Climate change is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Atmospheric depletion is excluded from CIE-1.</em></td>
+                </tr>
+                <tr>
+                  <td><code></code></td>
+                  <td></td>
+                  <td><em>Master Prompt boundary: Unit 5 Water conservation engineering is excluded from CIE-1.</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
 
       <!-- Unit Navigation Footer -->
       <footer class="unit-nav-footer">
@@ -1427,7 +1605,7 @@
           <span class="nav-arrow-title">24HS510 Overview</span>
         </a>
         <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
-          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-sub">Start Revision &rarr;</span>
           <span class="nav-arrow-title">Unit 1 Notes</span>
         </a>
       </footer>
@@ -1456,7 +1634,7 @@
             card.style.display = 'block';
           } else if (f === 'high') {
             card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
-          } else if (f.startsWith('unit-')) {
+          } else {
             card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
           }
         });

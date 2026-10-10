@@ -15,69 +15,43 @@
     })();
   </script>
 
-  <!-- Google Fonts Preconnect & Styles -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Self-Hosted KaTeX Math Styles -->
+  <!-- KaTeX for High-Fidelity Math Typesetting -->
   <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
 
-  <!-- Single Shared Notes Stylesheet -->
+  <!-- Theme and Layout Stylesheets -->
+  <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/notes.css">
-  
+
   <style>
-    .pyq-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-    }
-    .pyq-filter-btn {
-      padding: 0.4rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid var(--border-color);
-      background: var(--surface-hover);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .pyq-filter-btn:hover, .pyq-filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
     .pyq-card {
       background: var(--surface-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.4rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .pyq-card:hover {
       border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
     .pyq-header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.6rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
     .pyq-badges {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 0.4rem;
     }
     .pyq-badge {
@@ -175,6 +149,10 @@
       font-size: 0.88rem;
       color: var(--text-secondary);
     }
+    .pyq-diagram-wrap {
+      overflow-x: auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -190,7 +168,7 @@
       <div class="topbar-left">
         <a href="../../../index.html#subject/reactjs" class="back-btn" title="Return to Frontend Development using React JS Overview">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>← 24ISAEC594 Overview</span>
+          <span>&larr; 24ISAEC594 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
@@ -232,7 +210,7 @@
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
-          <li class="toc-item"><a href="#summary-overview" class="toc-link">§ Overview & Statistics</a></li>
+          <li class="toc-item"><a href="#summary-overview" class="toc-link">&sect; Overview &amp; Statistics</a></li>
           <li class="toc-item"><a href="#unit-1" class="toc-link">Unit 1 Questions (14)</a></li>
           <li class="toc-item"><a href="#unit-2" class="toc-link">Unit 2 Questions (11)</a></li>
           <li class="toc-item"><a href="#out-of-scope" class="toc-link">Out-of-Scope Archive (10)</a></li>
@@ -244,15 +222,15 @@
     <main class="notes-content" id="main-content">
       <!-- CIE-1 Scope Alert Banner -->
       <div class="cie1-banner">
-        <h3>🎯 CIE-1 Exam-Ready PYQ & Model Answers Bank</h3>
-        <p><strong>Course:</strong> Frontend Development using React JS (24ISAEC594) &bull; <strong>Exam Schedule:</strong> 2026-10-13 13:30:00+05:30 (60 Mins, 30 Marks)</p>
+        <h3>🎯 CIE-1 Exam-Ready PYQ &amp; Model Answers Bank</h3>
+        <p><strong>Course:</strong> Frontend Development using React JS (24ISAEC594) &bull; <strong>Exam Schedule:</strong> 2026-10-13T13:30:00+05:30 (60 Mins, 30 Marks)</p>
         <p style="margin-top:0.4rem;">Contains <strong>25 in-scope solved questions</strong> with full mathematical working, diagrams, and citations from Ramaiah CIE-1, CIE-2, and SEE papers (2022–2026).</p>
       </div>
 
       <header class="notes-header" id="summary-overview">
         <div class="notes-badge">CIE-1 COMPREHENSIVE SOLVED BANK</div>
         <h1 class="notes-title">Frontend Development using React JS PYQ Solutions</h1>
-        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, and 10M questions with direct notes cross-references.</p>
+        <p class="notes-subheadline">Step-by-step model examination solutions graded for 2M, 4M, 6M, 8M, and 10M questions with direct notes cross-references.</p>
         
         <div class="stats-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:1rem; margin:1.5rem 0;">
           <div style="background:var(--surface-card); border:1px solid var(--border-color); border-radius:8px; padding:0.8rem; text-align:center;">
@@ -285,7 +263,7 @@
 
       <section id="unit-1" class="note-section pyq-unit-section" data-unit="unit-1">
         <div class="section-badge">UNIT 1</div>
-        <h2 class="section-title">Unit 1 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 1 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 1 past exam questions.</p>
 
         <!-- Question react-q01 -->
@@ -663,7 +641,62 @@ export default Dashboard;</code></pre><h4>2. Explanation</h4><ul><li>In React, d
               <span>Model Exam Answer</span>
             </summary>
             <div class="pyq-answer-body">
-              <h4>1. One-Way Data Flow (Unidirectional Flow)</h4><p>In React, state follows a strict <strong>top-down (unidirectional) data flow</strong>:</p><ul><li><strong>Single Source of Truth:</strong> State is owned and maintained by a specific component.</li><li><strong>Downward Flow:</strong> State is passed down to child components exclusively via <strong>props</strong>. Child components cannot directly alter parent state.</li><li><strong>Upward Communication via Callbacks:</strong> If a child needs to trigger a state change, the parent passes down a callback function via props. The child invokes the callback with updated values, allowing the parent to update its own state, triggering a clean re-render cycle.</li></ul><h4>2. Illustrative Example</h4><pre class="code-block"><code>import React, { useState } from 'react';
+              <h4>1. One-Way Data Flow (Unidirectional Flow)</h4><p>In React, state follows a strict <strong>top-down (unidirectional) data flow</strong>:</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 220" class="diagram-svg" role="img" aria-label="React Component Hierarchy and Unidirectional Data Flow" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>React Unidirectional Data Flow</title>
+  <desc>Component tree showing Props flowing down from Parent to Child and Events flowing up via callbacks.</desc>
+  <defs>
+    <marker id="react-props-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+    <marker id="react-events-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <rect x="520" y="20" width="210" height="55" rx="6" fill="var(--surface-hover, #f1f5f9)" stroke="var(--border-color, #cbd5e1)" stroke-width="1.5"/>
+  <line x1="535" y1="36" x2="565" y2="36" stroke="var(--accent, #3b82f6)" stroke-width="2.5" marker-end="url(#react-props-arr)"/>
+  <text x="575" y="40" font-family="sans-serif" font-size="12" font-weight="700" fill="var(--accent, #3b82f6)">Props (Downwards)</text>
+  <line x1="535" y1="56" x2="565" y2="56" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#react-events-arr)"/>
+  <text x="575" y="60" font-family="sans-serif" font-size="12" font-weight="700" fill="#f59e0b">Events / Callbacks (Up)</text>
+
+  <rect x="300" y="20" width="160" height="45" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2.5"/>
+  <text x="380" y="48" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="15" font-weight="800" fill="var(--text-primary, #0f172a)">&lt;App /&gt;</text>
+
+  <rect x="100" y="140" width="160" height="45" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <text x="180" y="168" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">&lt;UserList /&gt;</text>
+
+  <rect x="300" y="140" width="160" height="45" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <text x="380" y="168" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">&lt;SearchBox /&gt;</text>
+
+  <rect x="500" y="140" width="160" height="45" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <text x="580" y="168" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" font-weight="700" fill="var(--text-primary, #0f172a)">&lt;UserProfile /&gt;</text>
+
+  <path d="M 330 65 Q 230 90 190 130" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2.5" marker-end="url(#react-props-arr)"/>
+  <text x="235" y="92" font-family="sans-serif" font-size="11" font-weight="700" fill="var(--accent, #3b82f6)">users={data}</text>
+
+  <path d="M 210 135 Q 255 105 345 70" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#react-events-arr)"/>
+  <text x="280" y="118" font-family="sans-serif" font-size="11" font-weight="700" fill="#f59e0b">onSelect(id)</text>
+
+  <line x1="365" y1="65" x2="365" y2="132" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#react-props-arr)"/>
+  <line x1="395" y1="135" x2="395" y2="72" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#react-events-arr)"/>
+
+  <path d="M 430 65 Q 520 90 570 130" fill="none" stroke="var(--accent, #3b82f6)" stroke-width="2.5" marker-end="url(#react-props-arr)"/>
+  <text x="520" y="92" font-family="sans-serif" font-size="11" font-weight="700" fill="var(--accent, #3b82f6)">currentUser={u}</text>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+<ul><li><strong>Single Source of Truth:</strong> State is owned and maintained by a specific component.</li><li><strong>Downward Flow:</strong> State is passed down to child components exclusively via <strong>props</strong>. Child components cannot directly alter parent state.</li><li><strong>Upward Communication via Callbacks:</strong> If a child needs to trigger a state change, the parent passes down a callback function via props. The child invokes the callback with updated values, allowing the parent to update its own state, triggering a clean re-render cycle.</li></ul><h4>2. Illustrative Example</h4><pre class="code-block"><code>import React, { useState } from 'react';
 
 // Child component receives value and update handler
 function ToggleButton({ isOn, onToggle }) {
@@ -720,7 +753,58 @@ function App() {
               <span>Model Exam Answer</span>
             </summary>
             <div class="pyq-answer-body">
-              <h4>1. Definition of Virtual DOM</h4><p>The <strong>Virtual DOM (VDOM)</strong> is a lightweight, in-memory JavaScript object representation of the real browser DOM. Directly manipulating the real DOM is slow and expensive because each mutation triggers layout recalculation, style recalculation, and page re-rendering (reflow and repaint).</p><h4>2. The Reconciliation Diffing Algorithm ($O(n)$)</h4><p>When component state changes, React creates a new Virtual DOM snapshot and compares it with the previous snapshot. React achieves an $O(n)$ heuristic comparison based on two key assumptions:</p><ol><li><strong>Different Element Types Produce Different Trees:</strong> If a root element changes type (e.g. from <code>&lt;div&gt;</code> to <code>&lt;span&gt;</code>), React unmounts the entire old tree and mounts a new tree from scratch without attempting to diff children.</li><li><strong>Keys Identify Stable Children:</strong> When list items change, React uses unique <code>key</code> props to match children across renders, determining whether an item was inserted, deleted, or reordered without tearing down all nodes.</li></ol><h4>3. Batching & Patching</h4><p>React calculates the minimal set of changes (the "diff") and applies them in a single batched update to the real DOM, ensuring 60 FPS UI responsiveness.</p>
+              <h4>1. Definition of Virtual DOM</h4><p>The <strong>Virtual DOM (VDOM)</strong> is a lightweight, in-memory JavaScript object representation of the real browser DOM. Directly manipulating the real DOM is slow and expensive because each mutation triggers layout recalculation, style recalculation, and page re-rendering (reflow and repaint).</p>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 780 240" class="diagram-svg" role="img" aria-label="Workflow diagram showing State Change leading to Previous VDOM and New VDOM diffing, calculating minimal patch and updating Real DOM" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/></marker>
+  </defs>
+            <title>Virtual DOM Reconciliation Architecture</title>
+            <!-- Step 1: State Change -->
+            <rect x="20" y="80" width="130" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="85" y="110" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">State Change</text>
+            <text x="85" y="130" text-anchor="middle" fill="var(--text-secondary)" font-size="10">User Interaction</text>
+
+            <path d="M 150 115 L 180 115" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Step 2: New VDOM Tree -->
+            <rect x="190" y="40" width="160" height="70" rx="10" fill="var(--surface)" stroke="var(--green)" stroke-width="2"/>
+            <text x="270" y="70" text-anchor="middle" font-weight="700" fill="var(--green)" font-size="12">New VDOM Tree</text>
+            <text x="270" y="90" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Re-rendered in Memory</text>
+
+            <rect x="190" y="130" width="160" height="70" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="270" y="160" text-anchor="middle" font-weight="700" fill="var(--text-primary)" font-size="12">Previous VDOM Tree</text>
+            <text x="270" y="180" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Cached Snapshot</text>
+
+            <!-- Diffing Algorithm Box -->
+            <path d="M 350 75 L 390 100" stroke="var(--green)" stroke-width="2" fill="none"/>
+            <path d="M 350 165 L 390 130" stroke="var(--green)" stroke-width="2" fill="none"/>
+
+            <rect x="400" y="75" width="170" height="80" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="485" y="105" text-anchor="middle" font-weight="800" fill="var(--text-primary)" font-size="13">Diffing Algorithm</text>
+            <text x="485" y="125" text-anchor="middle" fill="var(--green)" font-weight="600" font-size="11">$O(n)$ Heuristic Diff</text>
+            <text x="485" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Computes Delta Patch</text>
+
+            <path d="M 570 115 L 610 115" stroke="var(--green)" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+            <!-- Real DOM Batch Update -->
+            <rect x="620" y="75" width="140" height="80" rx="12" fill="var(--surface)" stroke="var(--green)" stroke-width="2.5"/>
+            <text x="690" y="105" text-anchor="middle" font-weight="800" fill="var(--green)" font-size="13">Real Browser DOM</text>
+            <text x="690" y="125" text-anchor="middle" fill="var(--text-primary)" font-size="10">Targeted Patch</text>
+            <text x="690" y="142" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Minimal Reflow/Repaint</text>
+          </svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+<h4>2. The Reconciliation Diffing Algorithm ($O(n)$)</h4><p>When component state changes, React creates a new Virtual DOM snapshot and compares it with the previous snapshot. React achieves an $O(n)$ heuristic comparison based on two key assumptions:</p><ol><li><strong>Different Element Types Produce Different Trees:</strong> If a root element changes type (e.g. from <code>&lt;div&gt;</code> to <code>&lt;span&gt;</code>), React unmounts the entire old tree and mounts a new tree from scratch without attempting to diff children.</li><li><strong>Keys Identify Stable Children:</strong> When list items change, React uses unique <code>key</code> props to match children across renders, determining whether an item was inserted, deleted, or reordered without tearing down all nodes.</li></ol><h4>3. Batching & Patching</h4><p>React calculates the minimal set of changes (the "diff") and applies them in a single batched update to the real DOM, ensuring 60 FPS UI responsiveness.</p>
               <div class="pyq-citation">
                 <strong>Source:</strong> React Official Docs (Reconciliation); Unit 1 Slides (UNIT-1 ReactJS.pptx, slides 14–17)
               </div>
@@ -752,7 +836,62 @@ function App() {
               <span>Model Exam Answer</span>
             </summary>
             <div class="pyq-answer-body">
-              <h4>1. Three Lifecycle Phases</h4><ol><li><strong>Mounting:</strong> When a component instance is being created and inserted into the DOM.</li><li><strong>Updating:</strong> When a component re-renders due to changes in <code>props</code> or <code>state</code>.</li><li><strong>Unmounting:</strong> When a component is removed from the DOM and destroyed.</li></ol><h4>2. Comparison: Class Methods vs Functional Hooks</h4><table class="table-clean"><thead><tr><th>Lifecycle Phase</th><th>Class Component Method</th><th>Functional Component Hook Equivalent</th><th>Typical Purpose</th></tr></thead><tbody><tr><td><strong>Mounting</strong></td><td><code>componentDidMount()</code></td><td><code>useEffect(() => { ... }, [])</code> (empty dependency array)</td><td>API network calls, setting up WebSocket listeners, DOM measurements.</td></tr><tr><td><strong>Updating</strong></td><td><code>componentDidUpdate(prevProps, prevState)</code></td><td><code>useEffect(() => { ... }, [dep1, dep2])</code></td><td>Responding to prop/state updates (e.g. re-fetching data on user ID change).</td></tr><tr><td><strong>Unmounting</strong></td><td><code>componentWillUnmount()</code></td><td><code>useEffect(() => { return () => { cleanup(); } }, [])</code></td><td>Clearing interval timers, canceling pending network requests, removing event listeners.</td></tr></tbody></table>
+              <h4>1. Three Lifecycle Phases</h4>
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"><svg viewBox="0 0 760 220" class="diagram-svg" role="img" aria-label="React Component Lifecycle Phases" style="width:100%;max-width:760px;margin:1.25rem auto;display:block;">
+  <title>React Component Lifecycle Phases</title>
+  <desc>Three major lifecycle phases: Mounting, Updating, and Unmounting, mapped to class lifecycle methods and modern React hooks.</desc>
+  <defs>
+    <marker id="react-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent, #3b82f6)"/>
+    </marker>
+  </defs>
+
+  <rect x="30" y="20" width="220" height="180" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--green, #10b981)" stroke-width="2"/>
+  <rect x="30" y="20" width="220" height="32" rx="8" fill="var(--green-tint, #ecfdf5)"/>
+  <text x="140" y="42" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--green-tint-ink, #065f46)">1. MOUNTING</text>
+  <text x="50" y="75" font-family="var(--font-mono, monospace)" font-size="12" font-weight="600" fill="var(--text-primary, #0f172a)">&bull; constructor()</text>
+  <text x="50" y="100" font-family="var(--font-mono, monospace)" font-size="12" font-weight="600" fill="var(--text-primary, #0f172a)">&bull; render()</text>
+  <text x="50" y="125" font-family="var(--font-mono, monospace)" font-size="12" font-weight="600" fill="var(--text-primary, #0f172a)">&bull; componentDidMount()</text>
+  <line x1="50" y1="140" x2="230" y2="140" stroke="var(--border-color, #cbd5e1)" stroke-width="1"/>
+  <text x="140" y="165" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="var(--green, #10b981)">Hook Equivalent:</text>
+  <text x="140" y="185" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="11" fill="var(--text-secondary, #64748b)">useEffect(..., [])</text>
+
+  <line x1="250" y1="110" x2="268" y2="110" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#react-arr)"/>
+
+  <rect x="270" y="20" width="220" height="180" rx="8" fill="var(--surface-card, #ffffff)" stroke="var(--accent, #3b82f6)" stroke-width="2"/>
+  <rect x="270" y="20" width="220" height="32" rx="8" fill="rgba(59, 130, 246, 0.12)"/>
+  <text x="380" y="42" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="var(--accent, #3b82f6)">2. UPDATING</text>
+  <text x="290" y="75" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">(New props, setState())</text>
+  <text x="290" y="100" font-family="var(--font-mono, monospace)" font-size="12" font-weight="600" fill="var(--text-primary, #0f172a)">&bull; render()</text>
+  <text x="290" y="125" font-family="var(--font-mono, monospace)" font-size="12" font-weight="600" fill="var(--text-primary, #0f172a)">&bull; componentDidUpdate()</text>
+  <line x1="290" y1="140" x2="470" y2="140" stroke="var(--border-color, #cbd5e1)" stroke-width="1"/>
+  <text x="380" y="165" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="var(--accent, #3b82f6)">Hook Equivalent:</text>
+  <text x="380" y="185" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="11" fill="var(--text-secondary, #64748b)">useEffect(..., [deps])</text>
+
+  <line x1="490" y1="110" x2="508" y2="110" stroke="var(--accent, #3b82f6)" stroke-width="2" marker-end="url(#react-arr)"/>
+
+  <rect x="510" y="20" width="220" height="180" rx="8" fill="var(--surface-card, #ffffff)" stroke="#ef4444" stroke-width="2"/>
+  <rect x="510" y="20" width="220" height="32" rx="8" fill="rgba(239, 68, 68, 0.12)"/>
+  <text x="620" y="42" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="#ef4444">3. UNMOUNTING</text>
+  <text x="530" y="80" font-family="sans-serif" font-size="11.5" fill="var(--text-secondary, #64748b)">(Component removed)</text>
+  <text x="530" y="115" font-family="var(--font-mono, monospace)" font-size="12" font-weight="600" fill="var(--text-primary, #0f172a)">&bull; componentWillUnmount()</text>
+  <line x1="530" y1="140" x2="710" y2="140" stroke="var(--border-color, #cbd5e1)" stroke-width="1"/>
+  <text x="620" y="165" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#ef4444">Hook Equivalent:</text>
+  <text x="620" y="185" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="11" fill="var(--text-secondary, #64748b)">return () =&gt; cleanup()</text>
+</svg></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+
+<div class="pyq-diagram-wrap" style="margin: 1.25rem 0;"></div>
+<ol><li><strong>Mounting:</strong> When a component instance is being created and inserted into the DOM.</li><li><strong>Updating:</strong> When a component re-renders due to changes in <code>props</code> or <code>state</code>.</li><li><strong>Unmounting:</strong> When a component is removed from the DOM and destroyed.</li></ol><h4>2. Comparison: Class Methods vs Functional Hooks</h4><table class="table-clean"><thead><tr><th>Lifecycle Phase</th><th>Class Component Method</th><th>Functional Component Hook Equivalent</th><th>Typical Purpose</th></tr></thead><tbody><tr><td><strong>Mounting</strong></td><td><code>componentDidMount()</code></td><td><code>useEffect(() => { ... }, [])</code> (empty dependency array)</td><td>API network calls, setting up WebSocket listeners, DOM measurements.</td></tr><tr><td><strong>Updating</strong></td><td><code>componentDidUpdate(prevProps, prevState)</code></td><td><code>useEffect(() => { ... }, [dep1, dep2])</code></td><td>Responding to prop/state updates (e.g. re-fetching data on user ID change).</td></tr><tr><td><strong>Unmounting</strong></td><td><code>componentWillUnmount()</code></td><td><code>useEffect(() => { return () => { cleanup(); } }, [])</code></td><td>Clearing interval timers, canceling pending network requests, removing event listeners.</td></tr></tbody></table>
               <div class="pyq-citation">
                 <strong>Source:</strong> React Official Docs; Unit 1 Slides (UNIT-1 ReactJS.pptx, slides 45–50)
               </div>
@@ -891,7 +1030,7 @@ function App() {
 
       <section id="unit-2" class="note-section pyq-unit-section" data-unit="unit-2">
         <div class="section-badge">UNIT 2</div>
-        <h2 class="section-title">Unit 2 Examination Questions & Answers</h2>
+        <h2 class="section-title">Unit 2 Examination Questions &amp; Answers</h2>
         <p class="section-lead">Verified model solutions for Unit 2 past exam questions.</p>
 
         <!-- Question react-q11 -->
@@ -1568,7 +1707,7 @@ function ThemedButton() {
           <span class="nav-arrow-title">24ISAEC594 Overview</span>
         </a>
         <a href="../unit1/unit-1-notes.html" class="nav-arrow-btn" style="text-align: right;">
-          <span class="nav-arrow-sub">Start Revision →</span>
+          <span class="nav-arrow-sub">Start Revision &rarr;</span>
           <span class="nav-arrow-title">Unit 1 Notes</span>
         </a>
       </footer>
@@ -1597,7 +1736,7 @@ function ThemedButton() {
             card.style.display = 'block';
           } else if (f === 'high') {
             card.style.display = card.getAttribute('data-priority') === 'high' ? 'block' : 'none';
-          } else if (f.startsWith('unit-')) {
+          } else {
             card.style.display = card.getAttribute('data-unit') === f ? 'block' : 'none';
           }
         });
