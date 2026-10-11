@@ -127,6 +127,11 @@ RECENT_NOTES_REGISTRY = {
         }
     },
     'ai': {
+        'ai-unit1-complete-lecture-notes.pdf': {
+            'unit': 1,
+            'title': "Unit 1 - Introduction & Intelligent Agents Complete Lecture Presentation",
+            'tag': "Recent Notes"
+        },
         'ai-intro-intelligent-agents.pdf': {
             'unit': 1,
             'title': "Unit 1 - Introduction to AI & Intelligent Agents Lecture Presentation",
@@ -135,6 +140,11 @@ RECENT_NOTES_REGISTRY = {
         'ai-important-questions.pdf': {
             'unit': 1,
             'title': "Unit 1 - Important Questions Board Photo (9 Core Questions)",
+            'tag': "Recent Notes"
+        },
+        'ai-unit2-complete-lecture-notes.pdf': {
+            'unit': 2,
+            'title': "Unit 2 - Problem Solving & Search Algorithms Complete Lecture Presentation",
             'tag': "Recent Notes"
         },
         'ai-problem-solving-agents.pdf': {

@@ -3810,10 +3810,10 @@ window.SEM5_DATA = {
     }
   ],
   "meta": {
-    "totalFiles": 165,
-    "totalSize": "145.8 MB",
-    "totalSizeBytes": 152921194,
-    "lastUpdated": "2026-10-10",
+    "totalFiles": 167,
+    "totalSize": "150.6 MB",
+    "totalSizeBytes": 157879070,
+    "lastUpdated": "2026-10-11",
     "academicYear": "2026–2027",
     "semester": "Semester V",
     "department": "Department of Information Science & Engineering"

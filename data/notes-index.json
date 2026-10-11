@@ -1216,7 +1216,13 @@
     "unitTitle": "Introduction to AI, Intelligent Agents & Problem Solving",
     "sectionId": "sec-1",
     "title": "What is AI? The Four Historical Approaches",
-    "subsections": [],
+    "subsections": [
+      "AI vs Traditional Programming & Natural and Artificial Intelligence",
+      "Natural Intelligence vs Artificial Intelligence",
+      "Evolution and History of AI",
+      "Foundations of AI: The 8 Interdisciplinary Pillars",
+      "Taxonomy of AI: Capabilities vs Functionalities"
+    ],
     "keywords": [
       "Artificial Intelligence",
       "Acting Rationally",
@@ -1225,7 +1231,14 @@
       "2. Thinking Rationally (Laws of Thought)",
       "Acting (Behavior / Output)",
       "3. Acting Humanly (The Turing Test)",
-      "rational agent"
+      "rational agent",
+      "Core Mechanism",
+      "Adaptability",
+      "Output Nature",
+      "Problem Suitability",
+      "Natural Intelligence",
+      "1950 — Turing's Foundations",
+      "1956 — The Birth of AI"
     ],
     "path": "notes/ai/unit1/unit-1-notes.html#sec-1"
   },
@@ -1515,13 +1528,45 @@
     "subject": "ai",
     "unit": 2,
     "unitTitle": "Uninformed, Informed & Local Search Strategies",
+    "sectionId": "sec-0",
+    "title": "Problem-Solving Agents & Formal Problem Formulation",
+    "subsections": [
+      "The Four-Phase Problem-Solving Process",
+      "Open-Loop vs. Closed-Loop Systems",
+      "Formal 5-Component Problem Formulation",
+      "Standardized (Toy) Problems vs. Real-World Problems"
+    ],
+    "keywords": [
+      "Problem-Solving Agent",
+      "search",
+      "atomic representations",
+      "planning agents",
+      "1. Goal Formation",
+      "2. Problem Formulation",
+      "3. Search",
+      "4. Execution",
+      "Open-Loop System",
+      "deterministic, static, fully observable",
+      "Closed-Loop System",
+      "Initial State ($s_0$)",
+      "Actions ($Actions(s)$)",
+      "Transition Model ($Result(s, a)$)",
+      "State Space"
+    ],
+    "path": "notes/ai/unit2/unit-2-notes.html#sec-0"
+  },
+  {
+    "type": "note-section",
+    "subject": "ai",
+    "unit": 2,
+    "unitTitle": "Uninformed, Informed & Local Search Strategies",
     "sectionId": "sec-1",
     "title": "Uninformed (Blind) Search Strategies",
     "subsections": [
       "Breadth-First Search (BFS)",
       "Uniform-Cost Search (UCS / Dijkstra on Trees)",
       "Depth-First Search (DFS)",
-      "Iterative Deepening Depth-First Search (IDDFS)"
+      "Iterative Deepening Search (IDS / IDDFS)"
     ],
     "keywords": [
       "Uninformed search",
@@ -1577,6 +1622,7 @@
     "keywords": [
       "Informed search",
       "heuristic function",
+      "Heuristic Search",
       "Property",
       "Greedy Best-First Search",
       "Non-optimal",
@@ -1599,7 +1645,6 @@
       "consistent",
       "Triangle Inequality",
       "guaranteed to be optimal",
-      "Every consistent heuristic is admissible",
       "Step-by-Step Expansion Trace Table",
       "Init",
       "Goal reached on pop! Search halts.",
@@ -7138,6 +7183,24 @@
     "subject": "ai",
     "unit": 1,
     "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
+    "title": "Unit 1 - Introduction & Intelligent Agents Complete Lecture Presentation",
+    "subsections": [
+      "AI · Introduction to Artificial Intelligence & Intelligent Agents"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "1",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-unit1-complete-lecture-notes.pdf"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 1,
+    "unitTitle": "Introduction to Artificial Intelligence & Intelligent Agents",
     "title": "Unit 1 - Introduction to AI & Intelligent Agents Lecture Presentation",
     "subsections": [
       "AI · Introduction to Artificial Intelligence & Intelligent Agents"
@@ -7186,6 +7249,24 @@
       "interactive notes"
     ],
     "path": "notes/ai/unit2/unit-2-notes.html"
+  },
+  {
+    "type": "file",
+    "subject": "ai",
+    "unit": 2,
+    "unitTitle": "Problem-Solving, Search Algorithms & Game Playing",
+    "title": "Unit 2 - Problem Solving & Search Algorithms Complete Lecture Presentation",
+    "subsections": [
+      "AI · Problem-Solving, Search Algorithms & Game Playing"
+    ],
+    "keywords": [
+      "ai",
+      "ai",
+      "2",
+      "pdf",
+      "recent notes"
+    ],
+    "path": "notes/ai/recent-notes/ai-unit2-complete-lecture-notes.pdf"
   },
   {
     "type": "file",
