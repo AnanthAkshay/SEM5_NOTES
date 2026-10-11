@@ -243,7 +243,7 @@ async function runVerification() {
     await searchPage.keyboard.press('/');
     await searchPage.waitForTimeout(150);
 
-    const testQueries = ['Intelligent Agents', 'Informed Search', 'Uninformed Search', 'Local Search', 'Adversarial Search', 'PEAS'];
+    const testQueries = ['Unit 1', 'Intelligent Agents', 'Unit 2', 'PEAS'];
     for (const q of testQueries) {
       await searchPage.fill('#search-input', q);
       await searchPage.waitForTimeout(150);
@@ -251,6 +251,20 @@ async function runVerification() {
       console.log(`  ✓ Search query "${q}" -> ${count} results.`);
       if (count === 0) {
         console.error(`  ❌ Expected search results for active query "${q}", got 0!`);
+        allPassed = false;
+      }
+    }
+
+    // Verify removed note file titles are absent from search results
+    await searchPage.fill('#search-input', 'Unit 1');
+    await searchPage.waitForTimeout(150);
+    const searchRes = await searchPage.evaluate(() => {
+      return Array.from(document.querySelectorAll('.search-result-item')).map(el => el.querySelector('.search-res-title')?.textContent.trim() || '');
+    });
+    const removedTitles = ['AI-2', 'Adversarial Search', 'Uninformed Search', 'Important Questions Board Photo'];
+    for (const rt of removedTitles) {
+      if (searchRes.some(t => t.toLowerCase().includes(rt.toLowerCase()))) {
+        console.error(`  ❌ Removed title "${rt}" found in search results!`);
         allPassed = false;
       }
     }
