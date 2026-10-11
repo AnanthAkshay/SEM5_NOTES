@@ -2123,8 +2123,8 @@ window.SEM5_DATA = {
               "originalName": "unit-1-notes.html",
               "path": "notes/ai/unit1/unit-1-notes.html",
               "type": "notes",
-              "sizeBytes": 133983,
-              "size": "131 KB",
+              "sizeBytes": 158842,
+              "size": "155 KB",
               "tag": "Interactive notes"
             },
             {
@@ -2133,8 +2133,8 @@ window.SEM5_DATA = {
               "originalName": "ai-unit1-handwritten.pdf",
               "path": "notes/ai/unit1/handwritten/ai-unit1-handwritten.pdf",
               "type": "handwritten",
-              "sizeBytes": 981012,
-              "size": "958 KB",
+              "sizeBytes": 1109446,
+              "size": "1.1 MB",
               "tag": "Vector Handwritten"
             },
             {
