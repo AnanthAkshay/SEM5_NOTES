@@ -2200,6 +2200,17 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
+              "id": "ai-unit2-complete-lecture-notes-pdf",
+              "title": "Unit 2 - Problem Solving & Search Algorithms Complete Lecture Presentation",
+              "originalName": "Unit-2.pdf",
+              "path": "notes/ai/recent-notes/ai-unit2-complete-lecture-notes.pdf",
+              "type": "pdf",
+              "sizeBytes": 2020673,
+              "size": "1.9 MB",
+              "pages": 96,
+              "tag": "Recent Notes"
+            },
+            {
               "id": "ai-ai-problem-solving-agents-pdf",
               "title": "Unit 2 - Problem-Solving Agents & State-Space Formulation",
               "originalName": "AI-Intelligent_Agents.pdf",
