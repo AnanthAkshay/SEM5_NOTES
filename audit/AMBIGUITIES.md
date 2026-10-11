@@ -101,4 +101,21 @@ Per user directive on branch `only-recent-notes`:
 4. **Important Questions Board Photo:**
    - The WhatsApp image lists 9 core Unit 1 questions. Preserved under `notes/ai/recent-notes/ai-important-questions.jpg` and registered in Unit 1 Recent Notes. Full model answers are accessible on both the Unit 1 HTML page and the AI Solved PYQs page.
 
+---
+
+## 8. AI (ISE552) Comprehensive Unit 1 & Unit 2 Lecture Notes (October 11, 2026 Sync)
+
+1. **`Unit-1.pdf` (2,682,142 bytes, 115 slides):**
+   - **Cover & Content:** Titled `CHAPTER 1 INTRODUCTION`, prepared by `PRASHANTH KAMBLI, Asst. Prof. RIT`.
+   - **Scope & Topics:** Complete presentation for Unit 1. Covers AI definitions, 4 approaches (acting/thinking humanly/rationally), foundations, evolution and history (AI winters, deep learning revolution), types of AI (ANI, AGI, ASI, reactive, limited memory, theory of mind, self-aware), agents & environments, PEAS, 8 task environment properties, and 5 agent architectures (simple reflex, model-based, goal-based, utility-based, learning agents).
+   - **Assignment & Registration:** URL-safe name `notes/ai/recent-notes/ai-unit1-complete-lecture-notes.pdf`. Registered in Unit 1 Recent Notes with title `"Unit 1 - Introduction & Intelligent Agents Complete Lecture Presentation"`.
+   - **Relationship to `AI-2.pdf`:** `AI-2.pdf` is an earlier 39-slide topic deck. `Unit-1.pdf` is the comprehensive 115-slide master deck covering the entirety of Unit 1. Both are retained in Recent Notes.
+
+2. **`Unit-2.pdf` (2,020,673 bytes, 96 slides):**
+   - **Cover & Content:** Titled `UNIT-2 PROBLEM SOLVING AND SEARCH`, prepared by `PRASHANTH KAMBLI, ISE, RIT` (dated `11-10-2026`).
+   - **Scope & Topics:** Complete presentation for Unit 2 search algorithms. Covers Problem-Solving Agents, 4 phases, formal 5-tuple problem formulation, abstraction, toy/standardized vs real-world problems, uninformed search (BFS, DFS, UCS, DLS, IDS), heuristic informed search (GBFS, A*), admissible heuristics, and consistent (monotonic) heuristics with triangle inequality.
+   - **Assignment & Registration:** URL-safe name `notes/ai/recent-notes/ai-unit2-complete-lecture-notes.pdf`. Registered in Unit 2 Recent Notes with title `"Unit 2 - Problem Solving & Search Algorithms Complete Lecture Presentation"`.
+   - **Relationship to individual search decks:** Earlier modular slide decks (`ai-uninformed-search.pdf`, `ai-informed-search.pdf`, `ai-local-search.pdf`, `ai-adversarial-search.pdf`) covered specific sub-topics. `Unit-2.pdf` is the unified master lecture deck. All are kept organized in Recent Notes.
+
+
 

@@ -86,5 +86,27 @@
     "size": "190 KB",
     "pages": 19,
     "sha256": "558783e9d1cae235eebdf872bc8cb52c418706346294709ca693f1d248c8959f"
+  },
+  "Unit-1.pdf": {
+    "sourcePath": "ISE552 - AI\\Recent Notes\\Unit-1.pdf",
+    "targetPath": "notes/ai/recent-notes/ai-unit1-complete-lecture-notes.pdf",
+    "unit": 1,
+    "title": "Unit 1 - Introduction & Intelligent Agents Complete Lecture Presentation",
+    "topic": "Comprehensive Unit 1 Lecture Presentation (115 Slides)",
+    "sizeBytes": 2682142,
+    "size": "2.6 MB",
+    "pages": 115,
+    "sha256": "4b3382d6a70cd9ed749f4d0a8e11196ca93d53b591c45fbfea3c6b6186504ef4"
+  },
+  "Unit-2.pdf": {
+    "sourcePath": "ISE552 - AI\\Recent Notes\\Unit-2.pdf",
+    "targetPath": "notes/ai/recent-notes/ai-unit2-complete-lecture-notes.pdf",
+    "unit": 2,
+    "title": "Unit 2 - Problem Solving & Search Algorithms Complete Lecture Presentation",
+    "topic": "Comprehensive Unit 2 Problem Solving & Search Presentation (96 Slides)",
+    "sizeBytes": 2020673,
+    "size": "1.9 MB",
+    "pages": 96,
+    "sha256": "b5dca60a4c3b1510cce414d52da666ce1b27b81d3c121829fff59b4364eb312c"
   }
 }
