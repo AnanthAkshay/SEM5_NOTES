@@ -137,13 +137,13 @@ This study website consolidates materials into an intuitive web interface with:
 | **Tue 13-10-2026, 09:30–10:30** | `24IS53` | **Computer Networks** | PCC | Suresh Kumar K R | Units 1, 2, Unit 3 up to "IPv4 Addressing – Classless" | **18 files** · 27.9 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Complete Unit 1 & 2 decks, Unit 3 IPv4) |
 | **Tue 13-10-2026, 13:30–14:30** | `24ISAEC594` | **Frontend Dev using React JS** | AEC | J R Shruti | Units 1 & 2 (Full) | **10 files** · 6.7 MB | **CIE-1 Ready:** Units 1–2 Notes, 21 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Complete Unit 1 & 2 decks) |
 | **Wed 14-10-2026, 09:30–10:30** | `24ISE552` | **Artificial Intelligence** | PEC | Dr. Jagadeesh Sai D | Units 1 & 2 (Full) | **18 files** · 12.4 MB | **CIE-1 Ready:** Units 1–2 Notes, 22 Solved PYQs, 2 Vector Handwritten Notebooks, Recent Notes (Unit 1 Notes, Unit 2 Notes) |
-| **Wed 14-10-2026, 13:30–14:30** | `24IS52` | **Software Engineering** | IPCC | Mushtaq Ahmed D M | Units 1 & 2 (Full) | **19 files** · 7.3 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Unit 1.1–1.3, Unit 2.1–2.2), Agile Lab Manual |
+| **Wed 14-10-2026, 13:30–14:30** | `24IS52` | **Software Engineering** | IPCC | Mushtaq Ahmed D M | Units 1 & 2 (Full) | **20 files** · 8.1 MB | **CIE-1 Ready:** Units 1–2 Notes, Units 1 & 2 Important Questions (28-page PPT Answers), 20 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Unit 1.1–1.3, Unit 2.1–2.2), Agile Lab Manual |
 | **Thu 15-10-2026, 09:30–10:30** | `24IS51` | **Machine Learning** | PCC | Dr. Sumana M | Units 1, 2, Unit 3 (Regression only) | **33 files** · 19.5 MB | **CIE-1 Ready:** Units 1–3 Notes, 20 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Ch 2–5 regression decks), Lab Notebooks |
 | **Thu 15-10-2026, 15:00–16:00** | `24AL58` | **Research Methodology & IPR** | HSMC | Dr. Anitha P | Units 1, 2, Unit 3 up to Sample Design Characteristics | **32 files** · 13.8 MB | **CIE-1 Ready:** Units 1–3 Notes, 23 Solved PYQs, 4 Vector Handwritten Notebooks, Recent Notes (Units 1–3 PPTXs) |
 | **Fri 16-10-2026, 09:30–10:30** | `24HS510` | **Environmental Studies** | NCMC | Civil / H&S Faculty | Units 1 & 2 (Full) | **18 files** · 11.6 MB | **CIE-1 Ready:** Units 1–2 Notes, 25 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Unit 1 & 2 PPTXs, Unit 2 Topic PDFs) |
 | **Fri 16-10-2026, 13:30–14:30** | `24IS54` | **Theory of Computation** | PCC | Dr. Rajeshwari S B | Units 1 & 2 (Full) | **11 files** · 48.3 MB | **CIE-1 Ready:** Units 1–2 Notes, 20 Solved PYQs, 3 Vector Handwritten Notebooks, Recent Notes (Complete Course Notebook, 45.5 MB) |
 
-**Total Registry**: **159 registered files** across 8 subjects (**147.4 MB** total), **416 indexed search items**.
+**Total Registry**: **160 registered files** across 8 subjects (**148.2 MB** total), **417 indexed search items**.
 
 ---
 
@@ -163,8 +163,8 @@ SEM5_NOTES/
 │   ├── app.js              # Application controller, hash router, global search, and progress storage (v4)
 │   └── notes.js            # Interactive notes engine (TOC scrollspy, collapsibles, copy buttons)
 ├── data/
-│   ├── subjects.js         # Single source of truth (159 files, V Sem Scheme, subjects, labs, timetables)
-│   ├── notes-index.json    # Compact global search index for all 416 searchable entries
+│   ├── subjects.js         # Single source of truth (160 files, V Sem Scheme, subjects, labs, timetables)
+│   ├── notes-index.json    # Compact global search index for all 417 searchable entries
 │   └── notes-index.js      # Offline fallback search index wrapper for file:// protocols
 ├── scripts/
 │   ├── sync_subjects_from_folders.py  # Synchronizes data/subjects.js strictly with HTML + Handwritten + Recent Notes
