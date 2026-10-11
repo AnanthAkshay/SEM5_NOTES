@@ -3721,9 +3721,9 @@ window.SEM5_DATA = {
     }
   ],
   "meta": {
-    "totalFiles": 167,
-    "totalSize": "150.6 MB",
-    "totalSizeBytes": 157879070,
+    "totalFiles": 159,
+    "totalSize": "147.4 MB",
+    "totalSizeBytes": 154580576,
     "lastUpdated": "2026-10-11",
     "academicYear": "2026–2027",
     "semester": "Semester V",
