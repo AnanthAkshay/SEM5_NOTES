@@ -956,6 +956,17 @@ window.SEM5_DATA = {
           "isPractice": true,
           "files": [
             {
+              "id": "se-units-1-2-important-questions-pdf",
+              "title": "Units 1 & 2 – Important Questions",
+              "originalName": "se-units-1-2-important-questions.pdf",
+              "path": "notes/se/practice/se-units-1-2-important-questions.pdf",
+              "type": "pdf",
+              "sizeBytes": 783686,
+              "size": "765 KB",
+              "pages": 28,
+              "tag": "Important Questions"
+            },
+            {
               "id": "se-se-cie-1-and-2-pdf",
               "title": "CIE-1 & CIE-2 Question Papers",
               "originalName": "se-cie-1-and-2.pdf",
@@ -3721,9 +3732,9 @@ window.SEM5_DATA = {
     }
   ],
   "meta": {
-    "totalFiles": 159,
-    "totalSize": "147.4 MB",
-    "totalSizeBytes": 154580576,
+    "totalFiles": 160,
+    "totalSize": "148.2 MB",
+    "totalSizeBytes": 155364262,
     "lastUpdated": "2026-10-11",
     "academicYear": "2026–2027",
     "semester": "Semester V",

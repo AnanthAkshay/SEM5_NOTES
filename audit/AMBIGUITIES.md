@@ -117,5 +117,22 @@ Per user directive on branch `only-recent-notes`:
    - **Assignment & Registration:** URL-safe name `notes/ai/recent-notes/ai-unit2-complete-lecture-notes.pdf`. Registered in Unit 2 Recent Notes with title `"Unit 2 - Problem Solving & Search Algorithms Complete Lecture Presentation"`.
    - **Relationship to individual search decks:** Earlier modular slide decks (`ai-uninformed-search.pdf`, `ai-informed-search.pdf`, `ai-local-search.pdf`, `ai-adversarial-search.pdf`) covered specific sub-topics. `Unit-2.pdf` is the unified master lecture deck. All are kept organized in Recent Notes.
 
+---
+
+## 9. SE (24IS52) Important Questions PDF Ingestion (October 11, 2026 Sync)
+
+1. **Course Code Discrepancy ("IS51" vs "24IS52"):**
+   - **Source Filename:** `Software Engineering (IS51) – Units 1 & 2 Important Topics and PPT Answers.pdf` (783,686 bytes, 28 pages).
+   - **Resolution:** `IS51` is an obsolete/legacy course code for Software Engineering from older syllabus schemes. On the 2024 autonomous scheme, `24IS51` is Machine Learning and `24IS52` is Software Engineering. To avoid student confusion and maintain consistency, `IS51` is strictly excluded from all titles, tags, and search index entries. The clean, URL-safe target path is `notes/se/practice/se-units-1-2-important-questions.pdf` and title is `"Units 1 & 2 – Important Questions"`.
+
+2. **Placement Choice (SE Practice Area):**
+   - **Category:** This document contains a curated question inventory (Tiers 1–3) and comprehensive model answers compiled from faculty lecture slides for past CIE and SEE exams. It is an examination preparation resource, not a standalone lecture slide deck or student notebook.
+   - **Structure:** Per site architecture, the `Notes & Docs` tab strictly maintains the 3-tier hierarchy (Interactive HTML Notes -> Vector Handwritten Notebook -> Recent Notes). Therefore, this resource is registered at the top of the **Practice** group (`isPractice: true`, Unit: Practice) as `"Units 1 & 2 – Important Questions"` with tag `"Important Questions"`. This makes it accessible from the subject's Practice view alongside question papers without duplicating it across individual units.
+
+3. **CIE-1 Scope Verification:**
+   - **Scope Check:** All 28 pages were extracted and examined against `data/scope.json`.
+   - **Topics Covered:** RUP phases, Plan-driven vs Agile, Functional vs Non-Functional requirements, Requirements validation, XP, RE process, SRS format, Waterfall model, Elicitation/Ethnography, Ethics (ACM/IEEE), Spiral model, Incremental development, Change management, Case studies (Insulin pump, MHC-PMS), and Library Management System Use Case diagram.
+   - **Result:** Every topic is 100% within the official CIE-1 syllabus (Units 1 & 2 Full). The note on page 1 referencing "Unit 3 style questions" for use cases pertains to old examination section numbering; System Modeling (use cases) is officially in Unit 2 in the 2026–27 scheme. No "Partly beyond CIE-1 scope" tag is required.
+
 
 
