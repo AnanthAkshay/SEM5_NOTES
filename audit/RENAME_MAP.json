@@ -108,5 +108,16 @@
     "size": "1.9 MB",
     "pages": 96,
     "sha256": "b5dca60a4c3b1510cce414d52da666ce1b27b81d3c121829fff59b4364eb312c"
+  },
+  "Software Engineering (IS51) – Units 1 & 2 Important Topics and PPT Answers.pdf": {
+    "sourcePath": "A:\\\\SEM5\\\\IS52 - SE\\\\Software Engineering (IS51) – Units 1 & 2 Important Topics and PPT Answers.pdf",
+    "targetPath": "notes/se/practice/se-units-1-2-important-questions.pdf",
+    "unit": "Practice",
+    "title": "Units 1 & 2 – Important Questions",
+    "topic": "Important Questions & Faculty PPT Model Answers (Units 1 & 2)",
+    "sizeBytes": 783686,
+    "size": "765 KB",
+    "pages": 28,
+    "sha256": "eb45203380efee599cc970c1ff3fe5d1dc0a2099b386c638b6b6686cba96b82a"
   }
 }
