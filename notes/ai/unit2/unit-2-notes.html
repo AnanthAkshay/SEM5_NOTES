@@ -90,6 +90,7 @@
       </div>
       <nav class="toc-nav" id="toc-nav">
         <ol class="toc-list">
+          <li class="toc-item"><a href="#sec-0" class="toc-link">§ 0 Problem-Solving Agents &amp; Formulation</a></li>
           <li class="toc-item"><a href="#sec-1" class="toc-link">§ 1 Uninformed Search Algorithms</a></li>
           <li class="toc-item"><a href="#sec-2" class="toc-link">§ 2 Uninformed Comparison Matrix</a></li>
           <li class="toc-item"><a href="#sec-3" class="toc-link">§ 3 Informed Search & Heuristic Functions</a></li>
@@ -157,6 +158,132 @@
       </header>
 
       <!-- Exact Article Content Sections (preserved byte-for-byte) -->
+            <!-- SECTION 0: PROBLEM-SOLVING AGENTS & FORMULATION (FROM UNIT-2.PDF SLIDES 1–38) -->
+      <section id="sec-0" class="note-section">
+        <div class="section-source-tag" data-sec="sec-0" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: Russell &amp; Norvig 4e, Ch. 3.1–3.3; Unit-2.pdf (Slides 1–38)</div>
+        <div class="section-badge">&sect; 0</div>
+        <h2 class="section-title">Problem-Solving Agents &amp; Formal Problem Formulation</h2>
+
+        <p class="section-lead">When the best immediate action is not self-evident, an intelligent agent must plan ahead by evaluating future sequences of actions that lead to a desired goal. Such an entity is termed a <strong>Problem-Solving Agent</strong>, and the computational exploration it undertakes is called <strong>search</strong>.</p>
+
+        <div class="callout callout-def">
+          <span class="callout-label">ATOMIC VS FACTORED / STRUCTURED REPRESENTATIONS</span>
+          <p>Problem-solving search algorithms treat states as <strong>atomic representations</strong> &mdash; states of the world are considered undivided wholes with no internal structure visible to the algorithm (black boxes). In contrast, agents that decompose states into variables, attributes, or logical predicates are called <strong>planning agents</strong> (factored or structured representations).</p>
+        </div>
+
+        <h3>The Four-Phase Problem-Solving Process</h3>
+        <p>A goal-based problem-solving agent follows a systematic four-phase lifecycle (Unit-2.pdf slides 5–19):</p>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Core Function</th>
+                <th>Real-World Example (Student Travelling to Exam)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Goal Formation</strong></td>
+                <td>Establishes criteria and constraints for success; organizes objectives and prunes infinite possibilities.</td>
+                <td>Goal: "Reach Ramaiah Exam Hall before 09:00 AM".</td>
+              </tr>
+              <tr>
+                <td><strong>2. Problem Formulation</strong></td>
+                <td>Decides what actions and states to consider given the goal. Defines formal states, initial state, actions, and costs.</td>
+                <td>Identify candidate transit options: Metro, Bus, Auto, or Cab, considering costs and traffic delays.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Search</strong></td>
+                <td>Simulates sequences of actions in an internal model before acting in reality; finds a sequence from start to goal.</td>
+                <td>Evaluates path options (Metro route vs Bus route) to determine fastest or cheapest path.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Execution</strong></td>
+                <td>Performs the actions in the physical world one-by-one as prescribed by the search solution.</td>
+                <td>Board Metro at 08:15 AM &rarr; Arrive at Sandal Soap Factory station &rarr; Walk to Exam Hall.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Open-Loop vs. Closed-Loop Systems</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>System Type</th>
+                <th>Operational Mechanism</th>
+                <th>Environmental Prerequisite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Open-Loop System</strong></td>
+                <td>The agent computes an entire solution path beforehand and executes all actions blindly <em>without consulting its sensors</em> during execution.</td>
+                <td>Permissible only in <strong>deterministic, static, fully observable</strong> environments where execution failure is impossible.</td>
+              </tr>
+              <tr>
+                <td><strong>Closed-Loop System</strong></td>
+                <td>The agent continuously reads sensor percepts after each action to detect contingencies, dynamically revising its plan.</td>
+                <td>Mandatory in <strong>stochastic, dynamic, partially observable</strong> environments (e.g. real-world robot navigation, city driving).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Formal 5-Component Problem Formulation</h3>
+        <p>A search problem is formally defined by five components (Russell &amp; Norvig Ch. 3.1; Unit-2.pdf slides 21–28):</p>
+        <ol>
+          <li><strong>Initial State ($s_0$):</strong> The state in which the agent begins (e.g. $\text{In}(\text{Home})$ or $\text{In}(\text{Arad})$).</li>
+          <li><strong>Actions ($Actions(s)$):</strong> The set of valid actions applicable in state $s$. Given state $s$, $Actions(s)$ returns valid moves.</li>
+          <li><strong>Transition Model ($Result(s, a)$):</strong> Returns the outcome state resulting from taking action $a$ in state $s$. Together, initial state, actions, and transition model define the <strong>State Space</strong>.</li>
+          <li><strong>Goal Test ($Is\text{-}Goal(s)$):</strong> Determines whether state $s$ is a goal state. Can be explicit (matching a specific state) or implicit (matching an abstract condition, e.g., "Checkmate").</li>
+          <li><strong>Path Cost Function ($c(s, a, s')$):</strong> Assigns a numeric cost to performing action $a$ to transition from state $s$ to $s'$. The total path cost is the sum of step costs along the path:
+          $$\text{Path Cost} = \sum_{i=1}^k c(s_{i-1}, a_i, s_i)$$
+          </li>
+        </ol>
+
+        <div class="callout callout-tip">
+          <span class="callout-label">THE PRINCIPLE OF ABSTRACTION</span>
+          <p>Real-world problem spaces are infinitely detailed (weather, shoe color, road potholes). <strong>Abstraction</strong> is the deliberate process of removing irrelevant details from a real-world problem to construct a mathematically tractable state space. An abstraction is <em>valid</em> if any abstract solution can be elaborated into a practical real-world execution.</p>
+        </div>
+
+        <h3>Standardized (Toy) Problems vs. Real-World Problems</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Characteristics &amp; Purpose</th>
+                <th>Standard Academic Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Toy / Standardized Problems</strong></td>
+                <td>Concise, exact mathematical formulations with discrete state spaces; designed to benchmark and compare algorithms.</td>
+                <td>
+                  &bull; <strong>Grid World (Vacuum World):</strong> 2 locations, cleaning dirt.<br>
+                  &bull; <strong>8-Puzzle:</strong> $3 \times 3$ grid tile sliding ($181,440$ reachable states).<br>
+                  &bull; <strong>8-Queens:</strong> Placing 8 non-attacking queens on a chessboard.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Real-World Problems</strong></td>
+                <td>Complex, large-scale, continuous or high-dimensional problems where human practitioners need automated solutions.</td>
+                <td>
+                  &bull; <strong>Travelling Salesperson Problem (TSP):</strong> NP-hard route optimization.<br>
+                  &bull; <strong>VLSI Layout Routing:</strong> Positioning millions of circuit gates and wires.<br>
+                  &bull; <strong>Robot Navigation:</strong> Moving arm actuators and navigating obstacle terrain.<br>
+                  &bull; <strong>Automatic Assembly Sequencing:</strong> Complex robotic manufacturing.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section id="sec-1" class="note-section">
         <div class="section-source-tag" data-sec="sec-1" style="font-size:0.75rem; color:var(--text-muted); font-style:italic; margin-bottom:0.75rem; border-left:2px solid var(--accent); padding-left:0.5rem;">Source: Russell & Norvig 4e, Ch. 3.1–3.2, pp. 63–71; AI-AGENTS-Uninformed_Search.pdf slides 1–18</div>
         <div class="section-badge">&sect; 1</div>
@@ -191,7 +318,7 @@
           <li><strong>Optimality:</strong> No &mdash; it can return a deeply nested suboptimal goal before exploring a shallow optimal one.</li>
         </ul>
 
-        <h3>4. Iterative Deepening Depth-First Search (IDDFS)</h3>
+        <h3>4. Iterative Deepening Search (IDS / IDDFS)</h3>
         <p>IDDFS solves the dilemma between BFS (optimal, but exponential memory) and DFS (linear memory, but non-optimal and incomplete). It repeatedly runs <strong>Depth-Limited Search (DLS)</strong> with increasing depth limits ($l = 0, 1, 2, 3, \dots, d$).</p>
         <div class="callout callout-def">
           <span class="callout-label">WHY IDDFS IS THE PREFERRED UNINFORMED SEARCH METHOD</span>
@@ -293,6 +420,11 @@
 
         <p class="section-lead"><strong>Informed search</strong> strategies utilize problem-specific knowledge beyond the problem definition via a <strong>heuristic function</strong> $h(n)$, enabling the search to prune barren paths and focus exploration directly toward the goal.</p>
 
+        <div class="callout callout-info" style="margin-bottom: 1.25rem;">
+          <span class="callout-label">REAL-WORLD INTUITION: GOOGLE MAPS NAVIGATION (UNIT-2.PDF SLIDES 75–76)</span>
+          <p>In GPS road navigation, blind search algorithms like BFS or DFS would explore every road and back-alley radially without knowing direction. In contrast, <strong>Heuristic Search</strong> uses straight-line Euclidean distance ("as the crow flies") to destination as $h(n)$. The navigation algorithm biases exploration towards roads that physically reduce the remaining distance to the destination, cutting down searched intersections by orders of magnitude.</p>
+        </div>
+
         <div class="callout callout-def">
           <span class="callout-label">HEURISTIC FUNCTION DEFINITION</span>
           <p>A <strong>heuristic function</strong> $h(n)$ estimates the cost of the cheapest path from the state at node $n$ to a goal state:</p>
@@ -363,7 +495,7 @@
 
         <div class="callout callout-tip">
           <span class="callout-label">RELATIONSHIP BETWEEN ADMISSIBILITY & CONSISTENCY</span>
-          <p><strong>Every consistent heuristic is admissible</strong> ($Consistency \implies Admissibility$). While an admissible heuristic can occasionally be inconsistent in rare contrived graphs, virtually all natural heuristics derived from relaxed problems are automatically consistent.</p>
+          <p><strong>Every consistent (monotonic) heuristic is admissible; an inconsistent heuristic violates the triangle inequality</strong> ($Consistency \implies Admissibility$). While an admissible heuristic can occasionally be inconsistent in rare contrived graphs, virtually all natural heuristics derived from relaxed problems are automatically consistent.</p>
         </div>
 
         <!-- SOLVED WORKED NUMERICAL: A* SEARCH TRACE -->
