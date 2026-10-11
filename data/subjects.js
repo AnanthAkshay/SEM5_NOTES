@@ -2138,10 +2138,10 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "ai-unit1-complete-lecture-notes-pdf",
-              "title": "Unit 1 - Introduction & Intelligent Agents Complete Lecture Presentation",
+              "id": "ai-u1-recent-notes-pdf",
+              "title": "Unit 1 Notes",
               "originalName": "Unit-1.pdf",
-              "path": "notes/ai/recent-notes/ai-unit1-complete-lecture-notes.pdf",
+              "path": "notes/ai/recent-notes/ai-unit-1.pdf",
               "type": "pdf",
               "sizeBytes": 2682142,
               "size": "2.6 MB",
@@ -2200,10 +2200,10 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
-              "id": "ai-unit2-complete-lecture-notes-pdf",
-              "title": "Unit 2 - Problem Solving & Search Algorithms Complete Lecture Presentation",
+              "id": "ai-u2-recent-notes-pdf",
+              "title": "Unit 2 Notes",
               "originalName": "Unit-2.pdf",
-              "path": "notes/ai/recent-notes/ai-unit2-complete-lecture-notes.pdf",
+              "path": "notes/ai/recent-notes/ai-unit-2.pdf",
               "type": "pdf",
               "sizeBytes": 2020673,
               "size": "1.9 MB",
