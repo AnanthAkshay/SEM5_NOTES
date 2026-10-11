@@ -2138,6 +2138,17 @@ window.SEM5_DATA = {
               "tag": "Vector Handwritten"
             },
             {
+              "id": "ai-unit1-complete-lecture-notes-pdf",
+              "title": "Unit 1 - Introduction & Intelligent Agents Complete Lecture Presentation",
+              "originalName": "Unit-1.pdf",
+              "path": "notes/ai/recent-notes/ai-unit1-complete-lecture-notes.pdf",
+              "type": "pdf",
+              "sizeBytes": 2682142,
+              "size": "2.6 MB",
+              "pages": 115,
+              "tag": "Recent Notes"
+            },
+            {
               "id": "ai-ai-intro-intelligent-agents-pdf",
               "title": "Unit 1 - Introduction to AI & Intelligent Agents Lecture Presentation",
               "originalName": "AI-2.pdf",
