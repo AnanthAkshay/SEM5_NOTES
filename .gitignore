@@ -23,7 +23,7 @@ archive/
 *.tmp
 audit/*
 !audit/*.md
-!audit/*.json
+!audit/RENAME_MAP.json
 
 # Raw Workspace Source Folders (Organized & converted copies live in notes/)
 /AI/
