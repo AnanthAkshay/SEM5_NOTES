@@ -135,6 +135,26 @@ html {
   overflow-x: clip;
 }
 
+:target {
+  scroll-margin-top: calc(var(--topbar-h) + 24px);
+}
+
+section[id],
+header[id],
+div[id].revision-sheet,
+div[id].interactive-card,
+div[id].diagram-card,
+.notes-section,
+.note-section,
+.content-section,
+.notes-header-card,
+h1[id],
+h2[id],
+h3[id],
+h4[id] {
+  scroll-margin-top: calc(var(--topbar-h) + 24px);
+}
+
 body {
   background-color: var(--bg-soft);
   color: var(--ink);
@@ -619,8 +639,6 @@ a.toc-link.active {
   padding: 2.25rem 2.25rem;
   margin-bottom: 2.5rem;
   box-shadow: var(--shadow-faint);
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 700px;
 }
 
 .section-number,

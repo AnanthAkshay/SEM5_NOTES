@@ -132,7 +132,7 @@ def parse_and_rewrap(sub_id, unit_num, html_content):
       <div class="topbar-left">
         <a href="../../../index.html#subject/{sub_id}" class="back-btn" title="Return to {meta['name']} Page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>← {meta['code']} Overview</span>
+          <span>{meta['code']} Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
