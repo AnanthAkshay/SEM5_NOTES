@@ -39,7 +39,7 @@
       <div class="topbar-left">
         <a href="../../../index.html#subject/ml" class="back-btn" title="Return to Machine Learning Page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>← 24IS51 Overview</span>
+          <span>24IS51 Overview</span>
         </a>
         <nav class="breadcrumb-trail" aria-label="Breadcrumbs">
           <span class="breadcrumb-sep">/</span>
@@ -132,11 +132,11 @@
           </div>
           <ul class="syllabus-list">
             <li><strong>Introduction to Regression:</strong> Dependent vs independent variables, Regression vs Classification, Performance evaluation metrics (MSE, RMSE, MAE, R², Adjusted R²).</li>
-            <li><strong>Simple Linear Regression:</strong> Model assumptions, Ordinary Least Squares (OLS) closed-form calculus derivations of slope $eta_1$ and intercept $eta_0$, line of best fit.</li>
-            <li><strong>Multiple Linear Regression:</strong> Matrix formulation $\mathbf{y} = \mathbf{X}oldsymbol{eta} + oldsymbol{\epsilon}$, normal equations $oldsymbol{eta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$, interpretation of partial slopes.</li>
+            <li><strong>Simple Linear Regression:</strong> Model assumptions, Ordinary Least Squares (OLS) closed-form calculus derivations of slope $\beta_1$ and intercept $\beta_0$, line of best fit.</li>
+            <li><strong>Multiple Linear Regression:</strong> Matrix formulation $\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}$, normal equations $\boldsymbol{\beta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$, interpretation of partial slopes.</li>
             <li><strong>Polynomial Regression:</strong> Non-linear modeling via polynomial feature expansion, bias-variance tradeoff with increasing degrees.</li>
             <li><strong>Regularization:</strong> Ridge Regression ($L_2$ penalty, analytical solution $(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$, shrinkage), Lasso Regression ($L_1$ penalty, sparsity &amp; feature selection), Elastic Net.</li>
-            <li><strong>Gradient Descent:</strong> Objective loss minimization, Batch GD, Stochastic GD (SGD), Mini-batch GD, learning rate $lpha$.</li>
+            <li><strong>Gradient Descent:</strong> Objective loss minimization, Batch GD, Stochastic GD (SGD), Mini-batch GD, learning rate $\alpha$.</li>
             <li><strong>Logistic Regression:</strong> Sigmoid activation function $\sigma(z) = 1/(1+e^{-z})$, odds ratio, logit function, binary cross-entropy loss, classification decision boundary.</li>
           </ul>
         </div>
@@ -505,15 +505,14 @@
         <div class="callout callout-def">
           <span class="callout-label">Matrix Formulation of Multiple Regression</span>
           <p>For $n$ observations and $p$ features, the model is:
-            $$\mathbf{y} = \mathbf{X} oldsymbol{eta} + oldsymbol{\epsilon}$$
-            where $\mathbf{y} \in \mathbb{R}^{n 	imes 1}$, design matrix $\mathbf{X} \in \mathbb{R}^{n 	imes (p+1)}$ (with leading column of 1s for intercept), coefficient vector $oldsymbol{eta} \in \mathbb{R}^{(p+1) 	imes 1}$, and residuals $oldsymbol{\epsilon} \in \mathbb{R}^{n 	imes 1}$.
+            $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}$$
+            where $\mathbf{y} \in \mathbb{R}^{n \times 1}$, design matrix $\mathbf{X} \in \mathbb{R}^{n \times (p+1)}$ (with leading column of 1s for intercept), coefficient vector $\boldsymbol{\beta} \in \mathbb{R}^{(p+1) \times 1}$, and residuals $\boldsymbol{\epsilon} \in \mathbb{R}^{n \times 1}$.
           </p>
         </div>
 
         <h3 class="subsection-title">The Normal Equations (Closed-Form Analytical Solution)</h3>
-        <p>Minimizing the sum of squared errors $S(oldsymbol{eta}) = (\mathbf{y} - \mathbf{X}oldsymbol{eta})^T (\mathbf{y} - \mathbf{X}oldsymbol{eta})$ by setting the gradient $
-abla_{oldsymbol{eta}} S = \mathbf{0}$ yields the classic <strong>Normal Equations</strong>:</p>
-        $$\mathbf{X}^T \mathbf{X} oldsymbol{eta} = \mathbf{X}^T \mathbf{y} \implies oldsymbol{eta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$$
+        <p>Minimizing the sum of squared errors $S(\boldsymbol{\beta}) = (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^T (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})$ by setting the gradient $\nabla_{\boldsymbol{\beta}} S = \mathbf{0}$ yields the classic <strong>Normal Equations</strong>:</p>
+        $$\mathbf{X}^T \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^T \mathbf{y} \implies \boldsymbol{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$$
 
         <div class="callout callout-warning">
           <span class="callout-label">Assumption &amp; Invertibility</span>
@@ -575,7 +574,7 @@ abla_{oldsymbol{eta}} S = \mathbf{0}$ yields the classic <strong>Normal Equati
         <span class="section-number">§ 5</span>
         <h2 class="section-title">Regularization in Regression: Ridge (L2) &amp; Lasso (L1)</h2>
 
-        <p class="section-lead">When features are collinear or numerous ($p pprox n$), Ordinary Least Squares suffers from high variance (overfitting). <strong>Regularization</strong> constrains parameter magnitudes by adding a penalty term to the loss function.</p>
+        <p class="section-lead">When features are collinear or numerous ($p pprox n$), Ordinary Least Squares suffers from high variance (overfitting). <strong>Regularization</strong> constrains parameter magnitudes by adding a penalty term to the loss function.</p>
 
         <div class="table-container">
           <table class="data-table">
@@ -583,11 +582,9 @@ abla_{oldsymbol{eta}} S = \mathbf{0}$ yields the classic <strong>Normal Equati
               <tr><th>Property</th><th>Ordinary Least Squares (OLS)</th><th>Ridge Regression ($L_2$)</th><th>Lasso Regression ($L_1$)</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Penalty Term</strong></td><td>None</td><td>$\lambda \sum_{j=1}^p eta_j^2 = \lambda \|oldsymbol{eta}\|_2^2$</td><td>$\lambda \sum_{j=1}^p |eta_j| = \lambda \|oldsymbol{eta}\|_1$</td></tr>
-              <tr><td><strong>Objective Function</strong></td><td>$\min rac{1}{2n}\|\mathbf{y} - \mathbf{X}oldsymbol{eta}\|^2$</td><td>$\min \left[ 	ext{MSE} + \lambda \|oldsymbol{eta}\|_2^2 
-ight]$</td><td>$\min \left[ 	ext{MSE} + \lambda \|oldsymbol{eta}\|_1 
-ight]$</td></tr>
-              <tr><td><strong>Analytical Solution</strong></td><td>$oldsymbol{eta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$</td><td>$oldsymbol{eta} = (\mathbf{X}^T\mathbf{X} + \lambda \mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$</td><td>No closed form; solved via Coordinate Descent</td></tr>
+              <tr><td><strong>Penalty Term</strong></td><td>None</td><td>$\lambda \sum_{j=1}^p \beta_j^2 = \lambda \|\boldsymbol{\beta}\|_2^2$</td><td>$\lambda \sum_{j=1}^p |\beta_j| = \lambda \|\boldsymbol{\beta}\|_1$</td></tr>
+              <tr><td><strong>Objective Function</strong></td><td>$\min \frac{1}{2n}\|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|^2$</td><td>$\min \left[ \text{MSE} + \lambda \|\boldsymbol{\beta}\|_2^2 \right]$</td><td>$\min \left[ \text{MSE} + \lambda \|\boldsymbol{\beta}\|_1 \right]$</td></tr>
+              <tr><td><strong>Analytical Solution</strong></td><td>$\boldsymbol{\beta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$</td><td>$\boldsymbol{\beta} = (\mathbf{X}^T\mathbf{X} + \lambda \mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$</td><td>No closed form; solved via Coordinate Descent</td></tr>
               <tr><td><strong>Sparsity / Feature Selection</strong></td><td>No</td><td>No (shrinks coefficients toward zero, never exactly 0)</td><td><strong>Yes</strong> (sets coefficients to exactly zero, eliminating features)</td></tr>
               <tr><td><strong>Computational Benefit</strong></td><td>Can be singular if multicollinear</td><td>Guarantees $(\mathbf{X}^T\mathbf{X} + \lambda\mathbf{I})$ is invertible</td><td>Produces compact, interpretable models</td></tr>
             </tbody>
@@ -596,7 +593,7 @@ ight]$</td></tr>
 
         <div class="callout callout-def">
           <span class="callout-label">Faculty Problem Note (Shruti Mam's Problem Set)</span>
-          <p>In Ridge regression, increasing $\lambda$ increases bias but dramatically reduces model variance. For $\lambda = 0$, Ridge reverts to standard OLS. As $\lambda 	o \infty$, all $eta_j 	o 0$, predicting the horizontal mean $ar{Y}$.</p>
+          <p>In Ridge regression, increasing $\lambda$ increases bias but dramatically reduces model variance. For $\lambda = 0$, Ridge reverts to standard OLS. As $\lambda \to \infty$, all $\beta_j \to 0$, predicting the horizontal mean $\bar{Y}$.</p>
         </div>
       </section>
 
@@ -613,8 +610,7 @@ ight]$</td></tr>
           <li><strong>Stochastic Gradient Descent (SGD):</strong> Computes the gradient using a single random training sample at each step. Fast updates with noisy trajectory; can escape shallow local minima.</li>
           <li><strong>Mini-Batch Gradient Descent:</strong> Computes the gradient over a small subset (e.g. $B = 32, 64, 128$). Combines the stability of batch descent with hardware vectorization speedups (GPU/SIMD).</li>
         </ul>
-        <p><strong>Update Rule:</strong> $oldsymbol{eta}^{(t+1)} = oldsymbol{eta}^{(t)} - lpha 
-abla_{oldsymbol{eta}} J(oldsymbol{eta})$, where $lpha$ is the learning rate hyperparameter.</p>
+        <p><strong>Update Rule:</strong> $\boldsymbol{\beta}^{(t+1)} = \boldsymbol{\beta}^{(t)} - \alpha \nabla_{\boldsymbol{\beta}} J(\boldsymbol{\beta})$, where $\alpha$ is the learning rate hyperparameter.</p>
       </section>
 
 <section class="notes-section" id="sec-logistic-regression">
@@ -744,28 +740,27 @@ abla_{oldsymbol{eta}} J(oldsymbol{eta})$, where $lpha$ is the learning rate
           <div class="revision-card">
             <h4>Simple OLS Regression</h4>
             <p>
-              $b_1 = rac{n \sum XY - (\sum X)(\sum Y)}{n \sum X^2 - (\sum X)^2}$<br>
-              $b_0 = ar{Y} - b_1 ar{X}$<br>
+              $b_1 = \frac{n \sum XY - (\sum X)(\sum Y)}{n \sum X^2 - (\sum X)^2}$<br>
+              $b_0 = \bar{Y} - b_1 \bar{X}$<br>
               $\hat{Y} = b_0 + b_1 X$<br>
-              $R^2 = 1 - rac{SSE}{SST}$
+              $R^2 = 1 - \frac{SSE}{SST}$
             </p>
           </div>
 
           <div class="revision-card">
             <h4>Multiple Linear Regression</h4>
             <p>
-              $\mathbf{y} = \mathbf{X} oldsymbol{eta} + oldsymbol{\epsilon}$<br>
-              $oldsymbol{eta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$<br>
-              $R^2_{	ext{adj}} = 1 - \left[rac{(1 - R^2)(n - 1)}{n - p - 1}
-ight]$
+              $\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}$<br>
+              $\boldsymbol{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$<br>
+              $R^2_{\text{adj}} = 1 - \left[\frac{(1 - R^2)(n - 1)}{n - p - 1}\right]$
             </p>
           </div>
 
           <div class="revision-card">
             <h4>Ridge Regularization (L2)</h4>
             <p>
-              Loss: $	ext{MSE} + \lambda \sum eta_j^2$<br>
-              $oldsymbol{eta}_{	ext{Ridge}} = (\mathbf{X}^T \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^T \mathbf{y}$<br>
+              Loss: $\text{MSE} + \lambda \sum \beta_j^2$<br>
+              $\boldsymbol{\beta}_{\text{Ridge}} = (\mathbf{X}^T \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^T \mathbf{y}$<br>
               Shrinks weights; never zero.
             </p>
           </div>
@@ -773,7 +768,7 @@ ight]$
           <div class="revision-card">
             <h4>Lasso Regularization (L1)</h4>
             <p>
-              Loss: $	ext{MSE} + \lambda \sum |eta_j|$<br>
+              Loss: $\text{MSE} + \lambda \sum |\beta_j|$<br>
               Enforces sparsity: sets weights to 0.<br>
               Performs feature selection.
             </p>
@@ -782,8 +777,7 @@ ight]$
           <div class="revision-card">
             <h4>Gradient Descent Updates</h4>
             <p>
-              $oldsymbol{eta}^{(t+1)} = oldsymbol{eta}^{(t)} - lpha 
-abla J(oldsymbol{eta})$<br>
+              $\boldsymbol{\beta}^{(t+1)} = \boldsymbol{\beta}^{(t)} - \alpha \nabla J(\boldsymbol{\beta})$<br>
               Batch: full $n$; SGD: 1 sample;<br>
               Mini-batch: size $B$ (e.g. 32, 64).
             </p>
@@ -792,9 +786,9 @@ abla J(oldsymbol{eta})$<br>
           <div class="revision-card">
             <h4>Logistic Classification</h4>
             <p>
-              $\sigma(z) = rac{1}{1 + e^{-z}}$<br>
-              $	ext{Odds} = rac{p}{1 - p} = e^z$<br>
-              $	ext{Logit}(p) = \ln(	ext{Odds}) = \mathbf{w}^T \mathbf{x} + b$<br>
+              $\sigma(z) = \frac{1}{1 + e^{-z}}$<br>
+              $\text{Odds} = \frac{p}{1 - p} = e^z$<br>
+              $\text{Logit}(p) = \ln(\text{Odds}) = \mathbf{w}^T \mathbf{x} + b$<br>
               Loss: Binary Cross-Entropy
             </p>
           </div>
@@ -818,15 +812,14 @@ abla J(oldsymbol{eta})$<br>
         <details class="model-answer">
           <summary>Q2. Define the Sigmoid function and state its range and mathematical derivative.</summary>
           <div class="answer-body">
-            The Sigmoid activation function is defined as $\sigma(z) = rac{1}{1 + e^{-z}}$. It squashes any real-valued input from $(-\infty, +\infty)$ into the probability range $(0, 1)$. Its derivative is computationally efficient: $\sigma'(z) = \sigma(z)(1 - \sigma(z))$.
+            The Sigmoid activation function is defined as $\sigma(z) = \frac{1}{1 + e^{-z}}$. It squashes any real-valued input from $(-\infty, +\infty)$ into the probability range $(0, 1)$. Its derivative is computationally efficient: $\sigma'(z) = \sigma(z)(1 - \sigma(z))$.
           </div>
         </details>
 
         <details class="model-answer">
           <summary>Q3. Why is Adjusted R² preferred over standard R² in Multiple Regression?</summary>
           <div class="answer-body">
-            Standard $R^2$ mechanically increases or remains constant whenever a new predictor is added to a model, even if the feature is useless random noise. Adjusted $R^2$ introduces a degrees-of-freedom penalty for every additional parameter added: $R^2_{	ext{adj}} = 1 - \left[rac{(1 - R^2)(n - 1)}{n - p - 1}
-ight]$, ensuring it increases only if the new feature genuinely improves predictive accuracy.
+            Standard $R^2$ mechanically increases or remains constant whenever a new predictor is added to a model, even if the feature is useless random noise. Adjusted $R^2$ introduces a degrees-of-freedom penalty for every additional parameter added: $R^2_{\text{adj}} = 1 - \left[\frac{(1 - R^2)(n - 1)}{n - p - 1}\right]$, ensuring it increases only if the new feature genuinely improves predictive accuracy.
           </div>
         </details>
 
@@ -835,17 +828,16 @@ ight]$, ensuring it increases only if the new feature genuinely improves predict
         <details class="model-answer">
           <summary>Q4. Compare Ridge Regression (L2) and Lasso Regression (L1) with their loss functions and properties.</summary>
           <div class="answer-body">
-            <strong>Ridge Regression:</strong> Adds an $L_2$ squared penalty $\lambda \sum eta_j^2$. Has closed-form solution $oldsymbol{eta} = (\mathbf{X}^T\mathbf{X} + \lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$. Shrinks coefficients smoothly toward zero but never forces them to exact zero.<br><br>
-            <strong>Lasso Regression:</strong> Adds an $L_1$ absolute value penalty $\lambda \sum |eta_j|$. Due to the sharp corners of the $L_1$ constraint diamond, it forces irrelevant coefficients to become identically zero, performing automatic embedded feature selection.
+            <strong>Ridge Regression:</strong> Adds an $L_2$ squared penalty $\lambda \sum \beta_j^2$. Has closed-form solution $\boldsymbol{\beta} = (\mathbf{X}^T\mathbf{X} + \lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$. Shrinks coefficients smoothly toward zero but never forces them to exact zero.<br><br>
+            <strong>Lasso Regression:</strong> Adds an $L_1$ absolute value penalty $\lambda \sum |\beta_j|$. Due to the sharp corners of the $L_1$ constraint diamond, it forces irrelevant coefficients to become identically zero, performing automatic embedded feature selection.
           </div>
         </details>
 
         <details class="model-answer">
           <summary>Q5. Explain the concept of Odds Ratio and Log-Odds (Logit function) in Logistic Regression.</summary>
           <div class="answer-body">
-            <strong>Odds:</strong> The ratio of probability of occurrence to probability of non-occurrence: $	ext{Odds} = rac{p}{1-p} = e^z$.<br>
-            <strong>Logit:</strong> Taking the natural logarithm of odds yields the logit function: $	ext{Logit}(p) = \ln\left(rac{p}{1-p}
-ight) = z = \mathbf{w}^T\mathbf{x} + b$.<br>
+            <strong>Odds:</strong> The ratio of probability of occurrence to probability of non-occurrence: $\text{Odds} = \frac{p}{1-p} = e^z$.<br>
+            <strong>Logit:</strong> Taking the natural logarithm of odds yields the logit function: $\text{Logit}(p) = \ln\left(\frac{p}{1-p}\right) = z = \mathbf{w}^T\mathbf{x} + b$.<br>
             This shows that Logistic Regression is a generalized linear model that assumes the log-odds of the positive class are a linear combination of the input predictors.
           </div>
         </details>
@@ -855,17 +847,16 @@ ight) = z = \mathbf{w}^T\mathbf{x} + b$.<br>
         <details class="model-answer">
           <summary>Q6. Derive the Ordinary Least Squares (OLS) closed-form formulas for slope b1 and intercept b0 in simple linear regression.</summary>
           <div class="answer-body">
-            <strong>Objective:</strong> Minimize the Sum of Squared Residuals: $S(eta_0, eta_1) = \sum_{i=1}^n (y_i - (eta_0 + eta_1 x_i))^2$.<br><br>
-            <strong>1. Partial derivative with respect to $eta_0$:</strong><br>
-            $rac{\partial S}{\partial eta_0} = -2 \sum (y_i - eta_0 - eta_1 x_i) = 0 \implies \sum y_i - n eta_0 - eta_1 \sum x_i = 0$<br>
-            Dividing by $n$: $ar{y} - eta_0 - eta_1 ar{x} = 0 \implies \mathbf{eta_0 = ar{y} - eta_1 ar{x}}$.<br><br>
-            <strong>2. Partial derivative with respect to $eta_1$:</strong><br>
-            $rac{\partial S}{\partial eta_1} = -2 \sum x_i (y_i - eta_0 - eta_1 x_i) = 0 \implies \sum x_i y_i - eta_0 \sum x_i - eta_1 \sum x_i^2 = 0$<br>
-            Substitute $eta_0 = ar{y} - eta_1 ar{x}$:<br>
-            $\sum x_i y_i - (ar{y} - eta_1 ar{x})\sum x_i - eta_1 \sum x_i^2 = 0 \implies \sum x_i y_i - ar{y}\sum x_i = eta_1 \left( \sum x_i^2 - ar{x}\sum x_i 
-ight)$<br>
-            Using algebraic identities $\sum x_i y_i - nar{x}ar{y} = \sum (x_i - ar{x})(y_i - ar{y})$ and $\sum x_i^2 - nar{x}^2 = \sum (x_i - ar{x})^2$:<br>
-            $$\mathbf{eta_1 = rac{\sum_{i=1}^n (x_i - ar{x})(y_i - ar{y})}{\sum_{i=1}^n (x_i - ar{x})^2} = rac{n \sum x_i y_i - (\sum x_i)(\sum y_i)}{n \sum x_i^2 - (\sum x_i)^2}}$$
+            <strong>Objective:</strong> Minimize the Sum of Squared Residuals: $S(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - (\beta_0 + \beta_1 x_i))^2$.<br><br>
+            <strong>1. Partial derivative with respect to $\beta_0$:</strong><br>
+            $\frac{\partial S}{\partial \beta_0} = -2 \sum (y_i - \beta_0 - \beta_1 x_i) = 0 \implies \sum y_i - n \beta_0 - \beta_1 \sum x_i = 0$<br>
+            Dividing by $n$: $\bar{y} - \beta_0 - \beta_1 \bar{x} = 0 \implies \mathbf{\beta_0 = \bar{y} - \beta_1 \bar{x}}$.<br><br>
+            <strong>2. Partial derivative with respect to $\beta_1$:</strong><br>
+            $\frac{\partial S}{\partial \beta_1} = -2 \sum x_i (y_i - \beta_0 - \beta_1 x_i) = 0 \implies \sum x_i y_i - \beta_0 \sum x_i - \beta_1 \sum x_i^2 = 0$<br>
+            Substitute $\beta_0 = \bar{y} - \beta_1 \bar{x}$:<br>
+            $\sum x_i y_i - (\bar{y} - \beta_1 \bar{x})\sum x_i - \beta_1 \sum x_i^2 = 0 \implies \sum x_i y_i - \bar{y}\sum x_i = \beta_1 \left( \sum x_i^2 - \bar{x}\sum x_i \right)$<br>
+            Using algebraic identities $\sum x_i y_i - n\bar{x}\bar{y} = \sum (x_i - \bar{x})(y_i - \bar{y})$ and $\sum x_i^2 - n\bar{x}^2 = \sum (x_i - \bar{x})^2$:<br>
+            $$\mathbf{\beta_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} = \frac{n \sum x_i y_i - (\sum x_i)(\sum y_i)}{n \sum x_i^2 - (\sum x_i)^2}}$$
           </div>
         </details>
       </section>
@@ -884,15 +875,15 @@ ight)$<br>
           <p class="archive-q">"The following data represents hours studied (X) and marks obtained (Y): X = [2, 4, 6, 8, 10], Y = [50, 60, 65, 80, 85]. i. Compute slope (b) and intercept (a). ii. Write the regression equation. iii. Predict marks for X = 7 hours."</p>
           <div class="archive-answer" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
             <p><strong>Step 1: Compute Means ($n=5$):</strong></p>
-            $$ar{X} = rac{2 + 4 + 6 + 8 + 10}{5} = rac{30}{5} = \mathbf{6.0}, \quad ar{Y} = rac{50 + 60 + 65 + 80 + 85}{5} = rac{340}{5} = \mathbf{68.0}$$
+            $$\bar{X} = \frac{2 + 4 + 6 + 8 + 10}{5} = \frac{30}{5} = \mathbf{6.0}, \quad \bar{Y} = \frac{50 + 60 + 65 + 80 + 85}{5} = \frac{340}{5} = \mathbf{68.0}$$
             <p><strong>Step 2: Compute Summations:</strong></p>
             $$\sum X = 30, \quad \sum Y = 340, \quad \sum X^2 = 220, \quad \sum XY = (2)(50) + (4)(60) + (6)(65) + (8)(80) + (10)(85) = 2220$$
             <p><strong>Step 3: Compute Slope (b) and Intercept (a):</strong></p>
-            $$b = rac{n \sum XY - (\sum X)(\sum Y)}{n \sum X^2 - (\sum X)^2} = rac{5(2220) - (30)(340)}{5(220) - (30)^2} = rac{11100 - 10200}{1100 - 900} = rac{900}{200} = \mathbf{4.5000}$$
-            $$a = ar{Y} - bar{X} = 68.0 - (4.5000)(6.0) = 68.0 - 27.0 = \mathbf{41.0000}$$
+            $$b = \frac{n \sum XY - (\sum X)(\sum Y)}{n \sum X^2 - (\sum X)^2} = \frac{5(2220) - (30)(340)}{5(220) - (30)^2} = \frac{11100 - 10200}{1100 - 900} = \frac{900}{200} = \mathbf{4.5000}$$
+            $$a = \bar{Y} - b\bar{X} = 68.0 - (4.5000)(6.0) = 68.0 - 27.0 = \mathbf{41.0000}$$
             <p><strong>Step 4: Regression Equation &amp; Prediction:</strong></p>
-            $$	ext{Regression Equation: } \hat{Y} = 41.0000 + 4.5000 X$$
-            $$	ext{For } X = 7 	ext{ hours: } \hat{Y}(7) = 41.0000 + 4.5000(7) = 41.0000 + 31.50 = \mathbf{72.50 	ext{ marks}}$$
+            $$\text{Regression Equation: } \hat{Y} = 41.0000 + 4.5000 X$$
+            $$\text{For } X = 7 \text{ hours: } \hat{Y}(7) = 41.0000 + 4.5000(7) = 41.0000 + 31.50 = \mathbf{72.50 \text{ marks}}$$
           </div>
         </div>
 
@@ -924,10 +915,10 @@ ight)$<br>
           </div>
           <p class="practice-q">A shop records daily temperature (°C) and corresponding ice cream sales (units) for 8 days: $X = [20, 22, 24, 26, 28, 30, 32, 34]$, $Y = [120, 135, 150, 165, 180, 195, 210, 225]$. 1. Find the regression equation. 2. Predict sales when temperature is 29°C.</p>
           <div class="practice-solution" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
-            <p><strong>Summations ($n=8$):</strong> $\sum X = 216 \implies ar{X} = 27.00$, $\sum Y = 1380 \implies ar{Y} = 172.50$, $\sum X^2 = 6000$, $\sum XY = 38520$.</p>
-            <p><strong>Slope:</strong> $b = rac{8(38520) - (216)(1380)}{8(6000) - (216)^2} = rac{308160 - 298080}{48000 - 46656} = rac{10080}{1344} = \mathbf{7.5000}$.</p>
+            <p><strong>Summations ($n=8$):</strong> $\sum X = 216 \implies \bar{X} = 27.00$, $\sum Y = 1380 \implies \bar{Y} = 172.50$, $\sum X^2 = 6000$, $\sum XY = 38520$.</p>
+            <p><strong>Slope:</strong> $b = \frac{8(38520) - (216)(1380)}{8(6000) - (216)^2} = \frac{308160 - 298080}{48000 - 46656} = \frac{10080}{1344} = \mathbf{7.5000}$.</p>
             <p><strong>Intercept:</strong> $a = 172.50 - (7.5000)(27.00) = 172.50 - 202.50 = \mathbf{-30.0000}$.</p>
-            <p><strong>Equation:</strong> $\hat{Y} = -30.0000 + 7.5000 X$. For $X = 29^\circ	ext{C}$: $\hat{Y}(29) = -30.0 + 7.5(29) = \mathbf{187.50 	ext{ units}}$.</p>
+            <p><strong>Equation:</strong> $\hat{Y} = -30.0000 + 7.5000 X$. For $X = 29^\circ\text{C}$: $\hat{Y}(29) = -30.0 + 7.5(29) = \mathbf{187.50 \text{ units}}$.</p>
           </div>
         </div>
 
@@ -939,8 +930,8 @@ ight)$<br>
           </div>
           <p class="practice-q">Given centered 1D feature data where $\sum x_i^2 = 100$ and $\sum x_i y_i = 400$. Calculate the OLS slope and the Ridge slope for regularization penalty $\lambda = 20$.</p>
           <div class="practice-solution" style="margin-top:0.6rem; font-size:14.5px; line-height:1.6;">
-            <p><strong>OLS Slope:</strong> $eta_{	ext{OLS}} = rac{\sum x_i y_i}{\sum x_i^2} = rac{400}{100} = \mathbf{4.0000}$.</p>
-            <p><strong>Ridge Slope ($\lambda = 20$):</strong> $eta_{	ext{Ridge}} = rac{\sum x_i y_i}{\sum x_i^2 + \lambda} = rac{400}{100 + 20} = rac{400}{120} = \mathbf{3.3333}$.</p>
+            <p><strong>OLS Slope:</strong> $\beta_{\text{OLS}} = \frac{\sum x_i y_i}{\sum x_i^2} = \frac{400}{100} = \mathbf{4.0000}$.</p>
+            <p><strong>Ridge Slope ($\lambda = 20$):</strong> $\beta_{\text{Ridge}} = \frac{\sum x_i y_i}{\sum x_i^2 + \lambda} = \frac{400}{100 + 20} = \frac{400}{120} = \mathbf{3.3333}$.</p>
             <p><strong>Conclusion:</strong> The Ridge penalty successfully shrunk the coefficient from $4.00$ to $3.33$ (a 16.7% shrinkage), dampening sensitivity to potential noise in the feature.</p>
           </div>
         </div>
@@ -952,6 +943,9 @@ ight)$<br>
     <p>Department of Information Science &amp; Engineering &bull; Ramaiah Institute of Technology &bull; CIE-1 Academic Rebuild</p>
   </footer>
 
+    <!-- Shared Scripts: KaTeX Auto-Render & Notes Client Engine -->
+  <script src="../../../assets/katex/katex.min.js"></script>
+  <script src="../../../assets/katex/contrib/auto-render.min.js"></script>
   <script src="../../../js/notes.js"></script>
 </body>
 </html>
