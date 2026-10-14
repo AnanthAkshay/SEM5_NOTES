@@ -92,32 +92,60 @@
   // --- 3. Active TOC Scrollspy ---
   function initTOC() {
     const links = Array.from(document.querySelectorAll('.toc-nav a'));
-    const sections = Array.from(document.querySelectorAll('section[id], header[id], div[id].revision-sheet'));
+    const sections = Array.from(document.querySelectorAll('section[id], header[id], div[id].revision-sheet, div[id].interactive-card, div[id].diagram-card'));
     if (!links.length || !sections.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          links.forEach(link => {
-            const href = link.getAttribute('href') || '';
-            const isMatch = href === `#${id}`;
-            const parentItem = link.closest('.toc-item') || link.parentElement;
-            
-            if (isMatch) {
-              link.classList.add('active');
-              if (parentItem && parentItem.classList.contains('toc-item')) {
-                parentItem.classList.add('active');
-              }
-            } else {
-              link.classList.remove('active');
-              if (parentItem && parentItem.classList.contains('toc-item')) {
-                parentItem.classList.remove('active');
-              }
-            }
-          });
+    function setActiveLink(activeHref) {
+      if (!activeHref) return;
+      links.forEach(link => {
+        const href = link.getAttribute('href') || '';
+        const isMatch = href === activeHref;
+        const parentItem = link.closest('.toc-item') || link.parentElement;
+        
+        if (isMatch) {
+          link.classList.add('active');
+          if (parentItem && parentItem.classList.contains('toc-item')) {
+            parentItem.classList.add('active');
+          }
+        } else {
+          link.classList.remove('active');
+          if (parentItem && parentItem.classList.contains('toc-item')) {
+            parentItem.classList.remove('active');
+          }
         }
       });
+    }
+
+    let isClicking = false;
+    let clickTimer = null;
+
+    // Immediate click response for smooth TOC navigation
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        const href = link.getAttribute('href');
+        if (href) {
+          setActiveLink(href);
+          isClicking = true;
+          clearTimeout(clickTimer);
+          clickTimer = setTimeout(() => {
+            isClicking = false;
+          }, 1000);
+        }
+      });
+    });
+
+    // Initial highlight if landing with a hash anchor
+    if (window.location.hash) {
+      setActiveLink(window.location.hash);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (isClicking) return;
+      const intersecting = entries.filter(e => e.isIntersecting);
+      if (intersecting.length > 0) {
+        intersecting.sort((a, b) => Math.abs(a.boundingClientRect.top - 92) - Math.abs(b.boundingClientRect.top - 92));
+        setActiveLink(`#${intersecting[0].target.id}`);
+      }
     }, {
       rootMargin: '-80px 0px -70% 0px',
       threshold: 0
@@ -298,17 +326,71 @@
 
   // --- 8. KaTeX Math Auto-Rendering ---
   function initMathRendering() {
-    if (typeof renderMathInElement === 'function') {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false },
-          { left: '\\[', right: '\\]', display: true },
-          { left: '\\(', right: '\\)', display: false }
-        ],
-        throwOnError: false
-      });
+    const mathDelimiters = [
+      { left: '$$', right: '$$', display: true },
+      { left: '$', right: '$', display: false },
+      { left: '\\[', right: '\\]', display: true },
+      { left: '\\(', right: '\\)', display: false }
+    ];
+
+    function renderMath(root) {
+      if (typeof renderMathInElement === 'function') {
+        try {
+          renderMathInElement(root || document.body, {
+            delimiters: mathDelimiters,
+            throwOnError: false
+          });
+        } catch (err) {
+          console.error('KaTeX auto-render execution failed:', err);
+        }
+      }
     }
+
+    // Attach to details elements so newly opened collapsible sections are rendered
+    document.querySelectorAll('details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) renderMath(d);
+      });
+    });
+
+    if (typeof renderMathInElement === 'function') {
+      renderMath(document.body);
+      return;
+    }
+
+    // Dynamic loader fallback if KaTeX script tags are absent or deferred
+    function getKaTeXBasePath() {
+      const katexCss = document.querySelector('link[href*="katex.min.css"]');
+      if (katexCss && katexCss.getAttribute('href')) {
+        return katexCss.getAttribute('href').replace(/katex\.min\.css.*$/, '');
+      }
+      const notesScript = document.querySelector('script[src*="notes.js"]');
+      if (notesScript && notesScript.getAttribute('src')) {
+        return notesScript.getAttribute('src').replace(/js\/notes\.js.*$/, 'assets/katex/');
+      }
+      return '../../../assets/katex/';
+    }
+
+    const basePath = getKaTeXBasePath();
+    const katexJsUrl = basePath + 'katex.min.js';
+    const autoRenderJsUrl = basePath + 'contrib/auto-render.min.js';
+
+    function loadScript(src, cb) {
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = false;
+      script.onload = cb;
+      script.onerror = () => {
+        console.error(`CRITICAL: Failed to load KaTeX asset: ${src}`);
+      };
+      document.head.appendChild(script);
+    }
+
+    loadScript(katexJsUrl, () => {
+      loadScript(autoRenderJsUrl, () => {
+        renderMath(document.body);
+      });
+    });
   }
 
   // --- 9. QA Card Collapsible Toggles ---
